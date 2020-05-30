@@ -1,0 +1,26 @@
+    {
+    "title": "PrintingTools NG",
+    "name": "printing-tools-ng",
+    "version": "4.0.0",
+    "description": "Import and export next-gen tools for messages and folders",
+    "author": "Christopher Leidigh",
+    "engines": {
+        "": ">=38.0a1"
+    },
+    "license": "GPLv3",
+    "config": {
+        "source_dir": "./src",
+        "target_dir": "./xpi",
+        "target_suffix": "-tb",
+        "target_extension": ".xpi",
+        "target_include_manifest": "true"
+    },
+    "scripts": {
+        "build-xpi-bat": ".\\scripts\\build-xpi.bat",
+        "build-xpi": "node ./scripts/build-xpi.js"
+    },
+    "keywords": [
+        "jetpack"
+    ],
+    "dependencies": {}
+}
