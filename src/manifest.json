@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "PrintingTools NG",
-    "version": "0.1.0-b1",
+    "version": "0.1.0-b2",
     "description": "Message Printing Tools NG",
     "author": "Christopher Leidigh",
     "xpi-name": "printing-tools-ng",

@@ -432,6 +432,7 @@ var printingtools = {
 			printingtools.addName(borders);
 		Services.console.logStringMessage("before check selection");
 		
+
 		var sel = opener.content.getSelection();
 		if (sel && sel != "" && printingtools.prefs.getBoolPref("extensions.printingtools.print.just_selection")) {
 				var range = sel.getRangeAt(0);
@@ -940,10 +941,15 @@ var printingtools = {
 	},
 
 	findIconSrc : function(filename) {
+		Services.console.logStringMessage("printing find icons " + filename);
 		console.debug('icon ' + filename);
 		var url;
-		var ext = filename.substring(filename.lastIndexOf(".")+1);
+		var ext = filename.substring(filename.lastIndexOf("&")-3);
+		Services.console.logStringMessage("printing find icons extension1 " + ext);
+		console.debug('extension ' + ext);
 		ext = ext.substring(0,3).toLowerCase();
+		Services.console.logStringMessage("printing find icons extension2 " + ext);
+
 		switch(ext) {
 			case "doc":
 			case "eml":
