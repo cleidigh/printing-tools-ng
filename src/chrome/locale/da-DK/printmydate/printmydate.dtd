@@ -1,0 +1,56 @@
+<!ENTITY PMDlabel1 "Benyt lokalt datoformat">
+<!ENTITY PMDlabel2 "Benyt tilpasset visning af listen over vedhæftede filer">
+<!ENTITY PMDlabel3 "Placer en ramme om headeren">
+<!ENTITY PMDlabel4 "Skjul headeren">
+<!ENTITY PMDlabel5 "Forkort header-linjer der er længere end">
+<!ENTITY PMDlabel6 "tegn">
+<!ENTITY PMDlabel7 "Skjul billeder">
+<!ENTITY PMDlabel8 "Udskriv uden dialogvindue">
+<!ENTITY PMDlabel9 "Skjul statusbjælken">
+<!ENTITY PMDlabel10 "Skjul interne vedhæftninger">
+<!ENTITY PMDlabel11 "Tilføj brugernavnet før headeren">
+<!ENTITY PMDmenuitem "Udskriftsindstillinger">
+<!ENTITY PMDcaptionlabel "Indstillinger for udskrivning af meddelelser">
+<!ENTITY PMDcaptionlabel2 "Globale udskriftsindstillinger">
+<!ENTITY PMDlabel12 "Brug små skrifttyper">
+<!ENTITY PMDlabel13 "Skjul kontakt-headeren">
+<!ENTITY PMDlabel14 "Indsæt kun navn og mailadresser">
+<!ENTITY PMDcaptionlabel3 "Indstillinger til udskrivning af adresse">
+<!ENTITY PMDlabel15 "Brug kompakt layout">
+<!ENTITY PMDlabel16 "Udskriv kun det valgte">
+<!ENTITY cite.checkbox "Formater citeret tekst">
+<!ENTITY cite.color "Farve:">
+<!ENTITY cite.size "Størrelse:">
+<!ENTITY PMDlabel17 "Tilføj filtypeikon">
+<!ENTITY PMDlabel18 "Brug skrifttype:">
+<!ENTITY PMDlabel19 "Beskær feltet 'Notes' ved 100 tegn">
+<!ENTITY PMDlabel20 "Tilføj navn og dato for adressebog">
+<!ENTITY style "Format">
+<!ENTITY PMDlabel21 "Skjul altid udvidede headere">
+<!ENTITY withSize "bredde ">
+<!ENTITY forBody "på selve meddelelsen">
+<!ENTITY forHeaders "kun på header-linjer">
+<!ENTITY misc "Diverse">
+<!ENTITY order "Rækkefølge på header-linjer">
+<!ENTITY headers "Headers">
+<!ENTITY up "Op">
+<!ENTITY down "Ned">
+<!ENTITY otherHeaders "Vis andre headere efterfølgende">
+<!ENTITY PMDlabel22 "Tilføj vedhæftning af p7m og vCard">
+<!ENTITY PMDlabel23 "Tilføj mappenavn">
+<!ENTITY PMDlabel24 "Dato i langt format">
+<!ENTITY PMDlabel25 "Brug sort som standardfarve på tekst">
+<!ENTITY longLoc.label "lang og lokaliseret">
+<!ENTITY short.label "kort">
+<!ENTITY date.label "Datoformat:">
+<!ENTITY long.label "UTC, langt format">
+<!ENTITY addNameRG.label "Tilføj før headers:">
+<!ENTITY RG1.label "Intet">
+<!ENTITY RG2.label "Brugernavn">
+<!ENTITY alignHeaders.label "Juster headerne">
+<!ENTITY multipleCards.label "Udskriv alle valgte kontakter">
+<!ENTITY maxPreLen "Maksimal bredde på tekst:">
+<!ENTITY showButton.label "Vis knappen Udskriftsindstillinger i  forhåndsvisningen">
+<!ENTITY resizeImgs.label "Billederne er for store, tilpas deres størrelse">
+<!ENTITY addRdate.label "Add received date">
+

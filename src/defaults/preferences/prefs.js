@@ -1,0 +1,43 @@
+pref("extensions.printingtools.process.date", true);
+pref("extensions.printingtools.process.attachments", true);
+pref("extensions.printingtools.headers.setborders", false);
+pref("extensions.printingtools.headers.hide", false);
+pref("extensions.printingtools.headers.truncate", false);
+pref("extensions.printingtools.headers.maxchars", 80);
+pref("extensions.printingtools.hide.inline_attachments", false);
+pref("extensions.printingtools.images.hide", false);
+pref("extensions.printingtools.addressbook.hide_header_card", false);
+pref("extensions.printingtools.addressbook.print_just_addresses", false);
+pref("extensions.printingtools.addressbook.use_custom_font_size", false);
+pref("extensions.printingtools.addressbook.custom_font_size", 10);
+pref("extensions.printingtools.addressbook.max_compact", false);
+pref("extensions.printingtools.print.just_selection", false);
+pref("extensions.printingtools.cite.style", false);
+pref("extensions.printingtools.cite.size", 10);
+pref("extensions.printingtools.cite.color", "#000000");
+pref("extensions.printingtools.addressbook.use_custom_font_family", false);
+pref("extensions.printingtools.addressbook.cut_notes", false);
+pref("extensions.printingtools.addressbook.add_ab_name", true);
+pref("extensions.printingtools.process.attachments_with_icon", true);
+pref("extensions.printingtools.messages.style", false);
+pref("extensions.printingtools.messages.style_apply", 0);
+pref("extensions.printingtools.messages.size", 10);
+pref("extensions.printingtools.ext_headers.hide", false);
+pref("extensions.printingtools.headers.order", "%s,%f,%d,%a,%r1,%r2,%r3");
+pref("extensions.printingtools.process.add_p7m_vcf_attach", true);
+pref("extensions.printingtools.headers.addfolder", false);
+pref("extensions.printingtools.messages.black_text", true);
+pref("extensions.printingtools.date.long_format_type", 0);
+pref("extensions.printingtools.headers.custom_name_value", "");
+pref("extensions.printingtools.headers.add_name_type", 0);
+pref("extensions.printingtools.change_branch", true);
+pref("extensions.printingtools.headers.align", true);
+pref("extensions.printingtools.addressbook.print_multiple_cards", true);
+pref("extensions.{5e9999c2-ba1d-44b6-bcee-5b30ce37d3b0}.description", "chrome://printmydate/locale/printmydate.properties");
+pref("extensions.printingtools.pre_max_length", 90);
+pref("extensions.printingtools.images.resize", true);
+pref("extensions.printingtools.show_options_button", true);
+pref("extensions.printingtools.add_received_date", false);
+
+
+

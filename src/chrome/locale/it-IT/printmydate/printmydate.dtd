@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Attiva la localizzazione della data">
+<!ENTITY PMDlabel2 "Attiva la modifica della visualizzazione dell'elenco allegati">
+<!ENTITY PMDlabel3 "Racchiudi l'intestazione in un bordo">
+<!ENTITY PMDlabel4 "Nascondi l'intestazione">
+<!ENTITY PMDlabel5 "Tronca le linee dell'intestazione più lunghe di circa">
+<!ENTITY PMDlabel6 "caratteri.">
+<!ENTITY PMDlabel7 "Nascondi le immagini">
+<!ENTITY PMDlabel8 "Stampa senza mostrare la finestra di dialogo">
+<!ENTITY PMDlabel9 "Nascondi la barra di avanzamento della stampa">
+<!ENTITY PMDlabel10 "Nascondi gli allegati in linea">
+<!ENTITY PMDlabel11 "Inserisci il nome dell'utente prima delle intestazioni">
+<!ENTITY PMDmenuitem "Opzioni stampa">
+<!ENTITY PMDcaptionlabel "Opzioni per la stampa dei messaggi">
+<!ENTITY PMDcaptionlabel2 "Opzioni globali di stampa">
+<!ENTITY PMDlabel12 "Usa il carattere ">
+<!ENTITY PMDlabel13 "Nascondi l'intestazione dei contatti ('Scheda per')">
+<!ENTITY PMDlabel14 "Inserisci solo il nome e gli indirizzi email">
+<!ENTITY PMDcaptionlabel3 "Opzioni per la stampa della rubrica">
+<!ENTITY PMDlabel15 "Usa il formato compatto">
+<!ENTITY PMDlabel16 "Se esiste una selezione, stampa solo quella parte">
+<!ENTITY cite.checkbox "Applica uno stile alle citazioni">
+<!ENTITY cite.color "Colore:">
+<!ENTITY cite.size "Grandezza:">
+<!ENTITY PMDlabel17 "Aggiungi un'icona per il tipo di file">
+<!ENTITY PMDlabel18 "Usa il carattere:">
+<!ENTITY PMDlabel19 "Taglia il campo 'Note' a 100 caratteri">
+<!ENTITY PMDlabel20 "Aggiungi il nome della rubrica e la data">
+<!ENTITY style "Stile">
+<!ENTITY PMDlabel21 "Nascondi sempre le intestazioni estese">
+<!ENTITY withSize "con dimensione ">
+<!ENTITY forBody "per l'intero messaggio">
+<!ENTITY forHeaders "solo per le intestazioni">
+<!ENTITY misc "Varie">
+<!ENTITY order "Ordine intestazioni">
+<!ENTITY headers "Intestazioni">
+<!ENTITY up "Su">
+<!ENTITY down "Giù">
+<!ENTITY otherHeaders "Seguono le altre eventuali intestazioni">
+<!ENTITY PMDlabel22 "Aggiungi gli allegati p7m e vCard">
+<!ENTITY PMDlabel23 "Inserisci il nome della cartella">
+<!ENTITY PMDlabel25 "Usa il nero come colore di base per il testo">
+<!ENTITY long.label "lungo UTC">
+<!ENTITY longLoc.label "lungo e localizzato">
+<!ENTITY short.label "corto">
+<!ENTITY date.label "Formato della data:">
+<!ENTITY addNameRG.label "Aggiungi alle intestazioni:">
+<!ENTITY RG1.label "Nulla">
+<!ENTITY RG2.label "Nome utente">
+<!ENTITY alignHeaders.label "Allinea le intestazioni">
+<!ENTITY multipleCards.label "Stampa tutti i contatti selezionati">
+<!ENTITY maxPreLen "Lunghezza massima delle righe di testo:">
+<!ENTITY showButton.label "Mostra il pulsante delle opzioni nell'anteprima di stampa">
+<!ENTITY resizeImgs.label "Ridimensiona le immagini troppo grandi">
+<!ENTITY addRdate.label "Aggiungi il campo 'Ricevuto'">
+

@@ -1,8 +1,8 @@
     {
     "title": "PrintingTools NG",
     "name": "printing-tools-ng",
-    "version": "4.0.0",
-    "description": "Import and export next-gen tools for messages and folders",
+    "version": "0.1.0-b1",
+    "description": "Message Printing Tools NG",
     "author": "Christopher Leidigh",
     "engines": {
         "": ">=38.0a1"

@@ -1,0 +1,57 @@
+<?xml version="1.0"?> 
+<!DOCTYPE overlay SYSTEM "chrome://printmydate/locale/printmydate.dtd">
+<?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	onload="initPMDabpanel();"
+        buttons="accept, cancel"
+        ondialogaccept="savePMDabprefs();"
+        title="PrintingTools">
+
+<script type="text/javascript"  src="chrome://printmydate/content/pmd-ABoptions.js" />
+
+<groupbox>
+    <caption label="&PMDcaptionlabel3;" />
+    <hbox align="center">
+        <checkbox id="PMDabsmallfont" label="&PMDlabel12;" />
+	<menulist id="ABfontsize">
+  		<menupopup>
+		    <menuitem label="8"/>
+		    <menuitem label="9"/>
+		    <menuitem label="10"/>
+		    <menuitem label="11"/>
+		    <menuitem label="12"/>
+		    <menuitem label="13"/>
+		    <menuitem label="14"/>
+		    <menuitem label="15"/>
+		    <menuitem label="16"/>
+		    <menuitem label="17"/>
+		    <menuitem label="18"/>
+	  </menupopup>
+	</menulist>
+    </hbox>
+	<hbox>
+		<checkbox id="ABcustomFont" label="&PMDlabel18; " />
+		<menulist id="ABfontlist" style="width:200px"/>
+	</hbox>
+    <hbox align="center">
+        <checkbox id="PMDabnohead" label="&PMDlabel13;" prefstring="extensions.printingtools.addressbook.hide_header_card"/> 
+    </hbox>
+	<hbox align="center">
+        <checkbox id="PMDabjustaddress" label="&PMDlabel14;" prefstring="extensions.printingtools.addressbook.print_just_addresses"/> 
+    </hbox>
+	<hbox align="center">
+        <checkbox id="PMDabmaxcompact" label="&PMDlabel15;" /> 
+    </hbox>
+	<hbox align="center">
+        <checkbox id="PMDcutnotes" label="&PMDlabel19;" /> 
+    </hbox>
+	<hbox align="center">
+        <checkbox id="PMDaddname" label="&PMDlabel20;" /> 
+    </hbox>
+	<hbox align="center">
+        <checkbox id="multipleCards" label="&multipleCards.label;" /> 
+    </hbox>
+</groupbox>
+
+</dialog>

@@ -1,0 +1,16 @@
+content	printmydate	chrome/content/printmydate/
+content	printmydate	chrome/content/printmydate/	contentaccessible=yes
+
+overlay	chrome://messenger/content/msgPrintEngine.xul	chrome://printmydate/content/printingtools.xul
+overlay chrome://messenger/content/mailWindowOverlay.xul        chrome://printmydate/content/printmydate.xul
+overlay	chrome://messenger/content/addressbook/addressbook.xul	chrome://printmydate/content/ABprintingtools.xul
+
+locale	printmydate	en-US	chrome/locale/en-US/printmydate/
+locale	printmydate	it-IT	chrome/locale/it-IT/printmydate/
+locale  printmydate     sk   	chrome/locale/sk/printmydate/
+locale  printmydate     da-DK   chrome/locale/da-DK/printmydate/
+locale  printmydate     pt-BR   chrome/locale/pt-BR/printmydate/
+locale  printmydate     fr-FR   chrome/locale/fr-FR/printmydate/
+locale  printmydate     ja-JP   chrome/locale/ja-JP/printmydate/
+locale  printmydate     sv-SE   chrome/locale/sv-SE/printmydate/
+locale  printmydate     de-DE   chrome/locale/de-DE/printmydate/

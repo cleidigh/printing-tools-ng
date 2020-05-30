@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "PrintingTools NG",
+    "version": "0.1.0-b1",
+    "description": "Message Printing Tools NG",
+    "author": "Christopher Leidigh",
+    "xpi-name": "printing-tools-ng",
+    "applications": {
+        "gecko": {
+            "id": "PrintingToolsNG@cleidigh.kokkini.net",
+            "strict_min_version": "60.0",
+            "strict_max_version": "72.*"
+        }
+    },
+    "legacy": {
+        "options": {
+            "page": "chrome://printmydate/content/pmd-options.xul",
+            "open_in_tab": false
+        }
+    }
+}

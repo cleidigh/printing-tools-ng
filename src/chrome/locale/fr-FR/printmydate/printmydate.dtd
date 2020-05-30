@@ -1,0 +1,58 @@
+<!ENTITY PMDlabel1 "Activer la localisation des dates">
+<!ENTITY PMDlabel2 "Activer la vue personnalisée pour la liste des pièces jointes">
+<!ENTITY PMDlabel3 "Ajouter un cadre autour des entêtes.">
+<!ENTITY PMDlabel4 "Masquer les entêtes">
+<!ENTITY PMDlabel5 "Tronquer les lignes d'entêtes plus longues que">
+<!ENTITY PMDlabel6 "caractères.">
+<!ENTITY PMDlabel7 "Masquer les images">
+<!ENTITY PMDlabel8 "Imprimer sans la boîte de dialogue">
+<!ENTITY PMDlabel9 "Masque la barre de progression de l'impression">
+<!ENTITY PMDlabel10 "Masquer les pièces-jointes en-ligne">
+<!ENTITY PMDlabel11 "Ajouter le nom de l'usager aux entêtes">
+<!ENTITY PMDmenuitem "Options d'impression">
+<!ENTITY PMDcaptionlabel "Options pour l'impression des messages">
+<!ENTITY PMDcaptionlabel2 "Options globales d'impression">
+<!ENTITY PMDlabel12 "Utiliser des polices avec une taille en pixels de ">
+<!ENTITY PMDlabel13 "Masque l'entête de contact ('Card for')">
+<!ENTITY PMDlabel14 "Insérer seulement le nom et l'adresse courriel">
+<!ENTITY PMDcaptionlabel3 "Options pour l'impression du carnet d'adresses">
+<!ENTITY PMDlabel15 "Utiliser la mise en forme compacte">
+<!ENTITY PMDlabel16 "Imprimer seulement la sélection, s'il y a lieu">
+<!ENTITY cite.checkbox "Utiliser un style pour le texte cité">
+<!ENTITY cite.color "Couleur:">
+<!ENTITY cite.size "Taille:">
+<!ENTITY PMDlabel17 "Ajouter l'icône du type de fichier">
+<!ENTITY PMDlabel18 "Utiliser la police:">
+<!ENTITY PMDlabel19 "Couper le champ 'Notes' à 100 caractères">
+<!ENTITY PMDlabel20 "Ajouter le nom et la date du carnet d'adresses">
+<!ENTITY style "Style">
+<!ENTITY PMDlabel21 "Toujours masquer les entêtes étendus">
+<!ENTITY withSize "avec taille ">
+<!ENTITY forBody "pour le corps du message">
+<!ENTITY forHeaders "seulement pour entêtes">
+<!ENTITY misc "Divers">
+<!ENTITY order "Ordre des entêtes">
+<!ENTITY headers "Entêtes">
+<!ENTITY up "Haut">
+<!ENTITY down "Bas">
+<!ENTITY otherHeaders "Les autres entêtent suivent, si elles sont présentes">
+<!ENTITY PMDlabel22 "Ajouter les pièces-jointes p7m et vCard">
+<!ENTITY PMDlabel23 "Ajouter le nom du dossier">
+<!ENTITY PMDlabel24 "Date avec format long">
+<!ENTITY PMDlabel25 "Utiliser le noir comme couleur de base pour le texte">
+<!ENTITY long.label "UTC long">
+<!ENTITY longLoc.label "long and localisé">
+<!ENTITY short.label "bref">
+<!ENTITY date.label "Format de date:">
+<!ENTITY addNameRG.label "Ajouter aux entêtes">
+<!ENTITY RG1.label "Rien">
+<!ENTITY RG2.label "Le nom de l'usager">
+<!ENTITY alignHeaders.label "Aligner les entêtes">
+<!ENTITY multipleCards.label "Imprimer tous les contacts sélectionnés">
+<!ENTITY maxPreLen "Largeur maximale pour le texte:">
+<!ENTITY showButton.label "Show the options button in the preview window">
+<!ENTITY resizeImgs.label "Resize the images too large">
+<!ENTITY addRdate.label "Add received date">
+
+
+

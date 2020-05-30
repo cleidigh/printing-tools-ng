@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<overlay id="printmydate"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="text/javascript"  src="chrome://printmydate/content/printingtools.js" />
+
+</overlay>

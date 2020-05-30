@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+	<Description about="urn:mozilla:install-manifest">
+
+		<em:id>PrintingToolsNG@cleidigh.kokkini.net</em:id>
+		<em:name>PrintingTools NG</em:name>
+		<em:version>0.1.0-b1</em:version>
+		<em:description>Correct the layout of email printing</em:description>
+		<em:creator>Christopher Leidigh</em:creator>
+		<em:optionsURL>chrome://printmydate/content/pmd-options.xul</em:optionsURL>
+		<em:targetApplication>
+			<Description>
+				<em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+				<em:minVersion>3.0</em:minVersion>
+				<em:maxVersion>79.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+
+	</Description>
+
+</RDF>

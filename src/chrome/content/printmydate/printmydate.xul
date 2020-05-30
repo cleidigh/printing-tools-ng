@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay SYSTEM "chrome://printmydate/locale/printmydate.dtd">
+<overlay id="printmydate"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/x-javascript">
+ <![CDATA[
+	function openPTdialog() {
+		openDialog("chrome://printmydate/content/pmd-options.xul","","chrome,centerscreen", false);
+	}
+
+	function PRTinitMainWindow() {
+		window.removeEventListener("load", PRTinitMainWindow, false);
+		var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+		if (! prefs.getBoolPref("extensions.printingtools.change_branch"))
+			return;
+				
+		if (prefs.getPrefType("printingTools.date.long_format") > 0) 
+			prefs.setIntPref("printingTools.date.long_format_type", 1);
+		
+		var serv = Components.classes["@mozilla.org/preferences-service;1"]
+			.getService(Components.interfaces.nsIPrefService);
+		var branch1  = serv.getBranch("printingTools.");
+		var branch2  = serv.getBranch("extensions.printingtools.");
+		var bools = ["process.date", "process.attachments", "headers.setborders", "headers.hide", "headers.truncate", "hide.inline_attachments", "images.hide", "addressbook.hide_header_card", "addressbook.print_just_addresses", "addressbook.use_custom_font_size", "addressbook.max_compact", "print.just_selection", "cite.style", "addressbook.use_custom_font_family", "addressbook.cut_notes", "addressbook.add_ab_name", "process.attachments_with_icon", "messages.style", "ext_headers.hide","process.add_p7m_vcf_attach", "headers.addfolder", "messages.black_text", "headers.addname"];
+		for (var i=0;i<bools.length;i++) {
+			try { 
+				branch2.setBoolPref(bools[i], branch1.getBoolPref(bools[i]));
+			}
+			catch(e) {}
+		}
+		
+		var ints = ["headers.maxchars", "addressbook.custom_font_size", "messages.style_apply", "messages.size", "date.long_format_type", "headers.add_name_type"];
+	
+		for (var i=0;i<ints.length;i++) {
+			try { 
+				branch2.setIntPref(ints[i], branch1.getIntPref(ints[i]));
+			}
+			catch(e) {}
+		}
+
+		var chars = ["cite.color", "headers.order"];
+		for (var i=0;i<chars.length;i++) {
+			try { 
+				branch2.setCharPref(bools[i], branch1.getCharPref(bools[i]));
+			}
+			catch(e) {}
+		}
+
+		var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+		try {
+			if (branch2.setComplexValue) {
+				str.data =  branch1.getComplexValue("messages.font_family", Components.interfaces.nsISupportsString).data;
+				branch2.setComplexValue("messages.font_family",Components.interfaces.nsISupportsString,str);
+			}
+			else {
+				var value = branch1.getStringPref("messages.font_family");	
+				branch2.setStringPref("messages.font_family",value);
+			}
+			
+		}
+		catch(e) {}
+		try {
+			if (branch2.setComplexValue) {
+				str.data =  branch1.getComplexValue("headers.custom_name_value", Components.interfaces.nsISupportsString).data;
+				branch2.setComplexValue("headers.custom_name_value",Components.interfaces.nsISupportsString,str);
+			}
+			else {
+				var value = branch1.getStringPref("headers.custom_name_value");	
+				branch2.setStringPref("headers.custom_name_value",value);
+			}			
+		}
+		catch(e) {}	
+
+		prefs.deleteBranch("printingTools.");
+	}
+
+	window.addEventListener("load", PRTinitMainWindow, false);
+]]>
+</script>
+		 
+<menupopup id="menu_FilePopup">
+	<menuitem label="&PMDmenuitem;" insertafter="printMenuItem" oncommand="openPTdialog()"/>
+</menupopup>
+
+</overlay>

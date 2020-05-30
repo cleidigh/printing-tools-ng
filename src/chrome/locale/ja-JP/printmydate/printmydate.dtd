@@ -1,0 +1,56 @@
+<!ENTITY PMDlabel1 "タイムゾーンに合わせて日付を印刷する">
+<!ENTITY PMDlabel2 "添付ファイルリストの印刷方法をカスタマイズする">
+<!ENTITY PMDlabel3 "ヘッダ情報を線で囲む">
+<!ENTITY PMDlabel4 "ヘッダ情報を隠す">
+<!ENTITY PMDlabel5 "ヘッダの 1 行当たりの文字数を">
+<!ENTITY PMDlabel6 "にする">
+<!ENTITY PMDlabel7 "画像を非表示にする">
+<!ENTITY PMDlabel8 "印刷ダイアログを表示しない">
+<!ENTITY PMDlabel9 "印刷プログレスを表示しない">
+<!ENTITY PMDlabel10 "添付ファイルを印刷しない">
+<!ENTITY PMDlabel11 "アカウント名を追加する">
+<!ENTITY PMDmenuitem "印刷オプション">
+<!ENTITY PMDcaptionlabel "メッセージオプション">
+<!ENTITY PMDcaptionlabel2 "印刷オプション">
+<!ENTITY PMDlabel12 "使用するフォント">
+<!ENTITY PMDlabel13 "'カード' ヘッダを表示しない">
+<!ENTITY PMDlabel14 "名前とアドレスを挿入する">
+<!ENTITY PMDcaptionlabel3 "アドレス帳印刷オプション">
+<!ENTITY PMDlabel15 "コンパクトに印刷する （ぎっしり詰める）">
+<!ENTITY PMDlabel16 "選択した部分だけを印刷する">
+<!ENTITY cite.checkbox "引用部のスタイル指定">
+<!ENTITY cite.color "色:">
+<!ENTITY cite.size "サイズ:">
+<!ENTITY PMDlabel17 "ファイル別アイコンを追加">
+<!ENTITY PMDlabel18 "使用フォント：">
+<!ENTITY PMDlabel19 "メモ領域を 100 文字でカットする">
+<!ENTITY PMDlabel20 "アドレス帳名と日付を追加する">
+<!ENTITY style "スタイルオプション">
+<!ENTITY PMDlabel21 "常時拡張ヘッダを非表示にする">
+<!ENTITY withSize "サイズ">
+<!ENTITY forBody "本文用">
+<!ENTITY forHeaders "ヘッダ用">
+<!ENTITY misc "全般">
+<!ENTITY order "ヘッダ設定">
+<!ENTITY headers "ヘッダ">
+<!ENTITY up "上へ">
+<!ENTITY down "下へ">
+<!ENTITY otherHeaders "他のヘッダがある場合は、下段に印刷されます">
+<!ENTITY PMDlabel22 "p7m と vCard アイコンを追加">
+<!ENTITY PMDlabel23 "フォルダ名を追加">
+<!ENTITY PMDlabel25 "文字は黒色を基調色にする">
+<!ENTITY long.label "長い形式">
+<!ENTITY longLoc.label "長い形式とローカルタイム">
+<!ENTITY short.label "短い形式">
+<!ENTITY date.label "日時形式:">
+<!ENTITY addNameRG.label "ヘッダの前に追加する文字列:">
+<!ENTITY RG1.label "なし">
+<!ENTITY RG2.label "アカウント名">
+<!ENTITY alignHeaders.label "ヘッダ位置の整列">
+<!ENTITY multipleCards.label "選択したすべての連絡先を印刷">
+<!ENTITY maxPreLen "テキスト列の最大値を設定:">
+<!ENTITY showButton.label "プレビューにオプションボタンを表示">
+<!ENTITY resizeImgs.label "大きい画像はリサイズする">
+<!ENTITY addRdate.label "Add received date">
+
+

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay SYSTEM "chrome://printmydate/locale/printmydate.dtd">
+<overlay id="printmydate"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/x-javascript">
+ <![CDATA[
+	function openPTdialog() {
+		openDialog("chrome://printmydate/content/pmd-ABoptions.xul","","chrome,centerscreen");
+	}
+]]>
+</script>
+		 
+<menupopup id="menu_FilePopup">
+	<menuitem label="&PMDmenuitem;" insertafter="printAddressBook" oncommand="openPTdialog()"/>
+</menupopup>
+
+</overlay>
