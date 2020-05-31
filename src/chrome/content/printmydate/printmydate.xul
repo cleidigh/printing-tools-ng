@@ -2,8 +2,9 @@
 <!DOCTYPE overlay SYSTEM "chrome://printmydate/locale/printmydate.dtd">
 <overlay id="printmydate"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-
+<!-- 
 <script type="application/x-javascript">
+
  <![CDATA[
 	function openPTdialog() {
 		openDialog("chrome://printmydate/content/pmd-options.xul","","chrome,centerscreen", false);
@@ -79,6 +80,7 @@
 ]]>
 </script>
 		 
+ -->
 <menupopup id="menu_FilePopup">
 	<menuitem label="&PMDmenuitem;" insertafter="printMenuItem" oncommand="openPTdialog()"/>
 </menupopup>

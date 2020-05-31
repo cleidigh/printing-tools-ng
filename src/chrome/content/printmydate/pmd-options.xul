@@ -13,7 +13,7 @@
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 type="child"
-        title="PrintingTools NG v0.1.0-b1">
+        title="PrintingTools NG v0.1.0-b3">
 
 		<script type="text/javascript"  src="chrome://printmydate/content/pmd-options.js" />
 <script type="text/javascript"  src="chrome://printmydate/content/pmd-ABoptions.js" />

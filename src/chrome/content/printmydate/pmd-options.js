@@ -123,16 +123,18 @@ function initPMDpanel()  {
 	toggleMessageStyle(document.getElementById("messageStyle"));
 	toggleAtt();
 
-	var list = document.getElementById("headersList");
-	var order = prefs.getCharPref("extensions.printingtools.headers.order");
-	var u = order.split(",");
-	if (u.length < 7)
-		u[6] = "%r3";
+// cleidigh fix
+	// var list = document.getElementById("headersList");
+	// var order = prefs.getCharPref("extensions.printingtools.headers.order");
+	// var u = order.split(",");
+	// if (u.length < 7)
+	// 	u[6] = "%r3";
 
-	for (var i=0;i<u.length; i++) {
-		var lab =  getHeaderLabel(u[i]);
-		list.appendItem(lab, u[i]);
-	}	
+	// for (var i=0;i<u.length; i++) {
+	// 	var lab =  getHeaderLabel(u[i]);
+	// 	list.appendItem(lab, u[i]);
+	// }	
+
 }
 
 function getHeaderLabel(string) {
