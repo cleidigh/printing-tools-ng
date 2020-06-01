@@ -10,13 +10,16 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/input-fields.css"?>
+<?xml-stylesheet type="text/css" href="chrome://printmydate/content/pmd-options.css"?>
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-type="child"
-        title="PrintingTools NG v0.1.0-b3">
+		xmlns:html="http://www.w3.org/1999/xhtml"
+        title="PrintingTools NG v0.1.0-b4">
 
 		<script type="text/javascript"  src="chrome://printmydate/content/pmd-options.js" />
-<script type="text/javascript"  src="chrome://printmydate/content/pmd-ABoptions.js" />
+		<script type="text/javascript"  src="chrome://printmydate/content/pmd-ABoptions.js" />
+			<script type="application/x-javascript" src="chrome://printmydate/content/modules/list.controller.js" />
+		<script type="text/javascript"  src="chrome://printmydate/content/modules/List.js" />
 
 <tabbox>
 	<tabs>
@@ -175,9 +178,22 @@ type="child"
 	<tabpanel>
 		<hbox>
 		<vbox>
+		<html:div id="headersListContainer" tabindex="0">
+		<label id="headersListHeader" value="&headers;" />
+		<html:table id="headersList" class="list table-list" >
+		<!-- 
+		<html:tr>
+		<html:td class="headerName">TestHeader</html:td>
+		</html:trk>
+		 -->
+		</html:table>
+		
+		</html:div>
+		<!-- 
 		<listbox id="headersList">
 			<listhead><listheader label="&headers;" disabled="true"></listheader></listhead>
 		</listbox>
+		 -->
 		<label value="&otherHeaders;" />
 		</vbox>
 		<vbox>

@@ -1,0 +1,47 @@
+
+  .table-list th {
+	border-right: .6px solid #d2d2d2;
+	height: 14px;
+	/* font-style: normal; */
+	font-weight: 500;
+	color: black;
+	text-align: left;
+	padding-right: 6px;
+	padding-left: 6px;
+	background-color: #f9f9f9;
+	/* background-color: aquamarine; */
+  }
+  
+
+  .table-list thead > th:last-child {
+	border-right: none;
+  }
+
+  .table-list td {
+	white-space: nowrap;
+	height: 14px;
+	/* vertical-align: top; */
+	padding-right: 6px;
+	padding-left: 6px;
+	/* padding: 4px; */
+	/* border-bottom: 1px solid #d2d2d2; */
+  }
+
+
+  .list-row {
+	/* background-color: burlywood; */
+	height: 16px;
+}
+
+
+
+.list-row:hover, .list-row:focus {
+  background-color: #cce8ff;
+  /* color: white; */
+}
+
+.list-row.selected-row {
+  background-color: #cce8ff !important;
+  /* color: white; */
+}
+

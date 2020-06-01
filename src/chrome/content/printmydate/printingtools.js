@@ -432,8 +432,18 @@ var printingtools = {
 			printingtools.addName(borders);
 		Services.console.logStringMessage("before check selection");
 		
+		console.debug('opener');
+		console.debug(opener);
+		console.debug(opener.content);
+		console.debug('after oc');
 
+		
+		try {
 		var sel = opener.content.getSelection();
+			
+		} catch (error) {
+			sel = "";
+		}
 		if (sel && sel != "" && printingtools.prefs.getBoolPref("extensions.printingtools.print.just_selection")) {
 				var range = sel.getRangeAt(0);
 				var contents = range.cloneContents();

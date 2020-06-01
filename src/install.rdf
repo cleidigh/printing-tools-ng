@@ -7,7 +7,7 @@ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
 		<em:id>PrintingToolsNG@cleidigh.kokkini.net</em:id>
 		<em:name>PrintingTools NG</em:name>
-		<em:version>0.1.0-b3</em:version>
+		<em:version>0.1.0-b4</em:version>
 		<em:description>Correct the layout of email printing</em:description>
 		<em:creator>Christopher Leidigh</em:creator>
 		<em:optionsURL>chrome://printmydate/content/pmd-options.xul</em:optionsURL>
