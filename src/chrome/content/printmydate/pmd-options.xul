@@ -12,7 +12,7 @@
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 		xmlns:html="http://www.w3.org/1999/xhtml"
-        title="PrintingTools NG v0.1.0-b5">
+        title="PrintingTools NG v0.1.0-b6">
 
 		<script type="text/javascript"  src="chrome://printmydate/content/pmd-options.js" />
 		<script type="text/javascript"  src="chrome://printmydate/content/pmd-ABoptions.js" />
@@ -231,10 +231,10 @@
 		<menulist id="ABfontlist" style="width:200px"/>
 	</hbox>
     <hbox align="center">
-        <checkbox id="PMDabnohead" label="&PMDlabel13;" prefstring="extensions.printingtools.addressbook.hide_header_card"/> 
+        <checkbox id="PMDabnohead" label="&PMDlabel13;" prefstring="extensions.printingtoolsng.addressbook.hide_header_card"/> 
     </hbox>
 	<hbox align="center">
-        <checkbox id="PMDabjustaddress" label="&PMDlabel14;" prefstring="extensions.printingtools.addressbook.print_just_addresses"/> 
+        <checkbox id="PMDabjustaddress" label="&PMDlabel14;" prefstring="extensions.printingtoolsng.addressbook.print_just_addresses"/> 
     </hbox>
 	<hbox align="center">
         <checkbox id="PMDabmaxcompact" label="&PMDlabel15;" /> 

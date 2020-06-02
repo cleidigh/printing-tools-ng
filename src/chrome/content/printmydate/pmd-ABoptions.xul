@@ -1,17 +1,26 @@
 <?xml version="1.0"?> 
-<!DOCTYPE overlay SYSTEM "chrome://printmydate/locale/printmydate.dtd">
+
+<!DOCTYPE dialog [ 
+<!ENTITY % mainDTD SYSTEM "chrome://printmydate/locale/printmydate.dtd">
+%mainDTD;
+]>
+
 <?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?>
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/input-fields.css"?>
+<?xml-stylesheet type="text/css" href="chrome://printmydate/content/pmd-options.css"?>
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-	onload="initPMDabpanel();"
-        buttons="accept, cancel"
-        ondialogaccept="savePMDabprefs();"
-        title="PrintingTools">
+        title="PrintingTools NG">
 
 <script type="text/javascript"  src="chrome://printmydate/content/pmd-ABoptions.js" />
 
-<groupbox>
-    <caption label="&PMDcaptionlabel3;" />
+<groupbox class="groupbox-multi-os">
+	<hbox class="groupbox-os-title">
+		<label class="groupbox-os-label">&PMDcaptionlabel3;</label>
+	</hbox>
+					
     <hbox align="center">
         <checkbox id="PMDabsmallfont" label="&PMDlabel12;" />
 	<menulist id="ABfontsize">
@@ -35,10 +44,10 @@
 		<menulist id="ABfontlist" style="width:200px"/>
 	</hbox>
     <hbox align="center">
-        <checkbox id="PMDabnohead" label="&PMDlabel13;" prefstring="extensions.printingtools.addressbook.hide_header_card"/> 
+        <checkbox id="PMDabnohead" label="&PMDlabel13;" prefstring="extensions.printingtoolsng.addressbook.hide_header_card"/> 
     </hbox>
 	<hbox align="center">
-        <checkbox id="PMDabjustaddress" label="&PMDlabel14;" prefstring="extensions.printingtools.addressbook.print_just_addresses"/> 
+        <checkbox id="PMDabjustaddress" label="&PMDlabel14;" prefstring="extensions.printingtoolsng.addressbook.print_just_addresses"/> 
     </hbox>
 	<hbox align="center">
         <checkbox id="PMDabmaxcompact" label="&PMDlabel15;" /> 

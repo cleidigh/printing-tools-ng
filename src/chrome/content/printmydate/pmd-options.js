@@ -48,44 +48,44 @@ function initPMDpanel() {
 		document.getElementById("dateShortRadio").label += (" " + bundle.GetStringFromName("dateformatTB5"));
 	}
 
-	if (prefs.getPrefType("extensions.printingtools.headers.addname") > 0) {
-		if (prefs.getBoolPref("extensions.printingtools.headers.addname"))
-			prefs.setIntPref("extensions.printingtools.headers.add_name_type", 1);
+	if (prefs.getPrefType("extensions.printingtoolsng.headers.addname") > 0) {
+		if (prefs.getBoolPref("extensions.printingtoolsng.headers.addname"))
+			prefs.setIntPref("extensions.printingtoolsng.headers.add_name_type", 1);
 		else
-			prefs.setIntPref("extensions.printingtools.headers.add_name_type", 0);
-		prefs.deleteBranch("extensions.printingtools.headers.addname");
+			prefs.setIntPref("extensions.printingtoolsng.headers.add_name_type", 0);
+		prefs.deleteBranch("extensions.printingtoolsng.headers.addname");
 	}
-	document.getElementById("addRdate").checked = prefs.getBoolPref("extensions.printingtools.add_received_date");
-	document.getElementById("addNameRG").selectedIndex = prefs.getIntPref("extensions.printingtools.headers.add_name_type");
-	document.getElementById("addNameBox").value = getComplexPref("extensions.printingtools.headers.custom_name_value");
-	document.getElementById("PMDdate").checked = prefs.getBoolPref("extensions.printingtools.process.date");
-	document.getElementById("PMDattach").checked = prefs.getBoolPref("extensions.printingtools.process.attachments");
-	document.getElementById("PMDborders").checked = prefs.getBoolPref("extensions.printingtools.headers.setborders");
-	document.getElementById("PMDhide").checked = prefs.getBoolPref("extensions.printingtools.headers.hide");
-	document.getElementById("PMDextHide").checked = prefs.getBoolPref("extensions.printingtools.ext_headers.hide");
-	document.getElementById("PMDhideImgs").checked = prefs.getBoolPref("extensions.printingtools.images.hide");
-	document.getElementById("resizeImgs").checked = prefs.getBoolPref("extensions.printingtools.images.resize");
-	document.getElementById("PMDtruncate").checked = prefs.getBoolPref("extensions.printingtools.headers.truncate");
-	document.getElementById("PMDmaxchars").value = prefs.getIntPref("extensions.printingtools.headers.maxchars");
+	document.getElementById("addRdate").checked = prefs.getBoolPref("extensions.printingtoolsng.add_received_date");
+	document.getElementById("addNameRG").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.headers.add_name_type");
+	document.getElementById("addNameBox").value = getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
+	document.getElementById("PMDdate").checked = prefs.getBoolPref("extensions.printingtoolsng.process.date");
+	document.getElementById("PMDattach").checked = prefs.getBoolPref("extensions.printingtoolsng.process.attachments");
+	document.getElementById("PMDborders").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.setborders");
+	document.getElementById("PMDhide").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.hide");
+	document.getElementById("PMDextHide").checked = prefs.getBoolPref("extensions.printingtoolsng.ext_headers.hide");
+	document.getElementById("PMDhideImgs").checked = prefs.getBoolPref("extensions.printingtoolsng.images.hide");
+	document.getElementById("resizeImgs").checked = prefs.getBoolPref("extensions.printingtoolsng.images.resize");
+	document.getElementById("PMDtruncate").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.truncate");
+	document.getElementById("PMDmaxchars").value = prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 	document.getElementById("PMDprogress").checked = !prefs.getBoolPref("print.show_print_progress");
-	document.getElementById("PMDhideAtt").checked = prefs.getBoolPref("extensions.printingtools.hide.inline_attachments");
-	document.getElementById("PMDselection").checked = prefs.getBoolPref("extensions.printingtools.print.just_selection");
-	document.getElementById("PMDattachIcon").checked = prefs.getBoolPref("extensions.printingtools.process.attachments_with_icon");
-	document.getElementById("showButtonPreview").checked = prefs.getBoolPref("extensions.printingtools.show_options_button");
+	document.getElementById("PMDhideAtt").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments");
+	document.getElementById("PMDselection").checked = prefs.getBoolPref("extensions.printingtoolsng.print.just_selection");
+	document.getElementById("PMDattachIcon").checked = prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
+	document.getElementById("showButtonPreview").checked = prefs.getBoolPref("extensions.printingtoolsng.show_options_button");
 
 	if (String.trim)
-		document.getElementById("addP7M").checked = prefs.getBoolPref("extensions.printingtools.process.add_p7m_vcf_attach");
+		document.getElementById("addP7M").checked = prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach");
 	else
 		document.getElementById("addP7M").setAttribute("collapsed", "true");
-	document.getElementById("radiostyle").selectedIndex = prefs.getIntPref("extensions.printingtools.messages.style_apply");
-	document.getElementById("messageStyle").checked = prefs.getBoolPref("extensions.printingtools.messages.style");
-	document.getElementById("addFolder").checked = prefs.getBoolPref("extensions.printingtools.headers.addfolder");
-	document.getElementById("PMDblack").checked = prefs.getBoolPref("extensions.printingtools.messages.black_text");
-	document.getElementById("PMDtruncate").checked = prefs.getBoolPref("extensions.printingtools.headers.truncate");
-	document.getElementById("alignHeaders").checked = prefs.getBoolPref("extensions.printingtools.headers.align");
-	document.getElementById("dateLongRG").selectedIndex = prefs.getIntPref("extensions.printingtools.date.long_format_type");
+	document.getElementById("radiostyle").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.messages.style_apply");
+	document.getElementById("messageStyle").checked = prefs.getBoolPref("extensions.printingtoolsng.messages.style");
+	document.getElementById("addFolder").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.addfolder");
+	document.getElementById("PMDblack").checked = prefs.getBoolPref("extensions.printingtoolsng.messages.black_text");
+	document.getElementById("PMDtruncate").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.truncate");
+	document.getElementById("alignHeaders").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.align");
+	document.getElementById("dateLongRG").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
 
-	var max_pre_len = prefs.getIntPref("extensions.printingtools.pre_max_length");
+	var max_pre_len = prefs.getIntPref("extensions.printingtoolsng.pre_max_length");
 	if (max_pre_len > 0) {
 		document.getElementById("PREtruncate").checked = true;
 		document.getElementById("PREmaxchars").value = max_pre_len;
@@ -96,14 +96,14 @@ function initPMDpanel() {
 	else
 		document.getElementById("PMDsilent").checked = false;
 
-	var sID = "s" + prefs.getIntPref("extensions.printingtools.cite.size");
+	var sID = "s" + prefs.getIntPref("extensions.printingtoolsng.cite.size");
 	document.getElementById("citeSize").selectedItem = document.getElementById(sID);
-	var xID = "x" + prefs.getIntPref("extensions.printingtools.messages.size");
+	var xID = "x" + prefs.getIntPref("extensions.printingtoolsng.messages.size");
 	document.getElementById("fontsize").selectedItem = document.getElementById(xID);
 
-	// document.getElementById("citeColor").color = prefs.getCharPref("extensions.printingtools.cite.color");
-	document.getElementById("citeColor").value = prefs.getCharPref("extensions.printingtools.cite.color");
-	document.getElementById("citeCheck").checked = prefs.getBoolPref("extensions.printingtools.cite.style");
+	// document.getElementById("citeColor").color = prefs.getCharPref("extensions.printingtoolsng.cite.color");
+	document.getElementById("citeColor").value = prefs.getCharPref("extensions.printingtoolsng.cite.color");
+	document.getElementById("citeCheck").checked = prefs.getBoolPref("extensions.printingtoolsng.cite.style");
 
 	var fontlist = document.getElementById("fontlist");
 	var fonten = Components.classes["@mozilla.org/gfx/fontenumerator;1"].createInstance(Components.interfaces.nsIFontEnumerator);
@@ -115,8 +115,8 @@ function initPMDpanel() {
 		var menuitem = document.createXULElement("menuitem");
 		menuitem.setAttribute("value", allfonts[j]);
 		menuitem.setAttribute("label", allfonts[j]);
-		if (prefs.getPrefType("extensions.printingtools.messages.font_family") > 0 &&
-			allfonts[j] == getComplexPref("extensions.printingtools.messages.font_family")) {
+		if (prefs.getPrefType("extensions.printingtoolsng.messages.font_family") > 0 &&
+			allfonts[j] == getComplexPref("extensions.printingtoolsng.messages.font_family")) {
 			selindex = j;
 		}
 		popup.appendChild(menuitem);
@@ -146,7 +146,7 @@ function initPMDpanel() {
 	gheaderList.controller = new ListController(gheaderList, { onSelectedCB: this.onSelectListRow });
 	
 	//   var list = document.getElementById("headersList");
-	var order = prefs.getCharPref("extensions.printingtools.headers.order");
+	var order = prefs.getCharPref("extensions.printingtoolsng.headers.order");
 	var u = order.split(",");
 	if (u.length < 7)
 		u[6] = "%r3";
@@ -204,45 +204,45 @@ function savePMDprefs() {
 		var max_pre_len = document.getElementById("PREmaxchars").value;
 	else
 		var max_pre_len = -1;
-	prefs.setIntPref("extensions.printingtools.pre_max_length", max_pre_len);
-	prefs.setIntPref("extensions.printingtools.headers.add_name_type", document.getElementById("addNameRG").selectedIndex);
-	prefs.setBoolPref("extensions.printingtools.process.date", document.getElementById("PMDdate").checked);
-	prefs.setBoolPref("extensions.printingtools.process.attachments", document.getElementById("PMDattach").checked);
-	prefs.setBoolPref("extensions.printingtools.headers.setborders", document.getElementById("PMDborders").checked);
-	prefs.setBoolPref("extensions.printingtools.headers.hide", document.getElementById("PMDhide").checked);
-	prefs.setBoolPref("extensions.printingtools.ext_headers.hide", document.getElementById("PMDextHide").checked);
-	prefs.setBoolPref("extensions.printingtools.images.hide", document.getElementById("PMDhideImgs").checked);
-	prefs.setBoolPref("extensions.printingtools.images.resize", document.getElementById("resizeImgs").checked);
-	prefs.setBoolPref("extensions.printingtools.headers.truncate", document.getElementById("PMDtruncate").checked);
-	prefs.setIntPref("extensions.printingtools.headers.maxchars", document.getElementById("PMDmaxchars").value);
+	prefs.setIntPref("extensions.printingtoolsng.pre_max_length", max_pre_len);
+	prefs.setIntPref("extensions.printingtoolsng.headers.add_name_type", document.getElementById("addNameRG").selectedIndex);
+	prefs.setBoolPref("extensions.printingtoolsng.process.date", document.getElementById("PMDdate").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.process.attachments", document.getElementById("PMDattach").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.headers.setborders", document.getElementById("PMDborders").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.headers.hide", document.getElementById("PMDhide").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.ext_headers.hide", document.getElementById("PMDextHide").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.images.hide", document.getElementById("PMDhideImgs").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.images.resize", document.getElementById("resizeImgs").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
+	prefs.setIntPref("extensions.printingtoolsng.headers.maxchars", document.getElementById("PMDmaxchars").value);
 	prefs.setBoolPref("print.always_print_silent", document.getElementById("PMDsilent").checked);
 	prefs.setBoolPref("print.show_print_progress", !document.getElementById("PMDprogress").checked);
-	prefs.setBoolPref("extensions.printingtools.headers.truncate", document.getElementById("PMDtruncate").checked);
-	prefs.setBoolPref("extensions.printingtools.hide.inline_attachments", document.getElementById("PMDhideAtt").checked);
-	prefs.setBoolPref("extensions.printingtools.print.just_selection", document.getElementById("PMDselection").checked);
-	prefs.setBoolPref("extensions.printingtools.headers.addfolder", document.getElementById("addFolder").checked);
-	prefs.setBoolPref("extensions.printingtools.messages.black_text", document.getElementById("PMDblack").checked);
-	prefs.setBoolPref("extensions.printingtools.headers.align", document.getElementById("alignHeaders").checked);
-	prefs.setBoolPref("extensions.printingtools.show_options_button", document.getElementById("showButtonPreview").checked);
-	prefs.setBoolPref("extensions.printingtools.add_received_date", document.getElementById("addRdate").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments", document.getElementById("PMDhideAtt").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.print.just_selection", document.getElementById("PMDselection").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.headers.addfolder", document.getElementById("addFolder").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.messages.black_text", document.getElementById("PMDblack").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.headers.align", document.getElementById("alignHeaders").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.show_options_button", document.getElementById("showButtonPreview").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.add_received_date", document.getElementById("addRdate").checked);
 
-	prefs.setIntPref("extensions.printingtools.date.long_format_type", document.getElementById("dateLongRG").selectedIndex);
+	prefs.setIntPref("extensions.printingtoolsng.date.long_format_type", document.getElementById("dateLongRG").selectedIndex);
 
 	var size = document.getElementById("citeSize").selectedItem.id.replace("s", "");
-	prefs.setIntPref("extensions.printingtools.cite.size", size);
-	prefs.setCharPref("extensions.printingtools.cite.color", document.getElementById("citeColor").value);
-	prefs.setBoolPref("extensions.printingtools.cite.style", document.getElementById("citeCheck").checked);
-	prefs.setBoolPref("extensions.printingtools.process.attachments_with_icon", document.getElementById("PMDattachIcon").checked);
+	prefs.setIntPref("extensions.printingtoolsng.cite.size", size);
+	prefs.setCharPref("extensions.printingtoolsng.cite.color", document.getElementById("citeColor").value);
+	prefs.setBoolPref("extensions.printingtoolsng.cite.style", document.getElementById("citeCheck").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.process.attachments_with_icon", document.getElementById("PMDattachIcon").checked);
 
 	var fontlistchild = document.getElementById("fontlist").getElementsByTagName("menuitem");
 	var selfont = fontlistchild[document.getElementById("fontlist").selectedIndex].getAttribute("value");
-	setComplexPref("extensions.printingtools.messages.font_family", selfont);
-	setComplexPref("extensions.printingtools.headers.custom_name_value", document.getElementById("addNameBox").value);
+	setComplexPref("extensions.printingtoolsng.messages.font_family", selfont);
+	setComplexPref("extensions.printingtoolsng.headers.custom_name_value", document.getElementById("addNameBox").value);
 
-	prefs.setBoolPref("extensions.printingtools.messages.style", document.getElementById("messageStyle").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.messages.style", document.getElementById("messageStyle").checked);
 	size = document.getElementById("fontsize").selectedItem.id.replace("x", "");
-	prefs.setIntPref("extensions.printingtools.messages.size", size);
-	prefs.setIntPref("extensions.printingtools.messages.style_apply", document.getElementById("radiostyle").selectedIndex);
+	prefs.setIntPref("extensions.printingtoolsng.messages.size", size);
+	prefs.setIntPref("extensions.printingtoolsng.messages.style_apply", document.getElementById("radiostyle").selectedIndex);
 
 	var list = document.getElementById("headersList");
 	var val = "";
@@ -251,8 +251,8 @@ function savePMDprefs() {
 		val = val + item.getAttribute("data-headerToken") + ",";
 	}
 	val = val + list.rows.item(6).getAttribute("data-headerToken");
-	prefs.setCharPref("extensions.printingtools.headers.order", val);
-	prefs.setBoolPref("extensions.printingtools.process.add_p7m_vcf_attach", document.getElementById("addP7M").checked);
+	prefs.setCharPref("extensions.printingtoolsng.headers.order", val);
+	prefs.setBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach", document.getElementById("addP7M").checked);
 	if (fromPreview) {
 		try {
 			opener.close();

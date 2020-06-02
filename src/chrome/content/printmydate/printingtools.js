@@ -24,7 +24,7 @@ var printingtools = {
 		contentEl.addEventListener("load", printingtools.correctLayout, true);
 		if (window.arguments && window.arguments[1])
 			printingtools.num = window.arguments[1].length;
-		if (printingtools.prefs.getBoolPref("extensions.printingtools.show_options_button")) {
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.show_options_button")) {
 			var bundle = printingtools.strBundleService.createBundle("chrome://printmydate/locale/printmydate.properties");
 			var box = document.createXULElement("hbox");
 			var button = document.createElement("button");
@@ -50,7 +50,7 @@ var printingtools = {
 	},
 	
 	getIndexForHeader : function(string) {
-		var order = printingtools.prefs.getCharPref("extensions.printingtools.headers.order");
+		var order = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order");
 		var hdrs = order.split(",");
 		var index = -1;
 		for (var j=0;j<hdrs.length;j++) {
@@ -63,7 +63,7 @@ var printingtools = {
 	},
 
 	sortHeaders : function() {	
-		if (printingtools.prefs.getCharPref("extensions.printingtools.headers.order") == "%s,%f,%d,%a,%r1,%r2,%r3") {
+		if (printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order") == "%s,%f,%d,%a,%r1,%r2,%r3") {
 			printingtools.dateTRpos = 2;
 			return // default order
 		}
@@ -146,7 +146,7 @@ var printingtools = {
 	correctABprint : function(gennames) {
 		var gnLen = printingtools.doc.getElementsByTagName("GeneratedName").length;
 		var dirNode = printingtools.doc.getElementsByTagName("directory")[0];
-		var multipleCards = printingtools.prefs.getBoolPref("extensions.printingtools.addressbook.print_multiple_cards");
+		var multipleCards = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards");
 		var sepr;
 
 		// if gnLen is equal to 1, we're printing a single contact		
@@ -197,13 +197,13 @@ var printingtools = {
 		
 					
 		var rule;
-		var hideHeaderCard = printingtools.prefs.getBoolPref("extensions.printingtools.addressbook.hide_header_card");
-		var compactFormat = printingtools.prefs.getBoolPref("extensions.printingtools.addressbook.print_just_addresses");
-		var smallFont = printingtools.prefs.getBoolPref("extensions.printingtools.addressbook.use_custom_font_size");
-		var maxCompact = printingtools.prefs.getBoolPref("extensions.printingtools.addressbook.max_compact");
-		var fontFamily = printingtools.prefs.getBoolPref("extensions.printingtools.addressbook.use_custom_font_family");
-		var cutNotes = printingtools.prefs.getBoolPref("extensions.printingtools.addressbook.cut_notes");
-		var addABname =  printingtools.prefs.getBoolPref("extensions.printingtools.addressbook.add_ab_name");
+		var hideHeaderCard = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.hide_header_card");
+		var compactFormat = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_just_addresses");
+		var smallFont = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size");
+		var maxCompact = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.max_compact");
+		var fontFamily = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family");
+		var cutNotes = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.cut_notes");
+		var addABname =  printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.add_ab_name");
 
 		if (addABname) {
 			sepr = printingtools.doc.createElement("separator");
@@ -286,7 +286,7 @@ var printingtools = {
 			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
 		}
 		if (smallFont) {
-			var fontsize = printingtools.prefs.getIntPref("extensions.printingtools.addressbook.custom_font_size");
+			var fontsize = printingtools.prefs.getIntPref("extensions.printingtoolsng.addressbook.custom_font_size");
 			rule = "* {font-size: "+fontsize+"px !important;}";
 			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
 			fontsize = fontsize + 2;
@@ -298,7 +298,7 @@ var printingtools = {
 			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
 		}
 		if (fontFamily) {
-			var fontfamily = printingtools.prefs.getCharPref("extensions.printingtools.addressbook.font_family");
+			var fontfamily = printingtools.prefs.getCharPref("extensions.printingtoolsng.addressbook.font_family");
 			rule = "* {font-family: "+fontfamily+" !important;}";
 			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
 		}
@@ -342,7 +342,7 @@ var printingtools = {
 		// Services.console.logStringMessage("correct layout");
 		printingtools.doc = window.content.document;
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
-		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtools.headers.maxchars");
+		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 		// If there is some "GeneratedName" tag, so we're printing from addressbook
 		if (gennames.length > 0) {
 			printingtools.isAB = true;	
@@ -357,13 +357,13 @@ var printingtools = {
 		// is loaded twice, but the first time the content is not loaded
 		
 		if (printingtools.prefs.getBoolPref("mail.inline_attachments") &&
-			printingtools.prefs.getBoolPref("extensions.printingtools.hide.inline_attachments") )
+			printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments") )
 				printingtools.toggleInlinePref();
 		
 		if (tablesNum == 0)
 			return;
 
-		var max_pre_len = printingtools.prefs.getIntPref("extensions.printingtools.pre_max_length");
+		var max_pre_len = printingtools.prefs.getIntPref("extensions.printingtoolsng.pre_max_length");
 		if (max_pre_len > 0) {
 			var preTags = printingtools.doc.getElementsByTagName("PRE");
 			for (var j=0;j<preTags.length;j++)
@@ -378,16 +378,16 @@ var printingtools = {
 		var table3 = printingtools.getTable(2);
 
 		var hpref = printingtools.prefs.getIntPref("mail.show_headers");
-		var noheaders = printingtools.prefs.getBoolPref("extensions.printingtools.headers.hide");
-		var noExtHeaders = printingtools.prefs.getBoolPref("extensions.printingtools.ext_headers.hide");
+		var noheaders = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.hide");
+		var noExtHeaders = printingtools.prefs.getBoolPref("extensions.printingtoolsng.ext_headers.hide");
 
-		if (printingtools.prefs.getBoolPref("extensions.printingtools.messages.black_text"))
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.black_text"))
 			printingtools.doc.body.removeAttribute("text");
 		
-		if (printingtools.prefs.getBoolPref("extensions.printingtools.messages.style")) {
-			var mSize = printingtools.prefs.getIntPref("extensions.printingtools.messages.size");
-			var mFamily = printingtools.getComplexPref("extensions.printingtools.messages.font_family");
-			if (printingtools.prefs.getIntPref("extensions.printingtools.messages.style_apply") == 0) {
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
+			var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
+			var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
+			if (printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.style_apply") == 0) {
 				rule = '* {font-size: +'+mSize+'px !important; font-family: '+mFamily+' !important;}';
 				printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
 			}
@@ -407,16 +407,16 @@ var printingtools = {
 			}
 		}	
 		
-		if (printingtools.prefs.getBoolPref("extensions.printingtools.cite.style")) {
-			var cSize = printingtools.prefs.getIntPref("extensions.printingtools.cite.size");
-			var cColor = printingtools.prefs.getCharPref("extensions.printingtools.cite.color");
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.cite.style")) {
+			var cSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.cite.size");
+			var cColor = printingtools.prefs.getCharPref("extensions.printingtoolsng.cite.color");
 			rule = 'blockquote[type="cite"]{font-size: '+cSize+'px !important; color:'+cColor+' !important;}';
 			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
 			rule = 'blockquote[type="cite"] * {font-size: '+cSize+'px !important; color:'+cColor+'!important;}';
 			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
 		}
 		
-		if (printingtools.prefs.getBoolPref("extensions.printingtools.process.date"))
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.date"))
 			printingtools.correctDate();
 		
 		if (noheaders) 
@@ -424,7 +424,7 @@ var printingtools = {
 		else if (noExtHeaders && table3 && hpref == 2)
 			table3.setAttribute("style","display:none !important");
 
-		var borders = printingtools.prefs.getBoolPref("extensions.printingtools.headers.setborders");
+		var borders = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.setborders");
 		// Services.console.logStringMessage("borders " + borders);
 		if (! noheaders)
 			printingtools.addName(borders);
@@ -436,7 +436,7 @@ var printingtools = {
 		} catch (error) {
 			sel = "";
 		}
-		if (sel && sel != "" && printingtools.prefs.getBoolPref("extensions.printingtools.print.just_selection")) {
+		if (sel && sel != "" && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
 				var range = sel.getRangeAt(0);
 				var contents = range.cloneContents();
 				if (String.trim)
@@ -447,19 +447,19 @@ var printingtools = {
 		else {
 			if (printingtools.prefs.getBoolPref("mail.inline_attachments"))
 				printingtools.attCheck();
-			var hideImg = printingtools.prefs.getBoolPref("extensions.printingtools.images.hide");
-			if (hideImg  || printingtools.prefs.getBoolPref("extensions.printingtools.images.resize")) 
+			var hideImg = printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.hide");
+			if (hideImg  || printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.resize")) 
 				printingtools.setIMGstyle(hideImg);
 		}
 		// Services.console.logStringMessage("before attachments");
-		if (printingtools.prefs.getBoolPref("extensions.printingtools.process.attachments")) {
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments")) {
 			printingtools.rewriteAttList();
 		} else
 			printingtools.sortHeaders();
-		if (! noheaders && printingtools.prefs.getBoolPref("extensions.printingtools.headers.truncate"))
+		if (! noheaders && printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate"))
 			printingtools.truncateHeaders(printingtools.maxChars);
 	
-		if (printingtools.prefs.getBoolPref("extensions.printingtools.headers.align")) {
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.align")) {
 			if (table2) {
 				var trs = table2.getElementsByTagName("tr");
 				for (var i=trs.length-1;i>-1;i--)
@@ -524,8 +524,8 @@ var printingtools = {
 			for(i=0;i<ops.length;i++)
 				// hides microsoft crap
 				ops[i].style.display="none";
-			var hideImg = printingtools.prefs.getBoolPref("extensions.printingtools.images.hide");
-			if (hideImg  || printingtools.prefs.getBoolPref("extensions.printingtools.images.resize")) 
+			var hideImg = printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.hide");
+			if (hideImg  || printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.resize")) 
 				printingtools.setIMGstyle(hideImg);
 		}
 		catch(e) {}
@@ -557,16 +557,16 @@ var printingtools = {
 	
 		try {
 
-		if (printingtools.prefs.getPrefType("extensions.printingtools.headers.addname") > 0) {
-			if (printingtools.prefs.getBoolPref("extensions.printingtools.headers.addname"))
-				 printingtools.prefs.setIntPref("extensions.printingtools.headers.add_name_type", 1);
+		if (printingtools.prefs.getPrefType("extensions.printingtoolsng.headers.addname") > 0) {
+			if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.addname"))
+				 printingtools.prefs.setIntPref("extensions.printingtoolsng.headers.add_name_type", 1);
 			else
-				 printingtools.prefs.setIntPref("extensions.printingtools.headers.add_name_type", 0);
-			printingtools.prefs.deleteBranch("extensions.printingtools.headers.addname");
+				 printingtools.prefs.setIntPref("extensions.printingtoolsng.headers.add_name_type", 0);
+			printingtools.prefs.deleteBranch("extensions.printingtoolsng.headers.addname");
 		}
 
-		var add_name_type = printingtools.prefs.getIntPref("extensions.printingtools.headers.add_name_type");
-		var add_folder = printingtools.prefs.getBoolPref("extensions.printingtools.headers.addfolder");
+		var add_name_type = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.add_name_type");
+		var add_folder = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.addfolder");
 		if (add_name_type == 0 && ! add_folder)
 			return;
 
@@ -578,7 +578,7 @@ var printingtools = {
 		if (add_name_type > 0) {	
 			
 			if (add_name_type == 2) {
-				myname = printingtools.getComplexPref("extensions.printingtools.headers.custom_name_value");
+				myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
 			}
 			else {
 				try {
@@ -743,7 +743,7 @@ var printingtools = {
 	formatDate : function(msecs, longFormat) {
 		var formatted_date = null;
 		if (! longFormat)
-			longFormat = printingtools.prefs.getIntPref("extensions.printingtools.date.long_format_type");
+			longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
 		try {
 			var date_obj = new Date(msecs);
 			if (longFormat != 1) 
@@ -759,7 +759,7 @@ var printingtools = {
 		var table = printingtools.getTable(0);
 		if (!  table || ! printingtools.hdr)
 			return;
-		var longFormat = printingtools.prefs.getIntPref("extensions.printingtools.date.long_format_type");
+		var longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
 		if (longFormat == 0)
 			return;
 		var formatted_date = printingtools.formatDate((printingtools.hdr.dateInSeconds * 1000), longFormat);
@@ -802,7 +802,7 @@ var printingtools = {
 		newTR.setAttribute("id", "attTR");
 		var newTDhtml = "<span id='spanTD'><b>"+ bundle.GetStringFromName("attachments")+": </b></span>" + newTD.innerHTML;
 		newTD.innerHTML = newTDhtml;
-		//if (printingtools.prefs.getBoolPref("extensions.printingtools.headers.setborders"))
+		//if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.setborders"))
 		//	newTD.setAttribute("style", "padding: 0px 10px;");
 		newTR.appendChild(newTD);
 		if (headtable1 && headtable1.lastChild)
@@ -818,7 +818,7 @@ var printingtools = {
 		// takes the second table of the headers (A , CC fields)
 		var headtable1 = printingtools.getTable(0);
 		var comma = "";
-		var withIcon = printingtools.prefs.getBoolPref("extensions.printingtools.process.attachments_with_icon");
+		var withIcon = printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
 		// takes all the TABLE elements of the doc
 		var attTable = printingtools.doc.getElementsByTagName("TABLE");
 
@@ -881,7 +881,7 @@ var printingtools = {
 		}
 
 		try {
-			if (opener && printingtools.prefs.getBoolPref("extensions.printingtools.process.add_p7m_vcf_attach")) {
+			if (opener && printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach")) {
 				var attList = opener.document.getElementById("attachmentList");
 				if (attList) {
 					var atts = attList.childNodes;
@@ -896,7 +896,7 @@ var printingtools = {
 								comma = ", ";
 							if (Array.isArray)
 								attDiv = atts[i].label;
-							if (printingtools.prefs.getBoolPref("extensions.printingtools.process.attachments_with_icon")) {
+							if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon")) {
 								// Services.console.logStringMessage("print attachment icons");
 								var imgSrc = printingtools.findIconSrc(attDiv);				
 								attDiv = '<nobr><img src="'+imgSrc+'" class="attIcon">&nbsp;'+attDiv+"</nobr>";
@@ -913,7 +913,7 @@ var printingtools = {
 		if (newTD) 
 			printingtools.appendAttTD(newTD);
 		printingtools.sortHeaders();
-		if (printingtools.prefs.getBoolPref("extensions.printingtools.add_received_date"))
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
 			printingtools.appendReceivedTD();
 					
 		if (! String.trim) {

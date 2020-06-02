@@ -1,19 +1,22 @@
 var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
 
 function initPMDabpanel() {
-	document.getElementById("multipleCards").checked = prefs.getBoolPref("extensions.printingtools.addressbook.print_multiple_cards");
-	document.getElementById("PMDabmaxcompact").checked = prefs.getBoolPref("extensions.printingtools.addressbook.max_compact");
-	document.getElementById("PMDabsmallfont").checked = prefs.getBoolPref("extensions.printingtools.addressbook.use_custom_font_size");
-	document.getElementById("ABcustomFont").checked = prefs.getBoolPref("extensions.printingtools.addressbook.use_custom_font_family");
+
+    document.documentElement.style.setProperty("--groupbox-header-bg", "#f0f0f0");
+
+	document.getElementById("multipleCards").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards");
+	document.getElementById("PMDabmaxcompact").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.max_compact");
+	document.getElementById("PMDabsmallfont").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size");
+	document.getElementById("ABcustomFont").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family");
 	if (String.trim)
 		document.getElementById("PMDabnohead").collapsed = true;
 	else	
-		document.getElementById("PMDabnohead").checked = prefs.getBoolPref("extensions.printingtools.addressbook.hide_header_card");
-	document.getElementById("PMDabjustaddress").checked = prefs.getBoolPref("extensions.printingtools.addressbook.print_just_addresses");
-	document.getElementById("PMDcutnotes").checked = prefs.getBoolPref("extensions.printingtools.addressbook.cut_notes");
-	document.getElementById("PMDaddname").checked = prefs.getBoolPref("extensions.printingtools.addressbook.add_ab_name");
+		document.getElementById("PMDabnohead").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.hide_header_card");
+	document.getElementById("PMDabjustaddress").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_just_addresses");
+	document.getElementById("PMDcutnotes").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.cut_notes");
+	document.getElementById("PMDaddname").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.add_ab_name");
 	
-	var fontsize = prefs.getIntPref("extensions.printingtools.addressbook.custom_font_size");
+	var fontsize = prefs.getIntPref("extensions.printingtoolsng.addressbook.custom_font_size");
 	if (fontsize > 7 && fontsize < 19)
 		document.getElementById("ABfontsize").selectedIndex = fontsize - 8;
 	else
@@ -29,7 +32,7 @@ function initPMDabpanel() {
 		var menuitem = document.createElement("menuitem");
 		menuitem.setAttribute("value", allfonts[j]);
 		menuitem.setAttribute("label", allfonts[j]);
-		if (prefs.getPrefType("extensions.printingtools.addressbook.font_family") > 0 && allfonts[j] == prefs.getCharPref("extensions.printingtools.addressbook.font_family")) {
+		if (prefs.getPrefType("extensions.printingtoolsng.addressbook.font_family") > 0 && allfonts[j] == prefs.getCharPref("extensions.printingtoolsng.addressbook.font_family")) {
 			selindex = j;
 		}
 		popup.appendChild(menuitem);
@@ -40,18 +43,18 @@ function initPMDabpanel() {
 }
     
 function savePMDabprefs(fullpanel)  {
-	prefs.setBoolPref("extensions.printingtools.addressbook.max_compact", document.getElementById("PMDabmaxcompact").checked);
-	prefs.setBoolPref("extensions.printingtools.addressbook.use_custom_font_size", document.getElementById("PMDabsmallfont").checked);
-	prefs.setBoolPref("extensions.printingtools.addressbook.hide_header_card", document.getElementById("PMDabnohead").checked);
-	prefs.setBoolPref("extensions.printingtools.addressbook.print_just_addresses", document.getElementById("PMDabjustaddress").checked);
-	prefs.setIntPref("extensions.printingtools.addressbook.custom_font_size", document.getElementById("ABfontsize").selectedItem.label);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.max_compact", document.getElementById("PMDabmaxcompact").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size", document.getElementById("PMDabsmallfont").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.hide_header_card", document.getElementById("PMDabnohead").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.print_just_addresses", document.getElementById("PMDabjustaddress").checked);
+	prefs.setIntPref("extensions.printingtoolsng.addressbook.custom_font_size", document.getElementById("ABfontsize").selectedItem.label);
 	var fontlistchild = document.getElementById("ABfontlist").getElementsByTagName("menuitem");
 	var selfont = fontlistchild[document.getElementById("ABfontlist").selectedIndex].getAttribute("value")
-	prefs.setCharPref("extensions.printingtools.addressbook.font_family", selfont);
-	prefs.setBoolPref("extensions.printingtools.addressbook.use_custom_font_family", document.getElementById("ABcustomFont").checked);
-	prefs.setBoolPref("extensions.printingtools.addressbook.cut_notes", document.getElementById("PMDcutnotes").checked);
-	prefs.setBoolPref("extensions.printingtools.addressbook.add_ab_name", document.getElementById("PMDaddname").checked);
-	prefs.setBoolPref("extensions.printingtools.addressbook.print_multiple_cards", document.getElementById("multipleCards").checked);
+	prefs.setCharPref("extensions.printingtoolsng.addressbook.font_family", selfont);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family", document.getElementById("ABcustomFont").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.cut_notes", document.getElementById("PMDcutnotes").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.add_ab_name", document.getElementById("PMDaddname").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards", document.getElementById("multipleCards").checked);
 	if (document.getElementById("PMDabsmallfont") && opener.printingtools) {
 		var isContact = opener.printingtools.isContact;
 		opener.close();
@@ -66,3 +69,12 @@ function savePMDabprefs(fullpanel)  {
 			win.AbPrintPreviewCard();
 	}
 }
+
+
+document.addEventListener("dialogaccept", function (event) {
+	savePMDabprefs();
+});
+
+window.addEventListener("load", function (event) {
+	initPMDabpanel();
+});
