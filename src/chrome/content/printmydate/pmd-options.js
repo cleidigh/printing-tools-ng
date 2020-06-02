@@ -9,6 +9,7 @@ var strBundleService = Components.classes["@mozilla.org/intl/stringbundle;1"]
 var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
 var fullPanel;
 var fromPreview;
+var gheaderList;
 
 function getComplexPref(pref) {
 	if (prefs.getStringPref)
@@ -100,7 +101,7 @@ function initPMDpanel() {
 	var xID = "x" + prefs.getIntPref("extensions.printingtools.messages.size");
 	document.getElementById("fontsize").selectedItem = document.getElementById(xID);
 
-	document.getElementById("citeColor").color = prefs.getCharPref("extensions.printingtools.cite.color");
+	// document.getElementById("citeColor").color = prefs.getCharPref("extensions.printingtools.cite.color");
 	document.getElementById("citeColor").value = prefs.getCharPref("extensions.printingtools.cite.color");
 	document.getElementById("citeCheck").checked = prefs.getBoolPref("extensions.printingtools.cite.style");
 
@@ -137,12 +138,12 @@ function initPMDpanel() {
 	};
 
 	var options = {
-		valueNames: ['headerName', { data: ['id'] }],
+		valueNames: ['headerName',  { data: ['id', 'headerToken'] }],
 		item: '<tr class="list-row"><td class="headerName"></td></tr>',
 	};
 
-	var headerList = new List('headersListContainer', options);
-	headerList.controler = new ListController(headerList, { onSelectedCB: this.onSelectListRow });
+	gheaderList = new List('headersListContainer', options);
+	gheaderList.controller = new ListController(gheaderList, { onSelectedCB: this.onSelectListRow });
 	
 	//   var list = document.getElementById("headersList");
 	var order = prefs.getCharPref("extensions.printingtools.headers.order");
@@ -153,19 +154,11 @@ function initPMDpanel() {
 	console.debug(u);
 	for (var i = 0; i < u.length; i++) {
 		var lab = getHeaderLabel(u[i]);
-		// 	list.appendItem(lab, u[i]);
-		// let e = document.createXULElement("label");
-		// e.value = `${lab} : ${u[i]}`;
-		headerList.add({ headerName: lab , data: `header${lab}`});
-
-
-		Services.console.logStringMessage("header " + lab);
+		gheaderList.add({ headerName: lab, headerToken: u[i], id: i+1});
+		// Services.console.logStringMessage("header " + lab);
 	}
-	var firstHeader = headerList.rows.index(0);
-	let id = firstHeader.getAttribute("data-id");
-	Services.console.logStringMessage("data-id " + id);
-	Services.console.logStringMessage(headerList.outerHTML);
-	headerList.controller.selectRowByDataId(id);
+	gheaderList.controller.selectRowByDataId('1');
+	Services.console.logStringMessage(document.getElementById('headersList').outerHTML);
 
 }
 
@@ -237,7 +230,7 @@ function savePMDprefs() {
 
 	var size = document.getElementById("citeSize").selectedItem.id.replace("s", "");
 	prefs.setIntPref("extensions.printingtools.cite.size", size);
-	prefs.setCharPref("extensions.printingtools.cite.color", document.getElementById("citeColor").color);
+	prefs.setCharPref("extensions.printingtools.cite.color", document.getElementById("citeColor").value);
 	prefs.setBoolPref("extensions.printingtools.cite.style", document.getElementById("citeCheck").checked);
 	prefs.setBoolPref("extensions.printingtools.process.attachments_with_icon", document.getElementById("PMDattachIcon").checked);
 
@@ -254,10 +247,10 @@ function savePMDprefs() {
 	var list = document.getElementById("headersList");
 	var val = "";
 	for (var i = 0; i < 6; i++) {
-		var item = list.getItemAtIndex(i);
-		val = val + item.value + ",";
+		var item = list.rows.item(i);
+		val = val + item.getAttribute("data-headerToken") + ",";
 	}
-	val = val + list.getItemAtIndex(6).value;
+	val = val + list.rows.item(6).getAttribute("data-headerToken");
 	prefs.setCharPref("extensions.printingtools.headers.order", val);
 	prefs.setBoolPref("extensions.printingtools.process.add_p7m_vcf_attach", document.getElementById("addP7M").checked);
 	if (fromPreview) {
@@ -273,7 +266,7 @@ function savePMDprefs() {
 	}
 }
 
-function move(offset) {
+function move2(offset) {
 	var list = document.getElementById("headersList");
 	var pos = list.selectedIndex;
 	if ((pos == 0 && offset > 0) || (pos == (list.itemCount - 1) && offset < 0))
@@ -284,6 +277,48 @@ function move(offset) {
 	var item = list.removeItemAt(list.currentIndex);
 	var newitem = list.insertItemAt(newpos, label, value);
 	list.selectedIndex = newpos;
+}
+
+function move(offset) {
+	var listElement = gheaderList.list;
+	var selectedID = gheaderList.controller.getSelectedRowDataId();
+	if (selectedID === '1' && offset > 1 || selectedID === listElement.rows.length && offset < 0) {
+		Services.console.logStringMessage("move out of range");
+		return;
+	}
+
+	var selectedElement = gheaderList.controller.getSelectedRowElement();
+	var swapElement;
+	if (offset === 1) {
+		swapElement = selectedElement.previousElementSibling;
+		
+	} else {
+		swapElement = selectedElement.nextElementSibling;
+	}
+     
+	Services.console.logStringMessage("move");
+	Services.console.logStringMessage(listElement.outerHTML);
+	Services.console.logStringMessage(swapElement.outerHTML);
+	selectedElement.remove();
+	// listElement.deleteRow(Number(swapElement.getAttribute("data-id")-1));
+	Services.console.logStringMessage(listElement.outerHTML);
+	Services.console.logStringMessage(selectedElement.outerHTML);
+	if (offset === 1) {
+		listElement.insertBefore( selectedElement, swapElement);
+		
+	} else {
+		Services.console.logStringMessage("insert after");
+		swapElement.parentNode.insertBefore(selectedElement, swapElement.nextSibling);
+		// listElement.insertAfter(selectedElement, swapElement);
+		Services.console.logStringMessage("insert after2");
+	}
+	// selectedElement.appendChild(swapElement);
+	Services.console.logStringMessage(listElement.outerHTML);
+	gheaderList.reindex();
+	selectedElement.setAttribute("data-id", selectedID - 1);
+	swapElement.setAttribute("data-id", selectedID + 1);
+	gheaderList.controller.selectRowByDataId(selectedID - 1);
+	Services.console.logStringMessage(listElement.outerHTML);
 }
 
 function toggleCiteStyle(el) {

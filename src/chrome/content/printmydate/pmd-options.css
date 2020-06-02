@@ -1,6 +1,15 @@
+.table-list-hboxcontainer  {
+	border: .6px solid;
+	width: inherit;
+
+}
+
+.table-list {
+width: 100%;
+}
 
   .table-list th {
-	border-right: .6px solid #d2d2d2;
+	border-bottom: .6px solid #d2d2d2;
 	height: 14px;
 	/* font-style: normal; */
 	font-weight: 500;
@@ -34,6 +43,7 @@
 }
 
 
+}
 
 .list-row:hover, .list-row:focus {
   background-color: #cce8ff;

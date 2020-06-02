@@ -52,7 +52,7 @@ class ListController {
 		var selectedRow = this.list_container.querySelector(selector);
 		if (selectedRow) {
 			selectedRow.classList.add('selected-row');
-			this.list_container.setAttribute('selected-index', data_id);
+			this.listElement.setAttribute('selected-index', data_id);
 			this.list_container.focus();
 			console.debug('set focus');
 		} else {
@@ -178,7 +178,8 @@ class ListController {
 	onBlur(event) {
 		let relatedTarget = event.relatedTarget;
 		Services.console.logStringMessage(relatedTarget.id);
-
+		return;
+		
 		if (relatedTarget.id === "newButtonNBD" || relatedTarget.id === "editButtonNBD" || relatedTarget.id === "deleteButtonNBD") {
 			return;
 		}

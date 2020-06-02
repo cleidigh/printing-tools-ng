@@ -1,6 +1,6 @@
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
-Services.console.logStringMessage("printing");
+// Services.console.logStringMessage("printing");
 
 function ReplaceWithSelection() {
 	// disables the native function in TB 3.1, that prints
@@ -18,8 +18,6 @@ var printingtools = {
 	strBundleService : Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService),
 	
 	loadContentListener : function() {
-		Services.console.logStringMessage("printingListener");
-		console.debug('ContentList');
 		window.removeEventListener("DOMContentLoaded", printingtools.loadContentListener, false);
 		printingtools.current = 0;
 		var contentEl = document.getElementById("content");
@@ -341,7 +339,7 @@ var printingtools = {
 	},
 
 	correctLayout : function() {
-		Services.console.logStringMessage("correctly layout");
+		// Services.console.logStringMessage("correct layout");
 		printingtools.doc = window.content.document;
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtools.headers.maxchars");
@@ -427,16 +425,10 @@ var printingtools = {
 			table3.setAttribute("style","display:none !important");
 
 		var borders = printingtools.prefs.getBoolPref("extensions.printingtools.headers.setborders");
-		Services.console.logStringMessage("borders " + borders);
+		// Services.console.logStringMessage("borders " + borders);
 		if (! noheaders)
 			printingtools.addName(borders);
-		Services.console.logStringMessage("before check selection");
-		
-		console.debug('opener');
-		console.debug(opener);
-		console.debug(opener.content);
-		console.debug('after oc');
-
+		// Services.console.logStringMessage("before check selection");
 		
 		try {
 		var sel = opener.content.getSelection();
@@ -459,9 +451,8 @@ var printingtools = {
 			if (hideImg  || printingtools.prefs.getBoolPref("extensions.printingtools.images.resize")) 
 				printingtools.setIMGstyle(hideImg);
 		}
-		Services.console.logStringMessage("before attachments");
+		// Services.console.logStringMessage("before attachments");
 		if (printingtools.prefs.getBoolPref("extensions.printingtools.process.attachments")) {
-			Services.console.logStringMessage("process attachments");
 			printingtools.rewriteAttList();
 		} else
 			printingtools.sortHeaders();
@@ -630,11 +621,9 @@ var printingtools = {
 			
 		}
 		catch(e) {}
-		Services.console.logStringMessage("finished name");
 	},		
 
 	setIMGstyle : function(hide) {
-		Services.console.logStringMessage("set image style");
 		var imgs = printingtools.doc.getElementsByTagName("img");
 		for (i=0;i<imgs.length;i++) {
 			if (imgs[i].getAttribute("class") != "attIcon") {
@@ -707,7 +696,7 @@ var printingtools = {
 	},
 
 	setTableBorders : function(noExtHeaders) {
-		Services.console.logStringMessage("printing set borders");
+		// Services.console.logStringMessage("printing set borders");
 		var hpref = printingtools.prefs.getIntPref("mail.show_headers");
 		var table1 = printingtools.getTable(0);
 		var table2 = printingtools.getTable(1);
@@ -807,7 +796,6 @@ var printingtools = {
 	appendAttTD : function(newTD) {
 		if (! newTD.innerHTML)
 			return;
-		Services.console.logStringMessage("print attachment table");
 		var bundle = printingtools.strBundleService.createBundle("chrome://printmydate/locale/printmydate.properties");
 		var headtable1 = printingtools.getTable(0);
 		var newTR = printingtools.doc.createElement("TR");
@@ -822,8 +810,6 @@ var printingtools = {
 	},
 
 	rewriteAttList :function() {
-		Services.console.logStringMessage("print rewriteattachment icons");
-		console.debug('RewriteAttachmentsList');
 		var bundle = printingtools.strBundleService.createBundle("chrome://printmydate/locale/printmydate.properties");
 		var firsttime = true;
 		var counter = 0;
@@ -911,8 +897,7 @@ var printingtools = {
 							if (Array.isArray)
 								attDiv = atts[i].label;
 							if (printingtools.prefs.getBoolPref("extensions.printingtools.process.attachments_with_icon")) {
-								Services.console.logStringMessage("print attachment icons");
-								console.debug('AttachmentIcons');
+								// Services.console.logStringMessage("print attachment icons");
 								var imgSrc = printingtools.findIconSrc(attDiv);				
 								attDiv = '<nobr><img src="'+imgSrc+'" class="attIcon">&nbsp;'+attDiv+"</nobr>";
 							}
@@ -951,14 +936,9 @@ var printingtools = {
 	},
 
 	findIconSrc : function(filename) {
-		Services.console.logStringMessage("printing find icons " + filename);
-		console.debug('icon ' + filename);
 		var url;
 		var ext = filename.substring(filename.lastIndexOf("&")-3);
-		Services.console.logStringMessage("printing find icons extension1 " + ext);
-		console.debug('extension ' + ext);
 		ext = ext.substring(0,3).toLowerCase();
-		Services.console.logStringMessage("printing find icons extension2 " + ext);
 
 		switch(ext) {
 			case "doc":

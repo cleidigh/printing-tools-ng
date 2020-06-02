@@ -1,9 +1,7 @@
 <?xml version="1.0"?> 
 <!DOCTYPE dialog [ 
-
 <!ENTITY % mainDTD SYSTEM "chrome://printmydate/locale/printmydate.dtd">
 %mainDTD;
-
 ]>
 
 <?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
@@ -14,7 +12,7 @@
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 		xmlns:html="http://www.w3.org/1999/xhtml"
-        title="PrintingTools NG v0.1.0-b4">
+        title="PrintingTools NG v0.1.0-b5">
 
 		<script type="text/javascript"  src="chrome://printmydate/content/pmd-options.js" />
 		<script type="text/javascript"  src="chrome://printmydate/content/pmd-ABoptions.js" />
@@ -151,7 +149,7 @@
  		<hbox align="center">
 			<checkbox label="&cite.checkbox;" oncommand="setTimeout(toggleCiteStyle,300,this)" id="citeCheck" />
 			<label value="&cite.color;" style="margin:5px"/> 
-			<colorpicker id="citeColor" type="button" value="#FFFFFF" color="#FFFFFF" />
+			<html:input type="color" id="citeColor" value="#ffffff"/>
 			<label value="&cite.size;" style="margin:5px"/> 
 			<menulist id="citeSize" style="width:70px" disabled="true">
 			<menupopup>
@@ -178,22 +176,17 @@
 	<tabpanel>
 		<hbox>
 		<vbox>
-		<html:div id="headersListContainer" tabindex="0">
-		<label id="headersListHeader" value="&headers;" />
+		<html:div id="headersListContainer" tabindex="0" class="table-list-hboxcontainer">
+		<!-- <label id="headersListHeader" value="&headers;" /> -->
 		<html:table id="headersList" class="list table-list" >
-		<!-- 
-		<html:tr>
-		<html:td class="headerName">TestHeader</html:td>
-		</html:trk>
-		 -->
+		<html:thead>
+		<html:th class="headersListHeader">&headers;</html:th>
+		</html:thead>
+
 		</html:table>
 		
 		</html:div>
-		<!-- 
-		<listbox id="headersList">
-			<listhead><listheader label="&headers;" disabled="true"></listheader></listhead>
-		</listbox>
-		 -->
+		<spacer height="5px"/>
 		<label value="&otherHeaders;" />
 		</vbox>
 		<vbox>
