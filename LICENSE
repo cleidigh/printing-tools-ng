@@ -1,14 +1,14 @@
 /*
-	ImportExportTools NG is a derivative extension for Thunderbird 60+
-	providing import and export tools for messages and folders.
+	PrintingTools NG is a derivative extension for Thunderbird 68+
+	providing printing tools for messages and address book contacts.
 	The derivative extension authors:
-		Copyright (C) 2019 : Christopher Leidigh, The Thunderbird Team
+		Copyright (C) 2020 : Christopher Leidigh, The Thunderbird Team
 
-	The original extension & derivatives, ImportExportTools, by Paolo "Kaosmos",
+	The original extension & derivatives, PrintingTools, by Paolo "Kaosmos",
 	is covered by the GPLv3 open-source license (see LICENSE file).
 		Copyright (C) 2007 : Paolo "Kaosmos"
 
-	ImportExportTools NG is free software: you can redistribute it and/or modify
+	PrintingTools NG is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.

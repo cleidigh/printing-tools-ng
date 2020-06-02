@@ -1,14 +1,14 @@
 {
     "manifest_version": 2,
     "name": "PrintingTools NG",
-    "version": "0.1.0-b6",
-    "description": "Message Printing Tools NG",
+    "version": "0.1.0-b7",
+    "description": "Message & Address Printing Tools NG",
     "author": "Christopher Leidigh",
     "xpi-name": "printing-tools-ng",
     "applications": {
         "gecko": {
             "id": "PrintingToolsNG@cleidigh.kokkini.net",
-            "strict_min_version": "60.0",
+            "strict_min_version": "68.0",
             "strict_max_version": "72.*"
         }
     },
@@ -17,5 +17,10 @@
             "page": "chrome://printmydate/content/pmd-options.xul",
             "open_in_tab": false
         }
+    },
+    "icons": {
+        "64": "chrome/content/printmydate/icons/printing-tools-ng-icon-64px.png",
+        "32": "chrome/content/printmydate/icons/printing-tools-ng-icon-32px.png"
     }
+ 
 }
