@@ -12,22 +12,22 @@
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 		xmlns:html="http://www.w3.org/1999/xhtml"
-        title="PrintingTools NG v0.1.0-b7">
+        title="PrintingTools NG v0.1.0-b8">
 
 		<script type="text/javascript"  src="chrome://printmydate/content/pmd-options.js" />
-		<script type="text/javascript"  src="chrome://printmydate/content/pmd-ABoptions.js" />
+		<!-- <script type="text/javascript"  src="chrome://printmydate/content/pmd-ABoptions.js" /> -->
 			<script type="application/x-javascript" src="chrome://printmydate/content/modules/list.controller.js" />
 		<script type="text/javascript"  src="chrome://printmydate/content/modules/List.js" />
 
-<tabbox>
+<tabbox id="ptng-tbox">
 	<tabs>
- 		<tab label="&misc;" selected="true"/>
+ 		<tab id="miscTab" label="&misc;" />
 		<tab label="&style;" />
 		<tab label="&order;" />
 		<tab label="&PMDcaptionlabel2;" />
 		<tab id="abTab" label="&PMDcaptionlabel3;" />
 	</tabs>
-   	<tabpanels>
+   	<tabpanels id="tabs">
 	<tabpanel orient="vertical">
 	<groupbox>
 	<caption label="&PMDcaptionlabel;" />   
@@ -176,8 +176,8 @@
 	<tabpanel>
 		<hbox>
 		<vbox>
+
 		<html:div id="headersListContainer" tabindex="0" class="table-list-hboxcontainer">
-		<!-- <label id="headersListHeader" value="&headers;" /> -->
 		<html:table id="headersList" class="list table-list" >
 		<html:thead>
 		<html:th class="headersListHeader">&headers;</html:th>
@@ -207,6 +207,7 @@
 	</tabpanel>
 	
 	<tabpanel>
+	
 		<vbox>
 		<hbox align="center">
 			<checkbox id="PMDabsmallfont" label="&PMDlabel12;" />
@@ -229,6 +230,7 @@
 	<hbox>
 		<checkbox id="ABcustomFont" label="&PMDlabel18; " />
 		<menulist id="ABfontlist" style="width:200px"/>
+		<!-- <menulist id="fontlist2" style="width:200px"/> -->
 	</hbox>
     <hbox align="center">
         <checkbox id="PMDabnohead" label="&PMDlabel13;" prefstring="extensions.printingtoolsng.addressbook.hide_header_card"/> 

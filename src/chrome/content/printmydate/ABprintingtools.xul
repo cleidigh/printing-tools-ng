@@ -3,16 +3,11 @@
 <overlay id="printmydate"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-<script type="application/x-javascript">
- <![CDATA[
-	function openPTdialog() {
-		openDialog("chrome://printmydate/content/pmd-ABoptions.xul","","chrome,centerscreen");
-	}
-]]>
-</script>
-		 
+<script type="text/javascript"  src="chrome://printmydate/content/printingtoolsng-overlay.js" />
+
 <menupopup id="menu_FilePopup">
-	<menuitem label="&PMDmenuitem;" insertafter="printAddressBook" oncommand="openPTdialog()"/>
+	<menuitem label="&PMDmenuitem;" insertafter="printAddressBook" oncommand="openPTdialog(true)"/>
 </menupopup>
+
 
 </overlay>

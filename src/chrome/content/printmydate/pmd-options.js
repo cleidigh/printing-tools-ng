@@ -2,11 +2,11 @@ var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 Services.console.logStringMessage("printing options");
 
-var PMDstr = Components.classes["@mozilla.org/supports-string;1"]
-	.createInstance(Components.interfaces.nsISupportsString);
-var strBundleService = Components.classes["@mozilla.org/intl/stringbundle;1"]
-	.getService(Components.interfaces.nsIStringBundleService);
-var prefs = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+var PMDstr = Cc["@mozilla.org/supports-string;1"]
+	.createInstance(Ci.nsISupportsString);
+var strBundleService = Cc["@mozilla.org/intl/stringbundle;1"]
+	.getService(Ci.nsIStringBundleService);
+var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
 var fullPanel;
 var fromPreview;
 var gheaderList;
@@ -15,7 +15,7 @@ function getComplexPref(pref) {
 	if (prefs.getStringPref)
 		return prefs.getStringPref(pref);
 	else
-		return prefs.getComplexValue(pref, Components.interfaces.nsISupportsString).data;
+		return prefs.getComplexValue(pref, Ci.nsISupportsString).data;
 }
 
 function setComplexPref(pref, value) {
@@ -23,23 +23,39 @@ function setComplexPref(pref, value) {
 		prefs.setStringPref(pref, value);
 	else {
 		PMDstr.data = value;
-		prefs.setComplexValue(pref, Components.interfaces.nsISupportsString, PMDstr);
+		prefs.setComplexValue(pref, Ci.nsISupportsString, PMDstr);
 	}
 }
 
 function initPMDpanel() {
-	if (window.arguments && window.arguments[0])
-		fromPreview = window.arguments[0];
+	Services.console.logStringMessage("printing options init");
+	var abook = false;
+
+	if (window.arguments) {
+		fromPreview = window.arguments[0] || false;
+		abook = window.arguments[1] || false;
+		Services.console.logStringMessage("printing options arguments 0" + fromPreview + ' ' + abook);
+	}
 	else
 		fromPreview = false;
-	if (opener.location.href.indexOf("messenger.xul") > -1) {
-		fullPanel = false;
-		document.getElementById("abTab").setAttribute("collapsed", "true");
+
+	var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
+		.getService(Ci.nsIWindowMediator);
+	var win = wm.getMostRecentWindow("mail:addressbook");
+	if (win) {
+		abook = true;
 	}
-	else {
-		fullPanel = true;
-		initPMDabpanel();
+
+	Services.console.logStringMessage("printing options arguments " + fromPreview + ' ' + abook + ' ' + win);
+
+	Services.console.logStringMessage("printing options href " + opener.location.href);
+
+	if (abook) {
+		document.getElementById("ptng-tbox").selectedIndex = 4;
 	}
+
+	fullPanel = true;
+	initPMDabpanel2();
 
 	var bundle = strBundleService.createBundle("chrome://printmydate/locale/printmydate.properties");
 	if (Array.isArray) {
@@ -106,7 +122,7 @@ function initPMDpanel() {
 	document.getElementById("citeCheck").checked = prefs.getBoolPref("extensions.printingtoolsng.cite.style");
 
 	var fontlist = document.getElementById("fontlist");
-	var fonten = Components.classes["@mozilla.org/gfx/fontenumerator;1"].createInstance(Components.interfaces.nsIFontEnumerator);
+	var fonten = Cc["@mozilla.org/gfx/fontenumerator;1"].createInstance(Ci.nsIFontEnumerator);
 	var allfonts = fonten.EnumerateAllFonts({});
 	var selindex = 0;
 	var popup = document.createXULElement("menupopup");
@@ -138,13 +154,13 @@ function initPMDpanel() {
 	};
 
 	var options = {
-		valueNames: ['headerName',  { data: ['id', 'headerToken'] }],
+		valueNames: ['headerName', { data: ['id', 'headerToken'] }],
 		item: '<tr class="list-row"><td class="headerName"></td></tr>',
 	};
 
 	gheaderList = new List('headersListContainer', options);
 	gheaderList.controller = new ListController(gheaderList, { onSelectedCB: this.onSelectListRow });
-	
+
 	//   var list = document.getElementById("headersList");
 	var order = prefs.getCharPref("extensions.printingtoolsng.headers.order");
 	var u = order.split(",");
@@ -154,11 +170,54 @@ function initPMDpanel() {
 	console.debug(u);
 	for (var i = 0; i < u.length; i++) {
 		var lab = getHeaderLabel(u[i]);
-		gheaderList.add({ headerName: lab, headerToken: u[i], id: i+1});
+		gheaderList.add({ headerName: lab, headerToken: u[i], id: i + 1 });
 		// Services.console.logStringMessage("header " + lab);
 	}
 	gheaderList.controller.selectRowByDataId('1');
-	Services.console.logStringMessage(document.getElementById('headersList').outerHTML);
+	// Services.console.logStringMessage(document.getElementById('headersList').outerHTML);
+
+}
+
+function initPMDabpanel2() {
+
+	document.getElementById("multipleCards").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards");
+	document.getElementById("PMDabmaxcompact").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.max_compact");
+	document.getElementById("PMDabsmallfont").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size");
+	document.getElementById("ABcustomFont").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family");
+	if (String.trim)
+		document.getElementById("PMDabnohead").collapsed = true;
+	else
+		document.getElementById("PMDabnohead").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.hide_header_card");
+	document.getElementById("PMDabjustaddress").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_just_addresses");
+	document.getElementById("PMDcutnotes").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.cut_notes");
+	document.getElementById("PMDaddname").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.add_ab_name");
+
+	var fontlist = document.getElementById("ABfontlist");
+	var fonten = Cc["@mozilla.org/gfx/fontenumerator;1"].createInstance(Ci.nsIFontEnumerator);
+	var allfonts = fonten.EnumerateAllFonts({});
+	var selindex = 0;
+	var popup = document.createXULElement("menupopup");
+
+	for (var j = 0; j < allfonts.length; j++) {
+		var menuitem = document.createXULElement("menuitem");
+		menuitem.setAttribute("value", allfonts[j]);
+		menuitem.setAttribute("label", allfonts[j]);
+		if (prefs.getPrefType("extensions.printingtoolsng.addressbook.font_family") > 0 &&
+			allfonts[j] == getComplexPref("extensions.printingtoolsng.addressbook.font_family")) {
+			selindex = j;
+		}
+		popup.appendChild(menuitem);
+	}
+	fontlist.appendChild(popup);
+	fontlist.selectedIndex = selindex;
+
+
+	document.getElementById("ABcustomFont").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family");
+	var fontsize = prefs.getIntPref("extensions.printingtoolsng.addressbook.custom_font_size");
+	if (fontsize > 7 && fontsize < 19)
+		document.getElementById("ABfontsize").selectedIndex = fontsize - 8;
+	else
+		document.getElementById("ABfontsize").selectedIndex = 2;
 
 }
 
@@ -198,7 +257,7 @@ function getHeaderLabel(string) {
 
 function savePMDprefs() {
 	if (fullPanel)
-		savePMDabprefs(true);
+		savePMDabprefs2(true);
 
 	if (document.getElementById("PREtruncate").checked)
 		var max_pre_len = document.getElementById("PREmaxchars").value;
@@ -256,8 +315,8 @@ function savePMDprefs() {
 	if (fromPreview) {
 		try {
 			opener.close();
-			var wm = Components.classes["@mozilla.org/appshell/window-mediator;1"]
-				.getService(Components.interfaces.nsIWindowMediator);
+			var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
+				.getService(Ci.nsIWindowMediator);
 			var win = wm.getMostRecentWindow("mail:3pane");
 			if (win)
 				win.PrintEnginePrintPreview();
@@ -265,6 +324,41 @@ function savePMDprefs() {
 		catch (e) { }
 	}
 }
+
+function savePMDabprefs2(fullpanel) {
+	Services.console.logStringMessage("printing options ab save 2");
+
+
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.max_compact", document.getElementById("PMDabmaxcompact").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size", document.getElementById("PMDabsmallfont").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.hide_header_card", document.getElementById("PMDabnohead").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.print_just_addresses", document.getElementById("PMDabjustaddress").checked);
+	prefs.setIntPref("extensions.printingtoolsng.addressbook.custom_font_size", document.getElementById("ABfontsize").selectedItem.label);
+
+	var fontlistchild = document.getElementById("ABfontlist").getElementsByTagName("menuitem");
+	var selfont = fontlistchild[document.getElementById("ABfontlist").selectedIndex].getAttribute("value")
+	prefs.setCharPref("extensions.printingtoolsng.addressbook.font_family", selfont);
+
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family", document.getElementById("ABcustomFont").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.cut_notes", document.getElementById("PMDcutnotes").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.add_ab_name", document.getElementById("PMDaddname").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards", document.getElementById("multipleCards").checked);
+	if (document.getElementById("PMDabsmallfont") && opener.printingtools) {
+		var isContact = opener.printingtools.isContact;
+		opener.close();
+		var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
+			.getService(Ci.nsIWindowMediator);
+		var win = wm.getMostRecentWindow("mail:addressbook");
+		if (!win)
+			return;
+		if (!isContact)
+			win.AbPrintPreviewAddressBook();
+		else
+			win.AbPrintPreviewCard();
+	}
+	Services.console.logStringMessage("printing options ab saved 2");
+}
+
 
 function move2(offset) {
 	var list = document.getElementById("headersList");
@@ -291,11 +385,11 @@ function move(offset) {
 	var swapElement;
 	if (offset === 1) {
 		swapElement = selectedElement.previousElementSibling;
-		
+
 	} else {
 		swapElement = selectedElement.nextElementSibling;
 	}
-     
+
 	Services.console.logStringMessage("move");
 	Services.console.logStringMessage(listElement.outerHTML);
 	Services.console.logStringMessage(swapElement.outerHTML);
@@ -304,8 +398,8 @@ function move(offset) {
 	Services.console.logStringMessage(listElement.outerHTML);
 	Services.console.logStringMessage(selectedElement.outerHTML);
 	if (offset === 1) {
-		listElement.insertBefore( selectedElement, swapElement);
-		
+		listElement.insertBefore(selectedElement, swapElement);
+
 	} else {
 		Services.console.logStringMessage("insert after");
 		swapElement.parentNode.insertBefore(selectedElement, swapElement.nextSibling);

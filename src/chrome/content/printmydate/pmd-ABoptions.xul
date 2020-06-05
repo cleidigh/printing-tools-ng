@@ -13,7 +13,7 @@
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         title="PrintingTools NG">
-
+<!-- 
 <script type="text/javascript"  src="chrome://printmydate/content/pmd-ABoptions.js" />
 
 <groupbox class="groupbox-multi-os">
@@ -41,7 +41,7 @@
     </hbox>
 	<hbox>
 		<checkbox id="ABcustomFont" label="&PMDlabel18; " />
-		<menulist id="ABfontlist" style="width:200px"/>
+		<menulist id="ABfontlist2" style="width:200px"/>
 	</hbox>
     <hbox align="center">
         <checkbox id="PMDabnohead" label="&PMDlabel13;" prefstring="extensions.printingtoolsng.addressbook.hide_header_card"/> 
@@ -61,6 +61,6 @@
 	<hbox align="center">
         <checkbox id="multipleCards" label="&multipleCards.label;" /> 
     </hbox>
-</groupbox>
+</groupbox> -->
 
 </dialog>
