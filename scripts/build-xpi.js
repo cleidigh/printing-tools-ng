@@ -51,7 +51,12 @@ if (fs.existsSync(`${targetDir}/${targetName}`)) {
 	fs.unlinkSync(`${targetDir}/${targetName}`);
 }
 
-const installRDFVersion = xml_util.rdfGetValue(`${sourceDir}/install.rdf`, 'Description[\"em:version\"]');
+var ignoreInstallRDF = true;
+var installRDFVersion = null;
+
+if (!ignoreInstallRDF) {
+	installRDFVersion = xml_util.rdfGetValue(`${sourceDir}/install.rdf`, 'Description[\"em:version\"]');
+}
 const manifestVersion = loadJsonFile.sync(`${sourceDir}/manifest.json`).version;
 const manifestName = loadJsonFile.sync(`${sourceDir}/manifest.json`)["xpi-name"];
 const ignoreFile = (includeManifest ? null : `-x!${sourceDir}/manifest.json`);
@@ -61,7 +66,7 @@ const extraFiles = ['LICENSE'];
 
 console.log('\nVersioning:\n  Target:\t\t' + targetVersion + '\n  install.rdf:\t\t' + installRDFVersion + '\n  manifest.json:\t' + manifestVersion);
 
-if (installRDFVersion !== targetVersion) {
+if (!ignoreInstallRDF && installRDFVersion !== targetVersion) {
 	console.log(`\nVersion Mismatch: [Error]\n  install.rdf: ${installRDFVersion} != package.json: ${targetVersion}`);
 	return 1;
 }

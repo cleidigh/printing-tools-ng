@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "PrintingTools NG",
     "version": "0.1.0-b9",
-    "description": "Message & Address Printing Tools NG",
+    "description": "__MSG_extensionDescription__",
     "author": "Christopher Leidigh",
     "xpi-name": "printing-tools-ng",
     "applications": {
@@ -21,6 +21,7 @@
     "icons": {
         "64": "chrome/content/printmydate/icons/printing-tools-ng-icon-64px.png",
         "32": "chrome/content/printmydate/icons/printing-tools-ng-icon-32px.png"
-    }
+    },
+    "default_locale": "en_US"
  
 }
