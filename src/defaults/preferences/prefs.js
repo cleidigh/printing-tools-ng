@@ -33,7 +33,7 @@ pref("extensions.printingtoolsng.headers.add_name_type", 0);
 pref("extensions.printingtoolsng.change_branch", true);
 pref("extensions.printingtoolsng.headers.align", true);
 pref("extensions.printingtoolsng.addressbook.print_multiple_cards", true);
-pref("extensions.{5e9999c2-ba1d-44b6-bcee-5b30ce37d3b0}.description", "chrome://printmydate/locale/printmydate.properties");
+pref("extensions.PrintingToolsNG@cleidigh.kokkini.net.description", "chrome://printmydate/locale/printmydate.properties");
 pref("extensions.printingtoolsng.pre_max_length", 90);
 pref("extensions.printingtoolsng.images.resize", true);
 pref("extensions.printingtoolsng.show_options_button", true);
