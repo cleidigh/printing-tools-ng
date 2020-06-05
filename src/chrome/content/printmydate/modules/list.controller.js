@@ -1,5 +1,5 @@
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
-  
+
 class ListController {
 
 	constructor(list, options) {
@@ -9,16 +9,16 @@ class ListController {
 			ENTER: 13,
 			TAB: 8,
 		};
-	
+
 		this.list = list;
 		this.listElement = list.list;
 		this.listId = 99;
-		
+
 		this.list_container = list.listContainer;
-		
+
 		this.onSelectedCB = options.onSelectedCB;
 
-		
+
 		// Services.console.logStringMessage('listContainer '+this.list_container.id);
 		// Services.console.logStringMessage('list Call '+this.onSelectedCB);
 
@@ -39,11 +39,11 @@ class ListController {
 			}
 			return;
 		}
-		
+
 		var selector = 'tr.selected-row';
 		var selectedRow = this.list_container.querySelector(selector);
 		if (selectedRow) {
-			console.debug('selected well '+selectedRow.outerHTML);
+			console.debug('selected well ' + selectedRow.outerHTML);
 			selectedRow.classList.remove('selected-row');
 		}
 
@@ -80,13 +80,13 @@ class ListController {
 	}
 
 	// Event handlers
- 	onClick(event) {
+	onClick(event) {
 		// Services.console.logStringMessage('Click');
 		var selector = 'tr'
 		var closestRow = event.target.closest(selector)
 		if (!closestRow) return
 		var data_id = closestRow.getAttribute('data-id')
-		console.log("clickRow "+data_id);
+		console.log("clickRow " + data_id);
 		this.listElement.setAttribute('selected-index', data_id);
 		selector = 'tr.selected-row';
 		var selectedRow = this.listElement.querySelector(selector);
@@ -117,7 +117,7 @@ class ListController {
 			if (this.onSelectedCB) {
 				this.onSelectedCB(event, "1");
 			}
-	
+
 			return;
 		}
 
@@ -129,12 +129,10 @@ class ListController {
 
 			case this.Keys.DOWN:
 				if (!selectedRow) {
-					Services.console.logStringMessage('NoSelectedRow');
 					break;
 				}
 				let nextRow = this.getNextSibling(selectedRow, 'tr.list-row');
 				if (!nextRow) {
-					Services.console.logStringMessage('NoNextRow');
 					break;
 				}
 				selectedRow.classList.remove('selected-row');
@@ -142,10 +140,9 @@ class ListController {
 				data_id = nextRow.getAttribute('data-id')
 				this.listElement.setAttribute('selected-index', data_id);
 				if (this.onSelectedCB) {
-					Services.console.logStringMessage("onSelectListRow callBack");
 					this.onSelectedCB(event, data_id);
 				}
-		
+
 				break;
 			case this.Keys.UP:
 				let previousRow = this.getPreviousSibling(selectedRow, 'tr.list-row');
@@ -162,7 +159,7 @@ class ListController {
 
 				break;
 			case this.Keys.ENTER:
-				Services.console.logStringMessage('Select');
+				// Services.console.logSSavetringMessage('Select');
 				break;
 
 			default:
@@ -177,9 +174,8 @@ class ListController {
 
 	onBlur(event) {
 		let relatedTarget = event.relatedTarget;
-		Services.console.logStringMessage(relatedTarget.id);
 		return;
-		
+
 		if (relatedTarget.id === "newButtonNBD" || relatedTarget.id === "editButtonNBD" || relatedTarget.id === "deleteButtonNBD") {
 			return;
 		}
@@ -220,7 +216,6 @@ class ListController {
 		// If the sibling matches our selector, use it
 		// If not, jump to the next sibling and continue the loop
 		while (sibling) {
-			Services.console.logStringMessage(sibling.outerHTML);
 			if (sibling.matches(selector)) return sibling;
 			sibling = sibling.nextElementSibling
 		}

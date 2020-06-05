@@ -1,7 +1,5 @@
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
-Services.console.logStringMessage("printingtools script load ");
-
 function ReplaceWithSelection() {
 	// disables the native function in TB 3.1, that prints
 	// selection without headers
@@ -32,7 +30,6 @@ var printingtools = {
 			button.setAttribute("label", bundle.GetStringFromName("options"));
 			box.appendChild(button);
 			contentEl.parentNode.insertBefore(box, contentEl.nextSibling);
-			Services.console.logStringMessage("printingtools button ");
 		}
 	},
 
@@ -44,15 +41,7 @@ var printingtools = {
 	},
 
 	openDialog: function (fromPreview) {
-		// if (printingtools.isAB) {
-		// 	Services.console.logStringMessage("printingtools options ab load ");
-
-		// 	openDialog("chrome://printmydate/content/pmd-ABoptions.xul", "", "chrome,centerscreen", fromPreview);
-		// } else {
-		// 	Services.console.logStringMessage("printingtools options pm load ");
-		// 	openDialog("chrome://printmydate/content/pmd-options.xul", "", "chrome,centerscreen", fromPreview);
-		// }
-
+		
 		openDialog("chrome://printmydate/content/pmd-options.xul", "", "chrome,centerscreen", fromPreview, printingtools.isAB);
 
 	},
@@ -347,14 +336,12 @@ var printingtools = {
 	},
 
 	correctLayout: function () {
-		Services.console.logStringMessage("correct layout");
 		printingtools.doc = window.content.document;
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 		// If there is some "GeneratedName" tag, so we're printing from addressbook
 		if (gennames.length > 0) {
 			printingtools.isAB = true;
-			Services.console.logStringMessage("correct layout " + printingtools.isAB);
 
 			if (gennames.length == 1)
 				printingtools.isContact = true;
@@ -435,10 +422,8 @@ var printingtools = {
 			table3.setAttribute("style", "display:none !important");
 
 		var borders = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.setborders");
-		// Services.console.logStringMessage("borders " + borders);
 		if (!noheaders)
 			printingtools.addName(borders);
-		// Services.console.logStringMessage("before check selection");
 
 		try {
 			var sel = opener.content.getSelection();
@@ -461,7 +446,7 @@ var printingtools = {
 			if (hideImg || printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.resize"))
 				printingtools.setIMGstyle(hideImg);
 		}
-		// Services.console.logStringMessage("before attachments");
+
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments")) {
 			printingtools.rewriteAttList();
 		} else
@@ -706,7 +691,6 @@ var printingtools = {
 	},
 
 	setTableBorders: function (noExtHeaders) {
-		// Services.console.logStringMessage("printing set borders");
 		var hpref = printingtools.prefs.getIntPref("mail.show_headers");
 		var table1 = printingtools.getTable(0);
 		var table2 = printingtools.getTable(1);
@@ -907,7 +891,6 @@ var printingtools = {
 						if (Array.isArray)
 							attDiv = atts[i].label;
 						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon")) {
-							// Services.console.logStringMessage("print attachment icons");
 							var imgSrc = printingtools.findIconSrc(attDiv);
 							attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon">&nbsp;' + attDiv + "</nobr>";
 						}

@@ -1,11 +1,16 @@
-var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+/* globals
+List,
+ListController,
 
-Services.console.logStringMessage("printing options");
+*/
+
+var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 var PMDstr = Cc["@mozilla.org/supports-string;1"]
 	.createInstance(Ci.nsISupportsString);
-var strBundleService = Cc["@mozilla.org/intl/stringbundle;1"]
-	.getService(Ci.nsIStringBundleService);
+
+var strBundleService = Services.strings;
+
 var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
 var fullPanel;
 var fromPreview;
@@ -14,8 +19,7 @@ var gheaderList;
 function getComplexPref(pref) {
 	if (prefs.getStringPref)
 		return prefs.getStringPref(pref);
-	else
-		return prefs.getComplexValue(pref, Ci.nsISupportsString).data;
+	return prefs.getComplexValue(pref, Ci.nsISupportsString).data;
 }
 
 function setComplexPref(pref, value) {
@@ -28,15 +32,12 @@ function setComplexPref(pref, value) {
 }
 
 function initPMDpanel() {
-	Services.console.logStringMessage("printing options init");
 	var abook = false;
 
 	if (window.arguments) {
 		fromPreview = window.arguments[0] || false;
 		abook = window.arguments[1] || false;
-		Services.console.logStringMessage("printing options arguments 0" + fromPreview + ' ' + abook);
-	}
-	else
+	} else
 		fromPreview = false;
 
 	var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
@@ -46,16 +47,12 @@ function initPMDpanel() {
 		abook = true;
 	}
 
-	Services.console.logStringMessage("printing options arguments " + fromPreview + ' ' + abook + ' ' + win);
-
-	Services.console.logStringMessage("printing options href " + opener.location.href);
-
 	if (abook) {
 		document.getElementById("ptng-tbox").selectedIndex = 4;
 	}
 
 	fullPanel = true;
-	initPMDabpanel2();
+	initPMDabpanel();
 
 	var bundle = strBundleService.createBundle("chrome://printmydate/locale/printmydate.properties");
 	if (Array.isArray) {
@@ -107,7 +104,7 @@ function initPMDpanel() {
 		document.getElementById("PREmaxchars").value = max_pre_len;
 	}
 
-	if (prefs.getPrefType("print.always_print_silent") != 0 && prefs.getBoolPref("print.always_print_silent"))
+	if (prefs.getPrefType("print.always_print_silent") !== 0 && prefs.getBoolPref("print.always_print_silent"))
 		document.getElementById("PMDsilent").checked = true;
 	else
 		document.getElementById("PMDsilent").checked = false;
@@ -132,7 +129,7 @@ function initPMDpanel() {
 		menuitem.setAttribute("value", allfonts[j]);
 		menuitem.setAttribute("label", allfonts[j]);
 		if (prefs.getPrefType("extensions.printingtoolsng.messages.font_family") > 0 &&
-			allfonts[j] == getComplexPref("extensions.printingtoolsng.messages.font_family")) {
+			allfonts[j] === getComplexPref("extensions.printingtoolsng.messages.font_family")) {
 			selindex = j;
 		}
 		popup.appendChild(menuitem);
@@ -171,14 +168,11 @@ function initPMDpanel() {
 	for (var i = 0; i < u.length; i++) {
 		var lab = getHeaderLabel(u[i]);
 		gheaderList.add({ headerName: lab, headerToken: u[i], id: i + 1 });
-		// Services.console.logStringMessage("header " + lab);
 	}
 	gheaderList.controller.selectRowByDataId('1');
-	// Services.console.logStringMessage(document.getElementById('headersList').outerHTML);
-
 }
 
-function initPMDabpanel2() {
+function initPMDabpanel() {
 
 	document.getElementById("multipleCards").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards");
 	document.getElementById("PMDabmaxcompact").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.max_compact");
@@ -203,7 +197,7 @@ function initPMDabpanel2() {
 		menuitem.setAttribute("value", allfonts[j]);
 		menuitem.setAttribute("label", allfonts[j]);
 		if (prefs.getPrefType("extensions.printingtoolsng.addressbook.font_family") > 0 &&
-			allfonts[j] == getComplexPref("extensions.printingtoolsng.addressbook.font_family")) {
+			allfonts[j] === getComplexPref("extensions.printingtoolsng.addressbook.font_family")) {
 			selindex = j;
 		}
 		popup.appendChild(menuitem);
@@ -222,12 +216,10 @@ function initPMDabpanel2() {
 }
 
 function onSelectListRow(event, data_id) {
-	Services.console.logStringMessage("onSelectListRow call " + event.type + " " + data_id);
 	if (event.type === 'onclick') {
 		// miczThunderStatsPrefPanel.onNBDItemClick(event, data_id);
 
 	} else {
-		Services.console.logStringMessage("enable buttons");
 		// miczThunderStatsPrefPanel.updateNBDButtons(window);
 	}
 }
@@ -257,12 +249,14 @@ function getHeaderLabel(string) {
 
 function savePMDprefs() {
 	if (fullPanel)
-		savePMDabprefs2(true);
+		savePMDabprefs(true);
 
+	var max_pre_len;
 	if (document.getElementById("PREtruncate").checked)
-		var max_pre_len = document.getElementById("PREmaxchars").value;
+		max_pre_len = document.getElementById("PREmaxchars").value;
 	else
-		var max_pre_len = -1;
+		max_pre_len = -1;
+
 	prefs.setIntPref("extensions.printingtoolsng.pre_max_length", max_pre_len);
 	prefs.setIntPref("extensions.printingtoolsng.headers.add_name_type", document.getElementById("addNameRG").selectedIndex);
 	prefs.setBoolPref("extensions.printingtoolsng.process.date", document.getElementById("PMDdate").checked);
@@ -320,14 +314,11 @@ function savePMDprefs() {
 			var win = wm.getMostRecentWindow("mail:3pane");
 			if (win)
 				win.PrintEnginePrintPreview();
-		}
-		catch (e) { }
+		} catch (e) { }
 	}
 }
 
-function savePMDabprefs2(fullpanel) {
-	Services.console.logStringMessage("printing options ab save 2");
-
+function savePMDabprefs(fullpanel) {
 
 	prefs.setBoolPref("extensions.printingtoolsng.addressbook.max_compact", document.getElementById("PMDabmaxcompact").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size", document.getElementById("PMDabsmallfont").checked);
@@ -336,7 +327,7 @@ function savePMDabprefs2(fullpanel) {
 	prefs.setIntPref("extensions.printingtoolsng.addressbook.custom_font_size", document.getElementById("ABfontsize").selectedItem.label);
 
 	var fontlistchild = document.getElementById("ABfontlist").getElementsByTagName("menuitem");
-	var selfont = fontlistchild[document.getElementById("ABfontlist").selectedIndex].getAttribute("value")
+	var selfont = fontlistchild[document.getElementById("ABfontlist").selectedIndex].getAttribute("value");
 	prefs.setCharPref("extensions.printingtoolsng.addressbook.font_family", selfont);
 
 	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family", document.getElementById("ABcustomFont").checked);
@@ -356,14 +347,13 @@ function savePMDabprefs2(fullpanel) {
 		else
 			win.AbPrintPreviewCard();
 	}
-	Services.console.logStringMessage("printing options ab saved 2");
 }
 
 
 function move2(offset) {
 	var list = document.getElementById("headersList");
 	var pos = list.selectedIndex;
-	if ((pos == 0 && offset > 0) || (pos == (list.itemCount - 1) && offset < 0))
+	if ((pos === 0 && offset > 0) || (pos === (list.itemCount - 1) && offset < 0))
 		return;
 	var label = list.currentItem.label;
 	var value = list.currentItem.value;
@@ -377,7 +367,6 @@ function move(offset) {
 	var listElement = gheaderList.list;
 	var selectedID = gheaderList.controller.getSelectedRowDataId();
 	if (selectedID === '1' && offset > 1 || selectedID === listElement.rows.length && offset < 0) {
-		Services.console.logStringMessage("move out of range");
 		return;
 	}
 
@@ -390,29 +379,16 @@ function move(offset) {
 		swapElement = selectedElement.nextElementSibling;
 	}
 
-	Services.console.logStringMessage("move");
-	Services.console.logStringMessage(listElement.outerHTML);
-	Services.console.logStringMessage(swapElement.outerHTML);
 	selectedElement.remove();
-	// listElement.deleteRow(Number(swapElement.getAttribute("data-id")-1));
-	Services.console.logStringMessage(listElement.outerHTML);
-	Services.console.logStringMessage(selectedElement.outerHTML);
 	if (offset === 1) {
 		listElement.insertBefore(selectedElement, swapElement);
-
 	} else {
-		Services.console.logStringMessage("insert after");
 		swapElement.parentNode.insertBefore(selectedElement, swapElement.nextSibling);
-		// listElement.insertAfter(selectedElement, swapElement);
-		Services.console.logStringMessage("insert after2");
 	}
-	// selectedElement.appendChild(swapElement);
-	Services.console.logStringMessage(listElement.outerHTML);
 	gheaderList.reindex();
 	selectedElement.setAttribute("data-id", selectedID - 1);
 	swapElement.setAttribute("data-id", selectedID + 1);
 	gheaderList.controller.selectRowByDataId(selectedID - 1);
-	Services.console.logStringMessage(listElement.outerHTML);
 }
 
 function toggleCiteStyle(el) {
