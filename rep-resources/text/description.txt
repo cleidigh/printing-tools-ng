@@ -1,0 +1,31 @@
+
+PrintingTools NG provides numerous layout and formatting options for
+printing messages, the address books and individual contacts.  It is
+a fork and update of the original PrintingTools extension.  Currently
+the extension supports Thunderbird 68-72 with the intention of ultimately
+converting to a full MailExtension for 78+.
+
+The following are the main enhancements provided by PrintingTools NG, 
+see the options for additional features.
+
+Options & Menus:
+- Options access from the Tools/Add-on options
+- Printing Options menu added to File menus
+- Optional "Printing Options" but added to Print Preview window
+
+Message Layout & Formatting:
+- Add message header border
+- Add Username, Folder or custom title
+- Hide standard or extended headers
+- Reorder standard headers
+- Add for the attachment table to header with icons
+- Hide inline attachments
+- Configure font family and size
+- Highlight quoted text color, font and size
+- Print selected text only
+
+AddressBook & Contact Layout & Formatting:
+- Configure font family and size
+- Compact printing format option
+- Print name and e-mail only
+- Remove "Card For" from entries
