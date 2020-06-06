@@ -77,8 +77,6 @@ width: 100%;
 }
 
 
-}
-
 .list-row:hover, .list-row:focus {
   background-color: #cce8ff;
   /* color: white; */
