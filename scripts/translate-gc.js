@@ -472,10 +472,10 @@ function t() {
 
 const originalLocales = [
 	'da-DK', 'de-DE',
-	'el',    'en-US',
+	'en-US',
 	'fr-FR', 'hu',
 	'it-IT', 'ja-JP',
-	'ko-KR', 'pt-BR',
+	'ko-KR', 'pt-PT',
 	'sk',    'sv-SE'
   ];
   

@@ -10,10 +10,10 @@ var printingtools = {
 
 	current: null,
 	num: null,
-	prefs: Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch),
+	prefs: Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch),
 	maxChars: null,
 
-	strBundleService: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService),
+	strBundleService: Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService),
 
 	loadContentListener: function () {
 		window.removeEventListener("DOMContentLoaded", printingtools.loadContentListener, false);
@@ -37,7 +37,7 @@ var printingtools = {
 		if (printingtools.prefs.getStringPref)
 			return printingtools.prefs.getStringPref(pref);
 		else
-			return printingtools.prefs.getComplexValue(pref, Components.interfaces.nsISupportsString).data;
+			return printingtools.prefs.getComplexValue(pref, Ci.nsISupportsString).data;
 	},
 
 	openDialog: function (fromPreview) {
@@ -150,16 +150,16 @@ var printingtools = {
 		if (gnLen == 1 && multipleCards) {
 			try {
 				// Get the selected cards from addressbook window
-				var abWin = Components.classes["@mozilla.org/appshell/window-mediator;1"].
-					getService(Components.interfaces.nsIWindowMediator).
+				var abWin = Cc["@mozilla.org/appshell/window-mediator;1"].
+					getService(Ci.nsIWindowMediator).
 					getMostRecentWindow("mail:addressbook");
 				var start = new Object();
 				var end = new Object();
 				var card;
 				var treeSelection = abWin.gAbView.selection;
 				var numRanges = treeSelection.getRangeCount();
-				var parser = Components.classes["@mozilla.org/xmlextras/domparser;1"]
-					.createInstance(Components.interfaces.nsIDOMParser);
+				var parser = Cc["@mozilla.org/xmlextras/domparser;1"]
+					.createInstance(Ci.nsIDOMParser);
 				var firstCard = true;
 
 				for (var t = 0; t < numRanges; t++) {
@@ -303,18 +303,18 @@ var printingtools = {
 
 	getHdr: function () {
 		var uris = window.arguments[1];
-		var m = Components.classes["@mozilla.org/messenger;1"]
-			.createInstance(Components.interfaces.nsIMessenger);
+		var m = Cc["@mozilla.org/messenger;1"]
+			.createInstance(Ci.nsIMessenger);
 		if (uris && uris[printingtools.current]) {
 			if (uris[printingtools.current].indexOf("file") == 0) {
 				// If we're printing a eml file, there is no nsIMsgHdr object, so we create an object just with properties
 				// used by the extension ("folder" and "dateInSeconds"), reading directly the file (needing just 1000 bytes)
 				var dummy = {};
 				dummy.folder = null;
-				var scriptableStream = Components.classes["@mozilla.org/scriptableinputstream;1"]
-					.getService(Components.interfaces.nsIScriptableInputStream);
-				var ioService = Components.classes["@mozilla.org/network/io-service;1"]
-					.getService(Components.interfaces.nsIIOService);
+				var scriptableStream = Cc["@mozilla.org/scriptableinputstream;1"]
+					.getService(Ci.nsIScriptableInputStream);
+				var ioService = Cc["@mozilla.org/network/io-service;1"]
+					.getService(Ci.nsIIOService);
 				var channel = ioService.newChannel(uris[printingtools.current], null, null);
 				var input = channel.open();
 				scriptableStream.init(input);
@@ -577,8 +577,8 @@ var printingtools = {
 				}
 				else {
 					try {
-						var myAccountManager = Components.classes["@mozilla.org/messenger/account-manager;1"].
-							getService(Components.interfaces.nsIMsgAccountManager);
+						var myAccountManager = Cc["@mozilla.org/messenger/account-manager;1"].
+							getService(Ci.nsIMsgAccountManager);
 						if (folder) {
 							var incServer = folder.server;
 							var identity = myAccountManager.getFirstIdentityForServer(incServer);

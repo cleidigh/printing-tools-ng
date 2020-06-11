@@ -12,7 +12,7 @@
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 		xmlns:html="http://www.w3.org/1999/xhtml"
-        title="PrintingTools NG v0.1.2">
+        title="PrintingTools NG v0.1.3-b2">
 
 		<script type="text/javascript"  src="chrome://printmydate/content/pmd-options.js" />
 		<script type="application/x-javascript" src="chrome://printmydate/content/modules/list.controller.js" />
