@@ -390,7 +390,7 @@ async function translateNew(srcLocaleFile, localeDir, format, overwrite) {
 			sourceFile = fs.readFileSync(sourceFileName, { encoding: 'utf8' });
 			// <!ENTITY defaultPrinter "Default Printer">
 			matches = [...sourceFile.matchAll(/<!ENTITY[\s+](.*?)\s"(.*?)"/g)];
-			console.debug(matches);
+			// console.debug(matches);
 			translationArray = matches.map(m => {
 				return {key: m[1], text: m[2]};
 			});
@@ -400,7 +400,7 @@ async function translateNew(srcLocaleFile, localeDir, format, overwrite) {
 		case 2:
 			sourceFile = fs.readFileSync(sourceFileName, { encoding: 'utf8' });
 			matches = [...sourceFile.matchAll(/(.*?)=(.*?)\n/g)];
-			console.debug(matches);
+			// console.debug(matches);
 			translationArray = matches.map(m => {
 				return {key: m[1], text: m[2]};
 			});
@@ -408,7 +408,7 @@ async function translateNew(srcLocaleFile, localeDir, format, overwrite) {
 		case 3:
 			var sourceJSON = fs.readJSONSync(sourceFileName);
 			var m = Object.entries(sourceJSON);
-			console.debug(m);
+			// console.debug(m);
 			translationArray = m.map(m => {
 				return {key: m[0], text: m[1].message};
 			});
@@ -419,7 +419,7 @@ async function translateNew(srcLocaleFile, localeDir, format, overwrite) {
 	}
 
 	
-	console.debug(translationArray);
+	// console.debug(translationArray);
 	var newLocales = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
 	 'hy-AM', 'it-IT', 'ja', 'ko-KR', 'nl', 'no', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN'];
 
@@ -442,8 +442,6 @@ async function translateAll() {
 	console.debug('Stop ' + (st - s) / 1000);
 }
 
-const localeFolders = _getAllFilesOrFolders(localeDir, true);
-console.debug(localeFolders);
 
 function t() {
 	let tb_locale = 'hu';
@@ -473,20 +471,32 @@ function t() {
 const originalLocales = [
 	'da-DK', 'de-DE',
 	'en-US',
-	'fr-FR', 'hu',
+	'fr-FR', 
 	'it-IT', 'ja-JP',
-	'ko-KR', 'pt-PT',
+	'pt-PT',
 	'sk',    'sv-SE'
   ];
   
 
+const localeFolders = _getAllFilesOrFolders(localeDir, true);
+console.debug(localeFolders);
+
+var l =	 localeFolders.map(f => `locale  printmydate    ${f}\t\tchrome/locale/${f}/`);
 var ignoreLocales = originalLocales;
+
+// var ignoreLocales = [];
+// for (e of l) {console.debug(e);}
+
+// console.debug(...l);
 
   // t();
 // translateHelpPage();
 // translatePage();
 // translateAll();
+// locale  printmydate     de-DE   chrome/locale/de-DE/
 
 
-translateNew("messages.json", _localeDir, 3, true);
+// translateNew("messages.json", _localeDir, 3, true);
+// translateNew("printmydate.dtd", localeDir, 1, true);
+translateNew("printmydate.properties", localeDir, 2, true);
 
