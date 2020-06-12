@@ -22,6 +22,6 @@
         "64": "chrome/content/printmydate/icons/printing-tools-ng-icon-64px.png",
         "32": "chrome/content/printmydate/icons/printing-tools-ng-icon-32px.png"
     },
-    "default_locale": "en_US"
+    "default_locale": "en-US"
  
 }
