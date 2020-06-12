@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Habilitar localización de fecha">
+<!ENTITY PMDlabel2 "Habilite la vista personalizada de la lista de archivos adjuntos">
+<!ENTITY PMDlabel3 "Establecer un borde alrededor de los encabezados">
+<!ENTITY PMDlabel4 "Ocultar los encabezados">
+<!ENTITY PMDlabel5 "Truncar las líneas de los encabezados más de aproximadamente">
+<!ENTITY PMDlabel6 "caracteres">
+<!ENTITY PMDlabel7 "Ocultar las imágenes">
+<!ENTITY PMDlabel8 "Imprimir sin la ventana de diálogo">
+<!ENTITY PMDlabel9 "Ocultar la barra de progreso de impresión">
+<!ENTITY PMDlabel10 "Ocultar archivos adjuntos en línea">
+<!ENTITY PMDlabel11 "Agregue el nombre de usuario a los encabezados">
+<!ENTITY PMDmenuitem "Opciones de impresión">
+<!ENTITY PMDcaptionlabel "Opciones para imprimir mensajes">
+<!ENTITY PMDcaptionlabel2 "Opciones de impresión global">
+<!ENTITY PMDlabel12 "Use fuentes con un tamaño en píxeles de">
+<!ENTITY PMDlabel13 "Ocultar el encabezado del contacto (&#39;Tarjeta para&#39;)">
+<!ENTITY PMDlabel14 "Inserte solo el nombre y las direcciones de correo electrónico">
+<!ENTITY PMDcaptionlabel3 "Opciones para imprimir la libreta de direcciones">
+<!ENTITY PMDlabel15 "Usar diseño compacto">
+<!ENTITY PMDlabel16 "Imprima solo la selección, cuando exista">
+<!ENTITY cite.checkbox "Use un estilo para el texto citado">
+<!ENTITY cite.color "Color:">
+<!ENTITY cite.size "Talla:">
+<!ENTITY PMDlabel17 "Agregar un ícono de tipo de archivo">
+<!ENTITY PMDlabel18 "Usar fuente:">
+<!ENTITY PMDlabel19 "Corte el campo &#39;Notas&#39; a 100 caracteres.">
+<!ENTITY PMDlabel20 "Agregar nombre y fecha de la libreta de direcciones">
+<!ENTITY style "Estilo">
+<!ENTITY PMDlabel21 "Ocultar encabezados siempre extendidos">
+<!ENTITY withSize "con talla">
+<!ENTITY forBody "para mensaje corporal">
+<!ENTITY forHeaders "solo para encabezados">
+<!ENTITY misc "Diverso">
+<!ENTITY order "Orden de encabezados">
+<!ENTITY headers "Encabezados">
+<!ENTITY up "Arriba">
+<!ENTITY down "Abajo">
+<!ENTITY otherHeaders "Otros encabezados, si están presentes, siguen">
+<!ENTITY PMDlabel22 "Agregue archivos adjuntos p7m y vCard">
+<!ENTITY PMDlabel23 "Agregar nombre de carpeta">
+<!ENTITY PMDlabel25 "Use el negro como color base para el texto">
+<!ENTITY long.label "UTC largo">
+<!ENTITY longLoc.label "largo y localizado">
+<!ENTITY short.label "corto">
+<!ENTITY date.label "Formato de fecha:">
+<!ENTITY addNameRG.label "Agregar antes de los encabezados:">
+<!ENTITY RG1.label "Nada">
+<!ENTITY RG2.label "Nombre de usuario">
+<!ENTITY alignHeaders.label "Alinear los encabezados">
+<!ENTITY multipleCards.label "Imprimir todos los contactos seleccionados">
+<!ENTITY maxPreLen "Ancho máximo para texto:">
+<!ENTITY showButton.label "Mostrar el botón de opciones en la ventana de vista previa">
+<!ENTITY resizeImgs.label "Cambiar el tamaño de las imágenes demasiado grandes">
+<!ENTITY addRdate.label "Agregar fecha de recepción">
+<!ENTITY defaultPrinter "Impresora predeterminada">

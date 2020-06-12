@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Aktivera anpassade datuminställningar">
+<!ENTITY PMDlabel2 "Aktivera anpassad vy för bilagelistan">
+<!ENTITY PMDlabel3 "Rita en kantlinje runt huvuden">
+<!ENTITY PMDlabel4 "Dölj huvuden">
+<!ENTITY PMDlabel5 "Trunkera huvudrader längre än">
+<!ENTITY PMDlabel6 "tecken">
+<!ENTITY PMDlabel7 "Dölj bilder">
+<!ENTITY PMDlabel8 "Skriv ut utan att öppna dialogrutan">
+<!ENTITY PMDlabel9 "Dölj utskriftsförloppsindikatorn">
+<!ENTITY PMDlabel10 "Dölj infogade bilagor">
+<!ENTITY PMDlabel11 "Lägg till användarnamn i huvuden">
+<!ENTITY PMDmenuitem "Utskriftsalternativ">
+<!ENTITY PMDcaptionlabel "Alternativ för meddelandeutskrift">
+<!ENTITY PMDcaptionlabel2 "Globala utskriftsalternativ">
+<!ENTITY PMDlabel12 "Teckensnitt: ">
+<!ENTITY PMDlabel13 "Dölj kontakthuvudet">
+<!ENTITY PMDlabel14 "Infoga endast namn och e-postadresser">
+<!ENTITY PMDcaptionlabel3 "Alternativ för adressboksutskrift">
+<!ENTITY PMDlabel15 "Använd kompakt layout">
+<!ENTITY PMDlabel16 "Skriv endast ut markering, när sådan finns">
+<!ENTITY cite.checkbox "Använd ett format för citerad text">
+<!ENTITY cite.color "Färg:">
+<!ENTITY cite.size "Storlek:">
+<!ENTITY PMDlabel17 "Lägg till en filtypsikon">
+<!ENTITY PMDlabel18 "Teckensnitt:">
+<!ENTITY PMDlabel19 "Trunkera fältet &quot;Anteckningar&quot; efter 100 tecken">
+<!ENTITY PMDlabel20 "Lägg till adressbokens namn och datum">
+<!ENTITY style "Format">
+<!ENTITY PMDlabel21 "Dölj alltid expanderade huvuden">
+<!ENTITY withSize "Teckenstorlek (px): ">
+<!ENTITY forBody "för brödtext">
+<!ENTITY forHeaders "endast för huvuden">
+<!ENTITY misc "Allmänt">
+<!ENTITY order "Ordna huvuden">
+<!ENTITY headers "Huvuden">
+<!ENTITY up "Uppåt">
+<!ENTITY down "Nedåt">
+<!ENTITY otherHeaders "Övriga huvuden, om sådana finns, placeras efter dessa">
+<!ENTITY PMDlabel22 "Lägg till p7m- och vCard-bilagor">
+<!ENTITY PMDlabel23 "Lägg till mappnamn">
+<!ENTITY PMDlabel25 "Använd svart som grundfärg för text">
+<!ENTITY long.label "långt">
+<!ENTITY longLoc.label "långt och språkanpassat">
+<!ENTITY short.label "kort">
+<!ENTITY date.label "Datumformat:">
+<!ENTITY addNameRG.label "Att infoga före huvuden:">
+<!ENTITY RG1.label "Ingenting">
+<!ENTITY RG2.label "Användarnamn">
+<!ENTITY alignHeaders.label "Justera huvuden">
+<!ENTITY multipleCards.label "Skriv ut alla markerade kontakter">
+<!ENTITY maxPreLen "Ange största tillåtna radlängd i textstycken:">
+<!ENTITY showButton.label "Via knappen &quot;Utskriftsalternativ&quot; i förhandsgranskningsfönstret">
+<!ENTITY resizeImgs.label "Ändra storlek på alltför stora bilder">
+<!ENTITY addRdate.label "Lägg till mottaget datum">
+<!ENTITY defaultPrinter "Standardskrivare">

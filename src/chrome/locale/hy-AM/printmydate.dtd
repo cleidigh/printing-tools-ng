@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Միացնել ամսաթիվը տեղայնացումը">
+<!ENTITY PMDlabel2 "Միացնել հավելվածների ցուցակի անհատական տեսքը">
+<!ENTITY PMDlabel3 "Սահմանեք վերնագրերի շուրջը">
+<!ENTITY PMDlabel4 "Թաքցրեք վերնագրերը">
+<!ENTITY PMDlabel5 "Կտրեք վերնագրերի տողերը ավելի շուտ, քան մոտ">
+<!ENTITY PMDlabel6 "բարեր">
+<!ENTITY PMDlabel7 "Թաքցնել պատկերները">
+<!ENTITY PMDlabel8 "Տպեք առանց երկխոսության պատուհանի">
+<!ENTITY PMDlabel9 "Թաքցրեք տպման առաջընթացի բարը">
+<!ENTITY PMDlabel10 "Թաքցրեք ներածված հավելվածները">
+<!ENTITY PMDlabel11 "Օգտագործողի անունը ավելացրեք վերնագրերին">
+<!ENTITY PMDmenuitem "Տպման ընտրանքներ">
+<!ENTITY PMDcaptionlabel "Հաղորդագրությունների տպագրման ընտրանքներ">
+<!ENTITY PMDcaptionlabel2 "Տպագրման համընդհանուր ընտրանքներ">
+<!ENTITY PMDlabel12 "Օգտագործեք տառատեսակներ, որոնց չափի պիքսել է">
+<!ENTITY PMDlabel13 "Թաքցնել կոնտակտային վերնագիրը (&#39;Քարտ&#39;)">
+<!ENTITY PMDlabel14 "Տեղադրեք պարզապես անուն և էլեկտրոնային հասցեներ">
+<!ENTITY PMDcaptionlabel3 "Հասցեների տպագրության ընտրանքներ">
+<!ENTITY PMDlabel15 "Օգտագործեք կոմպակտ դասավորությունը">
+<!ENTITY PMDlabel16 "Տպեք հենց ընտրությունը, երբ այն գոյություն ունի">
+<!ENTITY cite.checkbox "Օգտագործեք ոճը մեջբերված տեքստի համար">
+<!ENTITY cite.color "Գույն:">
+<!ENTITY cite.size "Չափը:">
+<!ENTITY PMDlabel17 "Ավելացնել filetype պատկերակ">
+<!ENTITY PMDlabel18 "Օգտագործեք տառատեսակը:">
+<!ENTITY PMDlabel19 "«Նշումներ» դաշտը կտրեք 100 նիշով">
+<!ENTITY PMDlabel20 "Ավելացնել հասցեագրքի անվանումը և ամսաթիվը">
+<!ENTITY style "Ոճը">
+<!ENTITY PMDlabel21 "Թաքցրեք միշտ ընդլայնված վերնագրերը">
+<!ENTITY withSize "չափերով">
+<!ENTITY forBody "մարմնի հաղորդագրության համար">
+<!ENTITY forHeaders "պարզապես վերնագրերի համար">
+<!ENTITY misc "Տարբեր">
+<!ENTITY order "Վերնագրերը պատվիրում են">
+<!ENTITY headers "Վերնագրեր">
+<!ENTITY up "Վեր">
+<!ENTITY down "Ներքև">
+<!ENTITY otherHeaders "Եթե այլ վերնագրեր, եթե առկա են, հետևում են">
+<!ENTITY PMDlabel22 "Ավելացնել p7m և vCard հավելվածներ">
+<!ENTITY PMDlabel23 "Ավելացնել թղթապանակի անունը">
+<!ENTITY PMDlabel25 "Տեքստի համար օգտագործեք սև որպես հիմնական գույն">
+<!ENTITY long.label "երկար UTC">
+<!ENTITY longLoc.label "երկար և տեղայնացված">
+<!ENTITY short.label "կարճ">
+<!ENTITY date.label "Ամսաթվի ձևաչափը.">
+<!ENTITY addNameRG.label "Վերնագրերից առաջ ավելացրեք.">
+<!ENTITY RG1.label "Ոչինչ">
+<!ENTITY RG2.label "Օգտագործողի անունը">
+<!ENTITY alignHeaders.label "Հավասարեցնել վերնագրերը">
+<!ENTITY multipleCards.label "Տպեք բոլոր ընտրված կոնտակտները">
+<!ENTITY maxPreLen "Տեքստի առավելագույն լայնությունը.">
+<!ENTITY showButton.label "Showույց տալ ընտրանքների կոճակը նախադիտման պատուհանում">
+<!ENTITY resizeImgs.label "Պատկերները չափափոխել շատ մեծ">
+<!ENTITY addRdate.label "Ավելացնել ստացված ամսաթիվը">
+<!ENTITY defaultPrinter "Լռելյայն տպիչ">

@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Datumlokalisatie inschakelen">
+<!ENTITY PMDlabel2 "Schakel een aangepaste weergave van de lijst met bijlagen in">
+<!ENTITY PMDlabel3 "Zet een rand rond de kopteksten">
+<!ENTITY PMDlabel4 "Verberg de kopteksten">
+<!ENTITY PMDlabel5 "Kort de kopteksten langer in dan ongeveer">
+<!ENTITY PMDlabel6 "tekens.">
+<!ENTITY PMDlabel7 "Verberg de afbeeldingen">
+<!ENTITY PMDlabel8 "Afdrukken zonder het dialoogvenster">
+<!ENTITY PMDlabel9 "Verberg de voortgangsbalk voor afdrukken">
+<!ENTITY PMDlabel10 "Verberg inline bijlagen">
+<!ENTITY PMDlabel11 "Voeg de gebruikersnaam toe aan de kopteksten">
+<!ENTITY PMDmenuitem "Afdrukopties">
+<!ENTITY PMDcaptionlabel "Opties voor het afdrukken van berichten">
+<!ENTITY PMDcaptionlabel2 "Wereldwijde afdrukopties">
+<!ENTITY PMDlabel12 "Gebruik lettertypen met een pixelgrootte van">
+<!ENTITY PMDlabel13 "Verberg de contactkop (&#39;Kaart voor&#39;)">
+<!ENTITY PMDlabel14 "Voer alleen de naam en e-mailadressen in">
+<!ENTITY PMDcaptionlabel3 "Opties voor het afdrukken van adresboeken">
+<!ENTITY PMDlabel15 "Gebruik een compacte lay-out">
+<!ENTITY PMDlabel16 "Alleen selectie afdrukken, als die bestaat">
+<!ENTITY cite.checkbox "Gebruik een stijl voor geciteerde tekst">
+<!ENTITY cite.color "Kleur:">
+<!ENTITY cite.size "Grootte:">
+<!ENTITY PMDlabel17 "Voeg een bestandstypepictogram toe">
+<!ENTITY PMDlabel18 "Lettertype gebruiken:">
+<!ENTITY PMDlabel19 "Snijd het veld &#39;Notes&#39; op 100 tekens">
+<!ENTITY PMDlabel20 "Voeg adresboeknaam en datum toe">
+<!ENTITY style "Stijl">
+<!ENTITY PMDlabel21 "Verberg altijd uitgebreide kopteksten">
+<!ENTITY withSize "met maat">
+<!ENTITY forBody "voor body-bericht">
+<!ENTITY forHeaders "alleen voor kopteksten">
+<!ENTITY misc "Diversen">
+<!ENTITY order "Headers bestellen">
+<!ENTITY headers "Kopteksten">
+<!ENTITY up "Omhoog">
+<!ENTITY down "Beneden">
+<!ENTITY otherHeaders "Andere headers, indien aanwezig, volgen">
+<!ENTITY PMDlabel22 "Voeg p7m- en vCard-bijlagen toe">
+<!ENTITY PMDlabel23 "Mapnaam toevoegen">
+<!ENTITY PMDlabel25 "Gebruik zwart als basiskleur voor tekst">
+<!ENTITY long.label "lange UTC">
+<!ENTITY longLoc.label "lang en gelokaliseerd">
+<!ENTITY short.label "kort">
+<!ENTITY date.label "Datumnotatie:">
+<!ENTITY addNameRG.label "Toevoegen vóór kopteksten:">
+<!ENTITY RG1.label "Niets">
+<!ENTITY RG2.label "Gebruikersnaam">
+<!ENTITY alignHeaders.label "Lijn de kopteksten uit">
+<!ENTITY multipleCards.label "Druk alle geselecteerde contacten af">
+<!ENTITY maxPreLen "Maximale breedte voor tekst:">
+<!ENTITY showButton.label "Toon de optieknop in het voorbeeldvenster">
+<!ENTITY resizeImgs.label "Verklein de afbeeldingen te groot">
+<!ENTITY addRdate.label "Ontvangen datum toevoegen">
+<!ENTITY defaultPrinter "Standaard printer">

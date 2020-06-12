@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Ενεργοποίηση εντοπισμού ημερομηνίας">
+<!ENTITY PMDlabel2 "Ενεργοποίηση προσαρμοσμένης προβολής της λίστας συνημμένων">
+<!ENTITY PMDlabel3 "Ορίστε ένα περίγραμμα γύρω από τις κεφαλίδες">
+<!ENTITY PMDlabel4 "Απόκρυψη των κεφαλίδων">
+<!ENTITY PMDlabel5 "Περικοπή των γραμμών των κεφαλίδων περισσότερο από περίπου">
+<!ENTITY PMDlabel6 "οστεοφυλάκιο.">
+<!ENTITY PMDlabel7 "Απόκρυψη των εικόνων">
+<!ENTITY PMDlabel8 "Εκτύπωση χωρίς το παράθυρο διαλόγου">
+<!ENTITY PMDlabel9 "Απόκρυψη της γραμμής προόδου εκτύπωσης">
+<!ENTITY PMDlabel10 "Απόκρυψη ενσωματωμένων συνημμένων">
+<!ENTITY PMDlabel11 "Προσθέστε το όνομα χρήστη στις κεφαλίδες">
+<!ENTITY PMDmenuitem "Επιλογές εκτύπωσης">
+<!ENTITY PMDcaptionlabel "Επιλογές για εκτύπωση μηνυμάτων">
+<!ENTITY PMDcaptionlabel2 "Καθολικές επιλογές εκτύπωσης">
+<!ENTITY PMDlabel12 "Χρησιμοποιήστε γραμματοσειρές με μέγεθος pixel">
+<!ENTITY PMDlabel13 "Απόκρυψη της κεφαλίδας επαφής («Κάρτα για»)">
+<!ENTITY PMDlabel14 "Εισαγάγετε απλώς όνομα και διευθύνσεις email">
+<!ENTITY PMDcaptionlabel3 "Επιλογές για εκτύπωση βιβλίου διευθύνσεων">
+<!ENTITY PMDlabel15 "Χρησιμοποιήστε συμπαγή διάταξη">
+<!ENTITY PMDlabel16 "Εκτύπωση μόνο επιλογής, όταν υπάρχει">
+<!ENTITY cite.checkbox "Χρησιμοποιήστε ένα στυλ για αναφερόμενο κείμενο">
+<!ENTITY cite.color "Χρώμα:">
+<!ENTITY cite.size "Μέγεθος:">
+<!ENTITY PMDlabel17 "Προσθέστε ένα εικονίδιο τύπου αρχείου">
+<!ENTITY PMDlabel18 "Χρήση γραμματοσειράς:">
+<!ENTITY PMDlabel19 "Κόψτε το πεδίο «Σημειώσεις» με 100 χαρακτήρες">
+<!ENTITY PMDlabel20 "Προσθέστε το όνομα και την ημερομηνία του βιβλίου διευθύνσεων">
+<!ENTITY style "Στυλ">
+<!ENTITY PMDlabel21 "Απόκρυψη πάντα εκτεταμένων κεφαλίδων">
+<!ENTITY withSize "με μέγεθος">
+<!ENTITY forBody "για μήνυμα σώματος">
+<!ENTITY forHeaders "μόνο για κεφαλίδες">
+<!ENTITY misc "Διάφορα">
+<!ENTITY order "Παραγγελία κεφαλίδων">
+<!ENTITY headers "Κεφαλίδες">
+<!ENTITY up "Πάνω">
+<!ENTITY down "Κάτω">
+<!ENTITY otherHeaders "Ακολουθούν και άλλες κεφαλίδες">
+<!ENTITY PMDlabel22 "Προσθέστε συνημμένα p7m και vCard">
+<!ENTITY PMDlabel23 "Προσθήκη ονόματος φακέλου">
+<!ENTITY PMDlabel25 "Χρησιμοποιήστε το μαύρο ως βασικό χρώμα για κείμενο">
+<!ENTITY long.label "μεγάλο UTC">
+<!ENTITY longLoc.label "μακρά και εντοπισμένη">
+<!ENTITY short.label "μικρός">
+<!ENTITY date.label "Μορφή ημερομηνίας:">
+<!ENTITY addNameRG.label "Προσθήκη πριν από τις κεφαλίδες:">
+<!ENTITY RG1.label "Τίποτα">
+<!ENTITY RG2.label "Ονομα χρήστη">
+<!ENTITY alignHeaders.label "Ευθυγραμμίστε τις κεφαλίδες">
+<!ENTITY multipleCards.label "Εκτυπώστε όλες τις επιλεγμένες επαφές">
+<!ENTITY maxPreLen "Μέγιστο πλάτος για κείμενο:">
+<!ENTITY showButton.label "Εμφάνιση του κουμπιού επιλογών στο παράθυρο προεπισκόπησης">
+<!ENTITY resizeImgs.label "Το μέγεθος του μεγέθους των εικόνων είναι πολύ μεγάλο">
+<!ENTITY addRdate.label "Προσθήκη ημερομηνίας λήψης">
+<!ENTITY defaultPrinter "Προεπιλεγμένος εκτυπωτής">

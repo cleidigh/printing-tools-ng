@@ -2,7 +2,18 @@
 
 ## Versions
 
-Version 0.1.1 : Base port - June 7, 2020
+Version 0.1.3 : Locale/printer - June 7, 2020
+
+- Full locale list (original and new)
+(hy) Armenian, (ca) Catalan, (zh-CN) Chinese (Simplified), 
+(da) Danish, (nl) Dutch, (en) English, (fi) Finnish, 
+(fr) French, (gl) Galician, (de) German, (el) Greek, 
+(hu) Hungarian, (it) Italian, (ja) Japanese, (ko) Korean,
+(no) Norwegian, (pl) Polish, (pt-PT) Portuguese (Portugal), 
+(ru) Russian, (sk) Slovak, (sl) Slovenian, (es) Spanish, 
+(sv) Swedish, (uk) Ukrainian
+
+Version 0.1.2 : Base port - June 7, 2020
 
 - Fix version string
 

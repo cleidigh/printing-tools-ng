@@ -1,0 +1,56 @@
+<!ENTITY PMDlabel1 "Deutschsprachiges Datumsformat verwenden">
+<!ENTITY PMDlabel2 "Listenformat der Anhänge optimieren">
+<!ENTITY PMDlabel3 "Rahmen um die Kopfzeilen zeichnen">
+<!ENTITY PMDlabel4 "Nachrichtenkopf komplett ausblenden">
+<!ENTITY PMDlabel5 "Nachrichtenkopf auf">
+<!ENTITY PMDlabel6 "Zeichen kürzen">
+<!ENTITY PMDlabel7 "Grafiken ausblenden">
+<!ENTITY PMDlabel8 "Ausdruck sofort starten (ohne Dialogfenster)">
+<!ENTITY PMDlabel9 "Fortschrittsanzeige ausblenden">
+<!ENTITY PMDlabel10 "Eingebundene Anhänge ausblenden">
+<!ENTITY PMDlabel11 "Ihren Namen über dem Nachrichtenkopf hinzufügen">
+<!ENTITY PMDmenuitem "Erweiterte Druckeinstellungen">
+<!ENTITY PMDcaptionlabel "Erweiterte Einstellungen für den Ausdruck von Nachrichten">
+<!ENTITY PMDcaptionlabel2 "Allgemeine Druckeinstellungen">
+<!ENTITY PMDlabel12 "Schriftgröße anwenden">
+<!ENTITY PMDlabel13 "Nachrichtenkopf von Kontakten ausblenden">
+<!ENTITY PMDlabel14 "Nur Namen und E-Mail-Adressen drucken">
+<!ENTITY PMDcaptionlabel3 "Druckeinstellungen für das Adressbuch">
+<!ENTITY PMDlabel15 "Kompaktes Layout verwenden">
+<!ENTITY PMDlabel16 "Nur markierten Text drucken">
+<!ENTITY cite.checkbox "Textstil für Zitate verwenden">
+<!ENTITY cite.color "Farbe:">
+<!ENTITY cite.size "Größe:">
+<!ENTITY PMDlabel17 "Symbole für Dateitypen anzeigen">
+<!ENTITY PMDlabel18 "Schriftart verwenden:">
+<!ENTITY PMDlabel19 "Nur die ersten 100 Zeichen des Feldes 'Notizen' ausdrucken">
+<!ENTITY PMDlabel20 "Name des Adressbuches und Datum ausdrucken">
+<!ENTITY style "Textstil">
+<!ENTITY PMDlabel21 "Erweiterten Nachrichtenkopf stets ausblenden">
+<!ENTITY withSize "mit Größe ">
+<!ENTITY forBody "für Nachrichteninhalt">
+<!ENTITY forHeaders "nur für Nachrichtenkopf">
+<!ENTITY misc "Verschiedenes">
+<!ENTITY order "Reihenfolge des Nachrichtenkopfs">
+<!ENTITY headers "Nachrichtenkopf">
+<!ENTITY up "Nach oben">
+<!ENTITY down "Nach unten">
+<!ENTITY otherHeaders "Weitere Felder folgen anschließend (falls vorhanden).">
+<!ENTITY PMDlabel22 "p7m und vCard anhängen">
+<!ENTITY PMDlabel23 "Ordnername hinzufügen">
+<!ENTITY PMDlabel24 "langes Datumsformat">
+<!ENTITY PMDlabel25 "Benutze schwarz als Standardfarbe für Text">
+<!ENTITY long.label "lang">
+<!ENTITY longLoc.label "lang und lokalisiert">
+<!ENTITY short.label "kurz">
+<!ENTITY date.label "Datumsformat:">
+<!ENTITY addNameRG.label "Vor den Kopfzeilen einfügen:">
+<!ENTITY RG1.label "Nichts">
+<!ENTITY RG2.label "Benutzername">
+<!ENTITY alignHeaders.label "Kopfzeilen ausrichten">
+<!ENTITY multipleCards.label "Alle ausgewählten Kontakte drucken">
+<!ENTITY maxPreLen "Maximallänge an die Zeilen der Textabschnitte anpassen:">
+<!ENTITY resizeImgs.label "Ändern Sie die Größe großer Bilder">
+<!ENTITY showButton.label "Zeigen Sie die Optionsschaltfläche im Vorschaufenster an">
+<!ENTITY addRdate.label "Empfangsdatum hinzufügen">
+<!ENTITY defaultPrinter "Standard Drucker">

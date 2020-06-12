@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Zobraziť lokalizovaný formát dátumu">
+<!ENTITY PMDlabel2 "Povoliť zobrazenie upraveného zoznamu príloh">
+<!ENTITY PMDlabel3 "Nastaviť orámovanie hlavičky">
+<!ENTITY PMDlabel4 "Skryť hlavičku">
+<!ENTITY PMDlabel5 "Skracovať riadky hlavičiek dlhšie ako">
+<!ENTITY PMDlabel6 "znakov">
+<!ENTITY PMDlabel7 "Skryť obrázky">
+<!ENTITY PMDlabel8 "Tlač bez použitia dialógového okna">
+<!ENTITY PMDlabel9 "Skryť zobrazenie priebehu tlače">
+<!ENTITY PMDlabel10 "Skryť prílohy obsiahnuté v správe">
+<!ENTITY PMDlabel11 "Pred hlavičky pridávať meno používateľa">
+<!ENTITY PMDmenuitem "Rozšírené nastavenie tlače">
+<!ENTITY PMDcaptionlabel "Možnosti tlače správ">
+<!ENTITY PMDcaptionlabel2 "Globálne nastavenia tlače">
+<!ENTITY PMDlabel12 "Používať malé písma">
+<!ENTITY PMDlabel13 "Skryť hlavičku kontaktu ('Karta pre')">
+<!ENTITY PMDlabel14 "Vložiť iba meno a e-mailovú adresu">
+<!ENTITY PMDcaptionlabel3 "Možnosti tlače adresára">
+<!ENTITY PMDlabel15 "Použiť kompaktný formát">
+<!ENTITY PMDlabel16 "Tlačiť len výber, ak existuje">
+<!ENTITY cite.checkbox "Použiť štýl pre citovaný text">
+<!ENTITY cite.color "Farba:">
+<!ENTITY cite.size "Veľkosť:">
+<!ENTITY PMDlabel17 "Pridať ikonu typu súboru">
+<!ENTITY PMDlabel18 "Použiť písmo:">
+<!ENTITY PMDlabel19 "Skrátiť pole poznámky na 100 znakov">
+<!ENTITY PMDlabel20 "Pridať meno a dátum z adresára">
+<!ENTITY style "Štýl">
+<!ENTITY PMDlabel21 "Skryť všetky rozšírené hlavičky">
+<!ENTITY withSize "veľkosti ">
+<!ENTITY forBody "pre telo správy">
+<!ENTITY forHeaders "len pre hlavičku">
+<!ENTITY misc "Všeobecné">
+<!ENTITY order "Poradie položiek">
+<!ENTITY headers "Hlavičky">
+<!ENTITY up "Hore">
+<!ENTITY down "Dole">
+<!ENTITY otherHeaders "Rôzne položky hlavičky usporiadať nasledovne">
+<!ENTITY PMDlabel22 "Pridať do prílohy vizitku vCard a súbor p7m">
+<!ENTITY PMDlabel23 "Pridať názov priečinka">
+<!ENTITY PMDlabel25 "Použiť čiernu, ako základnú farbu pre texty">
+<!ENTITY longLoc.label "dlhý a lokalizovaný">
+<!ENTITY short.label "krátky">
+<!ENTITY date.label "Formát dátumu:">
+<!ENTITY long.label "Dlhý formát">
+<!ENTITY addNameRG.label "Pridať do záhlavia:">
+<!ENTITY RG1.label "Nič">
+<!ENTITY RG2.label "Používateľské meno"> 
+<!ENTITY alignHeaders.label "Zarovnajte hlavičky">
+<!ENTITY multipleCards.label "Vytlačte všetky vybrané kontakty">
+<!ENTITY maxPreLen "Nastavenie maximálnej dĺžky riadkov v odseku:">
+<!ENTITY resizeImgs.label "Zmena veľkosti veľkých obrázkov">
+<!ENTITY showButton.label "Zobraziť tlačidlo možností v okne náhľadu">
+<!ENTITY addRdate.label "Pridať dátum prijatia">
+<!ENTITY defaultPrinter "Predvolená tlačiareň">

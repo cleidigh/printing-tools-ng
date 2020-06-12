@@ -1,0 +1,56 @@
+<!ENTITY PMDlabel1 "Habilita tradução da data">
+<!ENTITY PMDlabel2 "Habilita visão personalizada da lista de anexos">
+<!ENTITY PMDlabel3 "Mostra borda em volta do cabeçalho">
+<!ENTITY PMDlabel4 "Esconde o cabeçalho">
+<!ENTITY PMDlabel5 "Trunca linhas acima de ">
+<!ENTITY PMDlabel6 "caracteres.">
+<!ENTITY PMDlabel7 "Esconde as imagens">
+<!ENTITY PMDlabel8 "Imprime sem a janela de diálogo">
+<!ENTITY PMDlabel9 "Esconde a barra de progresso">
+<!ENTITY PMDlabel10 "Esconde os anexos internos">
+<!ENTITY PMDlabel11 "Adiciona o nome de usuário ao cabeçalho">
+<!ENTITY PMDmenuitem "Opções de impressão">
+<!ENTITY PMDcaptionlabel "Opções de impressão para mensagens">
+<!ENTITY PMDcaptionlabel2 "Opções globais de impressão">
+<!ENTITY PMDlabel12 "Usar fontes pequenas">
+<!ENTITY PMDlabel13 "Esconder o cartão de visita ('Cartão para')">
+<!ENTITY PMDlabel14 "Inserir somente nome e email do contato">
+<!ENTITY PMDcaptionlabel3 "Opções para impressão da lista de contatos">
+<!ENTITY PMDlabel15 "Usa layout compacto">
+<!ENTITY PMDlabel16 "Imprimir somente a seleção, quando ela existir"> 
+<!ENTITY cite.checkbox "Usa estilo para citações">
+<!ENTITY cite.color "Cor:">
+<!ENTITY cite.size "Tamanho:">
+<!ENTITY PMDlabel17 "Adiciona um icone de tipo de arquivo">
+<!ENTITY PMDlabel18 "Usa fonte:">
+<!ENTITY PMDlabel19 "Truncar o campo 'Notas' em 100 caracteres">
+<!ENTITY PMDlabel20 "Adiciona o nome do contato e a data">
+<!ENTITY style "Estilo">
+<!ENTITY PMDlabel21 "Sempre esconder os cabeçalhos estendidos">
+<!ENTITY withSize "com tamanho ">
+<!ENTITY forBody "para o corpo da mensagem">
+<!ENTITY forHeaders "Somente para cabeçalhos">
+<!ENTITY misc "Diversos">
+<!ENTITY order "Ordem dos cabeçalhos">
+<!ENTITY headers "Cabeçalhos">
+<!ENTITY up "Acima">
+<!ENTITY down "Abaixo">
+<!ENTITY otherHeaders "Outros cabeçalhos, se presente, continuam">
+<!ENTITY PMDlabel22 "Adicionar anexos p7m e vCard">
+<!ENTITY PMDlabel23 "Adicionar nome da pasta">
+<!ENTITY PMDlabel24 "Data no formato longo">
+<!ENTITY PMDlabel25 "Usar preto como cor básica do texto">
+<!ENTITY long.label "UTC longo">
+<!ENTITY longLoc.label "longo e localizado">
+<!ENTITY short.label "curto">
+<!ENTITY date.label "Formato da Data:">
+<!ENTITY addNameRG.label "Adicionar antes dos cabeçalhos:">
+<!ENTITY RG1.label "Nenhum">
+<!ENTITY RG2.label "Usuário">
+<!ENTITY alignHeaders.label "Alinhas cabeçalhos">
+<!ENTITY multipleCards.label "Imprimir todos os contatos selecionados">
+<!ENTITY maxPreLen "Largura máxima do texto:">
+<!ENTITY resizeImgs.label "Redimensionar imagens grandes">
+<!ENTITY showButton.label "Mostrar o botão de opções na janela de visualização">
+<!ENTITY addRdate.label "Adicionar data de recebimento">
+<!ENTITY defaultPrinter "Impressora padrão">

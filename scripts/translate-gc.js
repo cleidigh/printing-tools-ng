@@ -16,14 +16,19 @@ const translate = new Translate({ projectId, key });
 var translationArray = [
 	// { key: "dateFormatRefTooltipText", text: "Date Format Reference" },
 	// { key: "extFilenameFormatRefTooltipText", text: "Extended Filename Format Reference" },
-	{ key: "Received", text: "Received" },
+	{ key: "showButton.label", text: "Show the options button in the preview window" },
+	{ key: "addRdate.label", text: "Add received date" },
+	{ key: "defaultPrinter", text: "Default Printer" },
 ]
 
 // const localeDir = "../src/chrome/locale";
 const localeDir = "./src/chrome/locale";
-// const localeDir = "./locale";
-// const localeFile = "mboximport/mboximport.dtd";
-const localeFile = "mboximport/mboximport.properties";
+const _localeDir = "./src/_locales";
+// const localeFile = "printmydate/messages.json";
+// const localeFile = "printmydate/printmydate.properties";
+// const localeFile = "mboximport/mboximport.properties";
+var localeFile;
+
 const referenceLocaleId = "en";
 
 
@@ -177,7 +182,7 @@ async function translateAllLocales3(sourceArray, locales, format) {
 	}
 }
 
-async function translateAllLocales(sourceArray, locales, format) {
+async function translateAllLocales(sourceArray, localeDir, locales, format, overwrite) {
 	var sourceLocale = referenceLocaleId;
 
 	var promises = [];
@@ -188,14 +193,21 @@ async function translateAllLocales(sourceArray, locales, format) {
 
 	// console.debug(translate);
 
+	var ignoreShortLocales = ignoreLocales.map(l => l.toLowerCase().split('-')[0]);
+	console.debug(ignoreShortLocales);
+
 	for (let i = 0; i < locales.length; i++) {
 		var locale = locales[i].toLowerCase();
 		var shortLocale = locale.split('-')[0];
 
-		if (shortLocale === referenceLocaleId) {
+		if (shortLocale === referenceLocaleId || ignoreShortLocales.includes(shortLocale)) {
 			continue;
 		}
 
+		if (shortLocale === 'nb') {
+			shortLocale = 'nb-NO';
+		}
+		
 		// console.debug('Locale ' + locale + ' ' + translate.languages[locale]);
 		console.debug(locale + '\n');
 
@@ -207,12 +219,12 @@ async function translateAllLocales(sourceArray, locales, format) {
 		var sourceStrings = sourceArray.map(s => s.text);
 		sourceStrings.unshift(sourceIdentifier);
 		// text.push("test this");
-		// console.debug(sourceStrings);
+		console.debug(sourceStrings);
 		promises.push(translate.translate(sourceStrings, shortLocale)
 			// promises.push(translate.translate(sourceIdentifier, shortLocale)
 			// promises.push(translate.translate(['hello there', 'goodbye'], shortLocale)
 			.then(([translations]) => {
-				// console.debug(translations);
+				console.debug(translations);
 				tarray.push(translations);
 			}));
 		// console.debug('after locale');
@@ -221,7 +233,7 @@ async function translateAllLocales(sourceArray, locales, format) {
 
 	await Promise.all(promises);
 
-	// console.debug(tarray);
+	console.debug(tarray);
 	// console.debug(tarray[0]);
 
 	// return;
@@ -231,18 +243,52 @@ async function translateAllLocales(sourceArray, locales, format) {
 		let targetLocale = tarray[i][0].match(/locale="(.*)"/)[1];
 		let stringArray = tarray[i].slice(1);
 
-		console.debug(targetLocale);
+		// console.debug(targetLocale);
 		console.debug(stringArray);
 		// continue;
 
+		var outTemplate;
+		
 		let lt = stringArray.map((s, i) => {
-			// return `<!ENTITY ${translationArray[i].key} "${s}">`;
-			return `${translationArray[i].key}=${s}`;
+			switch (format) {
+				// entitlt = lt.join('\n');ies (.dtd)
+				case 1:
+					return `<!ENTITY ${translationArray[i].key} "${s}">`;
+					break;
+				// properties (.properties)
+				case 2:
+					return `${translationArray[i].key}=${s}`;
+					break;
+				case 3:
+					return `\t"${translationArray[i].key}": {\n\t\t"message": "${s}"\n\t}`;
+					break;
+				default:
+					break;
+			}
+			return "";
+			// return `${translationArray[i].key}=${s}`;
 		});
-		lt = lt.join('\n');
+
+		if (format === 3) {
+			lt = "{\n" + lt.join(',\n') + "\n}\n";
+		} else {
+			lt = lt.join('\n');
+		}
 
 		console.debug(lt)
-		fs.appendFileSync(`${localeDir}/${targetLocale}/${localeFile}`, lt);
+		console.debug(`${localeDir}/${targetLocale}/${localeFile}`);
+		try {
+			if (!overwrite) {
+				console.debug(`Append: ${localeDir}/${targetLocale}/${localeFile}`);
+				fs.appendFileSync(`${localeDir}/${targetLocale}/${localeFile}`, '\n' + lt);
+			} else {
+				console.debug(`Write: ${localeDir}/${targetLocale}/${localeFile}`);
+				fs.outputFileSync(`${localeDir}/${targetLocale}/${localeFile}`, lt);
+			}
+			
+		} catch (error) {
+			console.debug(error);
+		}
 	}
 }
 
@@ -278,6 +324,10 @@ async function translateHelpPage() {
 		if (shortLocale === 'zh') {
 			shortLocale = 'zh-CN';
 		}
+		if (shortLocale === 'nb') {
+			shortLocale = 'nb-NO';
+		}
+		
 		var outputFileName = `${helpLocaleDir}/${localeFolders[i]}/${helpBase}.html`;
 
 		// if (fs.existsSync(outputFileName)) {
@@ -329,19 +379,79 @@ function translatePage(pageSource, sourceLocale, targetLocale, saveOutputCB) {
 	// console.debug(translatedString);
 }
 
-async function translateAll() {
+
+
+async function translateNew(srcLocaleFile, localeDir, format, overwrite) {
 	let s = new Date();
 	console.debug('Start ' + s);
 
-	await translateAllLocales(translationArray, localeFolders, 1);
+	// const srcLocaleFile = "printmydate.dtd";
+	// const srcLocaleFile = "messages.json";
+	// const srcLocaleFile = "printmydate.properties";
+	const sourceFileName = `${localeDir}/en-US/${srcLocaleFile}`;
+	localeFile = srcLocaleFile;
+	
+	var sourceFile;
+
+	var matches;
+	switch (format) {
+		// entities (.dtd)
+		case 1:
+			sourceFile = fs.readFileSync(sourceFileName, { encoding: 'utf8' });
+			// <!ENTITY defaultPrinter "Default Printer">
+			matches = [...sourceFile.matchAll(/<!ENTITY[\s+](.*?)\s"(.*?)"/g)];
+			// console.debug(matches);
+			translationArray = matches.map(m => {
+				return {key: m[1], text: m[2]};
+			});
+
+			break;
+		// properties (.properties)
+		case 2:
+			sourceFile = fs.readFileSync(sourceFileName, { encoding: 'utf8' });
+			matches = [...sourceFile.matchAll(/(.*?)=(.*?)\n/g)];
+			// console.debug(matches);
+			translationArray = matches.map(m => {
+				return {key: m[1], text: m[2]};
+			});
+			break;
+		case 3:
+			var sourceJSON = fs.readJSONSync(sourceFileName);
+			var m = Object.entries(sourceJSON);
+			// console.debug(m);
+			translationArray = m.map(m => {
+				return {key: m[0], text: m[1].message};
+			});
+			console.debug(translationArray);
+			break;
+		default:
+			break;
+	}
+
+	
+	// console.debug(translationArray);
+	var newLocales = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+	 'hy-AM', 'it-IT', 'ja', 'ko-KR', 'nl', 'no', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN'];
+
+	// const newLocaleFolders = ['ko-KR', 'hu', 'el', 'uk'];
+	await translateAllLocales(translationArray, localeDir, newLocales, format, true);
 
 	let st = new Date();
 	console.debug('Stop ' + st);
 	console.debug('Stop ' + (st - s) / 1000);
 }
 
-// const localeFolders = _getAllFilesOrFolders(localeDir, true);
-// console.debug(localeFolders);
+async function translateAll(srcArray, localeDir, locales, format, overwrite) {
+	let s = new Date();
+	console.debug('Start ' + s);
+
+	await translateAllLocales(srcArray, localeDir, locales, format, overwrite);
+
+	let st = new Date();
+	console.debug('Stop ' + st);
+	console.debug('Stop ' + (st - s) / 1000);
+}
+
 
 function t() {
 	let tb_locale = 'hu';
@@ -368,7 +478,41 @@ function t() {
 
 }
 
-// t();
-translateHelpPage();
+const originalLocales = [
+	'da-DK', 'de-DE',
+	'en-US',
+	'fr-FR', 
+	'it-IT', 'ja-JP',
+	'pt-PT',
+	'sk',    'sv-SE'
+  ];
+  
+
+const localeFolders = _getAllFilesOrFolders(localeDir, true);
+console.debug(localeFolders);
+
+var l =	 localeFolders.map(f => `locale  printmydate    ${f}\t\tchrome/locale/${f}/`);
+// var ignoreLocales = originalLocales;
+
+var ignoreLocales = [];
+// for (e of l) {console.debug(e);}
+
+// console.debug(...l);
+
+
+var allLocales = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+'hy-AM', 'it-IT', 'ja', 'ko-KR', 'nl', 'no', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN'];
+
+var allLocales2 = ['ca', 'de-DE'];
+localeFile = "printmydate.dtd";
+  // t();
+// translateHelpPage();
 // translatePage();
-// translateAll();
+translateAll(translationArray, localeDir, allLocales, 1, false);
+// locale  printmydate     de-DE   chrome/locale/de-DE/
+
+
+// translateNew("messages.json", _localeDir, 3, true);
+// translateNew("printmydate.dtd", localeDir, 1, true);
+// translateNew("printmydate.properties", localeDir, 2, true);
+

@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Ota päivämäärän lokalisointi käyttöön">
+<!ENTITY PMDlabel2 "Ota käyttöön mukautettu näkymä liitteiden luettelosta">
+<!ENTITY PMDlabel3 "Aseta reuna otsikkojen ympärille">
+<!ENTITY PMDlabel4 "Piilota otsikot">
+<!ENTITY PMDlabel5 "Lyhennä otsikkojen rivejä pidempään kuin noin">
+<!ENTITY PMDlabel6 "merkkiä.">
+<!ENTITY PMDlabel7 "Piilota kuvat">
+<!ENTITY PMDlabel8 "Tulosta ilman valintaikkunaa">
+<!ENTITY PMDlabel9 "Piilota tulostamisen etenemispalkki">
+<!ENTITY PMDlabel10 "Piilota sisäiset liitteet">
+<!ENTITY PMDlabel11 "Lisää käyttäjänimi otsikoihin">
+<!ENTITY PMDmenuitem "Tulostusasetukset">
+<!ENTITY PMDcaptionlabel "Valinnat viestien tulostamiseen">
+<!ENTITY PMDcaptionlabel2 "Globaalit tulostusasetukset">
+<!ENTITY PMDlabel12 "Käytä fontteja, joiden koon pikseli on">
+<!ENTITY PMDlabel13 "Piilota yhteyshenkilön otsikko (&#39;Card for&#39;)">
+<!ENTITY PMDlabel14 "Lisää vain nimi ja sähköpostiosoitteet">
+<!ENTITY PMDcaptionlabel3 "Osoitekirjan tulostamisen vaihtoehdot">
+<!ENTITY PMDlabel15 "Käytä kompaktia asettelua">
+<!ENTITY PMDlabel16 "Tulosta vain valinta, kun se on olemassa">
+<!ENTITY cite.checkbox "Käytä laitetun tekstin tyyliä">
+<!ENTITY cite.color "Väri:">
+<!ENTITY cite.size "Koko:">
+<!ENTITY PMDlabel17 "Lisää tiedostotyyppikuvake">
+<!ENTITY PMDlabel18 "Käytä kirjasinta:">
+<!ENTITY PMDlabel19 "Leikkaa &#39;Muistiinpanot&#39; -kenttä 100 merkillä">
+<!ENTITY PMDlabel20 "Lisää osoitekirjan nimi ja päivämäärä">
+<!ENTITY style "Tyyli">
+<!ENTITY PMDlabel21 "Piilota aina laajennetut otsikot">
+<!ENTITY withSize "koon kanssa">
+<!ENTITY forBody "kehon viestiä varten">
+<!ENTITY forHeaders "vain otsikoille">
+<!ENTITY misc "sekalainen">
+<!ENTITY order "Otsikot järjestyksessä">
+<!ENTITY headers "otsikot">
+<!ENTITY up "ylös">
+<!ENTITY down "Alas">
+<!ENTITY otherHeaders "Seuraavat muut otsikot, jos niitä on">
+<!ENTITY PMDlabel22 "Lisää p7m- ja vCard-liitteet">
+<!ENTITY PMDlabel23 "Lisää kansion nimi">
+<!ENTITY PMDlabel25 "Käytä tekstiä mustana perusvärinä">
+<!ENTITY long.label "pitkä UTC">
+<!ENTITY longLoc.label "pitkä ja paikallinen">
+<!ENTITY short.label "lyhyt">
+<!ENTITY date.label "Päivämäärämuoto:">
+<!ENTITY addNameRG.label "Lisää ennen otsikoita:">
+<!ENTITY RG1.label "Ei mitään">
+<!ENTITY RG2.label "Käyttäjänimi">
+<!ENTITY alignHeaders.label "Kohdista otsikot">
+<!ENTITY multipleCards.label "Tulosta kaikki valitut yhteystiedot">
+<!ENTITY maxPreLen "Tekstin enimmäisleveys:">
+<!ENTITY showButton.label "Näytä vaihtoehdot-painike esikatseluikkunassa">
+<!ENTITY resizeImgs.label "Muuta kuvien kokoa liian suureksi">
+<!ENTITY addRdate.label "Lisää vastaanottopäivä">
+<!ENTITY defaultPrinter "Oletustulostin">

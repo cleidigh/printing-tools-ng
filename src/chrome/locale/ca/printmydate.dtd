@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Activa la localització de dates">
+<!ENTITY PMDlabel2 "Habilita la visualització personalitzada de la llista d’adjunts">
+<!ENTITY PMDlabel3 "Establiu una vora al voltant de les capçaleres">
+<!ENTITY PMDlabel4 "Amagueu les capçaleres">
+<!ENTITY PMDlabel5 "Tronqueu les línies de capçaleres més temps que aproximadament">
+<!ENTITY PMDlabel6 "carros.">
+<!ENTITY PMDlabel7 "Amagueu les imatges">
+<!ENTITY PMDlabel8 "Imprimeix sense la finestra de diàleg">
+<!ENTITY PMDlabel9 "Amaga la barra d&#39;avanç d&#39;impressió">
+<!ENTITY PMDlabel10 "Amagueu els fitxers adjunts en línia">
+<!ENTITY PMDlabel11 "Afegiu el nom d’usuari a les capçaleres">
+<!ENTITY PMDmenuitem "Opcions d&#39;impressió">
+<!ENTITY PMDcaptionlabel "Opcions per imprimir missatges">
+<!ENTITY PMDcaptionlabel2 "Opcions d&#39;impressió global">
+<!ENTITY PMDlabel12 "Utilitzeu tipus de lletra amb una mida en píxel de">
+<!ENTITY PMDlabel13 "Amagueu la capçalera del contacte (&quot;Fitxa per a&quot;)">
+<!ENTITY PMDlabel14 "Inseriu només el nom i les adreces de correu electrònic">
+<!ENTITY PMDcaptionlabel3 "Opcions per imprimir la llibreta d’adreces">
+<!ENTITY PMDlabel15 "Feu servir una disposició compacta">
+<!ENTITY PMDlabel16 "Imprimeix la selecció només quan existeixi">
+<!ENTITY cite.checkbox "Utilitzeu un estil per al text citat">
+<!ENTITY cite.color "Color:">
+<!ENTITY cite.size "Mida:">
+<!ENTITY PMDlabel17 "Afegiu una icona de tipus de fitxer">
+<!ENTITY PMDlabel18 "Utilitzeu tipus de lletra:">
+<!ENTITY PMDlabel19 "Retalleu el camp &quot;Notes&quot; a 100 caràcters">
+<!ENTITY PMDlabel20 "Afegiu el nom de la direcció i la data">
+<!ENTITY style "Estil">
+<!ENTITY PMDlabel21 "Amagueu capçaleres sempre esteses">
+<!ENTITY withSize "amb mida">
+<!ENTITY forBody "per al missatge corporal">
+<!ENTITY forHeaders "només per a capçaleres">
+<!ENTITY misc "Divers">
+<!ENTITY order "Comanda de capçaleres">
+<!ENTITY headers "Capçaleres">
+<!ENTITY up "Amunt">
+<!ENTITY down "A baix">
+<!ENTITY otherHeaders "Si es presenten, segueixen altres capçaleres">
+<!ENTITY PMDlabel22 "Afegiu fitxers adjunts p7m i vCard">
+<!ENTITY PMDlabel23 "Afegiu el nom de la carpeta">
+<!ENTITY PMDlabel25 "Utilitzeu el negre com a color base per a text">
+<!ENTITY long.label "llarg UTC">
+<!ENTITY longLoc.label "llarg i localitzat">
+<!ENTITY short.label "curt">
+<!ENTITY date.label "Format de data:">
+<!ENTITY addNameRG.label "Afegiu abans a les capçaleres:">
+<!ENTITY RG1.label "Res">
+<!ENTITY RG2.label "Nom d&#39;usuari">
+<!ENTITY alignHeaders.label "Alineeu els capçaleres">
+<!ENTITY multipleCards.label "Imprimeix tots els contactes seleccionats">
+<!ENTITY maxPreLen "Amplada màxima per al text:">
+<!ENTITY showButton.label "Mostra el botó d&#39;opcions a la finestra de previsualització">
+<!ENTITY resizeImgs.label "Redimensiona les imatges massa grans">
+<!ENTITY addRdate.label "Afegiu la data de recepció">
+<!ENTITY defaultPrinter "Impressora per defecte">

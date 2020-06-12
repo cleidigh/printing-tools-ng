@@ -170,6 +170,46 @@ function initPMDpanel() {
 		gheaderList.add({ headerName: lab, headerToken: u[i], id: i + 1 });
 	}
 	gheaderList.controller.selectRowByDataId('1');
+	
+	setPrinterList();
+}
+
+function setPrinterList() {
+	var outputPrinter = prefs.getCharPref("print_printer");
+	var printerListMenu = document.getElementById("OutputPrinter");
+	var selindex = 0;
+	var popup = document.createXULElement("menupopup");
+
+	var PSSVC2 = Cc["@mozilla.org/gfx/printerenumerator;1"]
+	.getService(Ci.nsIPrinterEnumerator);
+
+	Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
+	var pe = PSSVC2.printerNameList;
+	var printers = [];
+	var i = 0;
+	while(pe.hasMore()) {
+		let printerName = pe.getNext();
+		var menuitem = document.createXULElement("menuitem");
+
+		Services.console.logStringMessage("printingtools: printerName: " + printerName);
+		printers.push(printerName);
+		menuitem.setAttribute("value", printerName);
+		menuitem.setAttribute("label", printerName);
+		popup.appendChild(menuitem);
+		if ( printerName === outputPrinter) {
+			selindex = i;
+			Services.console.logStringMessage("printingtools: selected: " + outputPrinter);
+		}
+		i++;
+	}
+
+	var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
+		.getService(Ci.nsIPrintSettingsService);
+
+	
+	printerListMenu.appendChild(popup);
+	printerListMenu.selectedIndex = selindex;
+	Services.console.logStringMessage("printingtools: printerName index: " + selindex);
 }
 
 function initPMDabpanel() {
@@ -250,7 +290,9 @@ function getHeaderLabel(string) {
 function savePMDprefs() {
 	if (fullPanel)
 		savePMDabprefs(true);
-
+		prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
+		Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);	
+	
 	var max_pre_len;
 	if (document.getElementById("PREtruncate").checked)
 		max_pre_len = document.getElementById("PREmaxchars").value;

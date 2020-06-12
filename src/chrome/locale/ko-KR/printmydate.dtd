@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "날짜 현지화 사용">
+<!ENTITY PMDlabel2 "첨부 파일 목록의 사용자 정의 된보기 사용">
+<!ENTITY PMDlabel3 "머리글 주위에 테두리를 설정">
+<!ENTITY PMDlabel4 "헤더 숨기기">
+<!ENTITY PMDlabel5 "약보다 긴 헤더 행을 자릅니다.">
+<!ENTITY PMDlabel6 "문자.">
+<!ENTITY PMDlabel7 "이미지 숨기기">
+<!ENTITY PMDlabel8 "대화창없이 인쇄">
+<!ENTITY PMDlabel9 "인쇄 진행률 표시 줄 숨기기">
+<!ENTITY PMDlabel10 "인라인 첨부 파일 숨기기">
+<!ENTITY PMDlabel11 "헤더에 사용자 이름 추가">
+<!ENTITY PMDmenuitem "인쇄 옵션">
+<!ENTITY PMDcaptionlabel "메시지 인쇄 옵션">
+<!ENTITY PMDcaptionlabel2 "글로벌 인쇄 옵션">
+<!ENTITY PMDlabel12 "픽셀 크기의 글꼴 사용">
+<!ENTITY PMDlabel13 "연락처 헤더 숨기기 ( &#39;카드&#39;)">
+<!ENTITY PMDlabel14 "이름과 이메일 주소 만 삽입">
+<!ENTITY PMDcaptionlabel3 "주소록 인쇄 옵션">
+<!ENTITY PMDlabel15 "컴팩트 한 레이아웃 사용">
+<!ENTITY PMDlabel16 "선택 항목이있을 때만 인쇄">
+<!ENTITY cite.checkbox "인용 텍스트에 스타일 사용">
+<!ENTITY cite.color "색깔:">
+<!ENTITY cite.size "크기:">
+<!ENTITY PMDlabel17 "파일 유형 아이콘 추가">
+<!ENTITY PMDlabel18 "글꼴 사용 :">
+<!ENTITY PMDlabel19 "&#39;Notes&#39;필드를 100 자로 자릅니다.">
+<!ENTITY PMDlabel20 "주소록 이름 및 날짜 추가">
+<!ENTITY style "스타일">
+<!ENTITY PMDlabel21 "항상 확장 된 헤더 숨기기">
+<!ENTITY withSize "크기로">
+<!ENTITY forBody "신체 메시지">
+<!ENTITY forHeaders "헤더 전용">
+<!ENTITY misc "여러 가지 잡다한">
+<!ENTITY order "헤더 주문">
+<!ENTITY headers "헤더">
+<!ENTITY up "쪽으로">
+<!ENTITY down "내려가는">
+<!ENTITY otherHeaders "다른 헤더 (있는 경우)">
+<!ENTITY PMDlabel22 "p7m 및 vCard 첨부 파일 추가">
+<!ENTITY PMDlabel23 "폴더 이름 추가">
+<!ENTITY PMDlabel25 "텍스트의 기본 색상으로 검은 색 사용">
+<!ENTITY long.label "긴 UTC">
+<!ENTITY longLoc.label "길고 지역화 된">
+<!ENTITY short.label "짧은">
+<!ENTITY date.label "날짜 형식:">
+<!ENTITY addNameRG.label "헤더 앞에 추가 :">
+<!ENTITY RG1.label "아무것도">
+<!ENTITY RG2.label "사용자 이름">
+<!ENTITY alignHeaders.label "머리글 정렬">
+<!ENTITY multipleCards.label "선택한 연락처를 모두 인쇄">
+<!ENTITY maxPreLen "텍스트의 최대 너비 :">
+<!ENTITY showButton.label "미리보기 창에 옵션 버튼 표시">
+<!ENTITY resizeImgs.label "이미지 크기를 너무 크게 조정">
+<!ENTITY addRdate.label "받은 날짜 추가">
+<!ENTITY defaultPrinter "기본 프린터">

@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Dátum lokalizációjának engedélyezése">
+<!ENTITY PMDlabel2 "Engedélyezze a mellékletek listájának testreszabott nézetét">
+<!ENTITY PMDlabel3 "Állítson be egy szegélyt a fejlécek körül">
+<!ENTITY PMDlabel4 "A fejlécek elrejtése">
+<!ENTITY PMDlabel5 "Vágja le a fejlécek vonalait körülbelül">
+<!ENTITY PMDlabel6 "karakter.">
+<!ENTITY PMDlabel7 "A képek elrejtése">
+<!ENTITY PMDlabel8 "Nyomtasson a párbeszédablak nélkül">
+<!ENTITY PMDlabel9 "A nyomtatási folyamat sáv elrejtése">
+<!ENTITY PMDlabel10 "Inline mellékletek elrejtése">
+<!ENTITY PMDlabel11 "Adja hozzá a felhasználónevet a fejlécekhez">
+<!ENTITY PMDmenuitem "Nyomtatási lehetőségek">
+<!ENTITY PMDcaptionlabel "Opciók az üzenetek nyomtatásához">
+<!ENTITY PMDcaptionlabel2 "Globális nyomtatási lehetőségek">
+<!ENTITY PMDlabel12 "Használjon betűtípust pixel méretben">
+<!ENTITY PMDlabel13 "Az érintkező fejlécének elrejtése (&#39;Card for&#39;)">
+<!ENTITY PMDlabel14 "Adjon meg csak nevet és e-mail címeket">
+<!ENTITY PMDcaptionlabel3 "A címjegyzék nyomtatásának lehetőségei">
+<!ENTITY PMDlabel15 "Használjon kompakt elrendezést">
+<!ENTITY PMDlabel16 "Csak a kiválasztott nyomtatás, ha létezik">
+<!ENTITY cite.checkbox "Használjon stílust idézett szöveghez">
+<!ENTITY cite.color "Szín:">
+<!ENTITY cite.size "Méret:">
+<!ENTITY PMDlabel17 "Adjon hozzá egy fájltípus-ikont">
+<!ENTITY PMDlabel18 "Használja a betűtípust:">
+<!ENTITY PMDlabel19 "Vágja le a „Megjegyzés” mezőt 100 karakterből">
+<!ENTITY PMDlabel20 "Adja hozzá a címjegyzék nevét és dátumát">
+<!ENTITY style "Stílus">
+<!ENTITY PMDlabel21 "Mindig kiterjesztett fejlécek elrejtése">
+<!ENTITY withSize "mérettel">
+<!ENTITY forBody "test üzenet">
+<!ENTITY forHeaders "csak a fejlécek számára">
+<!ENTITY misc "Vegyes">
+<!ENTITY order "A fejlécek sorrendje">
+<!ENTITY headers "fejlécek">
+<!ENTITY up "Fel">
+<!ENTITY down "Le">
+<!ENTITY otherHeaders "Más fejlécek, ha vannak, követik">
+<!ENTITY PMDlabel22 "Adja hozzá a p7m és a vCard mellékleteket">
+<!ENTITY PMDlabel23 "Adja hozzá a mappa nevét">
+<!ENTITY PMDlabel25 "Használjon fekete alapszínt a szöveghez">
+<!ENTITY long.label "hosszú UTC">
+<!ENTITY longLoc.label "hosszú és lokalizált">
+<!ENTITY short.label "rövid">
+<!ENTITY date.label "Dátum formátum:">
+<!ENTITY addNameRG.label "Hozzáadás fejlécek előtt:">
+<!ENTITY RG1.label "Semmi">
+<!ENTITY RG2.label "Felhasználónév">
+<!ENTITY alignHeaders.label "Igazítsa a fejléceket">
+<!ENTITY multipleCards.label "Az összes kiválasztott névjegy nyomtatása">
+<!ENTITY maxPreLen "A szöveg maximális szélessége:">
+<!ENTITY showButton.label "Mutassa meg az Opciók gombot az előnézeti ablakban">
+<!ENTITY resizeImgs.label "A képek átméretezése túl nagy">
+<!ENTITY addRdate.label "Adja hozzá a kézhezvétel dátumát">
+<!ENTITY defaultPrinter "Alapértelmezett nyomtató">

@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Włącz lokalizację daty">
+<!ENTITY PMDlabel2 "Włącz dostosowany widok listy załączników">
+<!ENTITY PMDlabel3 "Ustaw granicę wokół nagłówków">
+<!ENTITY PMDlabel4 "Ukryj nagłówki">
+<!ENTITY PMDlabel5 "Przycinaj linie nagłówków dłużej niż około">
+<!ENTITY PMDlabel6 "znaki">
+<!ENTITY PMDlabel7 "Ukryj obrazy">
+<!ENTITY PMDlabel8 "Drukuj bez okna dialogowego">
+<!ENTITY PMDlabel9 "Ukryj pasek postępu drukowania">
+<!ENTITY PMDlabel10 "Ukryj wbudowane załączniki">
+<!ENTITY PMDlabel11 "Dodaj nazwę użytkownika do nagłówków">
+<!ENTITY PMDmenuitem "Opcje drukowania">
+<!ENTITY PMDcaptionlabel "Opcje drukowania wiadomości">
+<!ENTITY PMDcaptionlabel2 "Globalne opcje drukowania">
+<!ENTITY PMDlabel12 "Używaj czcionek o rozmiarze w pikselach wynoszącym">
+<!ENTITY PMDlabel13 "Ukryj nagłówek kontaktu („Karta za”)">
+<!ENTITY PMDlabel14 "Wstaw tylko nazwisko i adres e-mail">
+<!ENTITY PMDcaptionlabel3 "Opcje drukowania książki adresowej">
+<!ENTITY PMDlabel15 "Użyj zwartego układu">
+<!ENTITY PMDlabel16 "Wydrukuj tylko zaznaczenie, jeśli istnieje">
+<!ENTITY cite.checkbox "Użyj stylu dla cytowanego tekstu">
+<!ENTITY cite.color "Kolor:">
+<!ENTITY cite.size "Rozmiar:">
+<!ENTITY PMDlabel17 "Dodaj ikonę typu pliku">
+<!ENTITY PMDlabel18 "Użyj czcionki:">
+<!ENTITY PMDlabel19 "Wytnij pole „Notatki” na 100 znaków">
+<!ENTITY PMDlabel20 "Dodaj nazwę i datę książki adresowej">
+<!ENTITY style "Styl">
+<!ENTITY PMDlabel21 "Ukryj zawsze rozszerzone nagłówki">
+<!ENTITY withSize "z rozmiarem">
+<!ENTITY forBody "dla wiadomości ciała">
+<!ENTITY forHeaders "tylko dla nagłówków">
+<!ENTITY misc "Różne">
+<!ENTITY order "Zamówienie nagłówków">
+<!ENTITY headers "Nagłówki">
+<!ENTITY up "W górę">
+<!ENTITY down "Na dół">
+<!ENTITY otherHeaders "Inne nagłówki, jeśli są obecne, następują">
+<!ENTITY PMDlabel22 "Dodaj załączniki p7m i vCard">
+<!ENTITY PMDlabel23 "Dodaj nazwę folderu">
+<!ENTITY PMDlabel25 "Użyj czarnego jako podstawowego koloru tekstu">
+<!ENTITY long.label "długi UTC">
+<!ENTITY longLoc.label "długi i zlokalizowany">
+<!ENTITY short.label "krótki">
+<!ENTITY date.label "Format daty:">
+<!ENTITY addNameRG.label "Dodaj przed nagłówkami:">
+<!ENTITY RG1.label "Nic">
+<!ENTITY RG2.label "Nazwa Użytkownika">
+<!ENTITY alignHeaders.label "Wyrównaj nagłówki">
+<!ENTITY multipleCards.label "Wydrukuj wszystkie wybrane kontakty">
+<!ENTITY maxPreLen "Maksymalna szerokość tekstu:">
+<!ENTITY showButton.label "Pokaż przycisk opcji w oknie podglądu">
+<!ENTITY resizeImgs.label "Zmień rozmiar obrazów za dużych">
+<!ENTITY addRdate.label "Dodaj otrzymaną datę">
+<!ENTITY defaultPrinter "Domyślna drukarka">

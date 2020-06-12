@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Увімкнути локалізацію дат">
+<!ENTITY PMDlabel2 "Увімкнути індивідуальний перегляд списку вкладених файлів">
+<!ENTITY PMDlabel3 "Встановіть рамку навколо заголовків">
+<!ENTITY PMDlabel4 "Сховати заголовки">
+<!ENTITY PMDlabel5 "Обрізайте лінії заголовків довше, ніж приблизно">
+<!ENTITY PMDlabel6 "символів.">
+<!ENTITY PMDlabel7 "Сховати зображення">
+<!ENTITY PMDlabel8 "Друк без діалогового вікна">
+<!ENTITY PMDlabel9 "Сховати смужку ходу друку">
+<!ENTITY PMDlabel10 "Сховати вкладені вкладення">
+<!ENTITY PMDlabel11 "Додайте ім’я користувача до заголовків">
+<!ENTITY PMDmenuitem "Параметри друку">
+<!ENTITY PMDcaptionlabel "Параметри друку повідомлень">
+<!ENTITY PMDcaptionlabel2 "Глобальні параметри друку">
+<!ENTITY PMDlabel12 "Використовуйте шрифти розміром у пікселях">
+<!ENTITY PMDlabel13 "Сховати заголовок контакту (&quot;Картка для&quot;)">
+<!ENTITY PMDlabel14 "Вставте лише ім’я та адреси електронної пошти">
+<!ENTITY PMDcaptionlabel3 "Варіанти друку адресної книги">
+<!ENTITY PMDlabel15 "Використовуйте компактну компоновку">
+<!ENTITY PMDlabel16 "Роздрукуйте лише вибір, коли він існує">
+<!ENTITY cite.checkbox "Використовуйте стиль для цитованого тексту">
+<!ENTITY cite.color "Колір:">
+<!ENTITY cite.size "Розмір:">
+<!ENTITY PMDlabel17 "Додайте значок файлу">
+<!ENTITY PMDlabel18 "Використовуйте шрифт:">
+<!ENTITY PMDlabel19 "Виріжте поле &quot;Нотатки&quot; на 100 символів">
+<!ENTITY PMDlabel20 "Додайте назву та дату адресної книги">
+<!ENTITY style "Стиль">
+<!ENTITY PMDlabel21 "Сховати завжди розширені заголовки">
+<!ENTITY withSize "з розміром">
+<!ENTITY forBody "для повідомлення про тіло">
+<!ENTITY forHeaders "тільки для заголовків">
+<!ENTITY misc "Різне">
+<!ENTITY order "Порядок заголовків">
+<!ENTITY headers "Заголовки">
+<!ENTITY up "Вгору">
+<!ENTITY down "Вниз">
+<!ENTITY otherHeaders "Інші заголовки, якщо вони є, слідують">
+<!ENTITY PMDlabel22 "Додайте вкладення p7m та vCard">
+<!ENTITY PMDlabel23 "Додати ім’я папки">
+<!ENTITY PMDlabel25 "Використовуйте чорний як основний колір тексту">
+<!ENTITY long.label "довгий UTC">
+<!ENTITY longLoc.label "довгий і локалізований">
+<!ENTITY short.label "короткий">
+<!ENTITY date.label "Формат дати:">
+<!ENTITY addNameRG.label "Додати перед заголовками:">
+<!ENTITY RG1.label "Нічого">
+<!ENTITY RG2.label "Ім&#39;я користувача">
+<!ENTITY alignHeaders.label "Вирівняйте заголовки">
+<!ENTITY multipleCards.label "Роздрукувати всі вибрані контакти">
+<!ENTITY maxPreLen "Максимальна ширина тексту:">
+<!ENTITY showButton.label "Показуйте кнопку параметрів у вікні попереднього перегляду">
+<!ENTITY resizeImgs.label "Розмір зображень занадто великий">
+<!ENTITY addRdate.label "Додати отриману дату">
+<!ENTITY defaultPrinter "Принтер за замовчуванням">

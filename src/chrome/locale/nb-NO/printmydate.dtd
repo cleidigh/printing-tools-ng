@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Aktiver datalokalisering">
+<!ENTITY PMDlabel2 "Aktiver tilpasset visning av vedleggslisten">
+<!ENTITY PMDlabel3 "Sett en kant rundt topptekstene">
+<!ENTITY PMDlabel4 "Skjul overskriftene">
+<!ENTITY PMDlabel5 "Avkort overskriftslinjene lenger enn omtrent">
+<!ENTITY PMDlabel6 "chars.">
+<!ENTITY PMDlabel7 "Skjul bildene">
+<!ENTITY PMDlabel8 "Skriv ut uten dialogvinduet">
+<!ENTITY PMDlabel9 "Skjul fremdriftslinjen for utskrift">
+<!ENTITY PMDlabel10 "Skjul inline vedlegg">
+<!ENTITY PMDlabel11 "Legg til brukernavnet til overskriftene">
+<!ENTITY PMDmenuitem "Utskriftsalternativer">
+<!ENTITY PMDcaptionlabel "Alternativer for utskrift av meldinger">
+<!ENTITY PMDcaptionlabel2 "Globale utskriftsalternativer">
+<!ENTITY PMDlabel12 "Bruk skrifter med en størrelse i piksel på">
+<!ENTITY PMDlabel13 "Skjul kontaktoverskriften (&#39;Kort for&#39;)">
+<!ENTITY PMDlabel14 "Sett inn bare navn og e-postadresser">
+<!ENTITY PMDcaptionlabel3 "Alternativer for utskrift av adressebøker">
+<!ENTITY PMDlabel15 "Bruk kompakt layout">
+<!ENTITY PMDlabel16 "Skriv ut bare valg når det eksisterer">
+<!ENTITY cite.checkbox "Bruk en stil for sitert tekst">
+<!ENTITY cite.color "Farge:">
+<!ENTITY cite.size "Størrelse:">
+<!ENTITY PMDlabel17 "Legg til et filtypeikon">
+<!ENTITY PMDlabel18 "Bruk font:">
+<!ENTITY PMDlabel19 "Klipp av feltet &#39;Merknader&#39; med 100 tegn">
+<!ENTITY PMDlabel20 "Legg til adresseboknavn og dato">
+<!ENTITY style "Stil">
+<!ENTITY PMDlabel21 "Skjul alltid utvidede overskrifter">
+<!ENTITY withSize "med størrelse">
+<!ENTITY forBody "for kroppsmelding">
+<!ENTITY forHeaders "bare for overskrifter">
+<!ENTITY misc "Diverse">
+<!ENTITY order "Topptekster bestiller">
+<!ENTITY headers "overskrifter">
+<!ENTITY up "Opp">
+<!ENTITY down "Ned">
+<!ENTITY otherHeaders "Andre overskrifter, hvis tilstede, følger">
+<!ENTITY PMDlabel22 "Legg til p7m- og vCard-vedlegg">
+<!ENTITY PMDlabel23 "Legg til mappenavn">
+<!ENTITY PMDlabel25 "Bruk svart som grunnfarge for tekst">
+<!ENTITY long.label "lang UTC">
+<!ENTITY longLoc.label "lang og lokalisert">
+<!ENTITY short.label "kort">
+<!ENTITY date.label "Datoformat:">
+<!ENTITY addNameRG.label "Legg til før overskrifter:">
+<!ENTITY RG1.label "Ingenting">
+<!ENTITY RG2.label "Brukernavn">
+<!ENTITY alignHeaders.label "Juster topptekstene">
+<!ENTITY multipleCards.label "Skriv ut alle valgte kontakter">
+<!ENTITY maxPreLen "Maksimal bredde for tekst:">
+<!ENTITY showButton.label "Vis alternativknappen i forhåndsvisningsvinduet">
+<!ENTITY resizeImgs.label "Endre størrelse på bildene">
+<!ENTITY addRdate.label "Legg til mottatt dato">
+<!ENTITY defaultPrinter "Standardskriver">

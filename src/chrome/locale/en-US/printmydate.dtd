@@ -1,0 +1,56 @@
+<!ENTITY PMDlabel1 "Enable date localization">
+<!ENTITY PMDlabel2 "Enable customized view of the attachments' list">
+<!ENTITY PMDlabel3 "Set a border around the headers">
+<!ENTITY PMDlabel4 "Hide the headers">
+<!ENTITY PMDlabel5 "Truncate the headers' lines longer than about">
+<!ENTITY PMDlabel6 "chars.">
+<!ENTITY PMDlabel7 "Hide the images">
+<!ENTITY PMDlabel8 "Print without the dialog window">
+<!ENTITY PMDlabel9 "Hide the print progress bar">
+<!ENTITY PMDlabel10 "Hide inline attachments">
+<!ENTITY PMDlabel11 "Add the user name to the headers">
+<!ENTITY PMDmenuitem "Printing options">
+<!ENTITY PMDcaptionlabel "Options for messages printing">
+<!ENTITY PMDcaptionlabel2 "Global printing options">
+<!ENTITY PMDlabel12 "Use fonts with a size in pixel of ">
+<!ENTITY PMDlabel13 "Hide the contact header ('Card for')">
+<!ENTITY PMDlabel14 "Insert just name and email addresses">
+<!ENTITY PMDcaptionlabel3 "Options for addressbook printing">
+<!ENTITY PMDlabel15 "Use compact layout">
+<!ENTITY PMDlabel16 "Print just selection, when it exists">
+<!ENTITY cite.checkbox "Use a style for quoted text">
+<!ENTITY cite.color "Color:">
+<!ENTITY cite.size "Size:">
+<!ENTITY PMDlabel17 "Add a filetype icon">
+<!ENTITY PMDlabel18 "Use font:">
+<!ENTITY PMDlabel19 "Cut the field 'Notes' at 100 characters">
+<!ENTITY PMDlabel20 "Add addressbook name and date">
+<!ENTITY style "Style">
+<!ENTITY PMDlabel21 "Hide always extended headers">
+<!ENTITY withSize "with size ">
+<!ENTITY forBody "for body message">
+<!ENTITY forHeaders "just for headers">
+<!ENTITY misc "Miscellaneous">
+<!ENTITY order "Headers order">
+<!ENTITY headers "Headers">
+<!ENTITY up "Up">
+<!ENTITY down "Down">
+<!ENTITY otherHeaders "Other headers, if present, follow">
+<!ENTITY PMDlabel22 "Add p7m and vCard attachments">
+<!ENTITY PMDlabel23 "Add folder name">
+<!ENTITY PMDlabel25 "Use black as base color for text">
+<!ENTITY long.label "long UTC">
+<!ENTITY longLoc.label "long and localized">
+<!ENTITY short.label "short">
+<!ENTITY date.label "Date format:">
+<!ENTITY addNameRG.label "Add before headers:">
+<!ENTITY RG1.label "Nothing">
+<!ENTITY RG2.label "User name">
+<!ENTITY alignHeaders.label "Align the headers">
+<!ENTITY multipleCards.label "Print all selected contacts">
+<!ENTITY maxPreLen "Maximum width for text:">
+<!ENTITY showButton.label "Show the options button in the preview window">
+<!ENTITY resizeImgs.label "Resize the images too large">
+<!ENTITY addRdate.label "Add received date">
+<!ENTITY defaultPrinter "Default Printer">
+

@@ -10,10 +10,10 @@ var printingtools = {
 
 	current: null,
 	num: null,
-	prefs: Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch),
+	prefs: Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch),
 	maxChars: null,
 
-	strBundleService: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService),
+	strBundleService: Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService),
 
 	loadContentListener: function () {
 		window.removeEventListener("DOMContentLoaded", printingtools.loadContentListener, false);
@@ -31,17 +31,52 @@ var printingtools = {
 			box.appendChild(button);
 			contentEl.parentNode.insertBefore(box, contentEl.nextSibling);
 		}
+
+		var outputPrinter = printingtools.prefs.getCharPref("print_printer");
+		// printingtools.prefs.setStringPref("print_printer", "Microsoft XPS Document Writer");
+		// PrintEngineCreateGlobals();
+		// InitPrintEngineWindow();
+
+		var PSSVC2 = Cc["@mozilla.org/gfx/printerenumerator;1"]
+			.getService(Ci.nsIPrinterEnumerator);
+
+		Services.console.logStringMessage("printingtools: printerD: " + PSSVC2.defaultPrinterName);
+		var pe = PSSVC2.printerNameList;
+		var printers = [];
+
+		while (pe.hasMore()) {
+			let printerName = pe.getNext();
+			Services.console.logStringMessage("printingtools: printerName: " + printerName);
+			printers.push(printerName);
+		}
+
+		var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
+			.getService(Ci.nsIPrintSettingsService);
+
+		Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinterName);
+		Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinter);
+		// Use global printing preferences
+		// https://github.com/thundernest/import-export-tools-ng/issues/77
+
+		// var myPrintSettings = PSSVC.globalPrintSettings;
+		// myPrintSettings.printerName = printers[1];
+		// myPrintSettings.printSilent = false;
+
+		// PSSVC.initPrintSettingsFromPrinter(myPrintSettings.printerName, myPrintSettings);
+		// // PSSVC.initPrintSettingsFromPrefs(myPrintSettings, true, myPrintSettings.kInitSaveAll);
+		// Services.console.logStringMessage("printingtools: printer: " + myPrintSettings.printerName);
+		// printEngine.startPrintOperation(myPrintSettings);
 	},
 
 	getComplexPref: function (pref) {
 		if (printingtools.prefs.getStringPref)
 			return printingtools.prefs.getStringPref(pref);
 		else
-			return printingtools.prefs.getComplexValue(pref, Components.interfaces.nsISupportsString).data;
+			return printingtools.prefs.getComplexValue(pref, Ci.nsISupportsString).data;
 	},
 
 	openDialog: function (fromPreview) {
-		
+
 		openDialog("chrome://printmydate/content/pmd-options.xul", "", "chrome,centerscreen", fromPreview, printingtools.isAB);
 
 	},
@@ -150,16 +185,16 @@ var printingtools = {
 		if (gnLen == 1 && multipleCards) {
 			try {
 				// Get the selected cards from addressbook window
-				var abWin = Components.classes["@mozilla.org/appshell/window-mediator;1"].
-					getService(Components.interfaces.nsIWindowMediator).
+				var abWin = Cc["@mozilla.org/appshell/window-mediator;1"].
+					getService(Ci.nsIWindowMediator).
 					getMostRecentWindow("mail:addressbook");
 				var start = new Object();
 				var end = new Object();
 				var card;
 				var treeSelection = abWin.gAbView.selection;
 				var numRanges = treeSelection.getRangeCount();
-				var parser = Components.classes["@mozilla.org/xmlextras/domparser;1"]
-					.createInstance(Components.interfaces.nsIDOMParser);
+				var parser = Cc["@mozilla.org/xmlextras/domparser;1"]
+					.createInstance(Ci.nsIDOMParser);
 				var firstCard = true;
 
 				for (var t = 0; t < numRanges; t++) {
@@ -303,18 +338,18 @@ var printingtools = {
 
 	getHdr: function () {
 		var uris = window.arguments[1];
-		var m = Components.classes["@mozilla.org/messenger;1"]
-			.createInstance(Components.interfaces.nsIMessenger);
+		var m = Cc["@mozilla.org/messenger;1"]
+			.createInstance(Ci.nsIMessenger);
 		if (uris && uris[printingtools.current]) {
 			if (uris[printingtools.current].indexOf("file") == 0) {
 				// If we're printing a eml file, there is no nsIMsgHdr object, so we create an object just with properties
 				// used by the extension ("folder" and "dateInSeconds"), reading directly the file (needing just 1000 bytes)
 				var dummy = {};
 				dummy.folder = null;
-				var scriptableStream = Components.classes["@mozilla.org/scriptableinputstream;1"]
-					.getService(Components.interfaces.nsIScriptableInputStream);
-				var ioService = Components.classes["@mozilla.org/network/io-service;1"]
-					.getService(Components.interfaces.nsIIOService);
+				var scriptableStream = Cc["@mozilla.org/scriptableinputstream;1"]
+					.getService(Ci.nsIScriptableInputStream);
+				var ioService = Cc["@mozilla.org/network/io-service;1"]
+					.getService(Ci.nsIIOService);
 				var channel = ioService.newChannel(uris[printingtools.current], null, null);
 				var input = channel.open();
 				scriptableStream.init(input);
@@ -577,8 +612,8 @@ var printingtools = {
 				}
 				else {
 					try {
-						var myAccountManager = Components.classes["@mozilla.org/messenger/account-manager;1"].
-							getService(Components.interfaces.nsIMsgAccountManager);
+						var myAccountManager = Cc["@mozilla.org/messenger/account-manager;1"].
+							getService(Ci.nsIMsgAccountManager);
 						if (folder) {
 							var incServer = folder.server;
 							var identity = myAccountManager.getFirstIdentityForServer(incServer);
@@ -963,7 +998,7 @@ var printingtools = {
 		}
 		console.debug(url);
 		return url;
-	}
+	},
 }
 
 window.addEventListener("DOMContentLoaded", printingtools.loadContentListener, false);

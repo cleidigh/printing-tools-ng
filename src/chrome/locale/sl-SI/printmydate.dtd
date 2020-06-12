@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Omogoči lokalizacijo datumov">
+<!ENTITY PMDlabel2 "Omogoči pogled po prilogi po meri">
+<!ENTITY PMDlabel3 "Postavite obrobo okoli glave">
+<!ENTITY PMDlabel4 "Skrij glave">
+<!ENTITY PMDlabel5 "Odrežite vrstice glav daljše od približno">
+<!ENTITY PMDlabel6 "chars.">
+<!ENTITY PMDlabel7 "Skrij slike">
+<!ENTITY PMDlabel8 "Tiskanje brez pogovornega okna">
+<!ENTITY PMDlabel9 "Skrij vrstico napredka tiskanja">
+<!ENTITY PMDlabel10 "Skrij vgradne nastavke">
+<!ENTITY PMDlabel11 "V glave dodajte uporabniško ime">
+<!ENTITY PMDmenuitem "Možnosti tiskanja">
+<!ENTITY PMDcaptionlabel "Možnosti tiskanja sporočil">
+<!ENTITY PMDcaptionlabel2 "Možnosti globalnega tiskanja">
+<!ENTITY PMDlabel12 "Uporabite pisave z velikostjo v pikslih">
+<!ENTITY PMDlabel13 "Skrij glavo stika („Kartica za“)">
+<!ENTITY PMDlabel14 "Vstavite samo ime in e-poštne naslove">
+<!ENTITY PMDcaptionlabel3 "Možnosti tiskanja imenika">
+<!ENTITY PMDlabel15 "Uporabite kompaktno postavitev">
+<!ENTITY PMDlabel16 "Natisnite samo izbiro, ko obstaja">
+<!ENTITY cite.checkbox "Uporabite slog za citirano besedilo">
+<!ENTITY cite.color "Barva:">
+<!ENTITY cite.size "Velikost:">
+<!ENTITY PMDlabel17 "Dodajte ikono vrste datoteke">
+<!ENTITY PMDlabel18 "Uporabi pisavo:">
+<!ENTITY PMDlabel19 "Izrežite polje »Opombe« na 100 znakov">
+<!ENTITY PMDlabel20 "Dodajte ime in datum imenika">
+<!ENTITY style "Slog">
+<!ENTITY PMDlabel21 "Skrij vedno podaljšane glave">
+<!ENTITY withSize "z velikostjo">
+<!ENTITY forBody "za sporočilo telesa">
+<!ENTITY forHeaders "samo za glave">
+<!ENTITY misc "Razno">
+<!ENTITY order "Vrstni red glave">
+<!ENTITY headers "Glave">
+<!ENTITY up "Zgoraj">
+<!ENTITY down "Dol">
+<!ENTITY otherHeaders "Ostale glave, če obstajajo, sledijo">
+<!ENTITY PMDlabel22 "Dodajte priloge p7m in vCard">
+<!ENTITY PMDlabel23 "Dodajte ime mape">
+<!ENTITY PMDlabel25 "Uporabite črno kot osnovno barvo za besedilo">
+<!ENTITY long.label "dolg UTC">
+<!ENTITY longLoc.label "dolga in lokalizirana">
+<!ENTITY short.label "kratek">
+<!ENTITY date.label "Format datuma:">
+<!ENTITY addNameRG.label "Dodaj pred glavo:">
+<!ENTITY RG1.label "Nič">
+<!ENTITY RG2.label "Uporabniško ime">
+<!ENTITY alignHeaders.label "Poravnajte glave">
+<!ENTITY multipleCards.label "Natisnite vse izbrane kontakte">
+<!ENTITY maxPreLen "Največja širina besedila:">
+<!ENTITY showButton.label "V oknu za predogled prikažite gumb z možnostmi">
+<!ENTITY resizeImgs.label "Velikost slik je prevelika">
+<!ENTITY addRdate.label "Dodajte prejeti datum">
+<!ENTITY defaultPrinter "Privzeti tiskalnik">

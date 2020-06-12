@@ -1,0 +1,55 @@
+<!ENTITY PMDlabel1 "Activa a localización da data">
+<!ENTITY PMDlabel2 "Activa a vista personalizada da lista de arquivos adxuntos">
+<!ENTITY PMDlabel3 "Estableza un bordo arredor das cabeceiras">
+<!ENTITY PMDlabel4 "Agochar os cabezallos">
+<!ENTITY PMDlabel5 "Trunca as liñas de cabeceira máis tempo que aproximadamente">
+<!ENTITY PMDlabel6 "carros.">
+<!ENTITY PMDlabel7 "Agochar as imaxes">
+<!ENTITY PMDlabel8 "Imprimir sen a xanela de diálogo">
+<!ENTITY PMDlabel9 "Agochar a barra de progreso da impresión">
+<!ENTITY PMDlabel10 "Agochar os anexos en liña">
+<!ENTITY PMDlabel11 "Engada o nome de usuario ás cabeceiras">
+<!ENTITY PMDmenuitem "Opcións de impresión">
+<!ENTITY PMDcaptionlabel "Opcións para a impresión de mensaxes">
+<!ENTITY PMDcaptionlabel2 "Opcións de impresión global">
+<!ENTITY PMDlabel12 "Emprega fontes cun tamaño en píxel de">
+<!ENTITY PMDlabel13 "Agochar a cabeceira do contacto (&#39;Tarxeta para&#39;)">
+<!ENTITY PMDlabel14 "Insira só o nome e os enderezos de correo electrónico">
+<!ENTITY PMDcaptionlabel3 "Opcións para a impresión do caderno de enderezos">
+<!ENTITY PMDlabel15 "Usar esquema compacto">
+<!ENTITY PMDlabel16 "Imprimir só a selección cando exista">
+<!ENTITY cite.checkbox "Use un estilo para o texto citado">
+<!ENTITY cite.color "Cor:">
+<!ENTITY cite.size "Tamaño:">
+<!ENTITY PMDlabel17 "Engade unha icona de tipo de ficheiro">
+<!ENTITY PMDlabel18 "Usar letra:">
+<!ENTITY PMDlabel19 "Corte o campo &quot;Notas&quot; en 100 caracteres">
+<!ENTITY PMDlabel20 "Engade nome e data da axenda de enderezos">
+<!ENTITY style "Estilo">
+<!ENTITY PMDlabel21 "Agochar cabeceiras estendidas sempre">
+<!ENTITY withSize "con tamaño">
+<!ENTITY forBody "para mensaxe corporal">
+<!ENTITY forHeaders "só para cabeceiras">
+<!ENTITY misc "Varios">
+<!ENTITY order "Pedido de cabeceiras">
+<!ENTITY headers "Cabeceiras">
+<!ENTITY up "Arriba">
+<!ENTITY down "Abaixo">
+<!ENTITY otherHeaders "Seguen outras cabeceiras, se están presentes">
+<!ENTITY PMDlabel22 "Engade ficheiros adxuntos p7m e vCard">
+<!ENTITY PMDlabel23 "Engadir nome de cartafol">
+<!ENTITY PMDlabel25 "Use o negro como cor de base para o texto">
+<!ENTITY long.label "longo UTC">
+<!ENTITY longLoc.label "longo e localizado">
+<!ENTITY short.label "curto">
+<!ENTITY date.label "Formato de data:">
+<!ENTITY addNameRG.label "Engada antes das cabeceiras:">
+<!ENTITY RG1.label "Nada">
+<!ENTITY RG2.label "Nome de usuario">
+<!ENTITY alignHeaders.label "Aliña os cabeceiros">
+<!ENTITY multipleCards.label "Imprimir todos os contactos seleccionados">
+<!ENTITY maxPreLen "Ancho máximo para o texto:">
+<!ENTITY showButton.label "Amosa o botón de opcións na xanela de previsualización">
+<!ENTITY resizeImgs.label "Redimensiona as imaxes demasiado grandes">
+<!ENTITY addRdate.label "Engadir a data de recepción">
+<!ENTITY defaultPrinter "Impresora predeterminada">
