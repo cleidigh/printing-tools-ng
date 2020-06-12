@@ -14,6 +14,7 @@ Version 0.1.3 : Locale/printer - June 12, 2020
   (no) Norwegian, (pl) Polish, (pt-PT) Portuguese (Portugal), 
   (ru) Russian, (sk) Slovak, (sl) Slovenian, (es) Spanish, 
   (sv) Swedish, (uk) Ukrainian
+- Thanks to @tidebre67 & @GeepsJay for the push/testing
 
 Version 0.1.2 : Base port - June 7, 2020
 

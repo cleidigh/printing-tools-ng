@@ -17,7 +17,7 @@ https://addons.thunderbird.net/addon/printingtools/
 [![PTng_tb_version](https://img.shields.io/badge/version-v0.1.3-blue.png?label=Thunderbird%20Add-On)](https://addons.thunderbird.net/en-US/thunderbird/addon/)
 ![Thunderbird_version](https://img.shields.io/badge/version-v68.0--72.*-blue.png?label=Thunderbird)
 [![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-red.png)](https://opensource.org/licenses/GPL-3.0)
-![Release Status](https://img.shields.io/badge/Release%20Status-v0.1.3%20Pending-brightgreen.png)
+![Release Status](https://img.shields.io/badge/Release%20Status-v0.1.3%20Released-brightgreen.png)
 
 #
 
@@ -55,7 +55,7 @@ see the options for additional features.
 - Remove "Card For" from entries
 
 ## Issues & Questions
-Post any issues or questions for Import Export Tools under [Issues](https://github.com/cleidigh/printing-tools-ng/issues)
+Post any issues or questions for PrintingTools NG under [Issues](https://github.com/cleidigh/printing-tools-ng/issues)
 
 ## Changelog
 PrintingTools NG changes are logged [here](CHANGELOG.md).
