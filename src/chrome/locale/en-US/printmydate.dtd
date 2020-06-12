@@ -52,5 +52,5 @@
 <!ENTITY showButton.label "Show the options button in the preview window">
 <!ENTITY resizeImgs.label "Resize the images too large">
 <!ENTITY addRdate.label "Add received date">
-
+<!ENTITY defaultPrinter "Default Printer">
 

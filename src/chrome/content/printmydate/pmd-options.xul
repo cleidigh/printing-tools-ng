@@ -197,6 +197,11 @@
 	<tabpanel>
 		<vbox>
 		<hbox align="center">
+		<html:label style="padding-left: 8px; padding-right: 4px;">&defaultPrinter;</html:label>
+		<menulist id="OutputPrinter"/>
+		</hbox>
+		<spacer height="4px" />
+		<hbox align="center">
 			<checkbox id="PMDsilent" label="&PMDlabel8;" /> 
 		</hbox>
 		<hbox align="center">

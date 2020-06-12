@@ -492,11 +492,11 @@ var ignoreLocales = originalLocales;
   // t();
 // translateHelpPage();
 // translatePage();
-// translateAll();
+translateAll();
 // locale  printmydate     de-DE   chrome/locale/de-DE/
 
 
 // translateNew("messages.json", _localeDir, 3, true);
 // translateNew("printmydate.dtd", localeDir, 1, true);
-translateNew("printmydate.properties", localeDir, 2, true);
+// translateNew("printmydate.properties", localeDir, 2, true);
 
