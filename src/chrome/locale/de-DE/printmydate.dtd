@@ -50,9 +50,7 @@
 <!ENTITY alignHeaders.label "Kopfzeilen ausrichten">
 <!ENTITY multipleCards.label "Alle ausgewählten Kontakte drucken">
 <!ENTITY maxPreLen "Maximallänge an die Zeilen der Textabschnitte anpassen:">
-<!ENTITY showButton.label "Show the options button in the preview window">
-<!ENTITY resizeImgs.label "Resize the images too large">
-<!ENTITY addRdate.label "Add received date">
-
-
-
+<!ENTITY resizeImgs.label "Ändern Sie die Größe großer Bilder">
+<!ENTITY showButton.label "Zeigen Sie die Optionsschaltfläche im Vorschaufenster an">
+<!ENTITY addRdate.label "Empfangsdatum hinzufügen">
+<!ENTITY defaultPrinter "Standard Drucker">

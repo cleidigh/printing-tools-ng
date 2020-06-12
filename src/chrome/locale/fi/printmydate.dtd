@@ -52,3 +52,4 @@
 <!ENTITY showButton.label "Näytä vaihtoehdot-painike esikatseluikkunassa">
 <!ENTITY resizeImgs.label "Muuta kuvien kokoa liian suureksi">
 <!ENTITY addRdate.label "Lisää vastaanottopäivä">
+<!ENTITY defaultPrinter "Oletustulostin">

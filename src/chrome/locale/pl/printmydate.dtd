@@ -52,3 +52,4 @@
 <!ENTITY showButton.label "Pokaż przycisk opcji w oknie podglądu">
 <!ENTITY resizeImgs.label "Zmień rozmiar obrazów za dużych">
 <!ENTITY addRdate.label "Dodaj otrzymaną datę">
+<!ENTITY defaultPrinter "Domyślna drukarka">

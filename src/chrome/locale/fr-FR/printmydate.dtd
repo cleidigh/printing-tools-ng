@@ -50,9 +50,7 @@
 <!ENTITY alignHeaders.label "Aligner les entêtes">
 <!ENTITY multipleCards.label "Imprimer tous les contacts sélectionnés">
 <!ENTITY maxPreLen "Largeur maximale pour le texte:">
-<!ENTITY showButton.label "Show the options button in the preview window">
-<!ENTITY resizeImgs.label "Resize the images too large">
-<!ENTITY addRdate.label "Add received date">
-
-
-
+<!ENTITY resizeImgs.label "Redimensionner de grandes images">
+<!ENTITY showButton.label "Afficher le bouton d&#39;options dans la fenêtre d&#39;aperçu">
+<!ENTITY addRdate.label "Ajouter la date de réception">
+<!ENTITY defaultPrinter "Imprimante par défaut">

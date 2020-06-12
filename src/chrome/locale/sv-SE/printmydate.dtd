@@ -51,5 +51,5 @@
 <!ENTITY maxPreLen "Ange största tillåtna radlängd i textstycken:">
 <!ENTITY showButton.label "Via knappen &quot;Utskriftsalternativ&quot; i förhandsgranskningsfönstret">
 <!ENTITY resizeImgs.label "Ändra storlek på alltför stora bilder">
-<!ENTITY addRdate.label "Add received date">
-
+<!ENTITY addRdate.label "Lägg till mottaget datum">
+<!ENTITY defaultPrinter "Standardskrivare">

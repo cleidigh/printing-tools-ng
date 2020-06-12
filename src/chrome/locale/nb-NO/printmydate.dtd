@@ -52,3 +52,4 @@
 <!ENTITY showButton.label "Vis alternativknappen i forhåndsvisningsvinduet">
 <!ENTITY resizeImgs.label "Endre størrelse på bildene">
 <!ENTITY addRdate.label "Legg til mottatt dato">
+<!ENTITY defaultPrinter "Standardskriver">

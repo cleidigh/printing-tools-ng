@@ -52,3 +52,4 @@
 <!ENTITY showButton.label "Показать кнопку параметров в окне предварительного просмотра">
 <!ENTITY resizeImgs.label "Изменить размер изображения слишком велико">
 <!ENTITY addRdate.label "Добавить полученную дату">
+<!ENTITY defaultPrinter "Принтер по умолчанию">

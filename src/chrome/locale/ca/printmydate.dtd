@@ -52,3 +52,4 @@
 <!ENTITY showButton.label "Mostra el botó d&#39;opcions a la finestra de previsualització">
 <!ENTITY resizeImgs.label "Redimensiona les imatges massa grans">
 <!ENTITY addRdate.label "Afegiu la data de recepció">
+<!ENTITY defaultPrinter "Impressora per defecte">

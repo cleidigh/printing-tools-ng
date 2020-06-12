@@ -52,5 +52,5 @@
 <!ENTITY maxPreLen "Maksimal bredde på tekst:">
 <!ENTITY showButton.label "Vis knappen Udskriftsindstillinger i  forhåndsvisningen">
 <!ENTITY resizeImgs.label "Billederne er for store, tilpas deres størrelse">
-<!ENTITY addRdate.label "Add received date">
-
+<!ENTITY addRdate.label "Tilføj modtaget dato">
+<!ENTITY defaultPrinter "Standardprinter">

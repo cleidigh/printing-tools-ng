@@ -52,3 +52,4 @@
 <!ENTITY showButton.label "Εμφάνιση του κουμπιού επιλογών στο παράθυρο προεπισκόπησης">
 <!ENTITY resizeImgs.label "Το μέγεθος του μεγέθους των εικόνων είναι πολύ μεγάλο">
 <!ENTITY addRdate.label "Προσθήκη ημερομηνίας λήψης">
+<!ENTITY defaultPrinter "Προεπιλεγμένος εκτυπωτής">

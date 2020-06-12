@@ -52,3 +52,4 @@
 <!ENTITY showButton.label "V oknu za predogled prikažite gumb z možnostmi">
 <!ENTITY resizeImgs.label "Velikost slik je prevelika">
 <!ENTITY addRdate.label "Dodajte prejeti datum">
+<!ENTITY defaultPrinter "Privzeti tiskalnik">

@@ -46,11 +46,10 @@
 <!ENTITY addNameRG.label "Pridať do záhlavia:">
 <!ENTITY RG1.label "Nič">
 <!ENTITY RG2.label "Používateľské meno"> 
-<!ENTITY alignHeaders.label "Align the headers">
-<!ENTITY multipleCards.label "Print all selected contacts">
+<!ENTITY alignHeaders.label "Zarovnajte hlavičky">
+<!ENTITY multipleCards.label "Vytlačte všetky vybrané kontakty">
 <!ENTITY maxPreLen "Nastavenie maximálnej dĺžky riadkov v odseku:">
-<!ENTITY showButton.label "Show the options button in the preview window">
-<!ENTITY resizeImgs.label "Resize the images too large">
-<!ENTITY addRdate.label "Add received date">
-
-
+<!ENTITY resizeImgs.label "Zmena veľkosti veľkých obrázkov">
+<!ENTITY showButton.label "Zobraziť tlačidlo možností v okne náhľadu">
+<!ENTITY addRdate.label "Pridať dátum prijatia">
+<!ENTITY defaultPrinter "Predvolená tlačiareň">

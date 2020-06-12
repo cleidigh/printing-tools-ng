@@ -52,5 +52,4 @@
 <!ENTITY showButton.label "プレビューにオプションボタンを表示">
 <!ENTITY resizeImgs.label "大きい画像はリサイズする">
 <!ENTITY addRdate.label "Add received date">
-
-
+<!ENTITY defaultPrinter "デフォルトのプリンター">

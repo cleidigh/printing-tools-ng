@@ -52,3 +52,4 @@
 <!ENTITY showButton.label "Toon de optieknop in het voorbeeldvenster">
 <!ENTITY resizeImgs.label "Verklein de afbeeldingen te groot">
 <!ENTITY addRdate.label "Ontvangen datum toevoegen">
+<!ENTITY defaultPrinter "Standaard printer">

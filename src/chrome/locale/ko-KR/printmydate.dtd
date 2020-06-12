@@ -52,3 +52,4 @@
 <!ENTITY showButton.label "미리보기 창에 옵션 버튼 표시">
 <!ENTITY resizeImgs.label "이미지 크기를 너무 크게 조정">
 <!ENTITY addRdate.label "받은 날짜 추가">
+<!ENTITY defaultPrinter "기본 프린터">

@@ -16,6 +16,8 @@ const translate = new Translate({ projectId, key });
 var translationArray = [
 	// { key: "dateFormatRefTooltipText", text: "Date Format Reference" },
 	// { key: "extFilenameFormatRefTooltipText", text: "Extended Filename Format Reference" },
+	{ key: "showButton.label", text: "Show the options button in the preview window" },
+	{ key: "addRdate.label", text: "Add received date" },
 	{ key: "defaultPrinter", text: "Default Printer" },
 ]
 
@@ -202,6 +204,10 @@ async function translateAllLocales(sourceArray, localeDir, locales, format, over
 			continue;
 		}
 
+		if (shortLocale === 'nb') {
+			shortLocale = 'nb-NO';
+		}
+		
 		// console.debug('Locale ' + locale + ' ' + translate.languages[locale]);
 		console.debug(locale + '\n');
 
@@ -274,7 +280,7 @@ async function translateAllLocales(sourceArray, localeDir, locales, format, over
 		try {
 			if (!overwrite) {
 				console.debug(`Append: ${localeDir}/${targetLocale}/${localeFile}`);
-				fs.appendFileSync(`${localeDir}/${targetLocale}/${localeFile}`, lt);
+				fs.appendFileSync(`${localeDir}/${targetLocale}/${localeFile}`, '\n' + lt);
 			} else {
 				console.debug(`Write: ${localeDir}/${targetLocale}/${localeFile}`);
 				fs.outputFileSync(`${localeDir}/${targetLocale}/${localeFile}`, lt);
@@ -318,6 +324,10 @@ async function translateHelpPage() {
 		if (shortLocale === 'zh') {
 			shortLocale = 'zh-CN';
 		}
+		if (shortLocale === 'nb') {
+			shortLocale = 'nb-NO';
+		}
+		
 		var outputFileName = `${helpLocaleDir}/${localeFolders[i]}/${helpBase}.html`;
 
 		// if (fs.existsSync(outputFileName)) {
@@ -431,11 +441,11 @@ async function translateNew(srcLocaleFile, localeDir, format, overwrite) {
 	console.debug('Stop ' + (st - s) / 1000);
 }
 
-async function translateAll() {
+async function translateAll(srcArray, localeDir, locales, format, overwrite) {
 	let s = new Date();
 	console.debug('Start ' + s);
 
-	await translateAllLocales(translationArray, localeFolders, 1, true);
+	await translateAllLocales(srcArray, localeDir, locales, format, overwrite);
 
 	let st = new Date();
 	console.debug('Stop ' + st);
@@ -482,17 +492,23 @@ const localeFolders = _getAllFilesOrFolders(localeDir, true);
 console.debug(localeFolders);
 
 var l =	 localeFolders.map(f => `locale  printmydate    ${f}\t\tchrome/locale/${f}/`);
-var ignoreLocales = originalLocales;
+// var ignoreLocales = originalLocales;
 
-// var ignoreLocales = [];
+var ignoreLocales = [];
 // for (e of l) {console.debug(e);}
 
 // console.debug(...l);
 
+
+var allLocales = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+'hy-AM', 'it-IT', 'ja', 'ko-KR', 'nl', 'no', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN'];
+
+var allLocales2 = ['ca', 'de-DE'];
+localeFile = "printmydate.dtd";
   // t();
 // translateHelpPage();
 // translatePage();
-translateAll();
+translateAll(translationArray, localeDir, allLocales, 1, false);
 // locale  printmydate     de-DE   chrome/locale/de-DE/
 
 
