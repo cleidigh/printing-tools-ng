@@ -31,20 +31,20 @@ var printingtools = {
 			box.appendChild(button);
 			contentEl.parentNode.insertBefore(box, contentEl.nextSibling);
 		}
-		
+
 		var outputPrinter = printingtools.prefs.getCharPref("print_printer");
 		// printingtools.prefs.setStringPref("print_printer", "Microsoft XPS Document Writer");
 		// PrintEngineCreateGlobals();
 		// InitPrintEngineWindow();
 
 		var PSSVC2 = Cc["@mozilla.org/gfx/printerenumerator;1"]
-		.getService(Ci.nsIPrinterEnumerator);
+			.getService(Ci.nsIPrinterEnumerator);
 
 		Services.console.logStringMessage("printingtools: printerD: " + PSSVC2.defaultPrinterName);
 		var pe = PSSVC2.printerNameList;
 		var printers = [];
 
-		while(pe.hasMore()) {
+		while (pe.hasMore()) {
 			let printerName = pe.getNext();
 			Services.console.logStringMessage("printingtools: printerName: " + printerName);
 			printers.push(printerName);
@@ -52,16 +52,16 @@ var printingtools = {
 
 		var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
 			.getService(Ci.nsIPrintSettingsService);
-		
-			Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinterName);
-			Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinter);
+
+		Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinterName);
+		Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinter);
 		// Use global printing preferences
 		// https://github.com/thundernest/import-export-tools-ng/issues/77
 
 		// var myPrintSettings = PSSVC.globalPrintSettings;
 		// myPrintSettings.printerName = printers[1];
 		// myPrintSettings.printSilent = false;
-		
+
 		// PSSVC.initPrintSettingsFromPrinter(myPrintSettings.printerName, myPrintSettings);
 		// // PSSVC.initPrintSettingsFromPrefs(myPrintSettings, true, myPrintSettings.kInitSaveAll);
 		// Services.console.logStringMessage("printingtools: printer: " + myPrintSettings.printerName);
@@ -76,7 +76,7 @@ var printingtools = {
 	},
 
 	openDialog: function (fromPreview) {
-		
+
 		openDialog("chrome://printmydate/content/pmd-options.xul", "", "chrome,centerscreen", fromPreview, printingtools.isAB);
 
 	},
@@ -999,51 +999,6 @@ var printingtools = {
 		console.debug(url);
 		return url;
 	},
-},
-
-onLoad: function (e) {
-	Services.console.logStringMessage("printingtools: onLoad: " );
-	// getStringPref("print.")
-
-	// PrintEngineCreateGlobals();
-	// InitPrintEngineWindow();
-	var PSSVC2 = Cc["@mozilla.org/gfx/printerenumerator;1"]
-		.getService(Ci.nsIPrinterEnumerator);
-	
-	Services.console.logStringMessage("printingtools: printerD: " + PSSVC2.defaultPrinterName);
-	var pe = PSSVC2.printerNameList;
-	var printers = [];
-
-	while(pe.hasMore()) {
-		let printerName = pe.getNext();
-		Services.console.logStringMessage("printingtools: printerName: " + printerName);
-		printers.push(printerName);
-	}
-
-	var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
-		.getService(Ci.nsIPrintSettingsService);
-	
-		Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinterName);
-		Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinter);
-	// Use global printing preferences
-	// https://github.com/thundernest/import-export-tools-ng/issues/77
-
-	var myPrintSettings = PSSVC.globalPrintSettings;
-	myPrintSettings.printerName = printers[1];
-
-	PSSVC.initPrintSettingsFromPrinter(myPrintSettings.printerName, myPrintSettings);
-	// PSSVC.initPrintSettingsFromPrefs(myPrintSettings, true, myPrintSettings.kInitSaveAll);
-	Services.console.logStringMessage("printingtools: printer: " + myPrintSettings.printerName);
-	// myPrintSettings.printSilent = true;
-	printEngine.startPrintOperation(myPrintSettings);
 }
-
-
-Services.console.logStringMessage("printingtools: js loaded: " );
-// OnLoadPrintEngine = printingtools.onLoad;
-// window.addEventListener("load", function (e) {
-//  printingtools.onLoad(e); 
-// });
-
 
 window.addEventListener("DOMContentLoaded", printingtools.loadContentListener, false);
