@@ -1,6 +1,6 @@
 <?xml version="1.0"?> 
 <!DOCTYPE dialog [ 
-<!ENTITY % mainDTD SYSTEM "chrome://printingtoolsng/locale/printmydate.dtd">
+<!ENTITY % mainDTD SYSTEM "chrome://printingtoolsng/locale/printingtoolsng.dtd">
 %mainDTD;
 ]>
 

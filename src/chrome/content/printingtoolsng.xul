@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<!DOCTYPE overlay SYSTEM "chrome://printingtoolsng/locale/printmydate.dtd">
-<overlay id="printmydate"
+<!DOCTYPE overlay SYSTEM "chrome://printingtoolsng/locale/printingtoolsng.dtd">
+<overlay id="printingtoolsng"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
 <script type="text/javascript"  src="chrome://printingtoolsng/content/printingtoolsng-overlay.js" />

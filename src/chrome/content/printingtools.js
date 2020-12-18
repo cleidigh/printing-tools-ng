@@ -23,7 +23,7 @@ var printingtools = {
 		if (window.arguments && window.arguments[1])
 			printingtools.num = window.arguments[1].length;
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.show_options_button")) {
-			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printmydate.properties");
+			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 			var box = document.createXULElement("hbox");
 			var button = document.createXULElement("button");
 			button.setAttribute("oncommand", "printingtools.openDialog(true)");
@@ -807,7 +807,7 @@ var printingtools = {
 			var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
 			if (!formatted_date)
 				return;
-			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printmydate.properties");
+			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 			var headtable1 = printingtools.getTable(0);
 			var newTR = printingtools.doc.createElement("TR");
 			newTR.setAttribute("id", "recTR");
@@ -825,7 +825,7 @@ var printingtools = {
 	appendAttTD: function (newTD) {
 		if (!newTD.innerHTML)
 			return;
-		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printmydate.properties");
+		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 		var headtable1 = printingtools.getTable(0);
 		var newTR = printingtools.doc.createElement("TR");
 		newTR.setAttribute("id", "attTR");
@@ -839,7 +839,7 @@ var printingtools = {
 	},
 
 	rewriteAttList: function () {
-		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printmydate.properties");
+		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 		var firsttime = true;
 		var counter = 0;
 		var newTD = printingtools.doc.createElement("TD");
