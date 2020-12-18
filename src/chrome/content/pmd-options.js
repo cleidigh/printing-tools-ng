@@ -54,7 +54,7 @@ function initPMDpanel() {
 	fullPanel = true;
 	initPMDabpanel();
 
-	var bundle = strBundleService.createBundle("chrome://printmydate/locale/printmydate.properties");
+	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printmydate.properties");
 	if (Array.isArray) {
 		document.getElementById("dateLoc").collapsed = true;
 		document.getElementById("dateSpacer").collapsed = true;
@@ -266,7 +266,7 @@ function onSelectListRow(event, data_id) {
 
 function getHeaderLabel(string) {
 	var bundle = strBundleService.createBundle("chrome://messenger/locale/mime.properties");
-	var bundle2 = strBundleService.createBundle("chrome://printmydate/locale/printmydate.properties");
+	var bundle2 = strBundleService.createBundle("chrome://printingtoolsng/locale/printmydate.properties");
 	switch (string) {
 		case "%a":
 			return bundle2.GetStringFromName("attachments");

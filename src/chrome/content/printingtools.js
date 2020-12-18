@@ -23,7 +23,7 @@ var printingtools = {
 		if (window.arguments && window.arguments[1])
 			printingtools.num = window.arguments[1].length;
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.show_options_button")) {
-			var bundle = printingtools.strBundleService.createBundle("chrome://printmydate/locale/printmydate.properties");
+			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printmydate.properties");
 			var box = document.createXULElement("hbox");
 			var button = document.createXULElement("button");
 			button.setAttribute("oncommand", "printingtools.openDialog(true)");
@@ -77,7 +77,7 @@ var printingtools = {
 
 	openDialog: function (fromPreview) {
 
-		openDialog("chrome://printmydate/content/pmd-options.xul", "", "chrome,centerscreen", fromPreview, printingtools.isAB);
+		openDialog("chrome://printingtoolsng/content/pmd-options.xul", "", "chrome,centerscreen", fromPreview, printingtools.isAB);
 
 	},
 
@@ -637,7 +637,7 @@ var printingtools = {
 					if (folder.isServer)
 						break;
 				}
-				folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="chrome://printmydate/content/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
+				folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="chrome://printingtoolsng/content/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
 			}
 			h3.innerHTML = myname + folderHtml;
 			var firsttable = printingtools.getTable(0);
@@ -807,7 +807,7 @@ var printingtools = {
 			var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
 			if (!formatted_date)
 				return;
-			var bundle = printingtools.strBundleService.createBundle("chrome://printmydate/locale/printmydate.properties");
+			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printmydate.properties");
 			var headtable1 = printingtools.getTable(0);
 			var newTR = printingtools.doc.createElement("TR");
 			newTR.setAttribute("id", "recTR");
@@ -825,7 +825,7 @@ var printingtools = {
 	appendAttTD: function (newTD) {
 		if (!newTD.innerHTML)
 			return;
-		var bundle = printingtools.strBundleService.createBundle("chrome://printmydate/locale/printmydate.properties");
+		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printmydate.properties");
 		var headtable1 = printingtools.getTable(0);
 		var newTR = printingtools.doc.createElement("TR");
 		newTR.setAttribute("id", "attTR");
@@ -839,7 +839,7 @@ var printingtools = {
 	},
 
 	rewriteAttList: function () {
-		var bundle = printingtools.strBundleService.createBundle("chrome://printmydate/locale/printmydate.properties");
+		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printmydate.properties");
 		var firsttime = true;
 		var counter = 0;
 		var newTD = printingtools.doc.createElement("TD");
@@ -984,7 +984,7 @@ var printingtools = {
 			case "xls":
 			case "xml":
 			case "zip":
-				url = "chrome://printmydate/content/icons/" + ext + ".gif";
+				url = "chrome://printingtoolsng/content/icons/" + ext + ".gif";
 				break;
 			case "avi":
 			case "mpg":
@@ -992,9 +992,9 @@ var printingtools = {
 			case "wav":
 			case "wmv":
 			case "wma":
-				url = "chrome://printmydate/content/icons/media.gif";
+				url = "chrome://printingtoolsng/content/icons/media.gif";
 			default:
-				url = "chrome://printmydate/content/icons/file.gif";
+				url = "chrome://printingtoolsng/content/icons/file.gif";
 		}
 		console.debug(url);
 		return url;
