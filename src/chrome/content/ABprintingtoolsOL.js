@@ -5,21 +5,22 @@
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
+console.debug('ABprintingtoolsOL overlay');
 function onLoad() {
-
+	console.debug('ABprintingtoolsOL overlay loading');
 	// Services.scriptloader.loadSubScript("", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem label="&PMDmenuitem;" insertafter="printMenuItem" oncommand="openPTdialog(false)"/>
+	<menuitem label="&PMDmenuitem;" insertafter="printAddressBook" oncommand="openPTdialog(false)"/>
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 }
 
 function onUnload(shutdown) {
-	console.debug('PT unloading');
+	console.debug('AB unloading');
 	// Services.console.logStringMessage("onUnload messenger");
 
 }

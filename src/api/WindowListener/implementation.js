@@ -359,6 +359,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
 
                       var optionsLabel = "";
                       if (versionChecker.compare(currentVersion, "78") >= 0) {
+                        console.debug('adding options');
                         optionsLabel = "&addonPrefs.label;";
                       } else {
                         optionsLabel = "&labelmenuMItools; &options;";
@@ -372,7 +373,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                             </menupopup>
                           </menu>
                         `, ["chrome://messenger/locale/messenger.dtd",
-                          "chrome://mboximport/locale/mboximport.dtd", "chrome://messenger/locale/baseMenuOverlay.dtd"]);
+                          "chrome://messenger/locale/baseMenuOverlay.dtd"]);
 
 		
 		

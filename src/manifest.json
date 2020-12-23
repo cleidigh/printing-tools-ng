@@ -4,20 +4,28 @@
     "version": "2.0.0-b1",
     "description": "__MSG_extensionDescription__",
     "author": "Christopher Leidigh",
-    "xpi-name": "printing-tools-ng",
     "applications": {
         "gecko": {
             "id": "PrintingToolsNG@cleidigh.kokkini.net",
             "strict_min_version": "68.0",
-            "strict_max_version": "72.*"
+            "strict_max_version": "78.*"
         }
     },
-    "legacy": {
-        "options": {
-            "page": "chrome://printingtoolsng/content/pmd-options.xul",
-            "open_in_tab": false
+    "experiment_apis": {
+        "WindowListener": {
+          "schema": "api/WindowListener/schema.json",
+          "parent": {
+            "scopes": ["addon_parent"],
+            "paths": [["WindowListener"]],
+            "script": "api/WindowListener/implementation.js"
+          }
         }
+      },
+
+    "background": {
+        "scripts": ["background.js"]
     },
+
     "icons": {
         "64": "chrome/content/icons/printing-tools-ng-icon-64px.png",
         "32": "chrome/content/icons/printing-tools-ng-icon-32px.png"

@@ -6,39 +6,63 @@ messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
 // Register all necessary content, Resources, and locales
 
 messenger.WindowListener.registerChromeUrl([
-	["content", "columnswizard", "chrome/content/"],
-	["content", "columnswizard", "chrome/content/ico"],
-	["resource", "columnswizard", "chrome/content/", "contentaccessible=yes"],
-	["resource", "columnswizard", "chrome/content/modules/"],
-	["resource", "columnswizard2", "chrome/resource/"],
-	["resource", "columnswizard", "chrome/skin/classic/"],
-	["locale", "columnswizard", "en-US", "chrome/locale/en-US/"],
-	["locale", "columnswizard", "de", "chrome/locale/de/"],
-	["locale", "columnswizard", "es-ES", "chrome/locale/es-ES/"],
-	["locale", "columnswizard", "fr", "chrome/locale/fr/"],
-	["locale", "columnswizard", "hu", "chrome/locale/hu/"],
-	["locale", "columnswizard", "it", "chrome/locale/it/"],
-	["locale", "columnswizard", "ja", "chrome/locale/ja/"],
-	["content", "cwrl2", "./_locales/"],
-	["content", "cwrl", "./"],
+	["content", "printingtoolsng", "chrome/content/"],
+	["resource", "printingtoolsng", "chrome/content/", "contentaccessible=yes"],
+	["resource", "printingtoolsng", "chrome/content/modules/"],
+	["resource", "printingtoolsng", "chrome/skin/classic/"],
+
+	["locale", "printingtoolsng", "en-US", "chrome/locale/en-US/"],
+	["locale", "printingtoolsng", "ca", "chrome/locale/ca/"],
+	["locale", "printingtoolsng", "da-DK", "chrome/locale/da-DK/"],
+	["locale", "printingtoolsng", "de-DE", "chrome/locale/de-DE/"],
+	["locale", "printingtoolsng", "el", "chrome/locale/el/"],
+	["locale", "printingtoolsng", "es-ES", "chrome/locale/es-ES/"],
+	["locale", "printingtoolsng", "fi", "chrome/locale/fi/"],
+	["locale", "printingtoolsng", "fr-FR", "chrome/locale/fr-FR/"],
+	["locale", "printingtoolsng", "gl-ES", "chrome/locale/gl-ES/"],
+	["locale", "printingtoolsng", "hy-AM", "chrome/locale/hy-AM/"],
+	["locale", "printingtoolsng", "it-IT", "chrome/locale/it-IT/"],
+	["locale", "printingtoolsng", "ja-JP", "chrome/locale/ja-JP/"],
+	["locale", "printingtoolsng", "ko-KR", "chrome/locale/ko-KR/"],
+	["locale", "printingtoolsng", "nl", "chrome/locale/nl/"],
+	["locale", "printingtoolsng", "hu-HU", "chrome/locale/hu-HU/"],
+	["locale", "printingtoolsng", "nb-NO", "chrome/locale/nb-NO/"],
+	["locale", "printingtoolsng", "pl", "chrome/locale/pl/"],
+	["locale", "printingtoolsng", "pt-PT", "chrome/locale/pt-PT/"],
+	["locale", "printingtoolsng", "ru", "chrome/locale/ru/"],
+	["locale", "printingtoolsng", "sk", "chrome/locale/sk/"],
+	["locale", "printingtoolsng", "sl-SI", "chrome/locale/sl-SI/"],
+	["locale", "printingtoolsng", "sv-SE", "chrome/locale/sv-SE/"],
+	["locale", "printingtoolsng", "uk", "chrome/locale/uk/"],
+	["locale", "printingtoolsng", "zh-CN", "chrome/locale/zh-CN/"],
 	
 ]);
 
 
-// messenger.WindowListener.registerShutdownScript("chrome://columnswizardSee if/content/shutdown.js");
 
-messenger.WindowListener.registerOptionsPage("chrome://columnswizard/content/settings-tab-launch.xhtml");
+// messenger.WindowListener.registerShutdownScript("chrome://printingtoolsngSee if/content/shutdown.js");
+
+messenger.WindowListener.registerOptionsPage("chrome://printingtoolsng/content/ptng-options.xhtml");
 
 // Register each overlay script Which controls subsequent fragment loading
 
 
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/messenger.xul",
-	"chrome://columnswizard/content/messengerOL.js");
+// messenger.WindowListener.registerWindow(
+// 	"chrome://messenger/content/messenger.xul",
+// 	"chrome://printingtoolsng/content/messengerOL.js");
 
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/messenger.xhtml",
-	"chrome://columnswizard/content/messengerOL.js");
+	"chrome://printingtoolsng/content/messengerOL.js");
 	
-messenger.WindowListener.startListening();
+
+messenger.WindowListener.registerWindow(
+	"chrome://messenger/content/msgPrintEngine.xhtml",
+	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
+
+messenger.WindowListener.registerWindow(
+	"chrome://messenger/content/addressbook/addressbook.xhtml",
+	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
+	
+	messenger.WindowListener.startListening();
 

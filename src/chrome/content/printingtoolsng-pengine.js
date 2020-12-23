@@ -77,7 +77,7 @@ var printingtools = {
 
 	openDialog: function (fromPreview) {
 
-		openDialog("chrome://printingtoolsng/content/pmd-options.xul", "", "chrome,centerscreen", fromPreview, printingtools.isAB);
+		openDialog("chrome://printingtoolsng/content/ptng-options.xhtml", "", "chrome,centerscreen", fromPreview, printingtools.isAB);
 
 	},
 

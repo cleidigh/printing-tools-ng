@@ -5,17 +5,11 @@
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
+console.debug('printing engine overlay');
 function onLoad() {
-
+	console.debug('printing engine overlay loading');
 	// Services.scriptloader.loadSubScript("", window);
-	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
-
-	WL.injectElements(`
-<menupopup id="menu_FilePopup">
-	<menuitem label="&PMDmenuitem;" insertafter="printMenuItem" oncommand="openPTdialog(false)"/>
-</menupopup>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
-
+	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 }
 
 function onUnload(shutdown) {
