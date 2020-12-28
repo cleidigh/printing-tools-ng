@@ -637,7 +637,7 @@ var printingtools = {
 					if (folder.isServer)
 						break;
 				}
-				folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="chrome://printingtoolsng/content/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
+				folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="resource://printingtoolsng/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
 			}
 			h3.innerHTML = myname + folderHtml;
 			var firsttable = printingtools.getTable(0);
@@ -984,7 +984,7 @@ var printingtools = {
 			case "xls":
 			case "xml":
 			case "zip":
-				url = "chrome://printingtoolsng/content/icons/" + ext + ".gif";
+				url = "resource://printingtoolsng/icons/" + ext + ".gif";
 				break;
 			case "avi":
 			case "mpg":
@@ -992,9 +992,9 @@ var printingtools = {
 			case "wav":
 			case "wmv":
 			case "wma":
-				url = "chrome://printingtoolsng/content/icons/media.gif";
+				url = "resource://printingtoolsng/icons/media.gif";
 			default:
-				url = "chrome://printingtoolsng/content/icons/file.gif";
+				url = "resource://printingtoolsng/icons/file.gif";
 		}
 		console.debug(url);
 		return url;

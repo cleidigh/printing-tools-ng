@@ -7,9 +7,7 @@ messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
 
 messenger.WindowListener.registerChromeUrl([
 	["content", "printingtoolsng", "chrome/content/"],
-	["resource", "printingtoolsng", "chrome/content/", "contentaccessible=yes"],
-	["resource", "printingtoolsng", "chrome/content/modules/"],
-	["resource", "printingtoolsng", "chrome/skin/classic/"],
+	["resource", "printingtoolsng", "chrome/content/"],
 
 	["locale", "printingtoolsng", "en-US", "chrome/locale/en-US/"],
 	["locale", "printingtoolsng", "ca", "chrome/locale/ca/"],
