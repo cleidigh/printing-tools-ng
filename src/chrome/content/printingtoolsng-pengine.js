@@ -972,6 +972,7 @@ var printingtools = {
 		var url;
 		var ext = filename.substring(filename.lastIndexOf("&") - 3);
 		ext = ext.substring(0, 3).toLowerCase();
+		ext = ext.replace('.', '');
 
 		switch (ext) {
 			case "doc":
@@ -999,7 +1000,13 @@ var printingtools = {
 			case "wmv":
 			case "wma":
 				url = "resource://printingtoolsng/icons/media.gif";
-			default:
+				break;
+			case "7z":
+				url = "resource://printingtoolsng/icons/7z.png";
+				
+				break;
+	
+				default:
 				url = "resource://printingtoolsng/icons/file.gif";
 		}
 		console.debug(url);
