@@ -34,11 +34,24 @@ function setComplexPref(pref, value) {
 function initPMDpanel() {
 	var abook = false;
 
+	// cleidigh
+	console.debug('initialize panel');
+	console.debug(window.arguments);
 	if (window.arguments) {
-		fromPreview = window.arguments[0] || false;
-		abook = window.arguments[1] || false;
-	} else
+		if (typeof window.arguments[0] === 'object' || window.arguments[0] === false) {
+			fromPreview = false;
+			abook = window.arguments[1] || false;
+
+		} else {
+			fromPreview = window.arguments[0] || false;
+			abook = window.arguments[1] || false;
+		}
+ 	} else {
 		fromPreview = false;
+		abook = false;
+	}
+	console.debug(fromPreview);
+	console.debug(abook);
 
 	var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator);
@@ -288,6 +301,7 @@ function getHeaderLabel(string) {
 }
 
 function savePMDprefs() {
+	console.debug('save options');
 	if (fullPanel)
 		savePMDabprefs(true);
 		prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
@@ -349,13 +363,18 @@ function savePMDprefs() {
 	prefs.setCharPref("extensions.printingtoolsng.headers.order", val);
 	prefs.setBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach", document.getElementById("addP7M").checked);
 	if (fromPreview) {
+		console.debug('closing from preview');
 		try {
 			opener.close();
+			console.debug('close opener');
 			var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
 				.getService(Ci.nsIWindowMediator);
 			var win = wm.getMostRecentWindow("mail:3pane");
-			if (win)
+			if (win) {
+				console.debug('open previewing Jan');
+				console.debug(win);
 				win.PrintEnginePrintPreview();
+			}
 		} catch (e) { }
 	}
 }
@@ -384,8 +403,10 @@ function savePMDabprefs(fullpanel) {
 		var win = wm.getMostRecentWindow("mail:addressbook");
 		if (!win)
 			return;
-		if (!isContact)
+		if (!isContact) {
+			console.debug('address.Preview');
 			win.AbPrintPreviewAddressBook();
+		}
 		else
 			win.AbPrintPreviewCard();
 	}

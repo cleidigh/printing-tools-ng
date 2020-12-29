@@ -5,11 +5,13 @@ messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
 
 // Register all necessary content, Resources, and locales
 
+// ["resource", "printingtoolsng", "chrome/content/icons/"],
+// ["resource", "printingtoolsng", "chrome/content/", "contentaccessible=yes"],
+// ["resource", "printingtoolsng", "chrome/content/modules/"],
+
 messenger.WindowListener.registerChromeUrl([
 	["content", "printingtoolsng", "chrome/content/"],
-	["resource", "printingtoolsng", "chrome/content/", "contentaccessible=yes"],
-	["resource", "printingtoolsng", "chrome/content/modules/"],
-	["resource", "printingtoolsng", "chrome/skin/classic/"],
+	["resource", "printingtoolsng", "chrome/content/"],
 
 	["locale", "printingtoolsng", "en-US", "chrome/locale/en-US/"],
 	["locale", "printingtoolsng", "ca", "chrome/locale/ca/"],
@@ -47,9 +49,9 @@ messenger.WindowListener.registerOptionsPage("chrome://printingtoolsng/content/p
 // Register each overlay script Which controls subsequent fragment loading
 
 
-// messenger.WindowListener.registerWindow(
-// 	"chrome://messenger/content/messenger.xul",
-// 	"chrome://printingtoolsng/content/messengerOL.js");
+messenger.WindowListener.registerWindow(
+	"chrome://messenger/content/messenger.xul",
+	"chrome://printingtoolsng/content/messengerOL.js");
 
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/messenger.xhtml",
@@ -60,6 +62,10 @@ messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/msgPrintEngine.xhtml",
 	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
 
+messenger.WindowListener.registerWindow(
+	"chrome://messenger/content/msgPrintEngine.xul",
+	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
+	
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/addressbook/addressbook.xhtml",
 	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");

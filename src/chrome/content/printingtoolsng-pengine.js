@@ -76,7 +76,9 @@ var printingtools = {
 	},
 
 	openDialog: function (fromPreview) {
-
+		console.debug('open options');
+		console.debug(fromPreview);
+		console.debug(printingtools.isAB);
 		openDialog("chrome://printingtoolsng/content/ptng-options.xhtml", "", "chrome,centerscreen", fromPreview, printingtools.isAB);
 
 	},
@@ -176,6 +178,7 @@ var printingtools = {
 	},
 
 	correctABprint: function (gennames) {
+		console.debug('correct address book');
 		var gnLen = printingtools.doc.getElementsByTagName("GeneratedName").length;
 		var dirNode = printingtools.doc.getElementsByTagName("directory")[0];
 		var multipleCards = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards");
@@ -371,13 +374,14 @@ var printingtools = {
 	},
 
 	correctLayout: function () {
+		console.debug('correctly layout');
 		printingtools.doc = window.content.document;
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 		// If there is some "GeneratedName" tag, so we're printing from addressbook
 		if (gennames.length > 0) {
 			printingtools.isAB = true;
-
+			console.debug('is address book');
 			if (gennames.length == 1)
 				printingtools.isContact = true;
 			printingtools.correctABprint(gennames);
@@ -637,7 +641,7 @@ var printingtools = {
 					if (folder.isServer)
 						break;
 				}
-				folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="chrome://printingtoolsng/content/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
+				folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="resource://printingtoolsng/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
 			}
 			h3.innerHTML = myname + folderHtml;
 			var firsttable = printingtools.getTable(0);
@@ -940,6 +944,7 @@ var printingtools = {
 
 		if (newTD)
 			printingtools.appendAttTD(newTD);
+
 		printingtools.sortHeaders();
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
 			printingtools.appendReceivedTD();
@@ -984,7 +989,8 @@ var printingtools = {
 			case "xls":
 			case "xml":
 			case "zip":
-				url = "chrome://printingtoolsng/content/icons/" + ext + ".gif";
+				// url = "chrome://printingtoolsng/content/" + ext + ".gif";
+				url = "resource://printingtoolsng/icons/" + ext + ".gif";
 				break;
 			case "avi":
 			case "mpg":
@@ -992,9 +998,9 @@ var printingtools = {
 			case "wav":
 			case "wmv":
 			case "wma":
-				url = "chrome://printingtoolsng/content/icons/media.gif";
+				url = "resource://printingtoolsng/icons/media.gif";
 			default:
-				url = "chrome://printingtoolsng/content/icons/file.gif";
+				url = "resource://printingtoolsng/icons/file.gif";
 		}
 		console.debug(url);
 		return url;
