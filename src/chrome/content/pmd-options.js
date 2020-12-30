@@ -15,6 +15,8 @@ var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch
 var fullPanel;
 var fromPreview;
 var gheaderList;
+var abook = false;
+
 
 function getComplexPref(pref) {
 	if (prefs.getStringPref)
@@ -32,7 +34,6 @@ function setComplexPref(pref, value) {
 }
 
 function initPMDpanel() {
-	var abook = false;
 
 	// cleidigh
 	console.debug('initialize panel');
@@ -305,7 +306,7 @@ function savePMDprefs() {
 	if (fullPanel)
 		savePMDabprefs(true);
 		prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
-		Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);	
+		// Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);	
 	
 	var max_pre_len;
 	if (document.getElementById("PREtruncate").checked)
@@ -369,13 +370,28 @@ function savePMDprefs() {
 			console.debug('close opener');
 			var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
 				.getService(Ci.nsIWindowMediator);
-			var win = wm.getMostRecentWindow("mail:3pane");
-			if (win) {
-				console.debug('open previewing Jan');
-				console.debug(win);
+			var win;
+			if (abook) {
+				win = wm.getMostRecentWindow("mail:addressbook");
+				win.AbPrintPreviewAddressBook();
+			} else {
+				win = wm.getMostRecentWindow("mail:3pane");
 				win.PrintEnginePrintPreview();
 			}
-		} catch (e) { }
+			
+			// var win = wm.getMostRecentWindow("mail:addressbook");
+
+			// if (win) {
+			// 	console.debug('open previewing Jan');
+			// 	console.debug(win);
+			// 	// win.PrintEnginePrintPreview();
+			// 	console.debug('address.Preview');
+			// 	win.AbPrintPreviewAddressBook();
+			// 	console.debug('after preview call');
+			// }
+		} catch (e) {
+			console.debug(e);
+		 }
 	}
 }
 

@@ -40,21 +40,21 @@ var printingtools = {
 		var PSSVC2 = Cc["@mozilla.org/gfx/printerenumerator;1"]
 			.getService(Ci.nsIPrinterEnumerator);
 
-		Services.console.logStringMessage("printingtools: printerD: " + PSSVC2.defaultPrinterName);
+		// Services.console.logStringMessage("printingtools: printerD: " + PSSVC2.defaultPrinterName);
 		var pe = PSSVC2.printerNameList;
 		var printers = [];
 
 		while (pe.hasMore()) {
 			let printerName = pe.getNext();
-			Services.console.logStringMessage("printingtools: printerName: " + printerName);
+			// Services.console.logStringMessage("printingtools: printerName: " + printerName);
 			printers.push(printerName);
 		}
 
 		var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
 			.getService(Ci.nsIPrintSettingsService);
 
-		Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinterName);
-		Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinter);
+		// Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinterName);
+		// Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinter);
 		// Use global printing preferences
 		// https://github.com/thundernest/import-export-tools-ng/issues/77
 
@@ -375,6 +375,7 @@ var printingtools = {
 
 	correctLayout: function () {
 		console.debug('correctly layout');
+		Services.console.logStringMessage("CorrectLayout");
 		printingtools.doc = window.content.document;
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
@@ -384,9 +385,13 @@ var printingtools = {
 			console.debug('is address book');
 			if (gennames.length == 1)
 				printingtools.isContact = true;
+				Services.console.logStringMessage("Correct  AB Layout");
 			printingtools.correctABprint(gennames);
+			console.debug('corrected address book');
 			return;
 		}
+
+		console.debug('printing e-mail');
 
 		var tablesNum = printingtools.doc.getElementsByTagName("Table").length;
 		// If there is no "Table" tag, so we can't do nothing... It can happen, because the printEngine window
@@ -875,7 +880,7 @@ var printingtools = {
 					var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
 					if (withIcon) {
 						var imgSrc = printingtools.findIconSrc(currAtt);
-						currAtt = '<nobr><img src="' + imgSrc + '" class="attIcon">&nbsp;' + currAtt + "</nobr>";
+						currAtt = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</nobr>";
 					}
 					attDiv = attDiv + comma + currAtt;
 				}
@@ -901,7 +906,7 @@ var printingtools = {
 					var attDiv = tds[0].innerHTML;
 					if (withIcon) {
 						var imgSrc = printingtools.findIconSrc(attDiv);
-						attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon">&nbsp;' + attDiv + "</nobr>";
+						attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
 					}
 					// write into the new TD innerHTML the name of the attachment, if necessary with a comma
 					newTD.innerHTML = newTD.innerHTML + comma + attDiv;
@@ -931,7 +936,7 @@ var printingtools = {
 							attDiv = atts[i].label;
 						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon")) {
 							var imgSrc = printingtools.findIconSrc(attDiv);
-							attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon">&nbsp;' + attDiv + "</nobr>";
+							attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon"  height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
 						}
 						// write into the new TD innerHTML the name of the attachment, if necessary with a comma
 						newTD.innerHTML = newTD.innerHTML + comma + attDiv;
@@ -970,17 +975,21 @@ var printingtools = {
 
 	findIconSrc: function (filename) {
 		var url;
-		var ext = filename.substring(filename.lastIndexOf("&") - 3);
-		ext = ext.substring(0, 3).toLowerCase();
-		ext = ext.replace('.', '');
+		var ext = filename.substring(0, filename.lastIndexOf("&")).toLowerCase();
+		ext = ext.substring(ext.lastIndexOf(".") + 1);
+		console.debug(ext);
 
 		switch (ext) {
 			case "doc":
 			case "eml":
 			case "gif":
 			case "jpg":
+			case "jpeg":
 			case "ods":
 			case "odt":
+			case "msg":
+			case "tif":
+			case "tiff":
 			case "pdf":
 			case "png":
 			case "ppt":
@@ -1003,10 +1012,17 @@ var printingtools = {
 				break;
 			case "7z":
 				url = "resource://printingtoolsng/icons/7z.png";
-				
 				break;
-	
-				default:
+			case "docx":
+				url = "resource://printingtoolsng/icons/docx.png";
+				break;
+			case "xlsx":
+				url = "resource://printingtoolsng/icons/xlsx.png";
+				break;
+			case "pptx":
+				url = "resource://printingtoolsng/icons/pptx.png";
+				break;
+			default:
 				url = "resource://printingtoolsng/icons/file.gif";
 		}
 		console.debug(url);
