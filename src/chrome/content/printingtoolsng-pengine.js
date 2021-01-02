@@ -32,7 +32,7 @@ var printingtools = {
 			contentEl.parentNode.insertBefore(box, contentEl.nextSibling);
 		}
 
-		var outputPrinter = printingtools.prefs.getCharPref("print_printer");
+		// var outputPrinter = printingtools.prefs.getCharPref("print_printer");
 		// printingtools.prefs.setStringPref("print_printer", "Microsoft XPS Document Writer");
 		// PrintEngineCreateGlobals();
 		// InitPrintEngineWindow();
@@ -76,9 +76,6 @@ var printingtools = {
 	},
 
 	openDialog: function (fromPreview) {
-		console.debug('open options');
-		console.debug(fromPreview);
-		console.debug(printingtools.isAB);
 		openDialog("chrome://printingtoolsng/content/ptng-options.xhtml", "", "chrome,centerscreen", fromPreview, printingtools.isAB);
 
 	},
@@ -91,6 +88,8 @@ var printingtools = {
 			if (hdrs[j] == string) {
 				index = j;
 				break;
+			} else if(hdrs[j] == '!' + string) {
+				index = j | 0x100;
 			}
 		}
 		return index;
@@ -117,7 +116,12 @@ var printingtools = {
 		for (var i = 0; i < trs.length; i++) {
 			if (trs[i].id == "attTR") {
 				index = printingtools.getIndexForHeader("%a");
-				arr[index] = trs[i];
+				if (index & 0x100) {
+					arr[index &= ~0x100] = trs[i];
+					arr[index &= ~0x100].style.display = "none";
+				} else {
+					arr[index] = trs[i];
+				}
 				continue;
 			}
 			var div = trs[i].firstChild.firstChild;
@@ -125,20 +129,35 @@ var printingtools = {
 			var regExp = new RegExp(subject + "\\s*:");
 			if (divHTML.match(regExp)) {
 				index = printingtools.getIndexForHeader("%s");
-				arr[index] = trs[i];
+				if (index & 0x100) {
+					arr[index &= ~0x100] = trs[i];
+					arr[index &= ~0x100].style.display = "none";
+				} else {
+					arr[index] = trs[i];
+				}
 				continue;
 			}
 			regExp = new RegExp(from + "\\s*:");
 			if (divHTML.match(regExp)) {
 				index = printingtools.getIndexForHeader("%f");
-				arr[index] = trs[i];
-				continue
+				if (index & 0x100) {
+					arr[index &= ~0x100] = trs[i];
+					arr[index &= ~0x100].style.display = "none";
+				} else {
+					arr[index] = trs[i];
+				}
+				continue;
 			}
 			regExp = new RegExp(date + "\\s*:");
 			if (divHTML.match(regExp)) {
 				index = printingtools.getIndexForHeader("%d");
-				printingtools.dateTRpos = index;
-				arr[index] = trs[i];
+				if (index & 0x100) {
+					arr[index &= ~0x100] = trs[i];
+					arr[index &= ~0x100].style.display = "none";
+				} else {
+					arr[index] = trs[i];
+					printingtools.dateTRpos = index;
+				}
 			}
 		}
 		var table2 = printingtools.getTable(1);
@@ -150,19 +169,34 @@ var printingtools = {
 				regExp = new RegExp(to + "\\s*:");
 				if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r1");
-					arr[index] = trs[i];
+					if (index & 0x100) {
+						arr[index &= ~0x100] = trs[i];
+						arr[index &= ~0x100].style.display = "none";
+					} else {
+						arr[index] = trs[i];
+					}
 					continue;
 				}
 				regExp = new RegExp(bcc + "\\s*:");
 				if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r3");
-					arr[index] = trs[i];
+					if (index & 0x100) {
+						arr[index &= ~0x100] = trs[i];
+						arr[index &= ~0x100].style.display = "none";
+					} else {
+						arr[index] = trs[i];
+					}
 					continue;
 				}
 				regExp = new RegExp(cc + "\\s*:");
 				if (divHTML.indexOf(cc) == 0) {
 					index = printingtools.getIndexForHeader("%r2");
-					arr[index] = trs[i];
+					if (index & 0x100) {
+						arr[index &= ~0x100] = trs[i];
+						arr[index &= ~0x100].style.display = "none";
+					} else {
+						arr[index] = trs[i];
+					}
 				}
 			}
 		}
@@ -377,6 +411,7 @@ var printingtools = {
 		console.debug('correctly layout');
 		Services.console.logStringMessage("CorrectLayout");
 		printingtools.doc = window.content.document;
+		console.debug(printingtools.doc);
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 		// If there is some "GeneratedName" tag, so we're printing from addressbook
@@ -543,6 +578,13 @@ var printingtools = {
 			if (!noExtHeaders && hpref == 2 && table3)
 				table3.style.color = "black";
 		}
+
+		var headers1 = printingtools.doc.querySelectorAll(".headerdisplayname");
+		[...headers1].forEach(h => {
+			h.style.paddingRight = "30px"
+		});
+		console.debug(printingtools.doc.documentElement.outerHTML);
+
 	},
 
 	printSelection: function (contents) {
@@ -872,17 +914,24 @@ var printingtools = {
 			if (attTab) {
 				var tds = attTab.getElementsByTagName("TD");
 				var attDiv = "";
+				var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
 				for (var i = 0; i < tds.length; i = i + 2) {
-					if (!firsttime)
+
+					if (tds.length > 1 && i < tds.length - 2 && maxAttPerLine !== 1) {
 						comma = ", ";
-					else
-						firsttime = false;
+					} else {
+						comma = "";
+					}
 					var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
 					if (withIcon) {
 						var imgSrc = printingtools.findIconSrc(currAtt);
 						currAtt = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</nobr>";
 					}
-					attDiv = attDiv + comma + currAtt;
+					attDiv = attDiv + currAtt + comma;
+					if (((i / 2)+1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
+						console.debug('separator');
+						attDiv += '<br>'
+					}
 				}
 				newTD.innerHTML = attDiv;
 				attTab.parentNode.removeChild(attTab);
@@ -954,7 +1003,8 @@ var printingtools = {
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
 			printingtools.appendReceivedTD();
 
-		if (!String.trim) {
+		// if (!String.trim) {
+		if(0) {
 			// TB2 and lower
 			// removes the HR elements, in the same numbers of the attachments, beginning from the last one
 			var hrs = printingtools.doc.getElementsByTagName("HR");
@@ -977,7 +1027,7 @@ var printingtools = {
 		var url;
 		var ext = filename.substring(0, filename.lastIndexOf("&")).toLowerCase();
 		ext = ext.substring(ext.lastIndexOf(".") + 1);
-		console.debug(ext);
+		// console.debug(ext);
 
 		switch (ext) {
 			case "doc":
@@ -1025,7 +1075,7 @@ var printingtools = {
 			default:
 				url = "resource://printingtoolsng/icons/file.gif";
 		}
-		console.debug(url);
+		// console.debug(url);
 		return url;
 	},
 }

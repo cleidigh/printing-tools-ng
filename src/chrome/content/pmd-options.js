@@ -38,6 +38,16 @@ function initPMDpanel() {
 	// cleidigh
 	console.debug('initialize panel');
 	console.debug(window.arguments);
+	var w = Cc["@mozilla.org/appshell/window-mediator;1"]
+	.getService(Ci.nsIWindowMediator)
+	.getMostRecentWindow("mail:3pane");
+
+	var PTNGVersion = w.printingtoolsng.extension.addonData.version;
+    
+    let title = document.getElementById("ptng-options").getAttribute("title");
+
+    document.getElementById("ptng-options").setAttribute("title", `${title} - v${PTNGVersion}`);
+
 	if (window.arguments) {
 		if (typeof window.arguments[0] === 'object' || window.arguments[0] === false) {
 			fromPreview = false;
@@ -51,8 +61,8 @@ function initPMDpanel() {
 		fromPreview = false;
 		abook = false;
 	}
-	console.debug(fromPreview);
-	console.debug(abook);
+	// console.debug(fromPreview);
+	// console.debug(abook);
 
 	var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator);
@@ -98,6 +108,7 @@ function initPMDpanel() {
 	document.getElementById("PMDhideAtt").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments");
 	document.getElementById("PMDselection").checked = prefs.getBoolPref("extensions.printingtoolsng.print.just_selection");
 	document.getElementById("PMDattachIcon").checked = prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
+	document.getElementById("num_atts_line").value = prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
 	document.getElementById("showButtonPreview").checked = prefs.getBoolPref("extensions.printingtoolsng.show_options_button");
 
 	if (String.trim)
@@ -165,7 +176,7 @@ function initPMDpanel() {
 	};
 
 	var options = {
-		valueNames: ['headerName', { data: ['id', 'headerToken'] }],
+		valueNames: ['headerName', { data: ['id', 'headerToken', 'show'] }],
 		item: '<tr class="list-row"><td class="headerName"></td></tr>',
 	};
 
@@ -179,10 +190,13 @@ function initPMDpanel() {
 		u[6] = "%r3";
 
 	console.debug(u);
+	gheaderList.clear();
 	for (var i = 0; i < u.length; i++) {
-		var lab = getHeaderLabel(u[i]);
-		gheaderList.add({ headerName: lab, headerToken: u[i], id: i + 1 });
+		var lab = getHeaderLabel(u[i].replace('!', ''));
+		let show = !u[i].startsWith('!');
+		gheaderList.add({ headerName: lab, headerToken: u[i], id: i + 1, show: show });
 	}
+	// console.debug(gheaderList.listElement.outerHTML);
 	gheaderList.controller.selectRowByDataId('1');
 	
 	setPrinterList();
@@ -344,6 +358,10 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.cite.style", document.getElementById("citeCheck").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.process.attachments_with_icon", document.getElementById("PMDattachIcon").checked);
 
+	console.debug(document.getElementById("num_atts_line").selectedItem);
+	
+	prefs.setIntPref("extensions.printingtoolsng.headers.attachments_per_line", document.getElementById("num_atts_line").selectedItem.value);
+
 	var fontlistchild = document.getElementById("fontlist").getElementsByTagName("menuitem");
 	var selfont = fontlistchild[document.getElementById("fontlist").selectedIndex].getAttribute("value");
 	setComplexPref("extensions.printingtoolsng.messages.font_family", selfont);
@@ -378,17 +396,6 @@ function savePMDprefs() {
 				win = wm.getMostRecentWindow("mail:3pane");
 				win.PrintEnginePrintPreview();
 			}
-			
-			// var win = wm.getMostRecentWindow("mail:addressbook");
-
-			// if (win) {
-			// 	console.debug('open previewing Jan');
-			// 	console.debug(win);
-			// 	// win.PrintEnginePrintPreview();
-			// 	console.debug('address.Preview');
-			// 	win.AbPrintPreviewAddressBook();
-			// 	console.debug('after preview call');
-			// }
 		} catch (e) {
 			console.debug(e);
 		 }
@@ -470,6 +477,21 @@ function move(offset) {
 	gheaderList.controller.selectRowByDataId(selectedID - 1);
 }
 
+function toggleHeaderShow() {
+	var selectedElement = gheaderList.controller.getSelectedRowElement();
+	var idx = Number(selectedElement.getAttribute("data-id")) - 1;
+	var s = selectedElement.getAttribute("data-show");
+	s = (s === "true") ? "false" : "true";
+	var t = gheaderList.items[idx].values().headerToken;
+	t = (s === "true") ? t.replace('!', '') : '!' + t;
+	gheaderList.items[idx].values({"show": s, "headerToken": t});
+	// selectedElement.setAttribute("data-show", s === "true" ? "false" : "true");
+	// if (s) {
+		
+	// } else {
+		
+	// }
+}
 function toggleCiteStyle(el) {
 	document.getElementById("citeColor").disabled = !el.checked;
 	document.getElementById("citeSize").disabled = !el.checked;
@@ -484,6 +506,7 @@ function toggleMessageStyle(el) {
 function toggleAtt() {
 	document.getElementById("PMDattachIcon").disabled = !document.getElementById("PMDattach").checked;
 	document.getElementById("addP7M").disabled = !document.getElementById("PMDattach").checked;
+	document.getElementById("num_atts_line").disabled = !document.getElementById("PMDattach").checked;
 }
 
 function toggleDate() {

@@ -54,3 +54,8 @@
 <!ENTITY addRdate.label "Add received date">
 <!ENTITY defaultPrinter "Default Printer">
 
+<!ENTITY attachmentsPerLine "Attachments per Line: ">
+<!ENTITY wrap "Wrap">
+<!ENTITY showhide "Show/Hide">
+
+

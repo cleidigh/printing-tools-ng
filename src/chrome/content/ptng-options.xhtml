@@ -10,9 +10,10 @@
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/input-fields.css"?>
 <?xml-stylesheet type="text/css" href="chrome://printingtoolsng/content/pmd-options.css"?>
 
-<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+<dialog id="ptng-options"
+		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 		xmlns:html="http://www.w3.org/1999/xhtml"
-        title="PrintingTools NG v2.0.0-b4">
+        title="PrintingTools NG ">
 
 		<script type="text/javascript"  src="chrome://printingtoolsng/content/pmd-options.js" />
 		<script type="application/x-javascript" src="chrome://printingtoolsng/content/modules/list.controller.js" />
@@ -49,6 +50,22 @@
 		<spacer width="30px" />
 		<checkbox id="PMDattachIcon" label="&PMDlabel17;" /> 
 	</hbox>
+	<hbox align="center">
+		<spacer width="30px" />
+		<label value="&attachmentsPerLine;"/>
+
+		<menulist id="num_atts_line" style="width: 100%">
+  			<menupopup>
+		    <menuitem label="&wrap;" value="100" id="nal_w" />
+			<menuitem label="1" value="1" id="nal_1" />
+			<menuitem label="2" value="2" id="nal_2" />
+			<menuitem label="3" value="3" id="nal_3" />
+			<menuitem label="4" value="4" id="nal_4" />
+			</menupopup>
+		</menulist>
+	</hbox>
+
+
 	<hbox align="center">
 		<spacer width="30px" />
 		<checkbox id="addP7M" label="&PMDlabel22;" /> 
@@ -118,11 +135,11 @@
 			<label value="&withSize;"/>			
 			<menulist id="fontsize">
   			<menupopup>
-		    	<menuitem label="7" value="7" id="x7" />
+		    <menuitem label="7" value="7" id="x7" />
 			<menuitem label="8" value="8" id="x8" />
 			<menuitem label="9" value="9" id="x9" />
 			<menuitem label="10" value="10" id="x10" />
-	    		<menuitem label="11" value="11" id="x11" />
+	    	<menuitem label="11" value="11" id="x11" />
 			<menuitem label="12" value="12" id="x12" />
 			<menuitem label="13" value="13" id="x13" />
 			<menuitem label="14" value="14" id="x14"/>
@@ -190,7 +207,10 @@
 		</vbox>
 		<vbox>
 			<button label="&up;" onclick="move(1)" />
+			<spacer height="5px"/>
 			<button label="&down;" onclick="move(-1)" />
+			<spacer height="5px"/>
+			<button label="&showhide;" onclick="toggleHeaderShow()" />
 		</vbox>
 		</hbox>
 	</tabpanel>

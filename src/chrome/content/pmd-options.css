@@ -76,6 +76,13 @@ width: 100%;
 	height: 16px;
 }
 
+.list-row[data-show=false] {
+	font-style: italic;
+	color: gray;
+	/* background-color: burlywood; */
+}
+
+
 
 .list-row:hover, .list-row:focus {
   background-color: #cce8ff;
