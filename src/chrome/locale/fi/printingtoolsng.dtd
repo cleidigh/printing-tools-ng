@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "Muuta kuvien kokoa liian suureksi">
 <!ENTITY addRdate.label "Lisää vastaanottopäivä">
 <!ENTITY defaultPrinter "Oletustulostin">
+<!ENTITY attachmentsPerLine "Liitteet riviä kohden:">
+<!ENTITY wrap "Kääri">
+<!ENTITY showhide "Näytä tai piilota">

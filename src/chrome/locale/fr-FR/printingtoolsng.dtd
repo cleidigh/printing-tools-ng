@@ -54,3 +54,6 @@
 <!ENTITY showButton.label "Afficher le bouton d&#39;options dans la fenêtre d&#39;aperçu">
 <!ENTITY addRdate.label "Ajouter la date de réception">
 <!ENTITY defaultPrinter "Imprimante par défaut">
+<!ENTITY attachmentsPerLine "Pièces jointes par ligne:">
+<!ENTITY wrap "Emballage">
+<!ENTITY showhide "Afficher ou masquer">

@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "A képek átméretezése túl nagy">
 <!ENTITY addRdate.label "Adja hozzá a kézhezvétel dátumát">
 <!ENTITY defaultPrinter "Alapértelmezett nyomtató">
+<!ENTITY attachmentsPerLine "Mellékletek soronként:">
+<!ENTITY wrap "Betakar">
+<!ENTITY showhide "Megjelenítés vagy elrejtés">

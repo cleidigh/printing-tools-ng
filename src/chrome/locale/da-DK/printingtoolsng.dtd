@@ -54,3 +54,6 @@
 <!ENTITY resizeImgs.label "Billederne er for store, tilpas deres størrelse">
 <!ENTITY addRdate.label "Tilføj modtaget dato">
 <!ENTITY defaultPrinter "Standardprinter">
+<!ENTITY attachmentsPerLine "Vedhæftede filer pr. Linje:">
+<!ENTITY wrap "Pak ind">
+<!ENTITY showhide "Vis eller skjul">

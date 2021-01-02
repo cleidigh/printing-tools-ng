@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "Изменить размер изображения слишком велико">
 <!ENTITY addRdate.label "Добавить полученную дату">
 <!ENTITY defaultPrinter "Принтер по умолчанию">
+<!ENTITY attachmentsPerLine "Вложения в строке:">
+<!ENTITY wrap "Заворачивать">
+<!ENTITY showhide "Показать или скрыть">

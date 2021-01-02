@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "이미지 크기를 너무 크게 조정">
 <!ENTITY addRdate.label "받은 날짜 추가">
 <!ENTITY defaultPrinter "기본 프린터">
+<!ENTITY attachmentsPerLine "라인 당 첨부 파일 :">
+<!ENTITY wrap "싸다">
+<!ENTITY showhide "표시 또는 숨기기">

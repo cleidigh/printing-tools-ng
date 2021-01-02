@@ -53,3 +53,7 @@
 <!ENTITY resizeImgs.label "大きい画像はリサイズする">
 <!ENTITY addRdate.label "Add received date">
 <!ENTITY defaultPrinter "デフォルトのプリンター">
+
+<!ENTITY attachmentsPerLine "1行あたりの添付ファイル：">
+<!ENTITY wrap "ラップ">
+<!ENTITY showhide "表示または非表示">

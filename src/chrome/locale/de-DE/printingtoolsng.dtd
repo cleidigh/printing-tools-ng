@@ -54,3 +54,6 @@
 <!ENTITY showButton.label "Zeigen Sie die Optionsschaltfläche im Vorschaufenster an">
 <!ENTITY addRdate.label "Empfangsdatum hinzufügen">
 <!ENTITY defaultPrinter "Standard Drucker">
+<!ENTITY attachmentsPerLine "Anhänge pro Zeile:">
+<!ENTITY wrap "Wickeln">
+<!ENTITY showhide "Ein- oder Ausblenden">

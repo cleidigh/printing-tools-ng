@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "Velikost slik je prevelika">
 <!ENTITY addRdate.label "Dodajte prejeti datum">
 <!ENTITY defaultPrinter "Privzeti tiskalnik">
+<!ENTITY attachmentsPerLine "Priponke na vrstico:">
+<!ENTITY wrap "Zavijte">
+<!ENTITY showhide "Pokaži ali skrij">

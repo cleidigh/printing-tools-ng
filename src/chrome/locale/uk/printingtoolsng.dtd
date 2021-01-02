@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "Розмір зображень занадто великий">
 <!ENTITY addRdate.label "Додати отриману дату">
 <!ENTITY defaultPrinter "Принтер за замовчуванням">
+<!ENTITY attachmentsPerLine "Додатки на рядок:">
+<!ENTITY wrap "Укутати">
+<!ENTITY showhide "Показати або сховати">

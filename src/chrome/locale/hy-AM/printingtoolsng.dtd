@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "Պատկերները չափափոխել շատ մեծ">
 <!ENTITY addRdate.label "Ավելացնել ստացված ամսաթիվը">
 <!ENTITY defaultPrinter "Լռելյայն տպիչ">
+<!ENTITY attachmentsPerLine "Կցորդներ ըստ տողի.">
+<!ENTITY wrap "Պատել">
+<!ENTITY showhide "Ուցադրել կամ թաքցնել">

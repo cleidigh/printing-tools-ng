@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "调整图像大小">
 <!ENTITY addRdate.label "添加接收日期">
 <!ENTITY defaultPrinter "默认打印机">
+<!ENTITY attachmentsPerLine "每行附件：">
+<!ENTITY wrap "包">
+<!ENTITY showhide "显示或隐藏">

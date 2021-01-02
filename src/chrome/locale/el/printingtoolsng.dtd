@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "Το μέγεθος του μεγέθους των εικόνων είναι πολύ μεγάλο">
 <!ENTITY addRdate.label "Προσθήκη ημερομηνίας λήψης">
 <!ENTITY defaultPrinter "Προεπιλεγμένος εκτυπωτής">
+<!ENTITY attachmentsPerLine "Συνημμένα ανά γραμμή:">
+<!ENTITY wrap "Κάλυμμα">
+<!ENTITY showhide "Εμφάνιση ή απόκρυψη">

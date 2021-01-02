@@ -54,3 +54,6 @@
 <!ENTITY showButton.label "Mostrar o botão de opções na janela de visualização">
 <!ENTITY addRdate.label "Adicionar data de recebimento">
 <!ENTITY defaultPrinter "Impressora padrão">
+<!ENTITY attachmentsPerLine "Anexos por linha:">
+<!ENTITY wrap "Embrulho">
+<!ENTITY showhide "Mostrar ou ocultar">

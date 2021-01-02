@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "Ridimensiona le immagini troppo grandi">
 <!ENTITY addRdate.label "Aggiungi il campo 'Ricevuto'">
 <!ENTITY defaultPrinter "Stampante predefinita">
+<!ENTITY attachmentsPerLine "Allegati per riga:">
+<!ENTITY wrap "Avvolgere">
+<!ENTITY showhide "Mostra o nascondi">

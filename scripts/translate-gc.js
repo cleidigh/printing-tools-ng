@@ -18,7 +18,7 @@ var translationArray = [
 	// { key: "noFolderSelected", text: "No message folder selected:<nl><nl> Please create or select a valid account or Local Folder subfolder." },
 	{ key: "attachmentsPerLine", text: "Attachments per Line: "},
 	{ key: "wrap", text: "Wrap" },
-	{ key: "showhide", text: "Show/Hide" },
+	{ key: "showhide", text: "Show or Hide" },
 	// { key: "", text: "" },
 ];
 
@@ -425,8 +425,9 @@ let inputFiles = ["mboximport.properties"];
 // var supportedLocales = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
 // 						'el', 'pl', 'da', 'pt-PT'];
 
-var allLocales = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-'hy-AM', 'it-IT', 'ja', 'ko-KR', 'nl', 'no', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN'];
+// printingtools
+var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+'hy-AM', 'it-IT', 'ja-JP', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN'];
 
 
 // localeFolders = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
@@ -435,7 +436,7 @@ var allLocales = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR',
 // var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
 // 	'sk-SK', 'sl-SI', 'sv-SE'];
 
-localeFolders = ['es-ES'];
+// localeFolders = ['es-ES'];
 
 
 // localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];
@@ -443,7 +444,7 @@ localeFile = "settings.json";
 // t();
 // translateHelpPage();
 // translatePage();
-translateAll("printingtoolsng.properties", translationArray, options);
+translateAll("printingtoolsng.dtd", translationArray, options);
 // translateAll("mboximport.dtd", translationArray, options);
 // loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];

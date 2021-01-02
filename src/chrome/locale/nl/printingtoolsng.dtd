@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "Verklein de afbeeldingen te groot">
 <!ENTITY addRdate.label "Ontvangen datum toevoegen">
 <!ENTITY defaultPrinter "Standaard printer">
+<!ENTITY attachmentsPerLine "Bijlagen per regel:">
+<!ENTITY wrap "Inpakken">
+<!ENTITY showhide "Tonen of verbergen">

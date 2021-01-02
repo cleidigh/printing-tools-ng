@@ -53,3 +53,7 @@
 <!ENTITY resizeImgs.label "Redimensiona les imatges massa grans">
 <!ENTITY addRdate.label "Afegiu la data de recepció">
 <!ENTITY defaultPrinter "Impressora per defecte">
+
+<!ENTITY attachmentsPerLine "Fitxers adjunts per línia:">
+<!ENTITY wrap "Embolcall">
+<!ENTITY showhide "Mostra o amaga">

@@ -53,3 +53,7 @@
 <!ENTITY resizeImgs.label "Zmień rozmiar obrazów za dużych">
 <!ENTITY addRdate.label "Dodaj otrzymaną datę">
 <!ENTITY defaultPrinter "Domyślna drukarka">
+
+<!ENTITY attachmentsPerLine "Załączniki na linię:">
+<!ENTITY wrap "Owinąć">
+<!ENTITY showhide "Pokaż lub ukryj">

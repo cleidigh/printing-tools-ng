@@ -53,3 +53,6 @@
 <!ENTITY resizeImgs.label "Ändra storlek på alltför stora bilder">
 <!ENTITY addRdate.label "Lägg till mottaget datum">
 <!ENTITY defaultPrinter "Standardskrivare">
+<!ENTITY attachmentsPerLine "Bilagor per rad:">
+<!ENTITY wrap "Slå in">
+<!ENTITY showhide "Visa eller dölj">
