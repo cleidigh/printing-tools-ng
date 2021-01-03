@@ -28,6 +28,8 @@ var printingtools = {
 			var button = document.createXULElement("button");
 			button.setAttribute("oncommand", "printingtools.openDialog(true)");
 			button.setAttribute("label", bundle.GetStringFromName("options"));
+			button.setAttribute("height", "32px");
+			button.setAttribute("style", "margin: 5px;");
 			box.appendChild(button);
 			contentEl.parentNode.insertBefore(box, contentEl.nextSibling);
 		}
