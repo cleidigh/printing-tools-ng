@@ -5,9 +5,8 @@
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
-console.debug('ABprintingtoolsOL overlay');
 function onLoad() {
-	console.debug('ABprintingtoolsOL overlay loading');
+	// console.debug('ABprintingtoolsOL overlay loading');
 	// Services.scriptloader.loadSubScript("", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 
@@ -20,7 +19,7 @@ function onLoad() {
 }
 
 function onUnload(shutdown) {
-	console.debug('AB unloading');
+	// console.debug('AB unloading');
 	// Services.console.logStringMessage("onUnload messenger");
 
 }

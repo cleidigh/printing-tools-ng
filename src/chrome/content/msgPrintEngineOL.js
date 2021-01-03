@@ -5,15 +5,14 @@
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
-console.debug('printing engine overlay');
 function onLoad() {
-	console.debug('printing engine overlay loading');
+	// console.debug('printing engine overlay loading');
 	// Services.scriptloader.loadSubScript("", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 }
 
 function onUnload(shutdown) {
-	console.debug('PT unloading');
+	// console.debug('PT unloading');
 	// Services.console.logStringMessage("onUnload messenger");
 
 }

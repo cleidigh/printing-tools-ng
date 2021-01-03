@@ -5,10 +5,6 @@ messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
 
 // Register all necessary content, Resources, and locales
 
-// ["resource", "printingtoolsng", "chrome/content/icons/"],
-// ["resource", "printingtoolsng", "chrome/content/", "contentaccessible=yes"],
-// ["resource", "printingtoolsng", "chrome/content/modules/"],
-
 messenger.WindowListener.registerChromeUrl([
 	["content", "printingtoolsng", "chrome/content/"],
 	["resource", "printingtoolsng", "chrome/content/"],
@@ -32,17 +28,13 @@ messenger.WindowListener.registerChromeUrl([
 	["locale", "printingtoolsng", "pl", "chrome/locale/pl/"],
 	["locale", "printingtoolsng", "pt-PT", "chrome/locale/pt-PT/"],
 	["locale", "printingtoolsng", "ru", "chrome/locale/ru/"],
-	["locale", "printingtoolsng", "sk", "chrome/locale/sk/"],
+	["locale", "printingtoolsng", "sk-SK", "chrome/locale/sk-SK/"],
 	["locale", "printingtoolsng", "sl-SI", "chrome/locale/sl-SI/"],
 	["locale", "printingtoolsng", "sv-SE", "chrome/locale/sv-SE/"],
 	["locale", "printingtoolsng", "uk", "chrome/locale/uk/"],
 	["locale", "printingtoolsng", "zh-CN", "chrome/locale/zh-CN/"],
 	
 ]);
-
-
-
-// messenger.WindowListener.registerShutdownScript("chrome://printingtoolsngSee if/content/shutdown.js");
 
 messenger.WindowListener.registerOptionsPage("chrome://printingtoolsng/content/ptng-options.xhtml");
 
@@ -65,6 +57,10 @@ messenger.WindowListener.registerWindow(
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/msgPrintEngine.xul",
 	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
+
+messenger.WindowListener.registerWindow(
+	"chrome://messenger/content/addressbook/addressbook.xul",
+	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
 	
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/addressbook/addressbook.xhtml",

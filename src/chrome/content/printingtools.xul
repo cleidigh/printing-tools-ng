@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<overlay id="printingtoolsng"
-         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-
-<script type="text/javascript"  src="chrome://printingtoolsng/content/printingtools.js" />
-
-</overlay>

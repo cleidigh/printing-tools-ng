@@ -359,10 +359,9 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
 
                       var optionsLabel = "";
                       if (versionChecker.compare(currentVersion, "78") >= 0) {
-                        console.debug('adding options');
                         optionsLabel = "&addonPrefs.label;";
                       } else {
-                        optionsLabel = "&labelmenuMItools; &options;";
+                        optionsLabel = "PrintingToolsNG Options";
                       }
                       // add the add-on options menu if needed
                       if (!window.document.getElementById(self.menu_addonsManager_prefs_id)) {

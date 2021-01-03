@@ -43,7 +43,6 @@ class ListController {
 		var selector = 'tr.selected-row';
 		var selectedRow = this.list_container.querySelector(selector);
 		if (selectedRow) {
-			console.debug('selected well ' + selectedRow.outerHTML);
 			selectedRow.classList.remove('selected-row');
 		}
 
@@ -54,9 +53,7 @@ class ListController {
 			selectedRow.classList.add('selected-row');
 			this.listElement.setAttribute('selected-index', data_id);
 			this.list_container.focus();
-			console.debug('set focus');
 		} else {
-			console.debug('no selective');
 			this.this_container.focus();
 		}
 	}

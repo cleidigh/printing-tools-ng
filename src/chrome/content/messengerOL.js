@@ -23,7 +23,7 @@ function onLoad() {
 }
 
 function onUnload(shutdown) {
-	console.debug('PT unloading');
+	// console.debug('PT unloading');
 	// Services.console.logStringMessage("onUnload messenger");
 
 }

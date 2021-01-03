@@ -28,8 +28,8 @@ var printingtools = {
 			var button = document.createXULElement("button");
 			button.setAttribute("oncommand", "printingtools.openDialog(true)");
 			button.setAttribute("label", bundle.GetStringFromName("options"));
-			button.setAttribute("height", "32px");
-			button.setAttribute("style", "margin: 5px;");
+			button.setAttribute("height", "28px");
+			button.setAttribute("style", "margin: 6px;");
 			box.appendChild(button);
 			contentEl.parentNode.insertBefore(box, contentEl.nextSibling);
 		}
@@ -214,7 +214,7 @@ var printingtools = {
 	},
 
 	correctABprint: function (gennames) {
-		console.debug('correct address book');
+		// console.debug('correct address book');
 		var gnLen = printingtools.doc.getElementsByTagName("GeneratedName").length;
 		var dirNode = printingtools.doc.getElementsByTagName("directory")[0];
 		var multipleCards = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards");
@@ -410,25 +410,24 @@ var printingtools = {
 	},
 
 	correctLayout: function () {
-		console.debug('correctly layout');
-		Services.console.logStringMessage("CorrectLayout");
+		// console.debug('correctly layout');
+		// Services.console.logStringMessage("CorrectLayout");
 		printingtools.doc = window.content.document;
-		console.debug(printingtools.doc);
+		// console.debug(printingtools.doc);
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 		// If there is some "GeneratedName" tag, so we're printing from addressbook
 		if (gennames.length > 0) {
 			printingtools.isAB = true;
-			console.debug('is address book');
+			// console.debug('is address book');
 			if (gennames.length == 1)
 				printingtools.isContact = true;
-				Services.console.logStringMessage("Correct  AB Layout");
+				// Services.console.logStringMessage("Correct  AB Layout");
 			printingtools.correctABprint(gennames);
-			console.debug('corrected address book');
 			return;
 		}
 
-		console.debug('printing e-mail');
+		// console.debug('printing e-mail');
 
 		var tablesNum = printingtools.doc.getElementsByTagName("Table").length;
 		// If there is no "Table" tag, so we can't do nothing... It can happen, because the printEngine window
@@ -567,9 +566,10 @@ var printingtools = {
 					trs[i].firstChild.setAttribute("width", "6%");
 				}
 				trs[i].firstChild.style.verticalAlign = "top";
-				trs[i].firstChild.style.paddingRight = "2px";
+				trs[i].firstChild.style.paddingRight = "25px";
 			}
 		}
+		
 		if (!noheaders && borders)
 			printingtools.setTableBorders(noExtHeaders);
 		else if (!noheaders) {
@@ -581,11 +581,7 @@ var printingtools = {
 				table3.style.color = "black";
 		}
 
-		var headers1 = printingtools.doc.querySelectorAll(".headerdisplayname");
-		[...headers1].forEach(h => {
-			h.style.paddingRight = "30px"
-		});
-		console.debug(printingtools.doc.documentElement.outerHTML);
+		// console.debug(printingtools.doc.documentElement.outerHTML);
 
 	},
 
@@ -931,7 +927,6 @@ var printingtools = {
 					}
 					attDiv = attDiv + currAtt + comma;
 					if (((i / 2)+1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
-						console.debug('separator');
 						attDiv += '<br>'
 					}
 				}
@@ -1083,3 +1078,4 @@ var printingtools = {
 }
 
 window.addEventListener("DOMContentLoaded", printingtools.loadContentListener, false);
+

@@ -36,13 +36,13 @@ function setComplexPref(pref, value) {
 function initPMDpanel() {
 
 	// cleidigh
-	console.debug('initialize panel');
-	console.debug(window.arguments);
-	var w = Cc["@mozilla.org/appshell/window-mediator;1"]
+	// console.debug('initialize panel');
+	// console.debug(window.arguments);
+	var win = Cc["@mozilla.org/appshell/window-mediator;1"]
 	.getService(Ci.nsIWindowMediator)
 	.getMostRecentWindow("mail:3pane");
 
-	var PTNGVersion = w.printingtoolsng.extension.addonData.version;
+	var PTNGVersion = win.printingtoolsng.extension.addonData.version;
     
     let title = document.getElementById("ptng-options").getAttribute("title");
 
@@ -66,8 +66,8 @@ function initPMDpanel() {
 
 	var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator);
-	var win = wm.getMostRecentWindow("mail:addressbook");
-	if (win) {
+	var awin = wm.getMostRecentWindow("mail:addressbook");
+	if (awin) {
 		abook = true;
 	}
 
@@ -189,7 +189,6 @@ function initPMDpanel() {
 	if (u.length < 7)
 		u[6] = "%r3";
 
-	console.debug(u);
 	gheaderList.clear();
 	for (var i = 0; i < u.length; i++) {
 		var lab = getHeaderLabel(u[i].replace('!', ''));
@@ -211,7 +210,7 @@ function setPrinterList() {
 	var PSSVC2 = Cc["@mozilla.org/gfx/printerenumerator;1"]
 	.getService(Ci.nsIPrinterEnumerator);
 
-	Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
+	// Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
 	var pe = PSSVC2.printerNameList;
 	var printers = [];
 	var i = 0;
@@ -219,14 +218,14 @@ function setPrinterList() {
 		let printerName = pe.getNext();
 		var menuitem = document.createXULElement("menuitem");
 
-		Services.console.logStringMessage("printingtools: printerName: " + printerName);
+		// Services.console.logStringMessage("printingtools: printerName: " + printerName);
 		printers.push(printerName);
 		menuitem.setAttribute("value", printerName);
 		menuitem.setAttribute("label", printerName);
 		popup.appendChild(menuitem);
 		if ( printerName === outputPrinter) {
 			selindex = i;
-			Services.console.logStringMessage("printingtools: selected: " + outputPrinter);
+			// Services.console.logStringMessage("printingtools: selected: " + outputPrinter);
 		}
 		i++;
 	}
@@ -237,7 +236,7 @@ function setPrinterList() {
 	
 	printerListMenu.appendChild(popup);
 	printerListMenu.selectedIndex = selindex;
-	Services.console.logStringMessage("printingtools: printerName index: " + selindex);
+	// Services.console.logStringMessage("printingtools: printerName index: " + selindex);
 }
 
 function initPMDabpanel() {
@@ -316,7 +315,7 @@ function getHeaderLabel(string) {
 }
 
 function savePMDprefs() {
-	console.debug('save options');
+	// console.debug('save options');
 	if (fullPanel)
 		savePMDabprefs(true);
 		prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
@@ -358,8 +357,6 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.cite.style", document.getElementById("citeCheck").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.process.attachments_with_icon", document.getElementById("PMDattachIcon").checked);
 
-	console.debug(document.getElementById("num_atts_line").selectedItem);
-	
 	prefs.setIntPref("extensions.printingtoolsng.headers.attachments_per_line", document.getElementById("num_atts_line").selectedItem.value);
 
 	var fontlistchild = document.getElementById("fontlist").getElementsByTagName("menuitem");
@@ -382,10 +379,9 @@ function savePMDprefs() {
 	prefs.setCharPref("extensions.printingtoolsng.headers.order", val);
 	prefs.setBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach", document.getElementById("addP7M").checked);
 	if (fromPreview) {
-		console.debug('closing from preview');
+		// console.debug('closing from preview');
 		try {
 			opener.close();
-			console.debug('close opener');
 			var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
 				.getService(Ci.nsIWindowMediator);
 			var win;
@@ -427,7 +423,7 @@ function savePMDabprefs(fullpanel) {
 		if (!win)
 			return;
 		if (!isContact) {
-			console.debug('address.Preview');
+			// console.debug('address.Preview');
 			win.AbPrintPreviewAddressBook();
 		}
 		else
