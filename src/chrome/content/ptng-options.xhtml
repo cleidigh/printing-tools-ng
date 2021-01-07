@@ -1,0 +1,281 @@
+<?xml version="1.0"?> 
+<!DOCTYPE dialog [ 
+<!ENTITY % mainDTD SYSTEM "chrome://printingtoolsng/locale/printingtoolsng.dtd">
+%mainDTD;
+]>
+
+<?xml-stylesheet href="chrome://communicator/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?>
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/input-fields.css"?>
+<?xml-stylesheet type="text/css" href="chrome://printingtoolsng/content/ptng-options.css"?>
+
+<dialog id="ptng-options"
+		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+		xmlns:html="http://www.w3.org/1999/xhtml"
+        title="PrintingTools NG ">
+
+		<script type="text/javascript"  src="chrome://printingtoolsng/content/ptng-options.js" />
+		<script type="application/x-javascript" src="chrome://printingtoolsng/content/modules/list.controller.js" />
+		<script type="text/javascript"  src="chrome://printingtoolsng/content/modules/List.js" />
+
+<tabbox id="ptng-tbox">
+	<tabs>
+ 		<tab id="miscTab" label="&misc;" />
+		<tab label="&style;" />
+		<tab label="&order;" />
+		<tab label="&PMDcaptionlabel2;" />
+		<tab id="abTab" label="&PMDcaptionlabel3;" />
+	</tabs>
+   	<tabpanels id="tabs">
+	<tabpanel orient="vertical">
+	<groupbox>
+	<caption label="&PMDcaptionlabel;" />   
+	<hbox align="center" id="dateLoc">
+	        <checkbox id="PMDdate" label="&PMDlabel1;"  oncommand="setTimeout(toggleDate,200)" />
+	</hbox>
+	<hbox align="center">
+		<spacer width="30px" id="dateSpacer" />
+		<label value="&date.label;" />
+		<radiogroup orient="horizontal" id="dateLongRG">
+			<radio label="&short.label;" id="dateShortRadio" />
+			<radio label="&longLoc.label;"/>
+			<radio label="&long.label;" />
+		</radiogroup>
+	</hbox>
+	<hbox align="center">
+		<checkbox id="PMDattach" label="&PMDlabel2;" oncommand="setTimeout(toggleAtt,200)" />
+	</hbox>
+	<hbox align="center">
+		<spacer width="30px" />
+		<checkbox id="PMDattachIcon" label="&PMDlabel17;" /> 
+	</hbox>
+	<hbox align="center">
+		<spacer width="30px" />
+		<label value="&attachmentsPerLine;"/>
+
+		<menulist id="num_atts_line" style="width: 100%">
+  			<menupopup>
+		    <menuitem label="&wrap;" value="100" id="nal_w" />
+			<menuitem label="1" value="1" id="nal_1" />
+			<menuitem label="2" value="2" id="nal_2" />
+			<menuitem label="3" value="3" id="nal_3" />
+			<menuitem label="4" value="4" id="nal_4" />
+			</menupopup>
+		</menulist>
+	</hbox>
+
+
+	<hbox align="center">
+		<spacer width="30px" />
+		<checkbox id="addP7M" label="&PMDlabel22;" /> 
+	</hbox>
+	<hbox align="center">
+		<checkbox id="PMDborders" label="&PMDlabel3;"  /> 
+	</hbox>
+	<hbox align="center">
+		<checkbox id="PMDhide" label="&PMDlabel4;" /> 
+	</hbox>
+	<hbox align="center">
+		<checkbox id="PMDextHide" label="&PMDlabel21;" /> 
+	 </hbox>
+	<hbox align="center">
+		<checkbox id="PMDhideImgs" label="&PMDlabel7;" /> 
+	</hbox>
+	<hbox align="center">
+		<checkbox id="resizeImgs" label="&resizeImgs.label;" /> 
+	</hbox>
+	<hbox align="center">
+		<checkbox id="addRdate" label="&addRdate.label;" /> 
+	</hbox>
+	<hbox align="center">
+	        <checkbox id="PMDtruncate" label="&PMDlabel5;" /> 
+		<html:input type="text" id="PMDmaxchars" value="" style="width:40px;" />
+		<label value="&PMDlabel6;" />
+	</hbox>
+	<hbox align="center">
+	        <checkbox id="PREtruncate" label="&maxPreLen;" /> 
+		<html:input type="text" id="PREmaxchars" value="" style="width:40px;" />	
+	</hbox>
+	<hbox align="center">
+        	<checkbox id="PMDhideAtt" label="&PMDlabel10;" /> 
+	</hbox>
+	
+	<hbox align="center">
+		<label value="&addNameRG.label;" />
+		<radiogroup orient="horizontal" id="addNameRG">
+			<radio label="&RG1.label;"/>
+			<radio label="&RG2.label;"/>
+			<radio label="" />
+		</radiogroup>
+		<html:input type="text" id="addNameBox" />
+	</hbox>
+	
+	<hbox align="center">
+		<checkbox id="addFolder" label="&PMDlabel23;" /> 
+	</hbox>
+	<hbox align="center">
+		<checkbox id="PMDselection" label="&PMDlabel16;"  /> 
+	</hbox>
+	<hbox align="center">
+		<checkbox id="alignHeaders" label="&alignHeaders.label;"  /> 
+	</hbox>
+	<hbox align="center">
+		<checkbox id="showButtonPreview" label="&showButton.label;"  /> 
+	</hbox>
+	</groupbox>
+	</tabpanel>
+	<tabpanel orient="vertical">
+		<hbox align="center">
+			<checkbox id="PMDblack" label="&PMDlabel25;" /> 
+		</hbox>
+		<hbox align="center">
+        		<checkbox id="messageStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleMessageStyle,300,this)" />
+			<menulist id="fontlist" style="width:140px"/>
+			<label value="&withSize;"/>			
+			<menulist id="fontsize">
+  			<menupopup>
+		    <menuitem label="7" value="7" id="x7" />
+			<menuitem label="8" value="8" id="x8" />
+			<menuitem label="9" value="9" id="x9" />
+			<menuitem label="10" value="10" id="x10" />
+	    	<menuitem label="11" value="11" id="x11" />
+			<menuitem label="12" value="12" id="x12" />
+			<menuitem label="13" value="13" id="x13" />
+			<menuitem label="14" value="14" id="x14"/>
+			<menuitem label="15" value="15" id="x15" />
+			<menuitem label="16" value="16" id="x16" />
+			<menuitem label="17" value="17" id="x17" />
+			<menuitem label="18" value="18" id="x18" />
+			<menuitem label="20" value="20" id="x20" />
+	   		<menuitem label="24" value="24" id="x24" />
+			<menuitem label="30" value="30" id="x30" />
+			<menuitem label="36" value="36" id="x36" />
+			</menupopup>
+			</menulist>
+		</hbox>
+		<hbox>
+			<spacer width="30px" />
+			<radiogroup id="radiostyle" orient="horizontal">
+				<radio label="&forBody;" />
+				<radio label="&forHeaders;" />
+			</radiogroup>
+		</hbox>
+		<spacer height="30px" />
+ 		<hbox align="center">
+			<checkbox label="&cite.checkbox;" oncommand="setTimeout(toggleCiteStyle,300,this)" id="citeCheck" />
+			<label value="&cite.color;" style="margin:5px"/> 
+			<html:input type="color" id="citeColor" value="#ffffff"/>
+			<label value="&cite.size;" style="margin:5px"/> 
+			<menulist id="citeSize" style="width:70px" disabled="true">
+			<menupopup>
+			<menuitem label="7" value="7" id="s7" />
+			<menuitem label="8" value="8" id="s8" />
+			<menuitem label="9" value="9" id="s9" />
+			<menuitem label="10" value="10" id="s10" />
+			<menuitem label="11" value="11" id="s11" />
+			<menuitem label="12" value="12" id="s12" />
+			<menuitem label="13" value="13" id="s13" />
+			<menuitem label="14" value="14" id="s14"/>
+			<menuitem label="15" value="15" id="s15" />
+			<menuitem label="16" value="16" id="s16" />
+			<menuitem label="17" value="17" id="s17" />
+			<menuitem label="18" value="18" id="s18" />
+			<menuitem label="20" value="20" id="s20" />
+			<menuitem label="24" value="24" id="s24" />
+			<menuitem label="30" value="30" id="s30" />
+			<menuitem label="36" value="36" id="s36" />
+			</menupopup>
+			</menulist>
+	</hbox>
+	</tabpanel>
+	<tabpanel>
+		<hbox>
+		<vbox>
+
+		<html:div id="headersListContainer" tabindex="0" class="table-list-hboxcontainer">
+		<html:table id="headersList" class="list table-list" >
+		<html:thead>
+		<html:th class="headersListHeader">&headers;</html:th>
+		</html:thead>
+
+		</html:table>
+		
+		</html:div>
+		<spacer height="5px"/>
+		<label value="&otherHeaders;" />
+		</vbox>
+		<vbox>
+			<button label="&up;" onclick="move(1)" />
+			<spacer height="5px"/>
+			<button label="&down;" onclick="move(-1)" />
+			<spacer height="5px"/>
+			<button label="&showhide;" onclick="toggleHeaderShow()" />
+		</vbox>
+		</hbox>
+	</tabpanel>
+	<tabpanel>
+		<vbox>
+		<hbox align="center">
+		<html:label style="padding-left: 8px; padding-right: 4px;">&defaultPrinter;</html:label>
+		<menulist id="OutputPrinter"/>
+		</hbox>
+		<spacer height="4px" />
+		<hbox align="center">
+			<checkbox id="PMDsilent" label="&PMDlabel8;" /> 
+		</hbox>
+		<hbox align="center">
+			<checkbox id="PMDprogress" label="&PMDlabel9;" /> 
+		</hbox>
+		</vbox>
+	</tabpanel>
+	
+	<tabpanel>
+	
+		<vbox>
+		<hbox align="center">
+			<checkbox id="PMDabsmallfont" label="&PMDlabel12;" />
+			<menulist id="ABfontsize">
+			<menupopup>
+		    <menuitem label="8"/>
+		    <menuitem label="9"/>
+		    <menuitem label="10"/>
+		    <menuitem label="11"/>
+		    <menuitem label="12"/>
+		    <menuitem label="13"/>
+		    <menuitem label="14"/>
+		    <menuitem label="15"/>
+		    <menuitem label="16"/>
+		    <menuitem label="17"/>
+		    <menuitem label="18"/>
+		</menupopup>
+		</menulist>
+		</hbox>
+	<hbox>
+		<checkbox id="ABcustomFont" label="&PMDlabel18; " />
+		<menulist id="ABfontlist" style="width:200px"/>
+		<!-- <menulist id="fontlist2" style="width:200px"/> -->
+	</hbox>
+    <hbox align="center">
+        <checkbox id="PMDabnohead" label="&PMDlabel13;" prefstring="extensions.printingtoolsng.addressbook.hide_header_card"/> 
+    </hbox>
+	<hbox align="center">
+        <checkbox id="PMDabjustaddress" label="&PMDlabel14;" prefstring="extensions.printingtoolsng.addressbook.print_just_addresses"/> 
+    </hbox>
+	<hbox align="center">
+        <checkbox id="PMDabmaxcompact" label="&PMDlabel15;" /> 
+    </hbox>
+	<hbox align="center">
+        <checkbox id="PMDcutnotes" label="&PMDlabel19;" /> 
+    </hbox>
+	<hbox align="center">
+        <checkbox id="PMDaddname" label="&PMDlabel20;" /> 
+    </hbox>
+	<hbox align="center">
+        <checkbox id="multipleCards" label="&multipleCards.label;" /> 
+    </hbox>
+	</vbox>
+	</tabpanel>
+</tabpanels>
+</tabbox>
+</dialog>
