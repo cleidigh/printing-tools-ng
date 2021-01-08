@@ -2,6 +2,14 @@
 
 ## Versions
 
+Version 2.0.0 : 68/78 Update - January 3, 2021
+
+- Upgraded for both 68/78 WL API
+- New - Show/Hide headers #9
+- New - Configurable number of attachments per line #18
+- New icons for Microsoft office (XML files), 7zip, TIFF #6
+- Remove old attachment separator #10
+
 Version 0.1.3 : Locale/printer - June 12, 2020
 
 - New Default Printer option (persistent)
