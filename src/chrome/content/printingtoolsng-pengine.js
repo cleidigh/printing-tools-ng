@@ -819,15 +819,19 @@ var printingtools = {
 	},
 
 	formatDate: function (msecs, longFormat) {
+		console.debug('format date');
 		var formatted_date = null;
 		if (!longFormat)
 			longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
+		console.debug(longFormat);
 		try {
 			var date_obj = new Date(msecs);
-			if (longFormat != 1)
+			// cleidigh fix short format
+			if (longFormat === 1 || longFormat === 0)
 				var formatted_date = date_obj.toLocaleString();
 			else
 				var formatted_date = date_obj.toUTCString();
+			console.debug(formatted_date);
 		}
 		catch (e) { }
 		return formatted_date;
@@ -840,6 +844,7 @@ var printingtools = {
 		var longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
 		if (longFormat == 0)
 			return;
+		console.debug('correct date');
 		var formatted_date = printingtools.formatDate((printingtools.hdr.dateInSeconds * 1000), longFormat);
 		if (!formatted_date)
 			return;
@@ -853,7 +858,9 @@ var printingtools = {
 
 	appendReceivedTD: function () {
 		if (printingtools.hdr) {
+			console.debug('Japan received');
 			var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
+			console.debug(formatted_date);
 			if (!formatted_date)
 				return;
 			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
