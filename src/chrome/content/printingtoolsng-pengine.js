@@ -115,6 +115,9 @@ var printingtools = {
 		var date = bundle.GetStringFromID(1007).replace(/\s*$/, "");
 		var bcc = bundle.GetStringFromID(1023).replace(/\s*$/, "");
 
+		console.debug(date);
+		console.debug(cc);
+		console.debug(bcc);
 		for (var i = 0; i < trs.length; i++) {
 			if (trs[i].id == "attTR") {
 				index = printingtools.getIndexForHeader("%a");
@@ -180,7 +183,8 @@ var printingtools = {
 					continue;
 				}
 				regExp = new RegExp(bcc + "\\s*:");
-				if (divHTML.match(regExp)) {
+				if (divHTML.indexOf(bcc) == 0) {
+				// if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r3");
 					if (index & 0x100) {
 						arr[index &= ~0x100] = trs[i];
@@ -821,14 +825,28 @@ var printingtools = {
 	formatDate: function (msecs, longFormat) {
 		console.debug('format date');
 		var formatted_date = null;
+		var options;
+
 		if (!longFormat)
 			longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
 		console.debug(longFormat);
 		try {
 			var date_obj = new Date(msecs);
 			// cleidigh fix short format
-			if (longFormat === 1 || longFormat === 0)
-				var formatted_date = date_obj.toLocaleString();
+			if (longFormat === 0) {
+				options = {
+				  year: 'numeric', month: 'numeric', 
+				  hour: 'numeric', minute: 'numeric', day: 'numeric',
+				};
+				formatted_date = new Intl.DateTimeFormat('default', options).format(date_obj);
+			} else if(longFormat === 1) {
+				options = {
+					weekday: 'short',
+				  year: 'numeric', month: 'short', 
+				  hour: 'numeric', minute: 'numeric', day: 'numeric',
+				};
+				formatted_date = new Intl.DateTimeFormat('default', options).format(date_obj);
+			}
 			else
 				var formatted_date = date_obj.toUTCString();
 			console.debug(formatted_date);
@@ -842,8 +860,8 @@ var printingtools = {
 		if (!table || !printingtools.hdr)
 			return;
 		var longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
-		if (longFormat == 0)
-			return;
+		// if (longFormat == 0)
+			// return;
 		console.debug('correct date');
 		var formatted_date = printingtools.formatDate((printingtools.hdr.dateInSeconds * 1000), longFormat);
 		if (!formatted_date)
@@ -860,10 +878,10 @@ var printingtools = {
 		if (printingtools.hdr) {
 			console.debug('Japan received');
 			var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
-			console.debug(formatted_date);
-			if (!formatted_date)
-				return;
+			// if (!formatted_date)
+				// return;
 			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
+			console.debug( bundle.GetStringFromName("received"));
 			var headtable1 = printingtools.getTable(0);
 			var newTR = printingtools.doc.createElement("TR");
 			newTR.setAttribute("id", "recTR");
