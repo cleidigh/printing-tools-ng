@@ -167,13 +167,17 @@ var printingtools = {
 		}
 		var table2 = printingtools.getTable(1);
 		if (table2) {
+			console.debug('table 2 ');
+			console.debug(table2.outerHTML);
 			trs = table2.getElementsByTagName("TR");
 			for (var i = 0; i < trs.length; i++) {
 				var div = trs[i].firstChild.firstChild;
 				var divHTML = div.innerHTML.replace(/\&nbsp;/g, " ");
+				console.debug(divHTML.outerHTML);
 				regExp = new RegExp(to + "\\s*:");
 				if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r1");
+					console.debug('to');
 					if (index & 0x100) {
 						arr[index &= ~0x100] = trs[i];
 						arr[index &= ~0x100].style.display = "none";
@@ -184,6 +188,7 @@ var printingtools = {
 				}
 				regExp = new RegExp(bcc + "\\s*:");
 				if (divHTML.indexOf(bcc) == 0) {
+					console.debug('bcc');
 				// if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r3");
 					if (index & 0x100) {
@@ -196,6 +201,7 @@ var printingtools = {
 				}
 				regExp = new RegExp(cc + "\\s*:");
 				if (divHTML.indexOf(cc) == 0) {
+					console.debug('cc');
 					index = printingtools.getIndexForHeader("%r2");
 					if (index & 0x100) {
 						arr[index &= ~0x100] = trs[i];
@@ -739,8 +745,28 @@ var printingtools = {
 		var textNode;
 		if (table) {
 			var tableTDS = table.getElementsByTagName("TD");
+
+			console.debug('truncate table');
+
 			for (var i = 0; i < tableTDS.length; i++) {
-				if (tableTDS[i].getAttribute("id") == "attTD" || tableTDS[i].getAttribute("id") == "receivedDate") {
+				console.debug(tableTDS[i].outerHTML);
+				
+				if (tableTDS[i].getAttribute("id") == "attTD") {
+					var avChars = maxchars;
+					var divs = tableTDS[i].getElementsByTagName("img");
+					console.debug(divs);
+
+					for (var j = 0; j < divs.length; j++) {
+						textNode = divs[j].nextSibling;
+						if ((avChars - textNode.nodeValue.length) < 0) {
+							textNode.nodeValue = textNode.nodeValue.substring(0, avChars) + " [...]";
+							// break;
+						}
+						// avChars -= textNode.nodeValue.length;
+					}
+				}
+				
+				else if (tableTDS[i].getAttribute("id") == "receivedDate") {
 					var avChars = maxchars;
 					var divs = tableTDS[i].getElementsByTagName("div");
 					for (var j = 0; j < divs.length; j++) {
@@ -754,6 +780,7 @@ var printingtools = {
 				}
 				else {
 					textNode = tableTDS[i].getElementsByTagName("div")[0].nextSibling;
+					console.debug(textNode.outerHTML);
 					if (!textNode) {
 						// This is called when a header exists, with a null value (for example "Subject:");
 						// Adding a text node, we restore the original structure
