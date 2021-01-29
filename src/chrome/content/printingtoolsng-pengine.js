@@ -98,8 +98,11 @@ var printingtools = {
 	},
 
 	sortHeaders: function () {
+		Services.console.logStringMessage("printingtools: sortheaders");
+		Services.console.logStringMessage("printingtools: sortheader order " + printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order"));
 		if (printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order") == "%s,%f,%d,%a,%r1,%r2,%r3") {
 			printingtools.dateTRpos = 2;
+			Services.console.logStringMessage("printingtools: Default order");
 			return // default order
 		}
 		var table1 = printingtools.getTable(0);
@@ -115,10 +118,14 @@ var printingtools = {
 		var date = bundle.GetStringFromID(1007).replace(/\s*$/, "");
 		var bcc = bundle.GetStringFromID(1023).replace(/\s*$/, "");
 
-		console.debug(date);
-		console.debug(cc);
-		console.debug(bcc);
+		Services.console.logStringMessage("localized headers");
+		Services.console.logStringMessage(date);
+		Services.console.logStringMessage(cc);
+		Services.console.logStringMessage(bcc);
+		
+		Services.console.logStringMessage("scan headers");
 		for (var i = 0; i < trs.length; i++) {
+			Services.console.logStringMessage(`head id: ${trs[i].id}`);
 			if (trs[i].id == "attTR") {
 				index = printingtools.getIndexForHeader("%a");
 				if (index & 0x100) {
@@ -127,6 +134,7 @@ var printingtools = {
 				} else {
 					arr[index] = trs[i];
 				}
+				Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
 			var div = trs[i].firstChild.firstChild;
@@ -140,6 +148,7 @@ var printingtools = {
 				} else {
 					arr[index] = trs[i];
 				}
+				Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
 			regExp = new RegExp(from + "\\s*:");
@@ -151,6 +160,7 @@ var printingtools = {
 				} else {
 					arr[index] = trs[i];
 				}
+				Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
 			regExp = new RegExp(date + "\\s*:");
@@ -163,32 +173,34 @@ var printingtools = {
 					arr[index] = trs[i];
 					printingtools.dateTRpos = index;
 				}
+				Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 			}
 		}
 		var table2 = printingtools.getTable(1);
 		if (table2) {
-			console.debug('table 2 ');
-			console.debug(table2.outerHTML);
+			Services.console.logStringMessage('table 2 ');
+			Services.console.logStringMessage(table2.outerHTML);
 			trs = table2.getElementsByTagName("TR");
 			for (var i = 0; i < trs.length; i++) {
 				var div = trs[i].firstChild.firstChild;
 				var divHTML = div.innerHTML.replace(/\&nbsp;/g, " ");
-				console.debug(divHTML.outerHTML);
+				Services.console.logStringMessage(divHTML.outerHTML);
 				regExp = new RegExp(to + "\\s*:");
 				if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r1");
-					console.debug('to');
+					Services.console.logStringMessage('to');
 					if (index & 0x100) {
 						arr[index &= ~0x100] = trs[i];
 						arr[index &= ~0x100].style.display = "none";
 					} else {
 						arr[index] = trs[i];
 					}
+					Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 					continue;
 				}
 				regExp = new RegExp(bcc + "\\s*:");
 				if (divHTML.indexOf(bcc) == 0) {
-					console.debug('bcc');
+					Services.console.logStringMessage('bcc');
 				// if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r3");
 					if (index & 0x100) {
@@ -197,11 +209,12 @@ var printingtools = {
 					} else {
 						arr[index] = trs[i];
 					}
+					Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 					continue;
 				}
 				regExp = new RegExp(cc + "\\s*:");
 				if (divHTML.indexOf(cc) == 0) {
-					console.debug('cc');
+					Services.console.logStringMessage('cc');
 					index = printingtools.getIndexForHeader("%r2");
 					if (index & 0x100) {
 						arr[index &= ~0x100] = trs[i];
@@ -209,8 +222,12 @@ var printingtools = {
 					} else {
 						arr[index] = trs[i];
 					}
+					Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				}
 			}
+			Services.console.logStringMessage('table 2 after fixes');
+			Services.console.logStringMessage(table2.outerHTML);
+			
 		}
 
 		var tbody = table1.firstChild;
