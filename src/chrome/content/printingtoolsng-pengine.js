@@ -467,12 +467,15 @@ var printingtools = {
 		if (tablesNum == 0)
 			return;
 
+		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 		var max_pre_len = printingtools.prefs.getIntPref("extensions.printingtoolsng.pre_max_length");
 		if (max_pre_len > 0) {
-			var preTags = printingtools.doc.getElementsByTagName("PRE");
+			var preTags = printingtools.doc.getElementsByTagName("P");
 			for (var j = 0; j < preTags.length; j++)
-				preTags[j].width = max_pre_len;
+				preTags[j].setAttribute("style", `width: ${max_pre_len}ch;`);
 		}
+
+		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 		printingtools.getHdr(); // save hdr
 		printingtools.current = printingtools.current + 1;
