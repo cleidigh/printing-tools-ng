@@ -198,7 +198,7 @@ function initPMDpanel() {
 	// console.debug(gheaderList.listElement.outerHTML);
 	gheaderList.controller.selectRowByDataId('1');
 	
-	Services.console.logStringMessage("printingtools: call printer setup");
+	// Services.console.logStringMessage("printingtools: call printer setup");
 	setPrinterList();
 }
 
@@ -216,7 +216,7 @@ function setPrinterList() {
 	var PSSVC2 = Cc["@mozilla.org/gfx/printerenumerator;1"]
 	.getService(Ci.nsIPrinterEnumerator);
 
-	Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
+	// Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
 	var pe = PSSVC2.printerNameList;
 	var printers = [];
 	var i = 0;
@@ -224,14 +224,14 @@ function setPrinterList() {
 		let printerName = pe.getNext();
 		var menuitem = document.createXULElement("menuitem");
 
-		Services.console.logStringMessage("printingtools: printerName: " + printerName);
+		// Services.console.logStringMessage("printingtools: printerName: " + printerName);
 		printers.push(printerName);
 		menuitem.setAttribute("value", printerName);
 		menuitem.setAttribute("label", printerName);
 		popup.appendChild(menuitem);
 		if ( printerName === outputPrinter) {
 			selindex = i;
-			Services.console.logStringMessage("printingtools: selected: " + outputPrinter);
+			// Services.console.logStringMessage("printingtools: selected: " + outputPrinter);
 		}
 		i++;
 	}
@@ -242,7 +242,7 @@ function setPrinterList() {
 	
 	printerListMenu.appendChild(popup);
 	printerListMenu.selectedIndex = selindex;
-	Services.console.logStringMessage("printingtools: printerName index: " + selindex);
+	// Services.console.logStringMessage("printingtools: printerName index: " + selindex);
 }
 
 function initPMDabpanel() {

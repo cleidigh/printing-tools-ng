@@ -66,5 +66,5 @@ messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/addressbook/addressbook.xhtml",
 	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
 	
-	messenger.WindowListener.startListening();
+messenger.WindowListener.startListening();
 
