@@ -47,22 +47,8 @@ var printingtools = {
 			printers.push(printerName);
 		}
 
-		var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
-			.getService(Ci.nsIPrintSettingsService);
-
-		// Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinterName);
-		// Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinter);
-		// Use global printing preferences
-		// https://github.com/thundernest/import-export-tools-ng/issues/77
-
-		// var myPrintSettings = PSSVC.globalPrintSettings;
-		// myPrintSettings.printerName = printers[1];
-		// myPrintSettings.printSilent = false;
-
-		// PSSVC.initPrintSettingsFromPrinter(myPrintSettings.printerName, myPrintSettings);
-		// // PSSVC.initPrintSettingsFromPrefs(myPrintSettings, true, myPrintSettings.kInitSaveAll);
-		// Services.console.logStringMessage("printingtools: printer: " + myPrintSettings.printerName);
-		// printEngine.startPrintOperation(myPrintSettings);
+		// var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
+		// 	.getService(Ci.nsIPrintSettingsService);
 	},
 
 	getComplexPref: function (pref) {
@@ -855,16 +841,14 @@ var printingtools = {
 	},
 
 	formatDate: function (msecs, longFormat) {
-		console.debug('format date');
 		var formatted_date = null;
 		var options;
 
 		if (!longFormat)
 			longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
-		console.debug(longFormat);
 		try {
 			var date_obj = new Date(msecs);
-			// cleidigh fix short format
+			// cleidigh fix short format #28
 			if (longFormat === 0) {
 				options = {
 				  year: 'numeric', month: '2-digit', 
@@ -881,7 +865,6 @@ var printingtools = {
 			}
 			else
 				var formatted_date = date_obj.toUTCString();
-			console.debug(formatted_date);
 		}
 		catch (e) { }
 		return formatted_date;
@@ -892,9 +875,6 @@ var printingtools = {
 		if (!table || !printingtools.hdr)
 			return;
 		var longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
-		// if (longFormat == 0)
-			// return;
-		console.debug('correct date');
 		var formatted_date = printingtools.formatDate((printingtools.hdr.dateInSeconds * 1000), longFormat);
 		if (!formatted_date)
 			return;
@@ -908,12 +888,8 @@ var printingtools = {
 
 	appendReceivedTD: function () {
 		if (printingtools.hdr) {
-			console.debug('Japan received');
 			var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
-			// if (!formatted_date)
-				// return;
 			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
-			console.debug( bundle.GetStringFromName("received"));
 			var headtable1 = printingtools.getTable(0);
 			var newTR = printingtools.doc.createElement("TR");
 			newTR.setAttribute("id", "recTR");

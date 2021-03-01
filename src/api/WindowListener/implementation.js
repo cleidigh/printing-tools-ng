@@ -2,6 +2,10 @@
  * This file is provided by the addon-developer-support repository at
  * https://github.com/thundernest/addon-developer-support
  *
+ * Version: 1.37+ cleidigh
+ * - fix for 68 use style.display
+ * + add add78LegacyPrefsEntry
+ *
  * Version: 1.37
  * - fix for 68
  *
@@ -910,12 +914,10 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
 
     //do we have to remove the entire add-on options menu?
     let element_addonPrefs = window.document.getElementById(this.menu_addonPrefs_id);
-    // console.debug(element_addonPrefs.children.length);
+    // check if we have no extensions restore no extensions found
     if (element_addonPrefs.children.length == 1) {
       let noPrefsElem = element_addonPrefs.querySelector('[disabled="true"]');
-    console.debug(noPrefsElem);
     noPrefsElem.setAttribute("collapsed", "false");
-    // noPrefsElem.removeAttribute("style");
     noPrefsElem.style.display = "inline";
     }
   }
