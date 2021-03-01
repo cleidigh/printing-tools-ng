@@ -867,8 +867,8 @@ var printingtools = {
 			// cleidigh fix short format
 			if (longFormat === 0) {
 				options = {
-				  year: 'numeric', month: 'numeric', 
-				  hour: 'numeric', minute: 'numeric', day: 'numeric',
+				  year: 'numeric', month: '2-digit', 
+				  hour: 'numeric', minute: 'numeric', day: '2-digit',
 				};
 				formatted_date = new Intl.DateTimeFormat('default', options).format(date_obj);
 			} else if(longFormat === 1) {
