@@ -12,6 +12,14 @@
         }
     },
     "experiment_apis": {
+        "notificationbar": {
+          "schema": "api/notificationbar/schema.json",
+          "parent": {
+            "scopes": ["addon_parent"],
+            "paths": [["notificationbar"]],
+            "script": "api/notificationbar/implementation.js"
+          }
+        },
         "WindowListener": {
           "schema": "api/WindowListener/schema.json",
           "parent": {

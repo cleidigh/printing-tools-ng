@@ -1,6 +1,39 @@
 // background.js - this kicks off the WindowListener framework
 // console.debug('background Start');
 
+// onButtonClicked listener for the notification
+messenger.notificationbar.onButtonClicked.addListener((windowId, notificationId, buttonId) => {
+  if (["btn-moreinfo"].includes(buttonId)) {
+    messenger.windows.openDefaultBrowser("https://thunderbird.topicbox.com/groups/addons/T02a09c034809ca6d/resolving-the-add-on-options-chaos-introduced-by-my-wrapper-apis-windowlistener-and-bootstraploader");
+  }
+});
+// show notification when this version is being installed or updated
+browser.runtime.onInstalled.addListener(async (info) => {
+	if (!["update", "install"].includes(info.reason))
+		return;
+	
+	let windows = await messenger.mailTabs.query({});
+	for (let window of windows) {
+		await messenger.notificationbar.create({
+		windowId: window.id,
+		label: "Note: Options of PrintingTools NG have been moved into the add-on manager.",
+		icon: "chrome/content/icons/printing-tools-ng-icon-32px.png",
+		placement: "bottom", 
+		style: {
+		  "background-color": "yellow",
+		},
+		buttons: [
+		  {
+			id: "btn-moreinfo",
+			label: "More info",
+			accesskey: "m",
+		  }
+		]
+	  });	
+	}
+});
+
+
 messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
 
 // Register all necessary content, Resources, and locales
