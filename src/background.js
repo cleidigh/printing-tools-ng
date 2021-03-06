@@ -9,6 +9,10 @@ messenger.notificationbar.onButtonClicked.addListener((windowId, notificationId,
 });
 // show notification when this version is being installed or updated
 browser.runtime.onInstalled.addListener(async (info) => {
+	let version = parseInt((await browser.runtime.getBrowserInfo()).version.split(".").shift(), 10);
+	if (version < 78)
+		return;
+	
 	if (!["update", "install"].includes(info.reason))
 		return;
 	
