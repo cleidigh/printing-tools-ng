@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "PrintingTools NG",
-    "version": "2.0.1",
+    "version": "2.0.2-b1",
     "description": "__MSG_extensionDescription__",
     "author": "Christopher Leidigh",
     "applications": {
@@ -19,9 +19,16 @@
             "paths": [["WindowListener"]],
             "script": "api/WindowListener/implementation.js"
           }
-        }
-      },
-
+        },
+        "notificationbar": {
+          "schema": "api/notificationbar/schema.json",
+          "parent": {
+            "scopes": ["addon_parent"],
+            "paths": [["notificationbar"]],
+            "script": "api/notificationbar/implementation.js"
+          }
+      }
+    },
     "background": {
         "scripts": ["background.js"]
     },
