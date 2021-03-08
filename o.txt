@@ -8,7 +8,7 @@
   'ru',    'sk-SK', 'sl-SI',
   'sv-SE', 'uk',    'zh-CN'
 ]
-Start Mon Mar 08 2021 18:12:40 GMT-0500 (Eastern Standard Time)
+Start Mon Mar 08 2021 18:21:23 GMT-0500 (Eastern Standard Time)
 Locale ca ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
 Locale da-dk ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
 Locale de-de ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
@@ -34,73 +34,8 @@ Locale uk ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,k
 Locale zh-cn ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
 translations return
 [
-  '<data-translation class="notranslate" locale="de-DE">',
-  'Hinweis: Die Optionen von PrintingTools NG wurden in das Ellipsenmenü des Add-On-Managers verschoben.'
-]
-translations return
-[
   '<data-translation class="notranslate" locale="es-ES">',
   'Nota: Las opciones de PrintingTools NG se han movido al menú de puntos suspensivos del administrador de complementos.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="fr-FR">',
-  'Remarque: les options de PrintingTools NG ont été déplacées dans le menu des points de suspension du gestionnaire de modules complémentaires.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ru">',
-  'Примечание. Параметры PrintingTools NG были перемещены в меню многоточия диспетчера надстроек.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="hy-AM">',
-  'Նշում. PrintingTools NG- ի ընտրանքները տեղափոխվել են հավելումների կառավարչի էլիպսների ցանկ:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="pl">',
-  'Uwaga: Opcje PrintingTools NG zostały przeniesione do menu elipsy menedżera dodatków.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="nl">',
-  'Opmerking: de opties van PrintingTools NG zijn verplaatst naar het ellipsenmenu van de add-on manager.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="el">',
-  'Σημείωση: Οι επιλογές του PrintingTools NG έχουν μεταφερθεί στο μενού ελλείψεων του πρόσθετου διαχειριστή.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="gl-ES">',
-  'Nota: as opcións de PrintingTools NG movéronse ao menú de elipses do xestor de complementos.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ca">',
-  'Nota: les opcions de PrintingTools NG s&#39;han mogut al menú de punts suspensius del gestor de complements.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="sl-SI">',
-  'Opomba: Možnosti PrintingTools NG so bile premaknjene v meni elipse upravitelja dodatkov.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="sk-SK">',
-  'Poznámka: Možnosti PrintingTools NG boli presunuté do ponuky elips doplnkového manažéra.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="sv-SE">',
-  'Obs! Alternativ för PrintingTools NG har flyttats till tilläggshanterarens ellipsmeny.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="da-DK">',
-  'Bemærk: Valgmulighederne for PrintingTools NG er flyttet til add-on manager-ellipsemenuen.'
 ]
 translations return
 [
@@ -114,28 +49,8 @@ translations return
 ]
 translations return
 [
-  '<data-translation class="notranslate" locale="zh-CN">',
-  '注意：PrintingTools NG的选项已移至附加管理器椭圆菜单。'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ja-JP">',
-  '注：PrintingTools NGのオプションは、アドオンマネージャーの省略記号メニューに移動されました。'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ko-KR">',
-  '참고 : PrintingTools NG의 옵션이 추가 기능 관리자 줄임표 메뉴로 이동되었습니다.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="nb-NO">',
-  'Merk: Alternativer for PrintingTools NG er flyttet til tilleggsadministratorens ellipsemeny.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="uk">',
-  'Примітка: Параметри PrintingTools NG були переміщені в меню еліпсів менеджера додатків.'
+  '<data-translation class="notranslate" locale="ca">',
+  'Nota: les opcions de PrintingTools NG s&#39;han mogut al menú de punts suspensius del gestor de complements.'
 ]
 translations return
 [
@@ -144,36 +59,94 @@ translations return
 ]
 translations return
 [
+  '<data-translation class="notranslate" locale="ja-JP">',
+  '注：PrintingTools NGのオプションは、アドオンマネージャーの省略記号メニューに移動されました。'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="sv-SE">',
+  'Obs! Alternativ för PrintingTools NG har flyttats till tilläggshanterarens ellipsmeny.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="nb-NO">',
+  'Merk: Alternativer for PrintingTools NG er flyttet til tilleggsadministratorens ellipsemeny.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="pl">',
+  'Uwaga: Opcje PrintingTools NG zostały przeniesione do menu elipsy menedżera dodatków.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="hy-AM">',
+  'Նշում. PrintingTools NG- ի ընտրանքները տեղափոխվել են հավելումների կառավարչի էլիպսների ցանկ:'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="nl">',
+  'Opmerking: de opties van PrintingTools NG zijn verplaatst naar het ellipsenmenu van de add-on manager.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="ru">',
+  'Примечание. Параметры PrintingTools NG были перемещены в меню многоточия диспетчера надстроек.'
+]
+translations return
+[
   '<data-translation class="notranslate" locale="pt-PT">',
   'Observação: as opções do PrintingTools NG foram movidas para o menu de reticências do gerenciador de complementos.'
 ]
-de-DE
+translations return
 [
+  '<data-translation class="notranslate" locale="sk-SK">',
+  'Poznámka: Možnosti PrintingTools NG boli presunuté do ponuky elips doplnkového manažéra.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="de-DE">',
   'Hinweis: Die Optionen von PrintingTools NG wurden in das Ellipsenmenü des Add-On-Managers verschoben.'
 ]
-TranslationArray
+translations return
 [
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
+  '<data-translation class="notranslate" locale="ko-KR">',
+  '참고 : PrintingTools NG의 옵션이 추가 기능 관리자 줄임표 메뉴로 이동되었습니다.'
 ]
-GenerateMessages
-TranslationMessages 144
-	"update_option_info": {
-		"message": "Hinweis: Die Optionen von PrintingTools NG wurden in das Ellipsenmenü des Add-On-Managers verschoben."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Tools zum Drucken von Nachrichten und Adressen (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Hinweis: Die Optionen von PrintingTools NG wurden in das Ellipsenmenü des Add-On-Managers verschoben."
-	}
-}
+translations return
+[
+  '<data-translation class="notranslate" locale="da-DK">',
+  'Bemærk: Valgmulighederne for PrintingTools NG er flyttet til add-on manager-ellipsemenuen.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="gl-ES">',
+  'Nota: as opcións de PrintingTools NG movéronse ao menú de elipses do xestor de complementos.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="zh-CN">',
+  '注意：PrintingTools NG的选项已移至附加管理器椭圆菜单。'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="el">',
+  'Σημείωση: Οι επιλογές του PrintingTools NG έχουν μεταφερθεί στο μενού ελλείψεων του πρόσθετου διαχειριστή.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="sl-SI">',
+  'Opomba: Možnosti PrintingTools NG so bile premaknjene v meni elipse upravitelja dodatkov.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="uk">',
+  'Примітка: Параметри PrintingTools NG були переміщені в меню еліпсів менеджера додатків.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="fr-FR">',
+  'Remarque: les options de PrintingTools NG ont été déplacées dans le menu des points de suspension du gestionnaire de modules complémentaires.'
+]
 es-ES
 [
   'Nota: Las opciones de PrintingTools NG se han movido al menú de puntos suspensivos del administrador de complementos.'
@@ -199,330 +172,6 @@ TranslationMessages 160
 	},
 	"update_option_info": {
 		"message": "Nota: Las opciones de PrintingTools NG se han movido al menú de puntos suspensivos del administrador de complementos."
-	}
-}
-fr-FR
-[
-  'Remarque: les options de PrintingTools NG ont été déplacées dans le menu des points de suspension du gestionnaire de modules complémentaires.'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 184
-	"update_option_info": {
-		"message": "Remarque: les options de PrintingTools NG ont été déplacées dans le menu des points de suspension du gestionnaire de modules complémentaires."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Outils d&#39;impression de messages et d&#39;adresses (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Remarque: les options de PrintingTools NG ont été déplacées dans le menu des points de suspension du gestionnaire de modules complémentaires."
-	}
-}
-ru
-[
-  'Примечание. Параметры PrintingTools NG были перемещены в меню многоточия диспетчера надстроек.'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 137
-	"update_option_info": {
-		"message": "Примечание. Параметры PrintingTools NG были перемещены в меню многоточия диспетчера надстроек."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Инструменты для печати сообщений и адресов (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Примечание. Параметры PrintingTools NG были перемещены в меню многоточия диспетчера надстроек."
-	}
-}
-hy-AM
-[
-  'Նշում. PrintingTools NG- ի ընտրանքները տեղափոխվել են հավելումների կառավարչի էլիպսների ցանկ:'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 134
-	"update_option_info": {
-		"message": "Նշում. PrintingTools NG- ի ընտրանքները տեղափոխվել են հավելումների կառավարչի էլիպսների ցանկ:"
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Հաղորդագրության և հասցեների տպման գործիքներ (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Նշում. PrintingTools NG- ի ընտրանքները տեղափոխվել են հավելումների կառավարչի էլիպսների ցանկ:"
-	}
-}
-pl
-[
-  'Uwaga: Opcje PrintingTools NG zostały przeniesione do menu elipsy menedżera dodatków.'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 128
-	"update_option_info": {
-		"message": "Uwaga: Opcje PrintingTools NG zostały przeniesione do menu elipsy menedżera dodatków."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Narzędzia do drukowania wiadomości i adresów (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Uwaga: Opcje PrintingTools NG zostały przeniesione do menu elipsy menedżera dodatków."
-	}
-}
-nl
-[
-  'Opmerking: de opties van PrintingTools NG zijn verplaatst naar het ellipsenmenu van de add-on manager.'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 145
-	"update_option_info": {
-		"message": "Opmerking: de opties van PrintingTools NG zijn verplaatst naar het ellipsenmenu van de add-on manager."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Tools voor het afdrukken van berichten en adressen (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Opmerking: de opties van PrintingTools NG zijn verplaatst naar het ellipsenmenu van de add-on manager."
-	}
-}
-el
-[
-  'Σημείωση: Οι επιλογές του PrintingTools NG έχουν μεταφερθεί στο μενού ελλείψεων του πρόσθετου διαχειριστή.'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 149
-	"update_option_info": {
-		"message": "Σημείωση: Οι επιλογές του PrintingTools NG έχουν μεταφερθεί στο μενού ελλείψεων του πρόσθετου διαχειριστή."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Εργαλεία εκτύπωσης μηνυμάτων και διευθύνσεων (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Σημείωση: Οι επιλογές του PrintingTools NG έχουν μεταφερθεί στο μενού ελλείψεων του πρόσθετου διαχειριστή."
-	}
-}
-gl-ES
-[
-  'Nota: as opcións de PrintingTools NG movéronse ao menú de elipses do xestor de complementos.'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 135
-	"update_option_info": {
-		"message": "Nota: as opcións de PrintingTools NG movéronse ao menú de elipses do xestor de complementos."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Ferramentas de impresión de mensaxes e enderezos (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Nota: as opcións de PrintingTools NG movéronse ao menú de elipses do xestor de complementos."
-	}
-}
-ca
-[
-  'Nota: les opcions de PrintingTools NG s&#39;han mogut al menú de punts suspensius del gestor de complements.'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 151
-	"update_option_info": {
-		"message": "Nota: les opcions de PrintingTools NG s&#39;han mogut al menú de punts suspensius del gestor de complements."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Eines d&#39;impressió de missatges i adreces (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Nota: les opcions de PrintingTools NG s&#39;han mogut al menú de punts suspensius del gestor de complements."
-	}
-}
-sl-SI
-[
-  'Opomba: Možnosti PrintingTools NG so bile premaknjene v meni elipse upravitelja dodatkov.'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 132
-	"update_option_info": {
-		"message": "Opomba: Možnosti PrintingTools NG so bile premaknjene v meni elipse upravitelja dodatkov."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Orodja za tiskanje sporočil in naslovov (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Opomba: Možnosti PrintingTools NG so bile premaknjene v meni elipse upravitelja dodatkov."
-	}
-}
-sk-SK
-[
-  'Poznámka: Možnosti PrintingTools NG boli presunuté do ponuky elips doplnkového manažéra.'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 131
-	"update_option_info": {
-		"message": "Poznámka: Možnosti PrintingTools NG boli presunuté do ponuky elips doplnkového manažéra."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Nástroje na tlač správ a adries (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Poznámka: Možnosti PrintingTools NG boli presunuté do ponuky elips doplnkového manažéra."
-	}
-}
-sv-SE
-[
-  'Obs! Alternativ för PrintingTools NG har flyttats till tilläggshanterarens ellipsmeny.'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 129
-	"update_option_info": {
-		"message": "Obs! Alternativ för PrintingTools NG har flyttats till tilläggshanterarens ellipsmeny."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Verktyg för utskrift av meddelanden och adresser (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Obs! Alternativ för PrintingTools NG har flyttats till tilläggshanterarens ellipsmeny."
-	}
-}
-da-DK
-[
-  'Bemærk: Valgmulighederne for PrintingTools NG er flyttet til add-on manager-ellipsemenuen.'
-]
-TranslationArray
-[
-  {
-    key: 'update_option_info',
-    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
-  }
-]
-GenerateMessages
-TranslationMessages 133
-	"update_option_info": {
-		"message": "Bemærk: Valgmulighederne for PrintingTools NG er flyttet til add-on manager-ellipsemenuen."
-	}
-{
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Værktøjer til udskrivning af meddelelse og adresse (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Bemærk: Valgmulighederne for PrintingTools NG er flyttet til add-on manager-ellipsemenuen."
 	}
 }
 fi
@@ -579,8 +228,10 @@ TranslationMessages 149
 		"message": "Megjegyzés: A PrintingTools NG beállításai áthelyezésre kerültek a kiegészítő kezelő ellipszisek menüjébe."
 	}
 }
-zh-CN
-[ '注意：PrintingTools NG的选项已移至附加管理器椭圆菜单。' ]
+ca
+[
+  'Nota: les opcions de PrintingTools NG s&#39;han mogut al menú de punts suspensius del gestor de complements.'
+]
 TranslationArray
 [
   {
@@ -589,19 +240,46 @@ TranslationArray
   }
 ]
 GenerateMessages
-TranslationMessages 78
+TranslationMessages 151
 	"update_option_info": {
-		"message": "注意：PrintingTools NG的选项已移至附加管理器椭圆菜单。"
+		"message": "Nota: les opcions de PrintingTools NG s&#39;han mogut al menú de punts suspensius del gestor de complements."
 	}
 {
 	"extensionName": {
-		"message": "印刷工具NG"
+		"message": "PrintingTools NG"
 	},
 	"extensionDescription": {
-		"message": "邮件和地址打印工具（NextGen）"
+		"message": "Eines d&#39;impressió de missatges i adreces (NextGen)"
 	},
 	"update_option_info": {
-		"message": "注意：PrintingTools NG的选项已移至附加管理器椭圆菜单。"
+		"message": "Nota: les opcions de PrintingTools NG s&#39;han mogut al menú de punts suspensius del gestor de complements."
+	}
+}
+it-IT
+[
+  'Nota: le opzioni di PrintingTools NG sono state spostate nel menu con i puntini di sospensione del gestore dei componenti aggiuntivi.'
+]
+TranslationArray
+[
+  {
+    key: 'update_option_info',
+    text: 'Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu.'
+  }
+]
+GenerateMessages
+TranslationMessages 176
+	"update_option_info": {
+		"message": "Nota: le opzioni di PrintingTools NG sono state spostate nel menu con i puntini di sospensione del gestore dei componenti aggiuntivi."
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Strumenti per la stampa di messaggi e indirizzi (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Nota: le opzioni di PrintingTools NG sono state spostate nel menu con i puntini di sospensione del gestore dei componenti aggiuntivi."
 	}
 }
 ja-JP
