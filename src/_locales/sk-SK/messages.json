@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Nástroje na tlač správ a adries (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Poznámka: Možnosti PrintingTools NG boli presunuté do ponuky elips doplnkového manažéra."
+	},
+	"moreinfo_button_label": {
+		"message": "Viac informácií"
 	}
 }

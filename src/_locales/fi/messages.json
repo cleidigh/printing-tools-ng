@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Viestin ja osoitteen tulostustyökalut (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Huomautus: PrintingTools NG: n asetukset on siirretty lisäosien hallinnan ellipsin valikkoon."
+	},
+	"moreinfo_button_label": {
+		"message": "Lisätietoja"
 	}
 }

@@ -34,7 +34,7 @@
             "type": "array",
             "items": {
               "type": "array",
-              "items": {
+              "items" : {
                 "type": "string"
               }
             },
@@ -96,22 +96,6 @@
         "name": "registerShutdownScript",
         "type": "function",
         "parameters": [
-          {
-            "name": "aPath",
-            "type": "string",
-            "description": "Path to a JavaScript file, which should be executed on add-on shutdown."
-          }
-        ]
-      },
-      {
-        "name": "registerTabUrl",
-        "type": "function",
-        "parameters": [
-          {
-            "name": "tabUrl",
-            "type": "string",
-            "description": "Path to a JavaScript file, which should be executed on add-on shutdown."
-          },
           {
             "name": "aPath",
             "type": "string",

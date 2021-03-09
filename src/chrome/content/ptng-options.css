@@ -78,7 +78,7 @@ width: 100%;
 
 .list-row[data-show=false] {
 	font-style: italic;
-	color: gray;
+	color: #cccccc;
 	/* background-color: burlywood; */
 }
 

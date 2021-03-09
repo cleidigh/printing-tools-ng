@@ -198,11 +198,17 @@ function initPMDpanel() {
 	// console.debug(gheaderList.listElement.outerHTML);
 	gheaderList.controller.selectRowByDataId('1');
 	
+	// Services.console.logStringMessage("printingtools: call printer setup");
 	setPrinterList();
 }
 
 function setPrinterList() {
-	var outputPrinter = prefs.getCharPref("print_printer");
+	var outputPrinter = null;
+	try {
+		outputPrinter = prefs.getCharPref("print_printer");
+	} catch (error) {
+		
+	}
 	var printerListMenu = document.getElementById("OutputPrinter");
 	var selindex = 0;
 	var popup = document.createXULElement("menupopup");

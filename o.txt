@@ -1,0 +1,668 @@
+[
+  'ca',    'da-DK', 'de-DE',
+  'el',    'en-US', 'es-ES',
+  'fi',    'fr-FR', 'gl-ES',
+  'hu-HU', 'hy-AM', 'it-IT',
+  'ja-JP', 'ko-KR', 'nb-NO',
+  'nl',    'pl',    'pt-PT',
+  'ru',    'sk-SK', 'sl-SI',
+  'sv-SE', 'uk',    'zh-CN'
+]
+Start Mon Mar 08 2021 18:39:07 GMT-0500 (Eastern Standard Time)
+Locale ca ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale da-dk ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale de-de ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale el ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale es-es ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale fi ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale fr-fr ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale gl-es ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale hu-hu ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale hy-am ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale it-it ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale ja-jp ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale ko-kr ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale nl ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale nb-no ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale pl ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale pt-pt ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale ru ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale sk-sk ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale sl-si ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale sv-se ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale uk ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+Locale zh-cn ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja-JP,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
+translations return
+[
+  '<data-translation class="notranslate" locale="pt-PT">',
+  'Mais informações'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="de-DE">',
+  'Mehr Info'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="es-ES">',
+  'Más información'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="fr-FR">',
+  'Plus d&#39;informations'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="ru">',
+  'Больше информации'
+]
+translations return
+[ '<data-translation class="notranslate" locale="ko-KR">', '더 많은 정보' ]
+translations return
+[
+  '<data-translation class="notranslate" locale="hu-HU">',
+  'Több információ'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="uk">',
+  'Більше інформації'
+]
+translations return
+[ '<data-translation class="notranslate" locale="ja-JP">', 'より詳しい情報' ]
+translations return
+[
+  '<data-translation class="notranslate" locale="sv-SE">',
+  'Mer information'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="ca">',
+  'Més informació'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="sk-SK">',
+  'Viac informácií'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="da-DK">',
+  'Mere info'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="gl-ES">',
+  'Máis información'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="nb-NO">',
+  'Mer informasjon'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="it-IT">',
+  'Ulteriori informazioni'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="el">',
+  'Περισσότερες πληροφορίες'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="nl">',
+  'Meer informatie'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="pl">',
+  'Więcej informacji'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="sl-SI">',
+  'Več informacij'
+]
+translations return
+[ '<data-translation class="notranslate" locale="zh-CN">', '更多信息' ]
+translations return
+[
+  '<data-translation class="notranslate" locale="hy-AM">',
+  'Լրացուցիչ տեղեկություններ'
+]
+translations return
+[ '<data-translation class="notranslate" locale="fi">', 'Lisätietoja' ]
+pt-PT
+[ 'Mais informações' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 62
+	"moreinfo_button_label": {
+		"message": "Mais informações"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Ferramentas de impressão de mensagens e endereços (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Observação: as opções do PrintingTools NG foram movidas para o menu de reticências do gerenciador de complementos."
+	},
+	"moreinfo_button_label": {
+		"message": "Mais informações"
+	}
+}
+de-DE
+[ 'Mehr Info' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 55
+	"moreinfo_button_label": {
+		"message": "Mehr Info"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Tools zum Drucken von Nachrichten und Adressen (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Hinweis: Die Optionen von PrintingTools NG wurden in das Ellipsenmenü des Add-On-Managers verschoben."
+	},
+	"moreinfo_button_label": {
+		"message": "Mehr Info"
+	}
+}
+es-ES
+[ 'Más información' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 61
+	"moreinfo_button_label": {
+		"message": "Más información"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Herramientas de impresión de mensajes y direcciones (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Nota: Las opciones de PrintingTools NG se han movido al menú de puntos suspensivos del administrador de complementos."
+	},
+	"moreinfo_button_label": {
+		"message": "Más información"
+	}
+}
+fr-FR
+[ 'Plus d&#39;informations' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 69
+	"moreinfo_button_label": {
+		"message": "Plus d&#39;informations"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Outils d&#39;impression de messages et d&#39;adresses (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Remarque: les options de PrintingTools NG ont été déplacées dans le menu des points de suspension du gestionnaire de modules complémentaires."
+	},
+	"moreinfo_button_label": {
+		"message": "Plus d&#39;informations"
+	}
+}
+ru
+[ 'Больше информации' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 63
+	"moreinfo_button_label": {
+		"message": "Больше информации"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Инструменты для печати сообщений и адресов (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Примечание. Параметры PrintingTools NG были перемещены в меню многоточия диспетчера надстроек."
+	},
+	"moreinfo_button_label": {
+		"message": "Больше информации"
+	}
+}
+ko-KR
+[ '더 많은 정보' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 53
+	"moreinfo_button_label": {
+		"message": "더 많은 정보"
+	}
+{
+	"extensionName": {
+		"message": "인쇄 도구 NG"
+	},
+	"extensionDescription": {
+		"message": "메시지 및 주소 인쇄 도구 (NextGen)"
+	},
+	"update_option_info": {
+		"message": "참고 : PrintingTools NG의 옵션이 추가 기능 관리자 줄임표 메뉴로 이동되었습니다."
+	},
+	"moreinfo_button_label": {
+		"message": "더 많은 정보"
+	}
+}
+hu-HU
+[ 'Több információ' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 61
+	"moreinfo_button_label": {
+		"message": "Több információ"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Üzenet- és címnyomtató eszközök (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Megjegyzés: A PrintingTools NG beállításai áthelyezésre kerültek a kiegészítő kezelő ellipszisek menüjébe."
+	},
+	"moreinfo_button_label": {
+		"message": "Több információ"
+	}
+}
+uk
+[ 'Більше інформації' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 63
+	"moreinfo_button_label": {
+		"message": "Більше інформації"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Інструменти для друку повідомлень та адрес (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Примітка: Параметри PrintingTools NG були переміщені в меню еліпсів менеджера додатків."
+	},
+	"moreinfo_button_label": {
+		"message": "Більше інформації"
+	}
+}
+ja-JP
+[ 'より詳しい情報' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 53
+	"moreinfo_button_label": {
+		"message": "より詳しい情報"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "メッセージと住所の印刷ツール（NextGen）"
+	},
+	"update_option_info": {
+		"message": "注：PrintingTools NGのオプションは、アドオンマネージャーの省略記号メニューに移動されました。"
+	},
+	"moreinfo_button_label": {
+		"message": "より詳しい情報"
+	}
+}
+sv-SE
+[ 'Mer information' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 61
+	"moreinfo_button_label": {
+		"message": "Mer information"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Verktyg för utskrift av meddelanden och adresser (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Obs! Alternativ för PrintingTools NG har flyttats till tilläggshanterarens ellipsmeny."
+	},
+	"moreinfo_button_label": {
+		"message": "Mer information"
+	}
+}
+ca
+[ 'Més informació' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 60
+	"moreinfo_button_label": {
+		"message": "Més informació"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Eines d&#39;impressió de missatges i adreces (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Nota: les opcions de PrintingTools NG s&#39;han mogut al menú de punts suspensius del gestor de complements."
+	},
+	"moreinfo_button_label": {
+		"message": "Més informació"
+	}
+}
+sk-SK
+[ 'Viac informácií' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 61
+	"moreinfo_button_label": {
+		"message": "Viac informácií"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Nástroje na tlač správ a adries (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Poznámka: Možnosti PrintingTools NG boli presunuté do ponuky elips doplnkového manažéra."
+	},
+	"moreinfo_button_label": {
+		"message": "Viac informácií"
+	}
+}
+da-DK
+[ 'Mere info' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 55
+	"moreinfo_button_label": {
+		"message": "Mere info"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Værktøjer til udskrivning af meddelelse og adresse (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Bemærk: Valgmulighederne for PrintingTools NG er flyttet til add-on manager-ellipsemenuen."
+	},
+	"moreinfo_button_label": {
+		"message": "Mere info"
+	}
+}
+gl-ES
+[ 'Máis información' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 62
+	"moreinfo_button_label": {
+		"message": "Máis información"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Ferramentas de impresión de mensaxes e enderezos (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Nota: as opcións de PrintingTools NG movéronse ao menú de elipses do xestor de complementos."
+	},
+	"moreinfo_button_label": {
+		"message": "Máis información"
+	}
+}
+nb-NO
+[ 'Mer informasjon' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 61
+	"moreinfo_button_label": {
+		"message": "Mer informasjon"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Verktøy for utskrift av melding og adresse (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Merk: Alternativer for PrintingTools NG er flyttet til tilleggsadministratorens ellipsemeny."
+	},
+	"moreinfo_button_label": {
+		"message": "Mer informasjon"
+	}
+}
+it-IT
+[ 'Ulteriori informazioni' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 68
+	"moreinfo_button_label": {
+		"message": "Ulteriori informazioni"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Strumenti per la stampa di messaggi e indirizzi (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Nota: le opzioni di PrintingTools NG sono state spostate nel menu con i puntini di sospensione del gestore dei componenti aggiuntivi."
+	},
+	"moreinfo_button_label": {
+		"message": "Ulteriori informazioni"
+	}
+}
+el
+[ 'Περισσότερες πληροφορίες' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 70
+	"moreinfo_button_label": {
+		"message": "Περισσότερες πληροφορίες"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Εργαλεία εκτύπωσης μηνυμάτων και διευθύνσεων (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Σημείωση: Οι επιλογές του PrintingTools NG έχουν μεταφερθεί στο μενού ελλείψεων του πρόσθετου διαχειριστή."
+	},
+	"moreinfo_button_label": {
+		"message": "Περισσότερες πληροφορίες"
+	}
+}
+nl
+[ 'Meer informatie' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 61
+	"moreinfo_button_label": {
+		"message": "Meer informatie"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Tools voor het afdrukken van berichten en adressen (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Opmerking: de opties van PrintingTools NG zijn verplaatst naar het ellipsenmenu van de add-on manager."
+	},
+	"moreinfo_button_label": {
+		"message": "Meer informatie"
+	}
+}
+pl
+[ 'Więcej informacji' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 63
+	"moreinfo_button_label": {
+		"message": "Więcej informacji"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Narzędzia do drukowania wiadomości i adresów (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Uwaga: Opcje PrintingTools NG zostały przeniesione do menu elipsy menedżera dodatków."
+	},
+	"moreinfo_button_label": {
+		"message": "Więcej informacji"
+	}
+}
+sl-SI
+[ 'Več informacij' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 60
+	"moreinfo_button_label": {
+		"message": "Več informacij"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Orodja za tiskanje sporočil in naslovov (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Opomba: Možnosti PrintingTools NG so bile premaknjene v meni elipse upravitelja dodatkov."
+	},
+	"moreinfo_button_label": {
+		"message": "Več informacij"
+	}
+}
+zh-CN
+[ '更多信息' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 50
+	"moreinfo_button_label": {
+		"message": "更多信息"
+	}
+{
+	"extensionName": {
+		"message": "印刷工具NG"
+	},
+	"extensionDescription": {
+		"message": "邮件和地址打印工具（NextGen）"
+	},
+	"update_option_info": {
+		"message": "注意：PrintingTools NG的选项已移至附加管理器椭圆菜单。"
+	},
+	"moreinfo_button_label": {
+		"message": "更多信息"
+	}
+}
+hy-AM
+[ 'Լրացուցիչ տեղեկություններ' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 71
+	"moreinfo_button_label": {
+		"message": "Լրացուցիչ տեղեկություններ"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Հաղորդագրության և հասցեների տպման գործիքներ (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Նշում. PrintingTools NG- ի ընտրանքները տեղափոխվել են հավելումների կառավարչի էլիպսների ցանկ:"
+	},
+	"moreinfo_button_label": {
+		"message": "Լրացուցիչ տեղեկություններ"
+	}
+}
+fi
+[ 'Lisätietoja' ]
+TranslationArray
+[ { key: 'moreinfo_button_label', text: 'More Info' } ]
+GenerateMessages
+TranslationMessages 57
+	"moreinfo_button_label": {
+		"message": "Lisätietoja"
+	}
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "Viestin ja osoitteen tulostustyökalut (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Huomautus: PrintingTools NG: n asetukset on siirretty lisäosien hallinnan ellipsin valikkoon."
+	},
+	"moreinfo_button_label": {
+		"message": "Lisätietoja"
+	}
+}
+Stop Mon Mar 08 2021 18:39:08 GMT-0500 (Eastern Standard Time)
+Stop 0.29

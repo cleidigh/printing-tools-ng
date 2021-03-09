@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Հաղորդագրության և հասցեների տպման գործիքներ (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Նշում. PrintingTools NG- ի ընտրանքները տեղափոխվել են հավելումների կառավարչի էլիպսների ցանկ:"
+	},
+	"moreinfo_button_label": {
+		"message": "Լրացուցիչ տեղեկություններ"
 	}
 }

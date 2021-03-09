@@ -33,7 +33,7 @@ messenger.WindowListener.registerChromeUrl([
 	["locale", "printingtoolsng", "sv-SE", "chrome/locale/sv-SE/"],
 	["locale", "printingtoolsng", "uk", "chrome/locale/uk/"],
 	["locale", "printingtoolsng", "zh-CN", "chrome/locale/zh-CN/"],
-	
+
 ]);
 
 messenger.WindowListener.registerOptionsPage("chrome://printingtoolsng/content/ptng-options.xhtml");
@@ -48,7 +48,7 @@ messenger.WindowListener.registerWindow(
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/messenger.xhtml",
 	"chrome://printingtoolsng/content/messengerOL.js");
-	
+
 
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/msgPrintEngine.xhtml",
@@ -61,10 +61,50 @@ messenger.WindowListener.registerWindow(
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/addressbook/addressbook.xul",
 	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
-	
+
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/addressbook/addressbook.xhtml",
 	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
-	
-	messenger.WindowListener.startListening();
 
+messenger.WindowListener.startListening();
+
+// cleidigh - thanks to John B for the update notification code
+
+// onButtonClicked listener for the notification
+messenger.notificationbar.onButtonClicked.addListener((windowId, notificationId, buttonId) => {
+	if (["btn-moreinfo"].includes(buttonId)) {
+		messenger.windows.openDefaultBrowser("https://thunderbird.topicbox.com/groups/addons/T02a09c034809ca6d/resolving-the-add-on-options-chaos-introduced-by-my-wrapper-apis-windowlistener-and-bootstraploader");
+	}
+});
+
+// show notification when this version is being installed or updated
+browser.runtime.onInstalled.addListener(async (info) => {
+	let version = parseInt((await browser.runtime.getBrowserInfo()).version.split(".").shift(), 10);
+	if (version < 78)
+		return;
+
+	if (!["update", "install"].includes(info.reason))
+		return;
+	var msg = messenger.i18n.getMessage("update_option_info");
+	let windows = await messenger.mailTabs.query({});
+
+	for (let window of windows) {
+		await messenger.notificationbar.create({
+			windowId: window.windowId,
+			label: msg,
+
+			icon: "chrome/content/icons/printing-tools-ng-icon-32px.png",
+			placement: "bottom",
+			style: {
+				"background-color": "yellow",
+			},
+			buttons: [
+				{
+					id: "btn-moreinfo",
+					label: messenger.i18n.getMessage("moreinfo_button_label"),
+					accesskey: "m",
+				}
+			]
+		});
+	}
+});

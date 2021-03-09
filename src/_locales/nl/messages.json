@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Hulpmiddelen voor het afdrukken van berichten en adressen (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Opmerking: de opties van PrintingTools NG zijn verplaatst naar het ellipsenmenu van de add-on manager."
+	},
+	"moreinfo_button_label": {
+		"message": "Meer informatie"
 	}
 }

@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Ferramentas de impresión de mensaxes e enderezos (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Nota: as opcións de PrintingTools NG movéronse ao menú de elipses do xestor de complementos."
+	},
+	"moreinfo_button_label": {
+		"message": "Máis información"
 	}
 }

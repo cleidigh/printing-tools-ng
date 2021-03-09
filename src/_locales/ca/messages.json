@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Eines d&#39;impressió de missatges i adreces (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Nota: les opcions de PrintingTools NG s&#39;han mogut al menú de punts suspensius del gestor de complements."
+	},
+	"moreinfo_button_label": {
+		"message": "Més informació"
 	}
 }

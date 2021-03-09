@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Outils d&#39;impression de messages et d&#39;adresses (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Remarque: les options de PrintingTools NG ont été déplacées dans le menu des points de suspension du gestionnaire de modules complémentaires."
+	},
+	"moreinfo_button_label": {
+		"message": "Plus d&#39;informations"
 	}
 }

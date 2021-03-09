@@ -1,0 +1,14 @@
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+	"extensionDescription": {
+		"message": "メッセージと住所の印刷ツール（NextGen）"
+	},
+	"update_option_info": {
+		"message": "注：PrintingTools NGのオプションは、アドオンマネージャーの省略記号メニューに移動されました。"
+	},
+	"moreinfo_button_label": {
+		"message": "より詳しい情報"
+	}
+}
