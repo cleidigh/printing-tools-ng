@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Verktøy for utskrift av melding og adresse (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Merk: Alternativer for PrintingTools NG er flyttet til tilleggsadministratorens ellipsemeny."
+	},
+	"moreinfo_button_label": {
+		"message": "Mer informasjon"
 	}
 }

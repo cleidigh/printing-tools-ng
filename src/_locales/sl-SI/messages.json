@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Orodja za tiskanje sporočil in naslovov (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Opomba: Možnosti PrintingTools NG so bile premaknjene v meni elipse upravitelja dodatkov."
+	},
+	"moreinfo_button_label": {
+		"message": "Več informacij"
 	}
 }

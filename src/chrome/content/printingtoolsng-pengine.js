@@ -34,11 +34,6 @@ var printingtools = {
 			contentEl.parentNode.insertBefore(box, contentEl.nextSibling);
 		}
 
-		// var outputPrinter = printingtools.prefs.getCharPref("print_printer");
-		// printingtools.prefs.setStringPref("print_printer", "Microsoft XPS Document Writer");
-		// PrintEngineCreateGlobals();
-		// InitPrintEngineWindow();
-
 		var PSSVC2 = Cc["@mozilla.org/gfx/printerenumerator;1"]
 			.getService(Ci.nsIPrinterEnumerator);
 
@@ -52,22 +47,8 @@ var printingtools = {
 			printers.push(printerName);
 		}
 
-		var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
-			.getService(Ci.nsIPrintSettingsService);
-
-		// Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinterName);
-		// Services.console.logStringMessage("printingtools: printer: " + PSSVC.defaultPrinter);
-		// Use global printing preferences
-		// https://github.com/thundernest/import-export-tools-ng/issues/77
-
-		// var myPrintSettings = PSSVC.globalPrintSettings;
-		// myPrintSettings.printerName = printers[1];
-		// myPrintSettings.printSilent = false;
-
-		// PSSVC.initPrintSettingsFromPrinter(myPrintSettings.printerName, myPrintSettings);
-		// // PSSVC.initPrintSettingsFromPrefs(myPrintSettings, true, myPrintSettings.kInitSaveAll);
-		// Services.console.logStringMessage("printingtools: printer: " + myPrintSettings.printerName);
-		// printEngine.startPrintOperation(myPrintSettings);
+		// var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
+		// 	.getService(Ci.nsIPrintSettingsService);
 	},
 
 	getComplexPref: function (pref) {
@@ -90,7 +71,7 @@ var printingtools = {
 			if (hdrs[j] == string) {
 				index = j;
 				break;
-			} else if(hdrs[j] == '!' + string) {
+			} else if (hdrs[j] == '!' + string) {
 				index = j | 0x100;
 			}
 		}
@@ -98,6 +79,8 @@ var printingtools = {
 	},
 
 	sortHeaders: function () {
+		// Services.console.logStringMessage("printingtools: sortheaders");
+		// Services.console.logStringMessage("printingtools: sortheader order " + printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order"));
 		if (printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order") == "%s,%f,%d,%a,%r1,%r2,%r3") {
 			printingtools.dateTRpos = 2;
 			return // default order
@@ -116,6 +99,7 @@ var printingtools = {
 		var bcc = bundle.GetStringFromID(1023).replace(/\s*$/, "");
 
 		for (var i = 0; i < trs.length; i++) {
+			// Services.console.logStringMessage(`head id: ${trs[i].id}`);
 			if (trs[i].id == "attTR") {
 				index = printingtools.getIndexForHeader("%a");
 				if (index & 0x100) {
@@ -124,6 +108,7 @@ var printingtools = {
 				} else {
 					arr[index] = trs[i];
 				}
+				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
 			var div = trs[i].firstChild.firstChild;
@@ -137,6 +122,7 @@ var printingtools = {
 				} else {
 					arr[index] = trs[i];
 				}
+				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
 			regExp = new RegExp(from + "\\s*:");
@@ -148,6 +134,7 @@ var printingtools = {
 				} else {
 					arr[index] = trs[i];
 				}
+				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
 			regExp = new RegExp(date + "\\s*:");
@@ -160,47 +147,82 @@ var printingtools = {
 					arr[index] = trs[i];
 					printingtools.dateTRpos = index;
 				}
+				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML} index ${printingtools.dateTRpos}`);
 			}
 		}
 		var table2 = printingtools.getTable(1);
 		if (table2) {
+			// Services.console.logStringMessage('table 2 ');
+			// Services.console.logStringMessage(table2.outerHTML);
+
+			var ccPresent = false;
+			var bccPresent = false;
+
 			trs = table2.getElementsByTagName("TR");
 			for (var i = 0; i < trs.length; i++) {
 				var div = trs[i].firstChild.firstChild;
 				var divHTML = div.innerHTML.replace(/\&nbsp;/g, " ");
+				// Services.console.logStringMessage(divHTML.outerHTML);
 				regExp = new RegExp(to + "\\s*:");
 				if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r1");
+					// Services.console.logStringMessage('to');
 					if (index & 0x100) {
 						arr[index &= ~0x100] = trs[i];
 						arr[index &= ~0x100].style.display = "none";
 					} else {
 						arr[index] = trs[i];
 					}
+					// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 					continue;
 				}
 				regExp = new RegExp(bcc + "\\s*:");
-				if (divHTML.match(regExp)) {
-					index = printingtools.getIndexForHeader("%r3");
+				index = printingtools.getIndexForHeader("%r3");
+				if (divHTML.indexOf(bcc) == 0) {
+					// Services.console.logStringMessage('bcc');
+					bccPresent = true;
+
 					if (index & 0x100) {
 						arr[index &= ~0x100] = trs[i];
 						arr[index &= ~0x100].style.display = "none";
 					} else {
 						arr[index] = trs[i];
 					}
+					// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 					continue;
 				}
+
 				regExp = new RegExp(cc + "\\s*:");
+				index = printingtools.getIndexForHeader("%r2");
 				if (divHTML.indexOf(cc) == 0) {
-					index = printingtools.getIndexForHeader("%r2");
+					// Services.console.logStringMessage('cc');
+					ccPresent = true;
+
 					if (index & 0x100) {
 						arr[index &= ~0x100] = trs[i];
 						arr[index &= ~0x100].style.display = "none";
 					} else {
 						arr[index] = trs[i];
 					}
+					// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				}
 			}
+			// Services.console.logStringMessage('table 2 after fixes');
+			// Services.console.logStringMessage(table2.outerHTML);
+
+		}
+
+		index = printingtools.getIndexForHeader("%r2");
+		let ccIndex = index &= ~0x100;
+		index = printingtools.getIndexForHeader("%r3");
+		bccIndex = index &= ~0x100;
+
+		if (!ccPresent && ccIndex < printingtools.dateTRpos) {
+			printingtools.dateTRpos--;
+		}
+
+		if (!bccPresent && bccIndex < printingtools.dateTRpos) {
+			printingtools.dateTRpos--;
 		}
 
 		var tbody = table1.firstChild;
@@ -422,7 +444,7 @@ var printingtools = {
 			// console.debug('is address book');
 			if (gennames.length == 1)
 				printingtools.isContact = true;
-				// Services.console.logStringMessage("Correct  AB Layout");
+			// Services.console.logStringMessage("Correct  AB Layout");
 			printingtools.correctABprint(gennames);
 			return;
 		}
@@ -442,9 +464,9 @@ var printingtools = {
 
 		var max_pre_len = printingtools.prefs.getIntPref("extensions.printingtoolsng.pre_max_length");
 		if (max_pre_len > 0) {
-			var preTags = printingtools.doc.getElementsByTagName("PRE");
+			var preTags = printingtools.doc.getElementsByTagName("P");
 			for (var j = 0; j < preTags.length; j++)
-				preTags[j].width = max_pre_len;
+				preTags[j].setAttribute("style", `width: ${max_pre_len}ch;`);
 		}
 
 		printingtools.getHdr(); // save hdr
@@ -569,513 +591,552 @@ var printingtools = {
 				trs[i].firstChild.style.paddingRight = "25px";
 			}
 		}
-		
+
 		if (!noheaders && borders)
 			printingtools.setTableBorders(noExtHeaders);
 		else if (!noheaders) {
-			if (table1)
+			if (table1) {
 				table1.style.color = "black";
-			if (table2)
+				table1.style.backgroundColor = "white";
+			}
+			if (table2) {
 				table2.style.color = "black";
-			if (!noExtHeaders && hpref == 2 && table3)
+				table2.style.backgroundColor = "white";
+			}
+			if (!noExtHeaders && hpref == 2 && table3) {
 				table3.style.color = "black";
-		}
-
-		// console.debug(printingtools.doc.documentElement.outerHTML);
-
-	},
-
-	printSelection: function (contents) {
-		try {
-			if (printingtools.num && printingtools.num > 1)
-				return;
-			var divs = printingtools.doc.getElementsByTagName("div");
-			for (i = 0; i < divs.length; i++) {
-				var classe = divs[i].getAttribute("class")
-				if (classe == "moz-text-html" || classe == "moz-text-plain" || classe == "moz-text-flowed") {
-					var containerDiv = divs[i];
-					break;
-				}
-			}
-			containerDiv.innerHTML = "";
-			containerDiv.appendChild(contents);
-			var ops = containerDiv.getElementsByTagName("o:p");
-			for (i = 0; i < ops.length; i++)
-				// hides microsoft crap
-				ops[i].style.display = "none";
-			var hideImg = printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.hide");
-			if (hideImg || printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.resize"))
-				printingtools.setIMGstyle(hideImg);
-		}
-		catch (e) { }
-	},
-
-	toggleInlinePref: function () {
-		printingtools.prefs.setBoolPref("mail.inline_attachments", false);
-		setTimeout(function () { printingtools.prefs.setBoolPref("mail.inline_attachments", true); }, 2000);
-	},
-
-	attCheck: function () {
-		try {
-			// This avoids priting inline attachments with wrong mimetype (for ex. doc document with text/msword)
-			// Text attachments are inside PRE tags
-			var pres = printingtools.doc.getElementsByTagName("pre");
-			for (i = 0; i < pres.length; i++) {
-				var initHTML = pres[i].innerHTML.substring(0, 200);
-				// Office files signature
-				var docSignature = "\xD0\xCF\x11\xE0\xA1\xB1\x1A\xE1";
-				// Check if there is the office/RTF file signature
-				if (initHTML.indexOf(docSignature) > -1 || initHTML.indexOf("{\\rtf1") > -1)
-					pres[i].parentNode.setAttribute("style", "display:none");
+				table3.style.backgroundColor = "white";
 			}
 		}
-		catch (e) { }
-	},
+			// console.debug(printingtools.doc.documentElement.outerHTML);
 
-	addName: function (borders) {
+		},
 
-		try {
-
-			if (printingtools.prefs.getPrefType("extensions.printingtoolsng.headers.addname") > 0) {
-				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.addname"))
-					printingtools.prefs.setIntPref("extensions.printingtoolsng.headers.add_name_type", 1);
-				else
-					printingtools.prefs.setIntPref("extensions.printingtoolsng.headers.add_name_type", 0);
-				printingtools.prefs.deleteBranch("extensions.printingtoolsng.headers.addname");
-			}
-
-			var add_name_type = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.add_name_type");
-			var add_folder = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.addfolder");
-			if (add_name_type == 0 && !add_folder)
-				return;
-
-			var folder = printingtools.hdr.folder;
-			var h3 = printingtools.doc.createElement("h3");
-			var folderHtml = "";
-			var myname = "&nbsp;"
-
-			if (add_name_type > 0) {
-
-				if (add_name_type == 2) {
-					myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
-				}
-				else {
-					try {
-						var myAccountManager = Cc["@mozilla.org/messenger/account-manager;1"].
-							getService(Ci.nsIMsgAccountManager);
-						if (folder) {
-							var incServer = folder.server;
-							var identity = myAccountManager.getFirstIdentityForServer(incServer);
-						}
-						else
-							var identity = null;
-						if (identity)
-							myname = identity.fullName;
-						else
-							myname = myAccountManager.defaultAccount.defaultIdentity.fullName;
-					}
-					catch (e) { }
-				}
-
-			}
-			if (add_folder) {
-				var folderName = folder.name;
-				while (true) {
-					folder = folder.parent;
-					folderName = folder.name + "/" + folderName;
-					if (folder.isServer)
+		printSelection: function (contents) {
+			try {
+				if (printingtools.num && printingtools.num > 1)
+					return;
+				var divs = printingtools.doc.getElementsByTagName("div");
+				for (i = 0; i < divs.length; i++) {
+					var classe = divs[i].getAttribute("class")
+					if (classe == "moz-text-html" || classe == "moz-text-plain" || classe == "moz-text-flowed") {
+						var containerDiv = divs[i];
 						break;
-				}
-				folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="resource://printingtoolsng/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
-			}
-			h3.innerHTML = myname + folderHtml;
-			var firsttable = printingtools.getTable(0);
-			if (firsttable) {
-				firsttable.parentNode.insertBefore(h3, firsttable);
-				if (!borders) {
-					var hr = printingtools.doc.createElement("hr");
-					firsttable.parentNode.insertBefore(hr, firsttable);
-				}
-			}
-
-		}
-		catch (e) { }
-	},
-
-	setIMGstyle: function (hide) {
-		var imgs = printingtools.doc.getElementsByTagName("img");
-		for (i = 0; i < imgs.length; i++) {
-			if (imgs[i].getAttribute("class") != "attIcon") {
-				if (hide)
-					imgs[i].setAttribute("style", "display:none !important;");
-				else
-					imgs[i].setAttribute("style", "height:auto; width:auto; max-width:100%; max-height:100%;");
-			}
-		}
-	},
-
-	getTable: function (num) {
-		// The function check if the requested table exists and if it's an header table
-		var tabclass = new Array("header-part1", "header-part2", "header-part3");
-		var doc = window.content.document;
-		var table = doc.getElementsByTagName("TABLE")[num];
-		if (table && table.getAttribute("class") == tabclass[num])
-			return table;
-		else
-			return false;
-	},
-
-	truncateHeaders: function (maxchars) {
-		printingtools.scanTDS(printingtools.getTable(0), maxchars);
-		printingtools.scanTDS(printingtools.getTable(1), maxchars);
-		printingtools.scanTDS(printingtools.getTable(2), maxchars);
-	},
-
-	scanTDS: function (table, maxchars) {
-		var textNode;
-		if (table) {
-			var tableTDS = table.getElementsByTagName("TD");
-			for (var i = 0; i < tableTDS.length; i++) {
-				if (tableTDS[i].getAttribute("id") == "attTD" || tableTDS[i].getAttribute("id") == "receivedDate") {
-					var avChars = maxchars;
-					var divs = tableTDS[i].getElementsByTagName("div");
-					for (var j = 0; j < divs.length; j++) {
-						textNode = divs[j].firstChild;
-						if ((avChars - textNode.nodeValue.length) < 0) {
-							textNode.nodeValue = textNode.nodeValue.substring(0, avChars) + " [...]";
-							break;
-						}
-						avChars -= textNode.nodeValue.length;
 					}
+				}
+				containerDiv.innerHTML = "";
+				containerDiv.appendChild(contents);
+				var ops = containerDiv.getElementsByTagName("o:p");
+				for (i = 0; i < ops.length; i++)
+					// hides microsoft crap
+					ops[i].style.display = "none";
+				var hideImg = printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.hide");
+				if (hideImg || printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.resize"))
+					printingtools.setIMGstyle(hideImg);
+			}
+			catch (e) { }
+		},
+
+		toggleInlinePref: function () {
+			printingtools.prefs.setBoolPref("mail.inline_attachments", false);
+			setTimeout(function () { printingtools.prefs.setBoolPref("mail.inline_attachments", true); }, 2000);
+		},
+
+		attCheck: function () {
+			try {
+				// This avoids priting inline attachments with wrong mimetype (for ex. doc document with text/msword)
+				// Text attachments are inside PRE tags
+				var pres = printingtools.doc.getElementsByTagName("pre");
+				for (i = 0; i < pres.length; i++) {
+					var initHTML = pres[i].innerHTML.substring(0, 200);
+					// Office files signature
+					var docSignature = "\xD0\xCF\x11\xE0\xA1\xB1\x1A\xE1";
+					// Check if there is the office/RTF file signature
+					if (initHTML.indexOf(docSignature) > -1 || initHTML.indexOf("{\\rtf1") > -1)
+						pres[i].parentNode.setAttribute("style", "display:none");
+				}
+			}
+			catch (e) { }
+		},
+
+		addName: function (borders) {
+
+			try {
+
+				if (printingtools.prefs.getPrefType("extensions.printingtoolsng.headers.addname") > 0) {
+					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.addname"))
+						printingtools.prefs.setIntPref("extensions.printingtoolsng.headers.add_name_type", 1);
+					else
+						printingtools.prefs.setIntPref("extensions.printingtoolsng.headers.add_name_type", 0);
+					printingtools.prefs.deleteBranch("extensions.printingtoolsng.headers.addname");
+				}
+
+				var add_name_type = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.add_name_type");
+				var add_folder = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.addfolder");
+				if (add_name_type == 0 && !add_folder)
+					return;
+
+				var folder = printingtools.hdr.folder;
+				var h3 = printingtools.doc.createElement("h3");
+				var folderHtml = "";
+				var myname = "&nbsp;"
+
+				if (add_name_type > 0) {
+
+					if (add_name_type == 2) {
+						myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
+					}
+					else {
+						try {
+							var myAccountManager = Cc["@mozilla.org/messenger/account-manager;1"].
+								getService(Ci.nsIMsgAccountManager);
+							if (folder) {
+								var incServer = folder.server;
+								var identity = myAccountManager.getFirstIdentityForServer(incServer);
+							}
+							else
+								var identity = null;
+							if (identity)
+								myname = identity.fullName;
+							else
+								myname = myAccountManager.defaultAccount.defaultIdentity.fullName;
+						}
+						catch (e) { }
+					}
+
+				}
+				if (add_folder) {
+					var folderName = folder.name;
+					while (true) {
+						folder = folder.parent;
+						folderName = folder.name + "/" + folderName;
+						if (folder.isServer)
+							break;
+					}
+					folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="resource://printingtoolsng/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
+				}
+				h3.innerHTML = myname + folderHtml;
+				var firsttable = printingtools.getTable(0);
+				if (firsttable) {
+					firsttable.parentNode.insertBefore(h3, firsttable);
+					if (!borders) {
+						var hr = printingtools.doc.createElement("hr");
+						firsttable.parentNode.insertBefore(hr, firsttable);
+					}
+				}
+
+			}
+			catch (e) { }
+		},
+
+		setIMGstyle: function (hide) {
+			var imgs = printingtools.doc.getElementsByTagName("img");
+			for (i = 0; i < imgs.length; i++) {
+				if (imgs[i].getAttribute("class") != "attIcon") {
+					if (hide)
+						imgs[i].setAttribute("style", "display:none !important;");
+					else
+						imgs[i].setAttribute("style", "height:auto; width:auto; max-width:100%; max-height:100%;");
+				}
+			}
+		},
+
+		getTable: function (num) {
+			// The function check if the requested table exists and if it's an header table
+			var tabclass = new Array("header-part1", "header-part2", "header-part3");
+			var doc = window.content.document;
+			var table = doc.getElementsByTagName("TABLE")[num];
+			if (table && table.getAttribute("class") == tabclass[num])
+				return table;
+			else
+				return false;
+		},
+
+		truncateHeaders: function (maxchars) {
+			printingtools.scanTDS(printingtools.getTable(0), maxchars);
+			printingtools.scanTDS(printingtools.getTable(1), maxchars);
+			printingtools.scanTDS(printingtools.getTable(2), maxchars);
+		},
+
+		scanTDS: function (table, maxchars) {
+			var textNode;
+			if (table) {
+				var tableTDS = table.getElementsByTagName("TD");
+
+				for (var i = 0; i < tableTDS.length; i++) {
+
+					if (tableTDS[i].getAttribute("id") == "attTD") {
+						var avChars = maxchars;
+						var divs = tableTDS[i].getElementsByTagName("img");
+
+						for (var j = 0; j < divs.length; j++) {
+							textNode = divs[j].nextSibling;
+							if ((avChars - textNode.nodeValue.length) < 0) {
+								textNode.nodeValue = textNode.nodeValue.substring(0, avChars) + " [...]";
+								// break;
+							}
+							// avChars -= textNode.nodeValue.length;
+						}
+					}
+
+					else if (tableTDS[i].getAttribute("id") == "receivedDate") {
+						var avChars = maxchars;
+						var divs = tableTDS[i].getElementsByTagName("div");
+						for (var j = 0; j < divs.length; j++) {
+							textNode = divs[j].firstChild;
+							if ((avChars - textNode.nodeValue.length) < 0) {
+								textNode.nodeValue = textNode.nodeValue.substring(0, avChars) + " [...]";
+								break;
+							}
+							avChars -= textNode.nodeValue.length;
+						}
+					}
+					else {
+						textNode = tableTDS[i].getElementsByTagName("div")[0].nextSibling;
+						if (!textNode) {
+							// This is called when a header exists, with a null value (for example "Subject:");
+							// Adding a text node, we restore the original structure
+							tableTDS[i].appendChild(document.createTextNode(" "));
+						}
+						else if (textNode && textNode.nodeValue && textNode.nodeValue.length > maxchars) {
+							textNode.nodeValue = textNode.nodeValue.substring(0, maxchars) + " [...]";
+						}
+					}
+				}
+			}
+		},
+
+		hideHeaders: function (hpref) {
+			var table1 = printingtools.getTable(0);
+			var table2 = printingtools.getTable(1);
+			var table3 = printingtools.getTable(2);
+			if (table1)
+				table1.setAttribute("style", "display:none !important");
+			if (table2)
+				table2.setAttribute("style", "display:none !important");
+			if (hpref == 2 && table3)
+				table3.setAttribute("style", "display:none !important");
+		},
+
+		setTableBorders: function (noExtHeaders) {
+			var hpref = printingtools.prefs.getIntPref("mail.show_headers");
+			var table1 = printingtools.getTable(0);
+			var table2 = printingtools.getTable(1);
+			if (noExtHeaders)
+				var table3 = null;
+			else
+				var table3 = printingtools.getTable(2);
+			if (table1) {
+				if (table2 && table2.getElementsByTagName("tr").length > 0) {
+					table1.style.borderLeft = "1px solid black";
+					table1.style.borderRight = "1px solid black";
+					table1.style.borderTop = "1px solid black";
 				}
 				else {
-					textNode = tableTDS[i].getElementsByTagName("div")[0].nextSibling;
-					if (!textNode) {
-						// This is called when a header exists, with a null value (for example "Subject:");
-						// Adding a text node, we restore the original structure
-						tableTDS[i].appendChild(document.createTextNode(" "));
-					}
-					else if (textNode && textNode.nodeValue && textNode.nodeValue.length > maxchars)
-						textNode.nodeValue = textNode.nodeValue.substring(0, maxchars) + " [...]";
+					table1.style.border = "1px solid black";
+				}
+				var tds1 = table1.getElementsByTagName("TD");
+				// We process the first row in a different way, to set the top-padding = 3px
+				tds1[0].style.padding = "3px 10px 0px 10px";
+				for (var i = 1; i < tds1.length; i++)
+					tds1[i].style.padding = "0px 10px 0px 10px";
+			}
+			// The style of table-headers 2 is different if exits the table-headers 3 or it doesn't
+			if (table2) {
+				table2.style.borderLeft = "1px solid black";
+				table2.style.borderRight = "1px solid black";
+				if (noExtHeaders || hpref != 2)
+					table2.style.borderBottom = "1px solid black";
+
+				var tds2 = table2.getElementsByTagName("TD");
+				for (i = 0; i < tds2.length; i++)
+					tds2[i].style.padding = "0px 10px 0px 10px";
+			}
+			if (table3 && hpref == 2) {
+				table3.style.borderLeft = "1px solid black";
+				table3.style.borderRight = "1px solid black";
+				table3.style.borderBottom = "1px solid black";
+				var tds3 = table3.getElementsByTagName("TD");
+				for (i = 0; i < tds3.length; i++)
+					tds3[i].style.padding = "0px 10px 0px 10px";
+			}
+		},
+
+		formatDate: function (msecs, longFormat) {
+			var formatted_date = null;
+			var options;
+
+			if (!longFormat)
+				longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
+			try {
+				var date_obj = new Date(msecs);
+				// cleidigh fix short format #28
+				if (longFormat === 0) {
+					options = {
+						year: 'numeric', month: '2-digit',
+						hour: 'numeric', minute: 'numeric', day: '2-digit',
+					};
+					formatted_date = new Intl.DateTimeFormat('default', options).format(date_obj);
+				} else if (longFormat === 1) {
+					options = {
+						weekday: 'short',
+						year: 'numeric', month: 'short',
+						hour: 'numeric', minute: 'numeric', day: 'numeric',
+					};
+					formatted_date = new Intl.DateTimeFormat('default', options).format(date_obj);
+				}
+				else
+					var formatted_date = date_obj.toUTCString();
+			}
+			catch (e) { }
+			return formatted_date;
+		},
+
+		correctDate: function () {
+			var table = printingtools.getTable(0);
+			if (!table || !printingtools.hdr)
+				return;
+			var longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
+			var formatted_date = printingtools.formatDate((printingtools.hdr.dateInSeconds * 1000), longFormat);
+			if (!formatted_date)
+				return;
+			var tds = table.getElementsByTagName("TD");
+			var node = tds[tds.length - 1];
+			if (node) {
+				var data = node.childNodes[1].nodeValue;
+				node.childNodes[1].nodeValue = formatted_date;
+			}
+		},
+
+		appendReceivedTD: function () {
+			if (printingtools.hdr) {
+				var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
+				var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
+				var headtable1 = printingtools.getTable(0);
+				var newTR = printingtools.doc.createElement("TR");
+				newTR.setAttribute("id", "recTR");
+				var newTD = printingtools.doc.createElement("TD");
+				newTD.setAttribute("id", "receivedDate");
+				newTD.innerHTML = "<span><b>" + bundle.GetStringFromName("received") + ": </b></span>" + formatted_date;
+				newTR.appendChild(newTD);
+
+				// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
+				if (headtable1 && headtable1.lastChild) {
+					// Services.console.logStringMessage("printingtools: rd " + printingtools.dateTRpos);
+					// Services.console.logStringMessage([...headtable1.lastChild.getElementsByTagName("TR")]);
+					var dateTR = headtable1.lastChild.getElementsByTagName("TR")[printingtools.dateTRpos];
+
+					headtable1.lastChild.insertBefore(newTR, dateTR.nextSibling);
+					// Services.console.logStringMessage("printingtools: final " + headtable1.outerHTML);
 				}
 			}
-		}
-	},
+		},
 
-	hideHeaders: function (hpref) {
-		var table1 = printingtools.getTable(0);
-		var table2 = printingtools.getTable(1);
-		var table3 = printingtools.getTable(2);
-		if (table1)
-			table1.setAttribute("style", "display:none !important");
-		if (table2)
-			table2.setAttribute("style", "display:none !important");
-		if (hpref == 2 && table3)
-			table3.setAttribute("style", "display:none !important");
-	},
-
-	setTableBorders: function (noExtHeaders) {
-		var hpref = printingtools.prefs.getIntPref("mail.show_headers");
-		var table1 = printingtools.getTable(0);
-		var table2 = printingtools.getTable(1);
-		if (noExtHeaders)
-			var table3 = null;
-		else
-			var table3 = printingtools.getTable(2);
-		if (table1) {
-			if (table2 && table2.getElementsByTagName("tr").length > 0) {
-				table1.style.borderLeft = "1px solid black";
-				table1.style.borderRight = "1px solid black";
-				table1.style.borderTop = "1px solid black";
-			}
-			else {
-				table1.style.border = "1px solid black";
-			}
-			var tds1 = table1.getElementsByTagName("TD");
-			// We process the first row in a different way, to set the top-padding = 3px
-			tds1[0].style.padding = "3px 10px 0px 10px";
-			for (var i = 1; i < tds1.length; i++)
-				tds1[i].style.padding = "0px 10px 0px 10px";
-		}
-		// The style of table-headers 2 is different if exits the table-headers 3 or it doesn't
-		if (table2) {
-			table2.style.borderLeft = "1px solid black";
-			table2.style.borderRight = "1px solid black";
-			if (noExtHeaders || hpref != 2)
-				table2.style.borderBottom = "1px solid black";
-
-			var tds2 = table2.getElementsByTagName("TD");
-			for (i = 0; i < tds2.length; i++)
-				tds2[i].style.padding = "0px 10px 0px 10px";
-		}
-		if (table3 && hpref == 2) {
-			table3.style.borderLeft = "1px solid black";
-			table3.style.borderRight = "1px solid black";
-			table3.style.borderBottom = "1px solid black";
-			var tds3 = table3.getElementsByTagName("TD");
-			for (i = 0; i < tds3.length; i++)
-				tds3[i].style.padding = "0px 10px 0px 10px";
-		}
-	},
-
-	formatDate: function (msecs, longFormat) {
-		var formatted_date = null;
-		if (!longFormat)
-			longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
-		try {
-			var date_obj = new Date(msecs);
-			if (longFormat != 1)
-				var formatted_date = date_obj.toLocaleString();
-			else
-				var formatted_date = date_obj.toUTCString();
-		}
-		catch (e) { }
-		return formatted_date;
-	},
-
-	correctDate: function () {
-		var table = printingtools.getTable(0);
-		if (!table || !printingtools.hdr)
-			return;
-		var longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
-		if (longFormat == 0)
-			return;
-		var formatted_date = printingtools.formatDate((printingtools.hdr.dateInSeconds * 1000), longFormat);
-		if (!formatted_date)
-			return;
-		var tds = table.getElementsByTagName("TD");
-		var node = tds[tds.length - 1];
-		if (node) {
-			var data = node.childNodes[1].nodeValue;
-			node.childNodes[1].nodeValue = formatted_date;
-		}
-	},
-
-	appendReceivedTD: function () {
-		if (printingtools.hdr) {
-			var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
-			if (!formatted_date)
+		appendAttTD: function (newTD) {
+			if (!newTD.innerHTML)
 				return;
 			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 			var headtable1 = printingtools.getTable(0);
 			var newTR = printingtools.doc.createElement("TR");
-			newTR.setAttribute("id", "recTR");
-			var newTD = printingtools.doc.createElement("TD");
-			newTD.setAttribute("id", "receivedDate");
-			newTD.innerHTML = "<span><b>" + bundle.GetStringFromName("received") + ": </b></span>" + formatted_date;
+			newTR.setAttribute("id", "attTR");
+			var newTDhtml = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>" + newTD.innerHTML;
+			newTD.innerHTML = newTDhtml;
+			//if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.setborders"))
+			//	newTD.setAttribute("style", "padding: 0px 10px;");
 			newTR.appendChild(newTD);
-			if (headtable1 && headtable1.lastChild) {
-				var dateTR = headtable1.lastChild.getElementsByTagName("TR")[printingtools.dateTRpos];
-				headtable1.lastChild.insertBefore(newTR, dateTR.nextSibling);
-			}
-		}
-	},
+			if (headtable1 && headtable1.lastChild)
+				headtable1.lastChild.appendChild(newTR);
+		},
 
-	appendAttTD: function (newTD) {
-		if (!newTD.innerHTML)
-			return;
-		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
-		var headtable1 = printingtools.getTable(0);
-		var newTR = printingtools.doc.createElement("TR");
-		newTR.setAttribute("id", "attTR");
-		var newTDhtml = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>" + newTD.innerHTML;
-		newTD.innerHTML = newTDhtml;
-		//if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.setborders"))
-		//	newTD.setAttribute("style", "padding: 0px 10px;");
-		newTR.appendChild(newTD);
-		if (headtable1 && headtable1.lastChild)
-			headtable1.lastChild.appendChild(newTR);
-	},
+		rewriteAttList: function () {
+			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
+			var firsttime = true;
+			var counter = 0;
+			var newTD = printingtools.doc.createElement("TD");
+			newTD.setAttribute("id", "attTD");
+			// takes the second table of the headers (A , CC fields)
+			var headtable1 = printingtools.getTable(0);
+			var comma = "";
+			var withIcon = printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
+			// takes all the TABLE elements of the doc
+			var attTable = printingtools.doc.getElementsByTagName("TABLE");
 
-	rewriteAttList: function () {
-		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
-		var firsttime = true;
-		var counter = 0;
-		var newTD = printingtools.doc.createElement("TD");
-		newTD.setAttribute("id", "attTD");
-		// takes the second table of the headers (A , CC fields)
-		var headtable1 = printingtools.getTable(0);
-		var comma = "";
-		var withIcon = printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
-		// takes all the TABLE elements of the doc
-		var attTable = printingtools.doc.getElementsByTagName("TABLE");
-
-		if (Array.isArray) {  // Thunderbird 5 or higher (different layout)
-			var attTab = null;
-			for (var i = 0; i < attTable.length; i++) {
-				var tabclass = attTable[i].getAttribute("class");
-				if (attTable[i].getAttribute("class") == "mimeAttachmentTable") {
-					attTab = attTable[i];
-					break;
-				}
-			}
-			if (attTab) {
-				var tds = attTab.getElementsByTagName("TD");
-				var attDiv = "";
-				var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
-				for (var i = 0; i < tds.length; i = i + 2) {
-
-					if (tds.length > 1 && i < tds.length - 2 && maxAttPerLine !== 1) {
-						comma = ", ";
-					} else {
-						comma = "";
-					}
-					var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
-					if (withIcon) {
-						var imgSrc = printingtools.findIconSrc(currAtt);
-						currAtt = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</nobr>";
-					}
-					attDiv = attDiv + currAtt + comma;
-					if (((i / 2)+1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
-						attDiv += '<br>'
+			if (Array.isArray) {  // Thunderbird 5 or higher (different layout)
+				var attTab = null;
+				for (var i = 0; i < attTable.length; i++) {
+					var tabclass = attTable[i].getAttribute("class");
+					if (attTable[i].getAttribute("class") == "mimeAttachmentTable") {
+						attTab = attTable[i];
+						break;
 					}
 				}
-				newTD.innerHTML = attDiv;
-				attTab.parentNode.removeChild(attTab);
-			}
-		}
-		else {
-			// skips the first TABLE, that are the headers-part1
-			for (var i = 0; i < attTable.length; i++) {
-				// skips the TABLE with class=header-part2 and 3 and without the words "Content-Type"
-				var tabclass = attTable[i].getAttribute("class");
-				var tabindexof = attTable[i].innerHTML.indexOf("Content-Type");
-				var tabindexof2 = attTable[i].innerHTML.indexOf("Content-Encoding");
-				var tabindexof3 = attTable[i].innerHTML.indexOf("X-UIDL");
-				if (attTable[i] && tabindexof3 < 0 && (tabindexof > -1 || tabindexof2 > -1) && tabclass != "header-part2" && tabclass != "header-part3") {
-					// takes all the TD elements of the TABLE 
-					var tds = attTable[i].getElementsByTagName("TD");
-					// remove from the first TD element (the name of the attachment) the class "bold"
-					tds[0].firstChild.removeAttribute("class");
-					if (!firsttime)
-						comma = ", ";
-					var attDiv = tds[0].innerHTML;
-					if (withIcon) {
-						var imgSrc = printingtools.findIconSrc(attDiv);
-						attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
+				if (attTab) {
+					var tds = attTab.getElementsByTagName("TD");
+					var attDiv = "";
+					var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
+					for (var i = 0; i < tds.length; i = i + 2) {
+
+						if (tds.length > 1 && i < tds.length - 2 && maxAttPerLine !== 1) {
+							comma = ", ";
+						} else {
+							comma = "";
+						}
+						var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
+						if (withIcon) {
+							var imgSrc = printingtools.findIconSrc(currAtt);
+							currAtt = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</nobr>";
+						}
+						attDiv = attDiv + currAtt + comma;
+						if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
+							attDiv += '<br>'
+						}
 					}
-					// write into the new TD innerHTML the name of the attachment, if necessary with a comma
-					newTD.innerHTML = newTD.innerHTML + comma + attDiv;
-					firsttime = false;
-					counter++;
-					// empty the TABLE
-					attTable[i].innerHTML = "";
+					newTD.innerHTML = attDiv;
+					attTab.parentNode.removeChild(attTab);
 				}
 			}
-		}
-
-		try {
-			if (opener && printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach")) {
-				var attList = opener.document.getElementById("attachmentList");
-				if (attList) {
-					var atts = attList.childNodes;
-					for (var i = 0; i < atts.length; i++) {
-						if (Array.isArray)
-							var attDiv = atts[i].getAttribute("tooltiptext");
-						else
-							var attDiv = atts[i].label;
-						if (attDiv.lastIndexOf(".p7m") + 4 != attDiv.length && attDiv.lastIndexOf(".vcf") + 4 != attDiv.length)
-							continue;
+			else {
+				// skips the first TABLE, that are the headers-part1
+				for (var i = 0; i < attTable.length; i++) {
+					// skips the TABLE with class=header-part2 and 3 and without the words "Content-Type"
+					var tabclass = attTable[i].getAttribute("class");
+					var tabindexof = attTable[i].innerHTML.indexOf("Content-Type");
+					var tabindexof2 = attTable[i].innerHTML.indexOf("Content-Encoding");
+					var tabindexof3 = attTable[i].innerHTML.indexOf("X-UIDL");
+					if (attTable[i] && tabindexof3 < 0 && (tabindexof > -1 || tabindexof2 > -1) && tabclass != "header-part2" && tabclass != "header-part3") {
+						// takes all the TD elements of the TABLE 
+						var tds = attTable[i].getElementsByTagName("TD");
+						// remove from the first TD element (the name of the attachment) the class "bold"
+						tds[0].firstChild.removeAttribute("class");
 						if (!firsttime)
 							comma = ", ";
-						if (Array.isArray)
-							attDiv = atts[i].label;
-						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon")) {
+						var attDiv = tds[0].innerHTML;
+						if (withIcon) {
 							var imgSrc = printingtools.findIconSrc(attDiv);
-							attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon"  height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
+							attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
 						}
 						// write into the new TD innerHTML the name of the attachment, if necessary with a comma
 						newTD.innerHTML = newTD.innerHTML + comma + attDiv;
 						firsttime = false;
+						counter++;
+						// empty the TABLE
+						attTable[i].innerHTML = "";
 					}
 				}
 			}
-		}
-		catch (e) { }
 
-		if (newTD)
-			printingtools.appendAttTD(newTD);
-
-		printingtools.sortHeaders();
-		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
-			printingtools.appendReceivedTD();
-
-		// if (!String.trim) {
-		if(0) {
-			// TB2 and lower
-			// removes the HR elements, in the same numbers of the attachments, beginning from the last one
-			var hrs = printingtools.doc.getElementsByTagName("HR");
-			var hrsLength = hrs.length;
-			for (var i = hrsLength - 1; i > hrsLength - counter; i--)
-				hrs[i].parentNode.removeChild(hrs[i]);
-		}
-		else {
-			// TB3 or higher
-			// removes all the FIELDSET elements with class = mimeAttachmentHeader
-			var fieldSets = printingtools.doc.getElementsByTagName("FIELDSET");
-			for (var i = fieldSets.length - 1; i > -1; i--) {
-				if (fieldSets[i].getAttribute("class") == "mimeAttachmentHeader")
-					fieldSets[i].parentNode.removeChild(fieldSets[i]);
+			try {
+				if (opener && printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach")) {
+					var attList = opener.document.getElementById("attachmentList");
+					if (attList) {
+						var atts = attList.childNodes;
+						for (var i = 0; i < atts.length; i++) {
+							if (Array.isArray)
+								var attDiv = atts[i].getAttribute("tooltiptext");
+							else
+								var attDiv = atts[i].label;
+							if (attDiv.lastIndexOf(".p7m") + 4 != attDiv.length && attDiv.lastIndexOf(".vcf") + 4 != attDiv.length)
+								continue;
+							if (!firsttime)
+								comma = ", ";
+							if (Array.isArray)
+								attDiv = atts[i].label;
+							if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon")) {
+								var imgSrc = printingtools.findIconSrc(attDiv);
+								attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon"  height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
+							}
+							// write into the new TD innerHTML the name of the attachment, if necessary with a comma
+							newTD.innerHTML = newTD.innerHTML + comma + attDiv;
+							firsttime = false;
+						}
+					}
+				}
 			}
-		}
-	},
+			catch (e) { }
 
-	findIconSrc: function (filename) {
-		var url;
-		var ext = filename.substring(0, filename.lastIndexOf("&")).toLowerCase();
-		ext = ext.substring(ext.lastIndexOf(".") + 1);
-		// console.debug(ext);
+			if (newTD)
+				printingtools.appendAttTD(newTD);
 
-		switch (ext) {
-			case "doc":
-			case "eml":
-			case "gif":
-			case "jpg":
-			case "jpeg":
-			case "ods":
-			case "odt":
-			case "msg":
-			case "tif":
-			case "tiff":
-			case "pdf":
-			case "png":
-			case "ppt":
-			case "rtf":
-			case "txt":
-			case "vcf":
-			case "xls":
-			case "xml":
-			case "zip":
-				// url = "chrome://printingtoolsng/content/" + ext + ".gif";
-				url = "resource://printingtoolsng/icons/" + ext + ".gif";
-				break;
-			case "avi":
-			case "mpg":
-			case "mp3":
-			case "wav":
-			case "wmv":
-			case "wma":
-				url = "resource://printingtoolsng/icons/media.gif";
-				break;
-			case "7z":
-				url = "resource://printingtoolsng/icons/7z.png";
-				break;
-			case "docx":
-				url = "resource://printingtoolsng/icons/docx.png";
-				break;
-			case "xlsx":
-				url = "resource://printingtoolsng/icons/xlsx.png";
-				break;
-			case "pptx":
-				url = "resource://printingtoolsng/icons/pptx.png";
-				break;
-			default:
-				url = "resource://printingtoolsng/icons/file.gif";
-		}
-		// console.debug(url);
-		return url;
-	},
-}
+			printingtools.sortHeaders();
+			if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
+				printingtools.appendReceivedTD();
+
+			// if (!String.trim) {
+			if (0) {
+				// TB2 and lower
+				// removes the HR elements, in the same numbers of the attachments, beginning from the last one
+				var hrs = printingtools.doc.getElementsByTagName("HR");
+				var hrsLength = hrs.length;
+				for (var i = hrsLength - 1; i > hrsLength - counter; i--)
+					hrs[i].parentNode.removeChild(hrs[i]);
+			}
+			else {
+				// TB3 or higher
+				// removes all the FIELDSET elements with class = mimeAttachmentHeader
+				var fieldSets = printingtools.doc.getElementsByTagName("FIELDSET");
+				for (var i = fieldSets.length - 1; i > -1; i--) {
+					if (fieldSets[i].getAttribute("class") == "mimeAttachmentHeader")
+						fieldSets[i].parentNode.removeChild(fieldSets[i]);
+				}
+			}
+		},
+
+		findIconSrc: function (filename) {
+			var url;
+			var ext = filename.substring(0, filename.lastIndexOf("&")).toLowerCase();
+			ext = ext.substring(ext.lastIndexOf(".") + 1);
+			// console.debug(ext);
+
+			switch (ext) {
+				case "doc":
+				case "eml":
+				case "gif":
+				case "jpg":
+				case "jpeg":
+				case "ods":
+				case "odt":
+				case "msg":
+				case "tif":
+				case "tiff":
+				case "pdf":
+				case "png":
+				case "ppt":
+				case "rtf":
+				case "txt":
+				case "vcf":
+				case "xls":
+				case "xml":
+				case "zip":
+					// url = "chrome://printingtoolsng/content/" + ext + ".gif";
+					url = "resource://printingtoolsng/icons/" + ext + ".gif";
+					break;
+				case "avi":
+				case "mpg":
+				case "mp3":
+				case "wav":
+				case "wmv":
+				case "wma":
+					url = "resource://printingtoolsng/icons/media.gif";
+					break;
+				case "7z":
+					url = "resource://printingtoolsng/icons/7z.png";
+					break;
+				case "docx":
+					url = "resource://printingtoolsng/icons/docx.png";
+					break;
+				case "xlsx":
+					url = "resource://printingtoolsng/icons/xlsx.png";
+					break;
+				case "pptx":
+					url = "resource://printingtoolsng/icons/pptx.png";
+					break;
+				default:
+					url = "resource://printingtoolsng/icons/file.gif";
+			}
+			// console.debug(url);
+			return url;
+		},
+	}
 
 window.addEventListener("DOMContentLoaded", printingtools.loadContentListener, false);
 

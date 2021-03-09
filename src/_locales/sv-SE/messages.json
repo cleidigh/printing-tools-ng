@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Verktyg för utskrift av meddelanden och adresser (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Obs! Alternativ för PrintingTools NG har flyttats till tilläggshanterarens ellipsmeny."
+	},
+	"moreinfo_button_label": {
+		"message": "Mer information"
 	}
 }

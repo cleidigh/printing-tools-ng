@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Üzenet- és címnyomtató eszközök (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Megjegyzés: A PrintingTools NG beállításai áthelyezésre kerültek a kiegészítő kezelő ellipszisek menüjébe."
+	},
+	"moreinfo_button_label": {
+		"message": "Több információ"
 	}
 }

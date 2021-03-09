@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Ferramentas de impressão de mensagens e endereços (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Observação: as opções do PrintingTools NG foram movidas para o menu de reticências do gerenciador de complementos."
+	},
+	"moreinfo_button_label": {
+		"message": "Mais informações"
 	}
 }

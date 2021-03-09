@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Tools zum Drucken von Nachrichten und Adressen (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Hinweis: Die Optionen von PrintingTools NG wurden in das Ellipsenmenü des Add-On-Managers verschoben."
+	},
+	"moreinfo_button_label": {
+		"message": "Mehr Info"
 	}
 }

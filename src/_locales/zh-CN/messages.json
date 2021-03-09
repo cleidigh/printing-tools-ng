@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "邮件和地址打印工具（NextGen）"
+	},
+	"update_option_info": {
+		"message": "注意：PrintingTools NG的选项已移至附加管理器椭圆菜单。"
+	},
+	"moreinfo_button_label": {
+		"message": "更多信息"
 	}
 }

@@ -5,5 +5,12 @@
 	},
 	"extensionDescription": {
 		"message": "Message & Address Printing Tools (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu."
+	},
+	"moreinfo_button_label": {
+		"message": "More Info"
 	}
+
 }
