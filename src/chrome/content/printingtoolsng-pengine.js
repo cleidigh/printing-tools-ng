@@ -798,8 +798,9 @@ var printingtools = {
 							// Adding a text node, we restore the original structure
 							tableTDS[i].appendChild(document.createTextNode(" "));
 						}
-						else if (textNode && textNode.nodeValue && textNode.nodeValue.length > maxchars)
+						else if (textNode && textNode.nodeValue && textNode.nodeValue.length > maxchars) {
 							textNode.nodeValue = textNode.nodeValue.substring(0, maxchars) + " [...]";
+						}
 					}
 				}
 			}
