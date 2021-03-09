@@ -12,6 +12,7 @@ Version 2.0.4 : 68/78 Update - March 9, 2021
 - Fix unpopulated printer list on install
 - Dutch locale improvements - @Vistaus
 
+
 Version 2.0.0 : 68/78 Update - January 3, 2021
 
 - Upgraded for both 68/78 WL API
