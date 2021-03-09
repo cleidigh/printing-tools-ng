@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Інструменти для друку повідомлень та адрес (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Примітка: Параметри PrintingTools NG були переміщені в меню еліпсів менеджера додатків."
+	},
+	"moreinfo_button_label": {
+		"message": "Більше інформації"
 	}
 }

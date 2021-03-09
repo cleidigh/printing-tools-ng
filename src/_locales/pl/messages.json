@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Narzędzia do drukowania wiadomości i adresów (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Uwaga: Opcje PrintingTools NG zostały przeniesione do menu elipsy menedżera dodatków."
+	},
+	"moreinfo_button_label": {
+		"message": "Więcej informacji"
 	}
 }

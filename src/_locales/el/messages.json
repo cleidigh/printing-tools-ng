@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "Εργαλεία εκτύπωσης μηνυμάτων και διευθύνσεων (NextGen)"
+	},
+	"update_option_info": {
+		"message": "Σημείωση: Οι επιλογές του PrintingTools NG έχουν μεταφερθεί στο μενού ελλείψεων του πρόσθετου διαχειριστή."
+	},
+	"moreinfo_button_label": {
+		"message": "Περισσότερες πληροφορίες"
 	}
 }

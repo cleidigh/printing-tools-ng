@@ -101,7 +101,7 @@ browser.runtime.onInstalled.addListener(async (info) => {
 			buttons: [
 				{
 					id: "btn-moreinfo",
-					label: "More info",
+					label: messenger.i18n.getMessage("moreinfo_button_label"),
 					accesskey: "m",
 				}
 			]

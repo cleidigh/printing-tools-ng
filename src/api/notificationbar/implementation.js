@@ -35,7 +35,7 @@ class Notification {
               button.id
             )
             .then(rv => {
-              let keepOpen = rv.some(value => value?.close === false);
+			  let keepOpen = rv.some(value => (value && value.close === false));
               if (!keepOpen) {
                 self.remove(/* closedByUser */ true);
               }

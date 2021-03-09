@@ -4,5 +4,11 @@
 	},
 	"extensionDescription": {
 		"message": "메시지 및 주소 인쇄 도구 (NextGen)"
+	},
+	"update_option_info": {
+		"message": "참고 : PrintingTools NG의 옵션이 추가 기능 관리자 줄임표 메뉴로 이동되었습니다."
+	},
+	"moreinfo_button_label": {
+		"message": "더 많은 정보"
 	}
 }

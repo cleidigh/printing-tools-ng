@@ -15,7 +15,7 @@ const translate = new Translate({ projectId, key });
 
 // console.debug( translate );
 var translationArray = [
-	{ key: "update_option_info", text: "Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu." },
+	{ key: "moreinfo_button_label", text: "More Info" },
 	// { key: "", text: "" },
 ];
 
