@@ -2,7 +2,7 @@
 
 ## Versions
 
-Version 2.0.2 : 68/78 Update - March 9, 2021
+Version 2.0.4 : 68/78 Update - March 9, 2021
 
 - Move options on 78 to addons page 
 - Fix show/hide headers 
@@ -10,6 +10,7 @@ Version 2.0.2 : 68/78 Update - March 9, 2021
 - Fix line truncation #24
 - Fix long attachment truncation #23
 - Fix unpopulated printer list on install
+- Put Dutch locale improvements - @Vistaus
 
 Version 2.0.0 : 68/78 Update - January 3, 2021
 
