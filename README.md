@@ -13,11 +13,11 @@ Original add-on’s homepage:
 https://addons.thunderbird.net/addon/printingtools/
 
 
-![PTng_version](https://img.shields.io/badge/version-v2.0.0-darkorange.png?label=PrintingTools%20NG)
-[![PTng_tb_version](https://img.shields.io/badge/version-v2.0.0-blue.png?label=Thunderbird%20Add-On)](https://addons.thunderbird.net/en-US/thunderbird/addon/)
+![PTng_version](https://img.shields.io/badge/version-v2.0.4-darkorange.png?label=PrintingTools%20NG)
+[![PTng_tb_version](https://img.shields.io/badge/version-v2.0.4-blue.png?label=Thunderbird%20Add-On)](https://addons.thunderbird.net/en-US/thunderbird/addon/)
 ![Thunderbird_version](https://img.shields.io/badge/version-v68.0--78.*-blue.png?label=Thunderbird)
 [![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-red.png)](https://opensource.org/licenses/GPL-3.0)
-![Release Status](https://img.shields.io/badge/Release%20Status-v0.1.3%20Released-brightgreen.png)
+![Release Status](https://img.shields.io/badge/Release%20Status-v2.0.4%20Released-brightgreen.png)
 
 #
 
@@ -32,7 +32,7 @@ The following are the main enhancements provided by PrintingTools NG,
 see the options for additional features.
 
 ## Options & Menus:
-- Options access from the Tools/Add-on options
+- Options access from the Tools/Add-on options (68), add-ons page (78)
 - Printing Options menu added to File menus
 - Optional "Printing Options" but added to Print Preview window
 
