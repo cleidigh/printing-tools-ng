@@ -10,7 +10,7 @@ gl-ES
 hu-HU
 hy-AM
 it-IT
-ja-JP
+ja
 ko-KR
 nb-NO
 nl
