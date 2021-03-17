@@ -101,6 +101,9 @@ var printingtools = {
 		for (var i = 0; i < trs.length; i++) {
 			// Services.console.logStringMessage(`head id: ${trs[i].id}`);
 			if (trs[i].id == "attTR") {
+				Services.console.logStringMessage(trs[i].firstChild.outerHTML);
+				Services.console.logStringMessage(trs[i].firstChild);
+				// trs[i].firstChild.setAttribute("style", "overflow: hidden;");
 				index = printingtools.getIndexForHeader("%a");
 				if (index & 0x100) {
 					arr[index &= ~0x100] = trs[i];
@@ -108,7 +111,7 @@ var printingtools = {
 				} else {
 					arr[index] = trs[i];
 				}
-				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
+				Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
 			var div = trs[i].firstChild.firstChild;
@@ -121,7 +124,15 @@ var printingtools = {
 					arr[index &= ~0x100].style.display = "none";
 				} else {
 					arr[index] = trs[i];
-				}
+					Services.console.logStringMessage(arr[index].outerHTML);
+					// let s = arr[index].querySelectorAll('td')[0];
+					// s.textNode = "<div>" + s.textNode +"</div>"
+					// s.style.overflow = "hidden";
+					// s.style.whiteSpace = "nowrap";
+					// s.style.textOverflow = "ellipsis";
+					div.classList.add("subjectHdr");
+					}
+
 				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
@@ -492,6 +503,7 @@ var printingtools = {
 			}
 			else {
 				if (table1) {
+					// table1.style.width = "75%";
 					table1.style.fontFamily = mFamily;
 					table1.style.fontSize = mSize;
 				}
@@ -573,6 +585,7 @@ var printingtools = {
 				var tdElement = printingtools.doc.createElement("td");
 				if (trs[i].getAttribute("id") == "attTR") {
 					var style = trs[i].firstChild.getAttribute("style");
+					trs[i].querySelector("#attTD").setAttribute("style", "overflow: hidden;");
 					trs[i].firstChild.removeAttribute("style");
 					var newTDelement = trs[i].insertBefore(tdElement, trs[i].firstChild);
 					newTDelement.setAttribute("style", style);
@@ -585,30 +598,41 @@ var printingtools = {
 					if (!trs[i].firstChild.childNodes[1])
 						trs[i].firstChild.appendChild(document.createTextNode(" "));
 					tdElement.appendChild(trs[i].firstChild.childNodes[1]);
-					trs[i].firstChild.setAttribute("width", "6%");
+					trs[i].firstChild.setAttribute("width", "10%");
 				}
 				trs[i].firstChild.style.verticalAlign = "top";
 				trs[i].firstChild.style.paddingRight = "25px";
 			}
 		}
 
-		if (!noheaders && borders)
+		console.debug('after showsChris');
+		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+
+		var backgroundColor = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.background.color");
+		if (!noheaders && borders) {
 			printingtools.setTableBorders(noExtHeaders);
+			table1.style.backgroundColor = backgroundColor;
+		}
 		else if (!noheaders) {
 			if (table1) {
 				table1.style.color = "black";
-				table1.style.backgroundColor = "white";
+				table1.style.backgroundColor = backgroundColor;
 			}
 			if (table2) {
 				table2.style.color = "black";
-				table2.style.backgroundColor = "white";
+				table2.style.backgroundColor = backgroundColor;
 			}
 			if (!noExtHeaders && hpref == 2 && table3) {
 				table3.style.color = "black";
-				table3.style.backgroundColor = "white";
+				table3.style.backgroundColor = backgroundColor;
 			}
 		}
-			// console.debug(printingtools.doc.documentElement.outerHTML);
+		// table1.setAttribute("max-width", "75%");
+		// table2.style.backgroundColor = "white";
+
+		// table1.setAttribute("table-layout", "fixed");
+		// table1.style.backgroundColor = "yellow";
+			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 		},
 
@@ -771,7 +795,7 @@ var printingtools = {
 
 						for (var j = 0; j < divs.length; j++) {
 							textNode = divs[j].nextSibling;
-							if ((avChars - textNode.nodeValue.length) < 0) {
+							if ((avChars - textNode.nodeValue.length) < 0 && maxchars) {
 								textNode.nodeValue = textNode.nodeValue.substring(0, avChars) + " [...]";
 								// break;
 							}
@@ -784,7 +808,7 @@ var printingtools = {
 						var divs = tableTDS[i].getElementsByTagName("div");
 						for (var j = 0; j < divs.length; j++) {
 							textNode = divs[j].firstChild;
-							if ((avChars - textNode.nodeValue.length) < 0) {
+							if ((avChars - textNode.nodeValue.length) < 0  && maxchars) {
 								textNode.nodeValue = textNode.nodeValue.substring(0, avChars) + " [...]";
 								break;
 							}
@@ -798,7 +822,7 @@ var printingtools = {
 							// Adding a text node, we restore the original structure
 							tableTDS[i].appendChild(document.createTextNode(" "));
 						}
-						else if (textNode && textNode.nodeValue && textNode.nodeValue.length > maxchars) {
+						else if (textNode && textNode.nodeValue && textNode.nodeValue.length > maxchars && maxchars) {
 							textNode.nodeValue = textNode.nodeValue.substring(0, maxchars) + " [...]";
 						}
 					}
@@ -838,9 +862,77 @@ var printingtools = {
 				var tds1 = table1.getElementsByTagName("TD");
 				// We process the first row in a different way, to set the top-padding = 3px
 				tds1[0].style.padding = "3px 10px 0px 10px";
-				for (var i = 1; i < tds1.length; i++)
+				for (var i = 1; i < tds1.length; i++) {
+					// if (i % 2) {
+						Services.console.logStringMessage(tds1[i].outerHTML);
+					// 	tds1[i].style.overflow = "hidden";
+					// 	tds1[i].style.whiteSpace = "nowrap";
+					// 	tds1[i].style.textOverflow = "ellipsis";
+					// }
+
 					tds1[i].style.padding = "0px 10px 0px 10px";
+					
+					// tds2[i].setAttribute("style", tds2[i].style + " overflow: hidden");
+					// tds1[i].style.overflow = "wrap";
+					if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
+						let s = tds1[i].nextSibling;
+						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
+							s.style.overflow = "hidden";
+							s.style.whiteSpace = "nowrap";
+							s.style.textOverflow = "ellipsis";
+							
+						} else {
+						s.style.wordWrap = "break-word";
+						}
+					}
+					
+					if (tds1[i].id === "attTD") {
+						let s = tds1[i].nextSibling || tds1[i];
+
+						var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
+						// if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
+						if (maxAttPerLine !== 100) {
+							// s.style.overflow = "hidden";
+							s.style.whiteSpace = "wrap";
+							// s.style.textOverflow = "ellipsis";
+							
+						} else {
+							if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
+							s.style.overflow = "hidden";
+							}
+							s.style.whiteSpace = "wrap";
+							// s.style.textOverflow = "ellipsis";
+							
+						s.style.wordWrap = "break-word";
+						}
+						// tds1[i].style.wordWrap = "break-word";
+						// tds1[i].innerHTML = "<p  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>hello there hello there hello there hello there hello there hello there hello Nichols hello there hello *The engine </p>";
+					// 	let c = `<div style="overflow-wrap: break-word; word-wrap: break-word; ">
+					// 	<nobr><img src="resource://printingtoolsng/icons/png.gif" class="attIcon" width="16px"
+					// 			height="16px">&nbsp;printing-tools-ng-icon-64px - Copy hello hello hello hello hello
+					// 		hello hello hello hello hello - Copyhello hello hello hello hello hello
+					// 		picture.png&nbsp;(3.6 KB)</nobr>
+					// </div>`;
+
+					let c = `<div style="overflow-wrap: break-word; word-wrap: break-word; ">
+						<img src="resource://printingtoolsng/icons/png.gif" class="attIcon" width="16px"
+								height="16px">&nbsp;printing-tools-ng-icon-64px - Copy hello hello hello hello hello
+							hello hello hello hello hello - Copyhello hello hello hello hello hello
+							picture.png&nbsp;(3.6 KB)
+					</div>`;
+
+					// tds1[i].innerHTML = c;
+						tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
+					}
+				}
 			}
+			// table1.style.maxWidth = "75%";
+			// table1.setAttribute("max-width", "450px");
+			table1.setAttribute("width", "100%");
+			table1.style.tableLayout = "fixed";
+			// table1.removeAttribute("width");
+			table1.style.marginRight = "10px";
+			table2.style.display = "none";
 			// The style of table-headers 2 is different if exits the table-headers 3 or it doesn't
 			if (table2) {
 				table2.style.borderLeft = "1px solid black";
@@ -849,8 +941,9 @@ var printingtools = {
 					table2.style.borderBottom = "1px solid black";
 
 				var tds2 = table2.getElementsByTagName("TD");
-				for (i = 0; i < tds2.length; i++)
+				for (i = 0; i < tds2.length; i++) {
 					tds2[i].style.padding = "0px 10px 0px 10px";
+				}
 			}
 			if (table3 && hpref == 2) {
 				table3.style.borderLeft = "1px solid black";
@@ -860,6 +953,8 @@ var printingtools = {
 				for (i = 0; i < tds3.length; i++)
 					tds3[i].style.padding = "0px 10px 0px 10px";
 			}
+
+			Services.console.logStringMessage(table1.outerHTML);
 		},
 
 		formatDate: function (msecs, longFormat) {
@@ -984,7 +1079,10 @@ var printingtools = {
 						var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
 						if (withIcon) {
 							var imgSrc = printingtools.findIconSrc(currAtt);
-							currAtt = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</nobr>";
+							// currAtt = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</nobr>";
+							// currAtt = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "";
+							// currAtt = '<div style="word-wrap: pre-line" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</div>";
+							currAtt = '<span style="word-wrap: nowrap" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</span>";
 						}
 						attDiv = attDiv + currAtt + comma;
 						if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
@@ -1013,7 +1111,8 @@ var printingtools = {
 						var attDiv = tds[0].innerHTML;
 						if (withIcon) {
 							var imgSrc = printingtools.findIconSrc(attDiv);
-							attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
+							// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
+							attDiv = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "";
 						}
 						// write into the new TD innerHTML the name of the attachment, if necessary with a comma
 						newTD.innerHTML = newTD.innerHTML + comma + attDiv;
@@ -1043,7 +1142,8 @@ var printingtools = {
 								attDiv = atts[i].label;
 							if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon")) {
 								var imgSrc = printingtools.findIconSrc(attDiv);
-								attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon"  height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
+								// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon"  height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
+								attDiv = '<img src="' + imgSrc + '" class="attIcon"  height="16px" width="16px">&nbsp;' + attDiv + "";
 							}
 							// write into the new TD innerHTML the name of the attachment, if necessary with a comma
 							newTD.innerHTML = newTD.innerHTML + comma + attDiv;

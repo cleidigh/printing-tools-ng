@@ -23,6 +23,7 @@ pref("extensions.printingtoolsng.messages.style", false);
 pref("extensions.printingtoolsng.messages.style_apply", 0);
 pref("extensions.printingtoolsng.messages.size", 10);
 pref("extensions.printingtoolsng.ext_headers.hide", false);
+pref("extensions.printingtoolsng.headers.background.color", "#ffffff");
 pref("extensions.printingtoolsng.headers.order", "%s,%f,%d,%a,%r1,%r2,%r3");
 pref("extensions.printingtoolsng.process.add_p7m_vcf_attach", true);
 pref("extensions.printingtoolsng.headers.addfolder", false);
