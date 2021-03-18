@@ -598,7 +598,8 @@ var printingtools = {
 					if (!trs[i].firstChild.childNodes[1])
 						trs[i].firstChild.appendChild(document.createTextNode(" "));
 					tdElement.appendChild(trs[i].firstChild.childNodes[1]);
-					trs[i].firstChild.setAttribute("width", "10%");
+					trs[i].firstChild.setAttribute("width", "12%");
+					Services.console.logStringMessage(trs[i].cli );
 				}
 				trs[i].firstChild.style.verticalAlign = "top";
 				trs[i].firstChild.style.paddingRight = "25px";
@@ -607,6 +608,13 @@ var printingtools = {
 
 		console.debug('after showsChris');
 		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+
+		table1.setAttribute("width", "100%");
+		table1.style.tableLayout = "fixed";
+		// table1.removeAttribute("width");
+		table1.style.marginRight = "10px";
+		table2.style.display = "none";
+	
 
 		var backgroundColor = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.background.color");
 		if (!noheaders && borders) {
@@ -626,12 +634,14 @@ var printingtools = {
 				table3.style.color = "black";
 				table3.style.backgroundColor = backgroundColor;
 			}
+			printingtools.setTableLayout();
 		}
 		// table1.setAttribute("max-width", "75%");
 		// table2.style.backgroundColor = "white";
 
 		// table1.setAttribute("table-layout", "fixed");
 		// table1.style.backgroundColor = "yellow";
+		Services.console.logStringMessage("final document");
 			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 		},
@@ -928,11 +938,12 @@ var printingtools = {
 			}
 			// table1.style.maxWidth = "75%";
 			// table1.setAttribute("max-width", "450px");
-			table1.setAttribute("width", "100%");
-			table1.style.tableLayout = "fixed";
-			// table1.removeAttribute("width");
-			table1.style.marginRight = "10px";
-			table2.style.display = "none";
+			// table1.setAttribute("width", "100%");
+			// table1.style.tableLayout = "fixed";
+			// // table1.removeAttribute("width");
+			// table1.style.marginRight = "10px";
+			// table2.style.display = "none";
+		
 			// The style of table-headers 2 is different if exits the table-headers 3 or it doesn't
 			if (table2) {
 				table2.style.borderLeft = "1px solid black";
@@ -955,6 +966,61 @@ var printingtools = {
 			}
 
 			Services.console.logStringMessage(table1.outerHTML);
+		},
+
+		setTableLayout: function() {
+			var table1 = printingtools.getTable(0);
+			var tds1 = table1.getElementsByTagName("TD");
+			// We process the first row in a different way, to set the top-padding = 3px
+			tds1[0].style.padding = "3px 10px 0px 10px";
+			Services.console.logStringMessage(tds1);
+			for (var i = 1; i < tds1.length; i++) {
+				// if (i % 2) {
+					Services.console.logStringMessage(tds1[i].outerHTML);
+				// 	tds1[i].style.overflow = "hidden";
+				// 	tds1[i].style.whiteSpace = "nowrap";
+				// 	tds1[i].style.textOverflow = "ellipsis";
+				// }
+
+				tds1[i].style.padding = "0px 10px 0px 10px";
+				
+				// tds2[i].setAttribute("style", tds2[i].style + " overflow: hidden");
+				// tds1[i].style.overflow = "wrap";
+				if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
+					let s = tds1[i].nextSibling;
+					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
+						s.style.overflow = "hidden";
+						s.style.whiteSpace = "nowrap";
+						s.style.textOverflow = "ellipsis";
+						
+					} else {
+					s.style.wordWrap = "break-word";
+					}
+				}
+				
+				if (tds1[i].id === "attTD") {
+					let s = tds1[i].nextSibling || tds1[i];
+
+					var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
+					// if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
+					if (maxAttPerLine !== 100) {
+						// s.style.overflow = "hidden";
+						s.style.whiteSpace = "wrap";
+						// s.style.textOverflow = "ellipsis";
+						
+					} else {
+						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
+						s.style.overflow = "hidden";
+						}
+						s.style.whiteSpace = "wrap";
+						// s.style.textOverflow = "ellipsis";
+						
+					s.style.wordWrap = "break-word";
+					}
+
+					tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
+				}
+			}
 		},
 
 		formatDate: function (msecs, longFormat) {
