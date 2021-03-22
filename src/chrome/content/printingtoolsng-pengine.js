@@ -90,15 +90,32 @@ var printingtools = {
 		var arr = new Array;
 		var index;
 
-		var bundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/mime.properties");
+		var bundle;
+		if ( Services.locale.appLocaleAsBCP47 === "ja") {
+			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
+		} else {
+			bundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/mime.properties");
+		}
 		var subject = bundle.GetStringFromID(1000).replace(/\s*$/, "");
 		var from = bundle.GetStringFromID(1009).replace(/\s*$/, "");
 		var to = bundle.GetStringFromID(1012).replace(/\s*$/, "");
 		var cc = bundle.GetStringFromID(1013).replace(/\s*$/, "");
 		var date = bundle.GetStringFromID(1007).replace(/\s*$/, "");
 		var bcc = bundle.GetStringFromID(1023).replace(/\s*$/, "");
+		var attachments = bundle.GetStringFromID(1028).replace(/\s*$/, "");
 
 		for (var i = 0; i < trs.length; i++) {
+			if ( Services.locale.appLocaleAsBCP47 === "ja") {
+				var div = trs[i].firstChild.firstChild;
+				var divHTML = div.innerHTML.replace("Subject:", subject + ':');
+				divHTML = divHTML.replace("Date:", date + ':');
+				divHTML = divHTML.replace("To:", to + ':');
+				divHTML = divHTML.replace("From:", from + ':');
+				divHTML = divHTML.replace("Attachments:", attachments + ':');
+				div.innerHTML = divHTML;
+				// var divHTML = div.innerHTML.replace(":", );
+			}
+			
 			// Services.console.logStringMessage(`head id: ${trs[i].id}`);
 			if (trs[i].id == "attTR") {
 				Services.console.logStringMessage(trs[i].firstChild.outerHTML);
@@ -173,6 +190,14 @@ var printingtools = {
 			for (var i = 0; i < trs.length; i++) {
 				var div = trs[i].firstChild.firstChild;
 				var divHTML = div.innerHTML.replace(/\&nbsp;/g, " ");
+				if ( Services.locale.appLocaleAsBCP47 === "ja") {
+					var div = trs[i].firstChild.firstChild;
+					divHTML = divHTML.replace("To:", to + ':');
+					div.innerHTML = divHTML;
+					// var divHTML = div.innerHTML.replace(":", );
+				}
+				
+
 				// Services.console.logStringMessage(divHTML.outerHTML);
 				regExp = new RegExp(to + "\\s*:");
 				if (divHTML.match(regExp)) {
@@ -598,11 +623,12 @@ var printingtools = {
 					if (!trs[i].firstChild.childNodes[1])
 						trs[i].firstChild.appendChild(document.createTextNode(" "));
 					tdElement.appendChild(trs[i].firstChild.childNodes[1]);
-					trs[i].firstChild.setAttribute("width", "12%");
-					Services.console.logStringMessage(trs[i].cli );
+					trs[i].firstChild.setAttribute("width", "17%");
+					// trs[i].firstChild.client
+					// Services.console.logStringMessage(trs[i].clso when I was writingi );
 				}
 				trs[i].firstChild.style.verticalAlign = "top";
-				trs[i].firstChild.style.paddingRight = "25px";
+				trs[i].firstChild.style.paddingRight = "10px";
 			}
 		}
 
@@ -875,9 +901,13 @@ var printingtools = {
 				for (var i = 1; i < tds1.length; i++) {
 					// if (i % 2) {
 						Services.console.logStringMessage(tds1[i].outerHTML);
-					// 	tds1[i].style.overflow = "hidden";
-					// 	tds1[i].style.whiteSpace = "nowrap";
-					// 	tds1[i].style.textOverflow = "ellipsis";
+					// 	if (tds1[i].firstChild.tagName === "DIV") {
+					// 	tds1[i].firstChild.style.overflow = "hidden";
+					// 	tds1[i].firstChild.style.whiteSpace = "nowrap";
+					// // 	tds1[i].style.textOverflow = "ellipsis";
+						// tds1[i].style.overflow = "hidden";
+						// tds1[i].style.whiteSpace = "nowrap";
+					
 					// }
 
 					tds1[i].style.padding = "0px 10px 0px 10px";
@@ -923,6 +953,9 @@ var printingtools = {
 					// 		hello hello hello hello hello - Copyhello hello hello hello hello hello
 					// 		picture.png&nbsp;(3.6 KB)</nobr>
 					// </div>`;
+
+					if (tds1[i].firstChild.tagName === "DIV")
+						Services.console.logStringMessage(`${tds1[i].outerHTML} ${tds1[i].firstChild.offsetWidth}  ${tds1[i].firstChild.clientWidth}` );
 
 					let c = `<div style="overflow-wrap: break-word; word-wrap: break-word; ">
 						<img src="resource://printingtoolsng/icons/png.gif" class="attIcon" width="16px"
@@ -976,7 +1009,8 @@ var printingtools = {
 			Services.console.logStringMessage(tds1);
 			for (var i = 1; i < tds1.length; i++) {
 				// if (i % 2) {
-					Services.console.logStringMessage(tds1[i].outerHTML);
+					// Services.console.logStringMessage(tds1[i].outerHTML);
+					Services.console.logStringMessage(`{$tds1[i].outerHTML} ${tds1[i].offsetWidth}  ${tds1[i].clientWidth}` );
 				// 	tds1[i].style.overflow = "hidden";
 				// 	tds1[i].style.whiteSpace = "nowrap";
 				// 	tds1[i].style.textOverflow = "ellipsis";

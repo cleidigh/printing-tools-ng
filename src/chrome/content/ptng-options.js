@@ -299,7 +299,13 @@ function onSelectListRow(event, data_id) {
 }
 
 function getHeaderLabel(string) {
-	var bundle = strBundleService.createBundle("chrome://messenger/locale/mime.properties");
+	var bundle;
+		if ( Services.locale.appLocaleAsBCP47 === "ja") {
+			bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
+		} else {
+			bundle = strBundleService.createBundle("chrome://messenger/locale/mime.properties");
+		}
+		
 	var bundle2 = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 	switch (string) {
 		case "%a":

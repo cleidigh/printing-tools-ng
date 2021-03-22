@@ -6,7 +6,8 @@
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 function onLoad() {
-	// console.debug('printing engine overlay loading');
+	console.debug('printing engine overlay loading');
+	
 	// Services.scriptloader.loadSubScript("", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 }

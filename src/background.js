@@ -20,7 +20,7 @@ messenger.WindowListener.registerChromeUrl([
 	["locale", "printingtoolsng", "gl-ES", "chrome/locale/gl-ES/"],
 	["locale", "printingtoolsng", "hy-AM", "chrome/locale/hy-AM/"],
 	["locale", "printingtoolsng", "it-IT", "chrome/locale/it-IT/"],
-	["locale", "printingtoolsng", "ja-JP", "chrome/locale/ja-JP/"],
+	["locale", "printingtoolsng", "ja", "chrome/locale/ja/"],
 	["locale", "printingtoolsng", "ko-KR", "chrome/locale/ko-KR/"],
 	["locale", "printingtoolsng", "nl", "chrome/locale/nl/"],
 	["locale", "printingtoolsng", "hu-HU", "chrome/locale/hu-HU/"],
@@ -76,6 +76,11 @@ messenger.notificationbar.onButtonClicked.addListener((windowId, notificationId,
 		messenger.windows.openDefaultBrowser("https://thunderbird.topicbox.com/groups/addons/T02a09c034809ca6d/resolving-the-add-on-options-chaos-introduced-by-my-wrapper-apis-windowlistener-and-bootstraploader");
 	}
 });
+
+	
+let l = messenger.i18n.getUILanguage();
+console.debug(l);
+
 
 // show notification when this version is being installed or updated
 browser.runtime.onInstalled.addListener(async (info) => {
