@@ -37,7 +37,7 @@ var printingtools = {
 		var PSSVC2 = Cc["@mozilla.org/gfx/printerenumerator;1"]
 			.getService(Ci.nsIPrinterEnumerator);
 
-		// Services.console.logStringMessage("printingtools: printerD: " + PSSVC2.defaultPrinterName);
+		Services.console.logStringMessage("printingtools: printerD: " + PSSVC2.defaultPrinterName);
 		var pe = PSSVC2.printerNameList;
 		var printers = [];
 
@@ -643,6 +643,10 @@ var printingtools = {
 	
 
 		var backgroundColor = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.background.color");
+		if (!printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color")) {
+			backgroundColor = "#ffffff";
+		}
+		
 		if (!noheaders && borders) {
 			printingtools.setTableBorders(noExtHeaders);
 			table1.style.backgroundColor = backgroundColor;
@@ -661,12 +665,13 @@ var printingtools = {
 				table3.style.backgroundColor = backgroundColor;
 			}
 			printingtools.setTableLayout();
+			Services.console.logStringMessage("finish table layout");
 		}
 		// table1.setAttribute("max-width", "75%");
 		// table2.style.backgroundColor = "white";
 
-		// table1.setAttribute("table-layout", "fixed");
-		// table1.style.backgroundColor = "yellow";
+		// table1.setAttribute("background-color", "rose !important");
+		// table1.style.backgroundColor = "yellow !important";
 		Services.console.logStringMessage("final document");
 			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
@@ -916,6 +921,11 @@ var printingtools = {
 					// tds1[i].style.overflow = "wrap";
 					if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
 						let s = tds1[i].nextSibling;
+						if (!s) {
+						
+							continue;
+						}
+						
 						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 							s.style.overflow = "hidden";
 							s.style.whiteSpace = "nowrap";
@@ -999,6 +1009,7 @@ var printingtools = {
 			}
 
 			Services.console.logStringMessage(table1.outerHTML);
+			Services.console.logStringMessage("finish table borders");
 		},
 
 		setTableLayout: function() {
@@ -1022,6 +1033,10 @@ var printingtools = {
 				// tds1[i].style.overflow = "wrap";
 				if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
 					let s = tds1[i].nextSibling;
+					if (!s) {
+						
+						continue;
+					}
 					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 						s.style.overflow = "hidden";
 						s.style.whiteSpace = "nowrap";

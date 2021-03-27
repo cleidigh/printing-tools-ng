@@ -99,7 +99,16 @@ function initPMDpanel() {
 	document.getElementById("PMDattach").checked = prefs.getBoolPref("extensions.printingtoolsng.process.attachments");
 	document.getElementById("PMDborders").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.setborders");
 	document.getElementById("PMDhide").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.hide");
+
+
+	if (prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color")) {
+		document.getElementById("useHeadersBkColor").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color");
+		toggleUseBackgroundColor(document.getElementById("useHeadersBkColor"));
+	}
+
 	document.getElementById("headersBkColor").value = prefs.getCharPref("extensions.printingtoolsng.headers.background.color");
+
+
 	document.getElementById("PMDextHide").checked = prefs.getBoolPref("extensions.printingtoolsng.ext_headers.hide");
 	document.getElementById("PMDhideImgs").checked = prefs.getBoolPref("extensions.printingtoolsng.images.hide");
 	document.getElementById("resizeImgs").checked = prefs.getBoolPref("extensions.printingtoolsng.images.resize");
@@ -383,6 +392,13 @@ function savePMDprefs() {
 	prefs.setIntPref("extensions.printingtoolsng.messages.size", size);
 	prefs.setIntPref("extensions.printingtoolsng.messages.style_apply", document.getElementById("radiostyle").selectedIndex);
 
+	let ubkc = document.getElementById("useHeadersBkColor").checked;
+ 	if (ubkc) {
+		prefs.setBoolPref("extensions.printingtoolsng.headers.use_background_color", ubkc);
+	}
+	prefs.setCharPref("extensions.printingtoolsng.headers.background.color", document.getElementById("headersBkColor").value);
+	
+
 	var list = document.getElementById("headersList");
 	var val = "";
 	for (var i = 0; i < 6; i++) {
@@ -502,6 +518,11 @@ function toggleHeaderShow() {
 		
 	// }
 }
+
+function toggleUseBackgroundColor(el) {
+	document.getElementById("headersBkColor").disabled = !el.checked;
+}
+
 function toggleCiteStyle(el) {
 	document.getElementById("citeColor").disabled = !el.checked;
 	document.getElementById("citeSize").disabled = !el.checked;

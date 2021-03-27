@@ -157,6 +157,7 @@
 			<menuitem label="200" value="200" id="x200" />
 			<menuitem label="250" value="250" id="x250" />
 			<menuitem label="300" value="300" id="x300" />
+			<menuitem label="350" value="350" id="x350" />
 			<menuitem label="400" value="400" id="x400" />
 			<menuitem label="450" value="450" id="x450" />
 			<menuitem label="500" value="500" id="x500" />
@@ -202,6 +203,7 @@
 			<menuitem label="200" value="200" id="s200" />
 			<menuitem label="250" value="250" id="s250" />
 			<menuitem label="300" value="300" id="s300" />
+			<menuitem label="350" value="350" id="s350" />
 			<menuitem label="400" value="400" id="s400" />
 			<menuitem label="450" value="450" id="s450" />
 			<menuitem label="500" value="500" id="s500" />
@@ -212,8 +214,9 @@
 	</hbox>
 	<spacer height="10px"/>
 	<hbox align="center">
-		<label value="Headers Background Color " style="margin:8px"/> 
-			<html:input type="color" id="headersBkColor" value="#ffffff"/>
+		<checkbox id="useHeadersBkColor" label="&useHeadersBkColor;" oncommand="setTimeout(toggleUseBackgroundColor,300,this)"/> 
+		<!-- <label value="Use Header Background Color : " style="margin:2px"/>  -->
+			<html:input type="color" id="headersBkColor" value="#ffffff" style="padding-right:4px"/>
 			
 	</hbox>
 	</tabpanel>
