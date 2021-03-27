@@ -15,7 +15,7 @@ const translate = new Translate({ projectId, key });
 
 // console.debug( translate );
 var translationArray = [
-	{ key: "moreinfo_button_label", text: "More Info" },
+	{ key: "useHeadersBkColor", text: "Use header background Color:" },
 	// { key: "", text: "" },
 ];
 
@@ -404,11 +404,11 @@ function loadTranslationArray(inputFiles, options) {
 }
 
 var options = {
-	inputLocaleDir: `./src/_locales/en-US`,
-	outputLocaleDir: "./src/_locales",
+	inputLocaleDir: `./src/locales/en-US`,
+	outputLocaleDir: "./src/locales",
 	outputLocaleDirSuffix: "",
 	append: true,
-	outputFormat: 3,
+	outputFormat: 0,
 };
 
 // var options = {
@@ -434,7 +434,7 @@ let inputFiles = ["mboximport.properties"];
 
 // printingtools
 var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-'hy-AM', 'it-IT', 'ja-JP', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN'];
+'hy-AM', 'it-IT', 'ja', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN'];
 
 
 // localeFolders = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
@@ -443,7 +443,7 @@ var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-F
 // var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
 // 	'sk-SK', 'sl-SI', 'sv-SE'];
 
-// localeFolders = ['es-ES', 'de-DE'];
+localeFolders = ['es-ES', 'de-DE', 'ja'];
 
 
 // localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];
@@ -451,7 +451,7 @@ localeFile = "settings.json";
 // t();
 // translateHelpPage();
 // translatePage();
-translateAll("messages.json", translationArray, options);
+translateAll("printingtoolsng.dtd", translationArray, options);
 // translateAll("mboximport.dtd", translationArray, options);
 // loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];
