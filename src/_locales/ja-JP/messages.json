@@ -6,7 +6,7 @@
 		"message": "メッセージとアドレス帳の印刷ツール（NextGen）"
 	},
 	"update_option_info": {
-		"message": "注：PrintingTools NGのオプション はアドオンマネージャーの省略記号メニューに移動されました。"
+		"message": "注：PrintingTools NG のオプションはアドオンマネージャーのメニューに移動しました。"
 	},
 	"moreinfo_button_label": {
 		"message": "詳細情報"
