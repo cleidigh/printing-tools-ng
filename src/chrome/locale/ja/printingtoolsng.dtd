@@ -58,4 +58,4 @@
 <!ENTITY wrap "すべて">
 <!ENTITY showhide "表示または非表示">
 
-<!ENTITY useHeadersBkColor "ヘッダーの背景色を使用：">
+<!ENTITY useHeadersBkColor "ヘッダーの背景色指定：">
