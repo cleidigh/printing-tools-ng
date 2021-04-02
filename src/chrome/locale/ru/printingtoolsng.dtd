@@ -56,3 +56,4 @@
 <!ENTITY attachmentsPerLine "Вложения в строке:">
 <!ENTITY wrap "Заворачивать">
 <!ENTITY showhide "Показать или скрыть">
+<!ENTITY useHeadersBkColor "Использовать цвет фона заголовка:">

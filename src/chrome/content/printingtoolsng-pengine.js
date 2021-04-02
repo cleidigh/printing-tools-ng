@@ -79,12 +79,9 @@ var printingtools = {
 	},
 
 	sortHeaders: function () {
-		// Services.console.logStringMessage("printingtools: sortheaders");
+		Services.console.logStringMessage("printingtools: sortheaders");
 		// Services.console.logStringMessage("printingtools: sortheader order " + printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order"));
-		if (printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order") == "%s,%f,%d,%a,%r1,%r2,%r3") {
-			printingtools.dateTRpos = 2;
-			return // default order
-		}
+
 		var table1 = printingtools.getTable(0);
 		var trs = table1.getElementsByTagName("TR");
 		var arr = new Array;
@@ -142,15 +139,24 @@ var printingtools = {
 				} else {
 					arr[index] = trs[i];
 					Services.console.logStringMessage(arr[index].outerHTML);
-					// let s = arr[index].querySelectorAll('td')[0];
-					// s.textNode = "<div>" + s.textNode +"</div>"
-					// s.style.overflow = "hidden";
-					// s.style.whiteSpace = "nowrap";
+					let s = arr[index].querySelectorAll('td')[0];
+					if (s.lastChild && s.lastChild.nodeName === "#text") {
+						let subjValue = s.lastChild.nodeValue;
+						s.lastChild.remove();
+						let sd = printingtools.doc.createElement("DIV");
+
+						sd.textContent = subjValue;
+						sd.style.overflow = "hidden";
+						sd.style.whiteSpace = "nowrap";
+						s.appendChild(sd);
+						Services.console.logStringMessage(arr[index].outerHTML);
 					// s.style.textOverflow = "ellipsis";
 					div.classList.add("subjectHdr");
+				}
+
 					}
 
-				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
+				Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
 			regExp = new RegExp(from + "\\s*:");
@@ -236,6 +242,7 @@ var printingtools = {
 
 					if (index & 0x100) {
 						arr[index &= ~0x100] = trs[i];
+						Services.console.logStringMessage(table1.outerHTML);
 						arr[index &= ~0x100].style.display = "none";
 					} else {
 						arr[index] = trs[i];
@@ -243,8 +250,8 @@ var printingtools = {
 					// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				}
 			}
-			// Services.console.logStringMessage('table 2 after fixes');
-			// Services.console.logStringMessage(table2.outerHTML);
+			Services.console.logStringMessage('table1 after fixes');
+			Services.console.logStringMessage(table1.outerHTML);
 
 		}
 
@@ -469,8 +476,9 @@ var printingtools = {
 
 	correctLayout: function () {
 		// console.debug('correctly layout');
-		// Services.console.logStringMessage("CorrectLayout");
+		Services.console.logStringMessage("CorrectLayout");
 		printingtools.doc = window.content.document;
+		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 		// console.debug(printingtools.doc);
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
@@ -621,7 +629,7 @@ var printingtools = {
 					// This is called when a header exists, with a null value (for example "Subject:");
 					// Adding a text node, we restore the original structure
 					if (!trs[i].firstChild.childNodes[1])
-						trs[i].firstChild.appendChild(document.createTextNode(" "));
+						trs[i].firstChild.appendChild(printingtools.doc.createTextNode(" "));
 					tdElement.appendChild(trs[i].firstChild.childNodes[1]);
 					trs[i].firstChild.setAttribute("width", "17%");
 					// trs[i].firstChild.client
@@ -632,8 +640,8 @@ var printingtools = {
 			}
 		}
 
-		console.debug('after showsChris');
-		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+		// console.debug('after ');
+		// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 		table1.setAttribute("width", "100%");
 		table1.style.tableLayout = "fixed";
@@ -887,6 +895,9 @@ var printingtools = {
 			var hpref = printingtools.prefs.getIntPref("mail.show_headers");
 			var table1 = printingtools.getTable(0);
 			var table2 = printingtools.getTable(1);
+		
+			Services.console.logStringMessage("settableborders initial table");
+			Services.console.logStringMessage(table1.outerHTML);
 			if (noExtHeaders)
 				var table3 = null;
 			else
@@ -907,7 +918,7 @@ var printingtools = {
 					// if (i % 2) {
 						Services.console.logStringMessage(tds1[i].outerHTML);
 					// 	if (tds1[i].firstChild.tagName === "DIV") {
-					// 	tds1[i].firstChild.style.overflow = "hidden";
+						// tds1[i].firstChild.style.overflow = "hidden";
 					// 	tds1[i].firstChild.style.whiteSpace = "nowrap";
 					// // 	tds1[i].style.textOverflow = "ellipsis";
 						// tds1[i].style.overflow = "hidden";
@@ -922,9 +933,15 @@ var printingtools = {
 					if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
 						let s = tds1[i].nextSibling;
 						if (!s) {
-						
-							continue;
-						}
+							s = tds1[i]
+							let sub = s.nodeValue;
+							Services.console.logStringMessage("Stat table warriors");
+							Services.console.logStringMessage(sub);
+							// let d = `<div style="overflow-wrap: break-word; word-wrap: break-word; ">
+							s.innerHTML = `${s.innerHTML}<p  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>${sub}</p>`;
+							Services.console.logStringMessage(s.outerHTML);
+							// continue;
+						} 
 						
 						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 							s.style.overflow = "hidden";
@@ -964,8 +981,8 @@ var printingtools = {
 					// 		picture.png&nbsp;(3.6 KB)</nobr>
 					// </div>`;
 
-					if (tds1[i].firstChild.tagName === "DIV")
-						Services.console.logStringMessage(`${tds1[i].outerHTML} ${tds1[i].firstChild.offsetWidth}  ${tds1[i].firstChild.clientWidth}` );
+					// if (tds1[i].firstChild.tagName === "DIV")
+						// Services.console.logStringMessage(`${tds1[i].outerHTML} ${tds1[i].firstChild.offsetWidth}  ${tds1[i].firstChild.clientWidth}` );
 
 					let c = `<div style="overflow-wrap: break-word; word-wrap: break-word; ">
 						<img src="resource://printingtoolsng/icons/png.gif" class="attIcon" width="16px"
@@ -1013,6 +1030,7 @@ var printingtools = {
 		},
 
 		setTableLayout: function() {
+			Services.console.logStringMessage("table layout");
 			var table1 = printingtools.getTable(0);
 			var tds1 = table1.getElementsByTagName("TD");
 			// We process the first row in a different way, to set the top-padding = 3px
@@ -1070,6 +1088,8 @@ var printingtools = {
 					tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
 				}
 			}
+			Services.console.logStringMessage(table1.outerHTML);
+			Services.console.logStringMessage("finish table layout");
 		},
 
 		formatDate: function (msecs, longFormat) {

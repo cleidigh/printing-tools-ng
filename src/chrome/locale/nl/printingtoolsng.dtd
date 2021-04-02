@@ -56,3 +56,5 @@
 <!ENTITY attachmentsPerLine "Aantal bijlagen per regel:">
 <!ENTITY wrap "Afbreken">
 <!ENTITY showhide "Tonen of verbergen">
+
+<!ENTITY useHeadersBkColor "Gebruik koptekst achtergrondkleur:">

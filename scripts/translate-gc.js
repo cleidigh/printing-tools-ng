@@ -404,8 +404,8 @@ function loadTranslationArray(inputFiles, options) {
 }
 
 var options = {
-	inputLocaleDir: `./src/locales/en-US`,
-	outputLocaleDir: "./src/locales",
+	inputLocaleDir: `./src/chrome/locale/en-US`,
+	outputLocaleDir: "./src/chrome/locale",
 	outputLocaleDirSuffix: "",
 	append: true,
 	outputFormat: 0,
@@ -443,7 +443,7 @@ var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-F
 // var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
 // 	'sk-SK', 'sl-SI', 'sv-SE'];
 
-localeFolders = ['es-ES', 'de-DE', 'ja'];
+// localeFolders = ['es-ES', 'de-DE', 'ja'];
 
 
 // localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];

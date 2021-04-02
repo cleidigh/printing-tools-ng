@@ -56,3 +56,4 @@
 <!ENTITY attachmentsPerLine "每行附件：">
 <!ENTITY wrap "包">
 <!ENTITY showhide "显示或隐藏">
+<!ENTITY useHeadersBkColor "使用标题背景颜色：">

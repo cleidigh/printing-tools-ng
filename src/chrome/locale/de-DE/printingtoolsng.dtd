@@ -57,3 +57,4 @@
 <!ENTITY attachmentsPerLine "Anhänge pro Zeile:">
 <!ENTITY wrap "Wickeln">
 <!ENTITY showhide "Ein- oder Ausblenden">
+<!ENTITY useHeadersBkColor "Verwenden Sie den Header-Hintergrund. Farbe:">
