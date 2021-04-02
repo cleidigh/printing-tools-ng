@@ -1,8 +1,8 @@
 <!ENTITY PMDlabel1 "タイムゾーンに合わせて日付を印刷する">
 <!ENTITY PMDlabel2 "添付ファイルリストの印刷方法をカスタマイズする">
-<!ENTITY PMDlabel3 "ヘッダ情報を線で囲む">
-<!ENTITY PMDlabel4 "ヘッダ情報を隠す">
-<!ENTITY PMDlabel5 "ヘッダの 1 行当たりの文字数を">
+<!ENTITY PMDlabel3 "ヘッダー情報を線で囲む">
+<!ENTITY PMDlabel4 "ヘッダー情報を隠す">
+<!ENTITY PMDlabel5 "ヘッダーの 1 行当たりの文字数を">
 <!ENTITY PMDlabel6 "にする">
 <!ENTITY PMDlabel7 "画像を非表示にする">
 <!ENTITY PMDlabel8 "印刷ダイアログを表示しない">
@@ -13,7 +13,7 @@
 <!ENTITY PMDcaptionlabel "メッセージ">
 <!ENTITY PMDcaptionlabel2 "プリンター">
 <!ENTITY PMDlabel12 "使用するフォント">
-<!ENTITY PMDlabel13 "'カード' ヘッダを表示しない">
+<!ENTITY PMDlabel13 "'カード' ヘッダーを表示しない">
 <!ENTITY PMDlabel14 "名前とアドレスを挿入する">
 <!ENTITY PMDcaptionlabel3 "アドレス帳">
 <!ENTITY PMDlabel15 "コンパクトに印刷する （ぎっしり詰める）">
@@ -26,27 +26,27 @@
 <!ENTITY PMDlabel19 "メモ領域を 100 文字でカットする">
 <!ENTITY PMDlabel20 "アドレス帳名と日付を追加する">
 <!ENTITY style "スタイル">
-<!ENTITY PMDlabel21 "常時拡張ヘッダを非表示にする">
+<!ENTITY PMDlabel21 "常時拡張ヘッダーを非表示にする">
 <!ENTITY withSize "サイズ">
 <!ENTITY forBody "本文用">
-<!ENTITY forHeaders "ヘッダ用">
+<!ENTITY forHeaders "ヘッダー用">
 <!ENTITY misc "全般">
-<!ENTITY order "ヘッダ">
-<!ENTITY headers "ヘッダ">
+<!ENTITY order "ヘッダー">
+<!ENTITY headers "ヘッダー">
 <!ENTITY up "上へ">
 <!ENTITY down "下へ">
-<!ENTITY otherHeaders "他のヘッダがある場合は下段に印刷されます">
+<!ENTITY otherHeaders "他のヘッダーがある場合は下段に印刷されます">
 <!ENTITY PMDlabel22 "p7m と vCard アイコンを追加">
-<!ENTITY PMDlabel23 "フォルダ名を追加">
+<!ENTITY PMDlabel23 "フォルダー名を追加">
 <!ENTITY PMDlabel25 "文字は黒色を基調色にする">
 <!ENTITY long.label "長い形式">
 <!ENTITY longLoc.label "長い形式とローカルタイム">
 <!ENTITY short.label "短い形式">
 <!ENTITY date.label "日時形式:">
-<!ENTITY addNameRG.label "ヘッダの前に追加する文字列:">
+<!ENTITY addNameRG.label "ヘッダーの前に追加する文字列:">
 <!ENTITY RG1.label "なし">
 <!ENTITY RG2.label "アカウント名">
-<!ENTITY alignHeaders.label "ヘッダ位置の整列">
+<!ENTITY alignHeaders.label "ヘッダー位置の整列">
 <!ENTITY multipleCards.label "選択したすべての連絡先を印刷">
 <!ENTITY maxPreLen "テキスト列の最大値を設定:">
 <!ENTITY showButton.label "プレビューにオプションボタンを表示">
@@ -54,7 +54,7 @@
 <!ENTITY addRdate.label "受信日時を追加">
 <!ENTITY defaultPrinter "デフォルトのプリンター">
 
-<!ENTITY attachmentsPerLine "1行あたりの添付ファイル：">
+<!ENTITY attachmentsPerLine "1 行あたりの添付ファイル：">
 <!ENTITY wrap "すべて">
 <!ENTITY showhide "表示または非表示">
 
