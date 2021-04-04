@@ -509,8 +509,11 @@ var printingtools = {
 		var max_pre_len = printingtools.prefs.getIntPref("extensions.printingtoolsng.pre_max_length");
 		if (max_pre_len > 0) {
 			var preTags = printingtools.doc.getElementsByTagName("P");
-			for (var j = 0; j < preTags.length; j++)
-				preTags[j].setAttribute("style", `width: ${max_pre_len}ch;`);
+			for (var j = 0; j < preTags.length; j++) {
+				// #23 #53 fix translation
+				preTags[j].setAttribute("style", `max-width: ${max_pre_len}ch;`);
+				// preTags[j].setAttribute("style", `width: ${max_pre_len}ch;`);
+			}
 		}
 
 		printingtools.getHdr(); // save hdr
