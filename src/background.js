@@ -79,7 +79,6 @@ messenger.notificationbar.onButtonClicked.addListener((windowId, notificationId,
 
 	
 let l = messenger.i18n.getUILanguage();
-console.debug(l);
 
 
 // show notification when this version is being installed or updated
