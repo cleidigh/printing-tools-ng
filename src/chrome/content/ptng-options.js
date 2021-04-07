@@ -101,10 +101,8 @@ function initPMDpanel() {
 	document.getElementById("PMDhide").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.hide");
 
 
-	if (prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color")) {
-		document.getElementById("useHeadersBkColor").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color");
-		toggleUseBackgroundColor(document.getElementById("useHeadersBkColor"));
-	}
+	document.getElementById("useHeadersBkColor").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color");
+	toggleUseBackgroundColor(document.getElementById("useHeadersBkColor"));
 
 	document.getElementById("headersBkColor").value = prefs.getCharPref("extensions.printingtoolsng.headers.background.color");
 
@@ -393,9 +391,8 @@ function savePMDprefs() {
 	prefs.setIntPref("extensions.printingtoolsng.messages.style_apply", document.getElementById("radiostyle").selectedIndex);
 
 	let ubkc = document.getElementById("useHeadersBkColor").checked;
- 	if (ubkc) {
-		prefs.setBoolPref("extensions.printingtoolsng.headers.use_background_color", ubkc);
-	}
+	prefs.setBoolPref("extensions.printingtoolsng.headers.use_background_color", ubkc);
+
 	prefs.setCharPref("extensions.printingtoolsng.headers.background.color", document.getElementById("headersBkColor").value);
 	
 
