@@ -1050,12 +1050,27 @@ var printingtools = {
 			try {
 				var date_obj = new Date(msecs);
 				// cleidigh fix short format #28
+		
+				let o = {
+					year: 'numeric', month: '2-digit',
+					hour: 'numeric', minute: 'numeric', day: '2-digit',
+					// hour12: false,
+				  };
+				  console.debug('short date formats');
+				  console.log("en-US : " + new Intl.DateTimeFormat('en-US', o).format(date_obj));
+				  console.log("en-HK : " + new Intl.DateTimeFormat('en-HK', o).format(date_obj));
+				  console.log("en-HK : " + new Intl.DateTimeFormat('en-HK').format(date_obj));
+				  console.log("en-UK : " + new Intl.DateTimeFormat('en-UK', o).format(date_obj));
+				  console.log("de : " + new Intl.DateTimeFormat('de', o).format(date_obj));
+				  console.log("default : " + new Intl.DateTimeFormat('default', o).format(date_obj));
+				  
+		
 				if (longFormat === 0) {
 					options = {
 						year: 'numeric', month: '2-digit',
 						hour: 'numeric', minute: 'numeric', day: '2-digit',
 					};
-					formatted_date = new Intl.DateTimeFormat('default', options).format(date_obj);
+					formatted_date = new Intl.DateTimeFormat(Services.locale.appLocaleAsBCP47, options).format(date_obj);
 				} else if (longFormat === 1) {
 					options = {
 						weekday: 'short',
