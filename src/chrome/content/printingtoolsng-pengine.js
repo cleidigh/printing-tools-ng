@@ -1022,9 +1022,12 @@ var printingtools = {
 		var tds1 = table1.getElementsByTagName("TD");
 		// We process the first row in a different way, to set the top-padding = 3px
 		tds1[0].style.padding = "3px 10px 0px 10px";
+		tds1[0].firstChild.style.paddingRight = "10px";
 		for (var i = 1; i < tds1.length; i++) {
 
 			tds1[i].style.padding = "0px 10px 0px 10px";
+			tds1[i].firstChild.style.paddingRight = "10px";
+			
 			Services.console.logStringMessage(`{$tds1[i].outerHTML} ${tds1[i].offsetWidth}  ${tds1[i].clientWidth}` );
 
 
@@ -1032,7 +1035,6 @@ var printingtools = {
 				let s = tds1[i].nextSibling;
 				if (!s) {
 
-					Services.console.logStringMessage("settable layout no next sibling table");
 					s = tds1[i].firstChild.nextSibling
 					let sub = s.textContent;
 					s.outerHTML = sub;
