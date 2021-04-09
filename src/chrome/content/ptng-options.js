@@ -474,8 +474,9 @@ function move2(offset) {
 
 function move(offset) {
 	var listElement = gheaderList.list;
-	var selectedID = gheaderList.controller.getSelectedRowDataId();
-	if (selectedID === '1' && offset > 1 || selectedID === listElement.rows.length && offset < 0) {
+	var selectedID = Number(gheaderList.controller.getSelectedRowDataId());
+	Services.console.logStringMessage(`move ${offset} ${selectedID}`);
+	if (selectedID === '1' && offset  === 1 || selectedID === listElement.rows.length && offset  === -1) {
 		return;
 	}
 
@@ -494,7 +495,7 @@ function move(offset) {
 	} else {
 		swapElement.parentNode.insertBefore(selectedElement, swapElement.nextSibling);
 	}
-	gheaderList.reindex();
+	gheaderList.reIndex();
 	selectedElement.setAttribute("data-id", selectedID - 1);
 	swapElement.setAttribute("data-id", selectedID + 1);
 	gheaderList.controller.selectRowByDataId(selectedID - 1);

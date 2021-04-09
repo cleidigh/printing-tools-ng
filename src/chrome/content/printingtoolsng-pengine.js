@@ -653,10 +653,10 @@ var printingtools = {
 
 					switch (Services.locale.appLocaleAsBCP47) {
 						case "ja":
-							trs[i].firstChild.setAttribute("width", "16%");
+							trs[i].firstChild.setAttribute("width", "15.5%");
 							break;
 						case "de":
-							trs[i].firstChild.setAttribute("width", "17%");
+							trs[i].firstChild.setAttribute("width", "17This%");
 							break;
 						case "ko":
 							trs[i].firstChild.setAttribute("width", "14%");
@@ -1022,11 +1022,13 @@ var printingtools = {
 		var tds1 = table1.getElementsByTagName("TD");
 		// We process the first row in a different way, to set the top-padding = 3px
 		tds1[0].style.padding = "3px 10px 0px 10px";
-		tds1[0].firstChild.style.paddingRight = "10px";
+		if (tds1[i].firstChild)
+			tds1[0].firstChild.style.paddingRight = "10px";
 		for (var i = 1; i < tds1.length; i++) {
 
 			tds1[i].style.padding = "0px 10px 0px 10px";
-			tds1[i].firstChild.style.paddingRight = "10px";
+			if (tds1[i].firstChild)
+				tds1[0].firstChild.style.paddingRight = "10px";
 			
 			Services.console.logStringMessage(`{$tds1[i].outerHTML} ${tds1[i].offsetWidth}  ${tds1[i].clientWidth}` );
 
@@ -1084,7 +1086,7 @@ var printingtools = {
 	formatDate: function (msecs, longFormat) {
 		var formatted_date = null;
 		var options;
-
+		Services.console.logStringMessage(Services.locale.appLocaleAsBCP47);
 		if (!longFormat)
 			longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
 		try {
@@ -1096,13 +1098,13 @@ var printingtools = {
 				hour: 'numeric', minute: 'numeric', day: '2-digit',
 				// hour12: false,
 			};
-			console.debug('short date formats');
-			console.log("en-US : " + new Intl.DateTimeFormat('en-US', o).format(date_obj));
-			console.log("en-HK : " + new Intl.DateTimeFormat('en-HK', o).format(date_obj));
-			console.log("en-HK : " + new Intl.DateTimeFormat('en-HK').format(date_obj));
-			console.log("en-UK : " + new Intl.DateTimeFormat('en-UK', o).format(date_obj));
-			console.log("de : " + new Intl.DateTimeFormat('de', o).format(date_obj));
-			console.log("default : " + new Intl.DateTimeFormat('default', o).format(date_obj));
+			Services.console.logStringMessage('short date formats');
+			Services.console.logStringMessage("en-US : " + new Intl.DateTimeFormat('en-US', o).format(date_obj));
+			Services.console.logStringMessage("en-HK : " + new Intl.DateTimeFormat('en-HK', o).format(date_obj));
+			Services.console.logStringMessage("en-HK : " + new Intl.DateTimeFormat('en-HK').format(date_obj));
+			Services.console.logStringMessage("en-UK : " + new Intl.DateTimeFormat('en-UK', o).format(date_obj));
+			Services.console.logStringMessage("de : " + new Intl.DateTimeFormat('de', o).format(date_obj));
+			Services.console.logStringMessage("default : " + new Intl.DateTimeFormat('default', o).format(date_obj));
 
 
 			if (longFormat === 0) {
@@ -1110,6 +1112,9 @@ var printingtools = {
 					year: 'numeric', month: '2-digit',
 					hour: 'numeric', minute: 'numeric', day: '2-digit',
 				};
+				if (Services.locale.appLocaleAsBCP47 === "en-HK") {
+					options.hour12 = false;
+				}
 				formatted_date = new Intl.DateTimeFormat(Services.locale.appLocaleAsBCP47, options).format(date_obj);
 			} else if (longFormat === 1) {
 				options = {
@@ -1117,6 +1122,9 @@ var printingtools = {
 					year: 'numeric', month: 'short',
 					hour: 'numeric', minute: 'numeric', day: 'numeric',
 				};
+				if (Services.locale.appLocaleAsBCP47 === "en-HK") {
+					options.hour12 = false;
+				}
 				formatted_date = new Intl.DateTimeFormat('default', options).format(date_obj);
 			}
 			else
