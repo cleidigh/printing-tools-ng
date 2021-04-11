@@ -15,7 +15,7 @@ const translate = new Translate({ projectId, key });
 
 // console.debug( translate );
 var translationArray = [
-	{ key: "useHeadersBkColor", text: "Use header background Color:" },
+	{ key: "borderStyle", text: "Border style:" },
 	// { key: "", text: "" },
 ];
 

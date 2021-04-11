@@ -58,5 +58,6 @@
 <!ENTITY attachmentsPerLine "Attachments per Line: ">
 <!ENTITY wrap "Wrap">
 <!ENTITY showhide "Show / Hide">
+<!ENTITY borderStyle "Border style:">
 
 

@@ -929,6 +929,7 @@ var printingtools = {
 		var hpref = printingtools.prefs.getIntPref("mail.show_headers");
 		var table1 = printingtools.getTable(0);
 		var table2 = printingtools.getTable(1);
+		var tableStyle = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.border_style");
 
 		Services.console.logStringMessage("settableborders initial table");
 		Services.console.logStringMessage(table1.outerHTML);
@@ -938,12 +939,16 @@ var printingtools = {
 			var table3 = printingtools.getTable(2);
 		if (table1) {
 			if (table2 && table2.getElementsByTagName("tr").length > 0) {
-				table1.style.borderLeft = "1px solid black";
-				table1.style.borderRight = "1px solid black";
-				table1.style.borderTop = "1px solid black";
+				let style = table1.getAttribute("style");
+				table1.setAttribute("style", style + "; " + tableStyle);
+				// table1.style.borderLeft = "1px solid black";
+				// table1.style.borderRight = "1px solid black";
+				// table1.style.borderTop = "1px solid black";
 			}
 			else {
-				table1.style.border = "1px solid black";
+				let style = table1.getAttribute("style");
+				table1.setAttribute("style", style + "; border: " + tableStyle + ";");
+				// table1.style.border = "1px solid black";
 			}
 			var tds1 = table1.getElementsByTagName("TD");
 			// We process the first row in a different way, to set the top-padding = 3px

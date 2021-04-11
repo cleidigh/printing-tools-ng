@@ -1,6 +1,7 @@
 pref("extensions.printingtoolsng.process.date", true);
 pref("extensions.printingtoolsng.process.attachments", true);
 pref("extensions.printingtoolsng.headers.setborders", false);
+pref("extensions.printingtoolsng.headers.border_style", "1px solid black");
 pref("extensions.printingtoolsng.headers.hide", false);
 pref("extensions.printingtoolsng.headers.truncate", false);
 pref("extensions.printingtoolsng.headers.maxchars", 80);
