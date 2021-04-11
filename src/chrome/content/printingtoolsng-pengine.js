@@ -1022,7 +1022,7 @@ var printingtools = {
 		var tds1 = table1.getElementsByTagName("TD");
 		// We process the first row in a different way, to set the top-padding = 3px
 		tds1[0].style.padding = "3px 10px 0px 10px";
-		if (tds1[i].firstChild)
+		if (tds1[0].firstChild)
 			tds1[0].firstChild.style.paddingRight = "10px";
 		for (var i = 1; i < tds1.length; i++) {
 
