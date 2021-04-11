@@ -656,7 +656,7 @@ var printingtools = {
 							trs[i].firstChild.setAttribute("width", "15.5%");
 							break;
 						case "de":
-							trs[i].firstChild.setAttribute("width", "17This%");
+							trs[i].firstChild.setAttribute("width", "17%");
 							break;
 						case "ko":
 							trs[i].firstChild.setAttribute("width", "14%");

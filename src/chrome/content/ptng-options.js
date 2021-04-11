@@ -435,7 +435,7 @@ function savePMDabprefs(fullpanel) {
 
 	var fontlistchild = document.getElementById("ABfontlist").getElementsByTagName("menuitem");
 	var selfont = fontlistchild[document.getElementById("ABfontlist").selectedIndex].getAttribute("value");
-	prefs.setCharPref("extensions.printingtoolsng.addressbook.font_family", selfont);
+	setComplexPref("extensions.printingtoolsng.addressbook.font_family", selfont);
 
 	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family", document.getElementById("ABcustomFont").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.addressbook.cut_notes", document.getElementById("PMDcutnotes").checked);
