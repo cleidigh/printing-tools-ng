@@ -51,6 +51,13 @@ var printingtools = {
 		// 	.getService(Ci.nsIPrintSettingsService);
 	},
 
+	getMail3Pane: function () {
+		var w = Cc["@mozilla.org/appshell/window-mediator;1"]
+			.getService(Ci.nsIWindowMediator)
+			.getMostRecentWindow("mail:3pane");
+		return w;
+	},
+	
 	getComplexPref: function (pref) {
 		if (printingtools.prefs.getStringPref)
 			return printingtools.prefs.getStringPref(pref);
@@ -585,18 +592,18 @@ var printingtools = {
 			printingtools.addName(borders);
 
 		try {
-			var sel = opener.content.getSelection();
-
+			// var sel = opener.content.getSelection();
+			var sel = printingtools.getMail3Pane().content.getSelection();
 		} catch (error) {
 			sel = "";
 		}
 		if (sel && sel != "" && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
 			var range = sel.getRangeAt(0);
 			var contents = range.cloneContents();
-			if (String.trim)
-				printingtools.printSelection(contents);
-			else
-				setTimeout(function () { printingtools.printSelection(contents); }, 100);
+			printingtools.printSelection(contents);
+				// Services.console.logStringMessage("After selection");
+				// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+		
 		}
 		else {
 			if (printingtools.prefs.getBoolPref("mail.inline_attachments"))
