@@ -128,6 +128,7 @@ var printingtools = {
 					arr[index &= ~0x100] = trs[i];
 					arr[index &= ~0x100].style.display = "none";
 				} else {
+					div.classList.add("attHdr");
 					arr[index] = trs[i];
 				}
 				Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
@@ -243,6 +244,7 @@ var printingtools = {
 						arr[index &= ~0x100] = trs[i];
 						arr[index &= ~0x100].style.display = "none";
 					} else {
+						trs[i].firstChild.classList.add("bccHdr");
 						arr[index] = trs[i];
 					}
 					Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
@@ -658,17 +660,34 @@ var printingtools = {
 						trs[i].firstChild.appendChild(printingtools.doc.createTextNode(" "));
 					tdElement.appendChild(trs[i].firstChild.childNodes[1]);
 
-					switch (Services.locale.appLocaleAsBCP47) {
+					switch (Services.locale.appLocaleAsBCP47.split('-')[0]) {
 						case "ja":
-							trs[i].firstChild.setAttribute("width", "15.5%");
+						 if (table1.querySelector(".attHdr") ) {
+							trs[i].firstChild.setAttribute("width", "15.4%");
+						} else {
+							trs[i].firstChild.setAttribute("width", "9%");
+						}
+					
 							break;
 						case "de":
-							trs[i].firstChild.setAttribute("width", "17%");
+							if (table1.querySelector(".bccHdr")) {
+								trs[i].firstChild.setAttribute("width", "17%");
+							} else if (table1.querySelector(".attHdr") || table1.querySelector("#recTR") ) {
+								trs[i].firstChild.setAttribute("width", "12.5%");
+							} else {
+								trs[i].firstChild.setAttribute("width", "7%");
+							}
 							break;
 						case "ko":
 							trs[i].firstChild.setAttribute("width", "14%");
 							break;
-
+						case "en":
+							if (table1.querySelector(".attHdr") || table1.querySelector("#recTR") ) {
+								trs[i].firstChild.setAttribute("width", "12%");
+							} else {
+								trs[i].firstChild.setAttribute("width", "7%");
+							}
+							break;
 						default:
 							trs[i].firstChild.setAttribute("width", "12%");
 							break;
@@ -941,14 +960,10 @@ var printingtools = {
 			if (table2 && table2.getElementsByTagName("tr").length > 0) {
 				let style = table1.getAttribute("style");
 				table1.setAttribute("style", style + "; " + tableStyle);
-				// table1.style.borderLeft = "1px solid black";
-				// table1.style.borderRight = "1px solid black";
-				// table1.style.borderTop = "1px solid black";
 			}
 			else {
 				let style = table1.getAttribute("style");
-				table1.setAttribute("style", style + "; border: " + tableStyle + ";");
-				// table1.style.border = "1px solid black";
+				table1.setAttribute("style", style + "; " + tableStyle + ";");
 			}
 			var tds1 = table1.getElementsByTagName("TD");
 			// We process the first row in a different way, to set the top-padding = 3px

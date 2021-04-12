@@ -59,3 +59,5 @@
 <!ENTITY showhide "表示または非表示">
 
 <!ENTITY useHeadersBkColor "ヘッダーの背景色指定：">
+
+<!ENTITY borderStyle "ボーダースタイル：">
