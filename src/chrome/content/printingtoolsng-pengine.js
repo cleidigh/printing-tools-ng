@@ -57,7 +57,7 @@ var printingtools = {
 			.getMostRecentWindow("mail:3pane");
 		return w;
 	},
-	
+
 	getComplexPref: function (pref) {
 		if (printingtools.prefs.getStringPref)
 			return printingtools.prefs.getStringPref(pref);
@@ -131,7 +131,7 @@ var printingtools = {
 					div.classList.add("attHdr");
 					arr[index] = trs[i];
 				}
-				Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+				// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
@@ -165,7 +165,7 @@ var printingtools = {
 					}
 
 				}
-				Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+				// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
@@ -191,14 +191,14 @@ var printingtools = {
 					arr[index] = trs[i];
 					printingtools.dateTRpos = index;
 				}
-				Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+				// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML} index ${printingtools.dateTRpos}`);
 			}
 		}
 		var table2 = printingtools.getTable(1);
 		if (table2) {
-			Services.console.logStringMessage('table 2 ');
-			Services.console.logStringMessage(table2.outerHTML);
+			// Services.console.logStringMessage('table 2 ');
+			// Services.console.logStringMessage(table2.outerHTML);
 
 			var ccPresent = false;
 			var bccPresent = false;
@@ -215,7 +215,7 @@ var printingtools = {
 
 					div.innerHTML = divHTML;
 					// var divHTML = div.innerHTML.replace(":", );
-					Services.console.logStringMessage(`header entry: ${i} ${trs[i].outerHTML}`);
+					// Services.console.logStringMessage(`header entry: ${i} ${trs[i].outerHTML}`);
 				}
 
 
@@ -230,14 +230,14 @@ var printingtools = {
 					} else {
 						arr[index] = trs[i];
 					}
-					Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+					// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 					// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 					continue;
 				}
 				regExp = new RegExp(bcc + "\\s*:");
 				index = printingtools.getIndexForHeader("%r3");
 				if (divHTML.indexOf(bcc) == 0) {
-					Services.console.logStringMessage('bcc');
+					// Services.console.logStringMessage('bcc');
 					bccPresent = true;
 
 					if (index & 0x100) {
@@ -247,14 +247,14 @@ var printingtools = {
 						trs[i].firstChild.classList.add("bccHdr");
 						arr[index] = trs[i];
 					}
-					Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+					// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 					continue;
 				}
 
 				regExp = new RegExp(cc + "\\s*:");
 				index = printingtools.getIndexForHeader("%r2");
 				if (divHTML.indexOf(cc) == 0) {
-					Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+					// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 					ccPresent = true;
 
 					if (index & 0x100) {
@@ -292,8 +292,8 @@ var printingtools = {
 			//	printingtools.dateTRpos = printingtools.dateTRpos - 1;
 		}
 
-		Services.console.logStringMessage("after sort");
-		Services.console.logStringMessage(`${table1.outerHTML}`);
+		// Services.console.logStringMessage("after sort");
+		// Services.console.logStringMessage(`${table1.outerHTML}`);
 	},
 
 	correctABprint: function (gennames) {
@@ -593,19 +593,30 @@ var printingtools = {
 		if (!noheaders)
 			printingtools.addName(borders);
 
+			
 		try {
 			// var sel = opener.content.getSelection();
+			Services.console.logStringMessage("window: " + printingtools.getMail3Pane().document.URL);
 			var sel = printingtools.getMail3Pane().content.getSelection();
+			Services.console.logStringMessage("valid selection");
+			Services.console.logStringMessage("sel " + sel);
+			var range2 = sel.getRangeAt(0);
+			var contents2 = range2.cloneContents();
+			Services.console.logStringMessage(contents2.textContent);
+			
 		} catch (error) {
 			sel = "";
+			Services.console.logStringMessage("no selection");
 		}
 		if (sel && sel != "" && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
+			Services.console.logStringMessage("process selection");
 			var range = sel.getRangeAt(0);
 			var contents = range.cloneContents();
+			Services.console.logStringMessage(contents);
 			printingtools.printSelection(contents);
-				// Services.console.logStringMessage("After selection");
-				// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
-		
+			Services.console.logStringMessage("After selection");
+			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+
 		}
 		else {
 			if (printingtools.prefs.getBoolPref("mail.inline_attachments"))
@@ -622,8 +633,8 @@ var printingtools = {
 		if (!noheaders && printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate"))
 			printingtools.truncateHeaders(printingtools.maxChars);
 
-		Services.console.logStringMessage("After truncate");
-		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+		// Services.console.logStringMessage("After truncate");
+		// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.align")) {
 			if (table2) {
@@ -662,27 +673,34 @@ var printingtools = {
 
 					switch (Services.locale.appLocaleAsBCP47.split('-')[0]) {
 						case "ja":
-						 if (table1.querySelector(".attHdr") ) {
-							trs[i].firstChild.setAttribute("width", "15.4%");
-						} else {
-							trs[i].firstChild.setAttribute("width", "9%");
-						}
-					
+							if (table1.querySelector(".attHdr")) {
+								trs[i].firstChild.setAttribute("width", "15.4%");
+							} else {
+								trs[i].firstChild.setAttribute("width", "9%");
+							}
+
+							break;
+						case "el":
+							if (table1.querySelector(".bccHdr")) {
+								trs[i].firstChild.setAttribute("width", "18.5%");
+							} else {
+								trs[i].firstChild.setAttribute("width", "13%");
+							}
 							break;
 						case "de":
 							if (table1.querySelector(".bccHdr")) {
 								trs[i].firstChild.setAttribute("width", "17%");
-							} else if (table1.querySelector(".attHdr") || table1.querySelector("#recTR") ) {
+							} else if (table1.querySelector(".attHdr") || table1.querySelector("#recTR")) {
 								trs[i].firstChild.setAttribute("width", "12.5%");
 							} else {
-								trs[i].firstChild.setAttribute("width", "7%");
+								trs[i].firstChild.setAttribute("width", "7.6%");
 							}
 							break;
 						case "ko":
 							trs[i].firstChild.setAttribute("width", "14%");
 							break;
 						case "en":
-							if (table1.querySelector(".attHdr") || table1.querySelector("#recTR") ) {
+							if (table1.querySelector(".attHdr") || table1.querySelector("#recTR")) {
 								trs[i].firstChild.setAttribute("width", "12%");
 							} else {
 								trs[i].firstChild.setAttribute("width", "7%");
@@ -694,12 +712,13 @@ var printingtools = {
 					}
 				}
 				trs[i].firstChild.style.verticalAlign = "top";
-				trs[i].firstChild.style.paddingRight = "10px";
+				// trs[i].firstChild.style.paddingRight = "10px";
+				trs[i].style.paddingRight = "10px";
 			}
 		}
 
-		Services.console.logStringMessage("After aligned");
-		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+		// Services.console.logStringMessage("After aligned");
+		// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 		table1.setAttribute("width", "100%");
 		table1.style.tableLayout = "fixed";
@@ -950,8 +969,8 @@ var printingtools = {
 		var table2 = printingtools.getTable(1);
 		var tableStyle = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.border_style");
 
-		Services.console.logStringMessage("settableborders initial table");
-		Services.console.logStringMessage(table1.outerHTML);
+		// Services.console.logStringMessage("settableborders initial table");
+		// Services.console.logStringMessage(table1.outerHTML);
 		if (noExtHeaders)
 			var table3 = null;
 		else
@@ -971,17 +990,17 @@ var printingtools = {
 			for (var i = 1; i < tds1.length; i++) {
 				tds1[i].style.padding = "0px 10px 0px 10px";
 
-				/* 
-				if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
-					let s = tds1[i].nextSibling;
+			/* 
+			if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
+				let s = tds1[i].nextSibling;
 
-					if (!s) {
+				if (!s) {
 
-						Services.console.logStringMessage("settableborders no next sibling table");
-						s = tds1[i].firstChild.nextSibling
-						let sub = s.textContent;
-						s.outerHTML = sub;
-						// s.innerHTML = `${s.innerHTML}<p  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>${sub}</p>`;
+					Services.console.logStringMessage("settableborders no next sibling table");
+					s = tds1[i].firstChild.nextSibling
+					let sub = s.textContent;
+					s.outerHTML = sub;
+					// s.innerHTML = `${s.innerHTML}<p  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>${sub}</p>`;
 						// s.innerHTML = `<p  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>${sub}</p>`;
 						Services.console.logStringMessage(s.outerHTML);
 
@@ -1044,20 +1063,20 @@ var printingtools = {
 	},
 
 	setTableLayout: function () {
-		Services.console.logStringMessage("table layout");
+		// Services.console.logStringMessage("table layout");
 		var table1 = printingtools.getTable(0);
 		var tds1 = table1.getElementsByTagName("TD");
 		// We process the first row in a different way, to set the top-padding = 3px
-		tds1[0].style.padding = "3px 10px 0px 10px";
+		tds1[0].style.padding = "3px 10px 0px 8px";
 		if (tds1[0].firstChild)
-			tds1[0].firstChild.style.paddingRight = "10px";
+			tds1[0].firstChild.style.paddingRight = "8px";
 		for (var i = 1; i < tds1.length; i++) {
 
-			tds1[i].style.padding = "0px 10px 0px 10px";
-			if (tds1[i].firstChild)
-				tds1[0].firstChild.style.paddingRight = "10px";
-			
-			Services.console.logStringMessage(`{$tds1[i].outerHTML} ${tds1[i].offsetWidth}  ${tds1[i].clientWidth}` );
+			tds1[i].style.padding = "0px 10px 0px 8px";
+			if (tds1[i].firstChild && tds1[i].firstChild.nodeName !== "#text")
+				tds1[i].firstChild.style.paddingRight = "8px";
+
+			// Services.console.logStringMessage(`{$tds1[i].outerHTML} ${tds1[i].offsetWidth}  ${tds1[i].clientWidth}`);
 
 
 			if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
@@ -1069,7 +1088,7 @@ var printingtools = {
 					s.outerHTML = sub;
 					// s.innerHTML = `${s.innerHTML}<p  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>${sub}</p>`;
 					// s.innerHTML = `<p  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>${sub}</p>`;
-					Services.console.logStringMessage(s.outerHTML);
+					// Services.console.logStringMessage(s.outerHTML);
 
 					// continue;
 				}
@@ -1085,7 +1104,7 @@ var printingtools = {
 
 			if (tds1[i].id === "attTD") {
 				let s = tds1[i].nextSibling || tds1[i];
-
+				s.style.paddingRight = "8px";
 				var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
 				// if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 				if (maxAttPerLine !== 100) {
@@ -1125,13 +1144,13 @@ var printingtools = {
 				hour: 'numeric', minute: 'numeric', day: '2-digit',
 				// hour12: false,
 			};
-			Services.console.logStringMessage('short date formats');
-			Services.console.logStringMessage("en-US : " + new Intl.DateTimeFormat('en-US', o).format(date_obj));
-			Services.console.logStringMessage("en-HK : " + new Intl.DateTimeFormat('en-HK', o).format(date_obj));
-			Services.console.logStringMessage("en-HK : " + new Intl.DateTimeFormat('en-HK').format(date_obj));
-			Services.console.logStringMessage("en-UK : " + new Intl.DateTimeFormat('en-UK', o).format(date_obj));
-			Services.console.logStringMessage("de : " + new Intl.DateTimeFormat('de', o).format(date_obj));
-			Services.console.logStringMessage("default : " + new Intl.DateTimeFormat('default', o).format(date_obj));
+			// Services.console.logStringMessage('short date formats');
+			// Services.console.logStringMessage("en-US : " + new Intl.DateTimeFormat('en-US', o).format(date_obj));
+			// Services.console.logStringMessage("en-HK : " + new Intl.DateTimeFormat('en-HK', o).format(date_obj));
+			// Services.console.logStringMessage("en-HK : " + new Intl.DateTimeFormat('en-HK').format(date_obj));
+			// Services.console.logStringMessage("en-UK : " + new Intl.DateTimeFormat('en-UK', o).format(date_obj));
+			// Services.console.logStringMessage("de : " + new Intl.DateTimeFormat('de', o).format(date_obj));
+			// Services.console.logStringMessage("default : " + new Intl.DateTimeFormat('default', o).format(date_obj));
 
 
 			if (longFormat === 0) {
