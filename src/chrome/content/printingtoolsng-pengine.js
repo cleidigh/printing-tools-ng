@@ -674,9 +674,9 @@ var printingtools = {
 					switch (Services.locale.appLocaleAsBCP47.split('-')[0]) {
 						case "ja":
 							if (table1.querySelector(".attHdr")) {
-								trs[i].firstChild.setAttribute("width", "15.4%");
+								trs[i].firstChild.setAttribute("width", "17%");
 							} else {
-								trs[i].firstChild.setAttribute("width", "9%");
+								trs[i].firstChild.setAttribute("width", "12%");
 							}
 
 							break;
@@ -1063,23 +1063,27 @@ var printingtools = {
 	},
 
 	setTableLayout: function () {
-		// Services.console.logStringMessage("table layout");
+		Services.console.logStringMessage("table layout");
 		var table1 = printingtools.getTable(0);
 		var tds1 = table1.getElementsByTagName("TD");
-		// We process the first row in a different way, to set the top-padding = 3px
-		tds1[0].style.padding = "3px 10px 0px 8px";
-		if (tds1[0].firstChild)
-			tds1[0].firstChild.style.paddingRight = "8px";
-		for (var i = 1; i < tds1.length; i++) {
+		for (var i = 0; i < tds1.length; i++) {
+			if (i === 0) {
+				// We process the first row in a different way, to set the top-padding = 3px
+				tds1[0].style.padding = "3px 10px 0px 8px";
+				if (tds1[0].firstChild)
+					tds1[0].firstChild.style.paddingRight = "8px";
+			} else {
+				tds1[i].style.padding = "0px 10px 0px 8px";
+			}
 
-			tds1[i].style.padding = "0px 10px 0px 8px";
 			if (tds1[i].firstChild && tds1[i].firstChild.nodeName !== "#text")
 				tds1[i].firstChild.style.paddingRight = "8px";
 
-			// Services.console.logStringMessage(`{$tds1[i].outerHTML} ${tds1[i].offsetWidth}  ${tds1[i].clientWidth}`);
+			Services.console.logStringMessage(`${tds1[i].outerHTML} ${tds1[i].offsetWidth}  ${tds1[i].clientWidth}`);
 
 
 			if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
+				tds1[i].firstChild.style.float = "left";
 				let s = tds1[i].nextSibling;
 				if (!s) {
 

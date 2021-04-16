@@ -480,7 +480,8 @@ function move(offset) {
 	var listElement = gheaderList.list;
 	var selectedID = Number(gheaderList.controller.getSelectedRowDataId());
 	Services.console.logStringMessage(`move ${offset} ${selectedID}`);
-	if (selectedID === '1' && offset  === 1 || selectedID === listElement.rows.length && offset  === -1) {
+	Services.console.logStringMessage(listElement.outerHTML);
+	if (selectedID === 1 && offset  === 1 || selectedID === listElement.rows.length && offset  === -1) {
 		return;
 	}
 
@@ -500,9 +501,19 @@ function move(offset) {
 		swapElement.parentNode.insertBefore(selectedElement, swapElement.nextSibling);
 	}
 	gheaderList.reIndex();
-	selectedElement.setAttribute("data-id", selectedID - 1);
-	swapElement.setAttribute("data-id", selectedID + 1);
-	gheaderList.controller.selectRowByDataId(selectedID - 1);
+	Services.console.logStringMessage(listElement.outerHTML);
+	Services.console.logStringMessage(`swap ${swapElement.getAttribute("data-id")}`);
+	if (offset === 1) {
+		selectedElement.setAttribute("data-id", selectedID - 1);
+		swapElement.setAttribute("data-id", selectedID);
+		gheaderList.controller.selectRowByDataId(selectedID - 1);
+	} else {
+		selectedElement.setAttribute("data-id", selectedID + 1);
+		swapElement.setAttribute("data-id", selectedID - 1);
+		
+		gheaderList.controller.selectRowByDataId(selectedID + 1);
+	}
+	Services.console.logStringMessage(listElement.outerHTML);
 }
 
 function toggleHeaderShow() {
