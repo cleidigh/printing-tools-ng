@@ -660,6 +660,48 @@ var printingtools = {
 					trs[i].firstChild.removeAttribute("style");
 					var newTDelement = trs[i].insertBefore(tdElement, trs[i].firstChild);
 					newTDelement.setAttribute("style", style);
+
+					switch (Services.locale.appLocaleAsBCP47.split('-')[0]) {
+						case "ja":
+							if (table1.querySelector(".attHdr")) {
+								trs[i].firstChild.setAttribute("width", "17%");
+							} else {
+								trs[i].firstChild.setAttribute("width", "12%");
+							}
+
+							break;
+						case "el":
+							if (table1.querySelector(".bccHdr")) {
+								trs[i].firstChild.setAttribute("width", "18.5%");
+							} else {
+								trs[i].firstChild.setAttribute("width", "13%");
+							}
+							break;
+						case "de":
+							if (table1.querySelector(".bccHdr")) {
+								trs[i].firstChild.setAttribute("width", "17%");
+							} else if (table1.querySelector(".attHdr") || table1.querySelector("#recTR")) {
+								trs[i].firstChild.setAttribute("width", "12.5%");
+							} else {
+								trs[i].firstChild.setAttribute("width", "7.6%");
+							}
+							break;
+						case "ko":
+							trs[i].firstChild.setAttribute("width", "14%");
+							break;
+						case "en":
+							if (table1.querySelector(".attHdr") || table1.querySelector("#recTR")) {
+								trs[i].firstChild.setAttribute("width", "12%");
+							} else {
+								trs[i].firstChild.setAttribute("width", "7%");
+							}
+							break;
+						default:
+							trs[i].firstChild.setAttribute("width", "12%");
+							break;
+					}
+				
+
 					newTDelement.appendChild(printingtools.doc.getElementById("spanTD"));
 				}
 				else {
@@ -1107,6 +1149,9 @@ var printingtools = {
 			}
 
 			if (tds1[i].id === "attTD") {
+				if (i === 1) {
+					tds1[i].style.paddingTop = "3px";
+				}
 				let s = tds1[i].nextSibling || tds1[i];
 				s.style.paddingRight = "8px";
 				var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
