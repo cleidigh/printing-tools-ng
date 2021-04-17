@@ -1,6 +1,6 @@
 <!ENTITY PMDlabel1 "タイムゾーンに合わせて日付を印刷する">
 <!ENTITY PMDlabel2 "添付ファイルリストの印刷方法をカスタマイズする">
-<!ENTITY PMDlabel3 "ヘッダー情報を線で囲む">
+<!ENTITY PMDlabel3 "ヘッダー情報に枠線を追加する">
 <!ENTITY PMDlabel4 "ヘッダー情報を隠す">
 <!ENTITY PMDlabel5 "ヘッダーの 1 行当たりの文字数を">
 <!ENTITY PMDlabel6 "にする">
@@ -60,4 +60,4 @@
 
 <!ENTITY useHeadersBkColor "ヘッダーの背景色指定：">
 
-<!ENTITY borderStyle "ボーダースタイル：">
+<!ENTITY borderStyle "枠線のスタイル指定：">
