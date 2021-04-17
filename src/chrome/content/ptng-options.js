@@ -476,11 +476,24 @@ function move2(offset) {
 	list.selectedIndex = newpos;
 }
 
+function dumpList() {
+	var listElement = gheaderList.list;
+	var selectedID = Number(gheaderList.controller.getSelectedRowDataId());
+
+	[...listElement.rows].forEach(element => {
+		let v = element.firstChild.textContent;
+		let i = element.getAttribute("data-id")
+		Services.console.logStringMessage(`${v} ${i}`);
+	});
+}
+
 function move(offset) {
 	var listElement = gheaderList.list;
 	var selectedID = Number(gheaderList.controller.getSelectedRowDataId());
 	Services.console.logStringMessage(`move ${offset} ${selectedID}`);
 	Services.console.logStringMessage(listElement.outerHTML);
+	dumpList();
+
 	if (selectedID === 1 && offset  === 1 || selectedID === listElement.rows.length && offset  === -1) {
 		return;
 	}
@@ -500,8 +513,15 @@ function move(offset) {
 	} else {
 		swapElement.parentNode.insertBefore(selectedElement, swapElement.nextSibling);
 	}
-	gheaderList.reIndex();
+
+	Services.console.logStringMessage("before the next");
 	Services.console.logStringMessage(listElement.outerHTML);
+	dumpList();
+	
+	// gheaderList.reIndex();
+	// Services.console.logStringMessage("after reading");
+	// Services.console.logStringMessage(listElement.outerHTML);
+	// dumpList();
 	Services.console.logStringMessage(`swap ${swapElement.getAttribute("data-id")}`);
 	if (offset === 1) {
 		selectedElement.setAttribute("data-id", selectedID - 1);
@@ -509,22 +529,37 @@ function move(offset) {
 		gheaderList.controller.selectRowByDataId(selectedID - 1);
 	} else {
 		selectedElement.setAttribute("data-id", selectedID + 1);
-		swapElement.setAttribute("data-id", selectedID - 1);
+		swapElement.setAttribute("data-id", selectedID );
 		
 		gheaderList.controller.selectRowByDataId(selectedID + 1);
 	}
+	gheaderList.reIndex();
 	Services.console.logStringMessage(listElement.outerHTML);
+	dumpList();
 }
 
 function toggleHeaderShow() {
+	Services.console.logStringMessage("toggle show");
+
+	Services.console.logStringMessage(gheaderList.list.outerHTML);
+	dumpList();
 	var selectedElement = gheaderList.controller.getSelectedRowElement();
 	var idx = Number(selectedElement.getAttribute("data-id")) - 1;
 	var s = selectedElement.getAttribute("data-show");
-	s = (s === "true") ? "false" : "true";
+	Services.console.logStringMessage(`${selectedElement.outerHTML}\n${idx} ${s}`);
+	s = ((s === "true") ? "false" : "true");
+	// s = !s;
+	Services.console.logStringMessage(`${selectedElement.outerHTML}\n${idx} ${s}`);
 	var t = gheaderList.items[idx].values().headerToken;
-	t = (s === "true") ? t.replace('!', '') : '!' + t;
+	t = ((s === "true") ? t.replace('!', '') : '!' + t);
+	Services.console.logStringMessage(`after just ${s} ${t}`); 
 	gheaderList.items[idx].values({"show": s, "headerToken": t});
-	// selectedElement.setAttribute("data-show", s === "true" ? "false" : "true");
+
+	// selectedElement.setAttribute("data-show", s);
+	Services.console.logStringMessage(`${selectedElement.outerHTML}\n${idx} ${s} ${t}`);
+
+	Services.console.logStringMessage(gheaderList.list.outerHTML);
+	dumpList();
 	// if (s) {
 		
 	// } else {
