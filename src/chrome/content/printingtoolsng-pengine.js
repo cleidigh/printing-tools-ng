@@ -205,7 +205,7 @@ var printingtools = {
 			// Services.console.logStringMessage('table 2 ');
 			// Services.console.logStringMessage(table2.outerHTML);
 
-			var attPresent = false;
+			// var attPresent = false;
 			var ccPresent = false;
 			var bccPresent = false;
 
@@ -229,7 +229,7 @@ var printingtools = {
 				regExp = new RegExp(to + "\\s*:");
 				if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r1");
-					attPresent = true;
+					// attPresent = true;
 					// Services.console.logStringMessage('to');
 					if (index & 0x100) {
 						arr[index &= ~0x100] = trs[i];
@@ -302,9 +302,9 @@ var printingtools = {
 			tempPos--;
 		}
 
-		if (!attPresent && attIndex < printingtools.dateTRpos) {
+		if (attPresent && attIndex < printingtools.dateTRpos) {
 			// printingtools.dateTRpos--;
-			tempPos--;
+			tempPos++;
 		}
 
 		if (subjectPresent && subjectIndex < printingtools.dateTRpos) {
