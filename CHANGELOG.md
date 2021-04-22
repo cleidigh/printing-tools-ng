@@ -2,6 +2,27 @@
 
 ## Versions
 
+Version 2.0.5 : 68/78 Update - April 23, 2021
+
+- Allow compatibility to 87.0 (experimental support only)
+- Add #44 increase maximum font sizes
+- Add option for background color
+- Add option for customizable borders w/CSS
+- Fix #62, #8 Printing selected text w/Print command (not preview)
+- Fix #53 handle embedded tables sizing
+- Fix #50 localize headers for Japanese
+- Fix #49, #30 layout issues, headers 
+- Fix #46, #37, Japanese locale improvements @kiki-ja
+- Fix #34 German locale improvements @RRoenn
+- Fix #52 localize background color label
+
+A big thanks for testers:
+@RRoenn
+@kiki-ja
+@tidebre67 
+@KC-T 
+@madvinegar
+
 Version 2.0.4 : 68/78 Update - March 9, 2021
 
 - Move options on 78 to addons page 
