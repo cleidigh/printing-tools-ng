@@ -86,8 +86,8 @@ var printingtools = {
 	},
 
 	sortHeaders: function () {
-		Services.console.logStringMessage("printingtools: sortheaders");
-		Services.console.logStringMessage("printingtools: sortheader order " + printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order"));
+		// Services.console.logStringMessage("printingtools: sortheaders");
+		// Services.console.logStringMessage("printingtools: sortheader order " + printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order"));
 
 		var table1 = printingtools.getTable(0);
 		var trs = table1.getElementsByTagName("TR");
@@ -289,7 +289,7 @@ var printingtools = {
 		index = printingtools.getIndexForHeader("%r3");
 		let bccIndex = index &= ~0x100;
 
-		Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
+		// Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
 
 		let tempPos = printingtools.dateTRpos;
 		if (!ccPresent && ccIndex < printingtools.dateTRpos) {
@@ -322,8 +322,8 @@ var printingtools = {
 			//	printingtools.dateTRpos = printingtools.dateTRpos - 1;
 		}
 
-		Services.console.logStringMessage("after sort");
-		Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
+		// Services.console.logStringMessage("after sort");
+		// Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
 	},
 
 	correctABprint: function (gennames) {
@@ -626,26 +626,26 @@ var printingtools = {
 
 		try {
 			// var sel = opener.content.getSelection();
-			Services.console.logStringMessage("window: " + printingtools.getMail3Pane().document.URL);
+			// Services.console.logStringMessage("window: " + printingtools.getMail3Pane().document.URL);
 			var sel = printingtools.getMail3Pane().content.getSelection();
-			Services.console.logStringMessage("valid selection");
-			Services.console.logStringMessage("sel " + sel);
+			// Services.console.logStringMessage("valid selection");
+			// Services.console.logStringMessage("sel " + sel);
 			var range2 = sel.getRangeAt(0);
 			var contents2 = range2.cloneContents();
-			Services.console.logStringMessage(contents2.textContent);
+			// Services.console.logStringMessage(contents2.textContent);
 
 		} catch (error) {
 			sel = "";
-			Services.console.logStringMessage("no selection");
+			// Services.console.logStringMessage("no selection");
 		}
 		if (sel && sel != "" && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
-			Services.console.logStringMessage("process selection");
+			// Services.console.logStringMessage("process selection");
 			var range = sel.getRangeAt(0);
 			var contents = range.cloneContents();
-			Services.console.logStringMessage(contents);
+			// Services.console.logStringMessage(contents);
 			printingtools.printSelection(contents);
-			Services.console.logStringMessage("After selection");
-			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+			// Services.console.logStringMessage("After selection");
+			// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 		}
 		else {
@@ -825,8 +825,8 @@ var printingtools = {
 		}
 		printingtools.setTableLayout();
 
-		Services.console.logStringMessage("final document");
-		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+		// Services.console.logStringMessage("final document");
+		// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 	},
 
@@ -1063,32 +1063,7 @@ var printingtools = {
 			for (var i = 1; i < tds1.length; i++) {
 				tds1[i].style.padding = "0px 10px 0px 10px";
 
-				/* 
-				if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
-					let s = tds1[i].nextSibling;
-	
-					if (!s) {
-	
-						Services.console.logStringMessage("settableborders no next sibling table");
-						s = tds1[i].firstChild.nextSibling
-						let sub = s.textContent;
-						s.outerHTML = sub;
-						// s.innerHTML = `${s.innerHTML}<p  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>${sub}</p>`;
-							// s.innerHTML = `<p  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>${sub}</p>`;
-							Services.console.logStringMessage(s.outerHTML);
-	
-						}
-						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
-							s.style.overflow = "hidden";
-							s.style.whiteSpace = "nowrap";
-							s.style.textOverflow = "ellipsis";
-	
-						} else {
-							s.style.wordWrap = "break-word";
-						}
-	
-					}
-	 */
+				
 				if (tds1[i].id === "attTD") {
 					let s = tds1[i].nextSibling || tds1[i];
 
@@ -1101,8 +1076,6 @@ var printingtools = {
 							s.style.overflow = "hidden";
 						}
 						s.style.whiteSpace = "wrap";
-						// s.style.textOverflow = "ellipsis";
-
 						s.style.wordWrap = "break-word";
 					}
 					tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
@@ -1136,7 +1109,7 @@ var printingtools = {
 	},
 
 	setTableLayout: function () {
-		Services.console.logStringMessage("table layout");
+		// Services.console.logStringMessage("table layout");
 		var table1 = printingtools.getTable(0);
 		var tds1 = table1.getElementsByTagName("TD");
 		for (var i = 0; i < tds1.length; i++) {
@@ -1152,7 +1125,7 @@ var printingtools = {
 			if (tds1[i].firstChild && tds1[i].firstChild.nodeName !== "#text")
 				tds1[i].firstChild.style.paddingRight = "8px";
 
-			Services.console.logStringMessage(`${tds1[i].outerHTML} ${tds1[i].offsetWidth}  ${tds1[i].clientWidth}`);
+			// Services.console.logStringMessage(`${tds1[i].outerHTML} ${tds1[i].offsetWidth}  ${tds1[i].clientWidth}`);
 
 
 			if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
@@ -1163,11 +1136,6 @@ var printingtools = {
 					s = tds1[i].firstChild.nextSibling
 					let sub = s.textContent;
 					s.outerHTML = sub;
-					// s.innerHTML = `${s.innerHTML}<p  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>${sub}</p>`;
-					// s.innerHTML = `<p  style='text-overflow: ellipsis; white-space: nowrap; overflow: hidden;'>${sub}</p>`;
-					// Services.console.logStringMessage(s.outerHTML);
-
-					// continue;
 				}
 				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 					s.style.overflow = "hidden";
@@ -1212,25 +1180,12 @@ var printingtools = {
 	formatDate: function (msecs, longFormat) {
 		var formatted_date = null;
 		var options;
-		Services.console.logStringMessage(Services.locale.appLocaleAsBCP47);
+		// Services.console.logStringMessage(Services.locale.appLocaleAsBCP47);
 		if (!longFormat)
 			longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
 		try {
 			var date_obj = new Date(msecs);
 			// cleidigh fix short format #28
-
-			let o = {
-				year: 'numeric', month: '2-digit',
-				hour: 'numeric', minute: 'numeric', day: '2-digit',
-				// hour12: false,
-			};
-			// Services.console.logStringMessage('short date formats');
-			// Services.console.logStringMessage("en-US : " + new Intl.DateTimeFormat('en-US', o).format(date_obj));
-			// Services.console.logStringMessage("en-HK : " + new Intl.DateTimeFormat('en-HK', o).format(date_obj));
-			// Services.console.logStringMessage("en-HK : " + new Intl.DateTimeFormat('en-HK').format(date_obj));
-			// Services.console.logStringMessage("en-UK : " + new Intl.DateTimeFormat('en-UK', o).format(date_obj));
-			// Services.console.logStringMessage("de : " + new Intl.DateTimeFormat('de', o).format(date_obj));
-			// Services.console.logStringMessage("default : " + new Intl.DateTimeFormat('default', o).format(date_obj));
 
 
 			if (longFormat === 0) {
