@@ -71,7 +71,9 @@
 		<checkbox id="addP7M" label="&PMDlabel22;" /> 
 	</hbox>
 	<hbox align="center">
-		<checkbox id="PMDborders" label="&PMDlabel3;"  /> 
+		<checkbox id="PMDborders" label="&PMDlabel3;. "  /> 
+		<label value="&borderStyle; (CSS)" />
+		<html:input type="text" id="border_style" value="" style="width:180px;" />
 	</hbox>
 	<hbox align="center">
 		<checkbox id="PMDhide" label="&PMDlabel4;" /> 
@@ -151,6 +153,18 @@
 	   		<menuitem label="24" value="24" id="x24" />
 			<menuitem label="30" value="30" id="x30" />
 			<menuitem label="36" value="36" id="x36" />
+			<menuitem label="50" value="50" id="x50" />
+			<menuitem label="100" value="100" id="x100" />
+			<menuitem label="150" value="150" id="x150" />
+			<menuitem label="200" value="200" id="x200" />
+			<menuitem label="250" value="250" id="x250" />
+			<menuitem label="300" value="300" id="x300" />
+			<menuitem label="350" value="350" id="x350" />
+			<menuitem label="400" value="400" id="x400" />
+			<menuitem label="450" value="450" id="x450" />
+			<menuitem label="500" value="500" id="x500" />
+			<menuitem label="550" value="550" id="x550" />
+			<menuitem label="1000" value="1000" id="x1000" />
 			</menupopup>
 			</menulist>
 		</hbox>
@@ -185,8 +199,27 @@
 			<menuitem label="24" value="24" id="s24" />
 			<menuitem label="30" value="30" id="s30" />
 			<menuitem label="36" value="36" id="s36" />
+			<menuitem label="50" value="50" id="s50" />
+			<menuitem label="100" value="100" id="s100" />
+			<menuitem label="150" value="150" id="s150" />
+			<menuitem label="200" value="200" id="s200" />
+			<menuitem label="250" value="250" id="s250" />
+			<menuitem label="300" value="300" id="s300" />
+			<menuitem label="350" value="350" id="s350" />
+			<menuitem label="400" value="400" id="s400" />
+			<menuitem label="450" value="450" id="s450" />
+			<menuitem label="500" value="500" id="s500" />
+			<menuitem label="550" value="550" id="s550" />
+			<menuitem label="1000" value="1000" id="s1000" />
 			</menupopup>
 			</menulist>
+	</hbox>
+	<spacer height="10px"/>
+	<hbox align="center">
+		<checkbox id="useHeadersBkColor" label="&useHeadersBkColor;" oncommand="setTimeout(toggleUseBackgroundColor,300,this)"/> 
+		<!-- <label value="Use Header Background Color : " style="margin:2px"/>  -->
+			<html:input type="color" id="headersBkColor" value="#ffffff" style="padding-right:4px"/>
+			
 	</hbox>
 	</tabpanel>
 	<tabpanel>

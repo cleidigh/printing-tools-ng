@@ -57,3 +57,5 @@
 <!ENTITY attachmentsPerLine "Vedhæftede filer pr. Linje:">
 <!ENTITY wrap "Pak ind">
 <!ENTITY showhide "Vis eller skjul">
+<!ENTITY useHeadersBkColor "Brug header baggrundsfarve:">
+<!ENTITY borderStyle "Grænsestil:">

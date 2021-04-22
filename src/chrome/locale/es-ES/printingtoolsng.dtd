@@ -56,3 +56,5 @@
 <!ENTITY attachmentsPerLine "Archivos adjuntos por línea:">
 <!ENTITY wrap "Envolver">
 <!ENTITY showhide "Mostrar u ocultar">
+<!ENTITY useHeadersBkColor "Usar color de fondo del encabezado:">
+<!ENTITY borderStyle "Estilo de borde:">

@@ -56,3 +56,5 @@
 <!ENTITY attachmentsPerLine "Anexos por liña:">
 <!ENTITY wrap "Envoltura">
 <!ENTITY showhide "Mostrar ou Ocultar">
+<!ENTITY useHeadersBkColor "Usar a cor de fondo da cabeceira:">
+<!ENTITY borderStyle "Estilo de bordo:">

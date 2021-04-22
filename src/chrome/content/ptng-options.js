@@ -98,7 +98,17 @@ function initPMDpanel() {
 	document.getElementById("PMDdate").checked = prefs.getBoolPref("extensions.printingtoolsng.process.date");
 	document.getElementById("PMDattach").checked = prefs.getBoolPref("extensions.printingtoolsng.process.attachments");
 	document.getElementById("PMDborders").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.setborders");
+	document.getElementById("border_style").value = prefs.getCharPref("extensions.printingtoolsng.headers.border_style");
+
 	document.getElementById("PMDhide").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.hide");
+
+
+	document.getElementById("useHeadersBkColor").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color");
+	toggleUseBackgroundColor(document.getElementById("useHeadersBkColor"));
+
+	document.getElementById("headersBkColor").value = prefs.getCharPref("extensions.printingtoolsng.headers.background.color");
+
+
 	document.getElementById("PMDextHide").checked = prefs.getBoolPref("extensions.printingtoolsng.ext_headers.hide");
 	document.getElementById("PMDhideImgs").checked = prefs.getBoolPref("extensions.printingtoolsng.images.hide");
 	document.getElementById("resizeImgs").checked = prefs.getBoolPref("extensions.printingtoolsng.images.resize");
@@ -298,7 +308,13 @@ function onSelectListRow(event, data_id) {
 }
 
 function getHeaderLabel(string) {
-	var bundle = strBundleService.createBundle("chrome://messenger/locale/mime.properties");
+	var bundle;
+		if ( Services.locale.appLocaleAsBCP47 === "ja") {
+			bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
+		} else {
+			bundle = strBundleService.createBundle("chrome://messenger/locale/mime.properties");
+		}
+		
 	var bundle2 = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 	switch (string) {
 		case "%a":
@@ -338,7 +354,10 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.process.date", document.getElementById("PMDdate").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.process.attachments", document.getElementById("PMDattach").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.setborders", document.getElementById("PMDborders").checked);
+	prefs.setCharPref("extensions.printingtoolsng.headers.border_style", document.getElementById("border_style").value);
+
 	prefs.setBoolPref("extensions.printingtoolsng.headers.hide", document.getElementById("PMDhide").checked);
+	prefs.setCharPref("extensions.printingtoolsng.headers.background.color", document.getElementById("headersBkColor").value);
 	prefs.setBoolPref("extensions.printingtoolsng.ext_headers.hide", document.getElementById("PMDextHide").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.images.hide", document.getElementById("PMDhideImgs").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.images.resize", document.getElementById("resizeImgs").checked);
@@ -374,6 +393,12 @@ function savePMDprefs() {
 	size = document.getElementById("fontsize").selectedItem.id.replace("x", "");
 	prefs.setIntPref("extensions.printingtoolsng.messages.size", size);
 	prefs.setIntPref("extensions.printingtoolsng.messages.style_apply", document.getElementById("radiostyle").selectedIndex);
+
+	let ubkc = document.getElementById("useHeadersBkColor").checked;
+	prefs.setBoolPref("extensions.printingtoolsng.headers.use_background_color", ubkc);
+
+	prefs.setCharPref("extensions.printingtoolsng.headers.background.color", document.getElementById("headersBkColor").value);
+	
 
 	var list = document.getElementById("headersList");
 	var val = "";
@@ -414,7 +439,7 @@ function savePMDabprefs(fullpanel) {
 
 	var fontlistchild = document.getElementById("ABfontlist").getElementsByTagName("menuitem");
 	var selfont = fontlistchild[document.getElementById("ABfontlist").selectedIndex].getAttribute("value");
-	prefs.setCharPref("extensions.printingtoolsng.addressbook.font_family", selfont);
+	setComplexPref("extensions.printingtoolsng.addressbook.font_family", selfont);
 
 	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family", document.getElementById("ABcustomFont").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.addressbook.cut_notes", document.getElementById("PMDcutnotes").checked);
@@ -451,10 +476,25 @@ function move2(offset) {
 	list.selectedIndex = newpos;
 }
 
+function dumpList() {
+	var listElement = gheaderList.list;
+	var selectedID = Number(gheaderList.controller.getSelectedRowDataId());
+
+	[...listElement.rows].forEach(element => {
+		let v = element.firstChild.textContent;
+		let i = element.getAttribute("data-id")
+		// Services.console.logStringMessage(`${v} ${i}`);
+	});
+}
+
 function move(offset) {
 	var listElement = gheaderList.list;
-	var selectedID = gheaderList.controller.getSelectedRowDataId();
-	if (selectedID === '1' && offset > 1 || selectedID === listElement.rows.length && offset < 0) {
+	var selectedID = Number(gheaderList.controller.getSelectedRowDataId());
+	// Services.console.logStringMessage(`move ${offset} ${selectedID}`);
+	// Services.console.logStringMessage(listElement.outerHTML);
+	dumpList();
+
+	if (selectedID === 1 && offset  === 1 || selectedID === listElement.rows.length && offset  === -1) {
 		return;
 	}
 
@@ -473,27 +513,57 @@ function move(offset) {
 	} else {
 		swapElement.parentNode.insertBefore(selectedElement, swapElement.nextSibling);
 	}
-	gheaderList.reindex();
-	selectedElement.setAttribute("data-id", selectedID - 1);
-	swapElement.setAttribute("data-id", selectedID + 1);
-	gheaderList.controller.selectRowByDataId(selectedID - 1);
+
+	// Services.console.logStringMessage(listElement.outerHTML);
+	dumpList();
+	
+	// Services.console.logStringMessage(`swap ${swapElement.getAttribute("data-id")}`);
+	if (offset === 1) {
+		selectedElement.setAttribute("data-id", selectedID - 1);
+		swapElement.setAttribute("data-id", selectedID);
+		gheaderList.controller.selectRowByDataId(selectedID - 1);
+	} else {
+		selectedElement.setAttribute("data-id", selectedID + 1);
+		swapElement.setAttribute("data-id", selectedID );
+		
+		gheaderList.controller.selectRowByDataId(selectedID + 1);
+	}
+	gheaderList.reIndex();
+	// Services.console.logStringMessage(listElement.outerHTML);
+	dumpList();
 }
 
 function toggleHeaderShow() {
+	// Services.console.logStringMessage("toggle show");
+
+	// Services.console.logStringMessage(gheaderList.list.outerHTML);
+	dumpList();
 	var selectedElement = gheaderList.controller.getSelectedRowElement();
 	var idx = Number(selectedElement.getAttribute("data-id")) - 1;
 	var s = selectedElement.getAttribute("data-show");
-	s = (s === "true") ? "false" : "true";
+	// Services.console.logStringMessage(`${selectedElement.outerHTML}\n${idx} ${s}`);
+	s = ((s === "true") ? "false" : "true");
+	// s = !s;
+	// Services.console.logStringMessage(`${selectedElement.outerHTML}\n${idx} ${s}`);
 	var t = gheaderList.items[idx].values().headerToken;
-	t = (s === "true") ? t.replace('!', '') : '!' + t;
+	t = ((s === "true") ? t.replace('!', '') : '!' + t);
+	// Services.console.logStringMessage(`after just ${s} ${t}`); 
 	gheaderList.items[idx].values({"show": s, "headerToken": t});
-	// selectedElement.setAttribute("data-show", s === "true" ? "false" : "true");
+
+	// Services.console.logStringMessage(`${selectedElement.outerHTML}\n${idx} ${s} ${t}`);
+	// Services.console.logStringMessage(gheaderList.list.outerHTML);
+	dumpList();
 	// if (s) {
 		
 	// } else {
 		
 	// }
 }
+
+function toggleUseBackgroundColor(el) {
+	document.getElementById("headersBkColor").disabled = !el.checked;
+}
+
 function toggleCiteStyle(el) {
 	document.getElementById("citeColor").disabled = !el.checked;
 	document.getElementById("citeSize").disabled = !el.checked;

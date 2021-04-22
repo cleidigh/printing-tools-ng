@@ -30,6 +30,7 @@
 <!ENTITY withSize "with size ">
 <!ENTITY forBody "for body message">
 <!ENTITY forHeaders "just for headers">
+<!ENTITY useHeadersBkColor "Use header background Color:">
 <!ENTITY misc "Miscellaneous">
 <!ENTITY order "Headers order">
 <!ENTITY headers "Headers">
@@ -57,5 +58,6 @@
 <!ENTITY attachmentsPerLine "Attachments per Line: ">
 <!ENTITY wrap "Wrap">
 <!ENTITY showhide "Show / Hide">
+<!ENTITY borderStyle "Border style:">
 
 
