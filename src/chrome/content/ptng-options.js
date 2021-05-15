@@ -173,7 +173,7 @@ function initPMDpanel() {
 	fontlist.selectedIndex = selindex;
 
 	toggleCiteStyle(document.getElementById("citeCheck"));
-	toggleMessageStyle(document.getElementById("messageStyle"));
+	toggleMessageStyle(document.getElementById("messageStyle"), false);
 	toggleAtt();
 
 	// cleidigh fix
@@ -569,10 +569,17 @@ function toggleCiteStyle(el) {
 	document.getElementById("citeSize").disabled = !el.checked;
 }
 
-function toggleMessageStyle(el) {
+function toggleMessageStyle(el, notify) {
 	document.getElementById("fontlist").disabled = !el.checked;
 	document.getElementById("fontsize").disabled = !el.checked;
 	document.getElementById("radiostyle").disabled = !el.checked;
+	if (document.getElementById("messageStyle").checked && notify) {
+		alert("The system option:\n  Allow messages to use other fonts\nhas been enabled");
+		prefs.setIntPref("browser.display.use_document_fonts", 1);
+	} else if(notify) {
+		alert("The system option:\n  Allow messages to use other fonts\nhas been disabled");
+		prefs.setIntPref("browser.display.use_document_fonts", 0);
+	}
 }
 
 function toggleAtt() {
