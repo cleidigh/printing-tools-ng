@@ -570,11 +570,15 @@ function toggleMessageStyle(el, notify) {
 	document.getElementById("fontlist").disabled = !el.checked;
 	document.getElementById("fontsize").disabled = !el.checked;
 	document.getElementById("radiostyle").disabled = !el.checked;
+	var strBundleService = Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService);
+	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 	if (document.getElementById("messageStyle").checked && notify) {
-		alert("The system option:\n  Allow messages to use other fonts\nhas been enabled");
+		// alert("The system option:\n  Allow messages to use other fonts\nhas been enabled");
+		alert(bundle.GetStringFromName("allowFonts"));
 		prefs.setIntPref("browser.display.use_document_fonts", 1);
 	} else if(notify) {
-		alert("The system option:\n  Allow messages to use other fonts\nhas been disabled");
+		// alert("The system option:\n  Allow messages to use other fonts\nhas been disabled");
+		alert(bundle.GetStringFromName("disallowFonts"));
 		prefs.setIntPref("browser.display.use_document_fonts", 0);
 	}
 }
