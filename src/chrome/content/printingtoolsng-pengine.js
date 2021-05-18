@@ -1306,7 +1306,8 @@ var printingtools = {
 					}
 					var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
 					if (withIcon) {
-						var imgSrc = printingtools.findIconSrc(currAtt);
+						var filename = currAtt.substring(0, currAtt.lastIndexOf("&")).toLowerCase();
+						var imgSrc = printingtools.findIconSrc(filename);
 						// currAtt = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</nobr>";
 						// currAtt = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "";
 						// currAtt = '<div style="word-wrap: pre-line" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</div>";
@@ -1338,7 +1339,8 @@ var printingtools = {
 						comma = ", ";
 					var attDiv = tds[0].innerHTML;
 					if (withIcon) {
-						var imgSrc = printingtools.findIconSrc(attDiv);
+						var filename = attDiv.substring(0, attDiv.lastIndexOf("&")).toLowerCase();
+						var imgSrc = printingtools.findIconSrc(filename);
 						// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
 						attDiv = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "";
 					}
@@ -1362,12 +1364,12 @@ var printingtools = {
 							var attDiv = atts[i].getAttribute("tooltiptext");
 						else
 							var attDiv = atts[i].label;
-						if (attDiv.lastIndexOf(".p7m") + 4 != attDiv.length && attDiv.lastIndexOf(".vcf") + 4 != attDiv.length)
+						if (attDiv.lastIndexOf(".p7m") + 4 != attDiv.length && attDiv.lastIndexOf(".p7s") + 4 != attDiv.length && attDiv.lastIndexOf(".vcf") + 4 != attDiv.length)
 							continue;
 						if (!firsttime)
 							comma = ", ";
 						if (Array.isArray)
-							attDiv = atts[i].label;
+							attDiv = atts[i].attachment.name;
 						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon")) {
 							var imgSrc = printingtools.findIconSrc(attDiv);
 							// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon"  height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
@@ -1411,10 +1413,9 @@ var printingtools = {
 
 	findIconSrc: function (filename) {
 		var url;
-		var ext = filename.substring(0, filename.lastIndexOf("&")).toLowerCase();
-		ext = ext.substring(ext.lastIndexOf(".") + 1);
-		// console.debug(ext);
-
+		var ext;
+		ext = filename.substring(filename.lastIndexOf(".") + 1);
+		
 		switch (ext) {
 			case "doc":
 			case "eml":
@@ -1435,7 +1436,6 @@ var printingtools = {
 			case "xls":
 			case "xml":
 			case "zip":
-				// url = "chrome://printingtoolsng/content/" + ext + ".gif";
 				url = "resource://printingtoolsng/icons/" + ext + ".gif";
 				break;
 			case "avi":
@@ -1458,6 +1458,11 @@ var printingtools = {
 			case "pptx":
 				url = "resource://printingtoolsng/icons/pptx.png";
 				break;
+			case "p7m":
+			case "p7s":
+				url = "resource://printingtoolsng/icons/" + "signature" + ".gif";
+				break;
+	
 			default:
 				url = "resource://printingtoolsng/icons/file.gif";
 		}

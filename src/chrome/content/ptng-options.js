@@ -121,10 +121,7 @@ function initPMDpanel() {
 	document.getElementById("num_atts_line").value = prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
 	document.getElementById("showButtonPreview").checked = prefs.getBoolPref("extensions.printingtoolsng.show_options_button");
 
-	if (String.trim)
-		document.getElementById("addP7M").checked = prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach");
-	else
-		document.getElementById("addP7M").setAttribute("collapsed", "true");
+	document.getElementById("addP7M").checked = prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach");
 	document.getElementById("radiostyle").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.messages.style_apply");
 	document.getElementById("messageStyle").checked = prefs.getBoolPref("extensions.printingtoolsng.messages.style");
 	document.getElementById("addFolder").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.addfolder");
