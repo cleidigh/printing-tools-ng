@@ -58,3 +58,5 @@
 <!ENTITY showhide "Mostrar u ocultar">
 <!ENTITY useHeadersBkColor "Usar color de fondo del encabezado:">
 <!ENTITY borderStyle "Estilo de borde:">
+<!ENTITY colorsNote "Nota: Es necesario habilitar &#39;Imágenes y colores&#39; en el cuadro de diálogo Configurar página de impresión">
+<!ENTITY showSignatureVCFfiles "Mostrar archivos de firma y vcf">

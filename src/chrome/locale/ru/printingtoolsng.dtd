@@ -58,3 +58,5 @@
 <!ENTITY showhide "Показать или скрыть">
 <!ENTITY useHeadersBkColor "Использовать цвет фона заголовка:">
 <!ENTITY borderStyle "Стиль границы:">
+<!ENTITY colorsNote "Примечание. «Изображения и цвета» необходимо включить в диалоговом окне «Параметры страницы печати».">
+<!ENTITY showSignatureVCFfiles "Показать файлы подписи и vcf">

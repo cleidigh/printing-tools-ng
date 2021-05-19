@@ -8,7 +8,7 @@
   'ru',    'sk-SK', 'sl-SI',
   'sv-SE', 'uk',    'zh-CN'
 ]
-Start Sat Mar 27 2021 20:07:23 GMT-0400 (Eastern Daylight Time)
+Start Tue May 18 2021 19:36:16 GMT-0400 (Eastern Daylight Time)
 Locale ca ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
 Locale da-dk ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
 Locale de-de ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
@@ -34,325 +34,664 @@ Locale uk ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-K
 Locale zh-cn ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
 translations return
 [
-  '<data-translation class="notranslate" locale="de-DE">',
-  'Verwenden Sie den Header-Hintergrund. Farbe:'
+  '<data-translation class="notranslate" locale="fr-FR">',
+  'Remarque: &#39;Images et couleurs&#39; doit être activé dans la boîte de dialogue Configuration de la page d&#39;impression',
+  'Afficher les fichiers de signature et vcf'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="es-ES">',
-  'Usar color de fondo del encabezado:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="uk">',
-  'Використовувати фон заголовка Колір:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="fr-FR">',
-  'Utiliser la couleur d&#39;arrière-plan de l&#39;en-tête:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="pt-PT">',
-  'Use a cor de fundo do cabeçalho:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="pl">',
-  'Użyj koloru tła nagłówka:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ca">',
-  'Utilitzeu el color de fons de la capçalera:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="el">',
-  'Χρήση χρώματος φόντου κεφαλίδας:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="nl">',
-  'Gebruik koptekst achtergrondkleur:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="nb-NO">',
-  'Bruk topptekstens bakgrunnsfarge:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="gl-ES">',
-  'Usar a cor de fondo da cabeceira:'
+  'Nota: Es necesario habilitar &#39;Imágenes y colores&#39; en el cuadro de diálogo Configurar página de impresión',
+  'Mostrar archivos de firma y vcf'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="it-IT">',
-  'Usa il colore di sfondo dell&#39;intestazione:'
+  'Nota: &quot;Immagini e colori&quot; deve essere abilitato nella finestra di dialogo Imposta pagina di stampa',
+  'Mostra la firma e i file vcf'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="nl">',
+  'Opmerking: &#39;Afbeeldingen en kleuren&#39; moet zijn ingeschakeld in het dialoogvenster Pagina-instelling afdrukken',
+  'Toon handtekening- en vcf-bestanden'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="pl">',
+  'Uwaga: w oknie dialogowym Drukuj ustawienia strony należy włączyć opcję „Obrazy i kolory”',
+  'Pokaż pliki podpisów i vcf'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="ru">',
-  'Использовать цвет фона заголовка:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="hu-HU">',
-  'Használja a fejléc háttérszínét:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="sk-SK">',
-  'Použiť farbu pozadia hlavičky:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="zh-CN">',
-  '使用标题背景颜色：'
+  'Примечание. «Изображения и цвета» необходимо включить в диалоговом окне «Параметры страницы печати».',
+  'Показать файлы подписи и vcf'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="ko-KR">',
-  '헤더 배경색 사용 :'
+  '참고 : 인쇄 페이지 설정 대화 상자에서 &#39;이미지 및 색상&#39;을 활성화해야합니다.',
+  '서명 및 vcf 파일 표시'
 ]
 translations return
 [
-  '<data-translation class="notranslate" locale="hy-AM">',
-  'Օգտագործել վերնագրի ֆոնը Գույնը ՝'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="sl-SI">',
-  'Uporabi ozadje glave Barva:'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ja">',
-  'ヘッダーの背景色を使用：'
+  '<data-translation class="notranslate" locale="nb-NO">',
+  'Merk: &#39;Bilder og farger&#39; må aktiveres i dialogboksen Utskriftsformat',
+  'Vis signatur- og vcf-filer'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="sv-SE">',
-  'Använd sidhuvudets bakgrundsfärg:'
+  'Obs! &#39;Bilder och färger&#39; måste aktiveras i dialogrutan Utskriftsformat',
+  'Visa signatur- och vcf-filer'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="da-DK">',
-  'Brug header baggrundsfarve:'
+  'Bemærk: &#39;Billeder og farver&#39; skal aktiveres i dialogboksen Udskriv sideopsætning',
+  'Vis signatur- og vcf-filer'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="pt-PT">',
+  'Nota: &#39;Imagens e cores&#39; deve ser ativado na caixa de diálogo Configurar página de impressão',
+  'Mostrar arquivos de assinatura e vcf'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="hu-HU">',
+  'Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen',
+  'Aláírási és vcf fájlok megjelenítése'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="hy-AM">',
+  'Նշում. «Պատկերներն ու գույները» անհրաժեշտ է միացնել Տպել էջի կարգավորման երկխոսությունում',
+  'Showուցադրել ստորագրության և vcf ֆայլերը'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="fi">',
-  'Käytä otsikon taustaväriä:'
+  'Huomautus: Kuvien ja värien on oltava käytössä Tulosta sivun asetukset -valintaikkunassa',
+  'Näytä allekirjoitus- ja vcf-tiedostot'
 ]
-de-DE
-[ 'Verwenden Sie den Header-Hintergrund. Farbe:' ]
+translations return
+[
+  '<data-translation class="notranslate" locale="de-DE">',
+  'Hinweis: &#39;Bilder und Farben&#39; muss im Dialogfeld &quot;Seite drucken&quot; aktiviert sein',
+  'Signatur- und VCF-Dateien anzeigen'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="zh-CN">',
+  '注意：需要在“打印页面设置”对话框中启用“图像和颜色”',
+  '显示签名和VCF文件'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="el">',
+  'Σημείωση: Το &quot;Εικόνες και χρώματα&quot; πρέπει να είναι ενεργοποιημένο στο παράθυρο διαλόγου Εκτύπωση σελίδας',
+  'Εμφάνιση αρχείων υπογραφής και vcf'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="sk-SK">',
+  'Poznámka: V dialógovom okne Print Page Setup je potrebné povoliť možnosť „Images and Colors“',
+  'Zobraziť súbory podpisu a VCF'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="gl-ES">',
+  'Nota: &quot;Imaxes e cores&quot; ten que estar activado no diálogo de configuración da páxina de impresión',
+  'Mostrar ficheiros de sinatura e vcf'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="ca">',
+  'Nota: &quot;Imatges i colors&quot; ha d&#39;estar habilitat al quadre de diàleg Imprimeix la configuració de la pàgina',
+  'Mostra fitxers de signatura i vcf'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="ja">',
+  '注：「画像と色」は、「ページの印刷設定」ダイアログで有効にする必要があります',
+  '署名ファイルとvcfファイルを表示する'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="sl-SI">',
+  'Opomba: V pogovornem oknu za nastavitev strani za tiskanje je treba omogočiti možnost »Slike in barve«',
+  'Pokaži datoteke s podpisi in vcf'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="uk">',
+  'Примітка: У діалоговому вікні «Налаштування сторінки друку» потрібно ввімкнути «Зображення та кольори»',
+  'Показати файли підпису та vcf'
+]
+fr-FR
+[
+  'Remarque: &#39;Images et couleurs&#39; doit être activé dans la boîte de dialogue Configuration de la page d&#39;impression',
+  'Afficher les fichiers de signature et vcf'
+]
 TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
 GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 74
-<!ENTITY useHeadersBkColor "Verwenden Sie den Header-Hintergrund. Farbe:">
+DTD 0  printingtoolsng.dtd
+TranslationMessages 222
+<!ENTITY colorsNote "Remarque: &#39;Images et couleurs&#39; doit être activé dans la boîte de dialogue Configuration de la page d&#39;impression">
+<!ENTITY showSignatureVCFfiles "Afficher les fichiers de signature et vcf">
 AppendingMessages
 es-ES
-[ 'Usar color de fondo del encabezado:' ]
+[
+  'Nota: Es necesario habilitar &#39;Imágenes y colores&#39; en el cuadro de diálogo Configurar página de impresión',
+  'Mostrar archivos de firma y vcf'
+]
 TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
 GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 65
-<!ENTITY useHeadersBkColor "Usar color de fondo del encabezado:">
-AppendingMessages
-uk
-[ 'Використовувати фон заголовка Колір:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 66
-<!ENTITY useHeadersBkColor "Використовувати фон заголовка Колір:">
-AppendingMessages
-fr-FR
-[ 'Utiliser la couleur d&#39;arrière-plan de l&#39;en-tête:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-TranslationMessages 86
-<!ENTITY useHeadersBkColor "Utiliser la couleur d&#39;arrière-plan de l&#39;en-tête:">
-AppendingMessages
-pt-PT
-[ 'Use a cor de fundo do cabeçalho:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-TranslationMessages 62
-<!ENTITY useHeadersBkColor "Use a cor de fundo do cabeçalho:">
-AppendingMessages
-pl
-[ 'Użyj koloru tła nagłówka:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-TranslationMessages 55
-<!ENTITY useHeadersBkColor "Użyj koloru tła nagłówka:">
-AppendingMessages
-ca
-[ 'Utilitzeu el color de fons de la capçalera:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-TranslationMessages 73
-<!ENTITY useHeadersBkColor "Utilitzeu el color de fons de la capçalera:">
-AppendingMessages
-el
-[ 'Χρήση χρώματος φόντου κεφαλίδας:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-TranslationMessages 62
-<!ENTITY useHeadersBkColor "Χρήση χρώματος φόντου κεφαλίδας:">
-AppendingMessages
-nl
-[ 'Gebruik koptekst achtergrondkleur:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-TranslationMessages 64
-<!ENTITY useHeadersBkColor "Gebruik koptekst achtergrondkleur:">
-AppendingMessages
-nb-NO
-[ 'Bruk topptekstens bakgrunnsfarge:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-TranslationMessages 63
-<!ENTITY useHeadersBkColor "Bruk topptekstens bakgrunnsfarge:">
-AppendingMessages
-gl-ES
-[ 'Usar a cor de fondo da cabeceira:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-TranslationMessages 63
-<!ENTITY useHeadersBkColor "Usar a cor de fondo da cabeceira:">
+TranslationMessages 201
+<!ENTITY colorsNote "Nota: Es necesario habilitar &#39;Imágenes y colores&#39; en el cuadro de diálogo Configurar página de impresión">
+<!ENTITY showSignatureVCFfiles "Mostrar archivos de firma y vcf">
 AppendingMessages
 it-IT
-[ 'Usa il colore di sfondo dell&#39;intestazione:' ]
+[
+  'Nota: &quot;Immagini e colori&quot; deve essere abilitato nella finestra di dialogo Imposta pagina di stampa',
+  'Mostra la firma e i file vcf'
+]
 TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
 GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 76
-<!ENTITY useHeadersBkColor "Usa il colore di sfondo dell&#39;intestazione:">
+DTD 0  printingtoolsng.dtd
+TranslationMessages 194
+<!ENTITY colorsNote "Nota: &quot;Immagini e colori&quot; deve essere abilitato nella finestra di dialogo Imposta pagina di stampa">
+<!ENTITY showSignatureVCFfiles "Mostra la firma e i file vcf">
+AppendingMessages
+nl
+[
+  'Opmerking: &#39;Afbeeldingen en kleuren&#39; moet zijn ingeschakeld in het dialoogvenster Pagina-instelling afdrukken',
+  'Toon handtekening- en vcf-bestanden'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 210
+<!ENTITY colorsNote "Opmerking: &#39;Afbeeldingen en kleuren&#39; moet zijn ingeschakeld in het dialoogvenster Pagina-instelling afdrukken">
+<!ENTITY showSignatureVCFfiles "Toon handtekening- en vcf-bestanden">
+AppendingMessages
+pl
+[
+  'Uwaga: w oknie dialogowym Drukuj ustawienia strony należy włączyć opcję „Obrazy i kolory”',
+  'Pokaż pliki podpisów i vcf'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 173
+<!ENTITY colorsNote "Uwaga: w oknie dialogowym Drukuj ustawienia strony należy włączyć opcję „Obrazy i kolory”">
+<!ENTITY showSignatureVCFfiles "Pokaż pliki podpisów i vcf">
 AppendingMessages
 ru
-[ 'Использовать цвет фона заголовка:' ]
+[
+  'Примечание. «Изображения и цвета» необходимо включить в диалоговом окне «Параметры страницы печати».',
+  'Показать файлы подписи и vcf'
+]
 TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
 GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 63
-<!ENTITY useHeadersBkColor "Использовать цвет фона заголовка:">
-AppendingMessages
-hu-HU
-[ 'Használja a fejléc háttérszínét:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 62
-<!ENTITY useHeadersBkColor "Használja a fejléc háttérszínét:">
-AppendingMessages
-sk-SK
-[ 'Použiť farbu pozadia hlavičky:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-TranslationMessages 60
-<!ENTITY useHeadersBkColor "Použiť farbu pozadia hlavičky:">
-AppendingMessages
-zh-CN
-[ '使用标题背景颜色：' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-TranslationMessages 39
-<!ENTITY useHeadersBkColor "使用标题背景颜色：">
+TranslationMessages 186
+<!ENTITY colorsNote "Примечание. «Изображения и цвета» необходимо включить в диалоговом окне «Параметры страницы печати».">
+<!ENTITY showSignatureVCFfiles "Показать файлы подписи и vcf">
 AppendingMessages
 ko-KR
-[ '헤더 배경색 사용 :' ]
+[
+  '참고 : 인쇄 페이지 설정 대화 상자에서 &#39;이미지 및 색상&#39;을 활성화해야합니다.',
+  '서명 및 vcf 파일 표시'
+]
 TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
 GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 41
-<!ENTITY useHeadersBkColor "헤더 배경색 사용 :">
+DTD 0  printingtoolsng.dtd
+TranslationMessages 124
+<!ENTITY colorsNote "참고 : 인쇄 페이지 설정 대화 상자에서 &#39;이미지 및 색상&#39;을 활성화해야합니다.">
+<!ENTITY showSignatureVCFfiles "서명 및 vcf 파일 표시">
 AppendingMessages
-hy-AM
-[ 'Օգտագործել վերնագրի ֆոնը Գույնը ՝' ]
+nb-NO
+[
+  'Merk: &#39;Bilder og farger&#39; må aktiveres i dialogboksen Utskriftsformat',
+  'Vis signatur- og vcf-filer'
+]
 TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
 GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 63
-<!ENTITY useHeadersBkColor "Օգտագործել վերնագրի ֆոնը Գույնը ՝">
-AppendingMessages
-sl-SI
-[ 'Uporabi ozadje glave Barva:' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 57
-<!ENTITY useHeadersBkColor "Uporabi ozadje glave Barva:">
-AppendingMessages
-ja
-[ 'ヘッダーの背景色を使用：' ]
-TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-TranslationMessages 42
-<!ENTITY useHeadersBkColor "ヘッダーの背景色を使用：">
+TranslationMessages 160
+<!ENTITY colorsNote "Merk: &#39;Bilder og farger&#39; må aktiveres i dialogboksen Utskriftsformat">
+<!ENTITY showSignatureVCFfiles "Vis signatur- og vcf-filer">
 AppendingMessages
 sv-SE
-[ 'Använd sidhuvudets bakgrundsfärg:' ]
+[
+  'Obs! &#39;Bilder och färger&#39; måste aktiveras i dialogrutan Utskriftsformat',
+  'Visa signatur- och vcf-filer'
+]
 TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
 GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 63
-<!ENTITY useHeadersBkColor "Använd sidhuvudets bakgrundsfärg:">
+DTD 0  printingtoolsng.dtd
+TranslationMessages 164
+<!ENTITY colorsNote "Obs! &#39;Bilder och färger&#39; måste aktiveras i dialogrutan Utskriftsformat">
+<!ENTITY showSignatureVCFfiles "Visa signatur- och vcf-filer">
 AppendingMessages
 da-DK
-[ 'Brug header baggrundsfarve:' ]
+[
+  'Bemærk: &#39;Billeder og farver&#39; skal aktiveres i dialogboksen Udskriv sideopsætning',
+  'Vis signatur- og vcf-filer'
+]
 TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
 GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 57
-<!ENTITY useHeadersBkColor "Brug header baggrundsfarve:">
+DTD 0  printingtoolsng.dtd
+TranslationMessages 172
+<!ENTITY colorsNote "Bemærk: &#39;Billeder og farver&#39; skal aktiveres i dialogboksen Udskriv sideopsætning">
+<!ENTITY showSignatureVCFfiles "Vis signatur- og vcf-filer">
+AppendingMessages
+pt-PT
+[
+  'Nota: &#39;Imagens e cores&#39; deve ser ativado na caixa de diálogo Configurar página de impressão',
+  'Mostrar arquivos de assinatura e vcf'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 193
+<!ENTITY colorsNote "Nota: &#39;Imagens e cores&#39; deve ser ativado na caixa de diálogo Configurar página de impressão">
+<!ENTITY showSignatureVCFfiles "Mostrar arquivos de assinatura e vcf">
+AppendingMessages
+hu-HU
+[
+  'Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen',
+  'Aláírási és vcf fájlok megjelenítése'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 192
+<!ENTITY colorsNote "Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen">
+<!ENTITY showSignatureVCFfiles "Aláírási és vcf fájlok megjelenítése">
+AppendingMessages
+hy-AM
+[
+  'Նշում. «Պատկերներն ու գույները» անհրաժեշտ է միացնել Տպել էջի կարգավորման երկխոսությունում',
+  'Showուցադրել ստորագրության և vcf ֆայլերը'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 187
+<!ENTITY colorsNote "Նշում. «Պատկերներն ու գույները» անհրաժեշտ է միացնել Տպել էջի կարգավորման երկխոսությունում">
+<!ENTITY showSignatureVCFfiles "Showուցադրել ստորագրության և vcf ֆայլերը">
 AppendingMessages
 fi
-[ 'Käytä otsikon taustaväriä:' ]
+[
+  'Huomautus: Kuvien ja värien on oltava käytössä Tulosta sivun asetukset -valintaikkunassa',
+  'Näytä allekirjoitus- ja vcf-tiedostot'
+]
 TranslationArray
-[ { key: 'useHeadersBkColor', text: 'Use header background Color:' } ]
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
 GenerateMessages
 DTD 0  printingtoolsng.dtd
-TranslationMessages 56
-<!ENTITY useHeadersBkColor "Käytä otsikon taustaväriä:">
+DTD 0  printingtoolsng.dtd
+TranslationMessages 183
+<!ENTITY colorsNote "Huomautus: Kuvien ja värien on oltava käytössä Tulosta sivun asetukset -valintaikkunassa">
+<!ENTITY showSignatureVCFfiles "Näytä allekirjoitus- ja vcf-tiedostot">
 AppendingMessages
-Stop Sat Mar 27 2021 20:07:24 GMT-0400 (Eastern Daylight Time)
-Stop 0.358
+de-DE
+[
+  'Hinweis: &#39;Bilder und Farben&#39; muss im Dialogfeld &quot;Seite drucken&quot; aktiviert sein',
+  'Signatur- und VCF-Dateien anzeigen'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 188
+<!ENTITY colorsNote "Hinweis: &#39;Bilder und Farben&#39; muss im Dialogfeld &quot;Seite drucken&quot; aktiviert sein">
+<!ENTITY showSignatureVCFfiles "Signatur- und VCF-Dateien anzeigen">
+AppendingMessages
+zh-CN
+[ '注意：需要在“打印页面设置”对话框中启用“图像和颜色”', '显示签名和VCF文件' ]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 95
+<!ENTITY colorsNote "注意：需要在“打印页面设置”对话框中启用“图像和颜色”">
+<!ENTITY showSignatureVCFfiles "显示签名和VCF文件">
+AppendingMessages
+el
+[
+  'Σημείωση: Το &quot;Εικόνες και χρώματα&quot; πρέπει να είναι ενεργοποιημένο στο παράθυρο διαλόγου Εκτύπωση σελίδας',
+  'Εμφάνιση αρχείων υπογραφής και vcf'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 206
+<!ENTITY colorsNote "Σημείωση: Το &quot;Εικόνες και χρώματα&quot; πρέπει να είναι ενεργοποιημένο στο παράθυρο διαλόγου Εκτύπωση σελίδας">
+<!ENTITY showSignatureVCFfiles "Εμφάνιση αρχείων υπογραφής και vcf">
+AppendingMessages
+sk-SK
+[
+  'Poznámka: V dialógovom okne Print Page Setup je potrebné povoliť možnosť „Images and Colors“',
+  'Zobraziť súbory podpisu a VCF'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 179
+<!ENTITY colorsNote "Poznámka: V dialógovom okne Print Page Setup je potrebné povoliť možnosť „Images and Colors“">
+<!ENTITY showSignatureVCFfiles "Zobraziť súbory podpisu a VCF">
+AppendingMessages
+gl-ES
+[
+  'Nota: &quot;Imaxes e cores&quot; ten que estar activado no diálogo de configuración da páxina de impresión',
+  'Mostrar ficheiros de sinatura e vcf'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 199
+<!ENTITY colorsNote "Nota: &quot;Imaxes e cores&quot; ten que estar activado no diálogo de configuración da páxina de impresión">
+<!ENTITY showSignatureVCFfiles "Mostrar ficheiros de sinatura e vcf">
+AppendingMessages
+ca
+[
+  'Nota: &quot;Imatges i colors&quot; ha d&#39;estar habilitat al quadre de diàleg Imprimeix la configuració de la pàgina',
+  'Mostra fitxers de signatura i vcf'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 209
+<!ENTITY colorsNote "Nota: &quot;Imatges i colors&quot; ha d&#39;estar habilitat al quadre de diàleg Imprimeix la configuració de la pàgina">
+<!ENTITY showSignatureVCFfiles "Mostra fitxers de signatura i vcf">
+AppendingMessages
+ja
+[ '注：「画像と色」は、「ページの印刷設定」ダイアログで有効にする必要があります', '署名ファイルとvcfファイルを表示する' ]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 115
+<!ENTITY colorsNote "注：「画像と色」は、「ページの印刷設定」ダイアログで有効にする必要があります">
+<!ENTITY showSignatureVCFfiles "署名ファイルとvcfファイルを表示する">
+AppendingMessages
+sl-SI
+[
+  'Opomba: V pogovornem oknu za nastavitev strani za tiskanje je treba omogočiti možnost »Slike in barve«',
+  'Pokaži datoteke s podpisi in vcf'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 192
+<!ENTITY colorsNote "Opomba: V pogovornem oknu za nastavitev strani za tiskanje je treba omogočiti možnost »Slike in barve«">
+<!ENTITY showSignatureVCFfiles "Pokaži datoteke s podpisi in vcf">
+AppendingMessages
+uk
+[
+  'Примітка: У діалоговому вікні «Налаштування сторінки друку» потрібно ввімкнути «Зображення та кольори»',
+  'Показати файли підпису та vcf'
+]
+TranslationArray
+[
+  {
+    key: 'colorsNote',
+    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+  },
+  {
+    key: 'showSignatureVCFfiles',
+    text: 'Show signature and vcf files'
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+DTD 0  printingtoolsng.dtd
+TranslationMessages 189
+<!ENTITY colorsNote "Примітка: У діалоговому вікні «Налаштування сторінки друку» потрібно ввімкнути «Зображення та кольори»">
+<!ENTITY showSignatureVCFfiles "Показати файли підпису та vcf">
+AppendingMessages
+Stop Tue May 18 2021 19:36:16 GMT-0400 (Eastern Daylight Time)
+Stop 0.299

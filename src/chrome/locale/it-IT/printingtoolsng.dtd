@@ -58,3 +58,5 @@
 <!ENTITY showhide "Mostra o nascondi">
 <!ENTITY useHeadersBkColor "Usa il colore di sfondo dell&#39;intestazione:">
 <!ENTITY borderStyle "Stile del bordo:">
+<!ENTITY colorsNote "Nota: &quot;Immagini e colori&quot; deve essere abilitato nella finestra di dialogo Imposta pagina di stampa">
+<!ENTITY showSignatureVCFfiles "Mostra la firma e i file vcf">

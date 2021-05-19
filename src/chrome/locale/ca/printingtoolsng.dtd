@@ -59,3 +59,5 @@
 <!ENTITY showhide "Mostra o amaga">
 <!ENTITY useHeadersBkColor "Utilitzeu el color de fons de la capçalera:">
 <!ENTITY borderStyle "Estil de vora:">
+<!ENTITY colorsNote "Nota: &quot;Imatges i colors&quot; ha d&#39;estar habilitat al quadre de diàleg Imprimeix la configuració de la pàgina">
+<!ENTITY showSignatureVCFfiles "Mostra fitxers de signatura i vcf">

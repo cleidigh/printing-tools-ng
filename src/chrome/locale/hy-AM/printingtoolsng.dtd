@@ -58,3 +58,5 @@
 <!ENTITY showhide "Ուցադրել կամ թաքցնել">
 <!ENTITY useHeadersBkColor "Օգտագործել վերնագրի ֆոնը Գույնը ՝">
 <!ENTITY borderStyle "Սահմանի ոճը:">
+<!ENTITY colorsNote "Նշում. «Պատկերներն ու գույները» անհրաժեշտ է միացնել Տպել էջի կարգավորման երկխոսությունում">
+<!ENTITY showSignatureVCFfiles "Showուցադրել ստորագրության և vcf ֆայլերը">

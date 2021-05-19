@@ -58,3 +58,5 @@
 <!ENTITY showhide "Pokaži ali skrij">
 <!ENTITY useHeadersBkColor "Uporabi ozadje glave Barva:">
 <!ENTITY borderStyle "Oblika obrobe:">
+<!ENTITY colorsNote "Opomba: V pogovornem oknu za nastavitev strani za tiskanje je treba omogočiti možnost »Slike in barve«">
+<!ENTITY showSignatureVCFfiles "Pokaži datoteke s podpisi in vcf">

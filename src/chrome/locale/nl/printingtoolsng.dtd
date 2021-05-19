@@ -59,3 +59,5 @@
 
 <!ENTITY useHeadersBkColor "Gebruik koptekst achtergrondkleur:">
 <!ENTITY borderStyle "Randstijl:">
+<!ENTITY colorsNote "Opmerking: &#39;Afbeeldingen en kleuren&#39; moet zijn ingeschakeld in het dialoogvenster Pagina-instelling afdrukken">
+<!ENTITY showSignatureVCFfiles "Toon handtekening- en vcf-bestanden">

@@ -59,3 +59,5 @@
 <!ENTITY showhide "Ein- oder Ausblenden">
 <!ENTITY useHeadersBkColor "Verwenden Sie den Header-Hintergrund. Farbe:">
 <!ENTITY borderStyle "Randstil:">
+<!ENTITY colorsNote "Hinweis: &#39;Bilder und Farben&#39; muss im Dialogfeld &quot;Seite drucken&quot; aktiviert sein">
+<!ENTITY showSignatureVCFfiles "Signatur- und VCF-Dateien anzeigen">

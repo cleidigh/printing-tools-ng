@@ -59,3 +59,5 @@
 <!ENTITY showhide "Pokaż lub ukryj">
 <!ENTITY useHeadersBkColor "Użyj koloru tła nagłówka:">
 <!ENTITY borderStyle "Styl obramowania:">
+<!ENTITY colorsNote "Uwaga: w oknie dialogowym Drukuj ustawienia strony należy włączyć opcję „Obrazy i kolory”">
+<!ENTITY showSignatureVCFfiles "Pokaż pliki podpisów i vcf">
