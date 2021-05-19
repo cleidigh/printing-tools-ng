@@ -62,5 +62,5 @@
 
 <!ENTITY borderStyle "枠線のスタイル指定：">
 
-<!ENTITY colorsNote "注：「画像と色」は、「ページの印刷設定」ダイアログで有効にする必要があります">
-<!ENTITY showSignatureVCFfiles "署名ファイルとvcfファイルを表示する">
+<!ENTITY colorsNote "注：「背景色」は「ページ設定」ダイアログで有効にする必要があります">
+<!ENTITY showSignatureVCFfiles "署名ファイルと　vcf　ファイルを表示する">
