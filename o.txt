@@ -8,7 +8,7 @@
   'ru',    'sk-SK', 'sl-SI',
   'sv-SE', 'uk',    'zh-CN'
 ]
-Start Tue May 18 2021 19:36:16 GMT-0400 (Eastern Daylight Time)
+Start Tue May 18 2021 20:48:57 GMT-0400 (Eastern Daylight Time)
 Locale ca ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
 Locale da-dk ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
 Locale de-de ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
@@ -35,663 +35,620 @@ Locale zh-cn ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,k
 translations return
 [
   '<data-translation class="notranslate" locale="fr-FR">',
-  'Remarque: &#39;Images et couleurs&#39; doit être activé dans la boîte de dialogue Configuration de la page d&#39;impression',
-  'Afficher les fichiers de signature et vcf'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="es-ES">',
-  'Nota: Es necesario habilitar &#39;Imágenes y colores&#39; en el cuadro de diálogo Configurar página de impresión',
-  'Mostrar archivos de firma y vcf'
+  'L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été activée',
+  'L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été désactivée'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="it-IT">',
-  'Nota: &quot;Immagini e colori&quot; deve essere abilitato nella finestra di dialogo Imposta pagina di stampa',
-  'Mostra la firma e i file vcf'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="nl">',
-  'Opmerking: &#39;Afbeeldingen en kleuren&#39; moet zijn ingeschakeld in het dialoogvenster Pagina-instelling afdrukken',
-  'Toon handtekening- en vcf-bestanden'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="pl">',
-  'Uwaga: w oknie dialogowym Drukuj ustawienia strony należy włączyć opcję „Obrazy i kolory”',
-  'Pokaż pliki podpisów i vcf'
+  'L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata abilitata',
+  'L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata disabilitata'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="ru">',
-  'Примечание. «Изображения и цвета» необходимо включить в диалоговом окне «Параметры страницы печати».',
-  'Показать файлы подписи и vcf'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ko-KR">',
-  '참고 : 인쇄 페이지 설정 대화 상자에서 &#39;이미지 및 색상&#39;을 활성화해야합니다.',
-  '서명 및 vcf 파일 표시'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="nb-NO">',
-  'Merk: &#39;Bilder og farger&#39; må aktiveres i dialogboksen Utskriftsformat',
-  'Vis signatur- og vcf-filer'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="sv-SE">',
-  'Obs! &#39;Bilder och färger&#39; måste aktiveras i dialogrutan Utskriftsformat',
-  'Visa signatur- och vcf-filer'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="da-DK">',
-  'Bemærk: &#39;Billeder og farver&#39; skal aktiveres i dialogboksen Udskriv sideopsætning',
-  'Vis signatur- og vcf-filer'
+  'Системная опция: Разрешить сообщениям использовать другие шрифты была включена',
+  'Системная опция: Разрешить сообщениям использовать другие шрифты отключена.'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="pt-PT">',
-  'Nota: &#39;Imagens e cores&#39; deve ser ativado na caixa de diálogo Configurar página de impressão',
-  'Mostrar arquivos de assinatura e vcf'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="hu-HU">',
-  'Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen',
-  'Aláírási és vcf fájlok megjelenítése'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="hy-AM">',
-  'Նշում. «Պատկերներն ու գույները» անհրաժեշտ է միացնել Տպել էջի կարգավորման երկխոսությունում',
-  'Showուցադրել ստորագրության և vcf ֆայլերը'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="fi">',
-  'Huomautus: Kuvien ja värien on oltava käytössä Tulosta sivun asetukset -valintaikkunassa',
-  'Näytä allekirjoitus- ja vcf-tiedostot'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="de-DE">',
-  'Hinweis: &#39;Bilder und Farben&#39; muss im Dialogfeld &quot;Seite drucken&quot; aktiviert sein',
-  'Signatur- und VCF-Dateien anzeigen'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="zh-CN">',
-  '注意：需要在“打印页面设置”对话框中启用“图像和颜色”',
-  '显示签名和VCF文件'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="el">',
-  'Σημείωση: Το &quot;Εικόνες και χρώματα&quot; πρέπει να είναι ενεργοποιημένο στο παράθυρο διαλόγου Εκτύπωση σελίδας',
-  'Εμφάνιση αρχείων υπογραφής και vcf'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="sk-SK">',
-  'Poznámka: V dialógovom okne Print Page Setup je potrebné povoliť možnosť „Images and Colors“',
-  'Zobraziť súbory podpisu a VCF'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="gl-ES">',
-  'Nota: &quot;Imaxes e cores&quot; ten que estar activado no diálogo de configuración da páxina de impresión',
-  'Mostrar ficheiros de sinatura e vcf'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ca">',
-  'Nota: &quot;Imatges i colors&quot; ha d&#39;estar habilitat al quadre de diàleg Imprimeix la configuració de la pàgina',
-  'Mostra fitxers de signatura i vcf'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ja">',
-  '注：「画像と色」は、「ページの印刷設定」ダイアログで有効にする必要があります',
-  '署名ファイルとvcfファイルを表示する'
+  'A opção do sistema: Permitir que as mensagens usem outras fontes foi habilitada',
+  'A opção do sistema: Permitir que as mensagens usem outras fontes foi desativada'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="sl-SI">',
-  'Opomba: V pogovornem oknu za nastavitev strani za tiskanje je treba omogočiti možnost »Slike in barve«',
-  'Pokaži datoteke s podpisi in vcf'
+  'Možnost sistema: Dovoljeno je, da sporočila uporabljajo druge pisave',
+  'Sistemska možnost: Dovoli, da sporočila uporabljajo druge pisave, je onemogočena'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="uk">',
-  'Примітка: У діалоговому вікні «Налаштування сторінки друку» потрібно ввімкнути «Зображення та кольори»',
-  'Показати файли підпису та vcf'
+  'Параметр системи: Дозволено повідомленням використовувати інші шрифти',
+  'Параметр системи: Дозволити повідомленням використовувати інші шрифти вимкнено'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="ja">',
+  'システムオプション：メッセージに他のフォントの使用を許可するが有効になっています',
+  'システムオプション：メッセージに他のフォントの使用を許可するが無効になっています'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="pl">',
+  'Opcja systemowa: Zezwól wiadomościom na używanie innych czcionek została włączona',
+  'Opcja systemowa: Zezwalaj wiadomościom na używanie innych czcionek została wyłączona'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="sk-SK">',
+  'Bola zapnutá systémová možnosť: Povoliť správam používať iné písma',
+  'Systémová možnosť: Povoliť správam používať iné písma bola zakázaná'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="de-DE">',
+  'Die Systemoption: Nachrichten dürfen andere Schriftarten verwenden wurde aktiviert',
+  'Die Systemoption: Nachrichten die Verwendung anderer Schriftarten erlauben wurde deaktiviert'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="ko-KR">',
+  '시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 활성화되었습니다.',
+  '시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 비활성화되었습니다.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="nl">',
+  'De systeemoptie: Toestaan dat berichten andere lettertypen gebruiken, is ingeschakeld',
+  'De systeemoptie: Berichten toestaan om andere lettertypen te gebruiken is uitgeschakeld'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="zh-CN">',
+  '系统选项：允许消息使用其他字体',
+  '系统选项：“允许邮件使用其他字体”已被禁用'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="hy-AM">',
+  'Համակարգի ընտրանքը. Թույլատրել հաղորդագրություններին օգտագործել այլ տառատեսակներ, միացված է',
+  'Համակարգի ընտրանք. Թույլատրել հաղորդագրություններին այլ տառատեսակներ օգտագործելն անջատված է'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="es-ES">',
+  'Se ha habilitado la opción del sistema: Permitir que los mensajes usen otras fuentes',
+  'La opción del sistema: Permitir que los mensajes usen otras fuentes se ha deshabilitado.'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="el">',
+  'Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές',
+  'Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="sv-SE">',
+  'Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har aktiverats',
+  'Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har inaktiverats'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="da-DK">',
+  'Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er aktiveret',
+  'Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er deaktiveret'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="ca">',
+  'S&#39;ha activat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra',
+  'S&#39;ha desactivat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="nb-NO">',
+  'Systemalternativet: Tillat at meldinger bruker andre skrifter er aktivert',
+  'Systemalternativet: Tillat at meldinger bruker andre skrifter er deaktivert'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="gl-ES">',
+  'Activouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra',
+  'Desactivouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="fi">',
+  'Järjestelmäasetus: Salli viestien käyttää muita kirjasimia on otettu käyttöön',
+  'Järjestelmäasetus: Salli viestien käyttää muita fontteja on poistettu käytöstä'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="hu-HU">',
+  'A rendszer opció: Engedélyezte az üzenetek más betűtípusok használatát',
+  'A rendszer opció: Az üzenetek más betűtípusok használatának engedélyezése le van tiltva'
 ]
 fr-FR
 [
-  'Remarque: &#39;Images et couleurs&#39; doit être activé dans la boîte de dialogue Configuration de la page d&#39;impression',
-  'Afficher les fichiers de signature et vcf'
+  'L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été activée',
+  'L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été désactivée'
 ]
 TranslationArray
 [
   {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
   },
   {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
   }
 ]
 GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 222
-<!ENTITY colorsNote "Remarque: &#39;Images et couleurs&#39; doit être activé dans la boîte de dialogue Configuration de la page d&#39;impression">
-<!ENTITY showSignatureVCFfiles "Afficher les fichiers de signature et vcf">
-AppendingMessages
-es-ES
-[
-  'Nota: Es necesario habilitar &#39;Imágenes y colores&#39; en el cuadro de diálogo Configurar página de impresión',
-  'Mostrar archivos de firma y vcf'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 201
-<!ENTITY colorsNote "Nota: Es necesario habilitar &#39;Imágenes y colores&#39; en el cuadro de diálogo Configurar página de impresión">
-<!ENTITY showSignatureVCFfiles "Mostrar archivos de firma y vcf">
+TranslationMessages 209
+allowFonts=L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été activée
+disallowFonts=L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été désactivée
 AppendingMessages
 it-IT
 [
-  'Nota: &quot;Immagini e colori&quot; deve essere abilitato nella finestra di dialogo Imposta pagina di stampa',
-  'Mostra la firma e i file vcf'
+  'L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata abilitata',
+  'L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata disabilitata'
 ]
 TranslationArray
 [
   {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
   },
   {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
   }
 ]
 GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 194
-<!ENTITY colorsNote "Nota: &quot;Immagini e colori&quot; deve essere abilitato nella finestra di dialogo Imposta pagina di stampa">
-<!ENTITY showSignatureVCFfiles "Mostra la firma e i file vcf">
-AppendingMessages
-nl
-[
-  'Opmerking: &#39;Afbeeldingen en kleuren&#39; moet zijn ingeschakeld in het dialoogvenster Pagina-instelling afdrukken',
-  'Toon handtekening- en vcf-bestanden'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 210
-<!ENTITY colorsNote "Opmerking: &#39;Afbeeldingen en kleuren&#39; moet zijn ingeschakeld in het dialoogvenster Pagina-instelling afdrukken">
-<!ENTITY showSignatureVCFfiles "Toon handtekening- en vcf-bestanden">
-AppendingMessages
-pl
-[
-  'Uwaga: w oknie dialogowym Drukuj ustawienia strony należy włączyć opcję „Obrazy i kolory”',
-  'Pokaż pliki podpisów i vcf'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 173
-<!ENTITY colorsNote "Uwaga: w oknie dialogowym Drukuj ustawienia strony należy włączyć opcję „Obrazy i kolory”">
-<!ENTITY showSignatureVCFfiles "Pokaż pliki podpisów i vcf">
+TranslationMessages 217
+allowFonts=L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata abilitata
+disallowFonts=L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata disabilitata
 AppendingMessages
 ru
 [
-  'Примечание. «Изображения и цвета» необходимо включить в диалоговом окне «Параметры страницы печати».',
-  'Показать файлы подписи и vcf'
+  'Системная опция: Разрешить сообщениям использовать другие шрифты была включена',
+  'Системная опция: Разрешить сообщениям использовать другие шрифты отключена.'
 ]
 TranslationArray
 [
   {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
   },
   {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
   }
 ]
 GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 186
-<!ENTITY colorsNote "Примечание. «Изображения и цвета» необходимо включить в диалоговом окне «Параметры страницы печати».">
-<!ENTITY showSignatureVCFfiles "Показать файлы подписи и vcf">
-AppendingMessages
-ko-KR
-[
-  '참고 : 인쇄 페이지 설정 대화 상자에서 &#39;이미지 및 색상&#39;을 활성화해야합니다.',
-  '서명 및 vcf 파일 표시'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 124
-<!ENTITY colorsNote "참고 : 인쇄 페이지 설정 대화 상자에서 &#39;이미지 및 색상&#39;을 활성화해야합니다.">
-<!ENTITY showSignatureVCFfiles "서명 및 vcf 파일 표시">
-AppendingMessages
-nb-NO
-[
-  'Merk: &#39;Bilder og farger&#39; må aktiveres i dialogboksen Utskriftsformat',
-  'Vis signatur- og vcf-filer'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 160
-<!ENTITY colorsNote "Merk: &#39;Bilder og farger&#39; må aktiveres i dialogboksen Utskriftsformat">
-<!ENTITY showSignatureVCFfiles "Vis signatur- og vcf-filer">
-AppendingMessages
-sv-SE
-[
-  'Obs! &#39;Bilder och färger&#39; måste aktiveras i dialogrutan Utskriftsformat',
-  'Visa signatur- och vcf-filer'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 164
-<!ENTITY colorsNote "Obs! &#39;Bilder och färger&#39; måste aktiveras i dialogrutan Utskriftsformat">
-<!ENTITY showSignatureVCFfiles "Visa signatur- och vcf-filer">
-AppendingMessages
-da-DK
-[
-  'Bemærk: &#39;Billeder og farver&#39; skal aktiveres i dialogboksen Udskriv sideopsætning',
-  'Vis signatur- og vcf-filer'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 172
-<!ENTITY colorsNote "Bemærk: &#39;Billeder og farver&#39; skal aktiveres i dialogboksen Udskriv sideopsætning">
-<!ENTITY showSignatureVCFfiles "Vis signatur- og vcf-filer">
+TranslationMessages 179
+allowFonts=Системная опция: Разрешить сообщениям использовать другие шрифты была включена
+disallowFonts=Системная опция: Разрешить сообщениям использовать другие шрифты отключена.
 AppendingMessages
 pt-PT
 [
-  'Nota: &#39;Imagens e cores&#39; deve ser ativado na caixa de diálogo Configurar página de impressão',
-  'Mostrar arquivos de assinatura e vcf'
+  'A opção do sistema: Permitir que as mensagens usem outras fontes foi habilitada',
+  'A opção do sistema: Permitir que as mensagens usem outras fontes foi desativada'
 ]
 TranslationArray
 [
   {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
   },
   {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
   }
 ]
 GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 193
-<!ENTITY colorsNote "Nota: &#39;Imagens e cores&#39; deve ser ativado na caixa de diálogo Configurar página de impressão">
-<!ENTITY showSignatureVCFfiles "Mostrar arquivos de assinatura e vcf">
-AppendingMessages
-hu-HU
-[
-  'Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen',
-  'Aláírási és vcf fájlok megjelenítése'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 192
-<!ENTITY colorsNote "Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen">
-<!ENTITY showSignatureVCFfiles "Aláírási és vcf fájlok megjelenítése">
-AppendingMessages
-hy-AM
-[
-  'Նշում. «Պատկերներն ու գույները» անհրաժեշտ է միացնել Տպել էջի կարգավորման երկխոսությունում',
-  'Showուցադրել ստորագրության և vcf ֆայլերը'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 187
-<!ENTITY colorsNote "Նշում. «Պատկերներն ու գույները» անհրաժեշտ է միացնել Տպել էջի կարգավորման երկխոսությունում">
-<!ENTITY showSignatureVCFfiles "Showուցադրել ստորագրության և vcf ֆայլերը">
-AppendingMessages
-fi
-[
-  'Huomautus: Kuvien ja värien on oltava käytössä Tulosta sivun asetukset -valintaikkunassa',
-  'Näytä allekirjoitus- ja vcf-tiedostot'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 183
-<!ENTITY colorsNote "Huomautus: Kuvien ja värien on oltava käytössä Tulosta sivun asetukset -valintaikkunassa">
-<!ENTITY showSignatureVCFfiles "Näytä allekirjoitus- ja vcf-tiedostot">
-AppendingMessages
-de-DE
-[
-  'Hinweis: &#39;Bilder und Farben&#39; muss im Dialogfeld &quot;Seite drucken&quot; aktiviert sein',
-  'Signatur- und VCF-Dateien anzeigen'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 188
-<!ENTITY colorsNote "Hinweis: &#39;Bilder und Farben&#39; muss im Dialogfeld &quot;Seite drucken&quot; aktiviert sein">
-<!ENTITY showSignatureVCFfiles "Signatur- und VCF-Dateien anzeigen">
-AppendingMessages
-zh-CN
-[ '注意：需要在“打印页面设置”对话框中启用“图像和颜色”', '显示签名和VCF文件' ]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 95
-<!ENTITY colorsNote "注意：需要在“打印页面设置”对话框中启用“图像和颜色”">
-<!ENTITY showSignatureVCFfiles "显示签名和VCF文件">
-AppendingMessages
-el
-[
-  'Σημείωση: Το &quot;Εικόνες και χρώματα&quot; πρέπει να είναι ενεργοποιημένο στο παράθυρο διαλόγου Εκτύπωση σελίδας',
-  'Εμφάνιση αρχείων υπογραφής και vcf'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 206
-<!ENTITY colorsNote "Σημείωση: Το &quot;Εικόνες και χρώματα&quot; πρέπει να είναι ενεργοποιημένο στο παράθυρο διαλόγου Εκτύπωση σελίδας">
-<!ENTITY showSignatureVCFfiles "Εμφάνιση αρχείων υπογραφής και vcf">
-AppendingMessages
-sk-SK
-[
-  'Poznámka: V dialógovom okne Print Page Setup je potrebné povoliť možnosť „Images and Colors“',
-  'Zobraziť súbory podpisu a VCF'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 179
-<!ENTITY colorsNote "Poznámka: V dialógovom okne Print Page Setup je potrebné povoliť možnosť „Images and Colors“">
-<!ENTITY showSignatureVCFfiles "Zobraziť súbory podpisu a VCF">
-AppendingMessages
-gl-ES
-[
-  'Nota: &quot;Imaxes e cores&quot; ten que estar activado no diálogo de configuración da páxina de impresión',
-  'Mostrar ficheiros de sinatura e vcf'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 199
-<!ENTITY colorsNote "Nota: &quot;Imaxes e cores&quot; ten que estar activado no diálogo de configuración da páxina de impresión">
-<!ENTITY showSignatureVCFfiles "Mostrar ficheiros de sinatura e vcf">
-AppendingMessages
-ca
-[
-  'Nota: &quot;Imatges i colors&quot; ha d&#39;estar habilitat al quadre de diàleg Imprimeix la configuració de la pàgina',
-  'Mostra fitxers de signatura i vcf'
-]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 209
-<!ENTITY colorsNote "Nota: &quot;Imatges i colors&quot; ha d&#39;estar habilitat al quadre de diàleg Imprimeix la configuració de la pàgina">
-<!ENTITY showSignatureVCFfiles "Mostra fitxers de signatura i vcf">
-AppendingMessages
-ja
-[ '注：「画像と色」は、「ページの印刷設定」ダイアログで有効にする必要があります', '署名ファイルとvcfファイルを表示する' ]
-TranslationArray
-[
-  {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
-  },
-  {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
-  }
-]
-GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 115
-<!ENTITY colorsNote "注：「画像と色」は、「ページの印刷設定」ダイアログで有効にする必要があります">
-<!ENTITY showSignatureVCFfiles "署名ファイルとvcfファイルを表示する">
+TranslationMessages 184
+allowFonts=A opção do sistema: Permitir que as mensagens usem outras fontes foi habilitada
+disallowFonts=A opção do sistema: Permitir que as mensagens usem outras fontes foi desativada
 AppendingMessages
 sl-SI
 [
-  'Opomba: V pogovornem oknu za nastavitev strani za tiskanje je treba omogočiti možnost »Slike in barve«',
-  'Pokaži datoteke s podpisi in vcf'
+  'Možnost sistema: Dovoljeno je, da sporočila uporabljajo druge pisave',
+  'Sistemska možnost: Dovoli, da sporočila uporabljajo druge pisave, je onemogočena'
 ]
 TranslationArray
 [
   {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
   },
   {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
   }
 ]
 GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 192
-<!ENTITY colorsNote "Opomba: V pogovornem oknu za nastavitev strani za tiskanje je treba omogočiti možnost »Slike in barve«">
-<!ENTITY showSignatureVCFfiles "Pokaži datoteke s podpisi in vcf">
+TranslationMessages 174
+allowFonts=Možnost sistema: Dovoljeno je, da sporočila uporabljajo druge pisave
+disallowFonts=Sistemska možnost: Dovoli, da sporočila uporabljajo druge pisave, je onemogočena
 AppendingMessages
 uk
 [
-  'Примітка: У діалоговому вікні «Налаштування сторінки друку» потрібно ввімкнути «Зображення та кольори»',
-  'Показати файли підпису та vcf'
+  'Параметр системи: Дозволено повідомленням використовувати інші шрифти',
+  'Параметр системи: Дозволити повідомленням використовувати інші шрифти вимкнено'
 ]
 TranslationArray
 [
   {
-    key: 'colorsNote',
-    text: "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog"
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
   },
   {
-    key: 'showSignatureVCFfiles',
-    text: 'Show signature and vcf files'
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
   }
 ]
 GenerateMessages
-DTD 0  printingtoolsng.dtd
-DTD 0  printingtoolsng.dtd
-TranslationMessages 189
-<!ENTITY colorsNote "Примітка: У діалоговому вікні «Налаштування сторінки друку» потрібно ввімкнути «Зображення та кольори»">
-<!ENTITY showSignatureVCFfiles "Показати файли підпису та vcf">
+TranslationMessages 173
+allowFonts=Параметр системи: Дозволено повідомленням використовувати інші шрифти
+disallowFonts=Параметр системи: Дозволити повідомленням використовувати інші шрифти вимкнено
 AppendingMessages
-Stop Tue May 18 2021 19:36:16 GMT-0400 (Eastern Daylight Time)
-Stop 0.299
+ja
+[
+  'システムオプション：メッセージに他のフォントの使用を許可するが有効になっています',
+  'システムオプション：メッセージに他のフォントの使用を許可するが無効になっています'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 106
+allowFonts=システムオプション：メッセージに他のフォントの使用を許可するが有効になっています
+disallowFonts=システムオプション：メッセージに他のフォントの使用を許可するが無効になっています
+AppendingMessages
+pl
+[
+  'Opcja systemowa: Zezwól wiadomościom na używanie innych czcionek została włączona',
+  'Opcja systemowa: Zezwalaj wiadomościom na używanie innych czcionek została wyłączona'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 191
+allowFonts=Opcja systemowa: Zezwól wiadomościom na używanie innych czcionek została włączona
+disallowFonts=Opcja systemowa: Zezwalaj wiadomościom na używanie innych czcionek została wyłączona
+AppendingMessages
+sk-SK
+[
+  'Bola zapnutá systémová možnosť: Povoliť správam používať iné písma',
+  'Systémová možnosť: Povoliť správam používať iné písma bola zakázaná'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 159
+allowFonts=Bola zapnutá systémová možnosť: Povoliť správam používať iné písma
+disallowFonts=Systémová možnosť: Povoliť správam používať iné písma bola zakázaná
+AppendingMessages
+de-DE
+[
+  'Die Systemoption: Nachrichten dürfen andere Schriftarten verwenden wurde aktiviert',
+  'Die Systemoption: Nachrichten die Verwendung anderer Schriftarten erlauben wurde deaktiviert'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 200
+allowFonts=Die Systemoption: Nachrichten dürfen andere Schriftarten verwenden wurde aktiviert
+disallowFonts=Die Systemoption: Nachrichten die Verwendung anderer Schriftarten erlauben wurde deaktiviert
+AppendingMessages
+ko-KR
+[
+  '시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 활성화되었습니다.',
+  '시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 비활성화되었습니다.'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 109
+allowFonts=시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 활성화되었습니다.
+disallowFonts=시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 비활성화되었습니다.
+AppendingMessages
+nl
+[
+  'De systeemoptie: Toestaan dat berichten andere lettertypen gebruiken, is ingeschakeld',
+  'De systeemoptie: Berichten toestaan om andere lettertypen te gebruiken is uitgeschakeld'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 198
+allowFonts=De systeemoptie: Toestaan dat berichten andere lettertypen gebruiken, is ingeschakeld
+disallowFonts=De systeemoptie: Berichten toestaan om andere lettertypen te gebruiken is uitgeschakeld
+AppendingMessages
+zh-CN
+[ '系统选项：允许消息使用其他字体', '系统选项：“允许邮件使用其他字体”已被禁用' ]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 62
+allowFonts=系统选项：允许消息使用其他字体
+disallowFonts=系统选项：“允许邮件使用其他字体”已被禁用
+AppendingMessages
+hy-AM
+[
+  'Համակարգի ընտրանքը. Թույլատրել հաղորդագրություններին օգտագործել այլ տառատեսակներ, միացված է',
+  'Համակարգի ընտրանք. Թույլատրել հաղորդագրություններին այլ տառատեսակներ օգտագործելն անջատված է'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 208
+allowFonts=Համակարգի ընտրանքը. Թույլատրել հաղորդագրություններին օգտագործել այլ տառատեսակներ, միացված է
+disallowFonts=Համակարգի ընտրանք. Թույլատրել հաղորդագրություններին այլ տառատեսակներ օգտագործելն անջատված է
+AppendingMessages
+es-ES
+[
+  'Se ha habilitado la opción del sistema: Permitir que los mensajes usen otras fuentes',
+  'La opción del sistema: Permitir que los mensajes usen otras fuentes se ha deshabilitado.'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 198
+allowFonts=Se ha habilitado la opción del sistema: Permitir que los mensajes usen otras fuentes
+disallowFonts=La opción del sistema: Permitir que los mensajes usen otras fuentes se ha deshabilitado.
+AppendingMessages
+el
+[
+  'Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές',
+  'Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 194
+allowFonts=Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές
+disallowFonts=Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές
+AppendingMessages
+sv-SE
+[
+  'Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har aktiverats',
+  'Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har inaktiverats'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 196
+allowFonts=Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har aktiverats
+disallowFonts=Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har inaktiverats
+AppendingMessages
+da-DK
+[
+  'Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er aktiveret',
+  'Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er deaktiveret'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 184
+allowFonts=Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er aktiveret
+disallowFonts=Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er deaktiveret
+AppendingMessages
+ca
+[
+  'S&#39;ha activat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra',
+  'S&#39;ha desactivat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 231
+allowFonts=S&#39;ha activat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra
+disallowFonts=S&#39;ha desactivat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra
+AppendingMessages
+nb-NO
+[
+  'Systemalternativet: Tillat at meldinger bruker andre skrifter er aktivert',
+  'Systemalternativet: Tillat at meldinger bruker andre skrifter er deaktivert'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 174
+allowFonts=Systemalternativet: Tillat at meldinger bruker andre skrifter er aktivert
+disallowFonts=Systemalternativet: Tillat at meldinger bruker andre skrifter er deaktivert
+AppendingMessages
+gl-ES
+[
+  'Activouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra',
+  'Desactivouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 193
+allowFonts=Activouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra
+disallowFonts=Desactivouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra
+AppendingMessages
+fi
+[
+  'Järjestelmäasetus: Salli viestien käyttää muita kirjasimia on otettu käyttöön',
+  'Järjestelmäasetus: Salli viestien käyttää muita fontteja on poistettu käytöstä'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 181
+allowFonts=Järjestelmäasetus: Salli viestien käyttää muita kirjasimia on otettu käyttöön
+disallowFonts=Järjestelmäasetus: Salli viestien käyttää muita fontteja on poistettu käytöstä
+AppendingMessages
+hu-HU
+[
+  'A rendszer opció: Engedélyezte az üzenetek más betűtípusok használatát',
+  'A rendszer opció: Az üzenetek más betűtípusok használatának engedélyezése le van tiltva'
+]
+TranslationArray
+[
+  {
+    key: 'allowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
+  },
+  {
+    key: 'disallowFonts',
+    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+  }
+]
+GenerateMessages
+TranslationMessages 183
+allowFonts=A rendszer opció: Engedélyezte az üzenetek más betűtípusok használatát
+disallowFonts=A rendszer opció: Az üzenetek más betűtípusok használatának engedélyezése le van tiltva
+AppendingMessages
+Stop Tue May 18 2021 20:48:57 GMT-0400 (Eastern Daylight Time)
+Stop 0.29
