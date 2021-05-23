@@ -60,3 +60,4 @@
 <!ENTITY borderStyle "Stile del bordo:">
 <!ENTITY colorsNote "Nota: &quot;Immagini e colori&quot; deve essere abilitato nella finestra di dialogo Imposta pagina di stampa">
 <!ENTITY showSignatureVCFfiles "Mostra la firma e i file vcf">
+<!ENTITY useCcBccAlways "Utilizza le abbreviazioni &quot;Cc&quot; e &quot;Ccn&quot; per tutte le lingue">

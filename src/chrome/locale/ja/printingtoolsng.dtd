@@ -64,3 +64,5 @@
 
 <!ENTITY colorsNote "注：「背景色」は「ページ設定」ダイアログで有効にする必要があります">
 <!ENTITY showSignatureVCFfiles "署名ファイルと vcf ファイルを表示する">
+
+<!ENTITY useCcBccAlways "すべてのロケールに「Cc」および「Bcc」の略語を使用します">

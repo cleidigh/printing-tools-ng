@@ -16,8 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "allowFonts", text: "The system option:\n  Allow messages to use other fonts\nhas been enabled" },
-	{ key: "disallowFonts", text: "The system option:\n  Allow messages to use other fonts\nhas been disabled" },
+	{ key: "useCcBccAlways", text: "Use 'Cc' and 'Bcc' abbreviations for all locales" },
 ];
 
 
@@ -409,7 +408,7 @@ var options = {
 	outputLocaleDir: "./src/chrome/locale",
 	outputLocaleDirSuffix: "",
 	append: true,
-	outputFormat: 1,
+	outputFormat: 0,
 };
 
 // var options = {
@@ -452,7 +451,8 @@ localeFile = "settings.json";
 // t();
 // translateHelpPage();
 // translatePage();
-translateAll("printingtoolsng.properties", translationArray, options);
+// translateAll("printingtoolsng.properties", translationArray, options);
+translateAll("printingtoolsng.dtd", translationArray, options);
 // translateAll("mboximport.dtd", translationArray, options);
 // loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];

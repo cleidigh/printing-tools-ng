@@ -61,3 +61,4 @@
 <!ENTITY borderStyle "Style de bordure:">
 <!ENTITY colorsNote "Remarque: &#39;Images et couleurs&#39; doit être activé dans la boîte de dialogue Configuration de la page d&#39;impression">
 <!ENTITY showSignatureVCFfiles "Afficher les fichiers de signature et vcf">
+<!ENTITY useCcBccAlways "Utilisez les abréviations &#39;Cc&#39; et &#39;Bcc&#39; pour tous les paramètres régionaux">

@@ -60,3 +60,4 @@
 <!ENTITY borderStyle "Oblika obrobe:">
 <!ENTITY colorsNote "Opomba: V pogovornem oknu za nastavitev strani za tiskanje je treba omogočiti možnost »Slike in barve«">
 <!ENTITY showSignatureVCFfiles "Pokaži datoteke s podpisi in vcf">
+<!ENTITY useCcBccAlways "Uporabite kratici &#39;Cc&#39; in &#39;Bcc&#39; za vse kraje">

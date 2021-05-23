@@ -60,3 +60,4 @@
 <!ENTITY borderStyle "Reunan tyyli:">
 <!ENTITY colorsNote "Huomautus: Kuvien ja värien on oltava käytössä Tulosta sivun asetukset -valintaikkunassa">
 <!ENTITY showSignatureVCFfiles "Näytä allekirjoitus- ja vcf-tiedostot">
+<!ENTITY useCcBccAlways "Käytä &#39;Cc&#39; ja &#39;Bcc&#39; lyhenteitä kaikille kielille">

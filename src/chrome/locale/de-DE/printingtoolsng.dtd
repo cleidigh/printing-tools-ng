@@ -61,3 +61,4 @@
 <!ENTITY borderStyle "Randstil:">
 <!ENTITY colorsNote "Hinweis: &#39;Bilder und Farben&#39; muss im Dialogfeld &quot;Seite drucken&quot; aktiviert sein">
 <!ENTITY showSignatureVCFfiles "Signatur- und VCF-Dateien anzeigen">
+<!ENTITY useCcBccAlways "Verwenden Sie für alle Gebietsschemas die Abkürzungen &#39;Cc&#39; und &#39;Bcc&#39;">

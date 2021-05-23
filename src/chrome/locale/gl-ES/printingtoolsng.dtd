@@ -60,3 +60,4 @@
 <!ENTITY borderStyle "Estilo de bordo:">
 <!ENTITY colorsNote "Nota: &quot;Imaxes e cores&quot; ten que estar activado no diálogo de configuración da páxina de impresión">
 <!ENTITY showSignatureVCFfiles "Mostrar ficheiros de sinatura e vcf">
+<!ENTITY useCcBccAlways "Use abreviaturas &#39;Cc&#39; e &#39;Cco&#39; para todas as configuracións rexionais">

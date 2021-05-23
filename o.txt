@@ -8,7 +8,7 @@
   'ru',    'sk-SK', 'sl-SI',
   'sv-SE', 'uk',    'zh-CN'
 ]
-Start Tue May 18 2021 20:48:57 GMT-0400 (Eastern Daylight Time)
+Start Sun May 23 2021 19:05:38 GMT-0400 (Eastern Daylight Time)
 Locale ca ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
 Locale da-dk ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
 Locale de-de ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
@@ -34,621 +34,470 @@ Locale uk ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-K
 Locale zh-cn ca,da-DK,de-DE,el,en-US,es-ES,fi,fr-FR,gl-ES,hu-HU,hy-AM,it-IT,ja,ko-KR,nl,nb-NO,pl,pt-PT,ru,sk-SK,sl-SI,sv-SE,uk,zh-CN
 translations return
 [
-  '<data-translation class="notranslate" locale="fr-FR">',
-  'L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été activée',
-  'L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été désactivée'
+  '<data-translation class="notranslate" locale="de-DE">',
+  'Verwenden Sie für alle Gebietsschemas die Abkürzungen &#39;Cc&#39; und &#39;Bcc&#39;'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="it-IT">',
-  'L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata abilitata',
-  'L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata disabilitata'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ru">',
-  'Системная опция: Разрешить сообщениям использовать другие шрифты была включена',
-  'Системная опция: Разрешить сообщениям использовать другие шрифты отключена.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="pt-PT">',
-  'A opção do sistema: Permitir que as mensagens usem outras fontes foi habilitada',
-  'A opção do sistema: Permitir que as mensagens usem outras fontes foi desativada'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="sl-SI">',
-  'Možnost sistema: Dovoljeno je, da sporočila uporabljajo druge pisave',
-  'Sistemska možnost: Dovoli, da sporočila uporabljajo druge pisave, je onemogočena'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="uk">',
-  'Параметр системи: Дозволено повідомленням використовувати інші шрифти',
-  'Параметр системи: Дозволити повідомленням використовувати інші шрифти вимкнено'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ja">',
-  'システムオプション：メッセージに他のフォントの使用を許可するが有効になっています',
-  'システムオプション：メッセージに他のフォントの使用を許可するが無効になっています'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="pl">',
-  'Opcja systemowa: Zezwól wiadomościom na używanie innych czcionek została włączona',
-  'Opcja systemowa: Zezwalaj wiadomościom na używanie innych czcionek została wyłączona'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="sk-SK">',
-  'Bola zapnutá systémová možnosť: Povoliť správam používať iné písma',
-  'Systémová možnosť: Povoliť správam používať iné písma bola zakázaná'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="de-DE">',
-  'Die Systemoption: Nachrichten dürfen andere Schriftarten verwenden wurde aktiviert',
-  'Die Systemoption: Nachrichten die Verwendung anderer Schriftarten erlauben wurde deaktiviert'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="ko-KR">',
-  '시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 활성화되었습니다.',
-  '시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 비활성화되었습니다.'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="nl">',
-  'De systeemoptie: Toestaan dat berichten andere lettertypen gebruiken, is ingeschakeld',
-  'De systeemoptie: Berichten toestaan om andere lettertypen te gebruiken is uitgeschakeld'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="zh-CN">',
-  '系统选项：允许消息使用其他字体',
-  '系统选项：“允许邮件使用其他字体”已被禁用'
-]
-translations return
-[
-  '<data-translation class="notranslate" locale="hy-AM">',
-  'Համակարգի ընտրանքը. Թույլատրել հաղորդագրություններին օգտագործել այլ տառատեսակներ, միացված է',
-  'Համակարգի ընտրանք. Թույլատրել հաղորդագրություններին այլ տառատեսակներ օգտագործելն անջատված է'
+  'Utilizza le abbreviazioni &quot;Cc&quot; e &quot;Ccn&quot; per tutte le lingue'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="es-ES">',
-  'Se ha habilitado la opción del sistema: Permitir que los mensajes usen otras fuentes',
-  'La opción del sistema: Permitir que los mensajes usen otras fuentes se ha deshabilitado.'
+  'Utilice las abreviaturas &#39;Cc&#39; y &#39;Bcc&#39; para todas las configuraciones regionales'
 ]
 translations return
 [
-  '<data-translation class="notranslate" locale="el">',
-  'Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές',
-  'Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές'
+  '<data-translation class="notranslate" locale="ru">',
+  'Используйте сокращения &quot;Копия&quot; и &quot;Скрытая копия&quot; для всех языков.'
 ]
 translations return
 [
-  '<data-translation class="notranslate" locale="sv-SE">',
-  'Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har aktiverats',
-  'Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har inaktiverats'
+  '<data-translation class="notranslate" locale="hy-AM">',
+  'Բոլոր տեղանքների համար օգտագործեք &#39;Cc&#39; և &#39;Bcc&#39; հապավումները'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="da-DK">',
-  'Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er aktiveret',
-  'Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er deaktiveret'
+  'Brug forkortelser &#39;Cc&#39; og &#39;Bcc&#39; til alle lokaliteter'
 ]
 translations return
 [
-  '<data-translation class="notranslate" locale="ca">',
-  'S&#39;ha activat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra',
-  'S&#39;ha desactivat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra'
+  '<data-translation class="notranslate" locale="fr-FR">',
+  'Utilisez les abréviations &#39;Cc&#39; et &#39;Bcc&#39; pour tous les paramètres régionaux'
 ]
 translations return
 [
-  '<data-translation class="notranslate" locale="nb-NO">',
-  'Systemalternativet: Tillat at meldinger bruker andre skrifter er aktivert',
-  'Systemalternativet: Tillat at meldinger bruker andre skrifter er deaktivert'
+  '<data-translation class="notranslate" locale="sk-SK">',
+  'Pre všetky miestne nastavenia používajte skratky „Cc“ a „Bcc“'
 ]
 translations return
 [
-  '<data-translation class="notranslate" locale="gl-ES">',
-  'Activouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra',
-  'Desactivouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra'
+  '<data-translation class="notranslate" locale="nl">',
+  'Gebruik de afkortingen &#39;Cc&#39; en &#39;Bcc&#39; voor alle landinstellingen'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="pl">',
+  'Używaj skrótów „Cc” i „Bcc” dla wszystkich języków'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="ko-KR">',
+  '모든 로케일에 대해 &#39;Cc&#39;및 &#39;Bcc&#39;약어 사용'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="pt-PT">',
+  'Use as abreviações &#39;Cc&#39; e &#39;Bcc&#39; para todos os locais'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="fi">',
-  'Järjestelmäasetus: Salli viestien käyttää muita kirjasimia on otettu käyttöön',
-  'Järjestelmäasetus: Salli viestien käyttää muita fontteja on poistettu käytöstä'
+  'Käytä &#39;Cc&#39; ja &#39;Bcc&#39; lyhenteitä kaikille kielille'
 ]
 translations return
 [
   '<data-translation class="notranslate" locale="hu-HU">',
-  'A rendszer opció: Engedélyezte az üzenetek más betűtípusok használatát',
-  'A rendszer opció: Az üzenetek más betűtípusok használatának engedélyezése le van tiltva'
+  'Használja a &#39;Cc&#39; és &#39;Bcc&#39; rövidítéseket az összes nyelvhez'
 ]
-fr-FR
+translations return
 [
-  'L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été activée',
-  'L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été désactivée'
+  '<data-translation class="notranslate" locale="el">',
+  'Χρησιμοποιήστε τις συντομογραφίες &quot;Cc&quot; και &quot;Bcc&quot; για όλες τις τοπικές ρυθμίσεις'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="sl-SI">',
+  'Uporabite kratici &#39;Cc&#39; in &#39;Bcc&#39; za vse kraje'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="ca">',
+  'Utilitzeu les abreviatures &#39;Cc&#39; i &#39;Cco&#39; per a totes les configuracions regionals'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="uk">',
+  'Використовуйте скорочення &quot;Cc&quot; і &quot;Bcc&quot; для всіх мов'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="ja">',
+  'すべてのロケールに「Cc」および「Bcc」の略語を使用します'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="sv-SE">',
+  'Använd förkortningar &#39;Cc&#39; och &#39;Bcc&#39; för alla språk'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="zh-CN">',
+  '在所有语言环境中使用“抄送”和“密件抄送”缩写'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="gl-ES">',
+  'Use abreviaturas &#39;Cc&#39; e &#39;Cco&#39; para todas as configuracións rexionais'
+]
+translations return
+[
+  '<data-translation class="notranslate" locale="nb-NO">',
+  'Bruk &#39;Cc&#39; og &#39;Bcc&#39; forkortelser for alle språk'
+]
+de-DE
+[
+  'Verwenden Sie für alle Gebietsschemas die Abkürzungen &#39;Cc&#39; und &#39;Bcc&#39;'
 ]
 TranslationArray
 [
   {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
   }
 ]
 GenerateMessages
-TranslationMessages 209
-allowFonts=L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été activée
-disallowFonts=L&#39;option système: Autoriser les messages à utiliser d&#39;autres polices a été désactivée
+DTD 0  printingtoolsng.dtd
+TranslationMessages 111
+<!ENTITY useCcBccAlways "Verwenden Sie für alle Gebietsschemas die Abkürzungen &#39;Cc&#39; und &#39;Bcc&#39;">
 AppendingMessages
 it-IT
 [
-  'L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata abilitata',
-  'L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata disabilitata'
+  'Utilizza le abbreviazioni &quot;Cc&quot; e &quot;Ccn&quot; per tutte le lingue'
 ]
 TranslationArray
 [
   {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
   }
 ]
 GenerateMessages
-TranslationMessages 217
-allowFonts=L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata abilitata
-disallowFonts=L&#39;opzione di sistema: Consenti ai messaggi di utilizzare altri caratteri è stata disabilitata
-AppendingMessages
-ru
-[
-  'Системная опция: Разрешить сообщениям использовать другие шрифты была включена',
-  'Системная опция: Разрешить сообщениям использовать другие шрифты отключена.'
-]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 179
-allowFonts=Системная опция: Разрешить сообщениям использовать другие шрифты была включена
-disallowFonts=Системная опция: Разрешить сообщениям использовать другие шрифты отключена.
-AppendingMessages
-pt-PT
-[
-  'A opção do sistema: Permitir que as mensagens usem outras fontes foi habilitada',
-  'A opção do sistema: Permitir que as mensagens usem outras fontes foi desativada'
-]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 184
-allowFonts=A opção do sistema: Permitir que as mensagens usem outras fontes foi habilitada
-disallowFonts=A opção do sistema: Permitir que as mensagens usem outras fontes foi desativada
-AppendingMessages
-sl-SI
-[
-  'Možnost sistema: Dovoljeno je, da sporočila uporabljajo druge pisave',
-  'Sistemska možnost: Dovoli, da sporočila uporabljajo druge pisave, je onemogočena'
-]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 174
-allowFonts=Možnost sistema: Dovoljeno je, da sporočila uporabljajo druge pisave
-disallowFonts=Sistemska možnost: Dovoli, da sporočila uporabljajo druge pisave, je onemogočena
-AppendingMessages
-uk
-[
-  'Параметр системи: Дозволено повідомленням використовувати інші шрифти',
-  'Параметр системи: Дозволити повідомленням використовувати інші шрифти вимкнено'
-]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 173
-allowFonts=Параметр системи: Дозволено повідомленням використовувати інші шрифти
-disallowFonts=Параметр системи: Дозволити повідомленням використовувати інші шрифти вимкнено
-AppendingMessages
-ja
-[
-  'システムオプション：メッセージに他のフォントの使用を許可するが有効になっています',
-  'システムオプション：メッセージに他のフォントの使用を許可するが無効になっています'
-]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 106
-allowFonts=システムオプション：メッセージに他のフォントの使用を許可するが有効になっています
-disallowFonts=システムオプション：メッセージに他のフォントの使用を許可するが無効になっています
-AppendingMessages
-pl
-[
-  'Opcja systemowa: Zezwól wiadomościom na używanie innych czcionek została włączona',
-  'Opcja systemowa: Zezwalaj wiadomościom na używanie innych czcionek została wyłączona'
-]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 191
-allowFonts=Opcja systemowa: Zezwól wiadomościom na używanie innych czcionek została włączona
-disallowFonts=Opcja systemowa: Zezwalaj wiadomościom na używanie innych czcionek została wyłączona
-AppendingMessages
-sk-SK
-[
-  'Bola zapnutá systémová možnosť: Povoliť správam používať iné písma',
-  'Systémová možnosť: Povoliť správam používať iné písma bola zakázaná'
-]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 159
-allowFonts=Bola zapnutá systémová možnosť: Povoliť správam používať iné písma
-disallowFonts=Systémová možnosť: Povoliť správam používať iné písma bola zakázaná
-AppendingMessages
-de-DE
-[
-  'Die Systemoption: Nachrichten dürfen andere Schriftarten verwenden wurde aktiviert',
-  'Die Systemoption: Nachrichten die Verwendung anderer Schriftarten erlauben wurde deaktiviert'
-]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 200
-allowFonts=Die Systemoption: Nachrichten dürfen andere Schriftarten verwenden wurde aktiviert
-disallowFonts=Die Systemoption: Nachrichten die Verwendung anderer Schriftarten erlauben wurde deaktiviert
-AppendingMessages
-ko-KR
-[
-  '시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 활성화되었습니다.',
-  '시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 비활성화되었습니다.'
-]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 109
-allowFonts=시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 활성화되었습니다.
-disallowFonts=시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 비활성화되었습니다.
-AppendingMessages
-nl
-[
-  'De systeemoptie: Toestaan dat berichten andere lettertypen gebruiken, is ingeschakeld',
-  'De systeemoptie: Berichten toestaan om andere lettertypen te gebruiken is uitgeschakeld'
-]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 198
-allowFonts=De systeemoptie: Toestaan dat berichten andere lettertypen gebruiken, is ingeschakeld
-disallowFonts=De systeemoptie: Berichten toestaan om andere lettertypen te gebruiken is uitgeschakeld
-AppendingMessages
-zh-CN
-[ '系统选项：允许消息使用其他字体', '系统选项：“允许邮件使用其他字体”已被禁用' ]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 62
-allowFonts=系统选项：允许消息使用其他字体
-disallowFonts=系统选项：“允许邮件使用其他字体”已被禁用
-AppendingMessages
-hy-AM
-[
-  'Համակարգի ընտրանքը. Թույլատրել հաղորդագրություններին օգտագործել այլ տառատեսակներ, միացված է',
-  'Համակարգի ընտրանք. Թույլատրել հաղորդագրություններին այլ տառատեսակներ օգտագործելն անջատված է'
-]
-TranslationArray
-[
-  {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
-  }
-]
-GenerateMessages
-TranslationMessages 208
-allowFonts=Համակարգի ընտրանքը. Թույլատրել հաղորդագրություններին օգտագործել այլ տառատեսակներ, միացված է
-disallowFonts=Համակարգի ընտրանք. Թույլատրել հաղորդագրություններին այլ տառատեսակներ օգտագործելն անջատված է
+DTD 0  printingtoolsng.dtd
+TranslationMessages 105
+<!ENTITY useCcBccAlways "Utilizza le abbreviazioni &quot;Cc&quot; e &quot;Ccn&quot; per tutte le lingue">
 AppendingMessages
 es-ES
 [
-  'Se ha habilitado la opción del sistema: Permitir que los mensajes usen otras fuentes',
-  'La opción del sistema: Permitir que los mensajes usen otras fuentes se ha deshabilitado.'
+  'Utilice las abreviaturas &#39;Cc&#39; y &#39;Bcc&#39; para todas las configuraciones regionales'
 ]
 TranslationArray
 [
   {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
   }
 ]
 GenerateMessages
-TranslationMessages 198
-allowFonts=Se ha habilitado la opción del sistema: Permitir que los mensajes usen otras fuentes
-disallowFonts=La opción del sistema: Permitir que los mensajes usen otras fuentes se ha deshabilitado.
+DTD 0  printingtoolsng.dtd
+TranslationMessages 122
+<!ENTITY useCcBccAlways "Utilice las abreviaturas &#39;Cc&#39; y &#39;Bcc&#39; para todas las configuraciones regionales">
 AppendingMessages
-el
+ru
 [
-  'Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές',
-  'Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές'
+  'Используйте сокращения &quot;Копия&quot; и &quot;Скрытая копия&quot; для всех языков.'
 ]
 TranslationArray
 [
   {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
   }
 ]
 GenerateMessages
-TranslationMessages 194
-allowFonts=Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές
-disallowFonts=Η επιλογή συστήματος: Επιτρέπεται στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές
+DTD 0  printingtoolsng.dtd
+TranslationMessages 112
+<!ENTITY useCcBccAlways "Используйте сокращения &quot;Копия&quot; и &quot;Скрытая копия&quot; для всех языков.">
 AppendingMessages
-sv-SE
+hy-AM
 [
-  'Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har aktiverats',
-  'Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har inaktiverats'
+  'Բոլոր տեղանքների համար օգտագործեք &#39;Cc&#39; և &#39;Bcc&#39; հապավումները'
 ]
 TranslationArray
 [
   {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
   }
 ]
 GenerateMessages
-TranslationMessages 196
-allowFonts=Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har aktiverats
-disallowFonts=Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har inaktiverats
+DTD 0  printingtoolsng.dtd
+TranslationMessages 102
+<!ENTITY useCcBccAlways "Բոլոր տեղանքների համար օգտագործեք &#39;Cc&#39; և &#39;Bcc&#39; հապավումները">
 AppendingMessages
 da-DK
 [
-  'Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er aktiveret',
-  'Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er deaktiveret'
+  'Brug forkortelser &#39;Cc&#39; og &#39;Bcc&#39; til alle lokaliteter'
 ]
 TranslationArray
 [
   {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
   }
 ]
 GenerateMessages
-TranslationMessages 184
-allowFonts=Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er aktiveret
-disallowFonts=Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er deaktiveret
+DTD 0  printingtoolsng.dtd
+TranslationMessages 95
+<!ENTITY useCcBccAlways "Brug forkortelser &#39;Cc&#39; og &#39;Bcc&#39; til alle lokaliteter">
 AppendingMessages
-ca
+fr-FR
 [
-  'S&#39;ha activat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra',
-  'S&#39;ha desactivat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra'
+  'Utilisez les abréviations &#39;Cc&#39; et &#39;Bcc&#39; pour tous les paramètres régionaux'
 ]
 TranslationArray
 [
   {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
   }
 ]
 GenerateMessages
-TranslationMessages 231
-allowFonts=S&#39;ha activat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra
-disallowFonts=S&#39;ha desactivat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra
+DTD 0  printingtoolsng.dtd
+TranslationMessages 117
+<!ENTITY useCcBccAlways "Utilisez les abréviations &#39;Cc&#39; et &#39;Bcc&#39; pour tous les paramètres régionaux">
 AppendingMessages
-nb-NO
-[
-  'Systemalternativet: Tillat at meldinger bruker andre skrifter er aktivert',
-  'Systemalternativet: Tillat at meldinger bruker andre skrifter er deaktivert'
-]
+sk-SK
+[ 'Pre všetky miestne nastavenia používajte skratky „Cc“ a „Bcc“' ]
 TranslationArray
 [
   {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
   }
 ]
 GenerateMessages
-TranslationMessages 174
-allowFonts=Systemalternativet: Tillat at meldinger bruker andre skrifter er aktivert
-disallowFonts=Systemalternativet: Tillat at meldinger bruker andre skrifter er deaktivert
+DTD 0  printingtoolsng.dtd
+TranslationMessages 88
+<!ENTITY useCcBccAlways "Pre všetky miestne nastavenia používajte skratky „Cc“ a „Bcc“">
 AppendingMessages
-gl-ES
+nl
 [
-  'Activouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra',
-  'Desactivouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra'
+  'Gebruik de afkortingen &#39;Cc&#39; en &#39;Bcc&#39; voor alle landinstellingen'
 ]
 TranslationArray
 [
   {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
   }
 ]
 GenerateMessages
-TranslationMessages 193
-allowFonts=Activouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra
-disallowFonts=Desactivouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra
+DTD 0  printingtoolsng.dtd
+TranslationMessages 106
+<!ENTITY useCcBccAlways "Gebruik de afkortingen &#39;Cc&#39; en &#39;Bcc&#39; voor alle landinstellingen">
+AppendingMessages
+pl
+[ 'Używaj skrótów „Cc” i „Bcc” dla wszystkich języków' ]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 77
+<!ENTITY useCcBccAlways "Używaj skrótów „Cc” i „Bcc” dla wszystkich języków">
+AppendingMessages
+ko-KR
+[ '모든 로케일에 대해 &#39;Cc&#39;및 &#39;Bcc&#39;약어 사용' ]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 70
+<!ENTITY useCcBccAlways "모든 로케일에 대해 &#39;Cc&#39;및 &#39;Bcc&#39;약어 사용">
+AppendingMessages
+pt-PT
+[
+  'Use as abreviações &#39;Cc&#39; e &#39;Bcc&#39; para todos os locais'
+]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 95
+<!ENTITY useCcBccAlways "Use as abreviações &#39;Cc&#39; e &#39;Bcc&#39; para todos os locais">
 AppendingMessages
 fi
-[
-  'Järjestelmäasetus: Salli viestien käyttää muita kirjasimia on otettu käyttöön',
-  'Järjestelmäasetus: Salli viestien käyttää muita fontteja on poistettu käytöstä'
-]
+[ 'Käytä &#39;Cc&#39; ja &#39;Bcc&#39; lyhenteitä kaikille kielille' ]
 TranslationArray
 [
   {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
   }
 ]
 GenerateMessages
-TranslationMessages 181
-allowFonts=Järjestelmäasetus: Salli viestien käyttää muita kirjasimia on otettu käyttöön
-disallowFonts=Järjestelmäasetus: Salli viestien käyttää muita fontteja on poistettu käytöstä
+DTD 0  printingtoolsng.dtd
+TranslationMessages 91
+<!ENTITY useCcBccAlways "Käytä &#39;Cc&#39; ja &#39;Bcc&#39; lyhenteitä kaikille kielille">
 AppendingMessages
 hu-HU
 [
-  'A rendszer opció: Engedélyezte az üzenetek más betűtípusok használatát',
-  'A rendszer opció: Az üzenetek más betűtípusok használatának engedélyezése le van tiltva'
+  'Használja a &#39;Cc&#39; és &#39;Bcc&#39; rövidítéseket az összes nyelvhez'
 ]
 TranslationArray
 [
   {
-    key: 'allowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been enabled'
-  },
-  {
-    key: 'disallowFonts',
-    text: 'The system option:\n  Allow messages to use other fonts\nhas been disabled'
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
   }
 ]
 GenerateMessages
-TranslationMessages 183
-allowFonts=A rendszer opció: Engedélyezte az üzenetek más betűtípusok használatát
-disallowFonts=A rendszer opció: Az üzenetek más betűtípusok használatának engedélyezése le van tiltva
+DTD 0  printingtoolsng.dtd
+TranslationMessages 101
+<!ENTITY useCcBccAlways "Használja a &#39;Cc&#39; és &#39;Bcc&#39; rövidítéseket az összes nyelvhez">
 AppendingMessages
-Stop Tue May 18 2021 20:48:57 GMT-0400 (Eastern Daylight Time)
-Stop 0.29
+el
+[
+  'Χρησιμοποιήστε τις συντομογραφίες &quot;Cc&quot; και &quot;Bcc&quot; για όλες τις τοπικές ρυθμίσεις'
+]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 126
+<!ENTITY useCcBccAlways "Χρησιμοποιήστε τις συντομογραφίες &quot;Cc&quot; και &quot;Bcc&quot; για όλες τις τοπικές ρυθμίσεις">
+AppendingMessages
+sl-SI
+[ 'Uporabite kratici &#39;Cc&#39; in &#39;Bcc&#39; za vse kraje' ]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 87
+<!ENTITY useCcBccAlways "Uporabite kratici &#39;Cc&#39; in &#39;Bcc&#39; za vse kraje">
+AppendingMessages
+ca
+[
+  'Utilitzeu les abreviatures &#39;Cc&#39; i &#39;Cco&#39; per a totes les configuracions regionals'
+]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 123
+<!ENTITY useCcBccAlways "Utilitzeu les abreviatures &#39;Cc&#39; i &#39;Cco&#39; per a totes les configuracions regionals">
+AppendingMessages
+uk
+[
+  'Використовуйте скорочення &quot;Cc&quot; і &quot;Bcc&quot; для всіх мов'
+]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 98
+<!ENTITY useCcBccAlways "Використовуйте скорочення &quot;Cc&quot; і &quot;Bcc&quot; для всіх мов">
+AppendingMessages
+ja
+[ 'すべてのロケールに「Cc」および「Bcc」の略語を使用します' ]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 57
+<!ENTITY useCcBccAlways "すべてのロケールに「Cc」および「Bcc」の略語を使用します">
+AppendingMessages
+sv-SE
+[
+  'Använd förkortningar &#39;Cc&#39; och &#39;Bcc&#39; för alla språk'
+]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 93
+<!ENTITY useCcBccAlways "Använd förkortningar &#39;Cc&#39; och &#39;Bcc&#39; för alla språk">
+AppendingMessages
+zh-CN
+[ '在所有语言环境中使用“抄送”和“密件抄送”缩写' ]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 50
+<!ENTITY useCcBccAlways "在所有语言环境中使用“抄送”和“密件抄送”缩写">
+AppendingMessages
+gl-ES
+[
+  'Use abreviaturas &#39;Cc&#39; e &#39;Cco&#39; para todas as configuracións rexionais'
+]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 111
+<!ENTITY useCcBccAlways "Use abreviaturas &#39;Cc&#39; e &#39;Cco&#39; para todas as configuracións rexionais">
+AppendingMessages
+nb-NO
+[ 'Bruk &#39;Cc&#39; og &#39;Bcc&#39; forkortelser for alle språk' ]
+TranslationArray
+[
+  {
+    key: 'useCcBccAlways',
+    text: "Use 'Cc' and 'Bcc' abbreviations for all locales"
+  }
+]
+GenerateMessages
+DTD 0  printingtoolsng.dtd
+TranslationMessages 89
+<!ENTITY useCcBccAlways "Bruk &#39;Cc&#39; og &#39;Bcc&#39; forkortelser for alle språk">
+AppendingMessages
+Stop Sun May 23 2021 19:05:39 GMT-0400 (Eastern Daylight Time)
+Stop 0.373

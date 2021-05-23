@@ -61,3 +61,4 @@
 <!ENTITY borderStyle "Grænsestil:">
 <!ENTITY colorsNote "Bemærk: &#39;Billeder og farver&#39; skal aktiveres i dialogboksen Udskriv sideopsætning">
 <!ENTITY showSignatureVCFfiles "Vis signatur- og vcf-filer">
+<!ENTITY useCcBccAlways "Brug forkortelser &#39;Cc&#39; og &#39;Bcc&#39; til alle lokaliteter">

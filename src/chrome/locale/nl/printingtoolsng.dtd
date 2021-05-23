@@ -61,3 +61,4 @@
 <!ENTITY borderStyle "Randstijl:">
 <!ENTITY colorsNote "Opmerking: &#39;Afbeeldingen en kleuren&#39; moet zijn ingeschakeld in het dialoogvenster Pagina-instelling afdrukken">
 <!ENTITY showSignatureVCFfiles "Toon handtekening- en vcf-bestanden">
+<!ENTITY useCcBccAlways "Gebruik de afkortingen &#39;Cc&#39; en &#39;Bcc&#39; voor alle landinstellingen">

@@ -61,3 +61,4 @@
 <!ENTITY borderStyle "Štýl hraníc:">
 <!ENTITY colorsNote "Poznámka: V dialógovom okne Print Page Setup je potrebné povoliť možnosť „Images and Colors“">
 <!ENTITY showSignatureVCFfiles "Zobraziť súbory podpisu a VCF">
+<!ENTITY useCcBccAlways "Pre všetky miestne nastavenia používajte skratky „Cc“ a „Bcc“">
