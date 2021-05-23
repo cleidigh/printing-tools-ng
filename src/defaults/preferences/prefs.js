@@ -5,6 +5,7 @@ pref("extensions.printingtoolsng.headers.border_style", "border: 1.4px solid bla
 pref("extensions.printingtoolsng.headers.hide", false);
 pref("extensions.printingtoolsng.headers.truncate", false);
 pref("extensions.printingtoolsng.headers.maxchars", 80);
+pref("extensions.printingtoolsng.headers.useCcBcc_always", true);
 pref("extensions.printingtoolsng.hide.inline_attachments", false);
 pref("extensions.printingtoolsng.images.hide", false);
 pref("extensions.printingtoolsng.addressbook.hide_header_card", false);

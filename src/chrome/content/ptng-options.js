@@ -79,6 +79,10 @@ function initPMDpanel() {
 	initPMDabpanel();
 
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
+	
+	
+	document.getElementById("useCcBccAlways").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always");
+
 	if (Array.isArray) {
 		document.getElementById("dateLoc").collapsed = true;
 		document.getElementById("dateSpacer").collapsed = true;
@@ -207,6 +211,7 @@ function initPMDpanel() {
 	
 	// Services.console.logStringMessage("printingtools: call printer setup");
 	setPrinterList();
+	document.getElementById("useCcBccAlways").focus;
 }
 
 function setPrinterList() {
@@ -339,6 +344,8 @@ function savePMDprefs() {
 		savePMDabprefs(true);
 		prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
 		// Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);	
+
+	prefs.setBoolPref("extensions.printingtoolsng.headers.useCcBcc_always", document.getElementById("useCcBccAlways").checked);
 	
 	var max_pre_len;
 	if (document.getElementById("PREtruncate").checked)
@@ -600,6 +607,8 @@ document.addEventListener("dialogaccept", function (event) {
 
 window.addEventListener("load", function (event) {
 	initPMDpanel();
+	document.getElementById("useCcBccAlways").focus;
+	document.getElementById("useCcBccAlways").selected;
 });
 
 

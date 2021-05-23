@@ -222,8 +222,21 @@ var printingtools = {
 					div.innerHTML = divHTML;
 					// var divHTML = div.innerHTML.replace(":", );
 					// Services.console.logStringMessage(`header entry: ${i} ${trs[i].outerHTML}`);
+				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "de") {
+					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
+						var div = trs[i].firstChild.firstChild;
+						divHTML = divHTML.replace("Blindkopie (BCC):", "Bcc:");
+						divHTML = divHTML.replace("Kopie (CC):", "Cc:");
+						div.innerHTML = divHTML;
+					}
+				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "en") {
+					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
+						var div = trs[i].firstChild.firstChild;
+						divHTML = divHTML.replace("BCC:", "Bcc:");
+						divHTML = divHTML.replace("CC:", "Cc:");
+						div.innerHTML = divHTML;
+					}
 				}
-
 
 				// Services.console.logStringMessage(divHTML.outerHTML);
 				regExp = new RegExp(to + "\\s*:");

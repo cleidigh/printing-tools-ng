@@ -31,6 +31,11 @@
 	<tabpanel orient="vertical">
 	<groupbox>
 	<caption label="&PMDcaptionlabel;" />   
+	
+	<hbox align="center">
+	        <checkbox id="useCcBccAlways" label="&useCcBccAlways;" />
+	</hbox>
+	
 	<hbox align="center" id="dateLoc">
 	        <checkbox id="PMDdate" label="&PMDlabel1;"  oncommand="setTimeout(toggleDate,200)" />
 	</hbox>
@@ -50,11 +55,8 @@
 		<spacer width="30px" />
 		<checkbox id="PMDattachIcon" label="&PMDlabel17;" /> 
 	</hbox>
-	
-	
 	<hbox align="center">
-		<spacer width="10px" />
-		<!-- <checkbox id="addP7M" label="&PMDlabel22;" />  -->
+		<spacer width="30px" />
 		<checkbox id="addP7M" label="&showSignatureVCFfiles;" /> 
 	</hbox>
 	
@@ -62,7 +64,7 @@
 		<spacer width="30px" />
 		<label value="&attachmentsPerLine;"/>
 
-		<menulist id="num_atts_line" style="width: 100%">
+		<menulist id="num_atts_line" style="width: 100%" width="100%">
   			<menupopup>
 		    <menuitem label="&wrap;" value="100" id="nal_w" />
 			<menuitem label="1" value="1" id="nal_1" />
