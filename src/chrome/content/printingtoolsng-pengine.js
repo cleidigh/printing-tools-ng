@@ -831,7 +831,7 @@ var printingtools = {
 
 			tw.setAttribute("border", "1px solid black");
 			Services.console.logStringMessage(tw.clientWidth);
-			// tw.remove();
+			tw.remove();
 		}
 
 		// Services.console.logStringMessage("After aligned");
