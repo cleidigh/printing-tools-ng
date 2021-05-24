@@ -814,9 +814,16 @@ var printingtools = {
 				tw.appendChild(trw);
 				Services.console.logStringMessage(trw.clientWidth);
 			}
-
+			if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
+				var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
+				var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
+				tw.style.fontFamily = mFamily;
+				tw.style.fontSize = mSize;
+			}
+			
 			printingtools.insertAfter(tw, table1);
 			let maxHdrWidth = tw.clientWidth;
+			
 			for (var i = 0; i < trs.length; i++) {
 				trs[i].firstChild.setAttribute("width", `${maxHdrWidth}px`);
 				// trs[i].firstChild.style.backgroundColor = `#ffff50`;
@@ -824,7 +831,7 @@ var printingtools = {
 
 			tw.setAttribute("border", "1px solid black");
 			Services.console.logStringMessage(tw.clientWidth);
-			tw.remove();
+			// tw.remove();
 		}
 
 		// Services.console.logStringMessage("After aligned");
