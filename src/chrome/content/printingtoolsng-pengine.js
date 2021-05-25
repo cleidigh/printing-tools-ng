@@ -228,6 +228,8 @@ var printingtools = {
 						divHTML = divHTML.replace("Blindkopie (BCC):", "Bcc:");
 						divHTML = divHTML.replace("Kopie (CC):", "Cc:");
 						div.innerHTML = divHTML;
+						cc = "Cc";
+						bcc = "Bcc";
 					}
 				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "en") {
 					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
@@ -235,6 +237,8 @@ var printingtools = {
 						divHTML = divHTML.replace("BCC:", "Bcc:");
 						divHTML = divHTML.replace("CC:", "Cc:");
 						div.innerHTML = divHTML;
+						cc = "Cc";
+						bcc = "Bcc";
 					}
 				}
 
@@ -1177,7 +1181,7 @@ var printingtools = {
 
 			if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
 				tds1[i].firstChild.style.float = "left";
-				let s = tds1[i].nextSibling;
+				let s = tds1[i].nextSibling.firstChild;
 				if (!s) {
 
 					s = tds1[i].firstChild.nextSibling
@@ -1187,10 +1191,12 @@ var printingtools = {
 				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 					s.style.overflow = "hidden";
 					s.style.whiteSpace = "nowrap";
+					s.style.overflowWrap = null;
 					s.style.textOverflow = "ellipsis";
 
 				} else {
 					s.style.wordWrap = "break-word";
+					s.style.textOverflow = "ellipsis";
 				}
 			}
 
