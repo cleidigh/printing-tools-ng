@@ -835,9 +835,14 @@ var printingtools = {
 			}
 
 			tw.setAttribute("border", "1px solid black");
-			tw.setAttribute("border-collapse", "true");
+			tw.setAttribute("border-collapse", "collapse");
+			tw.setAttribute("cellspacing", "0");
 			Services.console.logStringMessage(tw.clientWidth);
-			// tw.remove();
+			var add_name_type = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.add_name_type");
+			if (add_name_type > 0) {
+			tw.remove();
+				
+			}
 		}
 
 		// Services.console.logStringMessage("After aligned");
