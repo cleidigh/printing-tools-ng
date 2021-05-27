@@ -814,7 +814,8 @@ var printingtools = {
 				Services.console.logStringMessage(trs[i].firstChild.firstChild.clientWidth);
 				let trw = printingtools.doc.createElement("TR");
 				trw.style.display = trs[i].style.display;
-				trw.appendChild(trs[i].firstChild.firstChild.cloneNode(true));
+				trs[i].firstChild.style.paddingLeft = "6px";
+				trw.appendChild(trs[i].firstChild.cloneNode(true));
 				tw.appendChild(trw);
 				Services.console.logStringMessage(trw.clientWidth);
 			}
@@ -834,8 +835,9 @@ var printingtools = {
 			}
 
 			tw.setAttribute("border", "1px solid black");
+			tw.setAttribute("border-collapse", "true");
 			Services.console.logStringMessage(tw.clientWidth);
-			tw.remove();
+			// tw.remove();
 		}
 
 		// Services.console.logStringMessage("After aligned");
