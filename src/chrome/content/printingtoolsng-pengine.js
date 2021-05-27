@@ -95,8 +95,13 @@ var printingtools = {
 		var index;
 
 		var bundle;
-		if (Services.locale.appLocaleAsBCP47 === "ja") {
+		Services.console.logStringMessage(Services.locale.appLocaleAsBCP47);
+		Services.console.logStringMessage(Services.locale.appLocaleAsBCP47.split('-')[0]);
+
+		if (Services.locale.appLocaleAsBCP47.split('-')[0] === "ja") {
 			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
+		} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
+			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
 		} else {
 			bundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/mime.properties");
 		}
@@ -110,16 +115,25 @@ var printingtools = {
 		var subjectPresent = false;
 		var attPresent = false;
 
+		var div;
+		var divHTML;
+
 		for (var i = 0; i < trs.length; i++) {
-			if (Services.locale.appLocaleAsBCP47 === "ja") {
-				var div = trs[i].firstChild.firstChild;
-				var divHTML = div.innerHTML.replace("Subject:", subject + ':');
+			div = trs[i].firstChild.firstChild;
+			divHTML = div.innerHTML;
+			if (Services.locale.appLocaleAsBCP47.split('-')[0] === "ja") {
+				divHTML = div.innerHTML.replace("Subject:", subject + ':');
 				divHTML = divHTML.replace("Date:", date + ':');
 				divHTML = divHTML.replace("To:", to + ':');
 				divHTML = divHTML.replace("From:", from + ':');
 				divHTML = divHTML.replace("Attachments:", attachments + ':');
 				div.innerHTML = divHTML;
 				// var divHTML = div.innerHTML.replace(":", );
+			} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
+				divHTML = divHTML.replace("From:", from + ':');
+				if (divHTML) {
+					div.innerHTML = divHTML;
+				}
 			}
 
 			if (trs[i].id == "attTR") {
@@ -139,6 +153,7 @@ var printingtools = {
 				continue;
 			}
 			var div = trs[i].firstChild.firstChild;
+
 			var divHTML = div.innerHTML.replace(/\&nbsp;/g, " ");
 			var regExp = new RegExp(subject + "\\s*:");
 			if (divHTML.match(regExp)) {
@@ -231,6 +246,19 @@ var printingtools = {
 						cc = "Cc";
 						bcc = "Bcc";
 					}
+				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
+					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
+						var div = trs[i].firstChild.firstChild;
+						if (divHTML.indexOf(bcc) > -1) {
+							divHTML = divHTML.replace(bcc, "Bcc");
+							bcc = "Bcc";
+						}
+						if (divHTML.indexOf(cc) > -1) {
+							divHTML = divHTML.replace(cc, "Cc");
+							cc = "Cc";
+						}
+					}
+					div.innerHTML = divHTML;
 				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "en") {
 					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 						var div = trs[i].firstChild.firstChild;
@@ -240,6 +268,13 @@ var printingtools = {
 						cc = "Cc";
 						bcc = "Bcc";
 					}
+				} else if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
+					var div = trs[i].firstChild.firstChild;
+					divHTML = divHTML.replace("BCC:", "Bcc:");
+					divHTML = divHTML.replace("CC:", "Cc:");
+					div.innerHTML = divHTML;
+					cc = "Cc";
+					bcc = "Bcc";
 				}
 
 				// Services.console.logStringMessage(divHTML.outerHTML);
@@ -825,10 +860,10 @@ var printingtools = {
 				tw.style.fontFamily = mFamily;
 				tw.style.fontSize = mSize;
 			}
-			
+
 			printingtools.insertAfter(tw, table1);
 			let maxHdrWidth = tw.clientWidth;
-			
+
 			for (var i = 0; i < trs.length; i++) {
 				trs[i].firstChild.setAttribute("width", `${maxHdrWidth}px`);
 				// trs[i].firstChild.style.backgroundColor = `#ffff50`;
@@ -840,8 +875,8 @@ var printingtools = {
 			Services.console.logStringMessage(tw.clientWidth);
 			var add_name_type = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.add_name_type");
 			if (add_name_type > 0) {
-			tw.remove();
-				
+				tw.remove();
+
 			}
 		}
 
@@ -1173,11 +1208,11 @@ var printingtools = {
 		for (var i = 0; i < tds1.length; i++) {
 			if (i === 0) {
 				// We process the first row in a different way, to set the top-padding = 3px
-				tds1[0].style.padding = "3px 0px 0px 6px";
+				tds1[0].style.padding = "3px 0px 0px 5px";
 				if (tds1[0].firstChild)
 					tds1[0].firstChild.style.paddingRight = "0px";
 			} else {
-				tds1[i].style.padding = "0px 0px 0px 6px";
+				tds1[i].style.padding = "0px 0px 0px 5px";
 			}
 
 			if (tds1[i].firstChild && tds1[i].firstChild.nodeName !== "#text")
