@@ -95,8 +95,7 @@ var printingtools = {
 		var index;
 
 		var bundle;
-		Services.console.logStringMessage(Services.locale.appLocaleAsBCP47);
-		Services.console.logStringMessage(Services.locale.appLocaleAsBCP47.split('-')[0]);
+		// Services.console.logStringMessage(Services.locale.appLocaleAsBCP47);
 
 		if (Services.locale.appLocaleAsBCP47.split('-')[0] === "ja") {
 			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
@@ -270,11 +269,15 @@ var printingtools = {
 					}
 				} else if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 					var div = trs[i].firstChild.firstChild;
-					divHTML = divHTML.replace("BCC:", "Bcc:");
-					divHTML = divHTML.replace("CC:", "Cc:");
+					if (divHTML.indexOf(bcc) > -1) {
+						divHTML = divHTML.replace(bcc, "Bcc");
+						bcc = "Bcc";
+					}
+					if (divHTML.indexOf(cc) > -1) {
+						divHTML = divHTML.replace(cc, "Cc");
+						cc = "Cc";
+					}
 					div.innerHTML = divHTML;
-					cc = "Cc";
-					bcc = "Bcc";
 				}
 
 				// Services.console.logStringMessage(divHTML.outerHTML);
@@ -715,9 +718,6 @@ var printingtools = {
 		if (!noheaders && printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate"))
 			printingtools.truncateHeaders(printingtools.maxChars);
 
-		// Services.console.logStringMessage("After truncate");
-		// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
-
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.align")) {
 			if (table2) {
 				var trs = table2.getElementsByTagName("tr");
@@ -743,47 +743,6 @@ var printingtools = {
 					var newTDelement = trs[i].insertBefore(tdElement, trs[i].firstChild);
 					newTDelement.setAttribute("style", style);
 
-					// switch (Services.locale.appLocaleAsBCP47.split('-')[0]) {
-					// 	case "ja":
-					// 		if (table1.querySelector(".attHdr")) {
-					// 			trs[i].firstChild.setAttribute("width", "17%");
-					// 		} else {
-					// 			trs[i].firstChild.setAttribute("width", "12%");
-					// 		}
-
-					// 		break;
-					// 	case "el":
-					// 		if (table1.querySelector(".bccHdr")) {
-					// 			trs[i].firstChild.setAttribute("width", "18.5%");
-					// 		} else {
-					// 			trs[i].firstChild.setAttribute("width", "13%");
-					// 		}
-					// 		break;
-					// 	case "de":
-					// 		if (table1.querySelector(".bccHdr")) {
-					// 			trs[i].firstChild.setAttribute("width", "17%");
-					// 		} else if (table1.querySelector(".attHdr") || table1.querySelector("#recTR")) {
-					// 			trs[i].firstChild.setAttribute("width", "12.5%");
-					// 		} else {
-					// 			trs[i].firstChild.setAttribute("width", "7.6%");
-					// 		}
-					// 		break;
-					// 	case "ko":
-					// 		trs[i].firstChild.setAttribute("width", "14%");
-					// 		break;
-					// 	case "en":
-					// 		// if (table1.querySelector(".attHdr") || table1.querySelector("#recTR")) {
-					// 		if (table1.querySelector(".attHdr")) {
-					// 			trs[i].firstChild.setAttribute("width", "12.4%");
-					// 		} else {
-					// 			trs[i].firstChild.setAttribute("width", "9%");
-					// 		}
-					// 		break;
-					// 	default:
-					// 		trs[i].firstChild.setAttribute("width", "12%");
-					// 		break;
-					// }
-
 
 					newTDelement.appendChild(printingtools.doc.getElementById("spanTD"));
 				}
@@ -795,64 +754,18 @@ var printingtools = {
 					if (!trs[i].firstChild.childNodes[1])
 						trs[i].firstChild.appendChild(printingtools.doc.createTextNode(" "));
 					tdElement.appendChild(trs[i].firstChild.childNodes[1]);
-
-					// switch (Services.locale.appLocaleAsBCP47.split('-')[0]) {
-					// 	case "ja":
-					// 		if (table1.querySelector(".attHdr")) {
-					// 			trs[i].firstChild.setAttribute("width", "17%");
-					// 		} else {
-					// 			trs[i].firstChild.setAttribute("width", "12%");
-					// 		}
-
-					// 		break;
-					// 	case "el":
-					// 		if (table1.querySelector(".bccHdr")) {
-					// 			trs[i].firstChild.setAttribute("width", "18.5%");
-					// 		} else {
-					// 			trs[i].firstChild.setAttribute("width", "13%");
-					// 		}
-					// 		break;
-					// 	case "de":
-					// 		if (table1.querySelector(".bccHdr")) {
-					// 			trs[i].firstChild.setAttribute("width", "17%");
-					// 		} else if (table1.querySelector(".attHdr") || table1.querySelector("#recTR")) {
-					// 			trs[i].firstChild.setAttribute("width", "12.5%");
-					// 		} else {
-					// 			trs[i].firstChild.setAttribute("width", "7.6%");
-					// 		}
-					// 		break;
-					// 	case "ko":
-					// 		trs[i].firstChild.setAttribute("width", "14%");
-					// 		break;
-					// 	case "en":
-					// 		if (table1.querySelector(".attHdr")) {
-					// 			trs[i].firstChild.setAttribute("width", "12.4%");
-					// 		} else {
-					// 			trs[i].firstChild.setAttribute("width", "9%");
-					// 		}
-					// 		break;
-					// 	default:
-					// 		trs[i].firstChild.setAttribute("width", "12%");
-					// 		break;
-					// }
-
 				}
 				trs[i].firstChild.style.verticalAlign = "top";
-				// trs[i].firstChild.style.paddingRight = "10px";
 			}
 
 			var tw = printingtools.doc.createElement("TABLE");
 			trs = table1.getElementsByTagName("tr");
 			for (var i = 0; i < trs.length; i++) {
-				Services.console.logStringMessage(trs[i].firstChild.outerHTML)
-				Services.console.logStringMessage(trs[i].firstChild.firstChild.textContent);
-				Services.console.logStringMessage(trs[i].firstChild.firstChild.clientWidth);
 				let trw = printingtools.doc.createElement("TR");
 				trw.style.display = trs[i].style.display;
 				trs[i].firstChild.style.paddingLeft = "6px";
 				trw.appendChild(trs[i].firstChild.cloneNode(true));
 				tw.appendChild(trw);
-				Services.console.logStringMessage(trw.clientWidth);
 			}
 			if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
 				var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
@@ -869,18 +782,12 @@ var printingtools = {
 				// trs[i].firstChild.style.backgroundColor = `#ffff50`;
 			}
 
-			tw.setAttribute("border", "1px solid black");
-			tw.setAttribute("border-collapse", "collapse");
+			// tw.setAttribute("border", "1px solid black");
+			// tw.setAttribute("border-collapse", "collapse");
 			tw.setAttribute("cellspacing", "0");
-			Services.console.logStringMessage(tw.clientWidth);
-			var add_name_type = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.add_name_type");
-			if (add_name_type > 0) {
-				tw.remove();
-
-			}
+			// Services.console.logStringMessage(tw.clientWidth);
+			tw.remove();
 		}
-
-		// Services.console.logStringMessage("After aligned");
 
 		table1.setAttribute("width", "100%");
 		table1.style.tableLayout = "fixed";
@@ -914,9 +821,12 @@ var printingtools = {
 		}
 		printingtools.setTableLayout();
 
-		// Services.console.logStringMessage("final document");
-		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
-
+		myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
+		if (myname.indexOf("finaloutput") > -1) {
+			Services.console.logStringMessage("PTNG: final output");
+			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+		}
+		
 	},
 
 	insertAfter: function (newNode, existingNode) {
@@ -1168,6 +1078,7 @@ var printingtools = {
 						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 							s.style.overflow = "hidden";
 						}
+
 						s.style.whiteSpace = "wrap";
 						s.style.wordWrap = "break-word";
 					}
@@ -1223,6 +1134,7 @@ var printingtools = {
 
 			if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
 				tds1[i].firstChild.style.float = "left";
+
 				let s = tds1[i].nextSibling.firstChild;
 				if (!s) {
 
@@ -1403,9 +1315,6 @@ var printingtools = {
 					if (withIcon) {
 						var filename = currAtt.substring(0, currAtt.lastIndexOf("&")).toLowerCase();
 						var imgSrc = printingtools.findIconSrc(filename);
-						// currAtt = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</nobr>";
-						// currAtt = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "";
-						// currAtt = '<div style="word-wrap: pre-line" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</div>";
 						currAtt = '<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">&nbsp;' + currAtt + "</span>"
 					}
 					attDiv = attDiv + currAtt + comma;

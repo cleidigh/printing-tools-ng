@@ -61,4 +61,4 @@
 <!ENTITY borderStyle "Estil de vora:">
 <!ENTITY colorsNote "Nota: &quot;Imatges i colors&quot; ha d&#39;estar habilitat al quadre de diàleg Imprimeix la configuració de la pàgina">
 <!ENTITY showSignatureVCFfiles "Mostra fitxers de signatura i vcf">
-<!ENTITY useCcBccAlways "Utilitzeu les abreviatures &#39;Cc&#39; i &#39;Cco&#39; per a totes les configuracions regionals">
+<!ENTITY useCcBccAlways "Utilitzeu les abreviatures &#39;Cc&#39; i &#39;Bcc&#39; per a totes les configuracions regionals">
