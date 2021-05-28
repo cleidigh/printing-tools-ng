@@ -578,11 +578,16 @@ var printingtools = {
 	},
 
 	correctLayout: function () {
-		// console.debug('correctly layout');
-		// Services.console.logStringMessage("CorrectLayout");
+
 		printingtools.doc = window.content.document;
-		// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
-		// console.debug(printingtools.doc);
+		
+		myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
+		if (myname.indexOf("initialsource") > -1) {
+			Services.console.logStringMessage("PTNG: initial source");
+			Services.console.logStringMessage("CorrectLayout");
+			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+		}
+
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 		// If there is some "GeneratedName" tag, so we're printing from addressbook
