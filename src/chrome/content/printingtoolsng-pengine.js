@@ -581,7 +581,7 @@ var printingtools = {
 
 		printingtools.doc = window.content.document;
 		
-		myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
+		var myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
 		if (myname.indexOf("initialsource") > -1) {
 			Services.console.logStringMessage("PTNG: initial source");
 			Services.console.logStringMessage("CorrectLayout");
@@ -826,7 +826,6 @@ var printingtools = {
 		}
 		printingtools.setTableLayout();
 
-		myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
 		if (myname.indexOf("finaloutput") > -1) {
 			Services.console.logStringMessage("PTNG: final output");
 			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
@@ -1139,8 +1138,13 @@ var printingtools = {
 
 			if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
 				tds1[i].firstChild.style.float = "left";
+				var s;
+				if (tds1[i].nextSibling) {
+					s = tds1[i].nextSibling.firstChild;
+				} else {
+					
+				}
 
-				let s = tds1[i].nextSibling.firstChild;
 				if (!s) {
 
 					s = tds1[i].firstChild.nextSibling
