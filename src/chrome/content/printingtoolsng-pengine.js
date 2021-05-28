@@ -1141,8 +1141,6 @@ var printingtools = {
 				var s;
 				if (tds1[i].nextSibling) {
 					s = tds1[i].nextSibling.firstChild;
-				} else {
-					
 				}
 
 				if (!s) {
