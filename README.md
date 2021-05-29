@@ -13,11 +13,11 @@ Original add-on’s homepage:
 https://addons.thunderbird.net/addon/printingtools/
 
 
-![PTng_version](https://img.shields.io/badge/version-v2.0.5-darkorange.png?label=PrintingTools%20NG)
-[![PTng_tb_version](https://img.shields.io/badge/version-v2.0.5-blue.png?label=Thunderbird%20Add-On)](https://addons.thunderbird.net/en-US/thunderbird/addon/)
-![Thunderbird_version](https://img.shields.io/badge/version-v68.0--78.*(87)-blue.png?label=Thunderbird)
+![PTng_version](https://img.shields.io/badge/version-v2.0.6-darkorange.png?label=PrintingTools%20NG)
+[![PTng_tb_version](https://img.shields.io/badge/version-v2.0.6-blue.png?label=Thunderbird%20Add-On)](https://addons.thunderbird.net/en-US/thunderbird/addon/)
+![Thunderbird_version](https://img.shields.io/badge/version-v68.0--78.*(89)-blue.png?label=Thunderbird)
 [![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-red.png)](https://opensource.org/licenses/GPL-3.0)
-![Release Status](https://img.shields.io/badge/Release%20Status-v2.0.5%20Released-brightgreen.png)
+![Release Status](https://img.shields.io/badge/Release%20Status-v2.0.6%20Released-brightgreen.png)
 
 #
 
@@ -26,7 +26,7 @@ https://addons.thunderbird.net/addon/printingtools/
 PrintingTools NG provides numerous layout and formatting options for
 printing messages, the address books and individual contacts.  It is
 a fork and update of the original PrintingTools extension.  Currently
-the extension supports Thunderbird 68-78 (experimental 87 support)
+the extension supports Thunderbird 68-78 (experimental 89+ support)
 
 The following are the main enhancements provided by PrintingTools NG, 
 see the options for additional features.

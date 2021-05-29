@@ -2,6 +2,25 @@
 
 ## Versions
 
+Version 2.0.6 : 68/78/89+ Update - May 29, 2021
+
+- Allow compatibility to 89+ (experimental support only) #66
+- Add option: Use 'Cc' and 'Bcc' for all locales (otherwise localized)
+- Make header dynamically sized to largest item
+- Add option #67: Show p7m,p7s,vcf files
+- Add debug option : use 'initialsource' and/or 'finaloutput' 
+  in custom name field for output
+- Fix #69  Set system option to allow custom fonts, inform user
+- Fix 'From' in Chinese locale
+- Various German, Japanese locale improvements
+
+Again thanks for testers/localizers:
+@RRoenn
+@kiki-ja
+@tidebre67 
+@KC-T 
+@madvinegar
+
 Version 2.0.5 : 68/78 Update - April 23, 2021
 
 - Allow compatibility to 87.0 (experimental support only)
