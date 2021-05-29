@@ -58,3 +58,6 @@
 <!ENTITY showhide "Megjelenítés vagy elrejtés">
 <!ENTITY useHeadersBkColor "Használja a fejléc háttérszínét:">
 <!ENTITY borderStyle "Border stílus:">
+<!ENTITY colorsNote "Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen">
+<!ENTITY showSignatureVCFfiles "Aláírási és vcf fájlok megjelenítése">
+<!ENTITY useCcBccAlways "Használja a &#39;Cc&#39; és &#39;Bcc&#39; rövidítéseket az összes nyelvhez">

@@ -58,3 +58,6 @@
 <!ENTITY showhide "Visa eller dölj">
 <!ENTITY useHeadersBkColor "Använd sidhuvudets bakgrundsfärg:">
 <!ENTITY borderStyle "Gränsstil:">
+<!ENTITY colorsNote "Obs! &#39;Bilder och färger&#39; måste aktiveras i dialogrutan Utskriftsformat">
+<!ENTITY showSignatureVCFfiles "Visa signatur- och vcf-filer">
+<!ENTITY useCcBccAlways "Använd förkortningar &#39;Cc&#39; och &#39;Bcc&#39; för alla språk">

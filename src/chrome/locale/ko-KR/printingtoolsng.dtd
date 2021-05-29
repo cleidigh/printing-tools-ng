@@ -58,3 +58,6 @@
 <!ENTITY showhide "표시 또는 숨기기">
 <!ENTITY useHeadersBkColor "헤더 배경색 사용 :">
 <!ENTITY borderStyle "테두리 스타일 :">
+<!ENTITY colorsNote "참고 : 인쇄 페이지 설정 대화 상자에서 &#39;이미지 및 색상&#39;을 활성화해야합니다.">
+<!ENTITY showSignatureVCFfiles "서명 및 vcf 파일 표시">
+<!ENTITY useCcBccAlways "모든 로케일에 대해 &#39;Cc&#39;및 &#39;Bcc&#39;약어 사용">

@@ -12,7 +12,7 @@
 <!ENTITY PMDmenuitem "Erweiterte Druckeinstellungen">
 <!ENTITY PMDcaptionlabel "Erweiterte Einstellungen für den Ausdruck von Nachrichten">
 <!ENTITY PMDcaptionlabel2 "Allgemeine Druckeinstellungen">
-<!ENTITY PMDlabel12 "Schriftgröße anwenden">
+<!ENTITY PMDlabel12 "Schriftart">
 <!ENTITY PMDlabel13 "Nachrichtenkopf von Kontakten ausblenden">
 <!ENTITY PMDlabel14 "Nur Namen und E-Mail-Adressen drucken">
 <!ENTITY PMDcaptionlabel3 "Druckeinstellungen für das Adressbuch">
@@ -55,7 +55,10 @@
 <!ENTITY addRdate.label "Empfangsdatum hinzufügen">
 <!ENTITY defaultPrinter "Standard Drucker">
 <!ENTITY attachmentsPerLine "Anhänge pro Zeile:">
-<!ENTITY wrap "Wickeln">
+<!ENTITY wrap "Umbrechen">
 <!ENTITY showhide "Ein- oder Ausblenden">
-<!ENTITY useHeadersBkColor "Verwenden Sie den Header-Hintergrund. Farbe:">
+<!ENTITY useHeadersBkColor "Hintergrundfarbe der Kopfzeilen:">
 <!ENTITY borderStyle "Randstil:">
+<!ENTITY colorsNote "Hinweis: &quot;Hintergrund drucken (Farbe und Bilder)&quot; muss im Dialogfeld &quot;Seite einrichten...&quot; aktiviert sein">
+<!ENTITY showSignatureVCFfiles "Signatur- und VCF-Dateien anzeigen">
+<!ENTITY useCcBccAlways "Verwenden Sie für alle Gebietsschemas die Abkürzungen &#39;Cc&#39; und &#39;Bcc&#39;">

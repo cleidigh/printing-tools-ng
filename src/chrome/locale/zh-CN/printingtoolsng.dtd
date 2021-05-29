@@ -58,3 +58,6 @@
 <!ENTITY showhide "显示或隐藏">
 <!ENTITY useHeadersBkColor "使用标题背景颜色：">
 <!ENTITY borderStyle "边框样式：">
+<!ENTITY colorsNote "注意：需要在“打印页面设置”对话框中启用“图像和颜色”">
+<!ENTITY showSignatureVCFfiles "显示签名和VCF文件">
+<!ENTITY useCcBccAlways "在所有语言环境中使用“抄送”和“密件抄送”缩写">

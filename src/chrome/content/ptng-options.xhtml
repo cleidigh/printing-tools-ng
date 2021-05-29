@@ -31,6 +31,11 @@
 	<tabpanel orient="vertical">
 	<groupbox>
 	<caption label="&PMDcaptionlabel;" />   
+	
+	<hbox align="center">
+	        <checkbox id="useCcBccAlways" label="&useCcBccAlways;" />
+	</hbox>
+	
 	<hbox align="center" id="dateLoc">
 	        <checkbox id="PMDdate" label="&PMDlabel1;"  oncommand="setTimeout(toggleDate,200)" />
 	</hbox>
@@ -52,9 +57,14 @@
 	</hbox>
 	<hbox align="center">
 		<spacer width="30px" />
+		<checkbox id="addP7M" label="&showSignatureVCFfiles;" /> 
+	</hbox>
+	
+	<hbox align="center">
+		<spacer width="30px" />
 		<label value="&attachmentsPerLine;"/>
 
-		<menulist id="num_atts_line" style="width: 100%">
+		<menulist id="num_atts_line" style="width: 100%" width="100%">
   			<menupopup>
 		    <menuitem label="&wrap;" value="100" id="nal_w" />
 			<menuitem label="1" value="1" id="nal_1" />
@@ -65,11 +75,6 @@
 		</menulist>
 	</hbox>
 
-
-	<hbox align="center">
-		<spacer width="30px" />
-		<checkbox id="addP7M" label="&PMDlabel22;" /> 
-	</hbox>
 	<hbox align="center">
 		<checkbox id="PMDborders" label="&PMDlabel3;. "  /> 
 		<label value="&borderStyle; (CSS)" />
@@ -132,7 +137,7 @@
 			<checkbox id="PMDblack" label="&PMDlabel25;" /> 
 		</hbox>
 		<hbox align="center">
-        		<checkbox id="messageStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleMessageStyle,300,this)" />
+        		<checkbox id="messageStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleMessageStyle,300,this,true)" />
 			<menulist id="fontlist" style="width:140px"/>
 			<label value="&withSize;"/>			
 			<menulist id="fontsize">
@@ -220,6 +225,10 @@
 		<!-- <label value="Use Header Background Color : " style="margin:2px"/>  -->
 			<html:input type="color" id="headersBkColor" value="#ffffff" style="padding-right:4px"/>
 			
+	</hbox>
+	<spacer height="2px"/>
+	<hbox align="center">
+	<label value="&colorsNote;" style="margin:5px; padding-left: 18px;"/> 
 	</hbox>
 	</tabpanel>
 	<tabpanel>

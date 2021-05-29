@@ -15,8 +15,8 @@ const translate = new Translate({ projectId, key });
 
 // console.debug( translate );
 var translationArray = [
-	{ key: "borderStyle", text: "Border style:" },
 	// { key: "", text: "" },
+	{ key: "useCcBccAlways", text: "Use 'Cc' and 'Bcc' abbreviations for all locales" },
 ];
 
 
@@ -451,6 +451,7 @@ localeFile = "settings.json";
 // t();
 // translateHelpPage();
 // translatePage();
+// translateAll("printingtoolsng.properties", translationArray, options);
 translateAll("printingtoolsng.dtd", translationArray, options);
 // translateAll("mboximport.dtd", translationArray, options);
 // loadTranslationArray(inputFiles, options);

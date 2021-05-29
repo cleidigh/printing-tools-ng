@@ -59,5 +59,6 @@
 <!ENTITY wrap "Wrap">
 <!ENTITY showhide "Show / Hide">
 <!ENTITY borderStyle "Border style:">
-
-
+<!ENTITY colorsNote "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog">
+<!ENTITY showSignatureVCFfiles "Show signature and vcf files">
+<!ENTITY useCcBccAlways "Use 'Cc' and 'Bcc' abbreviations for all locales">

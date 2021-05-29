@@ -95,8 +95,12 @@ var printingtools = {
 		var index;
 
 		var bundle;
-		if (Services.locale.appLocaleAsBCP47 === "ja") {
+		// Services.console.logStringMessage(Services.locale.appLocaleAsBCP47);
+
+		if (Services.locale.appLocaleAsBCP47.split('-')[0] === "ja") {
 			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
+		} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
+			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
 		} else {
 			bundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/mime.properties");
 		}
@@ -110,16 +114,25 @@ var printingtools = {
 		var subjectPresent = false;
 		var attPresent = false;
 
+		var div;
+		var divHTML;
+
 		for (var i = 0; i < trs.length; i++) {
-			if (Services.locale.appLocaleAsBCP47 === "ja") {
-				var div = trs[i].firstChild.firstChild;
-				var divHTML = div.innerHTML.replace("Subject:", subject + ':');
+			div = trs[i].firstChild.firstChild;
+			divHTML = div.innerHTML;
+			if (Services.locale.appLocaleAsBCP47.split('-')[0] === "ja") {
+				divHTML = div.innerHTML.replace("Subject:", subject + ':');
 				divHTML = divHTML.replace("Date:", date + ':');
 				divHTML = divHTML.replace("To:", to + ':');
 				divHTML = divHTML.replace("From:", from + ':');
 				divHTML = divHTML.replace("Attachments:", attachments + ':');
 				div.innerHTML = divHTML;
 				// var divHTML = div.innerHTML.replace(":", );
+			} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
+				divHTML = divHTML.replace("From:", from + ':');
+				if (divHTML) {
+					div.innerHTML = divHTML;
+				}
 			}
 
 			if (trs[i].id == "attTR") {
@@ -139,6 +152,7 @@ var printingtools = {
 				continue;
 			}
 			var div = trs[i].firstChild.firstChild;
+
 			var divHTML = div.innerHTML.replace(/\&nbsp;/g, " ");
 			var regExp = new RegExp(subject + "\\s*:");
 			if (divHTML.match(regExp)) {
@@ -222,8 +236,49 @@ var printingtools = {
 					div.innerHTML = divHTML;
 					// var divHTML = div.innerHTML.replace(":", );
 					// Services.console.logStringMessage(`header entry: ${i} ${trs[i].outerHTML}`);
+				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "de") {
+					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
+						var div = trs[i].firstChild.firstChild;
+						divHTML = divHTML.replace("Blindkopie (BCC):", "Bcc:");
+						divHTML = divHTML.replace("Kopie (CC):", "Cc:");
+						div.innerHTML = divHTML;
+						cc = "Cc";
+						bcc = "Bcc";
+					}
+				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
+					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
+						var div = trs[i].firstChild.firstChild;
+						if (divHTML.indexOf(bcc) > -1) {
+							divHTML = divHTML.replace(bcc, "Bcc");
+							bcc = "Bcc";
+						}
+						if (divHTML.indexOf(cc) > -1) {
+							divHTML = divHTML.replace(cc, "Cc");
+							cc = "Cc";
+						}
+					}
+					div.innerHTML = divHTML;
+				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "en") {
+					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
+						var div = trs[i].firstChild.firstChild;
+						divHTML = divHTML.replace("BCC:", "Bcc:");
+						divHTML = divHTML.replace("CC:", "Cc:");
+						div.innerHTML = divHTML;
+						cc = "Cc";
+						bcc = "Bcc";
+					}
+				} else if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
+					var div = trs[i].firstChild.firstChild;
+					if (divHTML.indexOf(bcc) > -1) {
+						divHTML = divHTML.replace(bcc, "Bcc");
+						bcc = "Bcc";
+					}
+					if (divHTML.indexOf(cc) > -1) {
+						divHTML = divHTML.replace(cc, "Cc");
+						cc = "Cc";
+					}
+					div.innerHTML = divHTML;
 				}
-
 
 				// Services.console.logStringMessage(divHTML.outerHTML);
 				regExp = new RegExp(to + "\\s*:");
@@ -523,11 +578,16 @@ var printingtools = {
 	},
 
 	correctLayout: function () {
-		// console.debug('correctly layout');
-		// Services.console.logStringMessage("CorrectLayout");
+
 		printingtools.doc = window.content.document;
-		// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
-		// console.debug(printingtools.doc);
+		
+		var myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
+		if (myname.indexOf("initialsource") > -1) {
+			Services.console.logStringMessage("PTNG: initial source");
+			Services.console.logStringMessage("CorrectLayout");
+			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+		}
+
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 		// If there is some "GeneratedName" tag, so we're printing from addressbook
@@ -663,9 +723,6 @@ var printingtools = {
 		if (!noheaders && printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate"))
 			printingtools.truncateHeaders(printingtools.maxChars);
 
-		// Services.console.logStringMessage("After truncate");
-		// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
-
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.align")) {
 			if (table2) {
 				var trs = table2.getElementsByTagName("tr");
@@ -691,47 +748,6 @@ var printingtools = {
 					var newTDelement = trs[i].insertBefore(tdElement, trs[i].firstChild);
 					newTDelement.setAttribute("style", style);
 
-					switch (Services.locale.appLocaleAsBCP47.split('-')[0]) {
-						case "ja":
-							if (table1.querySelector(".attHdr")) {
-								trs[i].firstChild.setAttribute("width", "17%");
-							} else {
-								trs[i].firstChild.setAttribute("width", "12%");
-							}
-
-							break;
-						case "el":
-							if (table1.querySelector(".bccHdr")) {
-								trs[i].firstChild.setAttribute("width", "18.5%");
-							} else {
-								trs[i].firstChild.setAttribute("width", "13%");
-							}
-							break;
-						case "de":
-							if (table1.querySelector(".bccHdr")) {
-								trs[i].firstChild.setAttribute("width", "17%");
-							} else if (table1.querySelector(".attHdr") || table1.querySelector("#recTR")) {
-								trs[i].firstChild.setAttribute("width", "12.5%");
-							} else {
-								trs[i].firstChild.setAttribute("width", "7.6%");
-							}
-							break;
-						case "ko":
-							trs[i].firstChild.setAttribute("width", "14%");
-							break;
-						case "en":
-							// if (table1.querySelector(".attHdr") || table1.querySelector("#recTR")) {
-							if (table1.querySelector(".attHdr")) {
-								trs[i].firstChild.setAttribute("width", "12.4%");
-							} else {
-								trs[i].firstChild.setAttribute("width", "9%");
-							}
-							break;
-						default:
-							trs[i].firstChild.setAttribute("width", "12%");
-							break;
-					}
-
 
 					newTDelement.appendChild(printingtools.doc.getElementById("spanTD"));
 				}
@@ -743,55 +759,40 @@ var printingtools = {
 					if (!trs[i].firstChild.childNodes[1])
 						trs[i].firstChild.appendChild(printingtools.doc.createTextNode(" "));
 					tdElement.appendChild(trs[i].firstChild.childNodes[1]);
-
-					switch (Services.locale.appLocaleAsBCP47.split('-')[0]) {
-						case "ja":
-							if (table1.querySelector(".attHdr")) {
-								trs[i].firstChild.setAttribute("width", "17%");
-							} else {
-								trs[i].firstChild.setAttribute("width", "12%");
-							}
-
-							break;
-						case "el":
-							if (table1.querySelector(".bccHdr")) {
-								trs[i].firstChild.setAttribute("width", "18.5%");
-							} else {
-								trs[i].firstChild.setAttribute("width", "13%");
-							}
-							break;
-						case "de":
-							if (table1.querySelector(".bccHdr")) {
-								trs[i].firstChild.setAttribute("width", "17%");
-							} else if (table1.querySelector(".attHdr") || table1.querySelector("#recTR")) {
-								trs[i].firstChild.setAttribute("width", "12.5%");
-							} else {
-								trs[i].firstChild.setAttribute("width", "7.6%");
-							}
-							break;
-						case "ko":
-							trs[i].firstChild.setAttribute("width", "14%");
-							break;
-						case "en":
-							if (table1.querySelector(".attHdr")) {
-								trs[i].firstChild.setAttribute("width", "12.4%");
-							} else {
-								trs[i].firstChild.setAttribute("width", "9%");
-							}
-							break;
-						default:
-							trs[i].firstChild.setAttribute("width", "12%");
-							break;
-					}
 				}
 				trs[i].firstChild.style.verticalAlign = "top";
-				// trs[i].firstChild.style.paddingRight = "10px";
-				trs[i].style.paddingRight = "10px";
 			}
-		}
 
-		// Services.console.logStringMessage("After aligned");
-		// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+			var tw = printingtools.doc.createElement("TABLE");
+			trs = table1.getElementsByTagName("tr");
+			for (var i = 0; i < trs.length; i++) {
+				let trw = printingtools.doc.createElement("TR");
+				trw.style.display = trs[i].style.display;
+				trs[i].firstChild.style.paddingLeft = "6px";
+				trw.appendChild(trs[i].firstChild.cloneNode(true));
+				tw.appendChild(trw);
+			}
+			if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
+				var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
+				var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
+				tw.style.fontFamily = mFamily;
+				tw.style.fontSize = mSize;
+			}
+
+			printingtools.insertAfter(tw, table1);
+			let maxHdrWidth = tw.clientWidth;
+
+			for (var i = 0; i < trs.length; i++) {
+				trs[i].firstChild.setAttribute("width", `${maxHdrWidth}px`);
+				// trs[i].firstChild.style.backgroundColor = `#ffff50`;
+			}
+
+			// tw.setAttribute("border", "1px solid black");
+			// tw.setAttribute("border-collapse", "collapse");
+			tw.setAttribute("cellspacing", "0");
+			// Services.console.logStringMessage(tw.clientWidth);
+			tw.remove();
+		}
 
 		table1.setAttribute("width", "100%");
 		table1.style.tableLayout = "fixed";
@@ -825,9 +826,15 @@ var printingtools = {
 		}
 		printingtools.setTableLayout();
 
-		// Services.console.logStringMessage("final document");
-		// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+		if (myname.indexOf("finaloutput") > -1) {
+			Services.console.logStringMessage("PTNG: final output");
+			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+		}
+		
+	},
 
+	insertAfter: function (newNode, existingNode) {
+		existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
 	},
 
 	printSelection: function (contents) {
@@ -1059,11 +1066,11 @@ var printingtools = {
 			}
 			var tds1 = table1.getElementsByTagName("TD");
 			// We process the first row in a different way, to set the top-padding = 3px
-			tds1[0].style.padding = "3px 10px 0px 10px";
+			tds1[0].style.padding = "3px 0px 0px 0px";
 			for (var i = 1; i < tds1.length; i++) {
-				tds1[i].style.padding = "0px 10px 0px 10px";
+				tds1[i].style.padding = "0px 0px 0px 0px";
 
-				
+
 				if (tds1[i].id === "attTD") {
 					let s = tds1[i].nextSibling || tds1[i];
 
@@ -1075,6 +1082,7 @@ var printingtools = {
 						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 							s.style.overflow = "hidden";
 						}
+
 						s.style.whiteSpace = "wrap";
 						s.style.wordWrap = "break-word";
 					}
@@ -1115,22 +1123,26 @@ var printingtools = {
 		for (var i = 0; i < tds1.length; i++) {
 			if (i === 0) {
 				// We process the first row in a different way, to set the top-padding = 3px
-				tds1[0].style.padding = "3px 10px 0px 8px";
+				tds1[0].style.padding = "3px 0px 0px 5px";
 				if (tds1[0].firstChild)
-					tds1[0].firstChild.style.paddingRight = "8px";
+					tds1[0].firstChild.style.paddingRight = "0px";
 			} else {
-				tds1[i].style.padding = "0px 10px 0px 8px";
+				tds1[i].style.padding = "0px 0px 0px 5px";
 			}
 
 			if (tds1[i].firstChild && tds1[i].firstChild.nodeName !== "#text")
-				tds1[i].firstChild.style.paddingRight = "8px";
+				tds1[i].firstChild.style.paddingRight = "0px";
 
 			// Services.console.logStringMessage(`${tds1[i].outerHTML} ${tds1[i].offsetWidth}  ${tds1[i].clientWidth}`);
 
 
 			if (tds1[i].firstChild.tagName === "DIV" && tds1[i].firstChild.classList.contains("subjectHdr")) {
 				tds1[i].firstChild.style.float = "left";
-				let s = tds1[i].nextSibling;
+				var s;
+				if (tds1[i].nextSibling) {
+					s = tds1[i].nextSibling.firstChild;
+				}
+
 				if (!s) {
 
 					s = tds1[i].firstChild.nextSibling
@@ -1140,10 +1152,12 @@ var printingtools = {
 				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 					s.style.overflow = "hidden";
 					s.style.whiteSpace = "nowrap";
+					s.style.overflowWrap = null;
 					s.style.textOverflow = "ellipsis";
 
 				} else {
 					s.style.wordWrap = "break-word";
+					s.style.textOverflow = "ellipsis";
 				}
 			}
 
@@ -1306,11 +1320,9 @@ var printingtools = {
 					}
 					var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
 					if (withIcon) {
-						var imgSrc = printingtools.findIconSrc(currAtt);
-						// currAtt = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</nobr>";
-						// currAtt = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "";
-						// currAtt = '<div style="word-wrap: pre-line" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</div>";
-						currAtt = '<span style="word-wrap: nowrap" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" >&nbsp;' + currAtt + "</span>";
+						var filename = currAtt.substring(0, currAtt.lastIndexOf("&")).toLowerCase();
+						var imgSrc = printingtools.findIconSrc(filename);
+						currAtt = '<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">&nbsp;' + currAtt + "</span>"
 					}
 					attDiv = attDiv + currAtt + comma;
 					if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
@@ -1338,7 +1350,8 @@ var printingtools = {
 						comma = ", ";
 					var attDiv = tds[0].innerHTML;
 					if (withIcon) {
-						var imgSrc = printingtools.findIconSrc(attDiv);
+						var filename = attDiv.substring(0, attDiv.lastIndexOf("&")).toLowerCase();
+						var imgSrc = printingtools.findIconSrc(filename);
 						// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
 						attDiv = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "";
 					}
@@ -1362,12 +1375,12 @@ var printingtools = {
 							var attDiv = atts[i].getAttribute("tooltiptext");
 						else
 							var attDiv = atts[i].label;
-						if (attDiv.lastIndexOf(".p7m") + 4 != attDiv.length && attDiv.lastIndexOf(".vcf") + 4 != attDiv.length)
+						if (attDiv.lastIndexOf(".p7m") + 4 != attDiv.length && attDiv.lastIndexOf(".p7s") + 4 != attDiv.length && attDiv.lastIndexOf(".vcf") + 4 != attDiv.length)
 							continue;
 						if (!firsttime)
 							comma = ", ";
 						if (Array.isArray)
-							attDiv = atts[i].label;
+							attDiv = atts[i].attachment.name;
 						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon")) {
 							var imgSrc = printingtools.findIconSrc(attDiv);
 							// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon"  height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
@@ -1411,9 +1424,8 @@ var printingtools = {
 
 	findIconSrc: function (filename) {
 		var url;
-		var ext = filename.substring(0, filename.lastIndexOf("&")).toLowerCase();
-		ext = ext.substring(ext.lastIndexOf(".") + 1);
-		// console.debug(ext);
+		var ext;
+		ext = filename.substring(filename.lastIndexOf(".") + 1);
 
 		switch (ext) {
 			case "doc":
@@ -1435,7 +1447,6 @@ var printingtools = {
 			case "xls":
 			case "xml":
 			case "zip":
-				// url = "chrome://printingtoolsng/content/" + ext + ".gif";
 				url = "resource://printingtoolsng/icons/" + ext + ".gif";
 				break;
 			case "avi":
@@ -1458,6 +1469,11 @@ var printingtools = {
 			case "pptx":
 				url = "resource://printingtoolsng/icons/pptx.png";
 				break;
+			case "p7m":
+			case "p7s":
+				url = "resource://printingtoolsng/icons/" + "signature" + ".gif";
+				break;
+
 			default:
 				url = "resource://printingtoolsng/icons/file.gif";
 		}

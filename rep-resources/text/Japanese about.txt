@@ -1,0 +1,117 @@
+
+--------------------------------------------
+en-US
+--------------------------------------------
+
+About this Add-on
+
+PrintingTools NG provides numerous layout and formatting options for
+printing messages, the address books and individual contacts. It is
+a fork and update of the original PrintingTools extension. Currently
+the extension supports Thunderbird 68-78.
+
+Version 2.0.4 : 68/78 Update - March 9, 2021
+
+- Move options on 78 to addons page
+- Fix show/hide headers
+- Fix short date format #28
+- Fix line truncation #24
+- Fix long attachment truncation #23
+- Fix unpopulated printer list on install
+- Dutch locale improvements - @Vistaus
+
+The following are the main enhancements provided by PrintingTools NG,
+see the options for additional features.
+
+Options & Menus:
+- Options access from the Tools/Add-on options (68), add-ons page (78)
+- Printing Options menu added to File menu
+- Optional "Printing Options" button added to Print Preview window
+
+Message Layout & Formatting:
+- Add message header border
+- Add Username, Folder or custom title
+- Hide standard or extended headers
+- Reorder standard headers
+- Add for the attachment table to header with icons
+- Hide inline attachments
+- Configure font family and size
+- Highlight quoted text color, font and size
+- Print selected text only
+
+AddressBook & Contact Layout & Formatting:
+- Configure font family and size
+- Compact printing format option
+- Print name and e-mail only
+- Remove "Card For" from entries
+
+
+
+--------------------------------------------
+ja (日本語)
+--------------------------------------------
+
+このアドオンについて
+
+PrintingTools NG はメッセージやアドレス帳、個々の連絡先を印刷するための多数のレイアウトおよび書式設定オプションを提供します。
+これはオリジナルの PrintingTools 拡張機能をフォークして更新したものです。
+現在 Thunderbird 68 - 78 をサポートしています。
+
+バージョン 2.0.5 : 68/78 アップデート - 2021年4月23日
+
+    87.0 beta への互換性を適用(実験的な対応です)
+    #44 最大フォントサイズを拡大しました。
+    ヘッダーの背景色をカスタマイズするオプションを追加しました。
+    ヘッダーの枠線を CSS でカスタマイズするオプションを追加しました。
+    #62, #8 選択したテキストを（プレビューなしで）印刷できない問題を修正しました。
+    #53 埋め込みテーブルのサイズを変更しました。
+    #50 ヘッダーリストを日本語にローカライズしました。
+    #49, #30 レイアウトの問題とヘッダーを修正しました。
+    #46, #37 日本語ロケールの一部を修正しました。 @kiki-ja
+    #34 ドイツ語ロケールの一部を修正しました。 @RRoenn
+    #52 ヘッダーの背景色指定オプションをローカライズしました。
+
+テスターの皆さんに感謝します。
+@RRoenn
+@kiki-ja
+@tidebre67
+@KC-T
+@madvinegar
+
+バージョン 2.0.4 : 68/78 アップデート - 2021年3月9日
+
+- 78 のオプションをアドオンページに移動
+- ヘッダの表示/非表示を修正
+- 短い日付フォーマットの修正 #28
+- 行の切り捨てを修正 #24
+- 長い添付ファイルの切り捨てを修正 #23
+- インストール時にプリンターの一覧が表示されない問題を修正
+- オランダ語ロケールの改善 - @Vistaus
+
+以下は PrintingTools NG で提供される主な機能の変更点です。
+追加機能についてはオプションを参照してください。
+
+オプションとメニュー：
+- ツール/アドオン・オプション (68)、アドオン・ページ (78) からのオプション・アクセス
+- ファイルメニューに「PrintingTools NG オプション」メニューを追加
+- 「印刷プレビュー」ウィンドウに「PrintingTools NG オプション」ボタンが追加されました。
+
+メッセージのレイアウトとフォーマット：
+- メッセージヘッダの境界線の追加
+- ユーザー名、フォルダ、またはカスタムタイトルの追加
+- 標準または拡張ヘッダの非表示
+- 標準ヘッダーの並び替え
+- ヘッダーへのアイコン付き添付ファイルテーブルの追加
+- インライン添付ファイルの非表示
+- フォントファミリーとサイズの設定
+- 引用したテキストの色、フォント、サイズの強調表示
+- 選択したテキストのみを印刷
+
+アドレス帳と連絡先のレイアウトとフォーマット：
+- フォントファミリーとサイズの設定
+- コンパクト印刷のオプション
+- 名前とメールのみを印刷
+- エントリーから「Card For」を削除
+
+
+

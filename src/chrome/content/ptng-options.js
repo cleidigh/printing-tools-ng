@@ -79,6 +79,10 @@ function initPMDpanel() {
 	initPMDabpanel();
 
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
+	
+	
+	document.getElementById("useCcBccAlways").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always");
+
 	if (Array.isArray) {
 		document.getElementById("dateLoc").collapsed = true;
 		document.getElementById("dateSpacer").collapsed = true;
@@ -121,10 +125,7 @@ function initPMDpanel() {
 	document.getElementById("num_atts_line").value = prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
 	document.getElementById("showButtonPreview").checked = prefs.getBoolPref("extensions.printingtoolsng.show_options_button");
 
-	if (String.trim)
-		document.getElementById("addP7M").checked = prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach");
-	else
-		document.getElementById("addP7M").setAttribute("collapsed", "true");
+	document.getElementById("addP7M").checked = prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach");
 	document.getElementById("radiostyle").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.messages.style_apply");
 	document.getElementById("messageStyle").checked = prefs.getBoolPref("extensions.printingtoolsng.messages.style");
 	document.getElementById("addFolder").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.addfolder");
@@ -173,7 +174,7 @@ function initPMDpanel() {
 	fontlist.selectedIndex = selindex;
 
 	toggleCiteStyle(document.getElementById("citeCheck"));
-	toggleMessageStyle(document.getElementById("messageStyle"));
+	toggleMessageStyle(document.getElementById("messageStyle"), false);
 	toggleAtt();
 
 	// cleidigh fix
@@ -210,6 +211,7 @@ function initPMDpanel() {
 	
 	// Services.console.logStringMessage("printingtools: call printer setup");
 	setPrinterList();
+	document.getElementById("useCcBccAlways").focus;
 }
 
 function setPrinterList() {
@@ -342,6 +344,8 @@ function savePMDprefs() {
 		savePMDabprefs(true);
 		prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
 		// Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);	
+
+	prefs.setBoolPref("extensions.printingtoolsng.headers.useCcBcc_always", document.getElementById("useCcBccAlways").checked);
 	
 	var max_pre_len;
 	if (document.getElementById("PREtruncate").checked)
@@ -569,10 +573,21 @@ function toggleCiteStyle(el) {
 	document.getElementById("citeSize").disabled = !el.checked;
 }
 
-function toggleMessageStyle(el) {
+function toggleMessageStyle(el, notify) {
 	document.getElementById("fontlist").disabled = !el.checked;
 	document.getElementById("fontsize").disabled = !el.checked;
 	document.getElementById("radiostyle").disabled = !el.checked;
+	var strBundleService = Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService);
+	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
+	if (document.getElementById("messageStyle").checked && notify) {
+		// alert("The system option:\n  Allow messages to use other fonts\nhas been enabled");
+		alert(bundle.GetStringFromName("allowFonts"));
+		prefs.setIntPref("browser.display.use_document_fonts", 1);
+	} else if(notify) {
+		// alert("The system option:\n  Allow messages to use other fonts\nhas been disabled");
+		alert(bundle.GetStringFromName("disallowFonts"));
+		prefs.setIntPref("browser.display.use_document_fonts", 0);
+	}
 }
 
 function toggleAtt() {
@@ -592,6 +607,8 @@ document.addEventListener("dialogaccept", function (event) {
 
 window.addEventListener("load", function (event) {
 	initPMDpanel();
+	document.getElementById("useCcBccAlways").focus;
+	document.getElementById("useCcBccAlways").selected;
 });
 
 
