@@ -5,8 +5,26 @@
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
+// test processing function
+function printT() {
+	console.debug(' processing function');
+	// Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
+	// window.console.debug("loaded");
+	// let table1 = printingtools.getTable(0);
+	// table1.border = "1";
+	// Services.console.logStringMessage("tableb");
+}
+
 function onLoad() {
 
+	console.debug('messenger ol');
+	// Add post processing method
+	let print_context_cmd= document.documentElement.querySelector("#mailContext-print");
+	let pcmd = print_context_cmd.getAttribute("oncommand");
+	// pcmd += "; printT();";
+	pcmd = "printT();"; 
+	print_context_cmd.setAttribute("oncommand", pcmd);
+	console.debug('new command: ' + print_context_cmd.getAttribute("oncommand"));
 	// Services.scriptloader.loadSubScript("", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 
