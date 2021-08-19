@@ -5,15 +5,6 @@
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
-// test processing function
-function printT() {
-	console.debug(' processing function');
-	// Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
-	// window.console.debug("loaded");
-	// let table1 = printingtools.getTable(0);
-	// table1.border = "1";
-	// Services.console.logStringMessage("tableb");
-}
 
 function onLoad() {
 
@@ -22,16 +13,18 @@ function onLoad() {
 	let print_context_cmd= document.documentElement.querySelector("#mailContext-print");
 	let pcmd = print_context_cmd.getAttribute("oncommand");
 	// pcmd += "; printT();";
-	pcmd = "printT();"; 
+	pcmd = "goDoCommand(\"cmd_print\"); printingtools.printT();"; 
 	print_context_cmd.setAttribute("oncommand", pcmd);
 	console.debug('new command: ' + print_context_cmd.getAttribute("oncommand"));
 	// Services.scriptloader.loadSubScript("", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
-
+	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
 	<menuitem label="&PMDmenuitem;" insertafter="printMenuItem" oncommand="openPTdialog(false)"/>
+	<menuitem label="PTest;" insertafter="printMenuItem" oncommand="printingtools.printT()"/>
 </menupopup>
+
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 	// inject extension object into private context

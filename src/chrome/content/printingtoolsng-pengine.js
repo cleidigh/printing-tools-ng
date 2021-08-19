@@ -5,6 +5,15 @@ function ReplaceWithSelection() {
 	// selection without headers
 	return true;
 }
+// test processing function
+function printT2() {
+	console.debug(' processing function');
+	// Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
+	// window.console.debug("loaded");
+	// let table1 = printingtools.getTable(0);
+	// table1.border = "1";
+	// Services.console.logStringMessage("tableb");
+}
 
 var printingtools = {
 
@@ -12,8 +21,23 @@ var printingtools = {
 	num: null,
 	prefs: Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch),
 	maxChars: null,
-
 	strBundleService: Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService),
+	previewDoc: null,
+
+	// test processing function
+printT: function () {
+	console.debug(' processing function');
+	// Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
+	// window.console.debug("loaded");
+	let ps = document.documentElement.querySelector(".printPreviewStack print-preview browser")
+
+	// ps = document.querySelector(".printPreviewStack")
+	printingtools.previewDoc = ps.contentDocument.documentElement.querySelector("body");
+
+	let table1 = printingtools.getTable(0);
+	table1.border = "1";
+	Services.console.logStringMessage("tableb");
+},
 
 	loadContentListener: function () {
 		window.removeEventListener("DOMContentLoaded", printingtools.loadContentListener, false);
@@ -969,9 +993,9 @@ var printingtools = {
 	getTable: function (num) {
 		// The function check if the requested table exists and if it's an header table
 		var tabclass = new Array("header-part1", "header-part2", "header-part3");
-		var doc = window.content.document;
+		var doc = printingtools.previewDoc;
 		var table = doc.getElementsByTagName("TABLE")[num];
-		if (table && table.getAttribute("class") == tabclass[num])
+		if (table && table.getAttribute("class").includes(tabclass[num]))
 			return table;
 		else
 			return false;
@@ -1482,5 +1506,5 @@ var printingtools = {
 	},
 }
 
-window.addEventListener("DOMContentLoaded", printingtools.loadContentListener, false);
+// window.addEventListener("DOMContentLoaded", printingtools.loadContentListener, false);
 
