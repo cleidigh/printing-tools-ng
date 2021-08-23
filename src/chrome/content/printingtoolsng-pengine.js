@@ -5,15 +5,7 @@ function ReplaceWithSelection() {
 	// selection without headers
 	return true;
 }
-// test processing function
-function printT2() {
-	console.debug(' processing function');
-	// Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
-	// window.console.debug("loaded");
-	// let table1 = printingtools.getTable(0);
-	// table1.border = "1";
-	// Services.console.logStringMessage("tableb");
-}
+
 
 var printingtools = {
 
@@ -32,11 +24,21 @@ printT: function () {
 	let ps = document.documentElement.querySelector(".printPreviewStack print-preview browser")
 
 	// ps = document.querySelector(".printPreviewStack")
-	printingtools.previewDoc = ps.contentDocument.documentElement.querySelector("body");
+	// printingtools.previewDoc = ps.contentDocument.documentElement.querySelector("body");
+	printingtools.previewDoc = ps.contentDocument;
+	printingtools.correctLayout();
 
+	// printingtools.setTableBorders(true);
 	let table1 = printingtools.getTable(0);
-	table1.border = "1";
-	Services.console.logStringMessage("tableb");
+	// table1.border = "1";
+	let style = table1.getAttribute("style");
+	if (!style) {
+		style = "";
+	}
+	var tableStyle = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.border_style");
+	// table1.setAttribute("style", style + "; " + tableStyle);
+	Services.console.logStringMessage("table bord " + table1.getAttribute("style"));
+
 },
 
 	loadContentListener: function () {
@@ -603,7 +605,8 @@ printT: function () {
 
 	correctLayout: function () {
 
-		printingtools.doc = window.content.document;
+		console.debug('correctly layout ');
+		printingtools.doc = printingtools.previewDoc;
 		
 		var myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
 		if (myname.indexOf("initialsource") > -1) {
@@ -625,7 +628,7 @@ printT: function () {
 			return;
 		}
 
-		// console.debug('printing e-mail');
+		console.debug('printing e-mail');
 
 		var tablesNum = printingtools.doc.getElementsByTagName("Table").length;
 		// If there is no "Table" tag, so we can't do nothing... It can happen, because the printEngine window
@@ -651,6 +654,7 @@ printT: function () {
 		printingtools.getHdr(); // save hdr
 		printingtools.current = printingtools.current + 1;
 
+		console.debug('Tables');
 		var table1 = printingtools.getTable(0);
 		var table2 = printingtools.getTable(1);
 		var table3 = printingtools.getTable(2);
@@ -659,8 +663,8 @@ printT: function () {
 		var noheaders = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.hide");
 		var noExtHeaders = printingtools.prefs.getBoolPref("extensions.printingtoolsng.ext_headers.hide");
 
-		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.black_text"))
-			printingtools.doc.body.removeAttribute("text");
+		// if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.black_text"))
+			// printingtools.doc.body.removeAttribute("text");
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
 			var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
@@ -707,13 +711,13 @@ printT: function () {
 		if (!noheaders)
 			printingtools.addName(borders);
 
-
+		console.debug('adenine ');
 		try {
 			// var sel = opener.content.getSelection();
 			// Services.console.logStringMessage("window: " + printingtools.getMail3Pane().document.URL);
 			var sel = printingtools.getMail3Pane().content.getSelection();
-			// Services.console.logStringMessage("valid selection");
-			// Services.console.logStringMessage("sel " + sel);
+			Services.console.logStringMessage("valid selection");
+			Services.console.logStringMessage("sel " + sel);
 			var range2 = sel.getRangeAt(0);
 			var contents2 = range2.cloneContents();
 			// Services.console.logStringMessage(contents2.textContent);
@@ -740,6 +744,8 @@ printT: function () {
 				printingtools.setIMGstyle(hideImg);
 		}
 
+		console.debug('check attachments');
+
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments")) {
 			printingtools.rewriteAttList();
 		} else
@@ -747,6 +753,7 @@ printT: function () {
 		if (!noheaders && printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate"))
 			printingtools.truncateHeaders(printingtools.maxChars);
 
+		console.debug('Line head');
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.align")) {
 			if (table2) {
 				var trs = table2.getElementsByTagName("tr");
@@ -787,6 +794,7 @@ printT: function () {
 				trs[i].firstChild.style.verticalAlign = "top";
 			}
 
+			console.debug('create shadow table ');
 			var tw = printingtools.doc.createElement("TABLE");
 			trs = table1.getElementsByTagName("tr");
 			for (var i = 0; i < trs.length; i++) {
@@ -803,7 +811,15 @@ printT: function () {
 				tw.style.fontSize = mSize;
 			}
 
-			printingtools.insertAfter(tw, table1);
+			console.debug('tables');
+			console.debug(table2);
+			console.debug(table3);
+			if (!table3) {
+				printingtools.insertAfter(tw, table2);
+				
+			} else {
+				printingtools.insertAfter(tw, table3);
+			}
 			let maxHdrWidth = tw.clientWidth;
 
 			for (var i = 0; i < trs.length; i++) {
@@ -815,7 +831,7 @@ printT: function () {
 			// tw.setAttribute("border-collapse", "collapse");
 			tw.setAttribute("cellspacing", "0");
 			// Services.console.logStringMessage(tw.clientWidth);
-			tw.remove();
+			// tw.remove();
 		}
 
 		table1.setAttribute("width", "100%");
@@ -846,7 +862,7 @@ printT: function () {
 				table3.style.color = "black";
 				table3.style.backgroundColor = backgroundColor;
 			}
-			// Services.console.logStringMessage("finish table layout");
+			Services.console.logStringMessage("finish table layout");
 		}
 		printingtools.setTableLayout();
 
@@ -854,6 +870,7 @@ printT: function () {
 			Services.console.logStringMessage("PTNG: final output");
 			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 		}
+		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 		
 	},
 
@@ -994,8 +1011,11 @@ printT: function () {
 		// The function check if the requested table exists and if it's an header table
 		var tabclass = new Array("header-part1", "header-part2", "header-part3");
 		var doc = printingtools.previewDoc;
+		console.debug('get Table ' + num);
 		var table = doc.getElementsByTagName("TABLE")[num];
-		if (table && table.getAttribute("class").includes(tabclass[num]))
+		console.debug(table);
+		
+		if (table &&  table.getAttribute("class") && table.getAttribute("class").includes(tabclass[num]))
 			return table;
 		else
 			return false;
@@ -1136,8 +1156,8 @@ printT: function () {
 				tds3[i].style.padding = "0px 10px 0px 10px";
 		}
 
-		// Services.console.logStringMessage(table1.outerHTML);
-		// Services.console.logStringMessage("finish table borders");
+		Services.console.logStringMessage(table1.outerHTML);
+		Services.console.logStringMessage("finish table borders");
 	},
 
 	setTableLayout: function () {

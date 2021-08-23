@@ -214,7 +214,7 @@ function initPMDpanel() {
 	document.getElementById("useCcBccAlways").focus;
 }
 
-function setPrinterList() {
+async function setPrinterList() {
 	var outputPrinter = null;
 	try {
 		outputPrinter = prefs.getCharPref("print_printer");
@@ -225,19 +225,22 @@ function setPrinterList() {
 	var selindex = 0;
 	var popup = document.createXULElement("menupopup");
 
-	var PSSVC2 = Cc["@mozilla.org/gfx/printerenumerator;1"]
-	.getService(Ci.nsIPrinterEnumerator);
+	// change for 91
+	var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
+	.getService(Ci.nsIPrinterList);
 
 	// Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
-	var pe = PSSVC2.printerNameList;
-	var printers = [];
+	var printers = await printerList.printers;
+	// var printers = [];
 	var i = 0;
-	while(pe.hasMore()) {
-		let printerName = pe.getNext();
+	// while(pe.hasMore()) {
+	for(let printer of printers) {
+		printer.QueryInterface(Ci.nsIPrinter);
+		let printerName = printer.name;
 		var menuitem = document.createXULElement("menuitem");
 
 		// Services.console.logStringMessage("printingtools: printerName: " + printerName);
-		printers.push(printerName);
+		// printers.push(printerName);
 		menuitem.setAttribute("value", printerName);
 		menuitem.setAttribute("label", printerName);
 		popup.appendChild(menuitem);
@@ -339,11 +342,13 @@ function getHeaderLabel(string) {
 }
 
 function savePMDprefs() {
-	// console.debug('save options');
-	if (fullPanel)
-		savePMDabprefs(true);
-		prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
-		// Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);	
+	console.debug('save options');
+	// if (fullPanel)
+		// savePMDabprefs(true);
+	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
+	prefs.setCharPref("print_printer", "");
+	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
+	Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);	
 
 	prefs.setBoolPref("extensions.printingtoolsng.headers.useCcBcc_always", document.getElementById("useCcBccAlways").checked);
 	
