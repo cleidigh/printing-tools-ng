@@ -42,25 +42,16 @@ messenger.WindowListener.registerOptionsPage("chrome://printingtoolsng/content/p
 
 
 messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/messenger.xul",
-	"chrome://printingtoolsng/content/messengerOL.js");
-
-messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/messenger.xhtml",
 	"chrome://printingtoolsng/content/messengerOL.js");
 
 
+//Does not exist anymore, messengerOL.js needs to add obseerver for subDialogWindows
+/*
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/msgPrintEngine.xhtml",
 	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
-
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/msgPrintEngine.xul",
-	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
-
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/addressbook/addressbook.xul",
-	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
+*/
 
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/addressbook/addressbook.xhtml",
