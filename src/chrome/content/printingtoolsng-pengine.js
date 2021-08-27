@@ -1,4 +1,4 @@
-var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+// var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 function ReplaceWithSelection() {
 	// disables the native function in TB 3.1, that prints
@@ -17,11 +17,20 @@ var printingtools = {
 	previewDoc: null,
 
 	// test processing function
-printT: function () {
+printT: function (subDialogWindow) {
 	console.debug(' processing function');
 	// Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 	// window.console.debug("loaded");
-	let ps = document.documentElement.querySelector(".printPreviewStack print-preview browser")
+	console.debug(document.title);
+	console.debug(subDialogWindow.document.documentElement.outerHTML);
+	let el = subDialogWindow.document.querySelector("#landscape");
+	console.debug(el);
+	// el.value = 1;
+	// el.checked = true;
+	// return;
+	let mw = printingtools.getMail3Pane();
+
+	let ps = mw.document.documentElement.querySelector(".printPreviewStack print-preview browser")
 
 	// ps = document.querySelector(".printPreviewStack")
 	// printingtools.previewDoc = ps.contentDocument.documentElement.querySelector("body");
@@ -793,17 +802,34 @@ printT: function () {
 				}
 				trs[i].firstChild.style.verticalAlign = "top";
 			}
+			
 
 			console.debug('create shadow table ');
+			
+			let md = printingtools.getMail3Pane();
 			var tw = printingtools.doc.createElement("TABLE");
+			// var tw = md.document.createElement("TABLE");
+			tw.style.fontFamily = table1.style.fontFamily ;
+			tw.style.fontSize =  table1.style.fontSize;
+
 			trs = table1.getElementsByTagName("tr");
 			for (var i = 0; i < trs.length; i++) {
 				let trw = printingtools.doc.createElement("TR");
+				// let trw = md.document.createElement("TR");
 				trw.style.display = trs[i].style.display;
 				trs[i].firstChild.style.paddingLeft = "6px";
-				trw.appendChild(trs[i].firstChild.cloneNode(true));
+				// trw.appendChild(trs[i].firstChild.cloneNode(true));
+				trw.innerHTML = trs[i].firstChild.outerHTML;
 				tw.appendChild(trw);
 			}
+			// tw.style.height = 0;
+
+			tw.setAttribute("border", "1px solid black");
+			tw.setAttribute("border-collapse", "collapse");
+			tw.setAttribute("cellspacing", "0");
+			// md.document.body.appendChild(tw);
+			console.debug(tw.outerHTML);
+
 			if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
 				var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
 				var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
@@ -811,30 +837,41 @@ printT: function () {
 				tw.style.fontSize = mSize;
 			}
 
-			console.debug('tables');
-			console.debug(table2);
-			console.debug(table3);
+			// tw.remove();
+
+			// let retv = 98;
+			// openDialog("chrome://printingtoolsng/content/ptng-shadowtable.xhtml", "", "chrome,centerscreen, modal", retv);
+
+			// console.debug('tables');
+			// console.debug(table2);
+			// console.debug(table3);
+
 			if (!table3) {
 				printingtools.insertAfter(tw, table2);
-				
+				var maxHdrWidth = table2.nextSibling.getBoundingClientRect().width;
+				console.debug('table rectangle');
+				console.debug(maxHdrWidth);
+			
 			} else {
 				printingtools.insertAfter(tw, table3);
 			}
-			let maxHdrWidth = tw.clientWidth;
-
+			
+			maxHdrWidth = 100;
+			
 			for (var i = 0; i < trs.length; i++) {
+
 				trs[i].firstChild.setAttribute("width", `${maxHdrWidth}px`);
+				console.debug(trs[i].getBoundingClientRect().width);
 				// trs[i].firstChild.style.backgroundColor = `#ffff50`;
 			}
 
-			// tw.setAttribute("border", "1px solid black");
-			// tw.setAttribute("border-collapse", "collapse");
-			tw.setAttribute("cellspacing", "0");
-			// Services.console.logStringMessage(tw.clientWidth);
-			// tw.remove();
+			tw.remove();
+			// console.debug('after she has a scalable');
+			// console.debug(tw.clientWidth);
+
 		}
 
-		table1.setAttribute("width", "100%");
+		// table1.setAttribute("width", "100%");
 		table1.style.tableLayout = "fixed";
 		table1.style.marginRight = "10px";
 		table2.style.display = "none";
