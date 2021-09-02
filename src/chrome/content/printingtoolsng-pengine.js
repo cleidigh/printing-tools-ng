@@ -21,22 +21,61 @@ printT: function (subDialogWindow) {
 	console.debug(' processing function');
 	// Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 	// window.console.debug("loaded");
+
+	var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
+			.getService(Ci.nsIPrintSettingsService);
+
+	console.debug(PSSVC);
+
 	console.debug(document.title);
 	console.debug(subDialogWindow.document.documentElement.outerHTML);
-	let el = subDialogWindow.document.querySelector("#landscape");
+	let el = subDialogWindow.document.querySelector("#orientation");
+	let pp = subDialogWindow.document.querySelector("#printer-picker");
+	let landscape = subDialogWindow.document.querySelector("#landscape");
+	let portrait = subDialogWindow.document.querySelector("#portrait");
+
 	console.debug(el);
+	console.debug(el.selectedItem);
+	
+	console.debug(pp);
+	pp.selectedIndex = 0;
+	// el.selectedItem = landscape;
+	setTimeout(() => {
+		console.debug('timeout');
+		console.debug(el.selectedItem);
+	}, 0);
+	
+	// // landscape.checked = true;
+	// portrait.removeAttribute("checked");
+
+
 	// el.value = 1;
 	// el.checked = true;
 	// return;
 	let mw = printingtools.getMail3Pane();
 
-	let ps = mw.document.documentElement.querySelector(".printPreviewStack print-preview browser")
+	let ps = mw.document.documentElement.querySelector(".printPreviewStack print-preview browser");
 
 	// ps = document.querySelector(".printPreviewStack")
 	// printingtools.previewDoc = ps.contentDocument.documentElement.querySelector("body");
 	printingtools.previewDoc = ps.contentDocument;
+	
+
+	ps.addEventListener('DOMContentLoaded', (event) => {
+		console.log('DOM fully loaded and parsed');
+	});
+	return;
+	
 	printingtools.correctLayout();
 
+	console.debug(pp);
+	pp.selectedIndex = 5;
+	// el.selectedItem = landscape;
+	setTimeout(() => {
+		console.debug('timeout');
+		console.debug(el.selectedItem);
+	}, 0);
+	
 	// printingtools.setTableBorders(true);
 	let table1 = printingtools.getTable(0);
 	// table1.border = "1";
