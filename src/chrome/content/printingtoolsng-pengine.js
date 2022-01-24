@@ -1,4 +1,5 @@
 // var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
 
 function ReplaceWithSelection() {
 	// disables the native function in TB 3.1, that prints
@@ -87,6 +88,84 @@ printT: function (subDialogWindow) {
 	// table1.setAttribute("style", style + "; " + tableStyle);
 	Services.console.logStringMessage("table bord " + table1.getAttribute("style"));
 
+},
+ DoCommandPrint2: function () {
+	let browser = GetCurrentEditorElement();
+	browser.contentDocument.title =
+	  document.getElementById("msgSubject").value.trim() ||
+	  getComposeBundle().getString("defaultSubject");
+	PrintUtils.startPrintWindow(browser.browsingContext, {});
+  },
+
+
+  
+printT2: async function () {
+
+
+	//printingtools.DoCommandPrint2();
+
+
+	let fakeMsgPane = document.createXULElement("browser");
+		fakeMsgPane.setAttribute("context", "mailContext");
+		fakeMsgPane.setAttribute("type", "content");
+		fakeMsgPane.setAttribute("messagemanagergroup", "single-page");
+		fakeMsgPane.setAttribute("remote", "true");
+		fakeMsgPane.setAttribute("primary", "true");
+		fakeMsgPane.hidden = true;
+		fakeMsgPane = window.document.getElementById("messagesBox").parentNode.appendChild(fakeMsgPane);
+		
+		
+		//let docShell = fakeMsgPane.docShell;
+		//docShell.appType = Ci.nsIDocShell.APP_TYPE_MAIL;
+
+
+	var printBrowser = fakeMsgPane;
+	
+
+	var msg = gFolderDisplay.selectedMessageUris[0];
+	console.debug(msg);
+
+	console.debug(printBrowser.outerHTML);
+	
+            let messageService = messenger.messageServiceFromURI(msg),
+                  messageURL = messageService.getUrlForUri(msg).spec;
+
+	//MailE10SUtils.loadURI(printBrowser, "chrome://printingtoolsng/content/test.html" )
+	MailE10SUtils.loadURI(printBrowser, messageURL)
+
+	console.debug(printBrowser.outerHTML);
+	console.debug(printBrowser);
+	
+	for (let i = 1; i < 2500; i++) {
+		await new Promise(resolve => window.setTimeout(resolve, 20));
+		if (fakeMsgPane.contentDocument && fakeMsgPane.contentDocument.readyState == "complete")
+			break;
+	}
+
+	console.debug(fakeMsgPane.contentDocument.body.firstChild)
+	var b = fakeMsgPane.contentDocument.body;
+	
+	var t = b.querySelector("table")
+	console.debug(t);
+	t.border = "1";
+	t.style.backgroundColor = "red"
+	t = b.querySelector("td")
+	console.debug(t);
+	t.innerHTML = "test"
+	t.style.backgroundColor = "blue"
+	
+	let psService = Cc[
+		"@mozilla.org/gfx/printsettings-service;1"
+	].getService(Ci.nsIPrintSettingsService);
+
+	var printSettings = PrintUtils.getPrintSettings();
+	printSettings.isInitializedFromPrinter = true;
+	printSettings.isInitializedFromPrefs = true;
+			printSettings.printBGColors = true;
+			printSettings.printBGImages = true;
+			psService.savePrintSettingsToPrefs(printSettings, true, printSettings.kInitSaveBGColors);
+
+	PrintUtils.startPrintWindow(printBrowser.browsingContext, {});
 },
 
 	loadContentListener: function () {

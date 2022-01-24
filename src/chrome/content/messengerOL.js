@@ -19,11 +19,11 @@ function onLoad() {
 	console.debug('new command: ' + print_context_cmd.getAttribute("oncommand"));
 	// Services.scriptloader.loadSubScript("", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
-	// Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
+	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
 	<menuitem label="&PMDmenuitem;" insertafter="printMenuItem" oncommand="openPTdialog(false)"/>
-	<menuitem label="PTest;" insertafter="printMenuItem" oncommand="printingtools.printT()"/>
+	<menuitem label="PTest;" insertafter="printMenuItem" oncommand="printingtools.printT2()"/>
 </menupopup>
 
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
@@ -61,7 +61,7 @@ function onLoad() {
 
 	}
 
-	ps.registerTabMonitor(tabmonitor);
+	// ps.registerTabMonitor(tabmonitor);
 
 
 
@@ -105,7 +105,7 @@ function onLoad() {
 		},
 	};
 
-	Services.obs.addObserver(window.printingtoolsng.printObserver, "subdialog-loaded");
+	// Services.obs.addObserver(window.printingtoolsng.printObserver, "subdialog-loaded");
 
 
 
