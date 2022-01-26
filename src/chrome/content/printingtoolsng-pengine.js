@@ -144,15 +144,19 @@ printT2: async function () {
 
 	console.debug(fakeMsgPane.contentDocument.body.firstChild)
 	var b = fakeMsgPane.contentDocument.body;
+	printingtools.previewDoc = fakeMsgPane.contentDocument;
+
 	
-	var t = b.querySelector("table")
-	console.debug(t);
-	t.border = "1";
-	t.style.backgroundColor = "red"
-	t = b.querySelector("td")
-	console.debug(t);
-	t.innerHTML = "test"
-	t.style.backgroundColor = "blue"
+	// var t = b.querySelector("table")
+	// console.debug(t);
+	// t.border = "1";
+	// t.style.backgroundColor = "red"
+	// t = b.querySelector("td")
+	// console.debug(t);
+	// t.innerHTML = "test"
+	// t.style.backgroundColor = "blue"
+	
+	printingtools.correctLayout();
 	
 	let psService = Cc[
 		"@mozilla.org/gfx/printsettings-service;1"

@@ -23,7 +23,7 @@ function onLoad() {
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
 	<menuitem label="&PMDmenuitem;" insertafter="printMenuItem" oncommand="openPTdialog(false)"/>
-	<menuitem label="PTest;" insertafter="printMenuItem" oncommand="printingtools.printT2()"/>
+	<menuitem label="PTNG Print" insertafter="printMenuItem" oncommand="printingtools.printT2()"/>
 </menupopup>
 
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
