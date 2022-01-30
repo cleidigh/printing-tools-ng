@@ -4,6 +4,23 @@
 // onLoad() installs each overlay xul fragment
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+
+// Import any needed modules.
+var ADDON_ID = "PrintingToolsNG@cleidigh.kokkini.net";
+
+var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
+
+// Get our extension object.
+let extension2 = ExtensionParent.GlobalManager.getExtension(ADDON_ID);
+
+// Load notifyTools into a custom namespace, to prevent clashes with other add-ons.
+window.notifyExampleAddon = {};
+Services.scriptloader.loadSubScript(extension2.rootURI.resolve("chrome/content/notifyTools.js"), window.notifyExampleAddon, "UTF-8");
+
+
+
+// -- Define listeners for messages from the background script.
+
 var tabmonitor;
 
 function onLoad() {
@@ -115,6 +132,6 @@ function onLoad() {
 function onUnload(shutdown) {
 	// console.debug('PT unloading');
 	// Services.console.logStringMessage("onUnload messenger");
-	Services.obs.removeObserver(window.printingtoolsng.printObserver, "subdialog-loaded");
+	// Services.obs.removeObserver(window.printingtoolsng.printObserver, "subdialog-loaded");
 
 }

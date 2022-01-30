@@ -112,3 +112,32 @@ browser.runtime.onInstalled.addListener(async (info) => {
 		});
 	}
 });
+
+
+messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
+	switch (info.command) {
+	  case "doSomething":
+		//do something
+		let rv = await doSomething();
+		return rv;
+		break;
+	}
+  });
+
+async function doSomething() {
+	var tab = await browser.tabs.query({});
+	console.log(tab)
+
+	var t = tab.find(at)
+
+	var m = await messenger.messageDisplay.getDisplayedMessage(t.id)
+	console.log(m)
+	var a = await messenger.messages.listAttachments(m.id);
+
+	return a;
+  }
+
+function at(t) {
+
+	return t.active;
+}

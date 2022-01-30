@@ -1,6 +1,13 @@
 // var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
 
+
+// Define our add-on ID, which is needed to resolve paths for files within our extension
+// and to be able to listen for notifications.
+
+
+
+
 function ReplaceWithSelection() {
 	// disables the native function in TB 3.1, that prints
 	// selection without headers
@@ -16,8 +23,11 @@ var printingtools = {
 	maxChars: null,
 	strBundleService: Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService),
 	previewDoc: null,
-
+	msgUris: null,
+	attList: null,
+	
 	// test processing function
+
 printT: function (subDialogWindow) {
 	console.debug(' processing function');
 	// Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
@@ -104,6 +114,10 @@ printT2: async function () {
 
 	//printingtools.DoCommandPrint2();
 
+	printingtools.attList = await window.notifyExampleAddon.notifyTools.notifyBackground({command: "doSomething"});
+		console.log(printingtools.attList);
+		
+	  
 
 	let fakeMsgPane = document.createXULElement("browser");
 		fakeMsgPane.setAttribute("context", "mailContext");
@@ -123,6 +137,8 @@ printT2: async function () {
 	
 
 	var msg = gFolderDisplay.selectedMessageUris[0];
+	printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+
 	console.debug(msg);
 
 	console.debug(printBrowser.outerHTML);
@@ -155,6 +171,9 @@ printT2: async function () {
 	// console.debug(t);
 	// t.innerHTML = "test"
 	// t.style.backgroundColor = "blue"
+	 
+	printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+	printingtools.current = 0;
 	
 	printingtools.correctLayout();
 	
@@ -701,7 +720,9 @@ printT2: async function () {
 	},
 
 	getHdr: function () {
-		var uris = window.arguments[1];
+		//var uris = window.arguments[1];
+		var uris = printingtools.msgUris;
+
 		var m = Cc["@mozilla.org/messenger;1"]
 			.createInstance(Ci.nsIMessenger);
 		if (uris && uris[printingtools.current]) {
@@ -738,6 +759,8 @@ printT2: async function () {
 
 		console.debug('correctly layout ');
 		printingtools.doc = printingtools.previewDoc;
+
+		printingtools.addAttTable(printingtools.attList);
 		
 		var myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
 		if (myname.indexOf("initialsource") > -1) {
@@ -1487,6 +1510,50 @@ printT2: async function () {
 		if (headtable1 && headtable1.lastChild)
 			headtable1.lastChild.appendChild(newTR);
 	},
+
+	formatBytes: function (bytes,decimals) {
+		if(bytes == 0) return '0 Bytes';
+		var k = 1024,
+			dm = decimals || 2,
+			sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+			i = Math.floor(Math.log(bytes) / Math.log(k));
+		return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+	 },
+
+	addAttTable: function (attList) {
+
+	var attTable = printingtools.doc.createElement("TABLE");
+		var attRowTR;
+		var attTD;
+
+		for (let index = 0; index < attList.length; index++) {
+			const attEntry = attList[index];
+			attRowTR =  printingtools.doc.createElement("TR");
+			attTD =  printingtools.doc.createElement("TD");
+			attTD.textContent = attEntry.name;
+			attRowTR.appendChild(attTD);
+
+			attTD =  printingtools.doc.createElement("TD");
+			attTD.textContent = printingtools.formatBytes(attEntry.size);
+			attRowTR.appendChild(attTD);
+			
+			attTable.appendChild(attRowTR);
+
+		}
+		
+		attTable.classList.add("mimeAttachmentTable");
+		var t;
+
+		if(t = this.getTable(1)) {
+			t.after(attTable);
+
+		} else {
+			t = this.getTable(0);
+			t.after(attTable);
+		}
+
+	},
+
 
 	rewriteAttList: function () {
 		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
