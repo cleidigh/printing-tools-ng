@@ -29,18 +29,32 @@ function onLoad() {
 	// Add post processing method
 
 	let print_context_cmd = document.documentElement.querySelector("#mailContext-print");
-	let pcmd = print_context_cmd.getAttribute("oncommand");
+	
+	console.debug(print_context_cmd.getAttribute("oncommand"));
 	// pcmd += "; printT();";
-	pcmd = "goDoCommand(\"cmd_print\"); printingtools.printT();";
-	print_context_cmd.setAttribute("oncommand", pcmd);
-	console.debug('new command: ' + print_context_cmd.getAttribute("oncommand"));
+
+	console.debug(print_context_cmd.outerHTML);
+
+
+	pcmd = "printingtools.cmd_printng();";
+	//print_context_cmd.setAttribute("oncommand", pcmd);
+	//print_context_cmd.removeAttribute("command");
+	//print_context_cmd.setAttribute("hidden", "true");
+
+	//console.debug('new command: ' + print_context_cmd.getAttribute("oncommand"));
+	//console.debug(print_context_cmd.outerHTML);
+
+	//print_context_cmd.remove();
+	
 	// Services.scriptloader.loadSubScript("", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
+	
+	
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
 	<menuitem label="&PMDmenuitem;" insertafter="printMenuItem" oncommand="openPTdialog(false)"/>
-	<menuitem label="PTNG Print" insertafter="printMenuItem" oncommand="printingtools.printT2()"/>
+	<menuitem label="PTNG Print2" insertafter="printMenuItem" oncommand="printingtools.cmd_printng()"/>
 </menupopup>
 
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
