@@ -51,13 +51,24 @@ function onLoad() {
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 	
 	
+	
+	WL.injectElements(`
+<menupopup id="menu_FilePopup">
+	<menuitem label="PTNG Print3" insertbefore="printMenuItem" oncommand="printingtools.cmd_printng()"/>
+</menupopup>
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+	
+	
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
 	<menuitem label="&PMDmenuitem;" insertafter="printMenuItem" oncommand="openPTdialog(false)"/>
-	<menuitem label="PTNG Print2" insertafter="printMenuItem" oncommand="printingtools.cmd_printng()"/>
+	
 </menupopup>
 
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+//<menuitem label="Print..." insertafter="printMenuItem" oncommand="printingtools.cmd_printng()" accesskey="y" />
 
 	// inject extension object into private context
 	window.printingtoolsng = {};

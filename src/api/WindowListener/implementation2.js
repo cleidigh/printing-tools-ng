@@ -747,7 +747,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
         window[this.uniqueRandomID].WL.injectElements = function (
           xulString,
           dtdFiles = [],
-          debug = true
+          debug = false
         ) {
           let toolbarsToResolve = [];
 
@@ -858,33 +858,11 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                     "> of the injected element already exists in the document!"
                   );
                 }
-
-                if (debug) {
-                  console.log("remove")
-                }
-
-               // elements[i].setAttribute("wlapi_autoinjected", uniqueRandomID);
-                
-              let i2 = elements[i].getAttribute("insertbefore")
-              let cm = elements[i].getAttribute("oncommand")
-              var te = window.document.getElementById(i2)
-              
-
-              te.setAttribute("oncommand", cm);
-              te.removeAttribute("command");
-
-              //te.setAttribute("hidden", "true");
-              //te.removeAttribute("accesskey");
-                //insertBeforeElement.parentNode.insertBefore(
-                  //elements[i],
-                  //insertBeforeElement
-                //);
-
-                if (debug) {
-                  console.log("remove done")
-                  console.log(te.outerHTML)
-                }
-
+                elements[i].setAttribute("wlapi_autoinjected", uniqueRandomID);
+                insertBeforeElement.parentNode.insertBefore(
+                  elements[i],
+                  insertBeforeElement
+                );
               } else if (
                 elements[i].id &&
                 window.document.getElementById(elements[i].id)

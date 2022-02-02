@@ -186,9 +186,23 @@ var printingtools = {
 		printSettings.isInitializedFromPrefs = true;
 		printSettings.printBGColors = true;
 		printSettings.printBGImages = true;
+
+		if (printingtools.prefs.getBoolPref("print.always_print_silent")) {
+		printSettings.printSilent = true;
+		printSettings.showPrintProgress = false;
+		}
+		
 		psService.savePrintSettingsToPrefs(printSettings, true, printSettings.kInitSaveBGColors);
 
-		PrintUtils.startPrintWindow(printBrowser.browsingContext, {});
+		if (printingtools.prefs.getBoolPref("print.always_print_silent")) {
+			await fakeMsgPane.browsingContext.print(printSettings);	
+			} else {
+				PrintUtils.startPrintWindow(printBrowser.browsingContext, {});
+			}
+		
+		
+
+		//PrintUtils.printWindow(printBrowser.browsingContext, {});
 	},
 
 	loadContentListener: function () {
