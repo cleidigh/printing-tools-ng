@@ -112,6 +112,14 @@ var printingtools = {
 	cmd_printng: async function () {
 
 
+
+		console.log(document.baseURI);
+		
+		console.log(document.baseURI);
+
+		if (document.URL == "chrome://messenger/content/messageWindow.xhtml") {
+			console.log(document.activeElement.contentDocument.baseURI);	
+		}
 		//printingtools.DoCommandPrint2();
 
 		printingtools.attList = await window.notifyExampleAddon.notifyTools.notifyBackground({ command: "doSomething" });
@@ -126,7 +134,9 @@ var printingtools = {
 		fakeMsgPane.setAttribute("remote", "true");
 		fakeMsgPane.setAttribute("primary", "true");
 		fakeMsgPane.hidden = true;
-		fakeMsgPane = window.document.getElementById("messagesBox").parentNode.appendChild(fakeMsgPane);
+		
+		//fakeMsgPane = window.document.getElementById("messagesBox").parentNode.appendChild(fakeMsgPane);
+		fakeMsgPane = window.document.getElementById("status-bar").parentNode.appendChild(fakeMsgPane);
 
 
 		//let docShell = fakeMsgPane.docShell;
@@ -1072,6 +1082,29 @@ var printingtools = {
 		}
 		Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
+
+		// Remove attachments  table from  end of message 
+		printingtools.removeAttatchmentBodyTable();
+
+	},
+
+	removeAttatchmentBodyTable: function () {
+
+var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header")
+for (let index = 0; index < attTableHdrs.length; index++) {
+	let element = attTableHdrs[index];
+	element.style.display = "none";
+}
+
+
+
+
+	//console.log(attTableHdrs.outerHTML)
+	var attTableEntries = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table")
+		for (let index = 0; index < attTableEntries.length; index++) {
+			let element = attTableEntries[index];
+			element.style.display = "none";
+		}
 	},
 
 	insertAfter: function (newNode, existingNode) {

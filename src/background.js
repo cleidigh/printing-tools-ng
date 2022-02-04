@@ -50,6 +50,11 @@ messenger.WindowListener.registerWindow(
 	"chrome://printingtoolsng/content/messengerOL.js");
 
 
+	messenger.WindowListener.registerWindow(
+		"chrome://messenger/content/messageWindow.xhtml",
+		"chrome://printingtoolsng/content/messageWindowOL.js");
+	
+	
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/msgPrintEngine.xhtml",
 	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
