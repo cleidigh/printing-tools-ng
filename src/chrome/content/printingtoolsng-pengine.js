@@ -114,11 +114,11 @@ var printingtools = {
 
 
 		console.log(document.baseURI);
-		
+
 		console.log(document.baseURI);
 
 		if (document.URL == "chrome://messenger/content/messageWindow.xhtml") {
-			console.log(document.activeElement.contentDocument.baseURI);	
+			console.log(document.activeElement.contentDocument.baseURI);
 		}
 		//printingtools.DoCommandPrint2();
 
@@ -134,7 +134,7 @@ var printingtools = {
 		fakeMsgPane.setAttribute("remote", "true");
 		fakeMsgPane.setAttribute("primary", "true");
 		fakeMsgPane.hidden = true;
-		
+
 		//fakeMsgPane = window.document.getElementById("messagesBox").parentNode.appendChild(fakeMsgPane);
 		fakeMsgPane = window.document.getElementById("status-bar").parentNode.appendChild(fakeMsgPane);
 
@@ -198,19 +198,19 @@ var printingtools = {
 		printSettings.printBGImages = true;
 
 		if (printingtools.prefs.getBoolPref("print.always_print_silent")) {
-		printSettings.printSilent = true;
-		printSettings.showPrintProgress = false;
+			printSettings.printSilent = true;
+			printSettings.showPrintProgress = false;
 		}
-		
+
 		psService.savePrintSettingsToPrefs(printSettings, true, printSettings.kInitSaveBGColors);
 
 		if (printingtools.prefs.getBoolPref("print.always_print_silent")) {
-			await fakeMsgPane.browsingContext.print(printSettings);	
-			} else {
-				PrintUtils.startPrintWindow(printBrowser.browsingContext, {});
-			}
-		
-		
+			await fakeMsgPane.browsingContext.print(printSettings);
+		} else {
+			PrintUtils.startPrintWindow(printBrowser.browsingContext, {});
+		}
+
+
 
 		//PrintUtils.printWindow(printBrowser.browsingContext, {});
 	},
@@ -1090,17 +1090,17 @@ var printingtools = {
 
 	removeAttatchmentBodyTable: function () {
 
-var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header")
-for (let index = 0; index < attTableHdrs.length; index++) {
-	let element = attTableHdrs[index];
-	element.style.display = "none";
-}
+		var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header")
+		for (let index = 0; index < attTableHdrs.length; index++) {
+			let element = attTableHdrs[index];
+			element.style.display = "none";
+		}
 
 
 
 
-	//console.log(attTableHdrs.outerHTML)
-	var attTableEntries = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table")
+		//console.log(attTableHdrs.outerHTML)
+		var attTableEntries = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table")
 		for (let index = 0; index < attTableEntries.length; index++) {
 			let element = attTableEntries[index];
 			element.style.display = "none";
