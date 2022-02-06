@@ -25,7 +25,7 @@
 		<tab label="&style;" />
 		<tab label="&order;" />
 		<tab label="&PMDcaptionlabel2;" />
-		<tab id="abTab" label="&PMDcaptionlabel3;" />
+		<!-- <tab id="abTab" label="&PMDcaptionlabel3;" /> -->
 	</tabs>
    	<tabpanels id="tabs">
 	<tabpanel orient="vertical">
@@ -75,6 +75,10 @@
 		</menulist>
 	</hbox>
 
+<hbox align="center">
+		<checkbox id="InlineAttsListhide" label="Hide Inline Attachment List" /> 
+	</hbox>
+	
 	<hbox align="center">
 		<checkbox id="PMDborders" label="&PMDlabel3;. "  /> 
 		<label value="&borderStyle; (CSS)" />
@@ -127,9 +131,13 @@
 	<hbox align="center">
 		<checkbox id="alignHeaders" label="&alignHeaders.label;"  /> 
 	</hbox>
+
+	<!--
 	<hbox align="center">
 		<checkbox id="showButtonPreview" label="&showButton.label;"  /> 
 	</hbox>
+-->
+
 	</groupbox>
 	</tabpanel>
 	<tabpanel orient="vertical">
@@ -266,9 +274,11 @@
 		<hbox align="center">
 			<checkbox id="PMDsilent" label="&PMDlabel8;" /> 
 		</hbox>
-		<hbox align="center">
+
+<!--	 <hbox align="center">
 			<checkbox id="PMDprogress" label="&PMDlabel9;" /> 
 		</hbox>
+-->	
 		</vbox>
 	</tabpanel>
 	

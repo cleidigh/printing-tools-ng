@@ -1084,7 +1084,10 @@ var printingtools = {
 
 
 		// Remove attachments  table from  end of message 
-		printingtools.removeAttatchmentBodyTable();
+		
+		if(printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list")) {
+			printingtools.removeAttatchmentBodyTable();
+		}
 
 	},
 
@@ -1244,9 +1247,9 @@ var printingtools = {
 		// The function check if the requested table exists and if it's an header table
 		var tabclass = new Array("header-part1", "header-part2", "header-part3");
 		var doc = printingtools.previewDoc;
-		console.debug('get Table ' + num);
+		//console.debug('get Table ' + num);
 		var table = doc.getElementsByTagName("TABLE")[num];
-		console.debug(table);
+		//console.debug(table);
 
 		if (table && table.getAttribute("class") && table.getAttribute("class").includes(tabclass[num]))
 			return table;

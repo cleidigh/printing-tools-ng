@@ -50,16 +50,29 @@ function onLoad() {
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 	
-	
-	
+if (1) {
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
 	<menuitem label="PTNG Print3" insertbefore="printMenuItem" oncommand="printingtools.cmd_printng()"/>
+</menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+	
+
+WL.injectElements(`
+<panelview id="appMenu-mainView">
+	<toolbarbutton label="PTNG Print6" insertbefore="appmenu_print" oncommand="printingtools.cmd_printng()"/>
+</panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+}
+
+WL.injectElements(`
+<menupopup id="mailContext">
+	<menuitem label="PTNG Print4" insertbefore="mailContext-print" oncommand="printingtools.cmd_printng()"/>
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
-	
-	
+		
+if(1) {
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
 	<menuitem label="&PMDmenuitem;" insertafter="printMenuItem" oncommand="openPTdialog(false)"/>
@@ -67,6 +80,8 @@ function onLoad() {
 </menupopup>
 
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+}
 
 //<menuitem label="Print..." insertafter="printMenuItem" oncommand="printingtools.cmd_printng()" accesskey="y" />
 

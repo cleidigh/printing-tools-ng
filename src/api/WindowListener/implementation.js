@@ -870,8 +870,10 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
               var te = window.document.getElementById(i2)
               
 
+              te.removeAttribute("observes");
               te.setAttribute("oncommand", cm);
               te.removeAttribute("command");
+              te.removeAttribute("disabled");
 
               //te.setAttribute("hidden", "true");
               //te.removeAttribute("accesskey");

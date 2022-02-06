@@ -36,7 +36,7 @@ function setComplexPref(pref, value) {
 function initPMDpanel() {
 
 	// cleidigh
-	// console.debug('initialize panel');
+	 console.debug('initialize panel');
 	// console.debug(window.arguments);
 	var win = Cc["@mozilla.org/appshell/window-mediator;1"]
 	.getService(Ci.nsIWindowMediator)
@@ -120,6 +120,8 @@ function initPMDpanel() {
 	document.getElementById("PMDmaxchars").value = prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 	document.getElementById("PMDprogress").checked = !prefs.getBoolPref("print.show_print_progress");
 	document.getElementById("PMDhideAtt").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments");
+	document.getElementById("InlineAttsListhide").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list");
+
 	document.getElementById("PMDselection").checked = prefs.getBoolPref("extensions.printingtoolsng.print.just_selection");
 	document.getElementById("PMDattachIcon").checked = prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
 	document.getElementById("num_atts_line").value = prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
@@ -376,6 +378,7 @@ function savePMDprefs() {
 	prefs.setBoolPref("print.show_print_progress", !document.getElementById("PMDprogress").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments", document.getElementById("PMDhideAtt").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments_list", document.getElementById("InlineAttsListhide").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.print.just_selection", document.getElementById("PMDselection").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.addfolder", document.getElementById("addFolder").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.messages.black_text", document.getElementById("PMDblack").checked);

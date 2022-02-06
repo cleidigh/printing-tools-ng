@@ -7,6 +7,7 @@ pref("extensions.printingtoolsng.headers.truncate", false);
 pref("extensions.printingtoolsng.headers.maxchars", 80);
 pref("extensions.printingtoolsng.headers.useCcBcc_always", true);
 pref("extensions.printingtoolsng.hide.inline_attachments", false);
+pref("extensions.printingtoolsng.hide.inline_attachments_list", false);
 pref("extensions.printingtoolsng.images.hide", false);
 pref("extensions.printingtoolsng.addressbook.hide_header_card", false);
 pref("extensions.printingtoolsng.addressbook.print_just_addresses", false);
