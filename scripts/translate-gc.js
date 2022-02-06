@@ -16,7 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "useCcBccAlways", text: "Use 'Cc' and 'Bcc' abbreviations for all locales" },
+	{ key: "HideInlineAttList", text: "Hide inline attachment list" },
 ];
 
 
@@ -443,11 +443,11 @@ var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-F
 // var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
 // 	'sk-SK', 'sl-SI', 'sv-SE'];
 
-// localeFolders = ['es-ES', 'de-DE', 'ja'];
+localeFolders = ['es-ES', 'de-DE', 'ja'];
 
 
 // localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];
-localeFile = "settings.json";
+//localeFile = "settings.json";
 // t();
 // translateHelpPage();
 // translatePage();
