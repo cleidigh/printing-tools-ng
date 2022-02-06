@@ -62,3 +62,4 @@
 <!ENTITY colorsNote "Hinweis: &quot;Hintergrund drucken (Farbe und Bilder)&quot; muss im Dialogfeld &quot;Seite einrichten...&quot; aktiviert sein">
 <!ENTITY showSignatureVCFfiles "Signatur- und VCF-Dateien anzeigen">
 <!ENTITY useCcBccAlways "Verwenden Sie für alle Gebietsschemas die Abkürzungen &#39;Cc&#39; und &#39;Bcc&#39;">
+<!ENTITY HideInlineAttList "Inline-Anhangsliste ausblenden">

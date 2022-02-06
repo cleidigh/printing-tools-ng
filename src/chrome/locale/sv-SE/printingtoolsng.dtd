@@ -61,3 +61,4 @@
 <!ENTITY colorsNote "Obs! &#39;Bilder och färger&#39; måste aktiveras i dialogrutan Utskriftsformat">
 <!ENTITY showSignatureVCFfiles "Visa signatur- och vcf-filer">
 <!ENTITY useCcBccAlways "Använd förkortningar &#39;Cc&#39; och &#39;Bcc&#39; för alla språk">
+<!ENTITY HideInlineAttList "Dölj inline bilaga lista">

@@ -61,3 +61,4 @@
 <!ENTITY colorsNote "Примечание. «Изображения и цвета» необходимо включить в диалоговом окне «Параметры страницы печати».">
 <!ENTITY showSignatureVCFfiles "Показать файлы подписи и vcf">
 <!ENTITY useCcBccAlways "Используйте сокращения &quot;Копия&quot; и &quot;Скрытая копия&quot; для всех языков.">
+<!ENTITY HideInlineAttList "Скрыть встроенный список вложений">

@@ -61,3 +61,4 @@
 <!ENTITY colorsNote "참고 : 인쇄 페이지 설정 대화 상자에서 &#39;이미지 및 색상&#39;을 활성화해야합니다.">
 <!ENTITY showSignatureVCFfiles "서명 및 vcf 파일 표시">
 <!ENTITY useCcBccAlways "모든 로케일에 대해 &#39;Cc&#39;및 &#39;Bcc&#39;약어 사용">
+<!ENTITY HideInlineAttList "인라인 첨부 파일 목록 숨기기">

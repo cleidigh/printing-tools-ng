@@ -61,3 +61,4 @@
 <!ENTITY colorsNote "Σημείωση: Το &quot;Εικόνες και χρώματα&quot; πρέπει να είναι ενεργοποιημένο στο παράθυρο διαλόγου Εκτύπωση σελίδας">
 <!ENTITY showSignatureVCFfiles "Εμφάνιση αρχείων υπογραφής και vcf">
 <!ENTITY useCcBccAlways "Χρησιμοποιήστε τις συντομογραφίες &quot;Cc&quot; και &quot;Bcc&quot; για όλες τις τοπικές ρυθμίσεις">
+<!ENTITY HideInlineAttList "Απόκρυψη ενσωματωμένης λίστας συνημμένων">

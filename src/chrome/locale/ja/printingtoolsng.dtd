@@ -66,3 +66,4 @@
 <!ENTITY showSignatureVCFfiles "署名ファイルと vcf ファイルを表示する">
 
 <!ENTITY useCcBccAlways "すべてのロケールに「Cc」および「Bcc」の略語を使用します">
+<!ENTITY HideInlineAttList "インライン添付ファイルリストを非表示">

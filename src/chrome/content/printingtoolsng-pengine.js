@@ -1086,6 +1086,7 @@ var printingtools = {
 		// Remove attachments  table from  end of message 
 		
 		if(printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list")) {
+			console.log("remove att list")
 			printingtools.removeAttatchmentBodyTable();
 		}
 
