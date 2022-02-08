@@ -112,6 +112,7 @@ var printingtools = {
 	cmd_printng: async function () {
 
 
+		console.log(window.printingtools.extension)
 
 		console.log(document.baseURI);
 
@@ -122,9 +123,7 @@ var printingtools = {
 		}
 		//printingtools.DoCommandPrint2();
 
-		printingtools.attList = await window.notifyExampleAddon.notifyTools.notifyBackground({ command: "doSomething" });
-		console.log(printingtools.attList);
-
+		
 
 
 		let fakeMsgPane = document.createXULElement("browser");
@@ -151,10 +150,22 @@ var printingtools = {
 
 		console.debug(msg);
 
-		console.debug(printBrowser.outerHTML);
+		console.log(window.printingtoolsng.extension.messageManager.convert(gFolderDisplay.selectedMessage))
 
-		let messageService = messenger.messageServiceFromURI(msg),
+		//console.debug(printBrowser.outerHTML);
+
+		var mHdr = window.printingtoolsng.extension.messageManager.convert(gFolderDisplay.selectedMessage)
+
+
+		let messageService = messenger.messageServiceFromURI(msg)
 			messageURL = messageService.getUrlForUri(msg).spec;
+
+			console.debug(messageURL);
+
+
+
+			printingtools.attList = await window.notifyExampleAddon.notifyTools.notifyBackground({ command: "doSomething", messageId: mHdr.id });
+		console.log(printingtools.attList);
 
 		//MailE10SUtils.loadURI(printBrowser, "chrome://printingtoolsng/content/test.html" )
 		MailE10SUtils.loadURI(printBrowser, messageURL)

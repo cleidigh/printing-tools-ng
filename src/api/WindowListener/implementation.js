@@ -867,12 +867,16 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                 
               let i2 = elements[i].getAttribute("insertbefore")
               let cm = elements[i].getAttribute("oncommand")
+              let lbl = elements[i].getAttribute("label")
+
               var te = window.document.getElementById(i2)
               
 
               te.removeAttribute("observes");
               te.setAttribute("oncommand", cm);
               te.removeAttribute("command");
+              te.setAttribute("label", lbl);
+
               te.removeAttribute("disabled");
 
               //te.setAttribute("hidden", "true");

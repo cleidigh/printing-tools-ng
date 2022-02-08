@@ -123,19 +123,22 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	switch (info.command) {
 	  case "doSomething":
 		//do something
-		let rv = await doSomething();
+		let rv = await doSomething(info.messageId);
 		return rv;
 		break;
 	}
   });
 
-async function doSomething() {
+async function doSomething(messageId) {
 	var tab = await browser.tabs.query({});
 	console.log(tab)
 
 	var t = tab.find(at)
 
-	var m = await messenger.messageDisplay.getDisplayedMessage(t.id)
+	console.log(t)
+
+	//var m = await messenger.messageDisplay.getDisplayedMessage(t.id)
+	var m = await messenger.messages.get(messageId);
 	console.log(m)
 	var a = await messenger.messages.listAttachments(m.id);
 
