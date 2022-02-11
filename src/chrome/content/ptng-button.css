@@ -1,8 +1,8 @@
 #ptng-button, #mail-toolbox>toolbar[brighttext] #ptng-button.toolbarbutton-1 {
-	list-style-image: url("//printingtoolsng/content/printing-tools-ng-icon-32px.png");
+	list-style-image: url("//printingtoolsng/content/icons/printing-tools-ng-icon-64px.png");
 }
 
 toolbar[iconsize="small"] #ptng-button, #mail-toolbox>toolbar[brighttext][iconsize="small"] #ptng-button.toolbarbutton-1 {
-	list-style-image: url("//printingtoolsng/content/printing-tools-ng-icon-32px.png") !important;
+	list-style-image: url("//printingtoolsng/content/printing-tools-ng-icon-64px.png") !important;
 }
 
