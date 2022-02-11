@@ -866,70 +866,74 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                   console.log("replacement")
                 }
 
-                //
-          const attributeNodeArray = [... elements[i].attributes];
+               
 
-          const elementAttrs = attributeNodeArray.reduce((attrs, attribute) => {
-          attrs[attribute.name] = attribute.value;
-          return attrs;
-        }, {});
+                console.log(replaceAttrsElement.outerHTML)
+
+          const attributeNodeArray = [... elements[i].attributes];
+          const replAttributeNodeArray = [... replaceAttrsElement.attributes];
+
+                  
+
+        replAttributeNodeArray.forEach(attr => {
+          replaceAttrsElement.setAttribute(attr.name + "___orig___", attr.value);
+        });
         var origAttrVal;
 
         console.log(attributeNodeArray)
-        console.log(replaceAttrsElement.outerHTML)
+        
 
        // replaceAttrsElement.removeAttribute("observes");
-       //if (attributeNodeArray.find(attr => attr.name === "command")  {
-         if(1) {
+       if (attributeNodeArray.find(attr => attr.name === "command") && 
+           attributeNodeArray.find(attr => attr.name === "oncommand")) {
+                
         console.log("cmd");
-         let origAttrVal = replaceAttrsElement.getAttribute("command");
-         replaceAttrsElement.setAttribute("command" + "___orig___", origAttrVal);
-         
-         origAttrVal = replaceAttrsElement.getAttribute("oncommand");
-         console.log(origAttrVal)
-         replaceAttrsElement.setAttribute("oncommand" + "___orig___", origAttrVal);
-
+                  
          replaceAttrsElement.removeAttribute("command");
          replaceAttrsElement.removeAttribute("oncommand");
 
          //replaceAttrsElement.removeAttribute("command");
          //replaceAttrsElement.removeAttribute("command");
-        
-
+          replaceAttrsElement.setAttribute("oncommand", attributeNodeArray.find(attr => attr.name === "command").value);
+          replaceAttrsElement.setAttribute("oncommand", attributeNodeArray.find(attr => attr.name === "oncommand").value);
        }
         
         //replaceAttrsElement.removeAttribute("disabled");
         //replaceAttrsElement.setAttribute("oncommand", "__rpl")
       
-        console.log(replaceAttrsElement.outerHTML)
+        //console.log(replaceAttrsElement.outerHTML)
 
 
         attributeNodeArray.forEach(attr => {
           console.log(attr)
-          //if( origAttrVal = replaceAttrsElement.getAttribute(attr.name) || attr.name === "oncommand" || attr.name === "command" ) {
+          if ( attr.name === "oncommand" || attr.name === "command" || attr.name === "replaceattributes") {
+            return;
+          }
+          
+          //  if( origAttrVal = replaceAttrsElement.getAttribute(attr.name)  ) {  
+            //console.log(attr)
+            //console.log(replaceAttrsElement.outerHTML)
 
-            if( origAttrVal = replaceAttrsElement.getAttribute(attr.name)  ) {  
-            console.log(attr)
-            console.log(replaceAttrsElement.outerHTML)
-
-            replaceAttrsElement.setAttribute(attr.name + "___orig___", origAttrVal);
+            //replaceAttrsElement.setAttribute(attr.name + "___orig___", origAttrVal);
             
             if (attr.value === "") {
               replaceAttrsElement.removeAttribute(attr.name);
-            } else {
+            }
+
+            else {
             replaceAttrsElement.setAttribute(attr.name, attr.value);
             } 
           
 
-            console.log(replaceAttrsElement.outerHTML)
-          } else {
-            console.log(attr.value)
-            if (attr.value === "") {
-              replaceAttrsElement.removeAttribute(attr.name);
-            } else {
-            replaceAttrsElement.setAttribute(attr.name, attr.value);
-            }
-          }
+            //console.log(replaceAttrsElement.outerHTML)
+          //} else {
+            //console.log(attr.value)
+            //if (attr.value === "") {
+//              replaceAttrsElement.removeAttribute(attr.name);
+            //} else {
+            //replaceAttrsElement.setAttribute(attr.name, attr.value);
+            //}
+          //}
         });
 
 
@@ -938,21 +942,6 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                
                // elements[i].setAttribute("wlapi_autoinjected", uniqueRandomID);
                 
-               if(0) {
-              let i2 = elements[i].getAttribute("insertbefore")
-              let cm = elements[i].getAttribute("oncommand")
-              let lbl = elements[i].getAttribute("label")
-
-              var te = window.document.getElementById(i2)
-              
-
-              te.removeAttribute("observes");
-              te.setAttribute("oncommand", cm);
-              te.removeAttribute("command");
-              te.setAttribute("label", lbl);
-
-              te.removeAttribute("disabled");
-
               //te.setAttribute("hidden", "true");
               //te.removeAttribute("accesskey");
                 //insertBeforeElement.parentNode.insertBefore(
@@ -960,7 +949,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                   //insertBeforeElement
                 //);
 
-               }
+                replaceAttrsElement.setAttribute("wlapi_autoreplaced", uniqueRandomID);
 
                 if (debug) {
                   console.log("rpl done")
@@ -1124,6 +1113,47 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
       for (let element of elements) {
         element.remove();
       }
+
+      
+      // Restore all auto replaced  objects
+      elements = Array.from(
+        window.document.querySelectorAll(
+          '[wlapi_autoreplaced="' + this.uniqueRandomID + '"]'
+        )
+      );
+      for (let element of elements) {
+
+        const elementAttributeArray = [... element.attributes];
+
+                  
+        console.log("start element")
+        console.log(elementAttributeArray)
+        console.log(element.outerHTML)
+
+
+        elementAttributeArray.forEach(attr => {
+          if (!attr.name.endsWith("___orig___")) {
+            console.log("remove " + attr.name)
+            element.removeAttribute(attr.name)
+            console.log(element.outerHTML)
+          } else {
+            console.log("restore " + attr.name)
+            
+            element.setAttribute(attr.name.split("___orig___")[0], attr.value);
+            element.removeAttribute(attr.name);
+            console.log(element.outerHTML)
+          }
+          
+        });
+        let ocmd = elementAttributeArray.find(attr => attr.name === "oncommand___orig___");
+        if(ocmd) {
+        element.setAttribute("oncommand", ocmd.value);
+        }
+        console.log(ocmd)
+        console.log("rpl element")
+        console.log(element.outerHTML)
+        }
+
 
       // Remove all autoinjected toolbarpalette items
       for (const palette of Object.values(

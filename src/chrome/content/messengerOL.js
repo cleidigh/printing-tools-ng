@@ -53,21 +53,21 @@ function onLoad() {
 if (1) {
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem label= "Print... (NG)" replaceattributes="printMenuItem" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="false" />
+	<menuitem label= "Print... (NG)" replaceattributes="printMenuItem" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="" />
 </menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 	
 
 WL.injectElements(`
 <panelview id="appMenu-mainView">
-	<toolbarbutton label="Print... (NG)" replaceattributes="appmenu_print" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="false" />
+	<toolbarbutton label="Print... (NG)" replaceattributes="appmenu_print" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="" />
 </panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 }
 
 WL.injectElements(`
 <menupopup id="mailContext">
-	<menuitem label="Print... (NG)" replaceattributes="mailContext-print" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="false" />
+	<menuitem label="Print... (NG)" replaceattributes="mailContext-print" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="" />
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
