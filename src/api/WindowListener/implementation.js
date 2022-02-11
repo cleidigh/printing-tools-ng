@@ -831,12 +831,15 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                   elements[i],
                   insertAfterElement.nextSibling
                 );
+
+                // attribute replacement 
+
               } else if (
-                elements[i].hasAttribute("insertbefore") &&
-                checkElements(elements[i].getAttribute("insertbefore"))
+                elements[i].hasAttribute("replaceattributes") &&
+                checkElements(elements[i].getAttribute("replaceattributes"))
               ) {
-                let insertBeforeElement = checkElements(
-                  elements[i].getAttribute("insertbefore")
+                let replaceAttrsElement = checkElements(
+                  elements[i].getAttribute("replaceattributes")
                 );
 
                 if (debug)
@@ -844,8 +847,8 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                     elements[i].tagName +
                     "#" +
                     elements[i].id +
-                    ": insertbefore " +
-                    insertBeforeElement.id
+                    ": replaceattributes " +
+                    replaceAttrsElement.id
                   );
                 if (
                   debug &&
@@ -855,16 +858,87 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                   console.error(
                     "The id <" +
                     elements[i].id +
-                    "> of the injected element already exists in the document!"
+                    "> of the replacement element already exists in the document!"
                   );
                 }
 
                 if (debug) {
-                  console.log("remove")
+                  console.log("replacement")
                 }
 
+                //
+          const attributeNodeArray = [... elements[i].attributes];
+
+          const elementAttrs = attributeNodeArray.reduce((attrs, attribute) => {
+          attrs[attribute.name] = attribute.value;
+          return attrs;
+        }, {});
+        var origAttrVal;
+
+        console.log(attributeNodeArray)
+        console.log(replaceAttrsElement.outerHTML)
+
+       // replaceAttrsElement.removeAttribute("observes");
+       //if (attributeNodeArray.find(attr => attr.name === "command")  {
+         if(1) {
+        console.log("cmd");
+         let origAttrVal = replaceAttrsElement.getAttribute("command");
+         replaceAttrsElement.setAttribute("command" + "___orig___", origAttrVal);
+         
+         origAttrVal = replaceAttrsElement.getAttribute("oncommand");
+         console.log(origAttrVal)
+         replaceAttrsElement.setAttribute("oncommand" + "___orig___", origAttrVal);
+
+         replaceAttrsElement.removeAttribute("command");
+         replaceAttrsElement.removeAttribute("oncommand");
+
+         //replaceAttrsElement.removeAttribute("command");
+         //replaceAttrsElement.removeAttribute("command");
+        
+
+       }
+        
+        //replaceAttrsElement.removeAttribute("disabled");
+        //replaceAttrsElement.setAttribute("oncommand", "__rpl")
+      
+        console.log(replaceAttrsElement.outerHTML)
+
+
+        attributeNodeArray.forEach(attr => {
+          console.log(attr)
+          //if( origAttrVal = replaceAttrsElement.getAttribute(attr.name) || attr.name === "oncommand" || attr.name === "command" ) {
+
+            if( origAttrVal = replaceAttrsElement.getAttribute(attr.name)  ) {  
+            console.log(attr)
+            console.log(replaceAttrsElement.outerHTML)
+
+            replaceAttrsElement.setAttribute(attr.name + "___orig___", origAttrVal);
+            
+            if (attr.value === "") {
+              replaceAttrsElement.removeAttribute(attr.name);
+            } else {
+            replaceAttrsElement.setAttribute(attr.name, attr.value);
+            } 
+          
+
+            console.log(replaceAttrsElement.outerHTML)
+          } else {
+            console.log(attr.value)
+            if (attr.value === "") {
+              replaceAttrsElement.removeAttribute(attr.name);
+            } else {
+            replaceAttrsElement.setAttribute(attr.name, attr.value);
+            }
+          }
+        });
+
+
+//console.log(attrs)
+
+               
                // elements[i].setAttribute("wlapi_autoinjected", uniqueRandomID);
                 
+               if(0) {
               let i2 = elements[i].getAttribute("insertbefore")
               let cm = elements[i].getAttribute("oncommand")
               let lbl = elements[i].getAttribute("label")
@@ -886,9 +960,11 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                   //insertBeforeElement
                 //);
 
+               }
+
                 if (debug) {
-                  console.log("remove done")
-                  console.log(te.outerHTML)
+                  console.log("rpl done")
+                  console.log(replaceAttrsElement.outerHTML)
                 }
 
               } else if (

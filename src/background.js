@@ -7,6 +7,7 @@ messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
 
 messenger.WindowListener.registerChromeUrl([
 	["content", "printingtoolsng", "chrome/content/"],
+	
 	["resource", "printingtoolsng", "chrome/content/"],
 
 	["locale", "printingtoolsng", "en-US", "chrome/locale/en-US/"],
@@ -63,6 +64,10 @@ messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/msgPrintEngine.xul",
 	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
 
+	messenger.WindowListener.registerWindow(
+		"chrome://messenger/content/customizeToolbar.xhtml", 
+		"chrome://printingtoolsng/content/customizeToolbarOL.js");
+	  
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/addressbook/addressbook.xul",
 	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");

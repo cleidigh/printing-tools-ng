@@ -28,7 +28,7 @@ function onLoad() {
 	console.debug('messenger ol');
 	// Add post processing method
 
-	let print_context_cmd = document.documentElement.querySelector("#mailContext-print");
+	let print_context_cmd = document.documentElement.querySelector("#printMenuItem");
 	
 	console.debug(print_context_cmd.getAttribute("oncommand"));
 	// pcmd += "; printT();";
@@ -53,21 +53,21 @@ function onLoad() {
 if (1) {
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem label= "Print... (NG)" insertbefore="printMenuItem" oncommand="printingtools.cmd_printng()"/>
+	<menuitem label= "Print... (NG)" replaceattributes="printMenuItem" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="false" />
 </menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 	
 
 WL.injectElements(`
 <panelview id="appMenu-mainView">
-	<toolbarbutton label="Print... (NG)" insertbefore="appmenu_print" oncommand="printingtools.cmd_printng()"/>
+	<toolbarbutton label="Print... (NG)" replaceattributes="appmenu_print" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="false" />
 </panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 }
 
 WL.injectElements(`
 <menupopup id="mailContext">
-	<menuitem label="Print... (NG)" insertbefore="mailContext-print" oncommand="printingtools.cmd_printng()"/>
+	<menuitem label="Print... (NG)" replaceattributes="mailContext-print" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="false" />
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
@@ -80,6 +80,32 @@ if(1) {
 </menupopup>
 
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+WL.injectElements(`
+<toolbarpalette id="MailToolbarPalette">
+	<toolbarbutton id="ptng-button"
+	  label="Print NG"
+	  tooltiptext="Printing Tools NG"
+	  oncommand="printingtools.cmd_printng()"
+	  class="toolbarbutton-1"
+	  type="menu-button"
+	  is="toolbarbutton-menu-button">
+
+	  	<menupopup>
+
+		  <menuitem label="Print" oncommand="printingtools.cmd_printng()"/>
+		  <menuitem label="Print Preview" oncommand="printingtools.cmd_printng()"/>
+		  <menuseparator />
+		  <menuitem label="Printingtools NG Options" oncommand="openPTdialog(false)"/>
+
+		  </menupopup>
+	  </toolbarbutton>
+
+</toolbarpalette>
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+
+	WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
 
 }
 
