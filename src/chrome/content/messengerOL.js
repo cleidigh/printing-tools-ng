@@ -81,6 +81,8 @@ if(1) {
 
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
+
+
 WL.injectElements(`
 <toolbarpalette id="MailToolbarPalette">
 	<toolbarbutton id="ptng-button"
@@ -93,8 +95,8 @@ WL.injectElements(`
 
 	  	<menupopup>
 
-		  <menuitem label="Print" oncommand="printingtools.cmd_printng()"/>
-		  <menuitem label="Print Preview" oncommand="printingtools.cmd_printng()"/>
+		  <menuitem label="Print" oncommand="printingtools.cmd_printng(); event.stopPropagation();"/>
+		  <menuitem label="Print Preview" oncommand="printingtools.cmd_printng(); event.stopPropagation();"/>
 		  <menuseparator />
 		  <menuitem label="Printingtools NG Options" oncommand="openPTdialog(false)"/>
 
