@@ -50,6 +50,13 @@ function onLoad() {
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 	
+	WL.injectElements(`
+<keyset id="mailKeys">
+	<key replaceattributes="key_print" command="" oncommand="printingtools.cmd_printng();"/>
+	
+</keyset>
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
 if (1) {
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
@@ -83,22 +90,23 @@ if(1) {
 
 
 
+
 WL.injectElements(`
 <toolbarpalette id="MailToolbarPalette">
 	<toolbarbutton id="ptng-button"
 	  label="Print NG"
 	  tooltiptext="Printing Tools NG"
-	  oncommand="printingtools.cmd_printng()"
+	  oncommand="printingtools.cmd_printng(null, {printSilent: true})"
 	  class="toolbarbutton-1"
 	  type="menu-button"
 	  is="toolbarbutton-menu-button">
 
 	  	<menupopup>
 
-		  <menuitem label="Print" oncommand="printingtools.cmd_printng(); event.stopPropagation();"/>
-		  <menuitem label="Print Preview" oncommand="printingtools.cmd_printng(); event.stopPropagation();"/>
+		  <menuitem label="Print" oncommand="printingtools.cmd_printng(null, {printSilent: true}); event.stopPropagation();"/>
+		  <menuitem label="Print Preview" oncommand="printingtools.cmd_printng(null, {}); event.stopPropagation();"/>
 		  <menuseparator />
-		  <menuitem label="Printingtools NG Options" oncommand="openPTdialog(false)"/>
+		  <menuitem label="Printingtools NG Options" oncommand="openPTdialog(false); event.stopPropagation();"/>
 
 		  </menupopup>
 	  </toolbarbutton>

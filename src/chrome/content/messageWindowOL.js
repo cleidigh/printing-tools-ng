@@ -58,8 +58,39 @@ if(1) {
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 
-//<menuitem label="Print..." insertafter="printMenuItem" oncommand="printingtools.cmd_printng()" accesskey="y" />
-
-
+WL.injectElements(`
+<keyset id="mailKeys">
+	<key replaceattributes="key_print" command="" oncommand="printingtools.cmd_printng();"/>
 	
+</keyset>
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+
+
+WL.injectElements(`
+<toolbarpalette id="MailToolbarPalette">
+	<toolbarbutton id="ptng-button"
+	  label="Print NG"
+	  tooltiptext="Printing Tools NG"
+	  oncommand="printingtools.cmd_printng()"
+	  class="toolbarbutton-1"
+	  type="menu-button"
+	  is="toolbarbutton-menu-button">
+
+	  	<menupopup>
+
+		  <menuitem label="Print" oncommand="printingtools.cmd_printng(); event.stopPropagation();"/>
+		  <menuitem label="Print Preview" oncommand="printingtools.cmd_printng(); event.stopPropagation();"/>
+		  <menuseparator />
+		  <menuitem label="Printingtools NG Options" oncommand="openPTdialog(false)"/>
+
+		  </menupopup>
+	  </toolbarbutton>
+
+</toolbarpalette>
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+
+	WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
+
 }

@@ -109,7 +109,7 @@ var printingtools = {
 
 
 
-	cmd_printng: async function () {
+	cmd_printng: async function (msgId, options) {
 
 
 		console.log(window.printingtools.extension)
@@ -208,11 +208,19 @@ var printingtools = {
 		printSettings.printBGColors = true;
 		printSettings.printBGImages = true;
 
-		if (printingtools.prefs.getBoolPref("print.always_print_silent")) {
+		console.log(options)
+		console.log(options.printSilent)
+
+		let ps = printingtools.prefs.getBoolPref("print.always_print_silent");
+		if(options.printSilent) {
+			printingtools.prefs.setBoolPref("print.always_print_silent", "true");
+		}
+		if (printingtools.prefs.getBoolPref("print.always_print_silent") || options.printSilent) {
+			console.log("silent")
 			printSettings.printSilent = true;
 			printSettings.showPrintProgress = false;
 		}
-
+		
 		psService.savePrintSettingsToPrefs(printSettings, true, printSettings.kInitSaveBGColors);
 
 		if (printingtools.prefs.getBoolPref("print.always_print_silent")) {
@@ -221,6 +229,10 @@ var printingtools = {
 			PrintUtils.startPrintWindow(printBrowser.browsingContext, {});
 		}
 
+
+		if(options.printSilent) {
+			printingtools.prefs.setBoolPref("print.always_print_silent", ps);
+		}
 
 
 		//PrintUtils.printWindow(printBrowser.browsingContext, {});

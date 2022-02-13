@@ -752,13 +752,17 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
           let toolbarsToResolve = [];
 
           function checkElements(stringOfIDs) {
+            console.log("chk elm")
+            console.log(stringOfIDs)
             let arrayOfIDs = stringOfIDs.split(",").map((e) => e.trim());
             for (let id of arrayOfIDs) {
               let element = window.document.getElementById(id);
               if (element) {
+                console.log(element)
                 return element;
               }
             }
+            console.log("ret elem")
             return null;
           }
 
@@ -799,6 +803,9 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                 }
               }
 
+              console.log("check type")
+              console.log(elements[i].hasAttribute("replaceattributes"))
+              
               if (
                 elements[i].hasAttribute("insertafter") &&
                 checkElements(elements[i].getAttribute("insertafter"))
@@ -1027,6 +1034,8 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
             /__MSG_(.*?)__/g,
             localize
           );
+         
+          console.log("st inj")
           injectChildren(
             Array.from(
               window.MozXULElement.parseXULToFragment(
