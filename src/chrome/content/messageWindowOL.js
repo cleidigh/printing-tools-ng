@@ -24,73 +24,67 @@ function onLoad() {
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
 
+	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
-	
-	WL.injectElements(`
-	<menupopup id="menu_FilePopup">
-		<menuitem label= "Print... (NG)" replaceattributes="printMenuItem" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="" />
-	</menupopup>
-	`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
-	
+	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/UIlisteners.js", window);
 		
-
-WL.injectElements(`
-<panelview id="appMenu-mainView">
-	<toolbarbutton label="Print... (NG)" replaceattributes="appmenu_print" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="" />
-</panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
-
-}
-
-WL.injectElements(`
-<menupopup id="mailContext">
-	<menuitem label="Print... (NG)" replaceattributes="mailContext-print" oncommand="printingtools.cmd_printng()" command="" observes="" disabled="" />
-</menupopup>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
-
-		
-if(1) {
 	WL.injectElements(`
-<menupopup id="menu_FilePopup">
-	<menuitem label="&PMDmenuitem;" insertafter="printMenuItem" oncommand="openPTdialog(false)"/>
-	
-</menupopup>
-
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
-
-
-WL.injectElements(`
 <keyset id="mailKeys">
 	<key replaceattributes="key_print" command="" oncommand="printingtools.cmd_printng();"/>
 	
 </keyset>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
+	
+		WL.injectElements(`
+<menupopup id="menu_FilePopup">
+	<menuitem replaceattributes="printMenuItem" label= "Print... (NG)"  oncommand="printingtools.cmd_printng()" command="" disabled="" />
+</menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 
-WL.injectElements(`
+
+		WL.injectElements(`
+<panelview id="appMenu-mainView">
+	<toolbarbutton replaceattributes="appmenu_print" label="Print... (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
+</panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+
+		WL.injectElements(`
+<menupopup id="mailContext">
+	<menuitem replaceattributes="mailContext-print" label="Print... (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
+</menupopup>
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+		WL.injectElements(`
+<menupopup id="menu_FilePopup">
+	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="o" label="&PMDmenuitem;" oncommand="openPTdialog(false)"/>
+</menupopup>
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+
+		WL.injectElements(`
 <toolbarpalette id="MailToolbarPalette">
 	<toolbarbutton id="ptng-button"
 	  label="Print NG"
 	  tooltiptext="Printing Tools NG"
-	  oncommand="printingtools.cmd_printng()"
+	  oncommand="printingtools.cmd_printng(null, {printSilent: true})"
 	  class="toolbarbutton-1"
 	  type="menu-button"
 	  is="toolbarbutton-menu-button">
 
 	  	<menupopup>
-
-		  <menuitem label="Print" oncommand="printingtools.cmd_printng(); event.stopPropagation();"/>
-		  <menuitem label="Print Preview" oncommand="printingtools.cmd_printng(); event.stopPropagation();"/>
+		  <menuitem id="ptng-button-print" label="Print" accesskey="P" oncommand="printingtools.cmd_printng(null, {printSilent: true}); event.stopPropagation();" />
+		  <menuitem id="ptng-button-printpreview" accesskey="v" label="Print Preview" oncommand="printingtools.cmd_printng(null, {printSilent: false}); event.stopPropagation();"  />
 		  <menuseparator />
-		  <menuitem label="Printingtools NG Options" oncommand="openPTdialog(false)"/>
-
+		  <menuitem id="ptng-button-options" accesskey="o" label="Printingtools NG Options" oncommand="openPTdialog(false); event.stopPropagation();"/>
 		  </menupopup>
 	  </toolbarbutton>
-
 </toolbarpalette>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 
-	WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
+		WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
 
-}
+		//window.getUI_status.startup();
+	}
+
+

@@ -111,6 +111,12 @@ var printingtools = {
 
 	cmd_printng: async function (msgId, options) {
 
+		msgId = msgId || null;
+		options = options || {};
+
+		console.log(msgId)
+		console.log(options)
+		
 
 		console.log(window.printingtools.extension)
 
@@ -136,8 +142,7 @@ var printingtools = {
 
 		//fakeMsgPane = window.document.getElementById("messagesBox").parentNode.appendChild(fakeMsgPane);
 		fakeMsgPane = window.document.getElementById("status-bar").parentNode.appendChild(fakeMsgPane);
-
-
+		console.log(fakeMsgPane)
 		//let docShell = fakeMsgPane.docShell;
 		//docShell.appType = Ci.nsIDocShell.APP_TYPE_MAIL;
 
@@ -146,15 +151,25 @@ var printingtools = {
 
 
 		var msg = gFolderDisplay.selectedMessageUris[0];
-		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+		console.debug(msg);
+		
+		if (0 && document.URL == "chrome://messenger/content/messageWindow.xhtml") {
+			console.log(document.activeElement.contentDocument.baseURI);
+			msg = document.activeElement.contentDocument.baseURI;
+			printingtools.msgUris = msg;
+		} else {
+			printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+		}
+
+		
 
 		console.debug(msg);
 
-		console.log(window.printingtoolsng.extension.messageManager.convert(gFolderDisplay.selectedMessage))
+		//console.log(window.printingtoolsng.extension.messageManager.convert(gFolderDisplay.selectedMessage))
 
 		//console.debug(printBrowser.outerHTML);
 
-		var mHdr = window.printingtoolsng.extension.messageManager.convert(gFolderDisplay.selectedMessage)
+		//var mHdr = window.printingtoolsng.extension.messageManager.convert(gFolderDisplay.selectedMessage)
 
 
 		let messageService = messenger.messageServiceFromURI(msg)
@@ -164,7 +179,7 @@ var printingtools = {
 
 
 
-			printingtools.attList = await window.notifyExampleAddon.notifyTools.notifyBackground({ command: "doSomething", messageId: mHdr.id });
+			//printingtools.attList = await window.notifyExampleAddon.notifyTools.notifyBackground({ command: "doSomething", messageId: mHdr.id });
 		console.log(printingtools.attList);
 
 		//MailE10SUtils.loadURI(printBrowser, "chrome://printingtoolsng/content/test.html" )
@@ -212,20 +227,27 @@ var printingtools = {
 		console.log(options.printSilent)
 
 		let ps = printingtools.prefs.getBoolPref("print.always_print_silent");
+		console.log(ps)
 		if(options.printSilent) {
-			printingtools.prefs.setBoolPref("print.always_print_silent", "true");
+			console.log("options.sil " + options.printSilent)
+			printingtools.prefs.setBoolPref("print.always_print_silent", true);
+		} else if (options.printSilent === false) {
+			printingtools.prefs.setBoolPref("print.always_print_silent", false);
 		}
-		if (printingtools.prefs.getBoolPref("print.always_print_silent") || options.printSilent) {
+		if (0 && printingtools.prefs.getBoolPref("print.always_print_silent") || options.printSilent) {
 			console.log("silent")
 			printSettings.printSilent = true;
 			printSettings.showPrintProgress = false;
 		}
 		
-		psService.savePrintSettingsToPrefs(printSettings, true, printSettings.kInitSaveBGColors);
+		//psService.savePrintSettingsToPrefs(printSettings, true, printSettings.kInitSaveBGColors);
 
-		if (printingtools.prefs.getBoolPref("print.always_print_silent")) {
+		if ( 0 && printingtools.prefs.getBoolPref("print.always_print_silent") && options.printSilent!== false ) {
+			console.log("p sil")
 			await fakeMsgPane.browsingContext.print(printSettings);
 		} else {
+			console.log("p reg")
+			//printingtools.prefs.setBoolPref("print.always_print_silent", false);
 			PrintUtils.startPrintWindow(printBrowser.browsingContext, {});
 		}
 
@@ -1600,6 +1622,9 @@ var printingtools = {
 
 	addAttTable: function (attList) {
 
+		if (!attList || !attList.length) {
+			return;
+		}
 		var attTable = printingtools.doc.createElement("TABLE");
 		var attRowTR;
 		var attTD;
