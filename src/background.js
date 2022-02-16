@@ -3,11 +3,11 @@
 
 messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
 
-// Register all necessary content, Resources, and locales
+// Register all necessary conIt's6'tent, Resources, and locales
 
 messenger.WindowListener.registerChromeUrl([
 	["content", "printingtoolsng", "chrome/content/"],
-	
+
 	["resource", "printingtoolsng", "chrome/content/"],
 
 	["locale", "printingtoolsng", "en-US", "chrome/locale/en-US/"],
@@ -51,11 +51,11 @@ messenger.WindowListener.registerWindow(
 	"chrome://printingtoolsng/content/messengerOL.js");
 
 
-	messenger.WindowListener.registerWindow(
-		"chrome://messenger/content/messageWindow.xhtml",
-		"chrome://printingtoolsng/content/messageWindowOL.js");
-	
-	
+messenger.WindowListener.registerWindow(
+	"chrome://messenger/content/messageWindow.xhtml",
+	"chrome://printingtoolsng/content/messageWindowOL.js");
+
+
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/msgPrintEngine.xhtml",
 	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
@@ -64,10 +64,10 @@ messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/msgPrintEngine.xul",
 	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
 
-	messenger.WindowListener.registerWindow(
-		"chrome://messenger/content/customizeToolbar.xhtml", 
-		"chrome://printingtoolsng/content/customizeToolbarOL.js");
-	  
+messenger.WindowListener.registerWindow(
+	"chrome://messenger/content/customizeToolbar.xhtml",
+	"chrome://printingtoolsng/content/customizeToolbarOL.js");
+
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/addressbook/addressbook.xul",
 	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
@@ -87,7 +87,12 @@ messenger.notificationbar.onButtonClicked.addListener((windowId, notificationId,
 	}
 });
 
-	
+
+
+browser.runtime.onMessageExternal.addListener(handleMessage);
+
+
+
 let l = messenger.i18n.getUILanguage();
 
 
@@ -126,13 +131,13 @@ browser.runtime.onInstalled.addListener(async (info) => {
 
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	switch (info.command) {
-	  case "doSomething":
-		//do something
-		let rv = await doSomething(info.messageId);
-		return rv;
-		break;
+		case "doSomething":
+			//do something
+			let rv = await doSomething(info.messageId);
+			return rv;
+			break;
 	}
-  });
+});
 
 async function doSomething(messageId) {
 	var tab = await browser.tabs.query({});
@@ -148,9 +153,20 @@ async function doSomething(messageId) {
 	var a = await messenger.messages.listAttachments(m.id);
 
 	return a;
-  }
+}
 
 function at(t) {
 
 	return t.active;
+}
+
+
+
+function handleMessage(message, sender) {
+	// check that the message is from "blue@mozilla.org"
+	if (sender.id === "blue@mozilla.org") {
+		// process message
+	}
+
+	console.log(message)
 }

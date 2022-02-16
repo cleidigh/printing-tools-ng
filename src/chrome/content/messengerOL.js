@@ -91,8 +91,11 @@ function onLoad() {
 	// inject extension object into private context
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
+ 
 
-}	
+	
+  
+}
 
 
 function onUnload(shutdown) {
