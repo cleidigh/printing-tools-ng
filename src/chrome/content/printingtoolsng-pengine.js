@@ -111,6 +111,7 @@ var printingtools = {
 
 	cmd_printng: async function (msgId, options) {
 
+		console.log("cmd_printng start")
 		msgId = msgId || null;
 		options = options || {};
 
@@ -153,7 +154,9 @@ var printingtools = {
 		var msg = gFolderDisplay.selectedMessageUris[0];
 		console.debug(msg);
 		
-		if (0 && document.URL == "chrome://messenger/content/messageWindow.xhtml") {
+		//console.log(document.activeElement.contentDocument.baseURI);
+
+		if (document.URL == "chrome://messenger/content/messageWindow.xhtml" ) {
 			console.log(document.activeElement.contentDocument.baseURI);
 			msg = document.activeElement.contentDocument.baseURI;
 			printingtools.msgUris = msg;
@@ -161,8 +164,8 @@ var printingtools = {
 			printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 		}
 
-		
-
+		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+console.log(printingtools.msgUris)
 		console.debug(msg);
 
 		//console.log(window.printingtoolsng.extension.messageManager.convert(gFolderDisplay.selectedMessage))
@@ -211,7 +214,7 @@ var printingtools = {
 		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 		printingtools.current = 0;
 
-		printingtools.correctLayout();
+		await printingtools.correctLayout();
 
 		let psService = Cc[
 			"@mozilla.org/gfx/printsettings-service;1"
@@ -788,7 +791,7 @@ var printingtools = {
 		}
 	},
 
-	getHdr: function () {
+	getHdr: async function () {
 		//var uris = window.arguments[1];
 		var uris = printingtools.msgUris;
 
@@ -798,18 +801,15 @@ var printingtools = {
 			if (uris[printingtools.current].indexOf("file") == 0) {
 				// If we're printing a eml file, there is no nsIMsgHdr object, so we create an object just with properties
 				// used by the extension ("folder" and "dateInSeconds"), reading directly the file (needing just 1000 bytes)
+				console.log(uris[printingtools.current].split("?")[0])
 				var dummy = {};
 				dummy.folder = null;
-				var scriptableStream = Cc["@mozilla.org/scriptableinputstream;1"]
-					.getService(Ci.nsIScriptableInputStream);
-				var ioService = Cc["@mozilla.org/network/io-service;1"]
-					.getService(Ci.nsIIOService);
-				var channel = ioService.newChannel(uris[printingtools.current], null, null);
-				var input = channel.open();
-				scriptableStream.init(input);
-				var str_message = scriptableStream.read(3000);
-				scriptableStream.close();
-				input.close();
+
+				let f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]).replace(/\//g,"\\");
+
+				 				
+				let str_message = await IOUtils.readUTF8(f, {bytes: 3000})
+				
 				str_message = str_message.toLowerCase();
 				var dateOrig = str_message.split("\ndate:")[1].split("\n")[0];
 				dateOrig = dateOrig.replace(/ +$/, "");
@@ -824,7 +824,7 @@ var printingtools = {
 		}
 	},
 
-	correctLayout: function () {
+	correctLayout: async function () {
 
 		console.debug('correctly layout ');
 		printingtools.doc = printingtools.previewDoc;
@@ -874,7 +874,7 @@ var printingtools = {
 			}
 		}
 
-		printingtools.getHdr(); // save hdr
+		await printingtools.getHdr(); // save hdr
 		printingtools.current = printingtools.current + 1;
 
 		console.debug('Tables');
