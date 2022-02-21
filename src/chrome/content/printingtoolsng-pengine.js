@@ -5,8 +5,14 @@ var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.js
 // Define our add-on ID, which is needed to resolve paths for files within our extension
 // and to be able to listen for notifications.
 
+function doSomething(data) {
+	console.log(data);
+	return true;
+}
 
+window.notifyExampleAddon.notifyTools.addListener(doSomething);
 
+//window.notifyExampleAddon.notifyTools.notifyBackground({ command: "doSomething", messageId: mHdr.id });
 
 function ReplaceWithSelection() {
 	// disables the native function in TB 3.1, that prints
@@ -108,140 +114,155 @@ var printingtools = {
 	},
 
 
-/** Prints the messages selected in the thread pane. */
-PrintSelectedMessages: async function (options) {
+	/** Prints the messages selected in the thread pane. */
+	PrintSelectedMessages: async function (options) {
 
-	printingtools.current = 0;
-	printingtools.num = gFolderDisplay.selectedCount;
+		printingtools.current = 0;
+		printingtools.num = gFolderDisplay.selectedCount;
 
-	if (gFolderDisplay.selectedCount == 1 && options.printSilent == false) {
-	  if (
-		gMessageDisplay.visible &&
-		gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage &&
-		gFolderDisplay.selectedMessageUris[0].startsWith("file")
-	  ) {
-		  console.log("use msg pane")
-		  let uri = gFolderDisplay.selectedMessageUris[0];
-		  
-		  console.log(uri)
-		// Use the already displayed message and print preview UI if we can.
-		let messagePaneBrowser = document.getElementById("messagepane");
-		let messageService = messenger.messageServiceFromURI(uri);
+		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false) {
+			if (
+				gMessageDisplay.visible &&
+				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage
 
-		var fakeMsgPane;
-		if(!document.getElementById("fp")) {
-			console.log("create browser")
+			) {
+				//gFolderDisplay.selectedMessageUris[0].startsWith("file")
+				console.log("use msg pane")
+				let uri = gFolderDisplay.selectedMessageUris[0];
 
-			fakeMsgPane = document.createXULElement("browser");
-			fakeMsgPane.setAttribute("id","fp")
-		} else {
-			fakeMsgPane = document.getElementById("fp")
+				console.log(uri)
+				// Use the already displayed message and print preview UI if we can.
+				let messagePaneBrowser = document.getElementById("messagepane");
+				let messageService = messenger.messageServiceFromURI(uri);
+
+				var fakeMsgPane;
+				if (!document.getElementById("fp")) {
+					console.log("create browser")
+
+					fakeMsgPane = document.createXULElement("browser");
+					fakeMsgPane.setAttribute("id", "fp")
+				} else {
+					fakeMsgPane = document.getElementById("fp")
+				}
+
+				// from jb print pdf in IETNG
+
+				fakeMsgPane.setAttribute("context", "mailContext");
+				fakeMsgPane.setAttribute("type", "content");
+				fakeMsgPane.setAttribute("disablesecurity", "true");
+				fakeMsgPane.setAttribute("messagemanagergroup", "single-page");
+				fakeMsgPane.setAttribute("remote", "false");
+				//fakeMsgPane.setAttribute("remote", "true");
+				fakeMsgPane.setAttribute("primary", "true");
+				fakeMsgPane.hidden = true;
+
+
+				// cannot use non existing messagebox in messageWindow
+				//fakeMsgPane = window.document.getElementById("messagesBox").parentNode.appendChild(fakeMsgPane);
+				fakeMsgPane = window.document.getElementById("status-bar").parentNode.appendChild(fakeMsgPane);
+
+				await new Promise(resolve => window.setTimeout(resolve, 20));
+
+				//docShell does not get initialized thus this fails
+				let docShell = fakeMsgPane.docShell;
+				docShell.appType = Ci.nsIDocShell.APP_TYPE_MAIL;
+				
+				console.log(fakeMsgPane)
+				console.log(fakeMsgPane.docShell)
+
+				//let url = decodeURI(uri.split("?")[0]);
+				
+				MailE10SUtils.loadURI(fakeMsgPane, messageService.getUrlForUri(uri).spec);
+
+				//url = "file://c:/Dev/email 1.eml"
+				//url = "chrome://printingtoolsng/content/test.html"
+
+				// this is synchronous, no await
+				// fails silently 
+				//MailE10SUtils.loadURI(fakeMsgPane, uri);
+
+				//fakeMsgPane.loadURI(url)
+				console.log(fakeMsgPane.contentDocument)
+				
+				//fakeMsgPane.contentDocument.body = messagePaneBrowser.contentDocument.body
+				//console.log(fakeMsgPane.contentDocument)
+
+				//for (let i = 1; i < 2500; i++) {
+				//	await new Promise(resolve => window.setTimeout(resolve, 20));
+				//	if (fakeMsgPane.contentDocument && fakeMsgPane.contentDocument.readyState == "complete")
+				//		break;
+				//}
+
+				console.log("af wait content")
+				console.log(fakeMsgPane.contentDocument)
+
+				printingtools.previewDoc = fakeMsgPane.contentDocument;
+				//printingtools.previewDoc = messagePaneBrowser.contentDocument;
+				await printingtools.correctLayout();
+
+				PrintUtils.startPrintWindow(fakeMsgPane.browsingContext, {});
+				//PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
+			} else {
+				console.log("use hidden pane")
+				// Load the only message in a hidden browser, then use the print preview UI.
+				let uri = gFolderDisplay.selectedMessageUris[0];
+				let messageService = messenger.messageServiceFromURI(uri);
+				//PrintUtils.printBrowser.remove();
+				//var b = PrintUtils.createBrowser();
+				//PrintUtils.printBrowser = b
+				//console.log(b)
+				console.log(PrintUtils.printBrowser)
+				//MailE10SUtils.loadURI(b, messageService.getUrlForUri(uri).spec);
+				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
+
+				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+				//printingtools.previewDoc = b.contentDocument
+				await printingtools.correctLayout();
+
+				PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext, {});
+				//PrintUtils.startPrintWindow(b.browsingContext, {});
+			}
+
+			return;
 		}
-			
-		fakeMsgPane.setAttribute("context", "mailContext");
-		fakeMsgPane.setAttribute("type", "content");
-		fakeMsgPane.setAttribute("disablesecurity", "true");
-		fakeMsgPane.setAttribute("messagemanagergroup", "single-page");
-		fakeMsgPane.setAttribute("remote", "true");
-		fakeMsgPane.setAttribute("primary", "true");
-		fakeMsgPane.hidden = true;
 
-		//let docShell = fakeMsgPane.docShell;
-	 	//docShell.appType = Ci.nsIDocShell.APP_TYPE_MAIL;
+		console.log("use msg pane Multiple ")
+		// Multiple messages. Get the printer settings, then load the messages into
+		// a hidden browser and print them one at a time.
+		let ps = PrintUtils.getPrintSettings();
 
-		//fakeMsgPane = window.document.getElementById("messagesBox").parentNode.appendChild(fakeMsgPane);
-		fakeMsgPane = window.document.getElementById("status-bar").parentNode.appendChild(fakeMsgPane);
-		console.log(fakeMsgPane)
+		if (options.printSilent == false) {
+			Cc["@mozilla.org/embedcomp/printingprompt-service;1"]
+				.getService(Ci.nsIPrintingPromptService)
+				.showPrintDialog(window, ps);
+			if (ps.isCancelled) {
+				return;
+			}
+		}
 
-			debugger;
-			let url = decodeURI(uri.split("?")[0]);
-			//MailE10SUtils.loadURI(fakeMsgPane, messageService.getUrlForUri(url).spec);
-			
-			url = "file://c:/Dev/email 1.eml"
-			url = "chrome://printingtoolsng/content/test.html" 
-			//MailE10SUtils.loadURI(fakeMsgPane, url);
+		ps.printSilent = true;
 
-			//fakeMsgPane.loadURI(url)
-			console.log(fakeMsgPane.contentDocument)
-			//fakeMsgPane.contentDocument.body = messagePaneBrowser.contentDocument.body
-			//console.log(fakeMsgPane.contentDocument)
+		for (let uri of gFolderDisplay.selectedMessageUris) {
+			let messageService = messenger.messageServiceFromURI(uri);
 
-			//for (let i = 1; i < 2500; i++) {
-			//	await new Promise(resolve => window.setTimeout(resolve, 20));
-			//	if (fakeMsgPane.contentDocument && fakeMsgPane.contentDocument.readyState == "complete")
-			//		break;
-			//}
+			if (!PrintUtils.printBrowser) {
+				let messagePaneBrowser = document.getElementById("messagepane");
+				messagePaneBrowser.browsingContext.print(ps);
+			} else {
+				PrintUtils.printBrowser.contentDocument = null;
 
-			console.log("af wait")
-			console.log(fakeMsgPane.contentDocument)
-			
-		//printingtools.previewDoc = fakeMsgPane.contentDocument;
-		printingtools.previewDoc = messagePaneBrowser.contentDocument;
-		await printingtools.correctLayout();
+				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
 
-		//PrintUtils.startPrintWindow(fakeMsgPane.browsingContext, {});
-		PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
-	  } else {
-		console.log("use hidden pane")
-		// Load the only message in a hidden browser, then use the print preview UI.
-		let uri = gFolderDisplay.selectedMessageUris[0];
-		let messageService = messenger.messageServiceFromURI(uri);
-		//PrintUtils.printBrowser.remove();
-		//var b = PrintUtils.createBrowser();
-		//PrintUtils.printBrowser = b
-		//console.log(b)
-		console.log(PrintUtils.printBrowser)
-		//MailE10SUtils.loadURI(b, messageService.getUrlForUri(uri).spec);
-		await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html" );
-		await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
+				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+				await printingtools.correctLayout();
 
-		printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
-		//printingtools.previewDoc = b.contentDocument
-		await printingtools.correctLayout();
+				await PrintUtils.printBrowser.browsingContext.print(ps);
+			}
+		}
+	},
 
-		PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext, {});
-		//PrintUtils.startPrintWindow(b.browsingContext, {});
-	  }
-  
-	  return;
-	}
-  
-	console.log("use msg pane Multiple ")
-	// Multiple messages. Get the printer settings, then load the messages into
-	// a hidden browser and print them one at a time.
-	let ps = PrintUtils.getPrintSettings();
-	
-	if (options.printSilent == false) {
-	Cc["@mozilla.org/embedcomp/printingprompt-service;1"]
-	  .getService(Ci.nsIPrintingPromptService)
-	  .showPrintDialog(window, ps);
-	if (ps.isCancelled) {
-	  return;
-	}
-}
 
-	ps.printSilent = true;
-  
-	for (let uri of gFolderDisplay.selectedMessageUris) {
-	  let messageService = messenger.messageServiceFromURI(uri);
-
-	  if(!PrintUtils.printBrowser) {
-		let messagePaneBrowser = document.getElementById("messagepane");
-		messagePaneBrowser.browsingContext.print(ps);
-	  } else {
-		PrintUtils.printBrowser.contentDocument = null;
-
-	  await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
-
-	  printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
-	  await printingtools.correctLayout();
-	  
-	  await PrintUtils.printBrowser.browsingContext.print(ps);
-	  }
-	}
-  },
-  
-  
 
 	cmd_printng: async function (msgId, options) {
 
@@ -252,17 +273,17 @@ PrintSelectedMessages: async function (options) {
 		if (options.printSilent == null) {
 			options.printSilent = printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.silent");
 		}
-		
+
 		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 
 		//document.getElementById("PMDprogress").checked = prefs.getBoolPref("extensions.printingtoolsng.print.showprogress");
-	
+
 		console.log(msgId)
 		console.log(options)
 
-		
+
 		await this.PrintSelectedMessages(options);
-		return ;
+		return;
 
 		console.log(document.baseURI);
 
@@ -275,20 +296,20 @@ PrintSelectedMessages: async function (options) {
 		var msgUris = gFolderDisplay.selectedMessageUris;
 		printingtools.num = msgUris.length;
 		printingtools.current = 0;
-		
+
 		if (msgUris.length > 1) {
 			options.printSilent = true;
 		}
 
 		for (let index = 0; index < msgUris.length; index++) {
 			const msg = msgUris[index];
-			
-		
+
+
 			//console.log(msgUri)
 			printingtools.current = index;
 			//console.debug(msg);
 
-			
+
 			let fakeMsgPane = document.createXULElement("browser");
 			fakeMsgPane.setAttribute("context", "mailContext");
 			fakeMsgPane.setAttribute("type", "content");
@@ -353,9 +374,9 @@ PrintSelectedMessages: async function (options) {
 			//}
 
 			//console.debug(fakeMsgPane.contentDocument.body.firstChild)
-			
+
 			//var b = fakeMsgPane.contentDocument.body;
-			
+
 			//printingtools.previewDoc = fakeMsgPane.contentDocument;
 
 			printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
@@ -369,7 +390,7 @@ PrintSelectedMessages: async function (options) {
 			// t.style.backgroundColor = "blue"
 
 			printingtools.msgUris = gFolderDisplay.selectedMessageUris;
-		
+
 			//printingtools.current = 0;
 
 			await printingtools.correctLayout();
@@ -1733,7 +1754,7 @@ PrintSelectedMessages: async function (options) {
 		if (!formatted_date)
 			return;
 
-			console.log("start tds")
+		console.log("start tds")
 		var tds = table.getElementsByTagName("TD");
 		console.log(tds)
 		var node = tds[tds.length - 1];
@@ -1803,32 +1824,32 @@ PrintSelectedMessages: async function (options) {
 			let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
 			console.log(fileNames)
 
-			
-			printingtoolsng.attList = fileNames.map( (fn, i) => { 
-					return {name: fn, size: fileSizes[i]};
-                      });
 
-					  //console.log(attList)
-					  return printingtoolsng.attList;
+			printingtoolsng.attList = fileNames.map((fn, i) => {
+				return { name: fn, size: fileSizes[i] };
+			});
+
+			//console.log(attList)
+			return printingtoolsng.attList;
 		} else {
-			
+
 			printingtools.hdr = messenger.msgHdrFromURI(currentUri);
-			
+
 			var mHdr = window.printingtoolsng.extension.messageManager.convert(printingtools.hdr);
 			console.log(mHdr)
-			printingtools.attList = await window.notifyExampleAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: mHdr.id});
+			printingtools.attList = await window.notifyExampleAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: mHdr.id });
 			return printingtools.attList;
 		}
 
 	},
-	
+
 
 	addAttTable: async function () {
 
 		let attList = await printingtools.getAttatchmentList();
-		
+
 		console.log(printingtools.attList);
-		
+
 		if (!attList || !attList.length) {
 			return;
 		}

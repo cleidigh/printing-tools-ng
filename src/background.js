@@ -133,7 +133,13 @@ async function getAttatchmentList(messageId) {
 	var m = await messenger.messages.get(messageId);
 	console.log(m)
 	var a = await messenger.messages.listAttachments(m.id);
-console.log(a)
+	console.log(a)
+
+	//messenger.NotifyTools.notifyExperiment({command: "doSomething"}).then((data) => {
+	//console.log(data)
+  //Now I'm talking to});
+
+  
 	return a;
 }
 
