@@ -68,7 +68,7 @@ function onLoad() {
 	<toolbarbutton id="ptng-button"
 	  label="Print NG"
 	  tooltiptext="Printing Tools NG"
-	  oncommand="printingtools.cmd_printng(null, {printSilent: true})"
+	  oncommand="printingtools.cmd_printng(null, {})"
 	  class="toolbarbutton-1"
 	  type="menu-button"
 	  is="toolbarbutton-menu-button">
@@ -89,7 +89,7 @@ WL.injectElements(`
 	<toolbarbutton id="ptng-button-hdr"
 	  label="Print NG"
 	  tooltiptext="Printing Tools NG"
-	  oncommand="printingtools.cmd_printng(null, {printSilent: true})"
+	  oncommand="printingtools.cmd_printng(null, {})"
 	  class="ptng-button-hdr toolbarbutton-icon toolbarbutton-1 message-header-view-button msgHeaderView-button customize-header-toolbar-button"
 	  type="menu-button"
 	  insertafter="hdrJunkButton"

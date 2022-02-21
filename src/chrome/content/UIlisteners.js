@@ -35,15 +35,15 @@ var getUI_status = {
 		
 
 		if (gFolderDisplay.selectedCount > 0) {
-			tbb_p.removeAttribute("disabled");
-			tbb_pp.removeAttribute("disabled")
+			if(tbb_p) tbb_p.removeAttribute("disabled");
+			if(tbb_pp) tbb_pp.removeAttribute("disabled");
 			fmp.removeAttribute("disabled")
 			amp.removeAttribute("disabled")
 			ctxmp.removeAttribute("disabled")
 
 		} else {
-			tbb_p.setAttribute("disabled", "true");
-			tbb_pp.setAttribute("disabled", "true");
+			if(tbb_p) tbb_p.setAttribute("disabled", "true");
+			if(tbb_pp) tbb_pp.setAttribute("disabled", "true");
 			fmp.setAttribute("disabled", "true");
 			amp.setAttribute("disabled", "true");
 			ctxmp.setAttribute("disabled", "true");

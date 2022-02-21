@@ -14,6 +14,8 @@ pref("extensions.printingtoolsng.addressbook.print_just_addresses", false);
 pref("extensions.printingtoolsng.addressbook.use_custom_font_size", false);
 pref("extensions.printingtoolsng.addressbook.custom_font_size", 10);
 pref("extensions.printingtoolsng.addressbook.max_compact", false);
+pref("extensions.printingtoolsng.print.silent", false);
+pref("extensions.printingtoolsng.print.showprogress", true );
 pref("extensions.printingtoolsng.print.just_selection", false);
 pref("extensions.printingtoolsng.cite.style", false);
 pref("extensions.printingtoolsng.cite.size", 10);

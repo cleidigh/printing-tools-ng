@@ -41,11 +41,6 @@ messenger.WindowListener.registerOptionsPage("chrome://printingtoolsng/content/p
 
 // Register each overlay script Which controls subsequent fragment loading
 
-
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/messenger.xul",
-	"chrome://printingtoolsng/content/messengerOL.js");
-
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/messenger.xhtml",
 	"chrome://printingtoolsng/content/messengerOL.js");
@@ -55,22 +50,9 @@ messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/messageWindow.xhtml",
 	"chrome://printingtoolsng/content/messageWindowOL.js");
 
-
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/msgPrintEngine.xhtml",
-	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
-
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/msgPrintEngine.xul",
-	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
-
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/customizeToolbar.xhtml",
 	"chrome://printingtoolsng/content/customizeToolbarOL.js");
-
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/addressbook/addressbook.xul",
-	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
 
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/addressbook/addressbook.xhtml",
@@ -131,15 +113,15 @@ browser.runtime.onInstalled.addListener(async (info) => {
 
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	switch (info.command) {
-		case "doSomething":
+		case "getAttatchmentList":
 			//do something
-			let rv = await doSomething(info.messageId);
+			let rv = await getAttatchmentList(info.messageId);
 			return rv;
 			break;
 	}
 });
 
-async function doSomething(messageId) {
+async function getAttatchmentList(messageId) {
 	var tab = await browser.tabs.query({});
 	console.log(tab)
 
@@ -151,13 +133,13 @@ async function doSomething(messageId) {
 	var m = await messenger.messages.get(messageId);
 	console.log(m)
 	var a = await messenger.messages.listAttachments(m.id);
-
+console.log(a)
 	return a;
 }
 
 function at(t) {
 
-	return t.active;
+	return t.active ;
 }
 
 

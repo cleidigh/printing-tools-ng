@@ -108,6 +108,140 @@ var printingtools = {
 	},
 
 
+/** Prints the messages selected in the thread pane. */
+PrintSelectedMessages: async function (options) {
+
+	printingtools.current = 0;
+	printingtools.num = gFolderDisplay.selectedCount;
+
+	if (gFolderDisplay.selectedCount == 1 && options.printSilent == false) {
+	  if (
+		gMessageDisplay.visible &&
+		gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage &&
+		gFolderDisplay.selectedMessageUris[0].startsWith("file")
+	  ) {
+		  console.log("use msg pane")
+		  let uri = gFolderDisplay.selectedMessageUris[0];
+		  
+		  console.log(uri)
+		// Use the already displayed message and print preview UI if we can.
+		let messagePaneBrowser = document.getElementById("messagepane");
+		let messageService = messenger.messageServiceFromURI(uri);
+
+		var fakeMsgPane;
+		if(!document.getElementById("fp")) {
+			console.log("create browser")
+
+			fakeMsgPane = document.createXULElement("browser");
+			fakeMsgPane.setAttribute("id","fp")
+		} else {
+			fakeMsgPane = document.getElementById("fp")
+		}
+			
+		fakeMsgPane.setAttribute("context", "mailContext");
+		fakeMsgPane.setAttribute("type", "content");
+		fakeMsgPane.setAttribute("disablesecurity", "true");
+		fakeMsgPane.setAttribute("messagemanagergroup", "single-page");
+		fakeMsgPane.setAttribute("remote", "true");
+		fakeMsgPane.setAttribute("primary", "true");
+		fakeMsgPane.hidden = true;
+
+		//let docShell = fakeMsgPane.docShell;
+	 	//docShell.appType = Ci.nsIDocShell.APP_TYPE_MAIL;
+
+		//fakeMsgPane = window.document.getElementById("messagesBox").parentNode.appendChild(fakeMsgPane);
+		fakeMsgPane = window.document.getElementById("status-bar").parentNode.appendChild(fakeMsgPane);
+		console.log(fakeMsgPane)
+
+			debugger;
+			let url = decodeURI(uri.split("?")[0]);
+			//MailE10SUtils.loadURI(fakeMsgPane, messageService.getUrlForUri(url).spec);
+			
+			url = "file://c:/Dev/email 1.eml"
+			url = "chrome://printingtoolsng/content/test.html" 
+			//MailE10SUtils.loadURI(fakeMsgPane, url);
+
+			//fakeMsgPane.loadURI(url)
+			console.log(fakeMsgPane.contentDocument)
+			//fakeMsgPane.contentDocument.body = messagePaneBrowser.contentDocument.body
+			//console.log(fakeMsgPane.contentDocument)
+
+			//for (let i = 1; i < 2500; i++) {
+			//	await new Promise(resolve => window.setTimeout(resolve, 20));
+			//	if (fakeMsgPane.contentDocument && fakeMsgPane.contentDocument.readyState == "complete")
+			//		break;
+			//}
+
+			console.log("af wait")
+			console.log(fakeMsgPane.contentDocument)
+			
+		//printingtools.previewDoc = fakeMsgPane.contentDocument;
+		printingtools.previewDoc = messagePaneBrowser.contentDocument;
+		await printingtools.correctLayout();
+
+		//PrintUtils.startPrintWindow(fakeMsgPane.browsingContext, {});
+		PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
+	  } else {
+		console.log("use hidden pane")
+		// Load the only message in a hidden browser, then use the print preview UI.
+		let uri = gFolderDisplay.selectedMessageUris[0];
+		let messageService = messenger.messageServiceFromURI(uri);
+		//PrintUtils.printBrowser.remove();
+		//var b = PrintUtils.createBrowser();
+		//PrintUtils.printBrowser = b
+		//console.log(b)
+		console.log(PrintUtils.printBrowser)
+		//MailE10SUtils.loadURI(b, messageService.getUrlForUri(uri).spec);
+		await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html" );
+		await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
+
+		printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+		//printingtools.previewDoc = b.contentDocument
+		await printingtools.correctLayout();
+
+		PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext, {});
+		//PrintUtils.startPrintWindow(b.browsingContext, {});
+	  }
+  
+	  return;
+	}
+  
+	console.log("use msg pane Multiple ")
+	// Multiple messages. Get the printer settings, then load the messages into
+	// a hidden browser and print them one at a time.
+	let ps = PrintUtils.getPrintSettings();
+	
+	if (options.printSilent == false) {
+	Cc["@mozilla.org/embedcomp/printingprompt-service;1"]
+	  .getService(Ci.nsIPrintingPromptService)
+	  .showPrintDialog(window, ps);
+	if (ps.isCancelled) {
+	  return;
+	}
+}
+
+	ps.printSilent = true;
+  
+	for (let uri of gFolderDisplay.selectedMessageUris) {
+	  let messageService = messenger.messageServiceFromURI(uri);
+
+	  if(!PrintUtils.printBrowser) {
+		let messagePaneBrowser = document.getElementById("messagepane");
+		messagePaneBrowser.browsingContext.print(ps);
+	  } else {
+		PrintUtils.printBrowser.contentDocument = null;
+
+	  await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
+
+	  printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+	  await printingtools.correctLayout();
+	  
+	  await PrintUtils.printBrowser.browsingContext.print(ps);
+	  }
+	}
+  },
+  
+  
 
 	cmd_printng: async function (msgId, options) {
 
@@ -115,67 +249,86 @@ var printingtools = {
 		msgId = msgId || null;
 		options = options || {};
 
+		if (options.printSilent == null) {
+			options.printSilent = printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.silent");
+		}
+		
+		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+
+		//document.getElementById("PMDprogress").checked = prefs.getBoolPref("extensions.printingtoolsng.print.showprogress");
+	
 		console.log(msgId)
 		console.log(options)
+
 		
-
-		console.log(window.printingtools.extension)
-
-		console.log(document.baseURI);
+		await this.PrintSelectedMessages(options);
+		return ;
 
 		console.log(document.baseURI);
+
+		console.log(document.URL);
 
 		if (document.URL == "chrome://messenger/content/messageWindow.xhtml") {
 			console.log(document.activeElement.contentDocument.baseURI);
 		}
-		//printingtools.DoCommandPrint2();
 
+		var msgUris = gFolderDisplay.selectedMessageUris;
+		printingtools.num = msgUris.length;
+		printingtools.current = 0;
 		
-
-
-		let fakeMsgPane = document.createXULElement("browser");
-		fakeMsgPane.setAttribute("context", "mailContext");
-		fakeMsgPane.setAttribute("type", "content");
-		fakeMsgPane.setAttribute("messagemanagergroup", "single-page");
-		fakeMsgPane.setAttribute("remote", "true");
-		fakeMsgPane.setAttribute("primary", "true");
-		fakeMsgPane.hidden = true;
-
-		//fakeMsgPane = window.document.getElementById("messagesBox").parentNode.appendChild(fakeMsgPane);
-		fakeMsgPane = window.document.getElementById("status-bar").parentNode.appendChild(fakeMsgPane);
-		console.log(fakeMsgPane)
-		//let docShell = fakeMsgPane.docShell;
-		//docShell.appType = Ci.nsIDocShell.APP_TYPE_MAIL;
-
-
-		var printBrowser = fakeMsgPane;
-
-
-		var msg = gFolderDisplay.selectedMessageUris[0];
-		console.debug(msg);
-		
-		//console.log(document.activeElement.contentDocument.baseURI);
-
-		if (document.URL == "chrome://messenger/content/messageWindow.xhtml" ) {
-			console.log(document.activeElement.contentDocument.baseURI);
-			msg = document.activeElement.contentDocument.baseURI;
-			printingtools.msgUris = msg;
-		} else {
-			printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+		if (msgUris.length > 1) {
+			options.printSilent = true;
 		}
 
-		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
-console.log(printingtools.msgUris)
-		console.debug(msg);
+		for (let index = 0; index < msgUris.length; index++) {
+			const msg = msgUris[index];
+			
+		
+			//console.log(msgUri)
+			printingtools.current = index;
+			//console.debug(msg);
 
-		//console.log(window.printingtoolsng.extension.messageManager.convert(gFolderDisplay.selectedMessage))
+			
+			let fakeMsgPane = document.createXULElement("browser");
+			fakeMsgPane.setAttribute("context", "mailContext");
+			fakeMsgPane.setAttribute("type", "content");
+			fakeMsgPane.setAttribute("messagemanagergroup", "single-page");
+			fakeMsgPane.setAttribute("remote", "true");
+			fakeMsgPane.setAttribute("primary", "true");
+			fakeMsgPane.hidden = true;
 
-		//console.debug(printBrowser.outerHTML);
+			//fakeMsgPane = window.document.getElementById("messagesBox").parentNode.appendChild(fakeMsgPane);
+			fakeMsgPane = window.document.getElementById("status-bar").parentNode.appendChild(fakeMsgPane);
+			console.log(fakeMsgPane)
+			//let docShell = fakeMsgPane.docShell;
+			//docShell.appType = Ci.nsIDocShell.APP_TYPE_MAIL;
 
-		//var mHdr = window.printingtoolsng.extension.messageManager.convert(gFolderDisplay.selectedMessage)
+
+			var printBrowser = fakeMsgPane;
 
 
-		let messageService = messenger.messageServiceFromURI(msg)
+			//console.log(document.activeElement.contentDocument.baseURI);
+
+			if (0 && document.URL == "chrome://messenger/content/messageWindow.xhtml") {
+				console.log(document.activeElement.contentDocument.baseURI);
+				msg = document.activeElement.contentDocument.baseURI;
+				printingtools.msgUris = msg;
+			} else {
+				printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+			}
+
+			printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+			console.log(printingtools.msgUris)
+			console.debug(msg);
+
+			//console.log(window.printingtoolsng.extension.messageManager.convert(gFolderDisplay.selectedMessage))
+
+			//console.debug(printBrowser.outerHTML);
+
+			//var mHdr = window.printingtoolsng.extension.messageManager.convert(gFolderDisplay.selectedMessage)
+
+
+			let messageService = messenger.messageServiceFromURI(msg)
 			messageURL = messageService.getUrlForUri(msg).spec;
 
 			console.debug(messageURL);
@@ -183,83 +336,96 @@ console.log(printingtools.msgUris)
 
 
 			//printingtools.attList = await window.notifyExampleAddon.notifyTools.notifyBackground({ command: "doSomething", messageId: mHdr.id });
-		console.log(printingtools.attList);
+			console.log(printingtools.attList);
 
-		//MailE10SUtils.loadURI(printBrowser, "chrome://printingtoolsng/content/test.html" )
-		MailE10SUtils.loadURI(printBrowser, messageURL)
+			//MailE10SUtils.loadURI(printBrowser, "chrome://printingtoolsng/content/test.html" )
+			//MailE10SUtils.loadURI(printBrowser, messageURL)
 
-		console.debug(printBrowser.outerHTML);
-		console.debug(printBrowser);
+			await PrintUtils.loadPrintBrowser(messageURL)
 
-		for (let i = 1; i < 2500; i++) {
-			await new Promise(resolve => window.setTimeout(resolve, 20));
-			if (fakeMsgPane.contentDocument && fakeMsgPane.contentDocument.readyState == "complete")
-				break;
-		}
+			console.debug(printBrowser.outerHTML);
+			console.debug(printBrowser);
 
-		console.debug(fakeMsgPane.contentDocument.body.firstChild)
-		var b = fakeMsgPane.contentDocument.body;
-		printingtools.previewDoc = fakeMsgPane.contentDocument;
+			//for (let i = 1; i < 2500; i++) {
+			//	await new Promise(resolve => window.setTimeout(resolve, 20));
+			//	if (fakeMsgPane.contentDocument && fakeMsgPane.contentDocument.readyState == "complete")
+			//		break;
+			//}
 
+			//console.debug(fakeMsgPane.contentDocument.body.firstChild)
+			
+			//var b = fakeMsgPane.contentDocument.body;
+			
+			//printingtools.previewDoc = fakeMsgPane.contentDocument;
 
-		// var t = b.querySelector("table")
-		// console.debug(t);
-		// t.border = "1";
-		// t.style.backgroundColor = "red"
-		// t = b.querySelector("td")
-		// console.debug(t);
-		// t.innerHTML = "test"
-		// t.style.backgroundColor = "blue"
+			printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+			// var t = b.querySelector("table")
+			// console.debug(t);
+			// t.border = "1";
+			// t.style.backgroundColor = "red"
+			// t = b.querySelector("td")
+			// console.debug(t);
+			// t.innerHTML = "test"
+			// t.style.backgroundColor = "blue"
 
-		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
-		printingtools.current = 0;
-
-		await printingtools.correctLayout();
-
-		let psService = Cc[
-			"@mozilla.org/gfx/printsettings-service;1"
-		].getService(Ci.nsIPrintSettingsService);
-
-		var printSettings = PrintUtils.getPrintSettings();
-		printSettings.isInitializedFromPrinter = true;
-		printSettings.isInitializedFromPrefs = true;
-		printSettings.printBGColors = true;
-		printSettings.printBGImages = true;
-
-		console.log(options)
-		console.log(options.printSilent)
-
-		let ps = printingtools.prefs.getBoolPref("print.always_print_silent");
-		console.log(ps)
-		if(options.printSilent) {
-			console.log("options.sil " + options.printSilent)
-			printingtools.prefs.setBoolPref("print.always_print_silent", true);
-		} else if (options.printSilent === false) {
-			printingtools.prefs.setBoolPref("print.always_print_silent", false);
-		}
-		if (0 && printingtools.prefs.getBoolPref("print.always_print_silent") || options.printSilent) {
-			console.log("silent")
-			printSettings.printSilent = true;
-			printSettings.showPrintProgress = false;
-		}
+			printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 		
-		//psService.savePrintSettingsToPrefs(printSettings, true, printSettings.kInitSaveBGColors);
+			//printingtools.current = 0;
 
-		if ( 0 && printingtools.prefs.getBoolPref("print.always_print_silent") && options.printSilent!== false ) {
-			console.log("p sil")
-			await fakeMsgPane.browsingContext.print(printSettings);
-		} else {
-			console.log("p reg")
-			//printingtools.prefs.setBoolPref("print.always_print_silent", false);
-			PrintUtils.startPrintWindow(printBrowser.browsingContext, {});
-		}
+			await printingtools.correctLayout();
+
+			let psService = Cc[
+				"@mozilla.org/gfx/printsettings-service;1"
+			].getService(Ci.nsIPrintSettingsService);
+
+			var printSettings = PrintUtils.getPrintSettings();
+			printSettings.isInitializedFromPrinter = true;
+			printSettings.isInitializedFromPrefs = true;
+			printSettings.printBGColors = true;
+			printSettings.printBGImages = true;
+
+			console.log(options)
+			console.log(options.printSilent)
+
+			let ps = printingtools.prefs.getBoolPref("print.always_print_silent");
+			console.log(ps)
+			if (options.printSilent) {
+				console.log("options.sil " + options.printSilent)
+				printingtools.prefs.setBoolPref("print.always_print_silent", true);
+			} else if (options.printSilent === false) {
+				printingtools.prefs.setBoolPref("print.always_print_silent", false);
+			}
+			if (0 && printingtools.prefs.getBoolPref("print.always_print_silent") || options.printSilent) {
+				console.log("silent")
+				printSettings.printSilent = true;
+				printSettings.showPrintProgress = false;
+			}
+
+			//psService.savePrintSettingsToPrefs(printSettings, true, printSettings.kInitSaveBGColors);
+
+			if (0 && printingtools.prefs.getBoolPref("print.always_print_silent") && options.printSilent !== false) {
+				console.log("p sil")
+				await fakeMsgPane.browsingContext.print(printSettings);
+			} else {
+				console.log("p reg")
+				//printingtools.prefs.setBoolPref("print.always_print_silent", false);
+				//PrintUtils.startPrintWindow(printBrowser.browsingContext, {});
+				PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext, {});
+			}
 
 
-		if(options.printSilent) {
-			printingtools.prefs.setBoolPref("print.always_print_silent", ps);
-		}
 
+			if (options.printSilent) {
+				printingtools.prefs.setBoolPref("print.always_print_silent", ps);
+			}
 
+			//printBrowser.remove();
+
+		};
+
+		await new Promise(resolve => window.setTimeout(resolve, 20));
+
+		printBrowser.remove();
 		//PrintUtils.printWindow(printBrowser.browsingContext, {});
 	},
 
@@ -805,11 +971,11 @@ console.log(printingtools.msgUris)
 				var dummy = {};
 				dummy.folder = null;
 
-				let f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]).replace(/\//g,"\\");
+				let f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]).replace(/\//g, "\\");
 
-				 				
-				let str_message = await IOUtils.readUTF8(f, {bytes: 3000})
-				
+
+				let str_message = await IOUtils.readUTF8(f, { bytes: 3000 })
+
 				str_message = str_message.toLowerCase();
 				var dateOrig = str_message.split("\ndate:")[1].split("\n")[0];
 				dateOrig = dateOrig.replace(/ +$/, "");
@@ -829,7 +995,9 @@ console.log(printingtools.msgUris)
 		console.debug('correctly layout ');
 		printingtools.doc = printingtools.previewDoc;
 
-		printingtools.addAttTable(printingtools.attList);
+		console.log(printingtools.doc.body.outerHTML)
+
+		await printingtools.addAttTable(printingtools.attList);
 
 		var myname = printingtools.getComplexPref("extensions.printingtoolsng.headers.custom_name_value");
 		if (myname.indexOf("initialsource") > -1) {
@@ -1129,8 +1297,8 @@ console.log(printingtools.msgUris)
 
 
 		// Remove attachments  table from  end of message 
-		
-		if(printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list")) {
+
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list")) {
 			console.log("remove att list")
 			printingtools.removeAttatchmentBodyTable();
 		}
@@ -1347,7 +1515,7 @@ console.log(printingtools.msgUris)
 					if (!textNode) {
 						// This is called when a header exists, with a null value (for example "Subject:");
 						// Adding a text node, we restore the original structure
-						tableTDS[i].appendChild(document.createTextNode(" "));
+						tableTDS[i].appendChild(printingtools.previewDoc.createTextNode(" "));
 					}
 					else if (textNode && textNode.textContent && textNode.textContent.length > maxchars && maxchars) {
 						textNode.textContent = textNode.textContent.substring(0, maxchars) + " [...]";
@@ -1556,6 +1724,7 @@ console.log(printingtools.msgUris)
 	},
 
 	correctDate: function () {
+		console.log("start date")
 		var table = printingtools.getTable(0);
 		if (!table || !printingtools.hdr)
 			return;
@@ -1563,8 +1732,12 @@ console.log(printingtools.msgUris)
 		var formatted_date = printingtools.formatDate((printingtools.hdr.dateInSeconds * 1000), longFormat);
 		if (!formatted_date)
 			return;
+
+			console.log("start tds")
 		var tds = table.getElementsByTagName("TD");
+		console.log(tds)
 		var node = tds[tds.length - 1];
+		console.log(node)
 		if (node) {
 			var data = node.childNodes[1].nodeValue;
 			node.childNodes[1].nodeValue = formatted_date;
@@ -1620,8 +1793,42 @@ console.log(printingtools.msgUris)
 		return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 	},
 
-	addAttTable: function (attList) {
+	getAttatchmentList: async function () {
 
+		let currentUri = printingtools.msgUris[printingtools.current];
+
+		if (currentUri.startsWith("file")) {
+
+			let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
+			let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
+			console.log(fileNames)
+
+			
+			printingtoolsng.attList = fileNames.map( (fn, i) => { 
+					return {name: fn, size: fileSizes[i]};
+                      });
+
+					  //console.log(attList)
+					  return printingtoolsng.attList;
+		} else {
+			
+			printingtools.hdr = messenger.msgHdrFromURI(currentUri);
+			
+			var mHdr = window.printingtoolsng.extension.messageManager.convert(printingtools.hdr);
+			console.log(mHdr)
+			printingtools.attList = await window.notifyExampleAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: mHdr.id});
+			return printingtools.attList;
+		}
+
+	},
+	
+
+	addAttTable: async function () {
+
+		let attList = await printingtools.getAttatchmentList();
+		
+		console.log(printingtools.attList);
+		
 		if (!attList || !attList.length) {
 			return;
 		}
@@ -1654,7 +1861,8 @@ console.log(printingtools.msgUris)
 			t = this.getTable(0);
 			t.after(attTable);
 		}
-
+		console.log("after att")
+		console.log(printingtools.doc.body.outerHTML)
 	},
 
 

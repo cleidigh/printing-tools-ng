@@ -66,7 +66,7 @@ function onLoad() {
 	<toolbarbutton id="ptng-button"
 	  label="Print NG"
 	  tooltiptext="Printing Tools NG"
-	  oncommand="printingtools.cmd_printng(null, {printSilent: true})"
+	  oncommand="printingtools.cmd_printng(null, {})"
 	  class="toolbarbutton-1"
 	  type="menu-button"
 	  is="toolbarbutton-menu-button">
@@ -81,6 +81,27 @@ function onLoad() {
 </toolbarpalette>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
+
+WL.injectElements(`
+<toolbarpalette id="header-view-toolbar">
+	<toolbarbutton id="ptng-button-hdr"
+	  label="Print NG"
+	  tooltiptext="Printing Tools NG"
+	  oncommand="printingtools.cmd_printng(null, {})"
+	  class="ptng-button-hdr toolbarbutton-icon toolbarbutton-1 message-header-view-button msgHeaderView-button customize-header-toolbar-button"
+	  type="menu-button"
+	  insertafter="hdrJunkButton"
+	  is="toolbarbutton-menu-button">
+
+	  	<menupopup>
+		  <menuitem id="ptng-button-print" accesskey="P" label="Print" oncommand="printingtools.cmd_printng(null, {printSilent: true}); event.stopPropagation();" />
+		  <menuitem id="ptng-button-printpreview" accesskey="v" label="Print Preview" oncommand="printingtools.cmd_printng(null, {printSilent: false}); event.stopPropagation();"  />
+		  <menuseparator />
+		  <menuitem id="ptng-button-options" accesskey="o" label="Printingtools NG Options" oncommand="openPTdialog(false); event.stopPropagation();"/>
+		  </menupopup>
+	  </toolbarbutton>
+</toolbarpalette>
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 		WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
 

@@ -142,11 +142,9 @@ function initPMDpanel() {
 		document.getElementById("PREtruncate").checked = true;
 		document.getElementById("PREmaxchars").value = max_pre_len;
 	}
-
-	if (prefs.getPrefType("print.always_print_silent") !== 0 && prefs.getBoolPref("print.always_print_silent"))
-		document.getElementById("PMDsilent").checked = true;
-	else
-		document.getElementById("PMDsilent").checked = false;
+	
+	document.getElementById("PMDsilent").checked = prefs.getBoolPref("extensions.printingtoolsng.print.silent");
+	document.getElementById("PMDprogress").checked = prefs.getBoolPref("extensions.printingtoolsng.print.showprogress");
 
 	var sID = "s" + prefs.getIntPref("extensions.printingtoolsng.cite.size");
 	document.getElementById("citeSize").selectedItem = document.getElementById(sID);
@@ -375,8 +373,8 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.images.resize", document.getElementById("resizeImgs").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setIntPref("extensions.printingtoolsng.headers.maxchars", document.getElementById("PMDmaxchars").value);
-	prefs.setBoolPref("print.always_print_silent", document.getElementById("PMDsilent").checked);
-	prefs.setBoolPref("print.show_print_progress", !document.getElementById("PMDprogress").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.print.silent", document.getElementById("PMDsilent").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.print.showprogress", !document.getElementById("PMDprogress").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments", document.getElementById("PMDhideAtt").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments_list", document.getElementById("InlineAttsListhide").checked);

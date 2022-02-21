@@ -747,22 +747,21 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
         window[this.uniqueRandomID].WL.injectElements = function (
           xulString,
           dtdFiles = [],
-          debug = true
+          debug = false
         ) {
           let toolbarsToResolve = [];
 
           function checkElements(stringOfIDs) {
-            console.log("chk elm")
-            console.log(stringOfIDs)
+            
             let arrayOfIDs = stringOfIDs.split(",").map((e) => e.trim());
             for (let id of arrayOfIDs) {
               let element = window.document.getElementById(id);
               if (element) {
-                console.log(element)
+                
                 return element;
               }
             }
-            console.log("ret elem")
+            
             return null;
           }
 
@@ -803,8 +802,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                 }
               }
 
-              console.log("check type")
-              console.log(elements[i].hasAttribute("replaceattributes"))
+            
               
               if (
                 elements[i].hasAttribute("insertafter") &&
@@ -875,7 +873,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
 
                
 
-                console.log(replaceAttrsElement.outerHTML)
+                //console.log(replaceAttrsElement.outerHTML)
 
           const attributeNodeArray = [... elements[i].attributes];
           const replAttributeNodeArray = [... replaceAttrsElement.attributes];
@@ -887,15 +885,14 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
         });
         var origAttrVal;
 
-        console.log(attributeNodeArray)
+        //console.log(attributeNodeArray)
         
 
        // replaceAttrsElement.removeAttribute("observes");
        if (attributeNodeArray.find(attr => attr.name === "command") && 
            attributeNodeArray.find(attr => attr.name === "oncommand")) {
                 
-        console.log("cmd");
-                  
+                         
          replaceAttrsElement.removeAttribute("command");
          replaceAttrsElement.removeAttribute("oncommand");
 
@@ -912,7 +909,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
 
 
         attributeNodeArray.forEach(attr => {
-          console.log(attr)
+          //console.log(attr)
           if ( attr.name === "oncommand" || attr.name === "command" || attr.name === "replaceattributes") {
             return;
           }
@@ -960,7 +957,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
 
                 if (debug) {
                   console.log("rpl done")
-                  console.log(replaceAttrsElement.outerHTML)
+                  //console.log(replaceAttrsElement.outerHTML)
                 }
 
               } else if (
@@ -1035,7 +1032,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
             localize
           );
          
-          console.log("st inj")
+        
           injectChildren(
             Array.from(
               window.MozXULElement.parseXULToFragment(
@@ -1134,23 +1131,18 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
 
         const elementAttributeArray = [... element.attributes];
 
-                  
-        console.log("start element")
-        console.log(elementAttributeArray)
-        console.log(element.outerHTML)
-
+     
 
         elementAttributeArray.forEach(attr => {
           if (!attr.name.endsWith("___orig___")) {
-            console.log("remove " + attr.name)
             element.removeAttribute(attr.name)
-            console.log(element.outerHTML)
+           
           } else {
-            console.log("restore " + attr.name)
+           
             
             element.setAttribute(attr.name.split("___orig___")[0], attr.value);
             element.removeAttribute(attr.name);
-            console.log(element.outerHTML)
+           
           }
           
         });
@@ -1158,9 +1150,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
         if(ocmd) {
         element.setAttribute("oncommand", ocmd.value);
         }
-        console.log(ocmd)
-        console.log("rpl element")
-        console.log(element.outerHTML)
+     
         }
 
 
