@@ -154,7 +154,7 @@ function handleMessage(message, sender) {
 	console.log(message)
 
 	if(1) {
-	messenger.NotifyTools.notifyExperiment({command: "handleExternalPrint"}).then((data) => {
+	messenger.NotifyTools.notifyExperiment({command: "handleExternalPrint", messageHeader: message.messageHeader}).then((data) => {
 	console.log(data)
 	console.log("h back")
   //Now I'm talking to});
@@ -164,3 +164,4 @@ function handleMessage(message, sender) {
 	return true;
 }
 }
+

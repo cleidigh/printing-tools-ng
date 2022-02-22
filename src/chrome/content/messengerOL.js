@@ -7,6 +7,7 @@ var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 // Import any needed modules.
 var ADDON_ID = "PrintingToolsNG@cleidigh.kokkini.net";
+var extMsgHandler;
 
 var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
 
@@ -117,9 +118,18 @@ WL.injectElements(`
 	window.printingtoolsng.extension = WL.extension;
  
 
-	
+	extMsgHandler = window.notifyExampleAddon.notifyTools.addListener(handleExternalPrint);
+
   
 }
+
+function handleExternalPrint(data) {
+	console.log(data);
+	window.printingtools.cmd_printng({printSilent: true, msgId: data.messageHeader.id})
+	return true;
+}
+
+
 
 
 function onUnload(shutdown) {
@@ -127,5 +137,7 @@ function onUnload(shutdown) {
 	// Services.console.logStringMessage("onUnload messenger");
 	// Services.obs.removeObserver(window.printingtoolsng.printObserver, "subdialog-loaded");
 
+	window.notifyExampleAddon.notifyTools.removeListener(extMsgHandler);
 	window.getUI_status.shutdown();
+	window.printingtools.shutdown();
 }
