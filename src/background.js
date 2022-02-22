@@ -134,11 +134,6 @@ async function getAttatchmentList(messageId) {
 	console.log(m)
 	var a = await messenger.messages.listAttachments(m.id);
 	console.log(a)
-
-	//messenger.NotifyTools.notifyExperiment({command: "doSomething"}).then((data) => {
-	//console.log(data)
-  //Now I'm talking to});
-
   
 	return a;
 }
@@ -157,4 +152,15 @@ function handleMessage(message, sender) {
 	}
 
 	console.log(message)
+
+	if(1) {
+	messenger.NotifyTools.notifyExperiment({command: "handleExternalPrint"}).then((data) => {
+	console.log(data)
+	console.log("h back")
+  //Now I'm talking to});
+		return  true ;
+	});
+
+	return true;
+}
 }

@@ -5,12 +5,12 @@ var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.js
 // Define our add-on ID, which is needed to resolve paths for files within our extension
 // and to be able to listen for notifications.
 
-function doSomething(data) {
+function handleExternalPrint(data) {
 	console.log(data);
 	return true;
 }
 
-window.notifyExampleAddon.notifyTools.addListener(doSomething);
+window.notifyExampleAddon.notifyTools.addListener(handleExternalPrint);
 
 //window.notifyExampleAddon.notifyTools.notifyBackground({ command: "doSomething", messageId: mHdr.id });
 
@@ -172,8 +172,20 @@ var printingtools = {
 
 				//let url = decodeURI(uri.split("?")[0]);
 				
-				MailE10SUtils.loadURI(fakeMsgPane, messageService.getUrlForUri(uri).spec);
+				//MailE10SUtils.loadURI(fakeMsgPane, messageService.getUrlForUri(uri).spec);
 
+				if(1) {
+				messageService.DisplayMessage(
+					uri + "&markRead=false",
+					docShell,
+					undefined, //win.msgWindow,
+					undefined,
+					undefined,
+					{}
+				)
+
+				}
+	
 				//url = "file://c:/Dev/email 1.eml"
 				//url = "chrome://printingtoolsng/content/test.html"
 
@@ -187,11 +199,11 @@ var printingtools = {
 				//fakeMsgPane.contentDocument.body = messagePaneBrowser.contentDocument.body
 				//console.log(fakeMsgPane.contentDocument)
 
-				//for (let i = 1; i < 2500; i++) {
-				//	await new Promise(resolve => window.setTimeout(resolve, 20));
-				//	if (fakeMsgPane.contentDocument && fakeMsgPane.contentDocument.readyState == "complete")
-				//		break;
-				//}
+				for (let i = 1; i < 4500; i++) {
+					await new Promise(resolve => window.setTimeout(resolve, 20));
+					if (fakeMsgPane.contentDocument && fakeMsgPane.contentDocument.readyState == "complete")
+						break;
+				}
 
 				console.log("af wait content")
 				console.log(fakeMsgPane.contentDocument)
