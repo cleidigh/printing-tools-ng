@@ -212,6 +212,9 @@ function initPMDpanel() {
 	
 	// Services.console.logStringMessage("printingtools: call printer setup");
 	setPrinterList();
+	
+	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
+
 	document.getElementById("useCcBccAlways").focus;
 }
 
@@ -441,6 +444,8 @@ function savePMDprefs() {
 			console.debug(e);
 		 }
 	}
+
+	prefs.setCharPref("extensions.printingtoolsng.debug.options", document.getElementById("debug-options").value);
 }
 
 function savePMDabprefs(fullpanel) {

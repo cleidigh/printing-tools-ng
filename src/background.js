@@ -123,17 +123,17 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 
 async function getAttatchmentList(messageId) {
 	var tab = await browser.tabs.query({});
-	console.log(tab)
+	//console.log(tab)
 
 	var t = tab.find(at)
 
-	console.log(t)
+	//console.log(t)
 
 	//var m = await messenger.messageDisplay.getDisplayedMessage(t.id)
 	var m = await messenger.messages.get(messageId);
-	console.log(m)
+	//console.log(m)
 	var a = await messenger.messages.listAttachments(m.id);
-	console.log(a)
+	//console.log(a)
   
 	return a;
 }
@@ -146,22 +146,16 @@ function at(t) {
 
 
 function handleMessage(message, sender) {
-	// check that the message is from "blue@mozilla.org"
-	if (sender.id === "blue@mozilla.org") {
-		// process message
-	}
+	
+	//console.log(message)
 
-	console.log(message)
-
-	if(1) {
+	
 	messenger.NotifyTools.notifyExperiment({command: "handleExternalPrint", messageHeader: message.messageHeader}).then((data) => {
-	console.log(data)
-	console.log("h back")
-  //Now I'm talking to});
-		return  true ;
+	//console.log(data)
+			return  true ;
 	});
 
 	return true;
-}
+
 }
 

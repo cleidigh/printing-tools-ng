@@ -124,7 +124,7 @@ WL.injectElements(`
 }
 
 function handleExternalPrint(data) {
-	//console.log(data);
+	console.log(data);
 	window.printingtools.cmd_printng({printSilent: true, messageHeader: data.messageHeader || "error"})
 	return true;
 }
