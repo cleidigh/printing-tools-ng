@@ -41,22 +41,22 @@ function onLoad() {
 	
 		WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem replaceattributes="printMenuItem" label= "Print... (NG)"  oncommand="printingtools.cmd_printng()" command="" disabled="" />
-</menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+	<menuitem replaceattributes="printMenuItem" label= "&printCmd.label; (NG)"  oncommand="printingtools.cmd_printng()" command="" disabled="" />
+</menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
 
 		WL.injectElements(`
 <panelview id="appMenu-mainView">
-	<toolbarbutton replaceattributes="appmenu_print" label="Print... (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
-</panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+	<toolbarbutton replaceattributes="appmenu_print" label="&printCmd.label; (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
+</panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
 		WL.injectElements(`
 <menupopup id="mailContext">
-	<menuitem replaceattributes="mailContext-print" label="Print... (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
+	<menuitem replaceattributes="mailContext-print" label="&printCmd.label; (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
 </menupopup>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 		WL.injectElements(`
 <menupopup id="menu_FilePopup">
