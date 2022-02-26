@@ -88,7 +88,7 @@ function onLoad() {
 WL.injectElements(`
 <toolbarpalette id="header-view-toolbar">
 	<toolbarbutton id="ptng-button-hdr"
-	  label="Print NG"
+	  label="&printButton.label; NG"
 	  tooltiptext="Printing Tools NG"
 	  oncommand="printingtools.cmd_printng(null, {})"
 	  class="ptng-button-hdr toolbarbutton-icon toolbarbutton-1 message-header-view-button msgHeaderView-button customize-header-toolbar-button"
@@ -97,14 +97,14 @@ WL.injectElements(`
 	  is="toolbarbutton-menu-button">
 
 	  	<menupopup>
-		  <menuitem id="ptng-button-print" accesskey="P" label="Print" oncommand="printingtools.cmd_printng(null, {printSilent: true}); event.stopPropagation();" />
-		  <menuitem id="ptng-button-printpreview" accesskey="v" label="Print Preview" oncommand="printingtools.cmd_printng(null, {printSilent: false}); event.stopPropagation();"  />
+		  <menuitem id="ptng-button-print" accesskey="P" label="&printButton.label;" oncommand="printingtools.cmd_printng(null, {printSilent: true}); event.stopPropagation();" />
+		  <menuitem id="ptng-button-printpreview" accesskey="v" label="&contextPrintPreview.label;" oncommand="printingtools.cmd_printng(null, {printSilent: false}); event.stopPropagation();"  />
 		  <menuseparator />
 		  <menuitem id="ptng-button-options" accesskey="o" label="Printingtools NG Options" oncommand="openPTdialog(false); event.stopPropagation();"/>
 		  </menupopup>
 	  </toolbarbutton>
 </toolbarpalette>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
 
@@ -123,9 +123,10 @@ WL.injectElements(`
   
 }
 
-function handleExternalPrint(data) {
-	//console.log(data);
-	window.printingtools.cmd_printng({printSilent: true, messageHeader: data.messageHeader || "error"})
+async function handleExternalPrint(data) {
+	console.log(" incoming ext msg" + data);
+	await window.printingtools.cmd_printng_external({messageHeader: data.messageHeader || "error"})
+	console.log("PTNG: External print handler done")
 	return true;
 }
 

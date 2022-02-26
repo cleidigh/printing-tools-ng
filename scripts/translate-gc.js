@@ -16,7 +16,13 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "HideInlineAttList", text: "Hide inline attachment list" },
+	 { key: "print.label", text: "Print" },
+	 { key: "printPreview.label", text: "Print Preview" },
+	 { key: "ptng.label", text: "Printing Tools NG" },
+	 { key: "ptngOptions.label", text: "Printing Tools NG Options" },
+	 { key: "debugOptions.label", text: "Debug Options" },
+
+	
 ];
 
 

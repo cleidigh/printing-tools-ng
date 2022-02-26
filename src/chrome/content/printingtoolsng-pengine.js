@@ -24,6 +24,9 @@ var printingtools = {
 	previewDoc: null,
 	msgUris: null,
 	attList: null,
+	running: false,
+	extRunning: false,
+	externalQ: [],
 
 	/** Prints the messages selected in the thread pane. */
 	PrintSelectedMessages: async function (options) {
@@ -175,11 +178,92 @@ var printingtools = {
 	},
 
 
+	PrintExternalMsg: async function (msgURI) {
+		printingtools.current = 0;
+		printingtools.num = 1;
+		printingtools.msgUris = [msgURI];
+		let ps = PrintUtils.getPrintSettings();
+		ps.printSilent = true;
+
+		let messageService = messenger.messageServiceFromURI(msgURI);
+		await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+		await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
+
+		printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+		await printingtools.correctLayout();
+
+		await PrintUtils.printBrowser.browsingContext.print(ps);
+	
+
+	},
+
+	cmd_printng_external: async function (extMsgReq) {
+		console.log("PrintingTools NG Received a message from external add-on", extMsgReq.messageHeader);
+			
+		console.log(this.current)
+		console.log(this.msgUris)
+
+		let msgHeader = extMsgReq.messageHeader;
+		
+		if (!msgHeader.id) {
+		  console.log("no useful id for message");
+		  return;
+		}
+		
+		let realMessage = window.printingtoolsng.extension
+		  .messageManager.get(msgHeader.id);
+		let uri = realMessage.folder.getUriForMsg(realMessage);
+		//let uris = [];
+		//uris.push(uri);
+		//printingtools.msgUris = uris;
+
+		console.log(realMessage)
+		console.log(uri)
+
+
+		if(this.extRunning) {
+			console.log("Q dont run")
+			console.log(this.externalQ)
+			this.externalQ.push(uri);
+			console.log(this.externalQ)
+
+			return;
+		} else {
+			console.log("Q and run")
+			console.log(this.externalQ)
+			this.externalQ.push(uri);
+			console.log(this.externalQ)
+		}
+
+		this.extRunning = true;
+		var extMsgURI;
+
+		while(this.externalQ.length) {
+			console.log("grab next ");
+			console.log(this.externalQ)
+			extMsgURI= this.externalQ.shift()
+			console.log(this.externalQ)
+			
+			console.log(extMsgURI)
+			
+		
+			await this.PrintExternalMsg(extMsgURI);
+			console.log("after q ");
+		}
+		this.extRunning = false;
+
+		return;
+
+	},
+
 
 	cmd_printng: async function (options) {
 
-		console.log("cmd_printng start")
+		console.log("cmd_printng start" + this.running);
+
 		
+		
+
 		options = options || {};
 
 		if (options.printSilent == null) {
@@ -188,6 +272,10 @@ var printingtools = {
 
 		if (options.messageHeader) { // this is called from another Add-on e.g. FiltaQuilla
 			console.log("PrintingTools NG Received a message from external add-on", options.messageHeader);
+			
+			console.log(this.current)
+			console.log(this.msgUris)
+
 			let msgHeader = options.messageHeader;
 			
 			if (!msgHeader.id) {
@@ -201,6 +289,20 @@ var printingtools = {
 			//let uris = [];
 			//uris.push(uri);
 			//printingtools.msgUris = uris;
+
+			console.log(realMessage)
+			console.log(uri)
+
+
+			if(this.running) {
+				console.log("Q dont run")
+				console.log(this.externalQ)
+				this.externalQ.push(uri);
+				console.log(this.externalQ)
+
+				return;
+			}
+			
 			options.msgURI = uri;
 		  }
 		  else {
@@ -208,11 +310,31 @@ var printingtools = {
 		  }
 	  
 				
+		  this.running = true;
 		console.log(options)
 
 
 		await this.PrintSelectedMessages(options);
 		console.log("PTNG: Done")
+
+		console.log(this.externalQ)
+
+		var extMsgURI;
+
+		while(this.externalQ.length) {
+			console.log("grab next ");
+			console.log(this.externalQ)
+			extMsgURI= this.externalQ.shift()
+			console.log(this.externalQ)
+			
+			console.log(extMsgURI)
+			
+		
+			await this.PrintExternalMsg(extMsgURI);
+			console.log("after q ");
+		}
+		this.running = false;
+
 		return;
 
 	},
