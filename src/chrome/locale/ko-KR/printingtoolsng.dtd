@@ -62,3 +62,8 @@
 <!ENTITY showSignatureVCFfiles "서명 및 vcf 파일 표시">
 <!ENTITY useCcBccAlways "모든 로케일에 대해 &#39;Cc&#39;및 &#39;Bcc&#39;약어 사용">
 <!ENTITY HideInlineAttList "인라인 첨부 파일 목록 숨기기">
+<!ENTITY print.label "인쇄">
+<!ENTITY printPreview.label "인쇄 미리보기">
+<!ENTITY ptng.label "인쇄 도구 NG">
+<!ENTITY ptngOptions.label "옵션의 인쇄 도구">
+<!ENTITY debugOptions.label "디버그 옵션">

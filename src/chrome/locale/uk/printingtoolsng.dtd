@@ -62,3 +62,8 @@
 <!ENTITY showSignatureVCFfiles "Показати файли підпису та vcf">
 <!ENTITY useCcBccAlways "Використовуйте скорочення &quot;Cc&quot; і &quot;Bcc&quot; для всіх мов">
 <!ENTITY HideInlineAttList "Приховати вбудований список вкладень">
+<!ENTITY print.label "Друк">
+<!ENTITY printPreview.label "Попередній перегляд">
+<!ENTITY ptng.label "Інструменти друку НГ">
+<!ENTITY ptngOptions.label "ІНСТРУМЕНТИ ДРУКУ ВАРИАНТІВ">
+<!ENTITY debugOptions.label "Параметри налагодження">

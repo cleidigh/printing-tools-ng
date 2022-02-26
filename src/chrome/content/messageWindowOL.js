@@ -64,18 +64,18 @@ function onLoad() {
 		WL.injectElements(`
 <toolbarpalette id="MailToolbarPalette">
 	<toolbarbutton id="ptng-button"
-	  label="&printButton.label; NG"
-	  tooltiptext="Printing Tools NG"
+	  label="&print.label; NG"
+	  tooltiptext="&ptng.label;"    
 	  oncommand="printingtools.cmd_printng(null, {})"
 	  class="toolbarbutton-1"
 	  type="menu-button"
 	  is="toolbarbutton-menu-button">
 
 	  	<menupopup>
-		  <menuitem id="ptng-button-print" label="&printButton.label;" accesskey="P" oncommand="printingtools.cmd_printng(null, {printSilent: true}); event.stopPropagation();" />
-		  <menuitem id="ptng-button-printpreview" accesskey="v" label="&contextPrintPreview.label;" oncommand="printingtools.cmd_printng(null, {printSilent: false}); event.stopPropagation();"  />
-		  <menuseparator />
-		  <menuitem id="ptng-button-options" accesskey="o" label="Printingtools NG Options" oncommand="openPTdialog(false); event.stopPropagation();"/>
+		  <menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng(null, {printSilent: true}); event.stopPropagation();" />
+		  <menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng(null, {printSilent: false}); event.stopPropagation();"  />
+		<menuseparator />
+		  <menuitem id="ptng-button-options" accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();"/>
 		  </menupopup>
 	  </toolbarbutton>
 </toolbarpalette>
@@ -85,8 +85,8 @@ function onLoad() {
 WL.injectElements(`
 <toolbarpalette id="header-view-toolbar">
 	<toolbarbutton id="ptng-button-hdr"
-	  label="Print NG"
-	  tooltiptext="Printing Tools NG"
+	label="&print.label; NG"
+	tooltiptext="&ptng.label;"  
 	  oncommand="printingtools.cmd_printng(null, {})"
 	  class="ptng-button-hdr toolbarbutton-icon toolbarbutton-1 message-header-view-button msgHeaderView-button customize-header-toolbar-button"
 	  type="menu-button"
@@ -94,14 +94,14 @@ WL.injectElements(`
 	  is="toolbarbutton-menu-button">
 
 	  	<menupopup>
-		  <menuitem id="ptng-button-print" accesskey="P" label="Print" oncommand="printingtools.cmd_printng(null, {printSilent: true}); event.stopPropagation();" />
-		  <menuitem id="ptng-button-printpreview" accesskey="v" label="Print Preview" oncommand="printingtools.cmd_printng(null, {printSilent: false}); event.stopPropagation();"  />
+		  <menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng(null, {printSilent: true}); event.stopPropagation();" />
+		  <menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng(null, {printSilent: false}); event.stopPropagation();"  />
 		  <menuseparator />
-		  <menuitem id="ptng-button-options" accesskey="o" label="Printingtools NG Options" oncommand="openPTdialog(false); event.stopPropagation();"/>
+		  <menuitem id="ptng-button-options" accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();"/>
 		  </menupopup>
 	  </toolbarbutton>
 </toolbarpalette>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 		WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
 

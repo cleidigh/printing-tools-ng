@@ -62,3 +62,8 @@
 <!ENTITY showSignatureVCFfiles "Aláírási és vcf fájlok megjelenítése">
 <!ENTITY useCcBccAlways "Használja a &#39;Cc&#39; és &#39;Bcc&#39; rövidítéseket az összes nyelvhez">
 <!ENTITY HideInlineAttList "Beépített mellékletlista elrejtése">
+<!ENTITY print.label "Nyomtatás">
+<!ENTITY printPreview.label "Nyomtatási előnézet">
+<!ENTITY ptng.label "Nyomtatási eszközök NG">
+<!ENTITY ptngOptions.label "OPCIÓK NYOMTATÁSI ESZKÖZEI">
+<!ENTITY debugOptions.label "Hibakeresési beállítások">

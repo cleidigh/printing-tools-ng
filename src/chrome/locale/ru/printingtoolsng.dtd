@@ -62,3 +62,8 @@
 <!ENTITY showSignatureVCFfiles "Показать файлы подписи и vcf">
 <!ENTITY useCcBccAlways "Используйте сокращения &quot;Копия&quot; и &quot;Скрытая копия&quot; для всех языков.">
 <!ENTITY HideInlineAttList "Скрыть встроенный список вложений">
+<!ENTITY print.label "Распечатать">
+<!ENTITY printPreview.label "Предварительный просмотр печати">
+<!ENTITY ptng.label "Инструменты для печати НГ">
+<!ENTITY ptngOptions.label "ИНСТРУМЕНТЫ ПЕЧАТИ ОПЦИИ">
+<!ENTITY debugOptions.label "Параметры отладки">

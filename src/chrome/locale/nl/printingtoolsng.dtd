@@ -63,3 +63,8 @@
 <!ENTITY showSignatureVCFfiles "Toon handtekening- en vcf-bestanden">
 <!ENTITY useCcBccAlways "Gebruik de afkortingen &#39;Cc&#39; en &#39;Bcc&#39; voor alle landinstellingen">
 <!ENTITY HideInlineAttList "Inline bijlagenlijst verbergen">
+<!ENTITY print.label "Afdrukken">
+<!ENTITY printPreview.label "Afdrukvoorbeeld">
+<!ENTITY ptng.label "Afdrukhulpmiddelen NG">
+<!ENTITY ptngOptions.label "AFDRUKTOOLS VAN OPTIES">
+<!ENTITY debugOptions.label "Foutopsporingsopties">

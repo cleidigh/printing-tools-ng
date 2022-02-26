@@ -63,3 +63,8 @@
 <!ENTITY showSignatureVCFfiles "Vis signatur- og vcf-filer">
 <!ENTITY useCcBccAlways "Brug forkortelser &#39;Cc&#39; og &#39;Bcc&#39; til alle lokaliteter">
 <!ENTITY HideInlineAttList "Skjul liste over indbyggede vedhæftede filer">
+<!ENTITY print.label "Print">
+<!ENTITY printPreview.label "Vis udskrift">
+<!ENTITY ptng.label "Udskrivningsværktøj NG">
+<!ENTITY ptngOptions.label "UDSKRIVNINGSVÆRKTØJER AF MULIGHEDER">
+<!ENTITY debugOptions.label "Fejlfindingsindstillinger">

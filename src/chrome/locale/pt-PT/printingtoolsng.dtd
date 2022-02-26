@@ -63,3 +63,8 @@
 <!ENTITY showSignatureVCFfiles "Mostrar arquivos de assinatura e vcf">
 <!ENTITY useCcBccAlways "Use as abreviações &#39;Cc&#39; e &#39;Bcc&#39; para todos os locais">
 <!ENTITY HideInlineAttList "Ocultar lista de anexos embutidos">
+<!ENTITY print.label "Imprimir">
+<!ENTITY printPreview.label "Visualizar impressão">
+<!ENTITY ptng.label "Ferramentas de impressão NG">
+<!ENTITY ptngOptions.label "FERRAMENTAS DE IMPRESSÃO DE OPÇÕES">
+<!ENTITY debugOptions.label "Opções de depuração">

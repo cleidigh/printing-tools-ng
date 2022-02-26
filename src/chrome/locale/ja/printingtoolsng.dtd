@@ -67,3 +67,8 @@
 
 <!ENTITY useCcBccAlways "すべてのロケールに「Cc」および「Bcc」の略語を使用します">
 <!ENTITY HideInlineAttList "インライン添付ファイルリストを非表示">
+<!ENTITY print.label "印刷">
+<!ENTITY printPreview.label "印刷プレビュー">
+<!ENTITY ptng.label "印刷ツールNG">
+<!ENTITY ptngOptions.label "オプションの印刷ツール">
+<!ENTITY debugOptions.label "デバッグオプション">
