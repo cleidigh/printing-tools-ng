@@ -2,10 +2,11 @@
  * This file is provided by the addon-developer-support repository at
  * https://github.com/thundernest/addon-developer-support
  *
- * Version: 1.56
+ * Version: 1.56 + cdl adds
  *
  * Author: John Bieling (john@thunderbird.net)
- *
+    Replacement method : Christopher Leidigh
+    
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -752,16 +753,16 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
           let toolbarsToResolve = [];
 
           function checkElements(stringOfIDs) {
-            
+
             let arrayOfIDs = stringOfIDs.split(",").map((e) => e.trim());
             for (let id of arrayOfIDs) {
               let element = window.document.getElementById(id);
               if (element) {
-                
+
                 return element;
               }
             }
-            
+
             return null;
           }
 
@@ -802,8 +803,8 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                 }
               }
 
-            
-              
+
+
               if (
                 elements[i].hasAttribute("insertafter") &&
                 checkElements(elements[i].getAttribute("insertafter"))
@@ -836,8 +837,45 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                   elements[i],
                   insertAfterElement.nextSibling
                 );
+              } else if (
+                elements[i].hasAttribute("insertbefore") &&
+                checkElements(elements[i].getAttribute("insertbefore"))
+              ) {
+                let insertBeforeElement = checkElements(
+                  elements[i].getAttribute("insertbefore")
+                );
 
+                if (debug)
+                  console.log(
+                    elements[i].tagName +
+                    "#" +
+                    elements[i].id +
+                    ": insertbefore " +
+                    insertBeforeElement.id
+                  );
+                if (
+                  debug &&
+                  elements[i].id &&
+                  window.document.getElementById(elements[i].id)
+                ) {
+                  console.error(
+                    "The id <" +
+                    elements[i].id +
+                    "> of the injected element already exists in the document!"
+                  );
+                }
+                elements[i].setAttribute("wlapi_autoinjected", uniqueRandomID);
+                insertBeforeElement.parentNode.insertBefore(
+                  elements[i],
+                  insertBeforeElement
+                );
                 // attribute replacement 
+                // this allows us to override menus or even 
+                // shortcut keys, the original element attributes 
+                // are saved for restoration upon unload 
+                // the command and oncommand have to be 
+                // handled specially as the object has some 
+                // opaque interdependence
 
               } else if (
                 elements[i].hasAttribute("replaceattributes") &&
@@ -867,99 +905,42 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                   );
                 }
 
-                if (debug) {
-                  console.log("replacement")
+                const attributeNodeArray = [...elements[i].attributes];
+                const replAttributeNodeArray = [...replaceAttrsElement.attributes];
+
+                // save original attributes for restoration 
+                replAttributeNodeArray.forEach(attr => {
+                  replaceAttrsElement.setAttribute(attr.name + "___orig___", attr.value);
+                });
+
+                // deal with command and oncommand first 
+                if (attributeNodeArray.find(attr => attr.name === "command") &&
+                  attributeNodeArray.find(attr => attr.name === "oncommand")) {
+
+                  replaceAttrsElement.removeAttribute("command");
+                  replaceAttrsElement.removeAttribute("oncommand");
+                  replaceAttrsElement.setAttribute("oncommand", attributeNodeArray.find(attr => attr.name === "command").value);
+                  replaceAttrsElement.setAttribute("oncommand", attributeNodeArray.find(attr => attr.name === "oncommand").value);
                 }
 
-               
-
-                //console.log(replaceAttrsElement.outerHTML)
-
-          const attributeNodeArray = [... elements[i].attributes];
-          const replAttributeNodeArray = [... replaceAttrsElement.attributes];
-
+                attributeNodeArray.forEach(attr => {
                   
+                  if (attr.name === "oncommand" || attr.name === "command" || attr.name === "replaceattributes") {
+                    return;
+                  }
 
-        replAttributeNodeArray.forEach(attr => {
-          replaceAttrsElement.setAttribute(attr.name + "___orig___", attr.value);
-        });
-        var origAttrVal;
+                  if (attr.value === "") {
+                    replaceAttrsElement.removeAttribute(attr.name);
+                  } else {
+                    replaceAttrsElement.setAttribute(attr.name, attr.value);
+                  }
 
-        //console.log(attributeNodeArray)
-        
+                });
 
-       // replaceAttrsElement.removeAttribute("observes");
-       if (attributeNodeArray.find(attr => attr.name === "command") && 
-           attributeNodeArray.find(attr => attr.name === "oncommand")) {
-                
-                         
-         replaceAttrsElement.removeAttribute("command");
-         replaceAttrsElement.removeAttribute("oncommand");
-
-         //replaceAttrsElement.removeAttribute("command");
-         //replaceAttrsElement.removeAttribute("command");
-          replaceAttrsElement.setAttribute("oncommand", attributeNodeArray.find(attr => attr.name === "command").value);
-          replaceAttrsElement.setAttribute("oncommand", attributeNodeArray.find(attr => attr.name === "oncommand").value);
-       }
-        
-        //replaceAttrsElement.removeAttribute("disabled");
-        //replaceAttrsElement.setAttribute("oncommand", "__rpl")
-      
-        //console.log(replaceAttrsElement.outerHTML)
-
-
-        attributeNodeArray.forEach(attr => {
-          //console.log(attr)
-          if ( attr.name === "oncommand" || attr.name === "command" || attr.name === "replaceattributes") {
-            return;
-          }
-          
-          //  if( origAttrVal = replaceAttrsElement.getAttribute(attr.name)  ) {  
-            //console.log(attr)
-            //console.log(replaceAttrsElement.outerHTML)
-
-            //replaceAttrsElement.setAttribute(attr.name + "___orig___", origAttrVal);
-            
-            if (attr.value === "") {
-              replaceAttrsElement.removeAttribute(attr.name);
-            }
-
-            else {
-            replaceAttrsElement.setAttribute(attr.name, attr.value);
-            } 
-          
-
-            //console.log(replaceAttrsElement.outerHTML)
-          //} else {
-            //console.log(attr.value)
-            //if (attr.value === "") {
-//              replaceAttrsElement.removeAttribute(attr.name);
-            //} else {
-            //replaceAttrsElement.setAttribute(attr.name, attr.value);
-            //}
-          //}
-        });
-
-
-//console.log(attrs)
-
-               
-               // elements[i].setAttribute("wlapi_autoinjected", uniqueRandomID);
-                
-              //te.setAttribute("hidden", "true");
-              //te.removeAttribute("accesskey");
-                //insertBeforeElement.parentNode.insertBefore(
-                  //elements[i],
-                  //insertBeforeElement
-                //);
-
+                // tag for attribute restoration not removal 
                 replaceAttrsElement.setAttribute("wlapi_autoreplaced", uniqueRandomID);
 
-                if (debug) {
-                  console.log("rpl done")
-                  //console.log(replaceAttrsElement.outerHTML)
-                }
-
+               
               } else if (
                 elements[i].id &&
                 window.document.getElementById(elements[i].id)
@@ -1031,8 +1012,8 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
             /__MSG_(.*?)__/g,
             localize
           );
-         
-        
+
+
           injectChildren(
             Array.from(
               window.MozXULElement.parseXULToFragment(
@@ -1120,7 +1101,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
         element.remove();
       }
 
-      
+
       // Restore all auto replaced  objects
       elements = Array.from(
         window.document.querySelectorAll(
@@ -1128,30 +1109,23 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
         )
       );
       for (let element of elements) {
-
-        const elementAttributeArray = [... element.attributes];
-
-     
+        const elementAttributeArray = [...element.attributes];
 
         elementAttributeArray.forEach(attr => {
           if (!attr.name.endsWith("___orig___")) {
-            element.removeAttribute(attr.name)
-           
+            element.removeAttribute(attr.name);
           } else {
-           
-            
             element.setAttribute(attr.name.split("___orig___")[0], attr.value);
             element.removeAttribute(attr.name);
-           
           }
-          
         });
+
         let ocmd = elementAttributeArray.find(attr => attr.name === "oncommand___orig___");
-        if(ocmd) {
-        element.setAttribute("oncommand", ocmd.value);
+        if (ocmd) {
+          element.setAttribute("oncommand", ocmd.value);
         }
-     
-        }
+
+      }
 
 
       // Remove all autoinjected toolbarpalette items
