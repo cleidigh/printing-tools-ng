@@ -103,7 +103,7 @@ var printingtools = {
 
 				printingtools.previewDoc = fakeMsgPane.contentDocument;
 				
-				await printingtools.correctLayout();
+				await printingtools.reformatLayout();
 
 				PrintUtils.startPrintWindow(fakeMsgPane.browsingContext, {});
 				
@@ -123,7 +123,7 @@ var printingtools = {
 
 				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
 				
-				await printingtools.correctLayout();
+				await printingtools.reformatLayout();
 
 				PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext, {});
 				
@@ -170,7 +170,7 @@ var printingtools = {
 				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
 
 				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
-				await printingtools.correctLayout();
+				await printingtools.reformatLayout();
 
 				await PrintUtils.printBrowser.browsingContext.print(ps);
 			}
@@ -190,7 +190,7 @@ var printingtools = {
 		await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
 
 		printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
-		await printingtools.correctLayout();
+		await printingtools.reformatLayout();
 
 		await PrintUtils.printBrowser.browsingContext.print(ps);
 	
@@ -865,9 +865,9 @@ var printingtools = {
 		}
 	},
 
-	correctLayout: async function () {
+	reformatLayout: async function () {
 
-		console.debug('correctly layout ');
+		//console.debug('pTNG: Reformat layout ');
 
 	
 		printingtools.doc = printingtools.previewDoc;
