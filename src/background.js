@@ -54,9 +54,9 @@ messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/customizeToolbar.xhtml",
 	"chrome://printingtoolsng/content/customizeToolbarOL.js");
 
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/addressbook/addressbook.xhtml",
-	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
+//messenger.WindowListener.registerWindow(
+	//"chrome://messenger/content/addressbook/addressbook.xhtml",
+	//"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
 
 messenger.WindowListener.startListening();
 
@@ -114,7 +114,7 @@ browser.runtime.onInstalled.addListener(async (info) => {
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	switch (info.command) {
 		case "getAttatchmentList":
-			//do something
+			
 			let rv = await getAttatchmentList(info.messageId);
 			return rv;
 			break;
@@ -122,14 +122,7 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 });
 
 async function getAttatchmentList(messageId) {
-	var tab = await browser.tabs.query({});
-	//console.log(tab)
-
-	var t = tab.find(at)
-
-	//console.log(t)
-
-	//var m = await messenger.messageDisplay.getDisplayedMessage(t.id)
+	
 	var m = await messenger.messages.get(messageId);
 	//console.log(m)
 	var a = await messenger.messages.listAttachments(m.id);
@@ -138,18 +131,10 @@ async function getAttatchmentList(messageId) {
 	return a;
 }
 
-function at(t) {
-
-	return t.active ;
-}
-
-
-
+// External print handler 
 function handleMessage(message, sender) {
 	
 	//console.log(message)
-
-	
 	messenger.NotifyTools.notifyExperiment({command: "handleExternalPrint", messageHeader: message.messageHeader}).then((data) => {
 	//console.log(data)
 			return  true ;

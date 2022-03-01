@@ -9,17 +9,13 @@ var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionPa
 let extension2 = ExtensionParent.GlobalManager.getExtension(ADDON_ID);
 
 // Load notifyTools into a custom namespace, to prevent clashes with other add-ons.
-window.notifyExampleAddon = {};
-Services.scriptloader.loadSubScript(extension2.rootURI.resolve("chrome/content/notifyTools.js"), window.notifyExampleAddon, "UTF-8");
-
-
-
-// -- Define listeners for messages from the background script.
+window.ptngAddon = {};
+Services.scriptloader.loadSubScript(extension2.rootURI.resolve("chrome/content/notifyTools.js"), window.ptngAddon, "UTF-8");
 
 
 function onLoad() {
 
-	console.debug('messageWindow ol');
+	//console.debug('messageWindow ol');
 
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
@@ -105,7 +101,7 @@ WL.injectElements(`
 
 		WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
 
-		//window.getUI_status.startup();
+		
 	}
 
 

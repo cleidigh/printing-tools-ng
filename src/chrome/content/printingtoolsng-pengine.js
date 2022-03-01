@@ -1684,7 +1684,7 @@ var printingtools = {
 
 			var mHdr = window.printingtoolsng.extension.messageManager.convert(printingtools.hdr);
 			//console.log(mHdr)
-			printingtools.attList = await window.notifyExampleAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: mHdr.id });
+			printingtools.attList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: mHdr.id });
 			return printingtools.attList;
 		}
 
