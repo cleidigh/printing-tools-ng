@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "更多信息"
+	},
+	"update_option_info2": {
+		"message": "注意：尝试新的 PrintingTools NG 工具栏按钮，使用查看/工具栏/自定义菜单将其添加到您的工具栏。您也可以将其添加到消息窗格的标题工具栏中。"
 	}
 }

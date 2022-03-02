@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "Mere info"
+	},
+	"update_option_info2": {
+		"message": "Bemærk: Prøv den nye PrintingTools NG værktøjslinjeknap, brug menuen Vis/Værktøjslinjer/Tilpas til at tilføje den til din værktøjslinje. Du kan også tilføje det til overskriftsværktøjslinjen i meddelelsesruden."
 	}
 }

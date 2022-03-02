@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "Ulteriori informazioni"
+	},
+	"update_option_info2": {
+		"message": "Nota: prova il nuovo pulsante della barra degli strumenti di PrintingTools NG, usa il menu Visualizza/Barre degli strumenti/Personalizza per aggiungerlo alla barra degli strumenti. Puoi aggiungerlo anche alla barra degli strumenti dell&#39;intestazione del riquadro dei messaggi."
 	}
 }

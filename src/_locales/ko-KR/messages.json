@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "더 많은 정보"
+	},
+	"update_option_info2": {
+		"message": "참고: 새로운 PrintingTools NG 도구 모음 버튼을 사용해 보십시오. 보기/도구 모음/사용자 정의 메뉴를 사용하여 도구 모음에 추가하십시오. 메시지 창의 헤더 도구 모음에도 추가할 수 있습니다."
 	}
 }

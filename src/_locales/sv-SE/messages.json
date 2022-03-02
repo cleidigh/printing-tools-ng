@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "Mer information"
+	},
+	"update_option_info2": {
+		"message": "Obs: Testa den nya knappen i verktygsfältet PrintingTools NG, använd menyn Visa/Verktygsfält/Anpassa för att lägga till den i ditt verktygsfält. Du kan också lägga till den i rubrikverktygsfältet i meddelanderutan."
 	}
 }

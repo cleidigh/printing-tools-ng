@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "Plus d&#39;informations"
+	},
+	"update_option_info2": {
+		"message": "Remarque : Essayez le nouveau bouton de la barre d&#39;outils PrintingTools NG, utilisez le menu Affichage/Barres d&#39;outils/Personnaliser pour l&#39;ajouter à votre barre d&#39;outils. Vous pouvez également l&#39;ajouter à la barre d&#39;outils d&#39;en-tête du volet des messages."
 	}
 }
