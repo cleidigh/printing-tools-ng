@@ -1,109 +1,132 @@
 /*eslint no-fallthrough: ["error", { "commentPattern": "break[\\s\\w]*omitted" }]*/
 
-"use strict";
+'use strict';
 
 var { EventEmitter, EventManager, ExtensionAPI } = ExtensionCommon;
 var { ExtensionError } = ExtensionUtils;
-var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
+var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 class Notification {
   constructor(notificationId, properties, parent) {
     this.closedByUser = true;
-    this.notificationId = notificationId;
     this.properties = properties;
     this.parent = parent;
+    this.notificationId = notificationId;
 
-    let iconURL =
-      properties.icon && !properties.icon.includes(":")
-        ? parent.extension.baseURI.resolve(properties.icon)
+    const { buttons, icon, label, priority, style, windowId } = properties;
+
+    const iconURL =
+      icon && !icon.includes(':')
+        ? parent.extension.baseURI.resolve(icon)
         : null;
 
-    let self = this;
-    let buttons = properties.buttons.map(function(button) {
-      return {
-        id: button.id,
-        label: button.label,
-        accesskey: button.accesskey,
-        callback() {
-          // Fire the event and keep the notification open, decided to close it
-          // based on the return values later.
-          self.parent.emitter
-            .emit(
-              "buttonclicked",
-              self.properties.windowId,
-              self.notificationId,
-              button.id
-            )
-            .then(rv => {
-			  let keepOpen = rv.some(value => (value && value.close === false));
-              if (!keepOpen) {
-                self.remove(/* closedByUser */ true);
-              }
-            });
+    const buttonSet = buttons.map(({ id, label, accesskey }) => ({
+      id,
+      label,
+      accesskey,
+      callback: () => {
+        // Fire the event and keep the notification open, decided to close it
+        // based on the return values later.
+        this.parent.emitter
+          .emit('buttonclicked', windowId, notificationId, id)
+          .then((rv) => {
+            let keepOpen = rv.some((value) => value?.close === false);
+            if (!keepOpen) {
+              this.remove(/* closedByUser */ true);
+            }
+          });
 
-          // Keep the notification box open until we hear from the event
-          // handlers.
-          return true;
-        },
-      };
-    });
+        // Keep the notification box open until we hear from the event
+        // handlers.
+        return true;
+      },
+    }));
 
-    let callback = function(event) {
+    const notificationBarCallback = (event) => {
       // Every dismissed notification will also generate a removed notification
-      if (event === "dismissed") {
-        self.parent.emitter.emit(
-          "dismissed",
-          self.properties.windowId,
-          self.notificationId
-        );
+      if (event === 'dismissed') {
+        this.parent.emitter.emit('dismissed', windowId, notificationId);
       }
-      if (event === "removed") {
-        self.parent.emitter.emit(
-          "closed",
-          self.properties.windowId,
-          self.notificationId,
-          self.closedByUser
+
+      if (event === 'removed') {
+        this.parent.emitter.emit(
+          'closed',
+          windowId,
+          notificationId,
+          this.closedByUser
         );
-        self.cleanup();
+
+        this.cleanup();
       }
     };
 
-    let element = this.getNotificationBox().appendNotification(
-      properties.label,
-      `extension-notification-${notificationId}`,
-      iconURL,
-      properties.priority,
-      buttons,
-      callback
-    );
-    let whitelist = ["background", "color", "margin", "padding", "font"];
+    let element;
+    if (this.getThunderbirdVersion().major < 94) {
+      element = this.getNotificationBox().appendNotification(
+        label,
+        `extension-notification-${notificationId}`,
+        iconURL,
+        priority,
+        buttonSet,
+        notificationBarCallback
+      );
+    } else {
+      element = this.getNotificationBox().appendNotification(
+        `extension-notification-${notificationId}`,
+        {
+          label,
+          image: iconURL,
+          priority,
+        },
+        buttonSet,
+        notificationBarCallback
+      );
+    }
+    let allowedCssPropNames = [
+      'background',
+      'color',
+      'margin',
+      'padding',
+      'font',
+    ];
 
-    if (properties.style) {
-      let sanitizedStyles = Object.keys(properties.style).filter(style => {
-        let parts = style.split("-");
+    if (style) {
+      const sanitizedStyles = Object.keys(style).filter((cssPropertyName) => {
+        const parts = cssPropertyName.split('-');
         return (
           // check if first part is in whitelist
           parts.length > 0 &&
-          whitelist.includes(parts[0]) &&
+          allowedCssPropNames.includes(parts[0]) &&
           // validate second part (if any) being a simple word
           (parts.length == 1 ||
             (parts.length == 2 && /^[a-zA-Z0-9]+$/.test(parts[1])))
         );
       });
 
-      for (let style of sanitizedStyles) {
-        element.style[style] = properties.style[style];
+      for (let cssPropertyName of sanitizedStyles) {
+        element.style[cssPropertyName] = style[cssPropertyName];
       }
     }
   }
 
+  getThunderbirdVersion() {
+    let [major, minor, revision = 0] = Services.appinfo.version
+      .split('.')
+      .map((chunk) => parseInt(chunk, 10));
+    return {
+      major,
+      minor,
+      revision,
+    };
+  }
+
   getNotificationBox() {
-    let w = this.parent.extension.windowManager.get(
+    const w = this.parent.extension.windowManager.get(
       this.properties.windowId,
       this.parent.context
     ).window;
     switch (this.properties.placement) {
-      case "message":
+      case 'message':
         // below the receipient list in the message preview window
         if (w.gMessageNotificationBar) {
           return w.gMessageNotificationBar.msgNotificationBar;
@@ -111,7 +134,7 @@ class Notification {
       // break omitted
 
       default:
-      case "bottom":
+      case 'bottom':
         // default bottom notification in the mail3:pane
         if (w.specialTabs) {
           return w.specialTabs.msgNotificationBar;
@@ -123,13 +146,13 @@ class Notification {
         }
         // if there is no default bottom box, use our own
         if (!w.gExtensionNotificationBottomBox) {
-          let statusbar = w.document.querySelector('hbox[class~="statusbar"]');
+          let statusbar = w.document.querySelector('[class~="statusbar"]');
           w.gExtensionNotificationBottomBox = new w.MozElements.NotificationBox(
-            element => {
-              element.id = "extension-notification-bottom-box";
-              element.setAttribute("notificationside", "bottom");
+            (element) => {
+              element.id = 'extension-notification-bottom-box';
+              element.setAttribute('notificationside', 'bottom');
               if (statusbar) {
-                w.document.documentElement.insertBefore(element, statusbar);
+                statusbar.parentNode.insertBefore(element, statusbar);
               } else {
                 w.document.documentElement.append(element);
               }
@@ -138,15 +161,15 @@ class Notification {
         }
         return w.gExtensionNotificationBottomBox;
 
-      case "top":
+      case 'top':
         if (!w.gExtensionNotificationTopBox) {
           // try to add it before the toolbox, if that fails add it firstmost
-          let toolbox = w.document.querySelector("toolbox");
+          const toolbox = w.document.querySelector('toolbox');
           if (toolbox) {
             w.gExtensionNotificationTopBox = new w.MozElements.NotificationBox(
-              element => {
-                element.id = "extension-notification-top-box";
-                element.setAttribute("notificationside", "top");
+              (element) => {
+                element.id = 'extension-notification-top-box';
+                element.setAttribute('notificationside', 'top');
                 toolbox.parentElement.insertBefore(
                   element,
                   toolbox.nextElementSibling
@@ -155,9 +178,9 @@ class Notification {
             );
           } else {
             w.gExtensionNotificationTopBox = new w.MozElements.NotificationBox(
-              element => {
-                element.id = "extension-notification-top-box";
-                element.setAttribute("notificationside", "top");
+              (element) => {
+                element.id = 'extension-notification-top-box';
+                element.setAttribute('notificationside', 'top');
                 w.document.documentElement.insertBefore(
                   element,
                   w.document.documentElement.firstChild
@@ -175,8 +198,8 @@ class Notification {
     // but not by dismissal. In that case, the default value defined in the constructor
     // defines the value of closedByUser which is used by the event emitter.
     this.closedByUser = closedByUser;
-    let notificationBox = this.getNotificationBox();
-    let notification = notificationBox.getNotificationWithValue(
+    const notificationBox = this.getNotificationBox();
+    const notification = notificationBox.getNotificationWithValue(
       `extension-notification-${this.notificationId}`
     );
     notificationBox.removeNotification(notification);
@@ -193,11 +216,11 @@ var notificationbar = class extends ExtensionAPI {
     this.notificationsMap = new Map();
     this.emitter = new EventEmitter();
     this.nextId = 1;
-    Services.obs.addObserver(this, "domwindowclosed");
+    Services.obs.addObserver(this, 'domwindowclosed');
   }
 
   onShutdown() {
-    Services.obs.removeObserver(this, "domwindowclosed");
+    Services.obs.removeObserver(this, 'domwindowclosed');
     for (let notification of this.notificationsMap.values()) {
       notification.remove(/* closedByUser */ false);
     }
@@ -216,12 +239,12 @@ var notificationbar = class extends ExtensionAPI {
 
   getAPI(context) {
     this.context = context;
-    let self = this;
+    const self = this;
 
     return {
       notificationbar: {
         async create(properties) {
-          let notificationId = self.nextId++;
+          const notificationId = self.nextId++;
           self.notificationsMap.set(
             notificationId,
             new Notification(notificationId, properties, self)
@@ -240,7 +263,7 @@ var notificationbar = class extends ExtensionAPI {
         },
 
         async getAll() {
-          let result = {};
+          const result = {};
           self.notificationsMap.forEach((value, key) => {
             result[key] = value.properties;
           });
@@ -249,45 +272,42 @@ var notificationbar = class extends ExtensionAPI {
 
         onDismissed: new EventManager({
           context,
-          name: "notificationbar.onDismissed",
-          register: fire => {
-            let listener = (event, windowId, notificationId) => {
+          name: 'notificationbar.onDismissed',
+          register: (fire) => {
+            const listener = (event, windowId, notificationId) =>
               fire.async(windowId, notificationId);
-            };
 
-            self.emitter.on("dismissed", listener);
+            self.emitter.on('dismissed', listener);
             return () => {
-              self.emitter.off("dismissed", listener);
+              self.emitter.off('dismissed', listener);
             };
           },
         }).api(),
 
         onClosed: new EventManager({
           context,
-          name: "notificationbar.onClosed",
-          register: fire => {
-            let listener = (event, windowId, notificationId, closedByUser) => {
+          name: 'notificationbar.onClosed',
+          register: (fire) => {
+            const listener = (event, windowId, notificationId, closedByUser) =>
               fire.async(windowId, notificationId, closedByUser);
-            };
 
-            self.emitter.on("closed", listener);
+            self.emitter.on('closed', listener);
             return () => {
-              self.emitter.off("closed", listener);
+              self.emitter.off('closed', listener);
             };
           },
         }).api(),
 
         onButtonClicked: new EventManager({
           context,
-          name: "notificationbar.onButtonClicked",
-          register: fire => {
-            let listener = (event, windowId, notificationId, buttonId) => {
-              return fire.async(windowId, notificationId, buttonId);
-            };
+          name: 'notificationbar.onButtonClicked',
+          register: (fire) => {
+            const listener = (event, windowId, notificationId, buttonId) =>
+              fire.async(windowId, notificationId, buttonId);
 
-            self.emitter.on("buttonclicked", listener);
+            self.emitter.on('buttonclicked', listener);
             return () => {
-              self.emitter.off("buttonclicked", listener);
+              self.emitter.off('buttonclicked', listener);
             };
           },
         }).api(),

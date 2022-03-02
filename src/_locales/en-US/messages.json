@@ -9,6 +9,10 @@
 	"update_option_info": {
 		"message": "Note: Options of PrintingTools NG have been moved into the add-on manager ellipses menu."
 	},
+	"update_option_info2": {
+		"message": "Note: Try out the new PrintingTools NG toolbar button, use the View\\Toolbars\\Customize menu to add it to your toolbar.\n You can add it to the header toolbar of the message pane as well."
+	},
+
 	"moreinfo_button_label": {
 		"message": "More Info"
 	}

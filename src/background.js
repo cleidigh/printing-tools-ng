@@ -86,18 +86,19 @@ browser.runtime.onInstalled.addListener(async (info) => {
 
 	if (!["update", "install"].includes(info.reason))
 		return;
-	var msg = messenger.i18n.getMessage("update_option_info");
+	var msg = messenger.i18n.getMessage("update_option_info2");
 	let windows = await messenger.mailTabs.query({});
 
 	for (let window of windows) {
 		await messenger.notificationbar.create({
 			windowId: window.windowId,
 			label: msg,
+			priority: messenger.notificationbar.PRIORITY_WARNING_HIGH,
 
 			icon: "chrome/content/icons/printing-tools-ng-icon-32px.png",
 			placement: "bottom",
 			style: {
-				"background-color": "yellow",
+				"background-color": "blue",
 			},
 			buttons: [
 				{
