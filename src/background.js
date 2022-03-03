@@ -98,7 +98,7 @@ browser.runtime.onInstalled.addListener(async (info) => {
 			icon: "chrome/content/icons/printing-tools-ng-icon-32px.png",
 			placement: "bottom",
 			style: {
-				"background-color": "blue",
+				"background-color": "yellow",
 			},
 			buttons: [
 				{

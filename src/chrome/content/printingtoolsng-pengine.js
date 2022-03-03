@@ -32,14 +32,9 @@ var printingtools = {
 	PrintSelectedMessages: async function (options) {
 
 		printingtools.current = 0;
+		printingtools.num = gFolderDisplay.selectedCount;
 
-		if(options.MsgURI) {
-			printingtools.num = 1;
-		} else {
-			printingtools.num = gFolderDisplay.selectedCount;
-		}
 		
-
 		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false && !options.MsgURI) {
 			if (
 				gMessageDisplay.visible &&
@@ -47,16 +42,16 @@ var printingtools = {
 
 			) {
 				
-				console.log("Use created browser")
+				//console.log("Use created browser")
 				let uri = gFolderDisplay.selectedMessageUris[0];
 
-				console.log("Msg URI: " + uri)
+				//console.log("Msg URI: " + uri)
 				
 				let messageService = messenger.messageServiceFromURI(uri);
 
 				var fakeMsgPane;
 				if (!document.getElementById("fp")) {
-					console.log("create browser")
+					//console.log("create browser")
 
 					fakeMsgPane = document.createXULElement("browser");
 					fakeMsgPane.setAttribute("id", "fp")
@@ -108,12 +103,8 @@ var printingtools = {
 				PrintUtils.startPrintWindow(fakeMsgPane.browsingContext, {});
 				
 			} else {
-				console.log("Use existing print hidden pane")
+				//console.log("Use existing print hidden pane")
 
-				if(options.msgId) {
-					console.log("msgId print ")
-					console.log(msgId)
-				}
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = gFolderDisplay.selectedMessageUris[0];
 				let messageService = messenger.messageServiceFromURI(uri);
@@ -133,15 +124,12 @@ var printingtools = {
 		}
 
 		var typeMsg = "";
-		if(options.msgURI) {
-			printingtools.msgUris = [options.msgURI];
-			typeMsg = "Use existing print hidden pane - External message: (1)" 
-		} else {
-			printingtools.msgUris = gFolderDisplay.selectedMessageUris;
-			typeMsg = "Use existing print hidden pane - multiple messages (" + printingtools.msgUris.length + ")";
-		}
-		//console.log("Use existing print hidden pane - multiple messages (" + printingtools.msgUris.length + ")")
-		console.log(typeMsg)
+		
+		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+		typeMsg = "Use existing print hidden pane - multiple messages (" + printingtools.msgUris.length + ")";
+		
+		
+		//console.log(typeMsg)
 		// Multiple messages. Get the printer settings, then load the messages into
 		// a hidden browser and print them one at a time.
 		let ps = PrintUtils.getPrintSettings();
@@ -161,7 +149,7 @@ var printingtools = {
 			let messageService = messenger.messageServiceFromURI(uri);
 
 			if (!PrintUtils.printBrowser) {
-				console.log("no p brows")
+				//console.log("no p brows")
 				let messagePaneBrowser = document.getElementById("messagepane");
 				messagePaneBrowser.browsingContext.print(ps);
 			} else {
@@ -200,55 +188,51 @@ var printingtools = {
 	cmd_printng_external: async function (extMsgReq) {
 		console.log("PrintingTools NG Received a message from external add-on", extMsgReq.messageHeader);
 			
-		console.log(this.current)
-		console.log(this.msgUris)
+		//console.log(this.current)
+		//console.log(this.msgUris)
 
 		let msgHeader = extMsgReq.messageHeader;
 		
 		if (!msgHeader.id) {
-		  console.log("no useful id for message");
+		  console.log("PTNG: No useful id for message");
 		  return;
 		}
 		
 		let realMessage = window.printingtoolsng.extension
 		  .messageManager.get(msgHeader.id);
 		let uri = realMessage.folder.getUriForMsg(realMessage);
-		//let uris = [];
-		//uris.push(uri);
-		//printingtools.msgUris = uris;
-
-		console.log(realMessage)
+		
+		//console.log(realMessage)
 		console.log(uri)
 
 
 		if(this.extRunning) {
-			console.log("Q dont run")
-			console.log(this.externalQ)
+			//console.log("Q dont run")
+			//console.log(this.externalQ)
 			this.externalQ.push(uri);
-			console.log(this.externalQ)
+			//console.log(this.externalQ)
 
 			return;
 		} else {
-			console.log("Q and run")
-			console.log(this.externalQ)
+			//console.log("Q and run")
+			//console.log(this.externalQ)
 			this.externalQ.push(uri);
-			console.log(this.externalQ)
+			//console.log(this.externalQ)
 		}
 
 		this.extRunning = true;
 		var extMsgURI;
 
 		while(this.externalQ.length) {
-			console.log("grab next ");
-			console.log(this.externalQ)
+			//console.log("grab next ");
+			//console.log(this.externalQ)
 			extMsgURI= this.externalQ.shift()
-			console.log(this.externalQ)
+			//console.log(this.externalQ)
 			
-			console.log(extMsgURI)
-			
-		
+			//console.log(extMsgURI)
+				
 			await this.PrintExternalMsg(extMsgURI);
-			console.log("after q ");
+			//console.log("after q ");
 		}
 		this.extRunning = false;
 
@@ -270,46 +254,9 @@ var printingtools = {
 			options.printSilent = printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.silent");
 		}
 
-		if (options.messageHeader) { // this is called from another Add-on e.g. FiltaQuilla
-			console.log("PrintingTools NG Received a message from external add-on", options.messageHeader);
-			
-			console.log(this.current)
-			console.log(this.msgUris)
+		
+		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 
-			let msgHeader = options.messageHeader;
-			
-			if (!msgHeader.id) {
-			  console.log("no useful id for message");
-			  return;
-			}
-			
-			let realMessage = window.printingtoolsng.extension
-			  .messageManager.get(msgHeader.id);
-			let uri = realMessage.folder.getUriForMsg(realMessage);
-			//let uris = [];
-			//uris.push(uri);
-			//printingtools.msgUris = uris;
-
-			console.log(realMessage)
-			console.log(uri)
-
-
-			if(this.running) {
-				console.log("Q dont run")
-				console.log(this.externalQ)
-				this.externalQ.push(uri);
-				console.log(this.externalQ)
-
-				return;
-			}
-			
-			options.msgURI = uri;
-		  }
-		  else {
-			printingtools.msgUris = gFolderDisplay.selectedMessageUris;
-		  }
-	  
-				
 		  this.running = true;
 		console.log(options)
 
@@ -317,22 +264,7 @@ var printingtools = {
 		await this.PrintSelectedMessages(options);
 		console.log("PTNG: Done")
 
-		console.log(this.externalQ)
-
-		var extMsgURI;
-
-		while(this.externalQ.length) {
-			console.log("grab next ");
-			console.log(this.externalQ)
-			extMsgURI= this.externalQ.shift()
-			console.log(this.externalQ)
-			
-			console.log(extMsgURI)
-			
 		
-			await this.PrintExternalMsg(extMsgURI);
-			console.log("after q ");
-		}
 		this.running = false;
 
 		return;
