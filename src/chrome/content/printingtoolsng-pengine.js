@@ -253,7 +253,6 @@ var printingtools = {
 			options.printSilent = printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.silent");
 		}
 
-		
 		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 
 		this.running = true;
