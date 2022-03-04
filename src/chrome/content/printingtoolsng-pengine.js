@@ -35,7 +35,7 @@ var printingtools = {
 		printingtools.num = gFolderDisplay.selectedCount;
 
 		
-		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false && !options.MsgURI) {
+		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false) {
 			if (
 				gMessageDisplay.visible &&
 				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage
@@ -129,7 +129,7 @@ var printingtools = {
 		typeMsg = "Use existing print hidden pane - multiple messages (" + printingtools.msgUris.length + ")";
 		
 		
-		//console.log(typeMsg)
+		console.log(typeMsg)
 		// Multiple messages. Get the printer settings, then load the messages into
 		// a hidden browser and print them one at a time.
 		let ps = PrintUtils.getPrintSettings();
@@ -246,10 +246,9 @@ var printingtools = {
 		console.log("cmd_printng start" + this.running);
 
 		
-		
-
 		options = options || {};
 
+		//console.log(options)
 		if (options.printSilent == null) {
 			options.printSilent = printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.silent");
 		}
@@ -257,8 +256,8 @@ var printingtools = {
 		
 		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 
-		  this.running = true;
-		console.log(options)
+		this.running = true;
+		//console.log(options)
 
 
 		await this.PrintSelectedMessages(options);
