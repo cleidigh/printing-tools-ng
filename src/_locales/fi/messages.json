@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "Lisätietoja"
+	},
+	"update_option_info2": {
+		"message": "Huomautus: Kokeile uutta PrintingTools NG -työkalupalkin painiketta ja lisää se työkalupalkkiin View/Toolbars/Customize-valikosta. Voit lisätä sen myös viestiruudun otsikkotyökalupalkkiin."
 	}
 }

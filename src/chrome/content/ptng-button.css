@@ -1,0 +1,23 @@
+
+
+
+.ptng-button-hdr .toolbarbutton-icon  {
+	width: 16px;
+	height: 16px;
+	min-width: unset;
+	min-height: unset;
+  }
+  
+  .ptng-button .toolbarbutton-icon {
+	width: 20px;
+	height: 20px;
+	min-width: unset;
+	min-height: unset;
+  }
+  
+  #ptng-button,
+  #ptng-button-hdr {
+	
+	list-style-image: url("//printingtoolsng/content/icons/printing-tools-ng-icon-64px.png") !important;
+  }
+  

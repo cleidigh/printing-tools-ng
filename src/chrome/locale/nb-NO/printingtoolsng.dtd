@@ -62,3 +62,9 @@
 <!ENTITY colorsNote "Merk: &#39;Bilder og farger&#39; må aktiveres i dialogboksen Utskriftsformat">
 <!ENTITY showSignatureVCFfiles "Vis signatur- og vcf-filer">
 <!ENTITY useCcBccAlways "Bruk &#39;Cc&#39; og &#39;Bcc&#39; forkortelser for alle språk">
+<!ENTITY HideInlineAttList "Skjul innebygd vedleggsliste">
+<!ENTITY print.label "Skrive ut">
+<!ENTITY printPreview.label "Forhåndsvisning">
+<!ENTITY ptng.label "Utskriftsverktøy NG">
+<!ENTITY ptngOptions.label "UTSKRIFTSVERKTØY AV ALTERNATIVER">
+<!ENTITY debugOptions.label "Feilsøkingsalternativer">

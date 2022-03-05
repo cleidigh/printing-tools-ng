@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "Więcej informacji"
+	},
+	"update_option_info2": {
+		"message": "Uwaga: Wypróbuj nowy przycisk paska narzędzi PrintingTools NG, użyj menu Widok/Paski narzędzi/Dostosuj, aby dodać go do paska narzędzi. Możesz również dodać go do paska narzędzi nagłówka w okienku wiadomości."
 	}
 }

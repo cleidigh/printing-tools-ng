@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "詳細情報"
+	},
+	"update_option_info2": {
+		"message": "PrintingTools NG の新しいツールバーボタンをお試しください。ツールバーのカスタマイズメニューからツールバーに追加してください。メッセージペインのヘッダーツールバーにも同様に追加できます。"
 	}
 }

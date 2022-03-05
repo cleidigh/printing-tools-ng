@@ -62,3 +62,9 @@
 <!ENTITY colorsNote "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog">
 <!ENTITY showSignatureVCFfiles "Show signature and vcf files">
 <!ENTITY useCcBccAlways "Use 'Cc' and 'Bcc' abbreviations for all locales">
+<!ENTITY HideInlineAttList "Hide inline attachment list">
+<!ENTITY print.label "Print">
+<!ENTITY printPreview.label "Print Preview">
+<!ENTITY ptng.label "Printing Tools NG">
+<!ENTITY ptngOptions.label "Printing Tools NG Options">
+<!ENTITY debugOptions.label "Debug Options">

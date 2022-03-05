@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "Több információ"
+	},
+	"update_option_info2": {
+		"message": "Megjegyzés: Próbálja ki az új PrintingTools NG eszköztár gombját, használja a Nézet/Eszköztárak/Testreszabás menüt, hogy hozzáadja az eszköztárhoz. Hozzáadhatja az üzenetablak fejléc eszköztárához is."
 	}
 }

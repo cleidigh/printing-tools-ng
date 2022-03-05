@@ -62,3 +62,9 @@
 <!ENTITY colorsNote "Nota: &quot;Imatges i colors&quot; ha d&#39;estar habilitat al quadre de diàleg Imprimeix la configuració de la pàgina">
 <!ENTITY showSignatureVCFfiles "Mostra fitxers de signatura i vcf">
 <!ENTITY useCcBccAlways "Utilitzeu les abreviatures &#39;Cc&#39; i &#39;Bcc&#39; per a totes les configuracions regionals">
+<!ENTITY HideInlineAttList "Amaga la llista de fitxers adjunts en línia">
+<!ENTITY print.label "Imprimir">
+<!ENTITY printPreview.label "Vista prèvia d&#39;impressió">
+<!ENTITY ptng.label "Eines d&#39;impressió NG">
+<!ENTITY ptngOptions.label "EINES D&#39;IMPRESSIÓ D&#39;OPCIONS">
+<!ENTITY debugOptions.label "Opcions de depuració">

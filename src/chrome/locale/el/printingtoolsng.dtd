@@ -61,3 +61,9 @@
 <!ENTITY colorsNote "Σημείωση: Το &quot;Εικόνες και χρώματα&quot; πρέπει να είναι ενεργοποιημένο στο παράθυρο διαλόγου Εκτύπωση σελίδας">
 <!ENTITY showSignatureVCFfiles "Εμφάνιση αρχείων υπογραφής και vcf">
 <!ENTITY useCcBccAlways "Χρησιμοποιήστε τις συντομογραφίες &quot;Cc&quot; και &quot;Bcc&quot; για όλες τις τοπικές ρυθμίσεις">
+<!ENTITY HideInlineAttList "Απόκρυψη ενσωματωμένης λίστας συνημμένων">
+<!ENTITY print.label "Τυπώνω">
+<!ENTITY printPreview.label "Προεπισκόπηση εκτύπωσης">
+<!ENTITY ptng.label "Εργαλεία εκτύπωσης NG">
+<!ENTITY ptngOptions.label "ΕΡΓΑΛΕΙΑ ΕΚΤΥΠΩΣΗΣ ΕΠΙΛΟΓΩΝ">
+<!ENTITY debugOptions.label "Επιλογές εντοπισμού σφαλμάτων">

@@ -61,3 +61,9 @@
 <!ENTITY colorsNote "Nota: &quot;Imaxes e cores&quot; ten que estar activado no diálogo de configuración da páxina de impresión">
 <!ENTITY showSignatureVCFfiles "Mostrar ficheiros de sinatura e vcf">
 <!ENTITY useCcBccAlways "Use abreviaturas &#39;Cc&#39; e &#39;Bcc&#39; para todas as configuracións rexionais">
+<!ENTITY HideInlineAttList "Ocultar a lista de anexos en liña">
+<!ENTITY print.label "Imprimir">
+<!ENTITY printPreview.label "Vista previa de impresión">
+<!ENTITY ptng.label "Ferramentas de impresión NG">
+<!ENTITY ptngOptions.label "FERRAMENTAS DE IMPRESIÓN DE OPCIÓNS">
+<!ENTITY debugOptions.label "Opcións de depuración">

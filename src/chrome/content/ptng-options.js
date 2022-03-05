@@ -36,7 +36,7 @@ function setComplexPref(pref, value) {
 function initPMDpanel() {
 
 	// cleidigh
-	// console.debug('initialize panel');
+	 console.debug('initialize panel');
 	// console.debug(window.arguments);
 	var win = Cc["@mozilla.org/appshell/window-mediator;1"]
 	.getService(Ci.nsIWindowMediator)
@@ -120,10 +120,13 @@ function initPMDpanel() {
 	document.getElementById("PMDmaxchars").value = prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 	document.getElementById("PMDprogress").checked = !prefs.getBoolPref("print.show_print_progress");
 	document.getElementById("PMDhideAtt").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments");
+	document.getElementById("InlineAttsListhide").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list");
+
 	document.getElementById("PMDselection").checked = prefs.getBoolPref("extensions.printingtoolsng.print.just_selection");
 	document.getElementById("PMDattachIcon").checked = prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
 	document.getElementById("num_atts_line").value = prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
-	document.getElementById("showButtonPreview").checked = prefs.getBoolPref("extensions.printingtoolsng.show_options_button");
+	
+	//document.getElementById("showButtonPreview").checked = prefs.getBoolPref("extensions.printingtoolsng.show_options_button");
 
 	document.getElementById("addP7M").checked = prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach");
 	document.getElementById("radiostyle").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.messages.style_apply");
@@ -139,11 +142,9 @@ function initPMDpanel() {
 		document.getElementById("PREtruncate").checked = true;
 		document.getElementById("PREmaxchars").value = max_pre_len;
 	}
-
-	if (prefs.getPrefType("print.always_print_silent") !== 0 && prefs.getBoolPref("print.always_print_silent"))
-		document.getElementById("PMDsilent").checked = true;
-	else
-		document.getElementById("PMDsilent").checked = false;
+	
+	document.getElementById("PMDsilent").checked = prefs.getBoolPref("extensions.printingtoolsng.print.silent");
+	document.getElementById("PMDprogress").checked = prefs.getBoolPref("extensions.printingtoolsng.print.showprogress");
 
 	var sID = "s" + prefs.getIntPref("extensions.printingtoolsng.cite.size");
 	document.getElementById("citeSize").selectedItem = document.getElementById(sID);
@@ -211,10 +212,13 @@ function initPMDpanel() {
 	
 	// Services.console.logStringMessage("printingtools: call printer setup");
 	setPrinterList();
+	
+	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
+
 	document.getElementById("useCcBccAlways").focus;
 }
 
-function setPrinterList() {
+async function setPrinterList() {
 	var outputPrinter = null;
 	try {
 		outputPrinter = prefs.getCharPref("print_printer");
@@ -225,19 +229,22 @@ function setPrinterList() {
 	var selindex = 0;
 	var popup = document.createXULElement("menupopup");
 
-	var PSSVC2 = Cc["@mozilla.org/gfx/printerenumerator;1"]
-	.getService(Ci.nsIPrinterEnumerator);
+	// change for 91
+	var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
+	.getService(Ci.nsIPrinterList);
 
 	// Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
-	var pe = PSSVC2.printerNameList;
-	var printers = [];
+	var printers = await printerList.printers;
+	// var printers = [];
 	var i = 0;
-	while(pe.hasMore()) {
-		let printerName = pe.getNext();
+	// while(pe.hasMore()) {
+	for(let printer of printers) {
+		printer.QueryInterface(Ci.nsIPrinter);
+		let printerName = printer.name;
 		var menuitem = document.createXULElement("menuitem");
 
 		// Services.console.logStringMessage("printingtools: printerName: " + printerName);
-		printers.push(printerName);
+		// printers.push(printerName);
 		menuitem.setAttribute("value", printerName);
 		menuitem.setAttribute("label", printerName);
 		popup.appendChild(menuitem);
@@ -339,11 +346,13 @@ function getHeaderLabel(string) {
 }
 
 function savePMDprefs() {
-	// console.debug('save options');
-	if (fullPanel)
-		savePMDabprefs(true);
-		prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
-		// Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);	
+	console.debug('save options');
+	// if (fullPanel)
+		// savePMDabprefs(true);
+	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
+	prefs.setCharPref("print_printer", "");
+	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
+	Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);	
 
 	prefs.setBoolPref("extensions.printingtoolsng.headers.useCcBcc_always", document.getElementById("useCcBccAlways").checked);
 	
@@ -367,16 +376,20 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.images.resize", document.getElementById("resizeImgs").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setIntPref("extensions.printingtoolsng.headers.maxchars", document.getElementById("PMDmaxchars").value);
-	prefs.setBoolPref("print.always_print_silent", document.getElementById("PMDsilent").checked);
-	prefs.setBoolPref("print.show_print_progress", !document.getElementById("PMDprogress").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.print.silent", document.getElementById("PMDsilent").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.print.showprogress", !document.getElementById("PMDprogress").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments", document.getElementById("PMDhideAtt").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments_list", document.getElementById("InlineAttsListhide").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.print.just_selection", document.getElementById("PMDselection").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.addfolder", document.getElementById("addFolder").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.messages.black_text", document.getElementById("PMDblack").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.align", document.getElementById("alignHeaders").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.show_options_button", document.getElementById("showButtonPreview").checked);
+	
+	//prefs.setBoolPref("extensions.printingtoolsng.show_options_button", document.getElementById("showButtonPreview").checked);
+	
 	prefs.setBoolPref("extensions.printingtoolsng.add_received_date", document.getElementById("addRdate").checked);
+
 
 	prefs.setIntPref("extensions.printingtoolsng.date.long_format_type", document.getElementById("dateLongRG").selectedIndex);
 
@@ -431,6 +444,8 @@ function savePMDprefs() {
 			console.debug(e);
 		 }
 	}
+
+	prefs.setCharPref("extensions.printingtoolsng.debug.options", document.getElementById("debug-options").value);
 }
 
 function savePMDabprefs(fullpanel) {

@@ -7,12 +7,15 @@ pref("extensions.printingtoolsng.headers.truncate", false);
 pref("extensions.printingtoolsng.headers.maxchars", 80);
 pref("extensions.printingtoolsng.headers.useCcBcc_always", true);
 pref("extensions.printingtoolsng.hide.inline_attachments", false);
+pref("extensions.printingtoolsng.hide.inline_attachments_list", false);
 pref("extensions.printingtoolsng.images.hide", false);
 pref("extensions.printingtoolsng.addressbook.hide_header_card", false);
 pref("extensions.printingtoolsng.addressbook.print_just_addresses", false);
 pref("extensions.printingtoolsng.addressbook.use_custom_font_size", false);
 pref("extensions.printingtoolsng.addressbook.custom_font_size", 10);
 pref("extensions.printingtoolsng.addressbook.max_compact", false);
+pref("extensions.printingtoolsng.print.silent", false);
+pref("extensions.printingtoolsng.print.showprogress", true );
 pref("extensions.printingtoolsng.print.just_selection", false);
 pref("extensions.printingtoolsng.cite.style", false);
 pref("extensions.printingtoolsng.cite.size", 10);
@@ -43,5 +46,6 @@ pref("extensions.printingtoolsng.images.resize", true);
 pref("extensions.printingtoolsng.show_options_button", true);
 pref("extensions.printingtoolsng.add_received_date", false);
 pref("extensions.printingtoolsng.headers.attachments_per_line", 100);
+pref("extensions.printingtoolsng.debug.options", "");
 
 

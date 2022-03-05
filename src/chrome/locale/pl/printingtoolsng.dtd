@@ -62,3 +62,9 @@
 <!ENTITY colorsNote "Uwaga: w oknie dialogowym Drukuj ustawienia strony należy włączyć opcję „Obrazy i kolory”">
 <!ENTITY showSignatureVCFfiles "Pokaż pliki podpisów i vcf">
 <!ENTITY useCcBccAlways "Używaj skrótów „Cc” i „Bcc” dla wszystkich języków">
+<!ENTITY HideInlineAttList "Ukryj wbudowaną listę załączników">
+<!ENTITY print.label "Wydrukować">
+<!ENTITY printPreview.label "Podgląd wydruku">
+<!ENTITY ptng.label "Narzędzia drukarskie NG">
+<!ENTITY ptngOptions.label "NARZĘDZIA DRUKU OPCJI">
+<!ENTITY debugOptions.label "Opcje debugowania">

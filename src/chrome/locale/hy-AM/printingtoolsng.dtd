@@ -61,3 +61,9 @@
 <!ENTITY colorsNote "Նշում. «Պատկերներն ու գույները» անհրաժեշտ է միացնել Տպել էջի կարգավորման երկխոսությունում">
 <!ENTITY showSignatureVCFfiles "Showուցադրել ստորագրության և vcf ֆայլերը">
 <!ENTITY useCcBccAlways "Բոլոր տեղանքների համար օգտագործեք &#39;Cc&#39; և &#39;Bcc&#39; հապավումները">
+<!ENTITY HideInlineAttList "Թաքցնել հավելվածների ցանկը">
+<!ENTITY print.label "Տպել">
+<!ENTITY printPreview.label "Տպել նախադիտում">
+<!ENTITY ptng.label "Տպագրական գործիքներ NG">
+<!ENTITY ptngOptions.label "ՏԱՐԲԵՐԱԿՆԵՐԻ ՏՊԱԳՐԱԿԱՆ ԳՈՐԾԻՔՆԵՐ">
+<!ENTITY debugOptions.label "Վրիպազերծման ընտրանքներ">

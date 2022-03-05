@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "Več informacij"
+	},
+	"update_option_info2": {
+		"message": "Opomba: Preizkusite nov gumb orodne vrstice PrintingTools NG, uporabite meni Pogled/Orodne vrstice/Prilagodi, da ga dodate v orodno vrstico. Dodate ga lahko tudi v orodno vrstico glave v podoknu s sporočili."
 	}
 }

@@ -61,3 +61,9 @@
 <!ENTITY colorsNote "注意：需要在“打印页面设置”对话框中启用“图像和颜色”">
 <!ENTITY showSignatureVCFfiles "显示签名和VCF文件">
 <!ENTITY useCcBccAlways "在所有语言环境中使用“抄送”和“密件抄送”缩写">
+<!ENTITY HideInlineAttList "隐藏内联附件列表">
+<!ENTITY print.label "打印">
+<!ENTITY printPreview.label "打印预览">
+<!ENTITY ptng.label "印刷工具 NG">
+<!ENTITY ptngOptions.label "打印工具的选项">
+<!ENTITY debugOptions.label "调试选项">

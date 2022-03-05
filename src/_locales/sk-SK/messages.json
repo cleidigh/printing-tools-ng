@@ -10,5 +10,8 @@
 	},
 	"moreinfo_button_label": {
 		"message": "Viac informácií"
+	},
+	"update_option_info2": {
+		"message": "Poznámka: Vyskúšajte nové tlačidlo panela s nástrojmi PrintingTools NG, pomocou ponuky Zobraziť/Panely nástrojov/Prispôsobiť ho pridajte na panel s nástrojmi. Môžete ho pridať aj do panela s nástrojmi hlavičky na table správ."
 	}
 }

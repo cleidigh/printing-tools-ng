@@ -9,7 +9,7 @@
 <!ENTITY PMDlabel9 "印刷プログレスを表示しない">
 <!ENTITY PMDlabel10 "添付ファイルを印刷しない">
 <!ENTITY PMDlabel11 "アカウント名を追加する">
-<!ENTITY PMDmenuitem "PrintingTools NG オプション">
+<!ENTITY PMDmenuitem "PrintingTools NG 設定">
 <!ENTITY PMDcaptionlabel "メッセージ">
 <!ENTITY PMDcaptionlabel2 "プリンター">
 <!ENTITY PMDlabel12 "使用するフォント">
@@ -30,6 +30,7 @@
 <!ENTITY withSize "サイズ">
 <!ENTITY forBody "本文用">
 <!ENTITY forHeaders "ヘッダー用">
+<!ENTITY useHeadersBkColor "ヘッダーの背景色指定：">
 <!ENTITY misc "全般">
 <!ENTITY order "ヘッダー">
 <!ENTITY headers "ヘッダー">
@@ -49,7 +50,7 @@
 <!ENTITY alignHeaders.label "ヘッダー位置の整列">
 <!ENTITY multipleCards.label "選択したすべての連絡先を印刷">
 <!ENTITY maxPreLen "テキスト列の最大値を設定:">
-<!ENTITY showButton.label "プレビューにオプションボタンを表示">
+<!ENTITY showButton.label "プレビューに設定ボタンを表示">
 <!ENTITY resizeImgs.label "大きい画像はリサイズする">
 <!ENTITY addRdate.label "受信日時を追加する">
 <!ENTITY defaultPrinter "デフォルトのプリンター">
@@ -57,12 +58,13 @@
 <!ENTITY attachmentsPerLine "1 行あたりの添付ファイル：">
 <!ENTITY wrap "すべて">
 <!ENTITY showhide "表示または非表示">
-
-<!ENTITY useHeadersBkColor "ヘッダーの背景色指定：">
-
 <!ENTITY borderStyle "枠線のスタイル指定：">
-
 <!ENTITY colorsNote "注：「背景色」は「ページ設定」ダイアログで有効にする必要があります">
 <!ENTITY showSignatureVCFfiles "署名ファイルと vcf ファイルを表示する">
-
 <!ENTITY useCcBccAlways "すべてのロケールに「Cc」および「Bcc」の略語を使用します">
+<!ENTITY HideInlineAttList "インライン添付ファイルリストを非表示">
+<!ENTITY print.label "印刷">
+<!ENTITY printPreview.label "印刷プレビュー">
+<!ENTITY ptng.label "PrintingTools NG">
+<!ENTITY ptngOptions.label "PrintingTools NG 設定">
+<!ENTITY debugOptions.label "デバッグ設定">

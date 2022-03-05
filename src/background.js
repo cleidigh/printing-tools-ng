@@ -3,10 +3,11 @@
 
 messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
 
-// Register all necessary content, Resources, and locales
+// Register all necessary conIt's6'tent, Resources, and locales
 
 messenger.WindowListener.registerChromeUrl([
 	["content", "printingtoolsng", "chrome/content/"],
+
 	["resource", "printingtoolsng", "chrome/content/"],
 
 	["locale", "printingtoolsng", "en-US", "chrome/locale/en-US/"],
@@ -40,31 +41,22 @@ messenger.WindowListener.registerOptionsPage("chrome://printingtoolsng/content/p
 
 // Register each overlay script Which controls subsequent fragment loading
 
-
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/messenger.xul",
-	"chrome://printingtoolsng/content/messengerOL.js");
-
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/messenger.xhtml",
 	"chrome://printingtoolsng/content/messengerOL.js");
 
 
 messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/msgPrintEngine.xhtml",
-	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
+	"chrome://messenger/content/messageWindow.xhtml",
+	"chrome://printingtoolsng/content/messageWindowOL.js");
 
 messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/msgPrintEngine.xul",
-	"chrome://printingtoolsng/content/msgPrintEngineOL.js");
+	"chrome://messenger/content/customizeToolbar.xhtml",
+	"chrome://printingtoolsng/content/customizeToolbarOL.js");
 
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/addressbook/addressbook.xul",
-	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
-
-messenger.WindowListener.registerWindow(
-	"chrome://messenger/content/addressbook/addressbook.xhtml",
-	"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
+//messenger.WindowListener.registerWindow(
+	//"chrome://messenger/content/addressbook/addressbook.xhtml",
+	//"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
 
 messenger.WindowListener.startListening();
 
@@ -77,7 +69,12 @@ messenger.notificationbar.onButtonClicked.addListener((windowId, notificationId,
 	}
 });
 
-	
+
+
+browser.runtime.onMessageExternal.addListener(handleMessage);
+
+
+
 let l = messenger.i18n.getUILanguage();
 
 
@@ -89,13 +86,14 @@ browser.runtime.onInstalled.addListener(async (info) => {
 
 	if (!["update", "install"].includes(info.reason))
 		return;
-	var msg = messenger.i18n.getMessage("update_option_info");
+	var msg = messenger.i18n.getMessage("update_option_info2");
 	let windows = await messenger.mailTabs.query({});
 
 	for (let window of windows) {
 		await messenger.notificationbar.create({
 			windowId: window.windowId,
 			label: msg,
+			priority: messenger.notificationbar.PRIORITY_WARNING_HIGH,
 
 			icon: "chrome/content/icons/printing-tools-ng-icon-32px.png",
 			placement: "bottom",
@@ -112,3 +110,38 @@ browser.runtime.onInstalled.addListener(async (info) => {
 		});
 	}
 });
+
+
+messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
+	switch (info.command) {
+		case "getAttatchmentList":
+			
+			let rv = await getAttatchmentList(info.messageId);
+			return rv;
+			break;
+	}
+});
+
+async function getAttatchmentList(messageId) {
+	
+	var m = await messenger.messages.get(messageId);
+	//console.log(m)
+	var a = await messenger.messages.listAttachments(m.id);
+	//console.log(a)
+  
+	return a;
+}
+
+// External print handler 
+function handleMessage(message, sender) {
+	
+	//console.log(message)
+	messenger.NotifyTools.notifyExperiment({command: "handleExternalPrint", messageHeader: message.messageHeader}).then((data) => {
+	//console.log(data)
+			return  true ;
+	});
+
+	return true;
+
+}
+
