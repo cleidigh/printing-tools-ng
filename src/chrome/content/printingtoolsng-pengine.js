@@ -34,24 +34,24 @@ var printingtools = {
 		printingtools.current = 0;
 		printingtools.num = gFolderDisplay.selectedCount;
 
-		
+
 		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false) {
-			if (
+			if (0 &&
 				gMessageDisplay.visible &&
 				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage
 
 			) {
-				
-				//console.log("Use created browser")
+
+				console.log("Use created browser")
 				let uri = gFolderDisplay.selectedMessageUris[0];
 
-				//console.log("Msg URI: " + uri)
-				
+				console.log("Msg URI: " + uri)
+
 				let messageService = messenger.messageServiceFromURI(uri);
 
 				var fakeMsgPane;
 				if (!document.getElementById("fp")) {
-					//console.log("create browser")
+					console.log("create browser")
 
 					fakeMsgPane = document.createXULElement("browser");
 					fakeMsgPane.setAttribute("id", "fp")
@@ -75,7 +75,7 @@ var printingtools = {
 
 				let docShell = fakeMsgPane.docShell;
 				docShell.appType = Ci.nsIDocShell.APP_TYPE_MAIL;
-				
+
 				//console.log(fakeMsgPane);
 
 				messageService.DisplayMessage(
@@ -93,42 +93,147 @@ var printingtools = {
 						break;
 				}
 
-				//console.log("af wait content")
-				//console.log(fakeMsgPane.contentDocument)
+				console.log("af wait content")
+				console.log(fakeMsgPane.contentDocument)
 
 				printingtools.previewDoc = fakeMsgPane.contentDocument;
-				
+
 				await printingtools.reformatLayout();
 
-				PrintUtils.startPrintWindow(fakeMsgPane.browsingContext, {});
-				
+				console.log("af reformat")
+				PrintUtils.startPrintWindow(fakeMsgPane.browsingContext, { printSelectionOnly: true });
+
 			} else {
-				//console.log("Use existing print hidden pane")
+				console.log("Use existing print hidden pane")
+
+				let messagePaneBrowser = document.getElementById("messagepane");
 
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = gFolderDisplay.selectedMessageUris[0];
 				let messageService = messenger.messageServiceFromURI(uri);
-				
-				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
-				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
 
-				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
-				
+				//await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+				//await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
+
+				//printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+				printingtools.previewDoc = messagePaneBrowser.contentDocument
+
+				var ht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
+				var ht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
+
+				var ht1c = ht1.cloneNode(true)
+				var ht2c = ht2.cloneNode(true)
+
+				ht1c.classList.add("orig")
+				ht2c.classList.add("orig")
+
+				//console.log(tb)
 				await printingtools.reformatLayout();
 
-				PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext, {});
-				
+				var sel = window.getSelection();
+
+				const t = printingtools.previewDoc.querySelector('table');
+				const br = printingtools.previewDoc.querySelector('br');
+
+				//console.log(t)
+				// Create new range
+				const range = new Range();
+
+				// Start range at second paragraph
+				range.setStartBefore(t);
+
+				// End range at third paragraph
+				range.setEndAfter(br);
+
+				console.log(range)
+				// Get window selection
+				//const selection = window.getSelection();
+				var selection = document.commandDispatcher.focusedWindow.getSelection();
+				for (let i = 0; i < selection.rangeCount; i++) {
+					var r = selection.getRangeAt(i)
+					console.log(selection.getRangeAt(i))
+					console.log(r.startContainer.nodeName)
+					var f= selection.getRangeAt(i).cloneContents()
+					console.log(f)
+				}
+
+
+				console.log(selection)
+				// Add range to window selection
+				console.log(range)
+
+				selection.addRange(range);
+
+				console.log(selection)
+				console.log(selection.rangeCount)
+
+				var w = document.commandDispatcher.focusedWindow
+				console.log(w)
+				console.log(messagePaneBrowser)
+				var l = w.addEventListener("focus", function (e) {
+
+					console.log("b focused  ")
+					//selection.removeAllRanges()
+
+					var mht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
+					var mht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
+
+					var body_elem = mht1.parentElement
+					console.log(body_elem)
+					//console.log(tb)
+					//t.remove()
+					//tp.appendChild(tb)
+
+					mht1.remove();
+					mht2.remove();
+
+					console.log("after remove ")
+					console.log(printingtools.doc.documentElement.outerHTML);
+
+					body_elem.prepend(ht2c);
+					body_elem.prepend(ht1c);
+
+					printingtools.showAttatchmentBodyTable();
+
+					console.log("after rest")
+					console.log(printingtools.doc.documentElement.outerHTML);
+					//console.log(printingtools.previewDoc.outerHTML)
+					//t = printingtools.previewDoc.querySelector('.orig');
+
+					//console.log(t.outerHTML)
+
+
+					//console.log(printingtools.doc.documentElement.outerHTML);
+
+
+					//messagePaneBrowser.reload()
+					//e.stopPropagation();
+					//e.preventDefault();
+
+				}, { once: true });
+
+				//PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext, {});
+				if (selection.rangeCount > 1  && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
+					console.log("print sel")
+					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
+				} else {
+					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: false });
+				}
+
 			}
 
+			await new Promise(resolve => window.setTimeout(resolve, 400));
+			//selection.removeAllRanges()
+			//document.commandDispatcher.focusedWindow.reload()
 			return;
 		}
 
 		var typeMsg = "";
-		
+
 		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 		typeMsg = "Use existing print hidden pane - multiple messages (" + printingtools.msgUris.length + ")";
-		
-		
+
+
 		console.log(typeMsg)
 		// Multiple messages. Get the printer settings, then load the messages into
 		// a hidden browser and print them one at a time.
@@ -149,11 +254,11 @@ var printingtools = {
 			let messageService = messenger.messageServiceFromURI(uri);
 
 			if (!PrintUtils.printBrowser) {
-				//console.log("no p brows")
+				console.log("no p brows")
 				let messagePaneBrowser = document.getElementById("messagepane");
 				messagePaneBrowser.browsingContext.print(ps);
 			} else {
-								
+				console.log("use pb print")
 				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
 
@@ -181,32 +286,32 @@ var printingtools = {
 		await printingtools.reformatLayout();
 
 		await PrintUtils.printBrowser.browsingContext.print(ps);
-	
+
 
 	},
 
 	cmd_printng_external: async function (extMsgReq) {
 		console.log("PrintingTools NG Received a message from external add-on", extMsgReq.messageHeader);
-			
+
 		//console.log(this.current)
 		//console.log(this.msgUris)
 
 		let msgHeader = extMsgReq.messageHeader;
-		
+
 		if (!msgHeader.id) {
-		  console.log("PTNG: No useful id for message");
-		  return;
+			console.log("PTNG: No useful id for message");
+			return;
 		}
-		
+
 		let realMessage = window.printingtoolsng.extension
-		  .messageManager.get(msgHeader.id);
+			.messageManager.get(msgHeader.id);
 		let uri = realMessage.folder.getUriForMsg(realMessage);
-		
+
 		//console.log(realMessage)
 		console.log(uri)
 
 
-		if(this.extRunning) {
+		if (this.extRunning) {
 			//console.log("Q dont run")
 			//console.log(this.externalQ)
 			this.externalQ.push(uri);
@@ -223,14 +328,14 @@ var printingtools = {
 		this.extRunning = true;
 		var extMsgURI;
 
-		while(this.externalQ.length) {
+		while (this.externalQ.length) {
 			//console.log("grab next ");
 			//console.log(this.externalQ)
-			extMsgURI= this.externalQ.shift()
+			extMsgURI = this.externalQ.shift()
 			//console.log(this.externalQ)
-			
+
 			//console.log(extMsgURI)
-				
+
 			await this.PrintExternalMsg(extMsgURI);
 			//console.log("after q ");
 		}
@@ -245,7 +350,7 @@ var printingtools = {
 
 		console.log("cmd_printng start" + this.running);
 
-		
+
 		options = options || {};
 
 		//console.log(options)
@@ -258,18 +363,21 @@ var printingtools = {
 		this.running = true;
 		//console.log(options)
 
+		console.log(document.window)
+		console.log(printingtools.msgUris[0])
+		//console.log()
 
 		await this.PrintSelectedMessages(options);
 		console.log("PTNG: Done")
 
-		
+
 		this.running = false;
 
 		return;
 
 	},
 
-	
+
 	getMail3Pane: function () {
 		var w = Cc["@mozilla.org/appshell/window-mediator;1"]
 			.getService(Ci.nsIWindowMediator)
@@ -776,7 +884,17 @@ var printingtools = {
 				var dummy = {};
 				dummy.folder = null;
 
-				let f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]).replace(/\//g, "\\");
+				var os = navigator.platform.toLowerCase();
+				var f;
+				console.log(os)
+
+				if (os.indexOf("win") > -1) {
+					f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]).replace(/\//g, "\\");
+				} else {
+					f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]);
+				}
+
+				console.log(f)
 
 
 				let str_message = await IOUtils.readUTF8(f, { bytes: 3000 })
@@ -788,6 +906,10 @@ var printingtools = {
 				var secs = Date.parse(dateOrig) / 1000;
 				dummy.dateInSeconds = secs;
 				printingtools.hdr = dummy;
+
+				console.log(str_message)
+				console.log(dummy)
+
 			}
 			else {
 				printingtools.hdr = m.msgHdrFromURI(uris[printingtools.current]);
@@ -799,7 +921,7 @@ var printingtools = {
 
 		//console.debug('pTNG: Reformat layout ');
 
-	
+
 		printingtools.doc = printingtools.previewDoc;
 
 		//console.log(printingtools.doc.body.outerHTML)
@@ -815,10 +937,10 @@ var printingtools = {
 			//Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 			return;
 		}
-		
+
 		await printingtools.addAttTable(printingtools.attList);
 
-		
+
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 		// If there is some "GeneratedName" tag, so we're printing from addressbook
@@ -920,25 +1042,44 @@ var printingtools = {
 			// Services.console.logStringMessage("window: " + printingtools.getMail3Pane().document.URL);
 			//var sel = printingtools.getMail3Pane().content.getSelection();
 			var sel = document.commandDispatcher.focusedWindow.getSelection();
-			
+
 			var range2 = sel.getRangeAt(0);
 			var contents2 = range2.cloneContents();
 			// Services.console.logStringMessage(contents2.textContent);
 
 		} catch (error) {
 			sel = "";
-			 //Services.console.logStringMessage("no selection " + error );
+			//Services.console.logStringMessage("no selection " + error );
 		}
 
 		//Services.console.logStringMessage("sel " + sel);
 
-		if (sel && sel != "" && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
+		if (0 && sel && sel != "" && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
 			Services.console.logStringMessage("valid selection");
 			Services.console.logStringMessage("Selection :\n" + sel);
 			Services.console.logStringMessage("process selection");
-			var range = sel.getRangeAt(0);
-			var contents = range.cloneContents();
+			console.log(sel)
+			console.log(sel.rangeCount)
+			var contents = [];
+
+			for (let i = 0; i < sel.rangeCount; i++) {
+				console.log(sel.getRangeAt(i))
+				console.log(sel.getRangeAt(i).commonAncestorContainer)
+
+				let s = sel.getRangeAt(i).cloneContents();
+				console.log(s)
+
+				contents.push(s)
+				//contents = contents + sel.getRangeAt(i).cloneContents() + "...\n"
+			}
+
+
+			//console.log(sel.getRangeAt(1))
+
+			//var range = sel.getRangeAt(0);
+			//var contents = range.cloneContents();
 			Services.console.logStringMessage(contents);
+			console.log(contents)
 			printingtools.printSelection(contents);
 			// Services.console.logStringMessage("After selection");
 			// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
@@ -1023,7 +1164,7 @@ var printingtools = {
 			tw.setAttribute("border-collapse", "collapse");
 			tw.setAttribute("cellspacing", "0");
 			// md.document.body.appendChild(tw);
-			
+
 			if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
 				var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
 				var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
@@ -1034,7 +1175,7 @@ var printingtools = {
 			if (!table3) {
 				printingtools.insertAfter(tw, table2);
 				var maxHdrWidth = table2.nextSibling.getBoundingClientRect().width;
-			
+
 			} else {
 				printingtools.insertAfter(tw, table3);
 			}
@@ -1044,7 +1185,7 @@ var printingtools = {
 			for (var i = 0; i < trs.length; i++) {
 
 				trs[i].firstChild.setAttribute("width", `${maxHdrWidth}px`);
-				
+
 			}
 
 			tw.remove();
@@ -1092,7 +1233,7 @@ var printingtools = {
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list")) {
 			//console.log("remove att list")
-			printingtools.removeAttatchmentBodyTable();
+			printingtools.hideAttatchmentBodyTable();
 		}
 
 		dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
@@ -1100,10 +1241,10 @@ var printingtools = {
 			Services.console.logStringMessage("PTNG: final output:\n");
 			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 		}
-		
+
 	},
 
-	removeAttatchmentBodyTable: function () {
+	hideAttatchmentBodyTable: function () {
 
 		var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header")
 		for (let index = 0; index < attTableHdrs.length; index++) {
@@ -1111,14 +1252,26 @@ var printingtools = {
 			element.style.display = "none";
 		}
 
-
-
-
 		//console.log(attTableHdrs.outerHTML)
 		var attTableEntries = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table")
 		for (let index = 0; index < attTableEntries.length; index++) {
 			let element = attTableEntries[index];
 			element.style.display = "none";
+		}
+	},
+
+	showAttatchmentBodyTable: function () {
+
+		var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header")
+		for (let index = 0; index < attTableHdrs.length; index++) {
+			let element = attTableHdrs[index];
+			element.style.display = null;
+		}
+		//console.log(attTableHdrs.outerHTML)
+		var attTableEntries = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table")
+		for (let index = 0; index < attTableEntries.length; index++) {
+			let element = attTableEntries[index];
+			element.style.display = null;
 		}
 	},
 
@@ -1139,16 +1292,40 @@ var printingtools = {
 				}
 			}
 			containerDiv.innerHTML = "";
-			containerDiv.appendChild(contents);
+
+			//suff.textContent = "…  ";
+
+			contents.forEach(element => {
+				console.log(element)
+				console.log(element.firstChild.outerHTML)
+				console.log(element.firstChild)
+
+				var suff = printingtools.previewDoc.createElement("SPAN");
+				var br = printingtools.previewDoc.createElement("BR");
+				var br2 = printingtools.previewDoc.createElement("BR");
+				var t = printingtools.previewDoc.createElement("TABLE");
+				suff.textContent = "…  "
+
+				containerDiv.appendChild(element);
+				//t.appendChild(element);
+				containerDiv.appendChild(suff);
+				containerDiv.appendChild(br);
+				containerDiv.appendChild(br2);
+				//console.log(suff)
+				console.log(containerDiv.outerHTML)
+			});
+
 			var ops = containerDiv.getElementsByTagName("o:p");
 			for (i = 0; i < ops.length; i++)
 				// hides microsoft crap
 				ops[i].style.display = "none";
 			var hideImg = printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.hide");
-			if (hideImg || printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.resize"))
-				printingtools.setIMGstyle(hideImg);
+			//if (hideImg || printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.resize"))
+			//	printingtools.setIMGstyle(hideImg);
 		}
-		catch (e) { }
+		catch (e) {
+			console.log(e)
+		}
 	},
 
 	toggleInlinePref: function () {
@@ -1522,8 +1699,9 @@ var printingtools = {
 	},
 
 	correctDate: function () {
-		//console.log("start date")
+		console.log("start date")
 		var table = printingtools.getTable(0);
+		console.log(table)
 		if (!table || !printingtools.hdr)
 			return;
 		var longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
@@ -1531,13 +1709,15 @@ var printingtools = {
 		if (!formatted_date)
 			return;
 
-		
+
 		var tds = table.getElementsByTagName("TD");
-		
+
 		var node = tds[tds.length - 1];
-		
+		console.log(tds)
+		console.log(node)
+
 		if (node) {
-			var data = node.childNodes[1].nodeValue;
+			//var data = node.childNodes[1].nodeValue;
 			node.childNodes[1].nodeValue = formatted_date;
 		}
 	},
@@ -1861,7 +2041,7 @@ var printingtools = {
 	},
 
 	shutdown: function () {
-		if(document.getElementById("fp")) {
+		if (document.getElementById("fp")) {
 			document.getElementById("fp").remove();
 		}
 	}
