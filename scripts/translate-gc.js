@@ -405,14 +405,16 @@ function loadTranslationArray(inputFiles, options) {
 	});
 }
 
+// manifest files
 var options = {
 	inputLocaleDir: `./src/_locales/en-US`,
 	outputLocaleDir: "./src/_locales",
 	outputLocaleDirSuffix: "",
-	append: true,
+	append: false,
 	outputFormat: 3,
 };
 
+//  files from array
 // var options = {
 // 	inputLocaleDir: `./src/chrome/locale/en-US/`,
 // 	outputLocaleDir: "./src/chrome/locale",
@@ -421,12 +423,24 @@ var options = {
 // 	outputFormat: 0,
 // };
 
+//  files from base locale 
+ var options2 = {
+	inputLocaleDir: `./src/chrome/locale/en-US/`,
+	outputLocaleDir: "./src/chrome/locale",
+	outputLocaleDirSuffix: "",
+	append: false,
+	outputFormat: 0,
+};
+
+
 // let inputFiles = ["settings.dtd", "settings.properties", "overlay.dtd", "overlay.properties"];
 // let inputFiles = ["settings.dtd", "settings.properties"];
 // let inputFiles = ["settings.dtd"];
 // let inputFiles = ["overlay.properties"];
 // let inputFiles = ["settings.dtd", "overlay.dtd", "overlay.properties"];
 
+//let inputFiles = ["printingtoolsng.properties"];
+//let inputFiles = ["printingtoolsng.dtd"];
 
 let inputFiles = ["messages.json"];
 // let inputFiles = ["autobackup.dtd", "autobackup.properties", "mboximport.dtd", "mboximport.properties", "profilewizard.dtd", "profilewizard.properties"];
@@ -435,8 +449,8 @@ let inputFiles = ["messages.json"];
 // 						'el', 'pl', 'da', 'pt-PT'];
 
 // printingtools
-var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-'hy-AM', 'it-IT', 'ja-JP', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN'];
+//var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+//'hy-AM', 'it-IT', 'ja-JP', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN'];
 
 
 // localeFolders = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
@@ -445,7 +459,7 @@ var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-F
 // var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
 // 	'sk-SK', 'sl-SI', 'sv-SE'];
 
-//localeFolders = ['es-ES', 'de-DE', 'ja'];
+localeFolders = ['zh-TW'];
 
 
 // localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];
@@ -454,7 +468,7 @@ var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-F
 // translateHelpPage();
 // translatePage();
 // translateAll("printingtoolsng.properties", translationArray, options);
-translateAll(inputFiles, translationArray, options);
+//translateAll(inputFiles, translationArray, options);
 // translateAll("mboximport.dtd", translationArray, options);
-// loadTranslationArray(inputFiles, options);
+loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];

@@ -132,7 +132,16 @@ var printingtools = {
 
 				var sel = window.getSelection();
 
-				const t = printingtools.previewDoc.querySelector('table');
+				var topSelection;
+
+				var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
+					if(th) {
+						topSelection = th;
+					} else {
+						topSelection = printingtools.previewDoc.querySelector('table');
+					} 
+
+				
 				const br = printingtools.previewDoc.querySelector('br');
 
 				//console.log(t)
@@ -140,15 +149,33 @@ var printingtools = {
 				const range = new Range();
 
 				// Start range at second paragraph
-				range.setStartBefore(t);
+				range.setStartBefore(topSelection);
 
 				// End range at third paragraph
 				range.setEndAfter(br);
 
-				console.log(range)
+				//console.log(range.cloneContents())
 				// Get window selection
 				//const selection = window.getSelection();
 				var selection = document.commandDispatcher.focusedWindow.getSelection();
+				
+				//console.log("orig selection")
+				//console.log(selection)
+				// Add range to window selection
+				//console.log(range)
+
+				if(selection.type == "Caret") {
+					selection.removeAllRanges();
+				}
+				
+
+				if(selection.rangeCount) {
+					selection.addRange(range);
+				}
+				
+
+				//console.log(selection)
+
 				for (let i = 0; i < selection.rangeCount; i++) {
 					var r = selection.getRangeAt(i)
 					console.log(selection.getRangeAt(i))
@@ -158,22 +185,20 @@ var printingtools = {
 				}
 
 
-				console.log(selection)
-				// Add range to window selection
-				console.log(range)
-
-				selection.addRange(range);
-
-				console.log(selection)
-				console.log(selection.rangeCount)
+				//console.log(selection)
+				//console.log(selection.rangeCount)
 
 				var w = document.commandDispatcher.focusedWindow
-				console.log(w)
-				console.log(messagePaneBrowser)
+				//console.log(w)
+				//console.log(messagePaneBrowser)
+				
 				var l = w.addEventListener("focus", function (e) {
 
 					console.log("b focused  ")
-					//selection.removeAllRanges()
+					if(selection.rangeCount) {
+						selection.removeRange(range)
+					}
+					
 
 					var mht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
 					var mht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
@@ -186,6 +211,11 @@ var printingtools = {
 
 					mht1.remove();
 					mht2.remove();
+
+					var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
+					if(th) {
+						th.remove();
+					}
 
 					console.log("after remove ")
 					console.log(printingtools.doc.documentElement.outerHTML);
@@ -409,6 +439,7 @@ var printingtools = {
 				index = j | 0x100;
 			}
 		}
+		console.log("idx " + string +" " + index )
 		return index;
 	},
 
@@ -426,8 +457,10 @@ var printingtools = {
 
 		if (Services.locale.appLocaleAsBCP47.split('-')[0] === "ja") {
 			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
-		} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
+		} else if (Services.locale.appLocaleAsBCP47 === "zh-CN") {
 			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
+		} else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh-tw.properties");
 		} else {
 			bundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/mime.properties");
 		}
@@ -551,9 +584,27 @@ var printingtools = {
 			var bccPresent = false;
 
 			trs = table2.getElementsByTagName("TR");
+			console.log("sort " +Services.locale.appLocaleAsBCP47 )
 			for (var i = 0; i < trs.length; i++) {
 				var div = trs[i].firstChild.firstChild;
 				var divHTML = div.innerHTML.replace(/\&nbsp;/g, " ");
+
+			if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+				console.log("tw")
+				var div = trs[i].firstChild.firstChild;
+				console.log(div.outerHTML)
+				if (divHTML.indexOf(bcc) == 0) {
+					divHTML = bcc + ":";
+					div.innerHTML = divHTML;
+					console.log("rpl bcc " + div.outerHTML)
+				}
+				if (divHTML.indexOf(cc) == 0) {
+					divHTML = cc + ":";
+					div.innerHTML = divHTML;
+					console.log("rpl cc " + div.outerHTML)
+				}
+			}
+		
 				if (Services.locale.appLocaleAsBCP47 === "ja") {
 					var div = trs[i].firstChild.firstChild;
 					divHTML = divHTML.replace("To:", to + ':');
@@ -594,6 +645,8 @@ var printingtools = {
 						cc = "Cc";
 						bcc = "Bcc";
 					}
+					
+				
 				} else if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 					var div = trs[i].firstChild.firstChild;
 					if (divHTML.indexOf(bcc) > -1) {
@@ -623,10 +676,14 @@ var printingtools = {
 					// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 					continue;
 				}
-				regExp = new RegExp(bcc + "\\s*:");
+				console.log("bcc = " + bcc)
+				console.log(divHTML)
+				regExp = new RegExp(bcc + ".*:");
 				index = printingtools.getIndexForHeader("%r3");
+				console.log(divHTML.indexOf(bcc))
+				console.log("check bcc")
 				if (divHTML.indexOf(bcc) == 0) {
-					// Services.console.logStringMessage('bcc');
+					Services.console.logStringMessage('bcc');
 					bccPresent = true;
 
 					if (index & 0x100) {
@@ -636,14 +693,15 @@ var printingtools = {
 						trs[i].firstChild.classList.add("bccHdr");
 						arr[index] = trs[i];
 					}
-					// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+					Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 					continue;
 				}
-
-				regExp = new RegExp(cc + "\\s*:");
+				console.log("check cc")
+				regExp = new RegExp(cc + ".*:");
 				index = printingtools.getIndexForHeader("%r2");
 				if (divHTML.indexOf(cc) == 0) {
-					// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+					Services.console.logStringMessage('cc');
+					Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 					ccPresent = true;
 
 					if (index & 0x100) {
@@ -652,7 +710,7 @@ var printingtools = {
 					} else {
 						arr[index] = trs[i];
 					}
-					// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
+					Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 					continue;
 				}
 			}
@@ -660,6 +718,7 @@ var printingtools = {
 
 		}
 
+		console.log(arr)
 		index = printingtools.getIndexForHeader("%s");
 		let subjectIndex = index &= ~0x100;
 
@@ -704,8 +763,8 @@ var printingtools = {
 			//	printingtools.dateTRpos = printingtools.dateTRpos - 1;
 		}
 
-		// Services.console.logStringMessage("after sort");
-		// Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
+		Services.console.logStringMessage("after sort");
+		Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
 	},
 
 	correctABprint: function (gennames) {
@@ -891,7 +950,7 @@ var printingtools = {
 				if (os.indexOf("win") > -1) {
 					f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]).replace(/\//g, "\\");
 				} else {
-					f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]);
+					f = decodeURI(uris[printingtools.current].split("file://")[1].split("?")[0]);
 				}
 
 				console.log(f)
@@ -1369,6 +1428,7 @@ var printingtools = {
 
 			var folder = printingtools.hdr.folder;
 			var h3 = printingtools.doc.createElement("h3");
+			h3.classList.add("ptng-tophdr");
 			var folderHtml = "";
 			var myname = "&nbsp;"
 

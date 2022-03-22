@@ -1,7 +1,7 @@
 {
   "title": "PrintingTools NG",
   "name": "printing-tools-ng",
-  "version": "2.1.0-dbg2",
+  "version": "2.1.0-dbg6",
   "description": "Message Printing Tools NG",
   "author": "Christopher Leidigh",
   "engines": {
@@ -16,7 +16,6 @@
       "target_include_manifest": "true"
   },
   "scripts": {
-      "build-xpi-bat": ".\\scripts\\build-xpi.bat",
       "build-xpi": "node ./scripts/build-xpi.js"
   },
   "keywords": [

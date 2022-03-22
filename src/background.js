@@ -34,6 +34,7 @@ messenger.WindowListener.registerChromeUrl([
 	["locale", "printingtoolsng", "sv-SE", "chrome/locale/sv-SE/"],
 	["locale", "printingtoolsng", "uk", "chrome/locale/uk/"],
 	["locale", "printingtoolsng", "zh-CN", "chrome/locale/zh-CN/"],
+	["locale", "printingtoolsng", "zh-TW", "chrome/locale/zh-TW/"],
 
 ]);
 
