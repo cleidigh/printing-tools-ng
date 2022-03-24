@@ -120,6 +120,10 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			let rv = await getAttatchmentList(info.messageId);
 			return rv;
 			break;
+		case "openHelp":
+			console.log("help")
+			browser.windows.create({url: "test.html", type: "panel"})
+			return "help";
 	}
 });
 

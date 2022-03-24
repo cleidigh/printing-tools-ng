@@ -33,15 +33,20 @@ function setComplexPref(pref, value) {
 	}
 }
 
-function initPMDpanel() {
+async function  initPMDpanel() {
 
 	// cleidigh
 	console.debug('initialize panel');
+
+	//t = await window.opener.ptngAddon.notifyTools.notifyBackground({ command: "openHelp" });
 	// console.debug(window.arguments);
+
+	
 	var win = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator)
 		.getMostRecentWindow("mail:3pane");
 
+		
 	var PTNGVersion = win.printingtoolsng.extension.addonData.version;
 
 	let title = document.getElementById("ptng-options").getAttribute("title");
@@ -634,6 +639,7 @@ function toggleDate() {
 
 document.addEventListener("dialogaccept", function (event) {
 	savePMDprefs();
+	
 });
 
 window.addEventListener("load", function (event) {

@@ -34,13 +34,174 @@ var printingtools = {
 		printingtools.current = 0;
 		printingtools.num = gFolderDisplay.selectedCount;
 
+		console.log(gMessageDisplay.visible)
+		console.log(gFolderDisplay.selectedMessage)
+		console.log(gMessageDisplay.displayedMessage)
 
 		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false) {
-			if (0 &&
+			if (1 &&
 				gMessageDisplay.visible &&
 				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage
 
 			) {
+
+
+				console.log("Use existing print hidden pane")
+
+				let messagePaneBrowser = document.getElementById("messagepane");
+
+				// Load the only message in a hidden browser, then use the print preview UI.
+				let uri = gFolderDisplay.selectedMessageUris[0];
+				let messageService = messenger.messageServiceFromURI(uri);
+
+				//await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+				//await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
+
+				//printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+				printingtools.previewDoc = messagePaneBrowser.contentDocument
+
+				var ht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
+				var ht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
+
+				var ht1c = ht1.cloneNode(true)
+				var ht2c = ht2.cloneNode(true)
+
+				ht1c.classList.add("orig")
+				ht2c.classList.add("orig")
+
+				//console.log(tb)
+				await printingtools.reformatLayout();
+
+				var sel = window.getSelection();
+
+				var topSelection;
+
+				var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
+				if (th) {
+					topSelection = th;
+				} else {
+					topSelection = printingtools.previewDoc.querySelector('table');
+				}
+
+
+				const br = printingtools.previewDoc.querySelector('br');
+
+				//console.log(t)
+				// Create new range
+				const range = new Range();
+
+				// Start range at second paragraph
+				range.setStartBefore(topSelection);
+
+				// End range at third paragraph
+				range.setEndAfter(br);
+
+				//console.log(range.cloneContents())
+				// Get window selection
+				//const selection = window.getSelection();
+				var selection = document.commandDispatcher.focusedWindow.getSelection();
+
+				//console.log("orig selection")
+				//console.log(selection)
+				// Add range to window selection
+				//console.log(range)
+
+				if (selection.type == "Caret") {
+					selection.removeAllRanges();
+				}
+
+
+				if (selection.rangeCount) {
+					selection.addRange(range);
+				}
+
+
+				//console.log(selection)
+
+				for (let i = 0; i < selection.rangeCount; i++) {
+					var r = selection.getRangeAt(i)
+					console.log(selection.getRangeAt(i))
+					console.log(r.startContainer.nodeName)
+					var f = selection.getRangeAt(i).cloneContents()
+					console.log(f)
+				}
+
+
+				//console.log(selection)
+				//console.log(selection.rangeCount)
+
+				var w = document.commandDispatcher.focusedWindow
+				//console.log(w)
+				//console.log(messagePaneBrowser)
+
+				var l = w.addEventListener("focus", function (e) {
+
+					console.log("b focused  ")
+					if (selection.rangeCount) {
+						selection.removeRange(range)
+					}
+
+
+					var mht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
+					var mht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
+
+					var body_elem = mht1.parentElement
+					console.log(body_elem)
+					//console.log(tb)
+					//t.remove()
+					//tp.appendChild(tb)
+
+					mht1.remove();
+					mht2.remove();
+
+					var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
+					var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
+					var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
+					if (th) {
+						th.remove();
+					}
+
+					var hr = printingtools.previewDoc.querySelector('hr');
+					if (hr) {
+						hr.remove();
+					}
+					console.log("after remove ")
+					console.log(printingtools.doc.documentElement.outerHTML);
+
+					body_elem.prepend(ht2c);
+					body_elem.prepend(ht1c);
+
+					printingtools.showAttatchmentBodyTable();
+
+					console.log("after rest")
+					console.log(printingtools.doc.documentElement.outerHTML);
+					//console.log(printingtools.previewDoc.outerHTML)
+					//t = printingtools.previewDoc.querySelector('.orig');
+
+					//console.log(t.outerHTML)
+
+
+					//console.log(printingtools.doc.documentElement.outerHTML);
+
+
+					//messagePaneBrowser.reload()
+					//e.stopPropagation();
+					//e.preventDefault();
+
+				}, { once: true });
+
+				//PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext, {});
+				if (selection.rangeCount > 1 && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
+					console.log("print sel")
+					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
+				} else {
+					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: false });
+				}
+
+			} else {
+
+
+
 
 				console.log("Use created browser")
 				let uri = gFolderDisplay.selectedMessageUris[0];
@@ -101,154 +262,9 @@ var printingtools = {
 				await printingtools.reformatLayout();
 
 				console.log("af reformat")
-				PrintUtils.startPrintWindow(fakeMsgPane.browsingContext, { printSelectionOnly: true });
-
-			} else {
-				console.log("Use existing print hidden pane")
-
-				let messagePaneBrowser = document.getElementById("messagepane");
-
-				// Load the only message in a hidden browser, then use the print preview UI.
-				let uri = gFolderDisplay.selectedMessageUris[0];
-				let messageService = messenger.messageServiceFromURI(uri);
-
-				//await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
-				//await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
-
-				//printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
-				printingtools.previewDoc = messagePaneBrowser.contentDocument
-
-				var ht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
-				var ht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
-
-				var ht1c = ht1.cloneNode(true)
-				var ht2c = ht2.cloneNode(true)
-
-				ht1c.classList.add("orig")
-				ht2c.classList.add("orig")
-
-				//console.log(tb)
-				await printingtools.reformatLayout();
-
-				var sel = window.getSelection();
-
-				var topSelection;
-
-				var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
-					if(th) {
-						topSelection = th;
-					} else {
-						topSelection = printingtools.previewDoc.querySelector('table');
-					} 
-
-				
-				const br = printingtools.previewDoc.querySelector('br');
-
-				//console.log(t)
-				// Create new range
-				const range = new Range();
-
-				// Start range at second paragraph
-				range.setStartBefore(topSelection);
-
-				// End range at third paragraph
-				range.setEndAfter(br);
-
-				//console.log(range.cloneContents())
-				// Get window selection
-				//const selection = window.getSelection();
-				var selection = document.commandDispatcher.focusedWindow.getSelection();
-				
-				//console.log("orig selection")
-				//console.log(selection)
-				// Add range to window selection
-				//console.log(range)
-
-				if(selection.type == "Caret") {
-					selection.removeAllRanges();
-				}
-				
-
-				if(selection.rangeCount) {
-					selection.addRange(range);
-				}
-				
-
-				//console.log(selection)
-
-				for (let i = 0; i < selection.rangeCount; i++) {
-					var r = selection.getRangeAt(i)
-					console.log(selection.getRangeAt(i))
-					console.log(r.startContainer.nodeName)
-					var f= selection.getRangeAt(i).cloneContents()
-					console.log(f)
-				}
+				PrintUtils.startPrintWindow(fakeMsgPane.browsingContext);
 
 
-				//console.log(selection)
-				//console.log(selection.rangeCount)
-
-				var w = document.commandDispatcher.focusedWindow
-				//console.log(w)
-				//console.log(messagePaneBrowser)
-				
-				var l = w.addEventListener("focus", function (e) {
-
-					console.log("b focused  ")
-					if(selection.rangeCount) {
-						selection.removeRange(range)
-					}
-					
-
-					var mht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
-					var mht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
-
-					var body_elem = mht1.parentElement
-					console.log(body_elem)
-					//console.log(tb)
-					//t.remove()
-					//tp.appendChild(tb)
-
-					mht1.remove();
-					mht2.remove();
-
-					var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
-					if(th) {
-						th.remove();
-					}
-
-					console.log("after remove ")
-					console.log(printingtools.doc.documentElement.outerHTML);
-
-					body_elem.prepend(ht2c);
-					body_elem.prepend(ht1c);
-
-					printingtools.showAttatchmentBodyTable();
-
-					console.log("after rest")
-					console.log(printingtools.doc.documentElement.outerHTML);
-					//console.log(printingtools.previewDoc.outerHTML)
-					//t = printingtools.previewDoc.querySelector('.orig');
-
-					//console.log(t.outerHTML)
-
-
-					//console.log(printingtools.doc.documentElement.outerHTML);
-
-
-					//messagePaneBrowser.reload()
-					//e.stopPropagation();
-					//e.preventDefault();
-
-				}, { once: true });
-
-				//PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext, {});
-				if (selection.rangeCount > 1  && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
-					console.log("print sel")
-					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
-				} else {
-					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: false });
-				}
 
 			}
 
@@ -439,7 +455,7 @@ var printingtools = {
 				index = j | 0x100;
 			}
 		}
-		console.log("idx " + string +" " + index )
+		console.log("idx " + string + " " + index)
 		return index;
 	},
 
@@ -584,27 +600,27 @@ var printingtools = {
 			var bccPresent = false;
 
 			trs = table2.getElementsByTagName("TR");
-			console.log("sort " +Services.locale.appLocaleAsBCP47 )
+			console.log("sort " + Services.locale.appLocaleAsBCP47)
 			for (var i = 0; i < trs.length; i++) {
 				var div = trs[i].firstChild.firstChild;
 				var divHTML = div.innerHTML.replace(/\&nbsp;/g, " ");
 
-			if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
-				console.log("tw")
-				var div = trs[i].firstChild.firstChild;
-				console.log(div.outerHTML)
-				if (divHTML.indexOf(bcc) == 0) {
-					divHTML = bcc + ":";
-					div.innerHTML = divHTML;
-					console.log("rpl bcc " + div.outerHTML)
+				if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+					console.log("tw")
+					var div = trs[i].firstChild.firstChild;
+					console.log(div.outerHTML)
+					if (divHTML.indexOf(bcc) == 0) {
+						divHTML = bcc + ":";
+						div.innerHTML = divHTML;
+						console.log("rpl bcc " + div.outerHTML)
+					}
+					if (divHTML.indexOf(cc) == 0) {
+						divHTML = cc + ":";
+						div.innerHTML = divHTML;
+						console.log("rpl cc " + div.outerHTML)
+					}
 				}
-				if (divHTML.indexOf(cc) == 0) {
-					divHTML = cc + ":";
-					div.innerHTML = divHTML;
-					console.log("rpl cc " + div.outerHTML)
-				}
-			}
-		
+
 				if (Services.locale.appLocaleAsBCP47 === "ja") {
 					var div = trs[i].firstChild.firstChild;
 					divHTML = divHTML.replace("To:", to + ':');
@@ -645,8 +661,8 @@ var printingtools = {
 						cc = "Cc";
 						bcc = "Bcc";
 					}
-					
-				
+
+
 				} else if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 					var div = trs[i].firstChild.firstChild;
 					if (divHTML.indexOf(bcc) > -1) {
