@@ -1,6 +1,6 @@
 // var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
-
+var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
 
 // Define our add-on ID, which is needed to resolve paths for files within our extension
 // and to be able to listen for notifications.
@@ -207,7 +207,9 @@ var printingtools = {
 				let uri = gFolderDisplay.selectedMessageUris[0];
 
 				console.log("Msg URI: " + uri)
-
+				if(!uri) {
+					return;
+				}
 				let messageService = messenger.messageServiceFromURI(uri);
 
 				var fakeMsgPane;
@@ -274,6 +276,9 @@ var printingtools = {
 			return;
 		}
 
+		if(gFolderDisplay.selectedCount < 1) {
+			return ;
+		}
 		var typeMsg = "";
 
 		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
@@ -410,7 +415,7 @@ var printingtools = {
 		//console.log(options)
 
 		console.log(document.window)
-		console.log(printingtools.msgUris[0])
+		//console.log(printingtools.msgUris[0])
 		//console.log()
 
 		await this.PrintSelectedMessages(options);
@@ -1766,11 +1771,20 @@ var printingtools = {
 					options.hour12 = false;
 				}
 				formatted_date = new Intl.DateTimeFormat('default', options).format(date_obj);
-			}
-			else
+			} else if (longFormat === 2) {
 				var formatted_date = date_obj.toUTCString();
+			} else if (longFormat === 3) {
+				let customDateFormat = printingtools.prefs.getCharPref("extensions.printingtoolsng.date.custom_format"); 
+				var formatted_date = strftime.strftime(customDateFormat, date_obj)
+				
+			} else {
+				var formatted_date = date_obj.toUTCString();
+			}
 		}
-		catch (e) { }
+		catch (e) { 
+			console.log(e)
+		}
+		console.log(formatted_date)
 		return formatted_date;
 	},
 
@@ -1781,6 +1795,7 @@ var printingtools = {
 		if (!table || !printingtools.hdr)
 			return;
 		var longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
+		console.log(longFormat)
 		var formatted_date = printingtools.formatDate((printingtools.hdr.dateInSeconds * 1000), longFormat);
 		if (!formatted_date)
 			return;

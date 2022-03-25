@@ -122,7 +122,8 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			break;
 		case "openHelp":
 			console.log("help")
-			browser.windows.create({url: "test.html", type: "panel"})
+			browser.windows.create({url: "chrome/content/help/locale/en-US/printingtoolsng-help.html", type: "panel"})
+			//browser.windows.create({url: "test.html", type: "panel"})
 			return "help";
 	}
 });

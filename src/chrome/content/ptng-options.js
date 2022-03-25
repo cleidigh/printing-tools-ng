@@ -33,12 +33,17 @@ function setComplexPref(pref, value) {
 	}
 }
 
+async function loadHelp(bmark) {
+	console.log("help load")
+	t = await window.opener.ptngAddon.notifyTools.notifyBackground({ command: "openHelp" });
+}
+
 async function  initPMDpanel() {
 
 	// cleidigh
 	console.debug('initialize panel');
 
-	//t = await window.opener.ptngAddon.notifyTools.notifyBackground({ command: "openHelp" });
+	
 	// console.debug(window.arguments);
 
 	
@@ -141,6 +146,8 @@ async function  initPMDpanel() {
 	document.getElementById("PMDtruncate").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.truncate");
 	document.getElementById("alignHeaders").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.align");
 	document.getElementById("dateLongRG").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
+
+	document.getElementById("customDate").value = prefs.getCharPref("extensions.printingtoolsng.date.custom_format");
 
 	var max_pre_len = prefs.getIntPref("extensions.printingtoolsng.pre_max_length");
 	if (max_pre_len > 0) {
@@ -414,6 +421,7 @@ function savePMDprefs() {
 
 	prefs.setIntPref("extensions.printingtoolsng.date.long_format_type", document.getElementById("dateLongRG").selectedIndex);
 
+	prefs.setCharPref("extensions.printingtoolsng.date.custom_format", document.getElementById("customDate").value);	
 	var size = document.getElementById("citeSize").selectedItem.id.replace("s", "");
 	prefs.setIntPref("extensions.printingtoolsng.cite.size", size);
 	prefs.setCharPref("extensions.printingtoolsng.cite.color", document.getElementById("citeColor").value);
