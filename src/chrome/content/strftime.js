@@ -13,7 +13,7 @@
 var EXPORTED_SYMBOLS = ["strftime"];
 
 var strftime = {
-  strftime: function (sFormat, date) {
+  strftime: function (sFormat, date, locale) {
 
     if (date === undefined) {
       date = new Date();
@@ -28,8 +28,31 @@ var strftime = {
       nYear = date.getFullYear(),
       nHour = date.getHours(),
 
-      aDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-      aMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+      getDayNames = function (locale = 'en', format = 'long') {
+        const formatter = new Intl.DateTimeFormat(locale, { weekday: format, timeZone: 'UTC' });
+        const days = [1, 2, 3, 4, 5, 6, 7].map(day => {
+          const dd = day < 10 ? `0${day}` : day;
+          return new Date(`2017-01-${dd}T00:00:00+00:00`);
+        });
+        return days.map(date => formatter.format(date));
+      },
+
+       getMonthNames = function (locale = 'en', format = 'long') {
+        const formatter = new Intl.DateTimeFormat(locale, { month: format, timeZone: 'UTC' });
+        const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(month => {
+          const mm = month < 10 ? `0${month}` : month;
+          return new Date(`2017-${mm}-01T00:00:00+00:00`);
+        });
+        return months.map(date => formatter.format(date));
+      },
+      
+
+  
+      aDays = getDayNames(locale, 'long'),
+      aDaysShort = getDayNames(locale, 'short'),
+      aMonths = getMonthNames(locale,'long'),
+      aMonthsShort = getMonthNames(locale,'short'),
+      //aMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       aDayCount = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334],
       isLeapYear = function () {
         return (nYear % 4 === 0 && nYear % 100 !== 0) || nYear % 400 === 0;
@@ -43,11 +66,13 @@ var strftime = {
         return ((Math.pow(10, nPad) + nNum) + '').slice(1);
       };
 
+
+      
     return sFormat.replace(/%[a-z]/gi, function (sMatch) {
       return (({
-        '%a': aDays[nDay].slice(0, 3),
+        '%a': aDaysShort[nDay],
         '%A': aDays[nDay],
-        '%b': aMonths[nMonth].slice(0, 3),
+        '%b': aMonthsShort[nMonth],
         '%B': aMonths[nMonth],
         '%c': date.toUTCString(),
         '%C': Math.floor(nYear / 100),
@@ -84,7 +109,7 @@ var strftime = {
         '%Y': nYear,
         '%z': date.toTimeString().replace(/.+GMT([+-]\d+).+/, '$1'),
         '%Z': date.toTimeString().replace(/.+\((.+?)\)$/, '$1'),
-        '%t': date.toLocaleDateString([], {timeZoneName: 'short', day: '2-digit'}).slice(3),
+        '%t': date.toLocaleDateString(locale, {timeZoneName: 'short', day: '2-digit'}).slice(3),
       }[sMatch] || '') + '') || sMatch;
     });
   },

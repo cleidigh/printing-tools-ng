@@ -1775,7 +1775,8 @@ var printingtools = {
 				var formatted_date = date_obj.toUTCString();
 			} else if (longFormat === 3) {
 				let customDateFormat = printingtools.prefs.getCharPref("extensions.printingtoolsng.date.custom_format"); 
-				var formatted_date = strftime.strftime(customDateFormat, date_obj)
+				let locale = Services.locale.appLocaleAsBCP47;
+				var formatted_date = strftime.strftime(customDateFormat, date_obj, locale);
 				
 			} else {
 				var formatted_date = date_obj.toUTCString();
