@@ -204,9 +204,9 @@ async function translateHelpPage() {
 
 	localeFolders = supportedLocales;
 	// console.debug(localeFolders);
-	var helpLocaleDir = "./src/chrome/content/mboximport/help/locale";
-	var helpPage = "./src/chrome/content/mboximport/help/locale/en-US/importexport-help.html";
-	var helpBase = "importexport-help";
+	var helpLocaleDir = "./src/chrome/content/help/locale";
+	var helpPage = "./src/chrome/content/help/locale/en-US/importexport-help.html";
+	var helpBase = "printingtoolsng-help";
 	var source = fs.readFileSync(helpPage, { encoding: 'utf8' });
 
 	for (let i = 0; i < localeFolders.length; i++) {
@@ -466,9 +466,9 @@ localeFolders = ['zh-TW'];
 //localeFile = "settings.json";
 // t();
 // translateHelpPage();
-// translatePage();
+translatePage();
 // translateAll("printingtoolsng.properties", translationArray, options);
 //translateAll(inputFiles, translationArray, options);
-// translateAll("mboximport.dtd", translationArray, options);
-loadTranslationArray(inputFiles, options);
+//translateAll("mboximport.dtd", translationArray, options);
+//loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];
