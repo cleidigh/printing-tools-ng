@@ -122,7 +122,19 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			break;
 		case "openHelp":
 			console.log("help")
-			browser.windows.create({url: "chrome/content/help/locale/en-US/printingtoolsng-help.html", type: "panel"})
+			console.log(info)
+			var locale = info.locale;
+
+			try {
+				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel"})
+			} catch {
+				try {
+				locale = locale.Split('-')[0];
+				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel"})
+				} catch {
+					browser.windows.create({url: `chrome/content/help/locale/en-US/printingtoolsng-help.html`, type: "panel"})	
+				}
+			}
 			//browser.windows.create({url: "test.html", type: "panel"})
 			return "help";
 	}

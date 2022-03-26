@@ -194,18 +194,19 @@ async function translateHelpPage() {
 	
 	// var supportedLocales = ['ca', 'da', 'de', 'en-US', 'es-ES', 'fr', 'gl-ES', 'hu-HU', 'hy-AM'];
 
-	var supportedLocales = ['it', 'ja', 'ko-KR', 'nl', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'zh-CN', 'el'];
+	//var supportedLocales = ['it', 'ja', 'ko-KR', 'nl', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'zh-CN', 'el'];
 
+	var supportedLocales = ['de-DE']
 	//  const supportedLocales2 = ['pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE' ];
 	// supportedLocales = ['es-ES'];
 	// supportedLocales = ['el', 'gl-ES', 'hu-HU', 'hy-AM',
 	// 'sk-SK', 'sl-SI', 'sv-SE', 'el'];
 
 
-	localeFolders = supportedLocales;
+	//localeFolders = supportedLocales;
 	// console.debug(localeFolders);
 	var helpLocaleDir = "./src/chrome/content/help/locale";
-	var helpPage = "./src/chrome/content/help/locale/en-US/importexport-help.html";
+	var helpPage = "./src/chrome/content/help/locale/en-US/printingtoolsng-help.html";
 	var helpBase = "printingtoolsng-help";
 	var source = fs.readFileSync(helpPage, { encoding: 'utf8' });
 
@@ -449,8 +450,8 @@ let inputFiles = ["messages.json"];
 // 						'el', 'pl', 'da', 'pt-PT'];
 
 // printingtools
-//var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-//'hy-AM', 'it-IT', 'ja-JP', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN'];
+var localeFolders = ['ca', 'da-DK', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+'hy-AM', 'it-IT', 'ja-JP', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 
 // localeFolders = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
@@ -459,14 +460,14 @@ let inputFiles = ["messages.json"];
 // var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
 // 	'sk-SK', 'sl-SI', 'sv-SE'];
 
-localeFolders = ['zh-TW'];
+//localeFolders = ['zh-TW'];
 
 
 // localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];
 //localeFile = "settings.json";
 // t();
-// translateHelpPage();
-translatePage();
+translateHelpPage();
+//translatePage();
 // translateAll("printingtoolsng.properties", translationArray, options);
 //translateAll(inputFiles, translationArray, options);
 //translateAll("mboximport.dtd", translationArray, options);
