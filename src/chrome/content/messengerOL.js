@@ -30,6 +30,7 @@ function onLoad() {
 	WL.injectElements(`
 <keyset id="mailKeys">
 	<key replaceattributes="key_print" command="" oncommand="printingtools.cmd_printng();"/>
+	<key insertafter="key_print" key="P" modifiers ="control, shift" command="" oncommand="openPTdialog(false);"/>
 </keyset>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
