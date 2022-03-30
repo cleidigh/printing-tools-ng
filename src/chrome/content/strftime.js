@@ -109,7 +109,7 @@ var strftime = {
         '%Y': nYear,
         '%z': date.toTimeString().replace(/.+GMT([+-]\d+).+/, '$1'),
         '%Z': date.toTimeString().replace(/.+\((.+?)\)$/, '$1'),
-        '%t': date.toLocaleDateString(locale, {timeZoneName: 'short', day: '2-digit'}).slice(3),
+        '%t': date.toLocaleDateString([], {timeZoneName: 'short', day: '2-digit'}).slice(3),
       }[sMatch] || '') + '') || sMatch;
     });
   },

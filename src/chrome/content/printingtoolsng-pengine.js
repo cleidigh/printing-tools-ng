@@ -64,10 +64,16 @@ var printingtools = {
 				var ht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
 
 				var ht1c = ht1.cloneNode(true)
-				var ht2c = ht2.cloneNode(true)
-
 				ht1c.classList.add("orig")
-				ht2c.classList.add("orig")
+
+				if (ht2) {
+					var ht2c = ht2.cloneNode(true);
+					var ht2c = ht2.cloneNode(true)
+				}
+
+
+
+
 
 				//console.log(tb)
 				await printingtools.reformatLayout();
@@ -152,10 +158,11 @@ var printingtools = {
 					//tp.appendChild(tb)
 
 					mht1.remove();
-					mht2.remove();
 
-					var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
-					var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
+					if (mht2) {
+						mht2.remove();
+					}
+
 					var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
 					if (th) {
 						th.remove();
@@ -168,7 +175,9 @@ var printingtools = {
 					console.log("after remove ")
 					console.log(printingtools.doc.documentElement.outerHTML);
 
-					body_elem.prepend(ht2c);
+					if (ht2c) {
+						body_elem.prepend(ht2c);
+					}
 					body_elem.prepend(ht1c);
 
 					printingtools.showAttatchmentBodyTable();
@@ -207,7 +216,7 @@ var printingtools = {
 				let uri = gFolderDisplay.selectedMessageUris[0];
 
 				console.log("Msg URI: " + uri)
-				if(!uri) {
+				if (!uri) {
 					return;
 				}
 				let messageService = messenger.messageServiceFromURI(uri);
@@ -276,8 +285,8 @@ var printingtools = {
 			return;
 		}
 
-		if(gFolderDisplay.selectedCount < 1) {
-			return ;
+		if (gFolderDisplay.selectedCount < 1) {
+			return;
 		}
 		var typeMsg = "";
 
@@ -448,6 +457,89 @@ var printingtools = {
 
 	},
 
+	sanitizeHeaders: function () {
+
+		console.log(printingtools.doc.documentElement.outerHTML);
+
+		var bundle;
+		console.log(Services.locale.appLocaleAsBCP47)
+		if (Services.locale.appLocaleAsBCP47 === "ja") {
+			bundle = printingtoolstrBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
+		} else if (Services.locale.appLocaleAsBCP47 === "zh-CN") {
+			console.log("cn loc")
+			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
+		} else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+			console.log("tw loc")
+			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh-tw.properties");
+		} else {
+			bundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/mime.properties");
+		}
+
+		var dateLocalized = bundle.GetStringFromID(1007);
+		var toLocalized = bundle.GetStringFromID(1012);
+
+		var regExp = new RegExp("(\\w*)\\s*:");
+		var table0 = printingtools.getTable(0);
+		var trs0 = [...table0.getElementsByTagName("TR")];
+
+		t0hdrs = trs0.map(tr => {
+			let hdr = tr.firstChild.firstChild.textContent.match(regExp)[1];
+			let hdrVal = tr.firstChild.firstChild.nextSibling.textContent;
+			return { hdr: hdr, hdrVal: hdrVal }
+		});
+		console.log(t0hdrs)
+
+		let dateHdr = t0hdrs.find(h => h.hdr == dateLocalized);
+		console.log(dateHdr)
+
+		if (!dateHdr) {
+			printingtools.addHdr(dateLocalized, new Date().toLocaleString(), trs0[0].parentNode), true;
+		}
+
+		var table1 = printingtools.getTable(1);
+		if (!table1) {
+			return;
+		}
+
+		var trs1 = [...table1.getElementsByTagName("TR")];
+
+		t1hdrs = trs1.map(tr => {
+			let hdr = tr.firstChild.firstChild.textContent.match(regExp)[1];
+			let hdrVal = tr.firstChild.firstChild.nextSibling.textContent;
+			return { hdr: hdr, hdrVal: hdrVal }
+		});
+
+		console.log(t1hdrs)
+		let toHdr = t1hdrs.find(h => h.hdr == toLocalized);
+		console.log(toHdr)
+
+		if (!toHdr) {
+			printingtools.addHdr(toLocalized, "empty", trs1[0].parentNode), true;
+		}
+
+
+		return
+
+	},
+
+	addHdr(hdrName, hdrVal, parent, hide) {
+
+		var dummyHdr = printingtools.previewDoc.createElement("TR");
+		var dummyHdrTD = printingtools.previewDoc.createElement("TD");
+		var dummyHdrDIV = printingtools.previewDoc.createElement("DIV");
+
+		dummyHdrDIV.classList.add("moz-header-display-name");
+		dummyHdrDIV.innerText = hdrName + ":";
+
+		dummyHdrTD.appendChild(dummyHdrDIV);
+		var t = printingtools.previewDoc.createTextNode(hdrVal);
+		dummyHdrTD.appendChild(t)
+		dummyHdr.appendChild(dummyHdrTD);
+		dummyHdr.classList.add("ptng-hide-dummyhdr");
+		parent.appendChild(dummyHdr);
+
+	},
+
 	getIndexForHeader: function (string) {
 		var order = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order");
 		var hdrs = order.split(",");
@@ -584,12 +676,15 @@ var printingtools = {
 			regExp = new RegExp(date + "\\s*:");
 			if (divHTML.match(regExp)) {
 				index = printingtools.getIndexForHeader("%d");
-				if (index & 0x100) {
+				if (index & 0x100 || trs[i].classList.contains("ptng-hide-dummyhdr")) {
 					arr[index &= ~0x100] = trs[i];
 					arr[index &= ~0x100].style.display = "none";
+					printingtools.dateTRpos = index &= ~0x100;
+					console.log("datepos" + index)
 				} else {
 					arr[index] = trs[i];
 					printingtools.dateTRpos = index;
+					console.log("datepos" + index)
 				}
 				// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML} index ${printingtools.dateTRpos}`);
@@ -752,7 +847,7 @@ var printingtools = {
 		let bccIndex = index &= ~0x100;
 
 		// Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
-
+		console.log("datepos " + printingtools.dateTRpos)
 		let tempPos = printingtools.dateTRpos;
 		if (!ccPresent && ccIndex < printingtools.dateTRpos) {
 			// printingtools.dateTRpos--;
@@ -980,11 +1075,22 @@ var printingtools = {
 				let str_message = await IOUtils.readUTF8(f, { bytes: 3000 })
 
 				str_message = str_message.toLowerCase();
-				var dateOrig = str_message.split("\ndate:")[1].split("\n")[0];
+
+				// Handle absent Date hdr #109
+				try {
+					var dateOrig = str_message.split("\ndate:")[1].split("\n")[0];
+					console.log("try date " + dateOrig)
+				} catch {
+					var dateOrig = new Date().toLocaleString();
+					console.log("ca date " + dateOrig)
+				}
+
+				console.log("fin date " + dateOrig)
 				dateOrig = dateOrig.replace(/ +$/, "");
 				dateOrig = dateOrig.replace(/^ +/, "");
 				var secs = Date.parse(dateOrig) / 1000;
 				dummy.dateInSeconds = secs;
+				dummy.dateReceived = secs;
 				printingtools.hdr = dummy;
 
 				console.log(str_message)
@@ -1017,6 +1123,9 @@ var printingtools = {
 			//Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 			return;
 		}
+
+		printingtools.sanitizeHeaders();
+		console.log(printingtools.doc.documentElement.outerHTML);
 
 		await printingtools.addAttTable(printingtools.attList);
 
@@ -1223,43 +1332,47 @@ var printingtools = {
 			}
 
 			let md = printingtools.getMail3Pane();
-			var tw = printingtools.doc.createElement("TABLE");
-			// var tw = md.document.createElement("TABLE");
-			tw.style.fontFamily = table1.style.fontFamily;
-			tw.style.fontSize = table1.style.fontSize;
 
-			trs = table1.getElementsByTagName("tr");
-			for (var i = 0; i < trs.length; i++) {
-				let trw = printingtools.doc.createElement("TR");
-				// let trw = md.document.createElement("TR");
-				trw.style.display = trs[i].style.display;
-				trs[i].firstChild.style.paddingLeft = "6px";
-				// trw.appendChild(trs[i].firstChild.cloneNode(true));
-				trw.innerHTML = trs[i].firstChild.outerHTML;
-				tw.appendChild(trw);
+			if (0) {
+
+				var tw = printingtools.doc.createElement("TABLE");
+				// var tw = md.document.createElement("TABLE");
+				tw.style.fontFamily = table1.style.fontFamily;
+				tw.style.fontSize = table1.style.fontSize;
+
+				trs = table1.getElementsByTagName("tr");
+				for (var i = 0; i < trs.length; i++) {
+					let trw = printingtools.doc.createElement("TR");
+					// let trw = md.document.createElement("TR");
+					trw.style.display = trs[i].style.display;
+					trs[i].firstChild.style.paddingLeft = "6px";
+					// trw.appendChild(trs[i].firstChild.cloneNode(true));
+					trw.innerHTML = trs[i].firstChild.outerHTML;
+					tw.appendChild(trw);
+				}
+				// tw.style.height = 0;
+
+				tw.setAttribute("border", "1px solid black");
+				tw.setAttribute("border-collapse", "collapse");
+				tw.setAttribute("cellspacing", "0");
+				// md.document.body.appendChild(tw);
+
+				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
+					var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
+					var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
+					tw.style.fontFamily = mFamily;
+					tw.style.fontSize = mSize;
+				}
+
+				if (!table3) {
+					printingtools.insertAfter(tw, table2);
+					var maxHdrWidth = table2.nextSibling.getBoundingClientRect().width;
+
+				} else {
+					printingtools.insertAfter(tw, table3);
+				}
+
 			}
-			// tw.style.height = 0;
-
-			tw.setAttribute("border", "1px solid black");
-			tw.setAttribute("border-collapse", "collapse");
-			tw.setAttribute("cellspacing", "0");
-			// md.document.body.appendChild(tw);
-
-			if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
-				var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
-				var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
-				tw.style.fontFamily = mFamily;
-				tw.style.fontSize = mSize;
-			}
-
-			if (!table3) {
-				printingtools.insertAfter(tw, table2);
-				var maxHdrWidth = table2.nextSibling.getBoundingClientRect().width;
-
-			} else {
-				printingtools.insertAfter(tw, table3);
-			}
-
 			maxHdrWidth = 100;
 
 			for (var i = 0; i < trs.length; i++) {
@@ -1268,7 +1381,7 @@ var printingtools = {
 
 			}
 
-			tw.remove();
+			//tw.remove();
 			// console.debug('after she has a scalable');
 			// console.debug(tw.clientWidth);
 
@@ -1277,8 +1390,10 @@ var printingtools = {
 		// table1.setAttribute("width", "100%");
 		table1.style.tableLayout = "fixed";
 		table1.style.marginRight = "10px";
-		table2.style.display = "none";
 
+		if (table2) {
+			table2.style.display = "none";
+		}
 
 		var backgroundColor = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.background.color");
 		if (!printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color")) {
@@ -1774,15 +1889,15 @@ var printingtools = {
 			} else if (longFormat === 2) {
 				var formatted_date = date_obj.toUTCString();
 			} else if (longFormat === 3) {
-				let customDateFormat = printingtools.prefs.getCharPref("extensions.printingtoolsng.date.custom_format"); 
+				let customDateFormat = printingtools.prefs.getCharPref("extensions.printingtoolsng.date.custom_format");
 				let locale = Services.locale.appLocaleAsBCP47;
 				var formatted_date = strftime.strftime(customDateFormat, date_obj, locale);
-				
+
 			} else {
 				var formatted_date = date_obj.toUTCString();
 			}
 		}
-		catch (e) { 
+		catch (e) {
 			console.log(e)
 		}
 		console.log(formatted_date)
@@ -1816,8 +1931,13 @@ var printingtools = {
 
 	appendReceivedTD: function () {
 		if (printingtools.hdr) {
+			try {
 			var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
-			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
+			} catch{
+				var formatted_date = printingtools.formatDate((printingtools.hdr.dateReceived * 1000), null);
+			}
+
+				var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 			var headtable1 = printingtools.getTable(0);
 			var newTR = printingtools.doc.createElement("TR");
 			newTR.setAttribute("id", "recTR");
@@ -1828,7 +1948,7 @@ var printingtools = {
 
 			// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
 			if (headtable1 && headtable1.lastChild) {
-				// Services.console.logStringMessage("printingtools: rd " + printingtools.dateTRpos);
+				Services.console.logStringMessage("printingtools: rd " + printingtools.dateTRpos);
 				// Services.console.logStringMessage([...headtable1.lastChild.getElementsByTagName("TR")]);
 				var dateTR = headtable1.lastChild.getElementsByTagName("TR")[printingtools.dateTRpos];
 
