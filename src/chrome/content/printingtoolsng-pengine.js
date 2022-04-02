@@ -478,7 +478,7 @@ var printingtools = {
 		var dateLocalized = bundle.GetStringFromID(1007);
 		var toLocalized = bundle.GetStringFromID(1012);
 
-		var regExp = new RegExp("(\\w*)\\s*:");
+		var regExp = new RegExp("(\\p{L}*)\\s*:",'u');
 		var table0 = printingtools.getTable(0);
 		var trs0 = [...table0.getElementsByTagName("TR")];
 
@@ -1889,7 +1889,7 @@ var printingtools = {
 			} else if (longFormat === 2) {
 				var formatted_date = date_obj.toUTCString();
 			} else if (longFormat === 3) {
-				let customDateFormat = printingtools.prefs.getCharPref("extensions.printingtoolsng.date.custom_format");
+				let customDateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
 				let locale = Services.locale.appLocaleAsBCP47;
 				var formatted_date = strftime.strftime(customDateFormat, date_obj, locale);
 
