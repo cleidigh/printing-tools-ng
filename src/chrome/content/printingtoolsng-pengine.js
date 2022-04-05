@@ -7,6 +7,69 @@ var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime
 
 console.log("PTNG: Engine loaded")
 
+dtest();
+
+function dtest() {
+
+
+console.log(navigator.language)
+console.log(navigator.languages)
+console.log(Services.locale.appLocaleAsBCP47)
+
+strftime.testOptions();
+strftime.getDayNames2('en-US','short', 1)
+strftime.getDayNames2('zh-CN','short', 1)
+strftime.getDayNames2('zh-TW','short', 1)
+strftime.getDayNames2('de-DE','short', 1)
+strftime.getDayNames2('ja','short', 1)
+strftime.getDayNames2('default','short', 1)
+let dt = new Date();
+
+var formatter = new Intl.DateTimeFormat('default', {dateStyle:'short' });
+console.log(formatter.format(dt))
+
+formatter = new Intl.DateTimeFormat('zh-CN', {dateStyle:'medium' });
+console.log(formatter.format(dt))
+
+formatter = new Intl.DateTimeFormat('zh-CN', {dateStyle:'long' });
+console.log(formatter.format(dt))
+
+formatter = new Intl.DateTimeFormat('zh-CN', {dateStyle:'medium' });
+console.log(formatter.format(dt))
+
+console.log("cn full")
+formatter = new Intl.DateTimeFormat('zh-CN', {dateStyle:'full' });
+console.log(formatter.format(dt))
+
+formatter.formatToParts(dt).map(p => console.log(p))
+//console.log([...])
+
+options = {
+	weekday: 'short',
+	year: 'numeric', month: 'short',
+	hour: 'numeric', minute: 'numeric', day: 'numeric',
+	timeZoneName: 'short'
+};
+
+console.log(" op1")
+formatter = new Intl.DateTimeFormat('zh-CN', options);
+formatter.formatToParts(dt).map(p => console.log(p))
+
+options.timeZoneName ='long'
+
+console.log(" op2")
+formatter = new Intl.DateTimeFormat('zh-CN', options);
+formatter.formatToParts(dt).map(p => console.log(p))
+
+console.log(" op2 def")
+formatter = new Intl.DateTimeFormat('default', options);
+formatter.formatToParts(dt).map(p => console.log(p))
+
+
+console.log( strftime.strftime('%a %t', new Date(),'zh-CN'))
+
+}
+
 function ReplaceWithSelection() {
 	// disables the native function in TB 3.1, that prints
 	// selection without headers

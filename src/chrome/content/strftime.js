@@ -49,7 +49,7 @@ var strftime = {
 
   
       aDays = getDayNames(locale, 'long'),
-      aDaysShort = getDayNames(locale, 'short'),
+      aDaysShort = this.getDayNames2(locale, 'short'),
       aMonths = getMonthNames(locale,'long'),
       aMonthsShort = getMonthNames(locale,'short'),
       //aMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -113,4 +113,26 @@ var strftime = {
       }[sMatch] || '') + '') || sMatch;
     });
   },
+
+  testOptions: function () {
+    console.log("test");
+
+  },
+
+  getDayNames2: function (locale = 'en', format = 'long', dbg) {
+    const formatter = new Intl.DateTimeFormat(locale, { weekday: format, timeZone: 'UTC' });
+    const days = [1, 2, 3, 4, 5, 6, 7].map(day => {
+      const dd = day < 10 ? `0${day}` : day;
+      return new Date(`2017-01-${dd}T00:00:00+00:00`);
+    });
+    let ds = days.map(date => formatter.format(date));
+    if(dbg) {
+      console.log(`loc: ${locale}: fmt: ${format} ::`)
+      console.log(ds)
+      console.log(" ")
+    }
+    
+    return days.map(date => formatter.format(date));
+  },
+
 };
