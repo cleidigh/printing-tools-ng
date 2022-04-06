@@ -17,12 +17,12 @@ console.log(navigator.languages)
 console.log(Services.locale.appLocaleAsBCP47)
 
 strftime.testOptions();
-strftime.getDayNames2('en-US','short', 1)
-strftime.getDayNames2('zh-CN','short', 1)
-strftime.getDayNames2('zh-TW','short', 1)
-strftime.getDayNames2('de-DE','short', 1)
-strftime.getDayNames2('ja','short', 1)
-strftime.getDayNames2('default','short', 1)
+strftime.getDayNames('en-US','short', 1)
+strftime.getDayNames('zh-CN','short', 1)
+strftime.getDayNames('zh-TW','short', 1)
+strftime.getDayNames('de-DE','short', 1)
+strftime.getDayNames('ja','short', 1)
+strftime.getDayNames('default','short', 1)
 let dt = new Date();
 
 var formatter = new Intl.DateTimeFormat('default', {dateStyle:'short' });
@@ -38,7 +38,7 @@ formatter = new Intl.DateTimeFormat('zh-CN', {dateStyle:'medium' });
 console.log(formatter.format(dt))
 
 console.log("cn full")
-formatter = new Intl.DateTimeFormat('zh-CN', {dateStyle:'full' });
+formatter = new Intl.DateTimeFormat('zh-TW', {dateStyle:'full' });
 console.log(formatter.format(dt))
 
 formatter.formatToParts(dt).map(p => console.log(p))
@@ -52,7 +52,7 @@ options = {
 };
 
 console.log(" op1")
-formatter = new Intl.DateTimeFormat('zh-CN', options);
+formatter = new Intl.DateTimeFormat('ko', options);
 formatter.formatToParts(dt).map(p => console.log(p))
 
 options.timeZoneName ='long'
@@ -566,11 +566,19 @@ var printingtools = {
 
 		var trs1 = [...table1.getElementsByTagName("TR")];
 
+		
 		t1hdrs = trs1.map(tr => {
 			let hdr = tr.firstChild.firstChild.textContent.match(regExp)[1];
 			let hdrVal = tr.firstChild.firstChild.nextSibling.textContent;
 			return { hdr: hdr, hdrVal: hdrVal }
 		});
+
+		if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+			if ( t1hdrs.find(h => h.hdr == '到')) {
+				trs1[0].firstChild.firstChild.textContent = toLocalized + ':';
+				t1hdrs[0].hdr = toLocalized;
+			}
+		}
 
 		console.log(t1hdrs)
 		let toHdr = t1hdrs.find(h => h.hdr == toLocalized);

@@ -27,31 +27,10 @@ var strftime = {
       nMonth = date.getMonth(),
       nYear = date.getFullYear(),
       nHour = date.getHours(),
-
-      getDayNames = function (locale = 'en', format = 'long') {
-        const formatter = new Intl.DateTimeFormat(locale, { weekday: format, timeZone: 'UTC' });
-        const days = [1, 2, 3, 4, 5, 6, 7].map(day => {
-          const dd = day < 10 ? `0${day}` : day;
-          return new Date(`2017-01-${dd}T00:00:00+00:00`);
-        });
-        return days.map(date => formatter.format(date));
-      },
-
-       getMonthNames = function (locale = 'en', format = 'long') {
-        const formatter = new Intl.DateTimeFormat(locale, { month: format, timeZone: 'UTC' });
-        const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(month => {
-          const mm = month < 10 ? `0${month}` : month;
-          return new Date(`2017-${mm}-01T00:00:00+00:00`);
-        });
-        return months.map(date => formatter.format(date));
-      },
-      
-
-  
-      aDays = getDayNames(locale, 'long'),
-      aDaysShort = this.getDayNames2(locale, 'short'),
-      aMonths = getMonthNames(locale,'long'),
-      aMonthsShort = getMonthNames(locale,'short'),
+      aDays = this.getDayNames(locale, 'long'),
+      aDaysShort = this.getDayNames(locale, 'short'),
+      aMonths = this.getMonthNames(locale, 'long'),
+      aMonthsShort = this.getMonthNames(locale, 'short'),
       //aMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       aDayCount = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334],
       isLeapYear = function () {
@@ -67,8 +46,8 @@ var strftime = {
       };
 
 
-      
-    return sFormat.replace(/%[a-z]/gi, function (sMatch) {
+
+    return sFormat.replace(/%[a-z0-9]/gi, function (sMatch) {
       return (({
         '%a': aDaysShort[nDay],
         '%A': aDays[nDay],
@@ -109,7 +88,10 @@ var strftime = {
         '%Y': nYear,
         '%z': date.toTimeString().replace(/.+GMT([+-]\d+).+/, '$1'),
         '%Z': date.toTimeString().replace(/.+\((.+?)\)$/, '$1'),
-        '%t': date.toLocaleDateString([], {timeZoneName: 'short', day: '2-digit'}).slice(3),
+        '%t': date.toLocaleDateString([], { timeZoneName: 'short', day: '2-digit' }).slice(3),
+        '%0': strftime.getLiteral(date, locale, 0),
+        '%1': strftime.getLiteral(date, locale, 1),
+        '%2': strftime.getLiteral(date, locale, 2),
       }[sMatch] || '') + '') || sMatch;
     });
   },
@@ -119,20 +101,52 @@ var strftime = {
 
   },
 
-  getDayNames2: function (locale = 'en', format = 'long', dbg) {
+  getLiteral: function (date, locale, literal) {
+    let options = {
+      year: 'numeric', month: 'short',
+      day: 'numeric',
+    
+    };
+    var formatter = new Intl.DateTimeFormat(locale, options);
+    var l = formatter.formatToParts(date);
+    //console.log(l)
+    //console.log(l[0].type)
+    //console.log(l[3].value)
+    if (l[0].type == 'year') {
+      return l[literal*2 + 1].value
+    } else {
+      console.log(l[1].value)
+      return l[3].value
+    }
+    
+
+    return l[1].value
+  },
+
+  getDayNames: function (locale = 'en', format = 'long', dbg) {
     const formatter = new Intl.DateTimeFormat(locale, { weekday: format, timeZone: 'UTC' });
     const days = [1, 2, 3, 4, 5, 6, 7].map(day => {
       const dd = day < 10 ? `0${day}` : day;
       return new Date(`2017-01-${dd}T00:00:00+00:00`);
     });
     let ds = days.map(date => formatter.format(date));
-    if(dbg) {
+    if (dbg) {
       console.log(`loc: ${locale}: fmt: ${format} ::`)
       console.log(ds)
       console.log(" ")
     }
-    
+
     return days.map(date => formatter.format(date));
   },
+
+  getMonthNames: function (locale = 'en', format = 'long') {
+    const formatter = new Intl.DateTimeFormat(locale, { month: format, timeZone: 'UTC' });
+    const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(month => {
+      const mm = month < 10 ? `0${month}` : month;
+      return new Date(`2017-${mm}-01T00:00:00+00:00`);
+    });
+    return months.map(date => formatter.format(date));
+  },
+
 
 };
