@@ -68,3 +68,4 @@
 <!ENTITY ptng.label "PrintingTools NG">
 <!ENTITY ptngOptions.label "PrintingTools NG 設定">
 <!ENTITY debugOptions.label "デバッグ設定">
+<!ENTITY date_custom.label "カスタム">

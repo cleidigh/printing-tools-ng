@@ -16,7 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	 { key: "date_custom", text: "Custom"},
+	 { key: "date_custom.label", text: "Custom"},
 
 	
 ];
@@ -421,7 +421,7 @@ var options3 = {
  	outputLocaleDir: "./src/chrome/locale",
  	outputLocaleDirSuffix: "",
  	append: true,
- 	outputFormat: 0,
+ 	outputFormat: 2,
  };
 
 //  files from base locale 
@@ -450,8 +450,8 @@ let inputFiles = ["printingtoolsng.dtd"];
 // 						'el', 'pl', 'da', 'pt-PT'];
 
 // printingtools
-//var localeFolders = ['ca', 'da-DK', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-//'hy-AM', 'it-IT', 'ja-JP', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
+var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+'hy-AM', 'it-IT', 'ja', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 
 // localeFolders = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
@@ -460,7 +460,7 @@ let inputFiles = ["printingtoolsng.dtd"];
 // var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
 // 	'sk-SK', 'sl-SI', 'sv-SE'];
 
-localeFolders = ['zh-TW'];
+//localeFolders = ['zh-TW'];
 
 
 // localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];

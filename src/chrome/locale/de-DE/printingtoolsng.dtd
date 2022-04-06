@@ -68,3 +68,4 @@
 <!ENTITY ptng.label "Druckwerkzeuge NG">
 <!ENTITY ptngOptions.label "Druckwerkzeuge NG Optionen">
 <!ENTITY debugOptions.label "Debug-Optionen">
+<!ENTITY date_custom.label "Benutzerdefiniert">

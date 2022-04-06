@@ -67,3 +67,4 @@
 <!ENTITY ptng.label "Инструменты для печати НГ">
 <!ENTITY ptngOptions.label "ИНСТРУМЕНТЫ ПЕЧАТИ ОПЦИИ">
 <!ENTITY debugOptions.label "Параметры отладки">
+<!ENTITY date_custom.label "Обычай">
