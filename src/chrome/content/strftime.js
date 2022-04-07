@@ -105,7 +105,7 @@ var strftime = {
     let options = {
       year: 'numeric', month: 'short',
       day: 'numeric',
-    
+
     };
     var formatter = new Intl.DateTimeFormat(locale, options);
     var l = formatter.formatToParts(date);
@@ -113,14 +113,26 @@ var strftime = {
     //console.log(l[0].type)
     //console.log(l[3].value)
     if (l[0].type == 'year') {
-      return l[literal*2 + 1].value
-    } else {
-      console.log(l[1].value)
-      return l[3].value
-    }
+      
     
+    switch (locale) {
+      case 'ko':
+        switch (literal) {
+          case 0:
+            return '년';
+          case 1:
+            return '월';
+          case 2:
+            return '일';
+        }
+        default:
+          return l[literal * 2 + 1].value;
+    }
+  }
+  
+    console.log(l[1].value)
+    return '-';
 
-    return l[1].value
   },
 
   getDayNames: function (locale = 'en', format = 'long', dbg) {

@@ -7,7 +7,7 @@ var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime
 
 console.log("PTNG: Engine loaded")
 
-dtest();
+//dtest();
 
 function dtest() {
 
@@ -62,11 +62,14 @@ formatter = new Intl.DateTimeFormat('zh-CN', options);
 formatter.formatToParts(dt).map(p => console.log(p))
 
 console.log(" op2 def")
-formatter = new Intl.DateTimeFormat('default', options);
+formatter = new Intl.DateTimeFormat('ja', options);
 formatter.formatToParts(dt).map(p => console.log(p))
 
 
-console.log( strftime.strftime('%a %t', new Date(),'zh-CN'))
+console.log( strftime.strftime('%a %t   %0  %1  %2', new Date(),'zh-CN'))
+console.log( strftime.strftime('%a %t   %0  %1  %2', new Date(),'zh-TW'))
+console.log( strftime.strftime('%a %t   %0  %1  %2', new Date(),'ko'))
+console.log( strftime.strftime('%a %t   %0  %1  %2', new Date(),'ja'))
 
 }
 
@@ -98,8 +101,8 @@ var printingtools = {
 		printingtools.num = gFolderDisplay.selectedCount;
 
 		console.log(gMessageDisplay.visible)
-		console.log(gFolderDisplay.selectedMessage)
-		console.log(gMessageDisplay.displayedMessage)
+		//console.log(gFolderDisplay.selectedMessage)
+		//console.log(gMessageDisplay.displayedMessage)
 
 		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false) {
 			if (1 &&
@@ -215,7 +218,7 @@ var printingtools = {
 					var mht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
 
 					var body_elem = mht1.parentElement
-					console.log(body_elem)
+					//console.log(body_elem)
 					//console.log(tb)
 					//t.remove()
 					//tp.appendChild(tb)
@@ -267,6 +270,7 @@ var printingtools = {
 					console.log("print sel")
 					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
 				} else {
+					console.log("print no sel")
 					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: false });
 				}
 
@@ -522,17 +526,15 @@ var printingtools = {
 
 	sanitizeHeaders: function () {
 
-		console.log(printingtools.doc.documentElement.outerHTML);
+		//console.log(printingtools.doc.documentElement.outerHTML);
 
 		var bundle;
-		console.log(Services.locale.appLocaleAsBCP47)
+		//console.log(Services.locale.appLocaleAsBCP47)
 		if (Services.locale.appLocaleAsBCP47 === "ja") {
 			bundle = printingtoolstrBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
 		} else if (Services.locale.appLocaleAsBCP47 === "zh-CN") {
-			console.log("cn loc")
 			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
 		} else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
-			console.log("tw loc")
 			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh-tw.properties");
 		} else {
 			bundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/mime.properties");
@@ -550,10 +552,10 @@ var printingtools = {
 			let hdrVal = tr.firstChild.firstChild.nextSibling.textContent;
 			return { hdr: hdr, hdrVal: hdrVal }
 		});
-		console.log(t0hdrs)
+		//console.log(t0hdrs)
 
 		let dateHdr = t0hdrs.find(h => h.hdr == dateLocalized);
-		console.log(dateHdr)
+		//console.log(dateHdr)
 
 		if (!dateHdr) {
 			printingtools.addHdr(dateLocalized, new Date().toLocaleString(), trs0[0].parentNode), true;
@@ -580,9 +582,9 @@ var printingtools = {
 			}
 		}
 
-		console.log(t1hdrs)
+		//console.log(t1hdrs)
 		let toHdr = t1hdrs.find(h => h.hdr == toLocalized);
-		console.log(toHdr)
+		//console.log(toHdr)
 
 		if (!toHdr) {
 			printingtools.addHdr(toLocalized, "empty", trs1[0].parentNode), true;
@@ -623,7 +625,7 @@ var printingtools = {
 				index = j | 0x100;
 			}
 		}
-		console.log("idx " + string + " " + index)
+		//console.log("idx " + string + " " + index)
 		return index;
 	},
 
@@ -751,11 +753,11 @@ var printingtools = {
 					arr[index &= ~0x100] = trs[i];
 					arr[index &= ~0x100].style.display = "none";
 					printingtools.dateTRpos = index &= ~0x100;
-					console.log("datepos" + index)
+					//console.log("datepos" + index)
 				} else {
 					arr[index] = trs[i];
 					printingtools.dateTRpos = index;
-					console.log("datepos" + index)
+					//console.log("datepos" + index)
 				}
 				// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML} index ${printingtools.dateTRpos}`);
@@ -771,24 +773,23 @@ var printingtools = {
 			var bccPresent = false;
 
 			trs = table2.getElementsByTagName("TR");
-			console.log("sort " + Services.locale.appLocaleAsBCP47)
+			//console.log("sort " + Services.locale.appLocaleAsBCP47)
 			for (var i = 0; i < trs.length; i++) {
 				var div = trs[i].firstChild.firstChild;
 				var divHTML = div.innerHTML.replace(/\&nbsp;/g, " ");
 
 				if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
-					console.log("tw")
 					var div = trs[i].firstChild.firstChild;
-					console.log(div.outerHTML)
+					
 					if (divHTML.indexOf(bcc) == 0) {
 						divHTML = bcc + ":";
 						div.innerHTML = divHTML;
-						console.log("rpl bcc " + div.outerHTML)
+						//console.log("rpl bcc " + div.outerHTML)
 					}
 					if (divHTML.indexOf(cc) == 0) {
 						divHTML = cc + ":";
 						div.innerHTML = divHTML;
-						console.log("rpl cc " + div.outerHTML)
+						//console.log("rpl cc " + div.outerHTML)
 					}
 				}
 
@@ -863,14 +864,14 @@ var printingtools = {
 					// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 					continue;
 				}
-				console.log("bcc = " + bcc)
-				console.log(divHTML)
+				//console.log("bcc = " + bcc)
+				//console.log(divHTML)
 				regExp = new RegExp(bcc + ".*:");
 				index = printingtools.getIndexForHeader("%r3");
-				console.log(divHTML.indexOf(bcc))
-				console.log("check bcc")
+				//console.log(divHTML.indexOf(bcc))
+				//console.log("check bcc")
 				if (divHTML.indexOf(bcc) == 0) {
-					Services.console.logStringMessage('bcc');
+					//Services.console.logStringMessage('bcc');
 					bccPresent = true;
 
 					if (index & 0x100) {
@@ -880,15 +881,15 @@ var printingtools = {
 						trs[i].firstChild.classList.add("bccHdr");
 						arr[index] = trs[i];
 					}
-					Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+					//Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 					continue;
 				}
-				console.log("check cc")
+				//console.log("check cc")
 				regExp = new RegExp(cc + ".*:");
 				index = printingtools.getIndexForHeader("%r2");
 				if (divHTML.indexOf(cc) == 0) {
-					Services.console.logStringMessage('cc');
-					Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+					//Services.console.logStringMessage('cc');
+					//Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 					ccPresent = true;
 
 					if (index & 0x100) {
@@ -897,7 +898,7 @@ var printingtools = {
 					} else {
 						arr[index] = trs[i];
 					}
-					Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
+					//Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 					continue;
 				}
 			}
@@ -905,7 +906,7 @@ var printingtools = {
 
 		}
 
-		console.log(arr)
+		//console.log(arr)
 		index = printingtools.getIndexForHeader("%s");
 		let subjectIndex = index &= ~0x100;
 
@@ -917,8 +918,6 @@ var printingtools = {
 		index = printingtools.getIndexForHeader("%r3");
 		let bccIndex = index &= ~0x100;
 
-		// Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
-		console.log("datepos " + printingtools.dateTRpos)
 		let tempPos = printingtools.dateTRpos;
 		if (!ccPresent && ccIndex < printingtools.dateTRpos) {
 			// printingtools.dateTRpos--;
@@ -950,8 +949,8 @@ var printingtools = {
 			//	printingtools.dateTRpos = printingtools.dateTRpos - 1;
 		}
 
-		Services.console.logStringMessage("after sort");
-		Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
+		//Services.console.logStringMessage("after sort");
+		//Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
 	},
 
 	correctABprint: function (gennames) {
@@ -1152,7 +1151,7 @@ var printingtools = {
 					var dateOrig = str_message.split("\ndate:")[1].split("\n")[0];
 					console.log("try date " + dateOrig)
 				} catch {
-					var dateOrig = new Date().toLocaleString();
+					var dateOrig = new Date().toString();
 					console.log("ca date " + dateOrig)
 				}
 
@@ -1164,7 +1163,7 @@ var printingtools = {
 				dummy.dateReceived = secs;
 				printingtools.hdr = dummy;
 
-				console.log(str_message)
+				//console.log(str_message)
 				console.log(dummy)
 
 			}
@@ -1971,18 +1970,18 @@ var printingtools = {
 		catch (e) {
 			console.log(e)
 		}
-		console.log(formatted_date)
+		//console.log(formatted_date)
 		return formatted_date;
 	},
 
 	correctDate: function () {
-		console.log("start date")
+		//console.log("start date")
 		var table = printingtools.getTable(0);
-		console.log(table)
+		//console.log(table)
 		if (!table || !printingtools.hdr)
 			return;
 		var longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
-		console.log(longFormat)
+		
 		var formatted_date = printingtools.formatDate((printingtools.hdr.dateInSeconds * 1000), longFormat);
 		if (!formatted_date)
 			return;
@@ -1991,8 +1990,8 @@ var printingtools = {
 		var tds = table.getElementsByTagName("TD");
 
 		var node = tds[tds.length - 1];
-		console.log(tds)
-		console.log(node)
+		//console.log(tds)
+		//console.log(node)
 
 		if (node) {
 			//var data = node.childNodes[1].nodeValue;
@@ -2019,7 +2018,7 @@ var printingtools = {
 
 			// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
 			if (headtable1 && headtable1.lastChild) {
-				Services.console.logStringMessage("printingtools: rd " + printingtools.dateTRpos);
+				//Services.console.logStringMessage("printingtools: rd " + printingtools.dateTRpos);
 				// Services.console.logStringMessage([...headtable1.lastChild.getElementsByTagName("TR")]);
 				var dateTR = headtable1.lastChild.getElementsByTagName("TR")[printingtools.dateTRpos];
 
