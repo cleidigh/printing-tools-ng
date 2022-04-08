@@ -543,6 +543,8 @@ var printingtools = {
 		var dateLocalized = bundle.GetStringFromID(1007);
 		var toLocalized = bundle.GetStringFromID(1012);
 
+		console.log(toLocalized)
+
 		var regExp = new RegExp("(\\p{L}*)\\s*:",'u');
 		var table0 = printingtools.getTable(0);
 		var trs0 = [...table0.getElementsByTagName("TR")];
@@ -552,7 +554,7 @@ var printingtools = {
 			let hdrVal = tr.firstChild.firstChild.nextSibling.textContent;
 			return { hdr: hdr, hdrVal: hdrVal }
 		});
-		//console.log(t0hdrs)
+		console.log(t0hdrs)
 
 		let dateHdr = t0hdrs.find(h => h.hdr == dateLocalized);
 		//console.log(dateHdr)
@@ -565,10 +567,13 @@ var printingtools = {
 		if (!table1) {
 			return;
 		}
+		console.log(table1.outerHTML)
 
 		var trs1 = [...table1.getElementsByTagName("TR")];
 
-		
+		console.log(trs1)
+		trs1.map(e => console.log(e.outerHTML))
+
 		t1hdrs = trs1.map(tr => {
 			let hdr = tr.firstChild.firstChild.textContent.match(regExp)[1];
 			let hdrVal = tr.firstChild.firstChild.nextSibling.textContent;
@@ -582,11 +587,12 @@ var printingtools = {
 			}
 		}
 
-		//console.log(t1hdrs)
+		console.log(t1hdrs)
 		let toHdr = t1hdrs.find(h => h.hdr == toLocalized);
-		//console.log(toHdr)
+		console.log(toHdr)
 
 		if (!toHdr) {
+			console.log("no to hdr")
 			printingtools.addHdr(toLocalized, "empty", trs1[0].parentNode), true;
 		}
 
@@ -1163,7 +1169,7 @@ var printingtools = {
 				dummy.dateReceived = secs;
 				printingtools.hdr = dummy;
 
-				//console.log(str_message)
+				console.log(str_message)
 				console.log(dummy)
 
 			}
@@ -1183,7 +1189,7 @@ var printingtools = {
 		//console.log(printingtools.doc.body.outerHTML)
 
 		var dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
-		if (dbgopts.indexOf("initialsource") > -1) {
+		if (dbgopts.indexOf("initialsource") > -1 || 1) {
 			console.log("PTNG: initial source:\n");
 			console.log(printingtools.doc.documentElement.outerHTML);
 		}
