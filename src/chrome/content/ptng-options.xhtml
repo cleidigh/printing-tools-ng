@@ -17,19 +17,57 @@
 	<script type="text/javascript"  src="chrome://printingtoolsng/content/modules/List.js" />
 	<tabbox id="ptng-tbox">
 		<tabs>
-			<tab id="miscTab" label="&misc;" />
-			<tab label="&style;" />
-			<tab label="&order;" />
-			<tab label="&PMDcaptionlabel2;" />
+			<tab id="miscTab" label="  &misc;  " />
+			<tab label="  &style;  " />
+			<tab label="  &order;  " />
+			<tab label="  &PMDcaptionlabel2;  " />
 			<!-- <tab id="abTab" label="&PMDcaptionlabel3;" /> -->
 		</tabs>
 		<tabpanels id="tabs">
 			<tabpanel orient="vertical">
-				<groupbox>
+			
+				<html:fieldset>
+				<spacer height="6px" />
 					<caption label="&PMDcaptionlabel;" />
-					<hbox align="center">
-						<checkbox id="useCcBccAlways" label="&useCcBccAlways;" />
+					<hbox padding-left="-8px">
+					
+						<label value="&addNameRG.label;" />
+						<radiogroup orient="horizontal" id="addNameRG">
+							<radio label="&RG1.label;"/>
+							<radio label="&RG2.label;"/>
+							<radio label="" />
+						</radiogroup>
+						<html:input type="text" id="addNameBox" />
 					</hbox>
+					<hbox align="center">
+					<spacer width="5px" />
+						<checkbox id="addFolder" label="&PMDlabel23;" />
+					</hbox>
+					<spacer height="10px" />
+					<hbox align="center">
+					<spacer width="5px" />
+						<checkbox id="PMDhide" label="&PMDlabel4;" />
+					</hbox>
+					<hbox align="center">
+					<spacer width="5px" />
+						<checkbox id="PMDextHide" label="&PMDlabel21;" />
+					</hbox>
+					<hbox align="center">
+					<spacer width="5px" />
+						<checkbox id="alignHeaders" label="&alignHeaders.label;"  />
+					</hbox>
+					<hbox align="center">
+					<spacer width="5px" />
+						<checkbox id="PMDtruncate" label="&PMDlabel5;" />
+						<html:input type="text" id="PMDmaxchars" value="" style="width:40px;" />
+						<label value="&PMDlabel6;" />
+					</hbox>
+					<hbox align="center">
+					<spacer width="5px" />
+						<checkbox id="PREtruncate" label="&maxPreLen;" />
+						<html:input type="text" id="PREmaxchars" value="" style="width:40px;" />
+					</hbox>
+					<spacer height="10px" />
 					<hbox align="center" id="dateLoc">
 						<checkbox id="PMDdate" label="&PMDlabel1;"  oncommand="setTimeout(toggleDate,200)" />
 					</hbox>
@@ -44,11 +82,23 @@
 						</radiogroup>
 						<html:input type="text" id="customDate" size="36" />
 						<hbox class="adjusted-image-height" align="center"  style=" background-color: ;">
-							<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" width="18px" height="18px"  style="margin-left: 5px; margin-top: 0px;  margin-bottom: 0px; background-color: ;"
+							<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" width="20px" height="20px"  style="margin-left: 5px; margin-top: 0px;  margin-bottom: 0px; background-color: ;"
             					    onclick="loadHelp()" tooltiptext="help" />
 						</hbox>
+						<spacer width="5px" />
 					</hbox>
 					<hbox align="center">
+					<spacer width="5px" />
+						<checkbox id="addRdate" label="&addRdate.label;" />
+					</hbox>
+					
+					<hbox align="center">
+					<spacer width="5px" />
+						<checkbox id="useCcBccAlways" label="&useCcBccAlways;" />
+					</hbox>
+					<spacer height="10px" />
+					<hbox align="center">
+					<spacer width="5px" />
 						<checkbox id="PMDattach" label="&PMDlabel2;" oncommand="setTimeout(toggleAtt,200)" />
 					</hbox>
 					<hbox align="center">
@@ -73,64 +123,32 @@
 						</menulist>
 					</hbox>
 					<hbox align="center">
+					<spacer width="5px" />
 						<checkbox id="InlineAttsListhide" label="&HideInlineAttList;" />
 					</hbox>
 					<hbox align="center">
-						<checkbox id="PMDborders" label="&PMDlabel3;. "  />
-						<label value="&borderStyle; (CSS)" />
-						<html:input type="text" id="border_style" value="" style="width:180px;" />
+					<spacer width="5px" />
+						<checkbox id="PMDhideAtt" label="&PMDlabel10;" />
 					</hbox>
+					<spacer height="10px" />
 					<hbox align="center">
-						<checkbox id="PMDhide" label="&PMDlabel4;" />
-					</hbox>
-					<hbox align="center">
-						<checkbox id="PMDextHide" label="&PMDlabel21;" />
-					</hbox>
-					<hbox align="center">
+					<spacer width="5px" />
 						<checkbox id="PMDhideImgs" label="&PMDlabel7;" />
 					</hbox>
 					<hbox align="center">
+					<spacer width="5px" />
 						<checkbox id="resizeImgs" label="&resizeImgs.label;" />
 					</hbox>
-					<hbox align="center">
-						<checkbox id="addRdate" label="&addRdate.label;" />
-					</hbox>
-					<hbox align="center">
-						<checkbox id="PMDtruncate" label="&PMDlabel5;" />
-						<html:input type="text" id="PMDmaxchars" value="" style="width:40px;" />
-						<label value="&PMDlabel6;" />
-					</hbox>
-					<hbox align="center">
-						<checkbox id="PREtruncate" label="&maxPreLen;" />
-						<html:input type="text" id="PREmaxchars" value="" style="width:40px;" />
-					</hbox>
-					<hbox align="center">
-						<checkbox id="PMDhideAtt" label="&PMDlabel10;" />
-					</hbox>
-					<hbox align="center">
-						<label value="&addNameRG.label;" />
-						<radiogroup orient="horizontal" id="addNameRG">
-							<radio label="&RG1.label;"/>
-							<radio label="&RG2.label;"/>
-							<radio label="" />
-						</radiogroup>
-						<html:input type="text" id="addNameBox" />
-					</hbox>
-					<hbox align="center">
-						<checkbox id="addFolder" label="&PMDlabel23;" />
-					</hbox>
-					<hbox align="center">
-						<checkbox id="PMDselection" label="&PMDlabel16;"  />
-					</hbox>
-					<hbox align="center">
-						<checkbox id="alignHeaders" label="&alignHeaders.label;"  />
-					</hbox>
+					
+					
+					
+					
 					<!--
 	<hbox align="center">
 		<checkbox id="showButtonPreview" label="&showButton.label;"  /> 
 	</hbox>
 -->
-				</groupbox>
+				</html:fieldset>
 			</tabpanel>
 			<tabpanel orient="vertical">
 				<hbox align="center">
@@ -221,6 +239,12 @@
 				</hbox>
 				<spacer height="10px"/>
 				<hbox align="center">
+						<checkbox id="PMDborders" label="&PMDlabel3;. "  />
+						<label value="&borderStyle; (CSS)" />
+						<html:input type="text" id="border_style" value="" style="width:180px;" />
+					</hbox>
+					
+				<hbox align="center">
 					<checkbox id="useHeadersBkColor" label="&useHeadersBkColor;" oncommand="setTimeout(toggleUseBackgroundColor,300,this)"/>
 					<!-- <label value="Use Header Background Color : " style="margin:2px"/>  -->
 					<html:input type="color" id="headersBkColor" value="#ffffff" style="padding-right:4px"/>
@@ -259,6 +283,9 @@
 						<menulist id="OutputPrinter"/>
 					</hbox>
 					<spacer height="4px" />
+					<hbox align="center">
+						<checkbox id="PMDselection" label="&PMDlabel16;"  />
+					</hbox>
 					<hbox align="center">
 						<checkbox id="PMDsilent" label="&PMDlabel8;" />
 					</hbox>
