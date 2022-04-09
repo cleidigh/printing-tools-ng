@@ -526,6 +526,7 @@ var printingtools = {
 
 	sanitizeHeaders: function () {
 
+		return 
 		//console.log(printingtools.doc.documentElement.outerHTML);
 
 		var bundle;
@@ -571,6 +572,10 @@ var printingtools = {
 
 		var trs1 = [...table1.getElementsByTagName("TR")];
 
+		if (!trs1 || trs1.length < 1) {
+			console.log("empty table 2")
+			return;
+		}
 		console.log(trs1)
 		trs1.map(e => console.log(e.outerHTML))
 

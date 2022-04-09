@@ -96,11 +96,7 @@ var strftime = {
     });
   },
 
-  testOptions: function () {
-    console.log("test");
-
-  },
-
+  
   getLiteral: function (date, locale, literal) {
     let options = {
       year: 'numeric', month: 'short',
@@ -109,9 +105,7 @@ var strftime = {
     };
     var formatter = new Intl.DateTimeFormat(locale, options);
     var l = formatter.formatToParts(date);
-    //console.log(l)
-    //console.log(l[0].type)
-    //console.log(l[3].value)
+    
     if (l[0].type == 'year') {
       
     
@@ -130,7 +124,7 @@ var strftime = {
     }
   }
   
-    console.log(l[1].value)
+ 
     return '-';
 
   },
