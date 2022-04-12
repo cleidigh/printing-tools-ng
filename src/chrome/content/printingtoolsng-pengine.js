@@ -9,67 +9,72 @@ console.log("PTNG: Engine loaded")
 
 //dtest();
 
+function stest(f, d, l) {
+
+	console.log(strftime.strftime(f, d, l))
+}
+
 function dtest() {
 
 
-console.log(navigator.language)
-console.log(navigator.languages)
-console.log(Services.locale.appLocaleAsBCP47)
-
-strftime.testOptions();
-strftime.getDayNames('en-US','short', 1)
-strftime.getDayNames('zh-CN','short', 1)
-strftime.getDayNames('zh-TW','short', 1)
-strftime.getDayNames('de-DE','short', 1)
-strftime.getDayNames('ja','short', 1)
-strftime.getDayNames('default','short', 1)
-let dt = new Date();
-
-var formatter = new Intl.DateTimeFormat('default', {dateStyle:'short' });
-console.log(formatter.format(dt))
-
-formatter = new Intl.DateTimeFormat('zh-CN', {dateStyle:'medium' });
-console.log(formatter.format(dt))
-
-formatter = new Intl.DateTimeFormat('zh-CN', {dateStyle:'long' });
-console.log(formatter.format(dt))
-
-formatter = new Intl.DateTimeFormat('zh-CN', {dateStyle:'medium' });
-console.log(formatter.format(dt))
-
-console.log("cn full")
-formatter = new Intl.DateTimeFormat('zh-TW', {dateStyle:'full' });
-console.log(formatter.format(dt))
-
-formatter.formatToParts(dt).map(p => console.log(p))
-//console.log([...])
-
-options = {
-	weekday: 'short',
-	year: 'numeric', month: 'short',
-	hour: 'numeric', minute: 'numeric', day: 'numeric',
-	timeZoneName: 'short'
-};
-
-console.log(" op1")
-formatter = new Intl.DateTimeFormat('ko', options);
-formatter.formatToParts(dt).map(p => console.log(p))
-
-options.timeZoneName ='long'
-
-console.log(" op2")
-formatter = new Intl.DateTimeFormat('zh-CN', options);
-formatter.formatToParts(dt).map(p => console.log(p))
-
-console.log(" op2 def")
-formatter = new Intl.DateTimeFormat('ja', options);
-formatter.formatToParts(dt).map(p => console.log(p))
+	console.log(navigator.language)
+	console.log(navigator.languages)
+	console.log(Services.locale.appLocaleAsBCP47)
 
 
-console.log( strftime.strftime('%a %t   %0  %1  %2', new Date(),'zh-CN'))
-console.log( strftime.strftime('%a %t   %0  %1  %2', new Date(),'zh-TW'))
-console.log( strftime.strftime('%a %t   %0  %1  %2', new Date(),'ko'))
-console.log( strftime.strftime('%a %t   %0  %1  %2', new Date(),'ja'))
+	strftime.getDayNames('en-US', 'short', 1)
+	strftime.getDayNames('zh-CN', 'short', 1)
+	strftime.getDayNames('zh-TW', 'short', 1)
+	strftime.getDayNames('de-DE', 'short', 1)
+	strftime.getDayNames('ja', 'short', 1)
+	strftime.getDayNames('default', 'short', 1)
+	let dt = new Date();
+
+	var formatter = new Intl.DateTimeFormat('default', { dateStyle: 'short' });
+	console.log(formatter.format(dt))
+
+	formatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium' });
+	console.log(formatter.format(dt))
+
+	formatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'long' });
+	console.log(formatter.format(dt))
+
+	formatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium' });
+	console.log(formatter.format(dt))
+
+	console.log("cn full")
+	formatter = new Intl.DateTimeFormat('zh-TW', { dateStyle: 'full' });
+	console.log(formatter.format(dt))
+
+	formatter.formatToParts(dt).map(p => console.log(p))
+	//console.log([...])
+
+	options = {
+		weekday: 'short',
+		year: 'numeric', month: 'short',
+		hour: 'numeric', minute: 'numeric', day: 'numeric',
+		timeZoneName: 'short'
+	};
+
+	console.log(" op1")
+	formatter = new Intl.DateTimeFormat('de', options);
+	formatter.formatToParts(dt).map(p => console.log(p))
+
+	options.timeZoneName = 'long'
+
+	console.log(" op2")
+	formatter = new Intl.DateTimeFormat('de', options);
+	formatter.formatToParts(dt).map(p => console.log(p))
+
+	console.log(" op2 def")
+	formatter = new Intl.DateTimeFormat('ja', options);
+	formatter.formatToParts(dt).map(p => console.log(p))
+
+
+	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'zh-CN'))
+	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'zh-TW'))
+	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'ko'))
+	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'ja'))
 
 }
 
@@ -247,6 +252,7 @@ var printingtools = {
 					body_elem.prepend(ht1c);
 
 					printingtools.showAttatchmentBodyTable();
+					printingtools.restoreIMGstyle();
 
 					console.log("after rest")
 					console.log(printingtools.doc.documentElement.outerHTML);
@@ -526,7 +532,7 @@ var printingtools = {
 
 	sanitizeHeaders: function () {
 
-		return 
+		return
 		//console.log(printingtools.doc.documentElement.outerHTML);
 
 		var bundle;
@@ -546,7 +552,7 @@ var printingtools = {
 
 		console.log(toLocalized)
 
-		var regExp = new RegExp("(\\p{L}*)\\s*:",'u');
+		var regExp = new RegExp("(\\p{L}*)\\s*:", 'u');
 		var table0 = printingtools.getTable(0);
 		var trs0 = [...table0.getElementsByTagName("TR")];
 
@@ -586,7 +592,7 @@ var printingtools = {
 		});
 
 		if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
-			if ( t1hdrs.find(h => h.hdr == '到')) {
+			if (t1hdrs.find(h => h.hdr == '到')) {
 				trs1[0].firstChild.firstChild.textContent = toLocalized + ':';
 				t1hdrs[0].hdr = toLocalized;
 			}
@@ -791,7 +797,7 @@ var printingtools = {
 
 				if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
 					var div = trs[i].firstChild.firstChild;
-					
+
 					if (divHTML.indexOf(bcc) == 0) {
 						divHTML = bcc + ":";
 						div.innerHTML = divHTML;
@@ -1194,7 +1200,7 @@ var printingtools = {
 		//console.log(printingtools.doc.body.outerHTML)
 
 		var dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
-		if (dbgopts.indexOf("initialsource") > -1 || 1) {
+		if (dbgopts.indexOf("initialsource") > -1) {
 			console.log("PTNG: initial source:\n");
 			console.log(printingtools.doc.documentElement.outerHTML);
 		}
@@ -1701,11 +1707,50 @@ var printingtools = {
 		var imgs = printingtools.doc.getElementsByTagName("img");
 		for (i = 0; i < imgs.length; i++) {
 			if (imgs[i].getAttribute("class") != "attIcon") {
-				if (hide)
-					imgs[i].setAttribute("style", "display:none !important;");
-				else
-					imgs[i].setAttribute("style", "height:auto; width:auto; max-width:100%; max-height:100%;");
+				if (hide) {
+					imgs[i].setAttribute("_display", imgs[i].style.display);
+					imgs[i].style.display = "none";
+					console.log(imgs[i].getAttribute("style"))
+					//imgs[i].setAttribute("style", "display:none !important;");
+				} else {
+					if (imgs[i].style.display == "none" || imgs[i].getAttribute("shrinktofit")) {
+						return;
+					}
+					console.log(imgs[i].getAttribute("style"))
+					imgs[i].style.height = "auto";
+					imgs[i].style.width = "auto";
+					imgs[i].style.maxHeight = "100%";
+					imgs[i].style.maxWidth = "100%";
+				}
+
+				console.log(imgs[i].getAttribute("style"))
+
 			}
+		}
+	},
+
+	restoreIMGstyle: function () {
+		var imgs = printingtools.doc.getElementsByTagName("img");
+		for (i = 0; i < imgs.length; i++) {
+			if (imgs[i].getAttribute("class") != "attIcon") {
+				console.log("bef" + imgs[i].getAttribute("style"))
+				let display = imgs[i].getAttribute("_display");
+				console.log("d " + imgs[i].getAttribute("_display"))
+				if(display !== undefined) {
+					console.log("reset d")
+					if(display == "") {
+						console.log("d to n")
+						imgs[i].style.display = null;
+					} else {
+						imgs[i].style.display = display;
+					}
+					
+					imgs[i].removeAttribute("_display");
+					console.log("af" + imgs[i].getAttribute("style"))
+				}
+				
+			}
+
 		}
 	},
 
@@ -1992,7 +2037,7 @@ var printingtools = {
 		if (!table || !printingtools.hdr)
 			return;
 		var longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
-		
+
 		var formatted_date = printingtools.formatDate((printingtools.hdr.dateInSeconds * 1000), longFormat);
 		if (!formatted_date)
 			return;
@@ -2013,12 +2058,12 @@ var printingtools = {
 	appendReceivedTD: function () {
 		if (printingtools.hdr) {
 			try {
-			var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
-			} catch{
+				var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
+			} catch {
 				var formatted_date = printingtools.formatDate((printingtools.hdr.dateReceived * 1000), null);
 			}
 
-				var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
+			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 			var headtable1 = printingtools.getTable(0);
 			var newTR = printingtools.doc.createElement("TR");
 			newTR.setAttribute("id", "recTR");

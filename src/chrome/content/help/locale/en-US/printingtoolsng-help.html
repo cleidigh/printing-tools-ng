@@ -40,11 +40,32 @@
 		
 				<h2 id="customdate_format_help">Custom Date Format</h2>
 				<p>The custom date option allows for the complete control over the date formatting 
-					used for both files in the index.  Both the default format "Date" as well as
-					the new custom format "Date (custom)" are available in the filename
-					drop downs.  The custom date can also be used with the ${date_custom} token used 
-					in the extended custom filenames.  The original (default) date format is:<br>
-					YYYYMMDDHHmm : 202011060808<br>
+					used for both the Date and Received Date in the email headers.
+					The custom date provides multiple localized options allowing almost any format.
+					Note that the custom date string can include separators, literals including unicode
+					characters mixed with the date\time tokens listed below.<br>
+
+					<br>
+					Examples:<br><br>
+					<table class="dateformat-table">
+						<thead><tr>
+							<td>Date String</td><td>Result</td><td>Note</td>
+						</tr>
+					</thead>
+						<tr>
+							<td><code class="code1">%Y %m %u %a %t %H:%M:%S [GMT %z]</code></td><td></td><td></td>
+						</tr>
+						<tr>
+							<td></td><td></td><td></td>
+						</tr><tr>
+							<td></td><td></td><td></td>
+						</tr><tr>
+							<td></td><td></td><td></td>
+						</tr><tr>
+							<td></td><td></td><td></td>
+						</tr>
+
+					</table>
 					<br>
 					The custom date format utilizes % sequences matching the <code>strftime()</code>
 					 Unix like functionality.  It is based on a JavaScript port of <a class="link1" 
