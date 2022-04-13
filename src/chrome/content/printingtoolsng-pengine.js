@@ -1736,7 +1736,7 @@ var printingtools = {
 				console.log("bef" + imgs[i].getAttribute("style"))
 				let display = imgs[i].getAttribute("_display");
 				console.log("d " + imgs[i].getAttribute("_display"))
-				if(display !== undefined) {
+				if(display !== undefined && display!== null) {
 					console.log("reset d")
 					if(display == "") {
 						console.log("d to n")
