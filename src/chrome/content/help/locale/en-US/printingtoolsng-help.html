@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+
 	<link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
 	<!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> -->
 	<script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script>
@@ -16,15 +16,35 @@
 
 	<h2 id="main_help">PrintingTools NG Help</h2>
 
-		<br>
-	Thanks to the following users for enhancement suggestions and test help:<br><br>
-- <code class="notranslate">@</code><br>
+	<br>
+	<h2 id="main_help">PrintingTools NG Overview</h2>
+	<p>PrintingTools NG is a follow-on extension based on the original work of Paolo "Kaosmos".
+		The extension allows for the customization of printing headers as well as other options.
+		<br><br>
+		Thanks to the following users for enhancement suggestions and test help:<br><br>
 
-</p>
+		- <code class="notranslate">@kiki-ja (major release and feature management help)</code><br>
+		- <code class="notranslate">@KC-T</code><br>
+		- <code class="notranslate">@jobisoft</code><br>
+		- <code class="notranslate">@tidebre67</code><br>
+		- <code class="notranslate">@reinerblock</code><br>
+		- <code class="notranslate">@querixg</code><br>
+		- <code class="notranslate">@RRoenn</code><br>
+		- <code class="notranslate">@madvinegar</code><br>
+		- <code class="notranslate">@ditchfinder</code><br>
+		- <code class="notranslate">@3LaHoonK</code><br>
+		- <code class="notranslate">@realraven</code><br>
+		- <code class="notranslate">@librelegal</code><br>
+		- <code class="notranslate">@Francewhoa</code><br>
+		- <code class="notranslate">@foxfan100</code><br>
+		- <code class="notranslate">@pechh</code><br>
+
+	</p>
 
 	<h3>Support:</h3>
-		<p>
-		Please post issues or feature requests in the extensions GitHub repository: <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a><br>
+	<p>
+		Please post issues or feature requests in the extensions GitHub repository: <a class="link1"
+			href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a><br>
 		<br>
 		In bug issues, include the following information to help solve the issues:<br>
 		- PrintingTools NG version<br>
@@ -34,249 +54,276 @@
 		- A description of the steps leading to the issue<br>
 
 	</p>
-	<h2 id="main_help">PrintingTools NG Overview</h2>
-	<p>PrintingTools NG is a follow-on extension based on the original work of Paolo "Kaosmos".
 	<br>
-		
-				<h2 id="customdate_format_help">Custom Date Format</h2>
-				<p>The custom date option allows for the complete control over the date formatting 
-					used for both the Date and Received Date in the email headers.
-					The custom date provides multiple localized options allowing almost any format.
-					Note that the custom date string can include separators, literals including unicode
-					characters mixed with the date\time tokens listed below.<br>
 
-					<br>
-					Examples:<br><br>
-					<table class="dateformat-table">
-						<thead><tr>
-							<td>Date String</td><td>Result</td><td>Note</td>
-						</tr>
-					</thead>
-						<tr>
-							<td><code class="code1">%Y %m %u %a %t %H:%M:%S [GMT %z]</code></td><td></td><td></td>
-						</tr>
-						<tr>
-							<td></td><td></td><td></td>
-						</tr><tr>
-							<td></td><td></td><td></td>
-						</tr><tr>
-							<td></td><td></td><td></td>
-						</tr><tr>
-							<td></td><td></td><td></td>
-						</tr>
+	<h2 id="customdate_format_help">Custom Date Format</h2>
+	<p>The custom date option allows for the complete control over the date formatting
+		used for both the Date and Received Date in the email headers.
+		The custom date provides multiple localized options allowing almost any format.
+		Note that the custom date string can include separators, literals including unicode
+		characters mixed with the date\time tokens listed below.<br>
 
-					</table>
-					<br>
-					The custom date format utilizes % sequences matching the <code>strftime()</code>
-					 Unix like functionality.  It is based on a JavaScript port of <a class="link1" 
-						href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>,
-					a function to format the date and time.<br>
-					Port of strftime() by T. H. Doan (https://thdoan.github.io/strftime/)<br>
-					</p>
-				<h3>Conversion sequence descriptions</h3>
-				<table class="dateformat-table">
-					<thead>
-						<tr>
-							<th>Sequence</th>
-							<th>Description</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><code class="code1">%a</code></td>
-							<td>Abbreviated name of the day of the week.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%A</code></td>
-							<td>Full name of the day of the week.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%b</code></td>
-							<td>Abbreviated month name.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%B</code></td>
-							<td>Full month name.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%c</code></td>
-							<td>Preferred date and time (UTC) representation for the current locale.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%C</code></td>
-							<td>Century number (year/100) as a 2-digit integer.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%d</code></td>
-							<td>Day of the month as a decimal number (range 01 to 31).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%e</code></td>
-							<td>Day of the month as a decimal number (range 1 to 31).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%F</code></td>
-							<td>ISO 8601 date format (equivalent to <code class="code1">%Y-%m-%d</code>).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%G</code></td>
-							<td>ISO 8601 week-based year with century as a decimal number. The 4-digit year corresponds
-								to the ISO
-								week number (see <code class="code1">%V</code>). This has the same format and value as
-								<code class="code1">%Y</code>, except
-								that if the ISO week number belongs to the previous or next year, that year is used
-								instead.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%g</code></td>
-							<td>Like <code class="code1">%G</code>, but without century, that is, with a 2-digit year
-								(00-99).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%H</code></td>
-							<td>Hour as a decimal number using a 24-hour clock (range 00 to 23). See also <code
-									class="code1">%k</code>.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%I</code></td>
-							<td>Hour as a decimal number using a 12-hour clock (range 01 to 12). See also <code
-									class="code1">%l</code>.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%j</code></td>
-							<td>Day of the year as a decimal number (range 001 to 366).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%k</code></td>
-							<td>Hour as a decimal number using a 24-hour clock (range 0 to 23). See also <code
-									class="code1">%H</code>.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%l</code></td>
-							<td>Hour as a decimal number using a 12-hour clock (range 1 to 12). See also <code
-									class="code1">%I</code>.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%m</code></td>
-							<td>Month as a decimal number (range 01 to 12).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%n</code></td>
-							<td>Month as a decimal number (range 1 to 12).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%M</code></td>
-							<td>Minute as a decimal number (range 00 to 59).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%p</code></td>
-							<td>Either "AM" or "PM" according to the given time value. Noon is treated as "PM" and
-								midnight as "AM".
-							</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%P</code></td>
-							<td>Like <code class="code1">%p</code> but in lowercase ("am" or "pm").</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%s</code></td>
-							<td>Number of seconds since the Epoch, 1970-01-01 00:00:00 +0000 (UTC).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%S</code></td>
-							<td>Second as a decimal number (range 00 to 59).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%u</code></td>
-							<td>Day of the week as a decimal (range 1 to 7), Monday being 1. See also <code
-									class="code1">%w</code>.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%V</code></td>
-							<td>ISO 8601 week number of the current year as a decimal number (range 01 to 53), where
-								week 1 is the
-								first week that has at least 4 days in the new year (that is, the first Thursday).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%w</code></td>
-							<td>Day of the week as a decimal (range 0 to 6), Sunday being 0. See also <code
-									class="code1">%u</code>.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%x</code></td>
-							<td>Preferred date representation for the current locale without the time.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%X</code></td>
-							<td>Preferred time representation for the current locale without the date.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%y</code></td>
-							<td>Year as a decimal number without a century (range 00 to 99).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%Y</code></td>
-							<td>Year as a decimal number including the century.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%z</code></td>
-							<td>The <code class="code1">+hhmm</code> or <code class="code1">-hhmm</code> numeric
-								timezone (that is, the hour and minute offset
-								from UTC).</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%Z</code></td>
-							<td>Timezone name or abbreviation.</td>
-						</tr>
-						<tr>
-							<td><code class="code1">%t</code></td>
-							<td>Short Timezone abbreviation.</td>
-						</tr>						
-						<tr>
-							<td><code class="code1">%0</code></td>
-							<td>Year Literal.  Localized, mainly for Asian locales. (zh-CN: 年, ko: 년) </td>
-						</tr>
-						<tr>
-							<td><code class="code1">%1</code></td>
-							<td>Month Literal.  Localized, mainly for Asian locales. (zh-TW: 月, ko: 월) </td>
-						</tr>
-						<tr>
-							<td><code class="code1">%2</code></td>
-							<td>Day Literal.  Localized, mainly for Asian locales. (ja: 日, ko: 일) </td>
-						</tr>
-					
-					</tbody>
-				</table>
-				<h3>Compatibility notes:</h3>
-				<ul>
-					<li><code class="code1">%c</code> - formatted string is slightly different</li>
-					<li><code class="code1">%D</code> - not implemented (use <code class="code1">%m/%d/%y</code> or
-						<code class="code1">%d/%m/%y</code>)</li>
-					<li><code class="code1">%e</code> - space is not added</li>
-					<li><code class="code1">%E</code> - not implemented</li>
-					<li><code class="code1">%h</code> - not implemented (use <code class="code1">%b</code>)</li>
-					<li><code class="code1">%k</code> - space is not added</li>
-					<li><code class="code1">%n</code> - like <code class="code1">%m</code>, but no leading zero (use
-						<code class="code1">\n</code> for newline)</li>
-					<li><code class="code1">%O</code> - not implemented</li>
-					<li><code class="code1">%r</code> - not implemented (use <code class="code1">%I:%M:%S %p</code>)
-					</li>
-					<tr>
-						<td><code class="code1">${subject}</code></td>
-						<td>The subject of the message</td>
-					</tr>
-					<li><code class="code1">%R</code> - not implemented (use <code class="code1">%H:%M</code>)</li>
-					<li><code class="code1">%t</code> - not implemented (use <code class="code1">\t</code>)</li>
-					<li><code class="code1">%T</code> - not implemented (use <code class="code1">%H:%M:%S</code>)</li>
-					<li><code class="code1">%U</code> - not implemented</li>
-					<li><code class="code1">%W</code> - not implemented</li>
-					<li><code class="code1">%+</code> - not implemented</li>
-					<li><code class="code1">%%</code> - not implemented (use <code class="code1">%</code>)</li>
-				</ul>
+		<br>
+		Examples:<br><br>
+	<table class="dateformat-table">
+		<thead>
+			<tr>
+				<td>Date String</td>
+				<td>Result</td>
+				<td>Note</td>
+			</tr>
+		</thead>
+		<tr>
+			<td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+			<td>2022年04月20日 水 EDT 16:06:45 [GMT -0400]</td>
+			<td>ja locale with literals</td>
+		</tr>
+		<tr>
+			<td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+			<td>2022년04월20일 수 EDT 16:11:06</td>
+			<td>ko locale with literals</td>
+		</tr>
+		<tr>
+			<td><code class="code1">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+			<td>2022年04月20日 周三 18:01:42 Eastern Daylight Time</td>
+			<td>zh-CN locale, short day</td>
+		</tr>
+		<tr>
+			<td><code class="code1">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+			<td>2022年04月20日 星期三 18:01:42 EDT</td>
+			<td>zh-TW locale, long day</td>
+		</tr>
+		<tr>
+			<td><code class="code1">%d.%m.%Y  %H:%M:%S %t</code></td>
+			<td>20.04.2022 18:01:42 EDT</td>
+			<td>Dot separators</td>
+		</tr>
+		<tr>
+			<td><code class="code1">%a, %b %d %Y %H:%M:%S</code>
+			<td>Mi, Apr 20 2022 18:01:42</td>
+			<td>de locale, short day/month</td>
+		</tr>
+		<tr>
+			<td><code class="code1">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+			<td>Wednesday, April 20 2022 (18:01:42) EDT</td>
+			<td>en-US locale, long day/month</td>
+		</tr>
 
-				<br><br>
+	</table>
+	<br>
+	The custom date format utilizes % sequences matching the <code>strftime()</code>
+	Unix like functionality. It is based on a JavaScript port of <a class="link1"
+		href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>,
+	a function to format the date and time.<br>
+	Port of strftime() by T. H. Doan (https://thdoan.github.io/strftime/)<br>
+	</p>
+	<h3>Conversion sequence descriptions</h3>
+	<table class="dateformat-table">
+		<thead>
+			<tr>
+				<th>Sequence</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><code class="code1">%a</code></td>
+				<td>Abbreviated name of the day of the week.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%A</code></td>
+				<td>Full name of the day of the week.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%b</code></td>
+				<td>Abbreviated month name.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%B</code></td>
+				<td>Full month name.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%c</code></td>
+				<td>Preferred date and time (UTC) representation for the current locale.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%C</code></td>
+				<td>Century number (year/100) as a 2-digit integer.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%d</code></td>
+				<td>Day of the month as a decimal number (range 01 to 31).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%e</code></td>
+				<td>Day of the month as a decimal number (range 1 to 31).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%F</code></td>
+				<td>ISO 8601 date format (equivalent to <code class="code1">%Y-%m-%d</code>).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%G</code></td>
+				<td>ISO 8601 week-based year with century as a decimal number. The 4-digit year corresponds
+					to the ISO
+					week number (see <code class="code1">%V</code>). This has the same format and value as
+					<code class="code1">%Y</code>, except
+					that if the ISO week number belongs to the previous or next year, that year is used
+					instead.
+				</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%g</code></td>
+				<td>Like <code class="code1">%G</code>, but without century, that is, with a 2-digit year
+					(00-99).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%H</code></td>
+				<td>Hour as a decimal number using a 24-hour clock (range 00 to 23). See also <code
+						class="code1">%k</code>.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%I</code></td>
+				<td>Hour as a decimal number using a 12-hour clock (range 01 to 12). See also <code
+						class="code1">%l</code>.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%j</code></td>
+				<td>Day of the year as a decimal number (range 001 to 366).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%k</code></td>
+				<td>Hour as a decimal number using a 24-hour clock (range 0 to 23). See also <code
+						class="code1">%H</code>.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%l</code></td>
+				<td>Hour as a decimal number using a 12-hour clock (range 1 to 12). See also <code
+						class="code1">%I</code>.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%m</code></td>
+				<td>Month as a decimal number (range 01 to 12).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%n</code></td>
+				<td>Month as a decimal number (range 1 to 12).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%M</code></td>
+				<td>Minute as a decimal number (range 00 to 59).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%p</code></td>
+				<td>Either "AM" or "PM" according to the given time value. Noon is treated as "PM" and
+					midnight as "AM".
+				</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%P</code></td>
+				<td>Like <code class="code1">%p</code> but in lowercase ("am" or "pm").</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%s</code></td>
+				<td>Number of seconds since the Epoch, 1970-01-01 00:00:00 +0000 (UTC).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%S</code></td>
+				<td>Second as a decimal number (range 00 to 59).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%u</code></td>
+				<td>Day of the week as a decimal (range 1 to 7), Monday being 1. See also <code class="code1">%w</code>.
+				</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%V</code></td>
+				<td>ISO 8601 week number of the current year as a decimal number (range 01 to 53), where
+					week 1 is the
+					first week that has at least 4 days in the new year (that is, the first Thursday).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%w</code></td>
+				<td>Day of the week as a decimal (range 0 to 6), Sunday being 0. See also <code class="code1">%u</code>.
+				</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%x</code></td>
+				<td>Preferred date representation for the current locale without the time.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%X</code></td>
+				<td>Preferred time representation for the current locale without the date.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%y</code></td>
+				<td>Year as a decimal number without a century (range 00 to 99).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%Y</code></td>
+				<td>Year as a decimal number including the century.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%z</code></td>
+				<td>The <code class="code1">+hhmm</code> or <code class="code1">-hhmm</code> numeric
+					timezone (that is, the hour and minute offset
+					from UTC).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%Z</code></td>
+				<td>Timezone name or abbreviation.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%t</code></td>
+				<td>Short Timezone abbreviation.</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%0</code></td>
+				<td>Year Literal. Localized, mainly for Asian locales. (zh-CN: 年, ko: 년) </td>
+			</tr>
+			<tr>
+				<td><code class="code1">%1</code></td>
+				<td>Month Literal. Localized, mainly for Asian locales. (zh-TW: 月, ko: 월) </td>
+			</tr>
+			<tr>
+				<td><code class="code1">%2</code></td>
+				<td>Day Literal. Localized, mainly for Asian locales. (ja: 日, ko: 일) </td>
+			</tr>
 
-				
+		</tbody>
+	</table>
+	<h3>Compatibility notes:</h3>
+	<ul>
+		<li><code class="code1">%c</code> - formatted string is slightly different</li>
+		<li><code class="code1">%D</code> - not implemented (use <code class="code1">%m/%d/%y</code> or
+			<code class="code1">%d/%m/%y</code>)
+		</li>
+		<li><code class="code1">%e</code> - space is not added</li>
+		<li><code class="code1">%E</code> - not implemented</li>
+		<li><code class="code1">%h</code> - not implemented (use <code class="code1">%b</code>)</li>
+		<li><code class="code1">%k</code> - space is not added</li>
+		<li><code class="code1">%n</code> - like <code class="code1">%m</code>, but no leading zero (use
+			<code class="code1">\n</code> for newline)
+		</li>
+		<li><code class="code1">%O</code> - not implemented</li>
+		<li><code class="code1">%r</code> - not implemented (use <code class="code1">%I:%M:%S %p</code>)
+		</li>
+		<tr>
+			<td><code class="code1">${subject}</code></td>
+			<td>The subject of the message</td>
+		</tr>
+		<li><code class="code1">%R</code> - not implemented (use <code class="code1">%H:%M</code>)</li>
+		<li><code class="code1">%t</code> - not implemented (use <code class="code1">\t</code>)</li>
+		<li><code class="code1">%T</code> - not implemented (use <code class="code1">%H:%M:%S</code>)</li>
+		<li><code class="code1">%U</code> - not implemented</li>
+		<li><code class="code1">%W</code> - not implemented</li>
+		<li><code class="code1">%+</code> - not implemented</li>
+		<li><code class="code1">%%</code> - not implemented (use <code class="code1">%</code>)</li>
+	</ul>
+
+	<br><br>
+
+
 </body>
 
 </html>

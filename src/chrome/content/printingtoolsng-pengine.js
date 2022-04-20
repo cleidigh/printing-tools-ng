@@ -2,12 +2,9 @@
 var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
 var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
 
-// Define our add-on ID, which is needed to resolve paths for files within our extension
-// and to be able to listen for notifications.
-
 console.log("PTNG: Engine loaded")
 
-//dtest();
+dtest();
 
 function stest(f, d, l) {
 
@@ -76,12 +73,18 @@ function dtest() {
 	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'ko'))
 	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'ja'))
 
-}
+	stest("%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]", dt, 'ja')
+	stest("%Y%0%m%1%d%2 %a %t %H:%M:%S", dt, 'ko')
+	stest("%Y%0%m%1%d%2 %a %H:%M:%S %Z", dt, 'zh-CN')
+	stest("%Y%0%m%1%d%2 %A %H:%M:%S %t", dt, 'zh-TW')
 
-function ReplaceWithSelection() {
-	// disables the native function in TB 3.1, that prints
-	// selection without headers
-	return true;
+
+	stest("%d.%m.%Y  %H:%M:%S %t", dt, 'de')
+
+	stest("%a, %b %d %Y %H:%M:%S", dt, 'de')
+	stest("%A, %B %d %Y (%H:%M:%S) %t", dt, 'en-US')
+
+
 }
 
 
@@ -105,7 +108,7 @@ var printingtools = {
 		printingtools.current = 0;
 		printingtools.num = gFolderDisplay.selectedCount;
 
-		console.log(gMessageDisplay.visible)
+		//console.log(gMessageDisplay.visible)
 		//console.log(gFolderDisplay.selectedMessage)
 		//console.log(gMessageDisplay.displayedMessage)
 
@@ -117,7 +120,7 @@ var printingtools = {
 			) {
 
 
-				console.log("Use existing print hidden pane")
+				//console.log("Use existing print hidden pane")
 
 				let messagePaneBrowser = document.getElementById("messagepane");
 
@@ -125,28 +128,23 @@ var printingtools = {
 				let uri = gFolderDisplay.selectedMessageUris[0];
 				let messageService = messenger.messageServiceFromURI(uri);
 
-				//await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
-				//await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
-
-				//printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
 				printingtools.previewDoc = messagePaneBrowser.contentDocument
 
 				var ht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
 				var ht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
+				var ht3 = printingtools.previewDoc.querySelector('.moz-header-part3');
 
 				var ht1c = ht1.cloneNode(true)
 				ht1c.classList.add("orig")
 
 				if (ht2) {
 					var ht2c = ht2.cloneNode(true);
-					var ht2c = ht2.cloneNode(true)
 				}
 
+				if (ht3) {
+					var ht3c = ht3.cloneNode(true);
+				}
 
-
-
-
-				//console.log(tb)
 				await printingtools.reformatLayout();
 
 				var sel = window.getSelection();
@@ -164,56 +162,35 @@ var printingtools = {
 				const br = printingtools.previewDoc.querySelector('br');
 
 				//console.log(t)
-				// Create new range
+				// Create new range for the page and main headers 
 				const range = new Range();
 
-				// Start range at second paragraph
+				// Start range at the top
 				range.setStartBefore(topSelection);
 
-				// End range at third paragraph
+				// End range at the br spacer
 				range.setEndAfter(br);
 
-				//console.log(range.cloneContents())
-				// Get window selection
-				//const selection = window.getSelection();
 				var selection = document.commandDispatcher.focusedWindow.getSelection();
 
-				//console.log("orig selection")
-				//console.log(selection)
-				// Add range to window selection
-				//console.log(range)
-
+				// Carret selection not valid
 				if (selection.type == "Caret") {
 					selection.removeAllRanges();
 				}
-
 
 				if (selection.rangeCount) {
 					selection.addRange(range);
 				}
 
-
-				//console.log(selection)
-
-				for (let i = 0; i < selection.rangeCount; i++) {
-					var r = selection.getRangeAt(i)
-					console.log(selection.getRangeAt(i))
-					console.log(r.startContainer.nodeName)
-					var f = selection.getRangeAt(i).cloneContents()
-					console.log(f)
-				}
-
-
-				//console.log(selection)
-				//console.log(selection.rangeCount)
-
 				var w = document.commandDispatcher.focusedWindow
-				//console.log(w)
-				//console.log(messagePaneBrowser)
+
+				// Use message pane focus event to restore message 
 
 				var l = w.addEventListener("focus", function (e) {
 
-					console.log("b focused  ")
+					//console.log("Message pane focused  ")
+
+					// Remove headers selection 
 					if (selection.rangeCount) {
 						selection.removeRange(range)
 					}
@@ -221,17 +198,18 @@ var printingtools = {
 
 					var mht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
 					var mht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
+					var mht3 = printingtools.previewDoc.querySelector('.moz-header-part3');
 
 					var body_elem = mht1.parentElement
-					//console.log(body_elem)
-					//console.log(tb)
-					//t.remove()
-					//tp.appendChild(tb)
 
 					mht1.remove();
 
 					if (mht2) {
 						mht2.remove();
+					}
+
+					if (mht3) {
+						mht3.remove();
 					}
 
 					var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
@@ -243,8 +221,12 @@ var printingtools = {
 					if (hr) {
 						hr.remove();
 					}
-					console.log("after remove ")
-					console.log(printingtools.doc.documentElement.outerHTML);
+					//console.log("after remove ")
+					//console.log(printingtools.doc.documentElement.outerHTML);
+
+					if (ht3c) {
+						body_elem.prepend(ht3c);
+					}
 
 					if (ht2c) {
 						body_elem.prepend(ht2c);
@@ -254,29 +236,17 @@ var printingtools = {
 					printingtools.showAttatchmentBodyTable();
 					printingtools.restoreIMGstyle();
 
-					console.log("after rest")
-					console.log(printingtools.doc.documentElement.outerHTML);
-					//console.log(printingtools.previewDoc.outerHTML)
-					//t = printingtools.previewDoc.querySelector('.orig');
-
-					//console.log(t.outerHTML)
-
-
+					//console.log("after rest")
 					//console.log(printingtools.doc.documentElement.outerHTML);
-
-
-					//messagePaneBrowser.reload()
-					//e.stopPropagation();
-					//e.preventDefault();
 
 				}, { once: true });
 
-				//PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext, {});
+
 				if (selection.rangeCount > 1 && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
-					console.log("print sel")
+					//console.log("print sel")
 					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
 				} else {
-					console.log("print no sel")
+					//console.log("print no sel")
 					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: false });
 				}
 
@@ -481,7 +451,7 @@ var printingtools = {
 
 	cmd_printng: async function (options) {
 
-		console.log("cmd_printng start" + this.running);
+		//console.log("cmd_printng start" + this.running);
 
 
 		options = options || {};
@@ -495,10 +465,6 @@ var printingtools = {
 
 		this.running = true;
 		//console.log(options)
-
-		console.log(document.window)
-		//console.log(printingtools.msgUris[0])
-		//console.log()
 
 		await this.PrintSelectedMessages(options);
 		console.log("PTNG: Done")
@@ -532,13 +498,13 @@ var printingtools = {
 
 	sanitizeHeaders: function () {
 
-		return
+
 		//console.log(printingtools.doc.documentElement.outerHTML);
 
 		var bundle;
-		//console.log(Services.locale.appLocaleAsBCP47)
+
 		if (Services.locale.appLocaleAsBCP47 === "ja") {
-			bundle = printingtoolstrBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
+			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
 		} else if (Services.locale.appLocaleAsBCP47 === "zh-CN") {
 			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
 		} else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
@@ -550,8 +516,6 @@ var printingtools = {
 		var dateLocalized = bundle.GetStringFromID(1007);
 		var toLocalized = bundle.GetStringFromID(1012);
 
-		console.log(toLocalized)
-
 		var regExp = new RegExp("(\\p{L}*)\\s*:", 'u');
 		var table0 = printingtools.getTable(0);
 		var trs0 = [...table0.getElementsByTagName("TR")];
@@ -561,7 +525,7 @@ var printingtools = {
 			let hdrVal = tr.firstChild.firstChild.nextSibling.textContent;
 			return { hdr: hdr, hdrVal: hdrVal }
 		});
-		console.log(t0hdrs)
+		//console.log(t0hdrs)
 
 		let dateHdr = t0hdrs.find(h => h.hdr == dateLocalized);
 		//console.log(dateHdr)
@@ -574,15 +538,14 @@ var printingtools = {
 		if (!table1) {
 			return;
 		}
-		console.log(table1.outerHTML)
 
 		var trs1 = [...table1.getElementsByTagName("TR")];
 
 		if (!trs1 || trs1.length < 1) {
-			console.log("empty table 2")
+
 			return;
 		}
-		console.log(trs1)
+
 		trs1.map(e => console.log(e.outerHTML))
 
 		t1hdrs = trs1.map(tr => {
@@ -598,12 +561,11 @@ var printingtools = {
 			}
 		}
 
-		console.log(t1hdrs)
+
 		let toHdr = t1hdrs.find(h => h.hdr == toLocalized);
-		console.log(toHdr)
 
 		if (!toHdr) {
-			console.log("no to hdr")
+			//console.log("no to hdr")
 			printingtools.addHdr(toLocalized, "empty", trs1[0].parentNode), true;
 		}
 
@@ -676,6 +638,8 @@ var printingtools = {
 		var attachments = bundle.GetStringFromID(1028).replace(/\s*$/, "");
 		var subjectPresent = false;
 		var attPresent = false;
+		var toPresent = false;
+		var fromPresent = false;
 
 		var div;
 		var divHTML;
@@ -753,6 +717,7 @@ var printingtools = {
 			}
 			regExp = new RegExp(from + "\\s*:");
 			if (divHTML.match(regExp)) {
+				fromPresent = true;
 				index = printingtools.getIndexForHeader("%f");
 				if (index & 0x100) {
 					arr[index &= ~0x100] = trs[i];
@@ -869,9 +834,9 @@ var printingtools = {
 				regExp = new RegExp(to + "\\s*:");
 				if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r1");
-					// attPresent = true;
+					toPresent = true;
 					// Services.console.logStringMessage('to');
-					if (index & 0x100) {
+					if (index & 0x100 || trs[i].classList.contains("ptng-hide-dummyhdr")) {
 						arr[index &= ~0x100] = trs[i];
 						arr[index &= ~0x100].style.display = "none";
 					} else {
@@ -930,12 +895,26 @@ var printingtools = {
 		index = printingtools.getIndexForHeader("%a");
 		let attIndex = index &= ~0x100;
 
+		index = printingtools.getIndexForHeader("%f");
+		let fromIndex = index &= ~0x100;
+
+		index = printingtools.getIndexForHeader("%r1");
+		let toIndex = index &= ~0x100;
 		index = printingtools.getIndexForHeader("%r2");
 		let ccIndex = index &= ~0x100;
 		index = printingtools.getIndexForHeader("%r3");
 		let bccIndex = index &= ~0x100;
 
 		let tempPos = printingtools.dateTRpos;
+
+		if (!fromPresent && fromIndex < printingtools.dateTRpos) {
+			tempPos--;
+		}
+
+		if (!toPresent && toIndex < printingtools.dateTRpos) {
+			tempPos--;
+		}
+
 		if (!ccPresent && ccIndex < printingtools.dateTRpos) {
 			// printingtools.dateTRpos--;
 			tempPos--;
@@ -953,7 +932,7 @@ var printingtools = {
 
 		if (subjectPresent && subjectIndex < printingtools.dateTRpos) {
 			// printingtools.dateTRpos--;
-			tempPos--;
+			//tempPos--;
 		}
 
 		printingtools.dateTRpos = tempPos;
@@ -962,174 +941,10 @@ var printingtools = {
 		for (var i = 0; i < arr.length; i++) {
 			if (arr[i])
 				tbody.appendChild(arr[i]);
-			// else
-			//	printingtools.dateTRpos = printingtools.dateTRpos - 1;
 		}
 
 		//Services.console.logStringMessage("after sort");
 		//Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
-	},
-
-	correctABprint: function (gennames) {
-		// console.debug('correct address book');
-		var gnLen = printingtools.doc.getElementsByTagName("GeneratedName").length;
-		var dirNode = printingtools.doc.getElementsByTagName("directory")[0];
-		var multipleCards = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards");
-		var sepr;
-
-		// if gnLen is equal to 1, we're printing a single contact		
-		if (gnLen == 1 && multipleCards) {
-			try {
-				// Get the selected cards from addressbook window
-				var abWin = Cc["@mozilla.org/appshell/window-mediator;1"].
-					getService(Ci.nsIWindowMediator).
-					getMostRecentWindow("mail:addressbook");
-				var start = new Object();
-				var end = new Object();
-				var card;
-				var treeSelection = abWin.gAbView.selection;
-				var numRanges = treeSelection.getRangeCount();
-				var parser = Cc["@mozilla.org/xmlextras/domparser;1"]
-					.createInstance(Ci.nsIDOMParser);
-				var firstCard = true;
-
-				for (var t = 0; t < numRanges; t++) {
-					treeSelection.getRangeAt(t, start, end);
-					for (var v = start.value; v <= end.value; v++) {
-						if (firstCard) {
-							// The first card is already present in print window
-							firstCard = false;
-							continue;
-						}
-						card = abWin.gAbView.getCardFromRow(v);
-						if (!card.isMailList) {
-							// Add the xml translation of card to the root node ("directory")
-							sepr = printingtools.doc.createElement("separator");
-							dirNode.appendChild(sepr);
-							var xmlParts = card.translateTo("xml").split("<table>");
-							// It's necessary to add a root node, otherwise parser will fail
-							var temp = "<root>" + xmlParts[0] + "</root>";
-							var gn = parser.parseFromString(temp, "text/xml");
-							dirNode.appendChild(gn.firstChild);
-							temp = "<root><table>" + xmlParts[1] + "</root>";
-							var table = parser.parseFromString(temp, "text/xml");
-							dirNode.appendChild(table.firstChild);
-						}
-					}
-				}
-				sepr = printingtools.doc.createElement("separator");
-				dirNode.appendChild(sepr);
-			}
-			catch (e) { }
-		}
-
-
-		var rule;
-		var hideHeaderCard = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.hide_header_card");
-		var compactFormat = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_just_addresses");
-		var smallFont = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size");
-		var maxCompact = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.max_compact");
-		var fontFamily = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family");
-		var cutNotes = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.cut_notes");
-		var addABname = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.add_ab_name");
-
-		if (addABname) {
-			sepr = printingtools.doc.createElement("separator");
-			dirNode.insertBefore(sepr, dirNode.firstChild);
-			var sec = printingtools.doc.createElement("section");
-			var GN = printingtools.doc.createElement("GeneratedName");
-			var now = new Date();
-			var selDir = opener.GetSelectedDirectory();
-			var abDir = opener.GetDirectoryFromURI(selDir);
-			var intro = printingtools.doc.createElement("intro");
-			var abNameNode = printingtools.doc.createTextNode(abDir.dirName + " - " + now.toLocaleString());
-			GN.appendChild(abNameNode);
-			sec.appendChild(GN);
-			intro.appendChild(sec);
-			dirNode.insertBefore(intro, dirNode.firstChild);
-		}
-
-		if (!String.trim && hideHeaderCard) {
-			var ABbundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/addressbook/addressBook.properties");
-			// The heading card is taken from addressBook.properties
-			var headingCard = ABbundle.GetStringFromName("headingCardFor");
-			for (i = 0; i < gennames.length; i++) {
-				gennames[i].firstChild.nodeValue = gennames[i].firstChild.nodeValue.replace(headingCard, "");
-				if (maxCompact)
-					// Maybe this is superflous
-					gennames[i].firstChild.nodeValue = gennames[i].firstChild.nodeValue.replace("\n", "");
-			}
-		}
-
-		var tables = printingtools.doc.getElementsByTagName("table");
-		for (j = 0; j < tables.length; j++) {
-			var isMCFABinstalled = (printingtools.prefs.getPrefType("morecols.custom1.label") > 0);
-			if (isMCFABinstalled) {
-				for (var k = 1; k < 5; k++) {
-					var custom = tables[j].getElementsByTagName("Custom" + k.toString())[0];
-					if (custom) {
-						var newLabel = printingtools.prefs.getCharPref("morecols.custom" + k.toString() + ".label");
-						if (newLabel != "")
-							custom.previousSibling.firstChild.nodeValue = newLabel + ": ";
-					}
-				}
-			}
-
-			if (cutNotes) {
-				var notes = tables[j].getElementsByTagName("Notes")[0]
-				if (notes)
-					notes.firstChild.nodeValue = notes.firstChild.nodeValue.substring(0, 100) + " [...]";
-			}
-
-			if (maxCompact || compactFormat) {
-				// The first row contains name & addresses, the second one the other data
-				var trs = tables[j].childNodes;
-				if (!compactFormat) {
-					// Moving all the card properties in one single TR tag, the layout is much more compact
-					var chs = trs[1].childNodes;
-					trs[0].appendChild(chs[1]);
-					trs[0].appendChild(chs[0]);
-				}
-				if (maxCompact) {
-					// To compact more, the useless property "Displayname" is deleted
-					var lrow = tables[j].getElementsByTagName("labelrow")[0];
-					try { trs[1].appendChild(lrow); }
-					catch (e) { }
-
-					// Remove empty sections
-					var secs = tables[j].getElementsByTagName("section");
-					for (o = secs.length - 1; o > -1; o--) {
-						if (!secs[o].hasChildNodes())
-							secs[o].parentNode.removeChild(secs[o]);
-					}
-				}
-				// Delete the second TR tag
-				tables[j].removeChild(trs[1]);
-			}
-		}
-
-		if (maxCompact) {
-			// To compact more the layout, the margin is made smaller (usually is 20px)
-			rule = "GeneratedName {margin: 5px !important;}"
-			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
-		}
-		if (smallFont) {
-			var fontsize = printingtools.prefs.getIntPref("extensions.printingtoolsng.addressbook.custom_font_size");
-			rule = "* {font-size: " + fontsize + "px !important;}";
-			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
-			fontsize = fontsize + 2;
-			rule = "intro * {display:block !important; padding:15px !important; font-size:" + fontsize + "px !important;}"
-			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
-		}
-		else {
-			rule = "intro * {display:block !important; padding:15px !important; font-size:16px !important;}"
-			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
-		}
-		if (fontFamily) {
-			var fontfamily = printingtools.prefs.getCharPref("extensions.printingtoolsng.addressbook.font_family");
-			rule = "* {font-family: " + fontfamily + " !important;}";
-			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
-		}
 	},
 
 	getHdr: async function () {
@@ -1142,22 +957,19 @@ var printingtools = {
 			if (uris[printingtools.current].indexOf("file") == 0) {
 				// If we're printing a eml file, there is no nsIMsgHdr object, so we create an object just with properties
 				// used by the extension ("folder" and "dateInSeconds"), reading directly the file (needing just 1000 bytes)
-				console.log(uris[printingtools.current].split("?")[0])
+				//console.log(uris[printingtools.current].split("?")[0])
 				var dummy = {};
 				dummy.folder = null;
 
 				var os = navigator.platform.toLowerCase();
 				var f;
-				console.log(os)
+
 
 				if (os.indexOf("win") > -1) {
 					f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]).replace(/\//g, "\\");
 				} else {
 					f = decodeURI(uris[printingtools.current].split("file://")[1].split("?")[0]);
 				}
-
-				console.log(f)
-
 
 				let str_message = await IOUtils.readUTF8(f, { bytes: 3000 })
 
@@ -1166,13 +978,13 @@ var printingtools = {
 				// Handle absent Date hdr #109
 				try {
 					var dateOrig = str_message.split("\ndate:")[1].split("\n")[0];
-					console.log("try date " + dateOrig)
+					//console.log("try date " + dateOrig)
 				} catch {
 					var dateOrig = new Date().toString();
-					console.log("ca date " + dateOrig)
+					//console.log("ca date " + dateOrig)
 				}
 
-				console.log("fin date " + dateOrig)
+				//console.log("fin date " + dateOrig)
 				dateOrig = dateOrig.replace(/ +$/, "");
 				dateOrig = dateOrig.replace(/^ +/, "");
 				var secs = Date.parse(dateOrig) / 1000;
@@ -1180,8 +992,8 @@ var printingtools = {
 				dummy.dateReceived = secs;
 				printingtools.hdr = dummy;
 
-				console.log(str_message)
-				console.log(dummy)
+				//console.log(str_message)
+				//console.log(dummy)
 
 			}
 			else {
@@ -1212,7 +1024,7 @@ var printingtools = {
 		}
 
 		printingtools.sanitizeHeaders();
-		console.log(printingtools.doc.documentElement.outerHTML);
+		//console.log(printingtools.doc.documentElement.outerHTML);
 
 		await printingtools.addAttTable(printingtools.attList);
 
@@ -1256,7 +1068,7 @@ var printingtools = {
 		await printingtools.getHdr(); // save hdr
 		printingtools.current = printingtools.current + 1;
 
-		//console.debug('Tables');
+
 		var table1 = printingtools.getTable(0);
 		var table2 = printingtools.getTable(1);
 		var table3 = printingtools.getTable(2);
@@ -1358,7 +1170,7 @@ var printingtools = {
 			console.log(contents)
 			printingtools.printSelection(contents);
 			// Services.console.logStringMessage("After selection");
-			// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+			//Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 		}
 		else {
@@ -1378,6 +1190,16 @@ var printingtools = {
 		if (!noheaders && printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate"))
 			printingtools.truncateHeaders(printingtools.maxChars);
 
+
+		if (table3 && !noExtHeaders) {
+
+			var trs = table3.getElementsByTagName("tr");
+			for (var i = trs.length - 1; i > -1; i--) {
+				table1.firstChild.appendChild(trs[i]);
+			}
+		}
+
+
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.align")) {
 			if (table2) {
 				var trs = table2.getElementsByTagName("tr");
@@ -1385,11 +1207,6 @@ var printingtools = {
 					table1.firstChild.appendChild(trs[i]);
 			}
 
-			if (table3 && !noExtHeaders) {
-				var trs = table3.getElementsByTagName("tr");
-				for (var i = trs.length - 1; i > -1; i--)
-					table1.firstChild.appendChild(trs[i]);
-			}
 
 			var trs = table1.getElementsByTagName("tr");
 			for (var i = 0; i < trs.length; i++) {
@@ -1420,7 +1237,7 @@ var printingtools = {
 
 			let md = printingtools.getMail3Pane();
 
-			if (0) {
+			if (this.getTable(2)) {
 
 				var tw = printingtools.doc.createElement("TABLE");
 				// var tw = md.document.createElement("TABLE");
@@ -1457,24 +1274,46 @@ var printingtools = {
 
 				} else {
 					printingtools.insertAfter(tw, table3);
+					var maxHdrWidth = tw.getBoundingClientRect().width;
+					//console.log(maxHdrWidth)
+				}
+				//console.log(printingtools.doc.documentElement.outerHTML);
+				tw.remove()
+			}
+
+			if (this.getTable(2) && !noExtHeaders) {
+				//maxHdrWidth = 160;
+			} else {
+				let locale = Services.locale.appLocaleAsBCP47.split("-")[0];
+				let alwaysCcBcc = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always");
+
+				switch (locale) {
+					case "de":
+						if (!alwaysCcBcc) {
+							maxHdrWidth = 130;
+						} else {
+							maxHdrWidth = 110;
+						}
+						break;
+
+					default:
+						maxHdrWidth = 110;
+						break;
 				}
 
 			}
-			maxHdrWidth = 100;
+
+
 
 			for (var i = 0; i < trs.length; i++) {
 
 				trs[i].firstChild.setAttribute("width", `${maxHdrWidth}px`);
 
 			}
-
-			//tw.remove();
-			// console.debug('after she has a scalable');
-			// console.debug(tw.clientWidth);
-
 		}
 
-		// table1.setAttribute("width", "100%");
+		//console.log(printingtools.doc.documentElement.outerHTML);
+
 		table1.style.tableLayout = "fixed";
 		table1.style.marginRight = "10px";
 
@@ -1507,9 +1346,6 @@ var printingtools = {
 			//Services.console.logStringMessage("finish table layout");
 		}
 		printingtools.setTableLayout();
-
-		//Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
-
 
 		// Remove attachments  table from  end of message 
 
@@ -1736,19 +1572,19 @@ var printingtools = {
 				console.log("bef" + imgs[i].getAttribute("style"))
 				let display = imgs[i].getAttribute("_display");
 				console.log("d " + imgs[i].getAttribute("_display"))
-				if(display !== undefined && display!== null) {
+				if (display !== undefined && display !== null) {
 					console.log("reset d")
-					if(display == "") {
+					if (display == "") {
 						console.log("d to n")
 						imgs[i].style.display = null;
 					} else {
 						imgs[i].style.display = display;
 					}
-					
+
 					imgs[i].removeAttribute("_display");
 					console.log("af" + imgs[i].getAttribute("style"))
 				}
-				
+
 			}
 
 		}
@@ -1756,13 +1592,15 @@ var printingtools = {
 
 	getTable: function (num) {
 		// The function check if the requested table exists and if it's an header table
-		var tabclass = new Array("header-part1", "header-part2", "header-part3");
+		var tabclass = new Array(".moz-header-part1", ".moz-header-part2", ".moz-header-part3");
 		var doc = printingtools.previewDoc;
 		//console.debug('get Table ' + num);
-		var table = doc.getElementsByTagName("TABLE")[num];
-		//console.debug(table);
 
-		if (table && table.getAttribute("class") && table.getAttribute("class").includes(tabclass[num]))
+		//var table = doc.getElementsByTagName("TABLE")[num];
+		var table = doc.querySelector(tabclass[num]);
+
+		//if (table && table.getAttribute("class") && table.getAttribute("class").includes(tabclass[num]))
+		if (table)
 			return table;
 		else
 			return false;
@@ -2074,8 +1912,7 @@ var printingtools = {
 
 			// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
 			if (headtable1 && headtable1.lastChild) {
-				//Services.console.logStringMessage("printingtools: rd " + printingtools.dateTRpos);
-				// Services.console.logStringMessage([...headtable1.lastChild.getElementsByTagName("TR")]);
+
 				var dateTR = headtable1.lastChild.getElementsByTagName("TR")[printingtools.dateTRpos];
 
 				headtable1.lastChild.insertBefore(newTR, dateTR.nextSibling);
@@ -2117,8 +1954,6 @@ var printingtools = {
 
 			let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
 			let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
-			console.log(fileNames)
-
 
 			printingtoolsng.attList = fileNames.map((fn, i) => {
 				return { name: fn, size: fileSizes[i] };
@@ -2170,9 +2005,10 @@ var printingtools = {
 		attTable.classList.add("mimeAttachmentTable");
 		var t;
 
-		if (t = this.getTable(1)) {
+		if (t = this.getTable(2)) {
 			t.after(attTable);
-
+		} else if (t = this.getTable(1)) {
+			t.after(attTable);
 		} else {
 			t = this.getTable(0);
 			t.after(attTable);

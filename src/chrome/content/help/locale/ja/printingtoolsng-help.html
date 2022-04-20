@@ -1,8 +1,272 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" /><!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> --><script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script><title> PrintingToolsNGヘルプ</title></head><body><h2 id="main_help">PrintingToolsNGヘルプ</h2><br>拡張機能の提案とテストのヘルプを提供してくれた次のユーザーに感謝します。<br><br> - <code class="notranslate">@</code><br></p><h3>サポート：</h3><p>拡張機能のGitHubリポジトリに問題または機能のリクエストを投稿してください： <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a><br><br>バグの問題には、問題の解決に役立つ次の情報を含めてください。<br> -PrintingToolsNGバージョン<br>-Thunderbirdバージョン<br>-オペレーティングシステムとバージョン<br>-デバッグ出力（デバッグコンソールからコピー-Control-Shift-Jでアクセス）<br> -問題につながる手順の説明<br></p><h2 id="main_help">PrintingToolsNGの概要</h2><p>PrintingTools NGは、Paolo「Kaosmos」のオリジナル作品に基づいた後続の拡張機能です。<br><h2 id="customdate_format_help">カスタム日付形式</h2><p>カスタム日付オプションを使用すると、インデックス内の両方のファイルに使用される日付形式を完全に制御できます。ファイル名のドロップダウンでは、デフォルトの形式「日付」と新しいカスタム形式「日付（カスタム）」の両方を使用できます。カスタム日付は、拡張カスタムファイル名で使用される${date_custom}トークンと一緒に使用することもできます。元の（デフォルトの）日付形式は次のとおりです。<br> YYYYMMDDHHmm：202011060808<br><br>カスタム日付形式は、 <code>strftime()</code> Unixライクな機能に一致する％シーケンスを利用します。これは、日付と時刻をフォーマットする関数である<a class="link1" 
-						href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>のJavaScriptポートに基づいています。<br> TH Doanによるstrftime（）のポート（https://thdoan.github.io/strftime/）<br></p><h3>変換シーケンスの説明</h3><table class="dateformat-table"><thead><tr><th>順序</th><th>説明</th></tr></thead><tbody><tr><td><code class="code1">%a</code></td><td>曜日の省略名。</td></tr><tr><td> <code class="code1">%A</code></td><td>曜日のフルネーム。</td></tr><tr><td> <code class="code1">%b</code></td><td>月の略称。</td></tr><tr><td> <code class="code1">%B</code></td><td>完全な月の名前。</td></tr><tr><td> <code class="code1">%c</code></td><td>現在のロケールの優先日時（UTC）表現。</td></tr><tr><td> <code class="code1">%C</code></td><td> 2桁の整数としての世紀番号（年/ 100）。</td></tr><tr><td> <code class="code1">%d</code></td><td> 10進数としての月の日（範囲01から31）。</td></tr><tr><td> <code class="code1">%e</code></td><td> 10進数としての月の日（1から31の範囲）。</td></tr><tr><td> <code class="code1">%F</code></td><td> ISO 8601日付形式（ <code class="code1">%Y-%m-%d</code>と同等）。</td></tr><tr><td> <code class="code1">%G</code></td><td> 10進数として世紀を使用するISO8601週ベースの年。 4桁の年は、ISOの週番号に対応します（ <code class="code1">%V</code>を参照）。これは<code class="code1">%Y</code>と同じ形式と値ですが、ISOの週番号が前年または翌年に属する場合は、代わりにその年が使用されます。</td></tr><tr><td> <code class="code1">%g</code></td><td> <code class="code1">%G</code>と同様ですが、世紀はありません。つまり、2桁の年（00-99）があります。</td></tr><tr><td> <code class="code1">%H</code></td><td> 24時間制（00から23の範囲）を使用した10進数としての時間。 <code
-									class="code1">%k</code>も参照してください。</td></tr><tr><td> <code class="code1">%I</code></td><td> 12時間制（01から12の範囲）を使用した10進数としての時間。 <code
-									class="code1">%l</code>も参照してください。</td></tr><tr><td> <code class="code1">%j</code></td><td> 10進数としての年の日（001から366の範囲）。</td></tr><tr><td> <code class="code1">%k</code></td><td> 24時間制（0から23の範囲）を使用した10進数としての時間。 <code
-									class="code1">%H</code>も参照してください。</td></tr><tr><td> <code class="code1">%l</code></td><td> 12時間制（1から12の範囲）を使用した10進数としての時間。 <code
-									class="code1">%I</code>も参照してください。</td></tr><tr><td> <code class="code1">%m</code></td><td> 10進数としての月（範囲01から12）。</td></tr><tr><td> <code class="code1">%n</code></td><td> 10進数としての月（1から12の範囲）。</td></tr><tr><td> <code class="code1">%M</code></td><td> 10進数としての分（00から59の範囲）。</td></tr><tr><td> <code class="code1">%p</code></td><td>指定された時間値に応じて、「AM」または「PM」のいずれか。正午は「PM」として扱われ、真夜中は「AM」として扱われます。</td></tr><tr><td> <code class="code1">%P</code></td><td> <code class="code1">%p</code>と同様ですが、小文字（&quot;am&quot;または&quot;pm&quot;）です。</td></tr><tr><td> <code class="code1">%s</code></td><td>エポックからの秒数、1970-01-01 00:00:00 +0000（UTC）。</td></tr><tr><td> <code class="code1">%S</code></td><td> 10進数として2番目（範囲00から59）。</td></tr><tr><td> <code class="code1">%u</code></td><td>曜日は小数（1から7の範囲）で、月曜日は1です。 <code
-									class="code1">%w</code>も参照してください。</td></tr><tr><td> <code class="code1">%V</code></td><td> 10進数としての現在の年のISO8601週番号（01から53の範囲）。ここで、週1は、新年に少なくとも4日ある最初の週（つまり、最初の木曜日）です。</td></tr><tr><td> <code class="code1">%w</code></td><td>曜日は小数（0から6の範囲）で、日曜日は0です。 <code
-									class="code1">%u</code>も参照してください。</td></tr><tr><td> <code class="code1">%x</code></td><td>時刻なしの現在のロケールの優先日付表現。</td></tr><tr><td> <code class="code1">%X</code></td><td>日付なしの現在のロケールの優先時間表現。</td></tr><tr><td> <code class="code1">%y</code></td><td>世紀のない10進数としての年（範囲00から99）。</td></tr><tr><td> <code class="code1">%Y</code></td><td>世紀を含む10進数としての年。</td></tr><tr><td> <code class="code1">%z</code></td><td> <code class="code1">+hhmm</code>または<code class="code1">-hhmm</code>の数値タイムゾーン（つまり、UTCからの時間と分のオフセット）。</td></tr><tr><td> <code class="code1">%Z</code></td><td>タイムゾーンの名前または略語。</td></tr><tr><td> <code class="code1">%t</code></td><td>短いタイムゾーンの略語。</td></tr><tr><td> <code class="code1">%0</code></td><td>年文字通り。主にアジアのロケール向けにローカライズされています。 （zh-CN：年、ko：년）</td></tr><tr><td> <code class="code1">%1</code></td><td>月間文字。主にアジアのロケール向けにローカライズされています。 （zh-TW：月、ko：월）</td></tr><tr><td> <code class="code1">%2</code></td><td>日文字。主にアジアのロケール向けにローカライズされています。 （ja：日、ko：일）</td></tr></tbody></table><h3>互換性に関する注意：</h3><ul><li> <code class="code1">%c</code>フォーマットされた文字列はわずかに異なります</li><li><code class="code1">%D</code>実装されていません（ <code class="code1">%m/%d/%y</code>または<code class="code1">%d/%m/%y</code>を使用）</li><li> <code class="code1">%e</code>スペースは追加されません</li><li><code class="code1">%E</code>実装されていません</li><li><code class="code1">%h</code>実装されていません（ <code class="code1">%b</code>を使用）</li><li> <code class="code1">%k</code>スペースは追加されません</li><li><code class="code1">%n</code> <code class="code1">%m</code>と同様ですが、先行ゼロはありません（改行には<code class="code1">\n</code>を使用してください）</li><li> <code class="code1">%O</code>実装されていません</li><li><code class="code1">%r</code>実装されていません（ <code class="code1">%I:%M:%S %p</code>使用）</li><tr><td> <code class="code1">${subject}</code></td><td>メッセージの件名</td></tr><li><code class="code1">%R</code>実装されていません（ <code class="code1">%H:%M</code>を使用）</li><li> <code class="code1">%t</code>実装されていません（ <code class="code1">\t</code>を使用）</li><li> <code class="code1">%T</code>実装されていません（ <code class="code1">%H:%M:%S</code>を使用）</li><li> <code class="code1">%U</code>実装されていません</li><li><code class="code1">%W</code>実装されていません</li><li><code class="code1">%+</code> -実装されていません</li><li><code class="code1">%%</code> -実装されていません（ <code class="code1">%</code>を使用）</li></ul><br><br></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+	<!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> -->
+	<script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script>
+
+	<title> PrintingTools NG ヘルプ</title>
+</head>
+
+<body>
+
+	<h2 id="main_help">PrintingTools NG ヘルプ</h2>
+
+		<br>
+	拡張機能の提案とテストのヘルプを提供してくれた次のユーザーに感謝します。<br><br>
+- <code class="notranslate">@</code><br>
+
+</p>
+
+	<h3>サポート：</h3>
+		<p>
+		拡張機能の GitHub リポジトリに問題または機能のリクエストを投稿してください： <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a><br>
+		<br>
+		バグには問題の解決に役立つ次の情報を含めてください。<br>
+		 -PrintingTools NG のバージョン<br>
+		 -Thunderbird のバージョン<br>
+		 -オペレーティングシステムとそのバージョン<br>
+		 -デバッグ出力（デバッグコンソールのコピー - Control+Shift+J でアクセス）<br>
+		 -問題の再現手順の説明<br>
+
+	</p>
+	<h2 id="main_help">PrintingTools NG の概要</h2>
+	<p>PrintingTools NG は Paolo 「Kaosmos」のオリジナル作品に基づいた後続の拡張機能です。
+	<br>
+		
+				<h2 id="customdate_format_help">カスタム日付形式</h2>
+				<p>カスタム日付オプションを使用するとインデックス内の両方のファイルに使用される日付形式を完全に制御できます。
+					ファイル名のドロップダウンではデフォルトの形式「日付」と新しいカスタム形式「日付（カスタム）」の両方を使用できます。
+					カスタム日付は拡張カスタムファイル名で使用される ${date_custom} トークンと一緒に使用することもできます。
+					元の（デフォルトの）日付形式は次のとおりです。<br>
+
+
+					<br>
+					例:<br>
+					<table class="dateformat-table">
+					<thead>
+						<tr>
+							<td>日付指定文字列</td><td>結果</td><td>備考</td>
+						</tr>
+					</thead>
+						<tr>
+							<td><code class="code1">%Y %m %u %a %t %H:%M:%S [GMT %z]</code></td>
+						</tr>
+						<tr>
+							<td></td><td></td><td></td>
+						</tr>
+						<tr>
+							<td></td><td></td><td></td>
+						</tr>
+						<tr>
+							<td></td><td></td><td></td>
+						</tr>
+						<tr>
+							<td></td><td></td><td></td>
+						</tr>
+					</table>
+					<br>
+					<br>カスタム日付形式は <code>strftime()</code>
+					Unix ライクな機能に一致する ％ シーケンスを利用します。これは日付と時刻をフォーマットする関数である <a class="link1" 
+						href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+					 の JavaScript ポートに基づいています。<br>
+					TH Doan による strftime（） のポート（https://thdoan.github.io/strftime/）<br>
+					</p>
+				<h3>変換シーケンスの説明</h3>
+				<table class="dateformat-table">
+					<thead>
+						<tr>
+							<th>順序</th>
+							<th>説明</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code class="code1">%a</code></td>
+							<td>曜日の省略名。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%A</code></td>
+						<td>曜日のフルネーム。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%b</code></td>
+							<td>月の略称。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%B</code></td>
+							<td>完全な月の名前。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%c</code></td>
+							<td>現在のロケールの優先日時（UTC）表現。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%C</code></td>
+							<td> 2桁の整数としての世紀番号（年/100）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%d</code></td>
+							<td> 10進数としての月の日（範囲01から31）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%e</code></td>
+							<td> 10進数としての月の日（1から31の範囲）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%F</code></td>
+							<td> ISO 8601 日付形式（<code class="code1">%Y-%m-%d</code> と同等）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%G</code></td>
+							<td> 10進数として世紀を使用する ISO 8601 週ベースの年。 4桁の年は ISO の週番号に対応します
+								（<code class="code1">%V</code> を参照）。
+								これは<code class="code1">%Y</code> と同じ形式と値ですが ISO の週番号が前年または翌年に属する場合は代わりにその年が使用されます。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%g</code></td>
+							<td> <code class="code1">%G</code> と同様ですが世紀はありません。つまり、2桁の年（00-99）があります。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%H</code></td>
+						<td> 24時間制（00から23の範囲）を使用した10進数としての時間。 <code 
+								class="code1">%k</code> も参照してください。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%I</code></td>
+						<td> 12時間制（01から12の範囲）を使用した10進数としての時間。 <code 
+								class="code1">%l</code> も参照してください。</td>
+						</tr>
+						<tr>
+						<td> <code class="code1">%j</code></td>
+						<td> 10進数としての年の日（001から366の範囲）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%k</code></td>
+							<td> 24時間制（0から23の範囲）を使用した10進数としての時間。 <code class="code1">%H</code> も参照してください。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%l</code></td>
+							<td> 12時間制（1から12の範囲）を使用した10進数としての時間。 <code class="code1">%I</code> も参照してください。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%m</code></td>
+							<td> 10進数としての月（範囲01から12）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%n</code></td>
+							<td> 10進数としての月（1から12の範囲）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%M</code></td>
+							<td> 10進数としての分（00から59の範囲）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%p</code></td>
+							<td>指定された時間値に応じて「AM」または「PM」のいずれか。正午は「PM」として扱われ、真夜中は「AM」として扱われます。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%P</code></td>
+							<td> <code class="code1">%p</code>と同様ですが小文字（&quot;am&quot; または &quot;pm&quot;）です。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%s</code></td>
+							<td>エポックからの秒数、1970-01-01 00:00:00 +0000（UTC）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%S</code></td>
+							<td> 10進数として2番目（範囲00から59）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%u</code></td>
+							<td>曜日は小数（1から7の範囲）で月曜日は1です。 <code class="code1">%w</code> も参照してください。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%V</code></td>
+							<td> 10進数としての現在の年の ISO 8601 週番号（01から53の範囲）。ここで第1週は新年に少なくとも4日ある最初の週（つまり、最初の木曜日）です。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%w</code></td>
+							<td>曜日は小数（0から6の範囲）で日曜日は0です。 <code 	class="code1">%u</code> も参照してください。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%x</code></td>
+							<td>時刻なしの現在のロケールの優先日付表現。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%X</code></td>
+							<td>日付なしの現在のロケールの優先時間表現。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%y</code></td>
+							<td>世紀のない10進数としての年（範囲00から99）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%Y</code></td>
+							<td>世紀を含む10進数としての年。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%z</code></td>
+							<td> <code class="code1">+hhmm</code> または <code class="code1">-hhmm</code> の数値タイムゾーン（つまり、UTC からの時間と分のオフセット）。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%Z</code></td>
+							<td>タイムゾーンの名前または略語。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%t</code></td>
+							<td>短いタイムゾーンの略語。</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%0</code></td>
+							<td>年文字。主にアジアのロケール向けにローカライズされています。 （zh-CN：年、ko：년）</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%1</code></td>
+							<td>月文字。主にアジアのロケール向けにローカライズされています。 （zh-TW：月、ko：월）</td>
+						</tr>
+						<tr>
+							<td> <code class="code1">%2</code></td>
+							<td>日文字。主にアジアのロケール向けにローカライズされています。 （ja：日、ko：일）</td>
+						</tr>
+
+					</tbody>
+				</table>
+					
+					<h3>互換性に関する注意：</h3>
+					<ul>
+					<li> <code class="code1">%c</code> - フォーマットされた文字列はわずかに異なります</li>
+					<li><code class="code1">%D</code> - 実装されていません（<code class="code1">%m/%d/%y</code> または
+						<code class="code1">%d/%m/%y</code> を使用）</li>
+					<li> <code class="code1">%e</code> - スペースは追加されません</li>
+					<li><code class="code1">%E</code> - 実装されていません</li>
+					<li><code class="code1">%h</code> - 実装されていません（<code class="code1">%b</code> を使用）</li>
+					<li> <code class="code1">%k</code> - スペースは追加されません</li>
+					<li><code class="code1">%n</code> - <code class="code1">%m</code> と同様ですが先行ゼロはありません（改行には
+						<code class="code1">\n</code> を使用してください）</li>
+					<li> <code class="code1">%O</code> - 実装されていません</li>
+					<li><code class="code1">%r</code> - 実装されていません（<code class="code1">%I:%M:%S %p</code> を使用）
+					</li>
+					<tr>
+						<td> <code class="code1">${subject}</code></td>
+						<td>メッセージの件名</td>
+					</tr>
+					<li><code class="code1">%R</code> - 実装されていません（<code class="code1">%H:%M</code> を使用）</li>
+					<li> <code class="code1">%t</code> - 実装されていません（<code class="code1">\t</code> を使用）</li>
+					<li> <code class="code1">%T</code> - 実装されていません（<code class="code1">%H:%M:%S</code> を使用）</li>
+					<li> <code class="code1">%U</code> - 実装されていません</li>
+					<li><code class="code1">%W</code> - 実装されていません</li>
+					<li><code class="code1">%+</code> - 実装されていません</li>
+					<li><code class="code1">%%</code> - 実装されていません（<code class="code1">%</code> を使用）</li>
+				</ul>
+
+				<br><br>
+
+				
+</body>
+
+</html>
