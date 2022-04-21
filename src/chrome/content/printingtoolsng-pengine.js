@@ -513,6 +513,8 @@ var printingtools = {
 			bundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/mime.properties");
 		}
 
+		var dateEnUS = "Date";
+		var toEnUS = "To";
 		var dateLocalized = bundle.GetStringFromID(1007);
 		var toLocalized = bundle.GetStringFromID(1012);
 
@@ -525,14 +527,16 @@ var printingtools = {
 			let hdrVal = tr.firstChild.firstChild.nextSibling.textContent;
 			return { hdr: hdr, hdrVal: hdrVal }
 		});
-		//console.log(t0hdrs)
+		console.log(t0hdrs)
 
-		let dateHdr = t0hdrs.find(h => h.hdr == dateLocalized);
-		//console.log(dateHdr)
+		let dateHdr = t0hdrs.find(h => h.hdr == dateLocalized || h.hdr == dateEnUS);
+		console.log(dateHdr)
 
 		if (!dateHdr) {
 			printingtools.addHdr(dateLocalized, new Date().toLocaleString(), trs0[0].parentNode), true;
 		}
+
+		console.log(printingtools.doc.documentElement.outerHTML);
 
 		var table1 = printingtools.getTable(1);
 		if (!table1) {
@@ -562,13 +566,13 @@ var printingtools = {
 		}
 
 
-		let toHdr = t1hdrs.find(h => h.hdr == toLocalized);
+		let toHdr = t1hdrs.find(h => h.hdr == toLocalized || h.hdr == toEnUS);
 
 		if (!toHdr) {
-			//console.log("no to hdr")
+			console.log("no to hdr")
 			printingtools.addHdr(toLocalized, "empty", trs1[0].parentNode), true;
 		}
-
+		console.log(printingtools.doc.documentElement.outerHTML);
 
 		return
 
