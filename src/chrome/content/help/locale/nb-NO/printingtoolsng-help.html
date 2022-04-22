@@ -1,8 +1,324 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" /><!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> --><script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script><title> PrintingTools NG Hjelp</title></head><body><h2 id="main_help"> PrintingTools NG Hjelp</h2><br> Takk til følgende brukere for forbedringsforslag og testhjelp:<br><br> - <code class="notranslate">@</code><br></p><h3> Brukerstøtte:</h3><p> Vennligst legg ut problemer eller funksjonsforespørsler i GitHub-depotet for utvidelser: <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a><br><br> I feilproblemer, ta med følgende informasjon for å hjelpe deg med å løse problemene:<br> - PrintingTools NG versjon<br> - Thunderbird-versjon<br> - Operativsystem og versjon<br> - Feilsøkingsutgang (kopi fra feilsøkingskonsollen - tilgang med Control-Shift-J)<br> - En beskrivelse av trinnene som fører til problemet<br></p><h2 id="main_help"> PrintingTools NG Oversikt</h2><p> PrintingTools NG er en oppfølgingsutvidelse basert på originalverket til Paolo &quot;Kaosmos&quot;.<br><h2 id="customdate_format_help"> Egendefinert datoformat</h2><p> Alternativet tilpasset dato gir full kontroll over datoformateringen som brukes for begge filene i indeksen. Både standardformatet &quot;Dato&quot; så vel som det nye tilpassede formatet &quot;Dato (egendefinert)&quot; er tilgjengelig i rullegardinmenyene for filnavn. Den egendefinerte datoen kan også brukes med ${date_custom}-tokenet som brukes i de utvidede egendefinerte filnavnene. Det originale (standard) datoformatet er:<br> ÅÅÅÅMMDDHmm : 202011060808<br><br> Det tilpassede datoformatet bruker %-sekvenser som samsvarer med den <code>strftime()</code> Unix-lignende funksjonaliteten. Den er basert på en JavaScript-port av <a class="link1" 
-						href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a> , en funksjon for å formatere dato og klokkeslett.<br> Port of strftime() av TH Doan (https://thdoan.github.io/strftime/)<br></p><h3> Konverteringssekvensbeskrivelser</h3><table class="dateformat-table"><thead><tr><th> Sekvens</th><th> Beskrivelse</th></tr></thead><tbody><tr><td> <code class="code1">%a</code></td><td> Forkortet navn på ukedagen.</td></tr><tr><td> <code class="code1">%A</code></td><td> Fullt navn på ukedagen.</td></tr><tr><td> <code class="code1">%b</code></td><td> Forkortet månedsnavn.</td></tr><tr><td> <code class="code1">%B</code></td><td> Fullt månedsnavn.</td></tr><tr><td> <code class="code1">%c</code></td><td> Foretrukket representasjon av dato og klokkeslett (UTC) for gjeldende lokalitet.</td></tr><tr><td> <code class="code1">%C</code></td><td> Århundretall (år/100) som et 2-sifret heltall.</td></tr><tr><td> <code class="code1">%d</code></td><td> Dag i måneden som et desimaltall (område 01 til 31).</td></tr><tr><td> <code class="code1">%e</code></td><td> Dag i måneden som et desimaltall (fra 1 til 31).</td></tr><tr><td> <code class="code1">%F</code></td><td> ISO 8601 datoformat (tilsvarer <code class="code1">%Y-%m-%d</code> ).</td></tr><tr><td> <code class="code1">%G</code></td><td> ISO 8601 ukebasert årstall med århundre som desimaltall. Det 4-sifrede året tilsvarer ISO-ukenummeret (se <code class="code1">%V</code> ). Denne har samme format og verdi som <code class="code1">%Y</code> , bortsett fra at hvis ISO-ukenummeret tilhører forrige eller neste år, brukes det året i stedet.</td></tr><tr><td> <code class="code1">%g</code></td><td> Som <code class="code1">%G</code> , men uten århundre, altså med et 2-sifret årstall (00-99).</td></tr><tr><td> <code class="code1">%H</code></td><td> Time som et desimaltall ved hjelp av en 24-timers klokke (område 00 til 23). Se også <code
-									class="code1">%k</code> .</td></tr><tr><td> <code class="code1">%I</code></td><td> Time som et desimaltall med en 12-timers klokke (område 01 til 12). Se også <code
-									class="code1">%l</code> .</td></tr><tr><td> <code class="code1">%j</code></td><td> Dag i året som et desimaltall (område 001 til 366).</td></tr><tr><td> <code class="code1">%k</code></td><td> Time som et desimaltall ved hjelp av en 24-timers klokke (område 0 til 23). Se også <code
-									class="code1">%H</code> .</td></tr><tr><td> <code class="code1">%l</code></td><td> Time som et desimaltall ved bruk av en 12-timers klokke (område 1 til 12). Se også <code
-									class="code1">%I</code> .</td></tr><tr><td> <code class="code1">%m</code></td><td> Måned som et desimaltall (område 01 til 12).</td></tr><tr><td> <code class="code1">%n</code></td><td> Måned som et desimaltall (fra 1 til 12).</td></tr><tr><td> <code class="code1">%M</code></td><td> Minutt som et desimaltall (fra 00 til 59).</td></tr><tr><td> <code class="code1">%p</code></td><td> Enten &quot;AM&quot; eller &quot;PM&quot; i henhold til den gitte tidsverdien. Middag blir behandlet som &quot;PM&quot; og midnatt som &quot;AM&quot;.</td></tr><tr><td> <code class="code1">%P</code></td><td> Som <code class="code1">%p</code> men med små bokstaver (&quot;am&quot; eller &quot;pm&quot;).</td></tr><tr><td> <code class="code1">%s</code></td><td> Antall sekunder siden epoken, 1970-01-01 00:00:00 +0000 (UTC).</td></tr><tr><td> <code class="code1">%S</code></td><td> Andre som et desimaltall (fra 00 til 59).</td></tr><tr><td> <code class="code1">%u</code></td><td> Ukedag som desimal (område 1 til 7), mandag er 1. Se også <code
-									class="code1">%w</code> .</td></tr><tr><td> <code class="code1">%V</code></td><td> ISO 8601 ukenummer for inneværende år som et desimaltall (område 01 til 53), der uke 1 er den første uken som har minst 4 dager i det nye året (det vil si den første torsdagen).</td></tr><tr><td> <code class="code1">%w</code></td><td> Ukedag som desimal (område 0 til 6), søndag er 0. Se også <code
-									class="code1">%u</code> .</td></tr><tr><td> <code class="code1">%x</code></td><td> Foretrukket datorepresentasjon for gjeldende lokalitet uten klokkeslett.</td></tr><tr><td> <code class="code1">%X</code></td><td> Foretrukket tidsrepresentasjon for gjeldende lokalitet uten dato.</td></tr><tr><td> <code class="code1">%y</code></td><td> År som et desimaltall uten et århundre (område 00 til 99).</td></tr><tr><td> <code class="code1">%Y</code></td><td> År som et desimaltall inkludert århundre.</td></tr><tr><td> <code class="code1">%z</code></td><td> Den numeriske tidssonen <code class="code1">+hhmm</code> eller <code class="code1">-hhmm</code> (det vil si time- og minuttforskyvningen fra UTC).</td></tr><tr><td> <code class="code1">%Z</code></td><td> Tidssonenavn eller forkortelse.</td></tr><tr><td> <code class="code1">%t</code></td><td> Kort tidssone-forkortelse.</td></tr><tr><td> <code class="code1">%0</code></td><td> Bokstavelig år. Lokalisert, hovedsakelig for asiatiske steder. (zh-CN: 年, ko: 년)</td></tr><tr><td> <code class="code1">%1</code></td><td> Måned bokstavelig. Lokalisert, hovedsakelig for asiatiske steder. (zh-TW: 月, ko: 월)</td></tr><tr><td> <code class="code1">%2</code></td><td> Dag bokstavelig. Lokalisert, hovedsakelig for asiatiske steder. (ja: 日, ko: 일)</td></tr></tbody></table><h3> Kompatibilitetsmerknader:</h3><ul><li> <code class="code1">%c</code> - formatert streng er litt annerledes</li><li> <code class="code1">%D</code> - ikke implementert (bruk <code class="code1">%m/%d/%y</code> eller <code class="code1">%d/%m/%y</code> )</li><li> <code class="code1">%e</code> - mellomrom er ikke lagt til</li><li> <code class="code1">%E</code> - ikke implementert</li><li> <code class="code1">%h</code> - ikke implementert (bruk <code class="code1">%b</code> )</li><li> <code class="code1">%k</code> - mellomrom er ikke lagt til</li><li> <code class="code1">%n</code> - som <code class="code1">%m</code> , men ingen innledende null (bruk <code class="code1">\n</code> for nylinje)</li><li> <code class="code1">%O</code> - ikke implementert</li><li> <code class="code1">%r</code> - ikke implementert (bruk <code class="code1">%I:%M:%S %p</code> )</li><tr><td> <code class="code1">${subject}</code></td><td> Emnet for meldingen</td></tr><li> <code class="code1">%R</code> – ikke implementert (bruk <code class="code1">%H:%M</code> )</li><li> <code class="code1">%t</code> - ikke implementert (bruk <code class="code1">\t</code> )</li><li> <code class="code1">%T</code> - ikke implementert (bruk <code class="code1">%H:%M:%S</code> )</li><li> <code class="code1">%U</code> - ikke implementert</li><li> <code class="code1">%W</code> - ikke implementert</li><li> <code class="code1">%+</code> - ikke implementert</li><li> <code class="code1">%%</code> - ikke implementert (bruk <code class="code1">%</code> )</li></ul><br><br></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> -->
+    <script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script>
+    <title>PrintingTools NG Hjelp</title>
+  </head>
+  <body>
+    <h2 id="main_help">PrintingTools NG Hjelp</h2>
+    <br />
+    <h2 id="main_help">PrintingTools NG Oversikt</h2>
+    <p>
+      PrintingTools NG er en oppfølgingsutvidelse basert på originalverket til Paolo &quot;Kaosmos&quot;.
+      Utvidelsen gir mulighet for tilpasning av utskriftshoder så vel som andre alternativer.<br /><br />
+      Takk til følgende brukere for forbedringsforslag og testhjelp:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <h3>Brukerstøtte:</h3>
+    <p>
+      Vennligst legg ut problemer eller funksjonsforespørsler i GitHub-depotet for utvidelser:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      I feilproblemer, ta med følgende informasjon for å hjelpe deg med å løse problemene:<br />
+      - PrintingTools NG versjon<br />
+      - Thunderbird-versjon<br />
+      - Operativsystem og versjon<br />
+      - Feilsøkingsutgang (kopi fra feilsøkingskonsollen - tilgang med Control-Shift-J)<br />
+      - En beskrivelse av trinnene som fører til problemet<br />
+    </p>
+    <br />
+    <h2 id="customdate_format_help">Egendefinert datoformat</h2>
+    <p>
+      Alternativet tilpasset dato gir full kontroll over datoformateringen som brukes for både dato og mottatt
+      dato i e-postoverskriftene. Den tilpassede datoen gir flere lokaliserte alternativer som tillater nesten
+      alle formater. Vær oppmerksom på at den egendefinerte datostrengen kan inkludere skilletegn, bokstaver
+      inkludert unicode-tegn blandet med dato\klokkeslett-tokenene oppført nedenfor.<br /><br />
+      Eksempler:<br /><br />
+      <table class="dateformat-table">
+        <thead>
+          <tr>
+            <td>Datostreng</td>
+            <td>Resultat</td>
+            <td>Merk</td>
+          </tr>
+        </thead>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td>2022, 04/04/20 水 EDT 16:06:45 [GMT -0400]</td>
+          <td>ja lokalitet med bokstaver</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td>2022년04월20일 수 EDT 16:11:06</td>
+          <td>ko-lokalitet med bokstaver</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td>2022/04/20/20 周三 18:01:42 Eastern Daylight Time</td>
+          <td>zh-CN-lokalitet, kort dag</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td>2022/04/04/20/20/20/20 18:01:42 EDT</td>
+          <td>zh-TW-lokalitet, lang dag</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td>20.04.2022 18:01:42 EDT</td>
+          <td>Punktskillere</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%a, %b %d %Y %H:%M:%S</code></td>
+          <td>mi, 20. april 2022 18:01:42</td>
+          <td>de locale, kort dag/måned</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td>Onsdag 20. april 2022 (18:01:42) EDT</td>
+          <td>en-US lokalitet, lang dag/måned</td>
+        </tr>
+      </table>
+      <br />
+      Det tilpassede datoformatet bruker %-sekvenser som samsvarer med den
+      <code>strftime()</code> Unix-lignende funksjonaliteten. Den er basert på en JavaScript-port av
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , en funksjon for å formatere dato og klokkeslett.<br />
+      Port of strftime() av TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <h3>Konverteringssekvensbeskrivelser</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Sekvens</th>
+          <th>Beskrivelse</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Forkortet navn på ukedagen.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Fullt navn på ukedagen.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Forkortet månedsnavn.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Fullt månedsnavn.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Foretrukket representasjon av dato og klokkeslett (UTC) for gjeldende lokalitet.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Århundretall (år/100) som et 2-sifret heltall.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>Dag i måneden som et desimaltall (område 01 til 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>Dag i måneden som et desimaltall (fra 1 til 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>ISO 8601 datoformat (tilsvarer <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            ISO 8601 ukebasert årstall med århundre som desimaltall. Det 4-sifrede året tilsvarer
+            ISO-ukenummeret (se <code class="code1">%V</code> ). Denne har samme format og verdi som
+            <code class="code1">%Y</code> , bortsett fra at hvis ISO-ukenummeret tilhører forrige eller neste
+            år, brukes det året i stedet.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>
+            Som <code class="code1">%G</code> , men uten århundre, altså med et 2-sifret årstall (00-99).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Time som et desimaltall ved hjelp av en 24-timers klokke (område 00 til 23). Se også
+            <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Time som et desimaltall med en 12-timers klokke (område 01 til 12). Se også
+            <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Dag i året som et desimaltall (område 001 til 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Time som et desimaltall ved hjelp av en 24-timers klokke (område 0 til 23). Se også
+            <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Time som et desimaltall ved bruk av en 12-timers klokke (område 1 til 12). Se også
+            <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Måned som et desimaltall (område 01 til 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Måned som et desimaltall (fra 1 til 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>Minutt som et desimaltall (fra 00 til 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            Enten &quot;AM&quot; eller &quot;PM&quot; i henhold til den gitte tidsverdien. Middag blir
+            behandlet som &quot;PM&quot; og midnatt som &quot;AM&quot;.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>
+            Som <code class="code1">%p</code> men med små bokstaver (&quot;am&quot; eller &quot;pm&quot;).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Antall sekunder siden epoken, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Andre som et desimaltall (fra 00 til 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>Ukedag som desimal (område 1 til 7), mandag er 1. Se også <code class="code1">%w</code> .</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            ISO 8601 ukenummer for inneværende år som et desimaltall (område 01 til 53), der uke 1 er den
+            første uken som har minst 4 dager i det nye året (det vil si den første torsdagen).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>Ukedag som desimal (område 0 til 6), søndag er 0. Se også <code class="code1">%u</code> .</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Foretrukket datorepresentasjon for gjeldende lokalitet uten klokkeslett.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Foretrukket tidsrepresentasjon for gjeldende lokalitet uten dato.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>År som et desimaltall uten et århundre (område 00 til 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>År som et desimaltall inkludert århundre.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            Den numeriske tidssonen <code class="code1">+hhmm</code> eller
+            <code class="code1">-hhmm</code> (det vil si time- og minuttforskyvningen fra UTC).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Tidssonenavn eller forkortelse.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Kort tidssone-forkortelse.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Bokstavelig år. Lokalisert, hovedsakelig for asiatiske steder. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Måned bokstavelig. Lokalisert, hovedsakelig for asiatiske steder. (zh-TW: 月, ko: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Dag bokstavelig. Lokalisert, hovedsakelig for asiatiske steder. (ja: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Kompatibilitetsmerknader:</h3>
+    <ul>
+      <li><code class="code1">%c</code> - formatert streng er litt annerledes</li>
+      <li>
+        <code class="code1">%D</code> - ikke implementert (bruk <code class="code1">%m/%d/%y</code> eller
+        <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - mellomrom er ikke lagt til</li>
+      <li><code class="code1">%E</code> - ikke implementert</li>
+      <li><code class="code1">%h</code> - ikke implementert (bruk <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - mellomrom er ikke lagt til</li>
+      <li>
+        <code class="code1">%n</code> - som <code class="code1">%m</code> , men ingen innledende null (bruk
+        <code class="code1">\n</code> for nylinje)
+      </li>
+      <li><code class="code1">%O</code> - ikke implementert</li>
+      <li>
+        <code class="code1">%r</code> - ikke implementert (bruk <code class="code1">%I:%M:%S %p</code> )
+      </li>
+      <tr>
+        <td><code class="code1">${subject}</code></td>
+        <td>Emnet for meldingen</td>
+      </tr>
+      <li><code class="code1">%R</code> - ikke implementert (bruk <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%t</code> - ikke implementert (bruk <code class="code1">\t</code> )</li>
+      <li><code class="code1">%T</code> - ikke implementert (bruk <code class="code1">%H:%M:%S</code> )</li>
+      <li><code class="code1">%U</code> - ikke implementert</li>
+      <li><code class="code1">%W</code> - ikke implementert</li>
+      <li><code class="code1">%+</code> - ikke implementert</li>
+      <li><code class="code1">%%</code> - ikke implementert (bruk <code class="code1">%</code> )</li>
+    </ul>
+    <br /><br />
+  </body>
+</html>

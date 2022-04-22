@@ -1,8 +1,330 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" /><!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> --><script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script><title> PrintingTools NG Ajuda</title></head><body><h2 id="main_help"> PrintingTools NG Ajuda</h2><br> Gràcies als usuaris següents pels suggeriments de millora i l&#39;ajuda de prova:<br><br> - <code class="notranslate">@</code><br></p><h3> Suport:</h3><p> Si us plau, publiqueu problemes o sol·licituds de funcions al repositori d&#39;extensions de GitHub: <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a><br><br> En problemes d&#39;error, incloeu la informació següent per ajudar a resoldre els problemes:<br> - Versió PrintingTools NG<br> - Versió Thunderbird<br> - Sistema operatiu i versió<br> - Sortida de depuració (còpia des de la consola de depuració - accés amb Control-Maj-J)<br> - Una descripció dels passos que han conduït al problema<br></p><h2 id="main_help"> Visió general de PrintingTools NG</h2><p> PrintingTools NG és una extensió posterior basada en el treball original de Paolo &quot;Kaosmos&quot;.<br><h2 id="customdate_format_help"> Format de data personalitzat</h2><p> L&#39;opció de data personalitzada permet un control complet sobre el format de data utilitzat per als dos fitxers de l&#39;índex. Tant el format predeterminat &quot;Data&quot; com el nou format personalitzat &quot;Data (personalitzat)&quot; estan disponibles als menús desplegables de noms de fitxer. La data personalitzada també es pot utilitzar amb el testimoni ${date_custom} utilitzat als noms de fitxer personalitzats ampliats. El format de data original (predeterminat) és:<br> YYYYMMDDHHmm: 202011060808<br><br> El format de data personalitzat utilitza % seqüències que coincideixen amb la funcionalitat semblant a Unix <code>strftime()</code> . Es basa en un port JavaScript de <a class="link1" 
-						href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a> , una funció per formatar la data i l&#39;hora.<br> Port de strftime() per TH Doan (https://thdoan.github.io/strftime/)<br></p><h3> Descripcions de la seqüència de conversió</h3><table class="dateformat-table"><thead><tr><th> Seqüència</th><th> Descripció</th></tr></thead><tbody><tr><td> <code class="code1">%a</code></td><td> Nom abreujat del dia de la setmana.</td></tr><tr><td> <code class="code1">%A</code></td><td> Nom complet del dia de la setmana.</td></tr><tr><td> <code class="code1">%b</code></td><td> Nom del mes abreujat.</td></tr><tr><td> <code class="code1">%B</code></td><td> Nom complet del mes.</td></tr><tr><td> <code class="code1">%c</code></td><td> Representació preferida de data i hora (UTC) per a la configuració regional actual.</td></tr><tr><td> <code class="code1">%C</code></td><td> Número de segle (any/100) com a nombre enter de 2 dígits.</td></tr><tr><td> <code class="code1">%d</code></td><td> Dia del mes com a nombre decimal (interval del 01 al 31).</td></tr><tr><td> <code class="code1">%e</code></td><td> Dia del mes com a nombre decimal (interval de l&#39;1 al 31).</td></tr><tr><td> <code class="code1">%F</code></td><td> Format de data ISO 8601 (equivalent a <code class="code1">%Y-%m-%d</code> ).</td></tr><tr><td> <code class="code1">%G</code></td><td> Any setmanal ISO 8601 amb el segle com a nombre decimal. L&#39;any de 4 dígits correspon al número de setmana ISO (vegeu <code class="code1">%V</code> ). Té el mateix format i valor que <code class="code1">%Y</code> , tret que si el número de setmana ISO pertany a l&#39;any anterior o següent, s&#39;utilitza aquest any.</td></tr><tr><td> <code class="code1">%g</code></td><td> Com <code class="code1">%G</code> , però sense segle, és a dir, amb un any de 2 dígits (00-99).</td></tr><tr><td> <code class="code1">%H</code></td><td> L&#39;hora com a nombre decimal utilitzant un rellotge de 24 hores (interval de 00 a 23). Vegeu també <code
-									class="code1">%k</code> .</td></tr><tr><td> <code class="code1">%I</code></td><td> L&#39;hora com a nombre decimal utilitzant un rellotge de 12 hores (interval de 01 a 12). Vegeu també <code
-									class="code1">%l</code> .</td></tr><tr><td> <code class="code1">%j</code></td><td> Dia de l&#39;any com a nombre decimal (interval del 001 al 366).</td></tr><tr><td> <code class="code1">%k</code></td><td> L&#39;hora com a nombre decimal utilitzant un rellotge de 24 hores (interval de 0 a 23). Vegeu també <code
-									class="code1">%H</code> .</td></tr><tr><td> <code class="code1">%l</code></td><td> L&#39;hora com a nombre decimal utilitzant un rellotge de 12 hores (interval d&#39;1 a 12). Vegeu també <code
-									class="code1">%I</code> .</td></tr><tr><td> <code class="code1">%m</code></td><td> Mes com a nombre decimal (interval de 01 a 12).</td></tr><tr><td> <code class="code1">%n</code></td><td> Mes com a nombre decimal (interval de l&#39;1 al 12).</td></tr><tr><td> <code class="code1">%M</code></td><td> El minut com a nombre decimal (interval del 00 al 59).</td></tr><tr><td> <code class="code1">%p</code></td><td> &quot;AM&quot; o &quot;PM&quot; segons el valor horari donat. El migdia es considera &quot;PM&quot; i la mitjanit com &quot;AM&quot;.</td></tr><tr><td> <code class="code1">%P</code></td><td> Com <code class="code1">%p</code> però en minúscules (&quot;am&quot; o &quot;pm&quot;).</td></tr><tr><td> <code class="code1">%s</code></td><td> Nombre de segons des de l&#39;època, 1970-01-01 00:00:00 +0000 (UTC).</td></tr><tr><td> <code class="code1">%S</code></td><td> Segon com a nombre decimal (interval del 00 al 59).</td></tr><tr><td> <code class="code1">%u</code></td><td> Dia de la setmana com a decimal (interval de l&#39;1 al 7), el dilluns és l&#39;1. Vegeu també <code
-									class="code1">%w</code> .</td></tr><tr><td> <code class="code1">%V</code></td><td> Número de setmana ISO 8601 de l&#39;any actual com a nombre decimal (interval del 01 al 53), on la setmana 1 és la primera setmana que té almenys 4 dies a l&#39;any nou (és a dir, el primer dijous).</td></tr><tr><td> <code class="code1">%w</code></td><td> Dia de la setmana com a decimal (interval de 0 a 6), el diumenge és 0. Vegeu també <code
-									class="code1">%u</code> .</td></tr><tr><td> <code class="code1">%x</code></td><td> Representació de data preferida per a la configuració regional actual sense l&#39;hora.</td></tr><tr><td> <code class="code1">%X</code></td><td> Representació de l&#39;hora preferida per a la configuració regional actual sense la data.</td></tr><tr><td> <code class="code1">%y</code></td><td> Any com a nombre decimal sense segle (interval del 00 al 99).</td></tr><tr><td> <code class="code1">%Y</code></td><td> Any com a nombre decimal inclòs el segle.</td></tr><tr><td> <code class="code1">%z</code></td><td> La zona horària numèrica <code class="code1">+hhmm</code> o <code class="code1">-hhmm</code> (és a dir, el desplaçament d&#39;hora i minuts respecte a l&#39;UTC).</td></tr><tr><td> <code class="code1">%Z</code></td><td> Nom o abreviatura de la zona horària.</td></tr><tr><td> <code class="code1">%t</code></td><td> Abreviatura de zona horària curta.</td></tr><tr><td> <code class="code1">%0</code></td><td> Any Literal. Localitzat, principalment per a localitats asiàtiques. (zh-CN: 年, ko: 년)</td></tr><tr><td> <code class="code1">%1</code></td><td> Mes Literal. Localitzat, principalment per a localitats asiàtiques. (zh-TW: 月, ko: 월)</td></tr><tr><td> <code class="code1">%2</code></td><td> Dia Literal. Localitzat, principalment per a localitats asiàtiques. (ja: 日, ko: 일)</td></tr></tbody></table><h3> Notes de compatibilitat:</h3><ul><li> <code class="code1">%c</code> : la cadena formatada és lleugerament diferent</li><li> <code class="code1">%D</code> - no implementat (utilitza <code class="code1">%m/%d/%y</code> o <code class="code1">%d/%m/%y</code> )</li><li> <code class="code1">%e</code> - l&#39;espai no s&#39;ha afegit</li><li> <code class="code1">%E</code> - no implementat</li><li> <code class="code1">%h</code> - no implementat (utilitza <code class="code1">%b</code> )</li><li> <code class="code1">%k</code> - l&#39;espai no s&#39;afegeix</li><li> <code class="code1">%n</code> - com <code class="code1">%m</code> , però sense zero inicial (utilitza <code class="code1">\n</code> per a la nova línia)</li><li> <code class="code1">%O</code> - no implementat</li><li> <code class="code1">%r</code> - no implementat (utilitza <code class="code1">%I:%M:%S %p</code> )</li><tr><td> <code class="code1">${subject}</code></td><td> L&#39;assumpte del missatge</td></tr><li> <code class="code1">%R</code> - no implementat (utilitza <code class="code1">%H:%M</code> )</li><li> <code class="code1">%t</code> - no implementat (utilitza <code class="code1">\t</code> )</li><li> <code class="code1">%T</code> - no implementat (utilitza <code class="code1">%H:%M:%S</code> )</li><li> <code class="code1">%U</code> - no implementat</li><li> <code class="code1">%W</code> - no implementat</li><li> <code class="code1">%+</code> - no implementat</li><li> <code class="code1">%%</code> - no implementat (utilitza <code class="code1">%</code> )</li></ul><br><br></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> -->
+    <script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script>
+    <title>PrintingTools NG Ajuda</title>
+  </head>
+  <body>
+    <h2 id="main_help">PrintingTools NG Ajuda</h2>
+    <br />
+    <h2 id="main_help">Visió general de PrintingTools NG</h2>
+    <p>
+      PrintingTools NG és una extensió posterior basada en el treball original de Paolo &quot;Kaosmos&quot;.
+      L&#39;extensió permet personalitzar les capçaleres d&#39;impressió, així com altres opcions.<br /><br />
+      Gràcies als usuaris següents pels suggeriments de millora i l&#39;ajuda de prova:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <h3>Suport:</h3>
+    <p>
+      Si us plau, publiqueu problemes o sol·licituds de funcions al repositori d&#39;extensions de GitHub:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      En problemes d&#39;error, incloeu la informació següent per ajudar a resoldre els problemes:<br />
+      - Versió PrintingTools NG<br />
+      - Versió Thunderbird<br />
+      - Sistema operatiu i versió<br />
+      - Sortida de depuració (còpia des de la consola de depuració - accés amb Control-Maj-J)<br />
+      - Una descripció dels passos que han conduït al problema<br />
+    </p>
+    <br />
+    <h2 id="customdate_format_help">Format de data personalitzat</h2>
+    <p>
+      L&#39;opció de data personalitzada permet un control complet sobre el format de data utilitzat tant per
+      a la data com per a la data de recepció a les capçaleres del correu electrònic. La data personalitzada
+      ofereix múltiples opcions localitzades que permeten gairebé qualsevol format. Tingueu en compte que la
+      cadena de data personalitzada pot incloure separadors, literals que inclouen caràcters Unicode barrejats
+      amb els testimonis de data/hora que s&#39;enumeren a continuació.<br /><br />
+      Exemples:<br /><br />
+      <table class="dateformat-table">
+        <thead>
+          <tr>
+            <td>Cadena de data</td>
+            <td>Resultat</td>
+            <td>Nota</td>
+          </tr>
+        </thead>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td>2022年04月20日水 EDT 16:06:45 [GMT -0400]</td>
+          <td>ja local amb literals</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td>2022 년04 월 일 수 EDT 16:11:06</td>
+          <td>ko local amb literals</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td>2022年04月20日周三 18:01:42 Hora d&#39;estiu de l&#39;Est</td>
+          <td>local zh-CN, dia curt</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td>20 de febrer de 2022 a les 18:01:42 EDT</td>
+          <td>zh-TW local, dia llarg</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td>20/04/2022 18:01:42 EDT</td>
+          <td>Separadors de punts</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%a, %b %d %Y %H:%M:%S</code></td>
+          <td>Mi, 20 d&#39;abril de 2022 18:01:42</td>
+          <td>de local, dia/mes curt</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td>Dimecres, 20 d&#39;abril de 2022 (18:01:42) EDT</td>
+          <td>localització en-US, dia/mes llarg</td>
+        </tr>
+      </table>
+      <br />
+      El format de data personalitzat utilitza % seqüències que coincideixen amb la funcionalitat semblant a
+      Unix <code>strftime()</code> . Es basa en un port JavaScript de
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , una funció per formatar la data i l&#39;hora.<br />
+      Port de strftime() per TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <h3>Descripcions de la seqüència de conversió</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Seqüència</th>
+          <th>Descripció</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Nom abreujat del dia de la setmana.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Nom complet del dia de la setmana.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Nom del mes abreujat.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Nom complet del mes.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Representació preferida de data i hora (UTC) per a la configuració regional actual.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Número de segle (any/100) com a nombre enter de 2 dígits.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>Dia del mes com a nombre decimal (interval del 01 al 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>Dia del mes com a nombre decimal (interval de l&#39;1 al 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>Format de data ISO 8601 (equivalent a <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            Any setmanal ISO 8601 amb el segle com a nombre decimal. L&#39;any de 4 dígits correspon al número
+            de setmana ISO (vegeu <code class="code1">%V</code> ). Té el mateix format i valor que
+            <code class="code1">%Y</code> , tret que si el número de setmana ISO pertany a l&#39;any anterior
+            o següent, s&#39;utilitza aquest any.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>
+            Com <code class="code1">%G</code> , però sense segle, és a dir, amb un any de 2 dígits (00-99).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            L&#39;hora com a nombre decimal utilitzant un rellotge de 24 hores (interval de 00 a 23). Vegeu
+            també <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            L&#39;hora com a nombre decimal utilitzant un rellotge de 12 hores (interval de 01 a 12). Vegeu
+            també <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Dia de l&#39;any com a nombre decimal (interval del 001 al 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            L&#39;hora com a nombre decimal utilitzant un rellotge de 24 hores (interval de 0 a 23). Vegeu
+            també <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            L&#39;hora com a nombre decimal utilitzant un rellotge de 12 hores (interval d&#39;1 a 12). Vegeu
+            també <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Mes com a nombre decimal (interval de 01 a 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Mes com a nombre decimal (interval de l&#39;1 al 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>El minut com a nombre decimal (interval del 00 al 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            &quot;AM&quot; o &quot;PM&quot; segons el valor horari donat. El migdia es considera
+            &quot;PM&quot; i la mitjanit com &quot;AM&quot;.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>Com <code class="code1">%p</code> però en minúscules (&quot;am&quot; o &quot;pm&quot;).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Nombre de segons des de l&#39;època, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Segon com a nombre decimal (interval del 00 al 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            Dia de la setmana com a decimal (interval de l&#39;1 al 7), el dilluns és l&#39;1. Vegeu també
+            <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            Número de setmana ISO 8601 de l&#39;any actual com a nombre decimal (interval del 01 al 53), on la
+            setmana 1 és la primera setmana que té almenys 4 dies a l&#39;any nou (és a dir, el primer
+            dijous).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            Dia de la setmana com a decimal (interval de 0 a 6), el diumenge és 0. Vegeu també
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Representació de data preferida per a la configuració regional actual sense l&#39;hora.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Representació de l&#39;hora preferida per a la configuració regional actual sense la data.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Any com a nombre decimal sense segle (interval del 00 al 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Any com a nombre decimal inclòs el segle.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            La zona horària numèrica <code class="code1">+hhmm</code> o <code class="code1">-hhmm</code> (és a
+            dir, el desplaçament d&#39;hora i minuts respecte a l&#39;UTC).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Nom o abreviatura de la zona horària.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Abreviatura de zona horària curta.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Any Literal. Localitzat, principalment per a localitats asiàtiques. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Mes Literal. Localitzat, principalment per a localitats asiàtiques. (zh-TW: 月, ko: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Dia Literal. Localitzat, principalment per a localitats asiàtiques. (ja: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Notes de compatibilitat:</h3>
+    <ul>
+      <li><code class="code1">%c</code> : la cadena formatada és lleugerament diferent</li>
+      <li>
+        <code class="code1">%D</code> - no implementat (utilitza <code class="code1">%m/%d/%y</code> o
+        <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - l&#39;espai no s&#39;ha afegit</li>
+      <li><code class="code1">%E</code> - no implementat</li>
+      <li><code class="code1">%h</code> - no implementat (utilitza <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - l&#39;espai no s&#39;afegeix</li>
+      <li>
+        <code class="code1">%n</code> - com <code class="code1">%m</code> , però sense zero inicial (utilitza
+        <code class="code1">\n</code> per a la nova línia)
+      </li>
+      <li><code class="code1">%O</code> - no implementat</li>
+      <li>
+        <code class="code1">%r</code> - no implementat (utilitza <code class="code1">%I:%M:%S %p</code> )
+      </li>
+      <tr>
+        <td><code class="code1">${subject}</code></td>
+        <td>L&#39;assumpte del missatge</td>
+      </tr>
+      <li><code class="code1">%R</code> - no implementat (utilitza <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%t</code> - no implementat (utilitza <code class="code1">\t</code> )</li>
+      <li><code class="code1">%T</code> - no implementat (utilitza <code class="code1">%H:%M:%S</code> )</li>
+      <li><code class="code1">%U</code> - no implementat</li>
+      <li><code class="code1">%W</code> - no implementat</li>
+      <li><code class="code1">%+</code> - no implementat</li>
+      <li><code class="code1">%%</code> - no implementat (utilitza <code class="code1">%</code> )</li>
+    </ul>
+    <br /><br />
+  </body>
+</html>

@@ -1,8 +1,336 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" /><!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> --><script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script><title> PrintingTools NG Βοήθεια</title></head><body><h2 id="main_help"> PrintingTools NG Βοήθεια</h2><br> Ευχαριστούμε τους ακόλουθους χρήστες για τις προτάσεις βελτίωσης και τη βοήθεια δοκιμής:<br><br> - <code class="notranslate">@</code><br></p><h3> Υποστήριξη:</h3><p> Δημοσιεύστε ζητήματα ή αιτήματα για δυνατότητες στο αποθετήριο GitHub επεκτάσεων: <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a><br><br> Σε ζητήματα σφαλμάτων, συμπεριλάβετε τις ακόλουθες πληροφορίες για να βοηθήσετε στην επίλυση των προβλημάτων:<br> - Έκδοση PrintingTools NG<br> - Έκδοση Thunderbird<br> - Λειτουργικό σύστημα και έκδοση<br> - Έξοδος εντοπισμού σφαλμάτων (αντιγραφή από την Κονσόλα εντοπισμού σφαλμάτων - πρόσβαση με Control-Shift-J)<br> - Περιγραφή των βημάτων που οδηγούν στο ζήτημα<br></p><h2 id="main_help"> Επισκόπηση PrintingTools NG</h2><p> Το PrintingTools NG είναι μια επόμενη επέκταση που βασίζεται στο πρωτότυπο έργο του Πάολο «Κάοσμος».<br><h2 id="customdate_format_help"> Προσαρμοσμένη μορφή ημερομηνίας</h2><p> Η επιλογή προσαρμοσμένης ημερομηνίας επιτρέπει τον πλήρη έλεγχο της μορφοποίησης ημερομηνίας που χρησιμοποιείται και για τα δύο αρχεία στο ευρετήριο. Τόσο η προεπιλεγμένη μορφή &quot;Ημερομηνία&quot; καθώς και η νέα προσαρμοσμένη μορφή &quot;Ημερομηνία (προσαρμοσμένη)&quot; είναι διαθέσιμες στο αναπτυσσόμενο μενού ονόματος αρχείου. Η προσαρμοσμένη ημερομηνία μπορεί επίσης να χρησιμοποιηθεί με το διακριτικό ${date_custom} που χρησιμοποιείται στα εκτεταμένα προσαρμοσμένα ονόματα αρχείων. Η αρχική (προεπιλεγμένη) μορφή ημερομηνίας είναι:<br> ΕΕΕΕΜΜΗΗΗμμ : 202011060808<br><br> Η προσαρμοσμένη μορφή ημερομηνίας χρησιμοποιεί ακολουθίες % που ταιριάζουν με τη λειτουργικότητα τύπου <code>strftime()</code> Unix. Βασίζεται σε μια θύρα JavaScript της <a class="link1" 
-						href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a> , μια συνάρτηση για τη διαμόρφωση της ημερομηνίας και της ώρας.<br> Port of strftime() από τον TH Doan (https://thdoan.github.io/strftime/)<br></p><h3> Περιγραφές ακολουθίας μετατροπών</h3><table class="dateformat-table"><thead><tr><th> Αλληλουχία</th><th> Περιγραφή</th></tr></thead><tbody><tr><td> <code class="code1">%a</code></td><td> Συντομευμένο όνομα της ημέρας της εβδομάδας.</td></tr><tr><td> <code class="code1">%A</code></td><td> Πλήρες όνομα της ημέρας της εβδομάδας.</td></tr><tr><td> <code class="code1">%b</code></td><td> Συντομευμένο όνομα μήνα.</td></tr><tr><td> <code class="code1">%B</code></td><td> Όνομα πλήρους μήνα.</td></tr><tr><td> <code class="code1">%c</code></td><td> Προτιμώμενη αναπαράσταση ημερομηνίας και ώρας (UTC) για την τρέχουσα τοπική ρύθμιση.</td></tr><tr><td> <code class="code1">%C</code></td><td> Αριθμός αιώνα (έτος/100) ως διψήφιος ακέραιος αριθμός.</td></tr><tr><td> <code class="code1">%d</code></td><td> Ημέρα του μήνα ως δεκαδικός αριθμός (εύρος 01 έως 31).</td></tr><tr><td> <code class="code1">%e</code></td><td> Ημέρα του μήνα ως δεκαδικός αριθμός (εύρος 1 έως 31).</td></tr><tr><td> <code class="code1">%F</code></td><td> Μορφή ημερομηνίας ISO 8601 (ισοδύναμη με <code class="code1">%Y-%m-%d</code> ).</td></tr><tr><td> <code class="code1">%G</code></td><td> ISO 8601 έτος βάσει εβδομάδας με δεκαδικό αριθμό τον αιώνα. Το 4-ψήφιο έτος αντιστοιχεί στον αριθμό της εβδομάδας ISO (βλ. <code class="code1">%V</code> ). Αυτό έχει την ίδια μορφή και τιμή με το <code class="code1">%Y</code> , εκτός από το ότι αν ο αριθμός της εβδομάδας ISO ανήκει στο προηγούμενο ή το επόμενο έτος, χρησιμοποιείται αυτό το έτος.</td></tr><tr><td> <code class="code1">%g</code></td><td> Όπως το <code class="code1">%G</code> , αλλά χωρίς αιώνα, δηλαδή με 2ψήφιο έτος (00-99).</td></tr><tr><td> <code class="code1">%H</code></td><td> Η ώρα ως δεκαδικός αριθμός χρησιμοποιώντας ένα ρολόι 24 ωρών (εύρος 00 έως 23). Δείτε επίσης <code
-									class="code1">%k</code> .</td></tr><tr><td> <code class="code1">%I</code></td><td> Η ώρα ως δεκαδικός αριθμός χρησιμοποιώντας ένα ρολόι 12 ωρών (εύρος 01 έως 12). Δείτε επίσης <code
-									class="code1">%l</code> .</td></tr><tr><td> <code class="code1">%j</code></td><td> Ημέρα του έτους ως δεκαδικός αριθμός (εύρος 001 έως 366).</td></tr><tr><td> <code class="code1">%k</code></td><td> Η ώρα ως δεκαδικός αριθμός χρησιμοποιώντας ένα ρολόι 24 ωρών (εύρος 0 έως 23). Δείτε επίσης <code
-									class="code1">%H</code> .</td></tr><tr><td> <code class="code1">%l</code></td><td> Η ώρα ως δεκαδικός αριθμός χρησιμοποιώντας ένα ρολόι 12 ωρών (εύρος 1 έως 12). Δείτε επίσης <code
-									class="code1">%I</code> .</td></tr><tr><td> <code class="code1">%m</code></td><td> Ο μήνας ως δεκαδικός αριθμός (εύρος 01 έως 12).</td></tr><tr><td> <code class="code1">%n</code></td><td> Ο μήνας ως δεκαδικός αριθμός (εύρος 1 έως 12).</td></tr><tr><td> <code class="code1">%M</code></td><td> Το λεπτό ως δεκαδικός αριθμός (εύρος 00 έως 59).</td></tr><tr><td> <code class="code1">%p</code></td><td> Είτε &quot;AM&quot; ή &quot;PM&quot; σύμφωνα με τη δεδομένη τιμή ώρας. Το μεσημέρι αντιμετωπίζεται ως &quot;ΜΜ&quot; και τα μεσάνυχτα ως &quot;ΠΜ&quot;.</td></tr><tr><td> <code class="code1">%P</code></td><td> Όπως <code class="code1">%p</code> αλλά με πεζά (&quot;am&quot; ή &quot;pm&quot;).</td></tr><tr><td> <code class="code1">%s</code></td><td> Αριθμός δευτερολέπτων από την εποχή, 1970-01-01 00:00:00 +0000 (UTC).</td></tr><tr><td> <code class="code1">%S</code></td><td> Δεύτερος ως δεκαδικός αριθμός (εύρος 00 έως 59).</td></tr><tr><td> <code class="code1">%u</code></td><td> Ημέρα της εβδομάδας ως δεκαδικός (εύρος 1 έως 7), η Δευτέρα είναι 1. Δείτε επίσης <code
-									class="code1">%w</code> .</td></tr><tr><td> <code class="code1">%V</code></td><td> Αριθμός εβδομάδας ISO 8601 του τρέχοντος έτους ως δεκαδικός αριθμός (εύρος 01 έως 53), όπου η εβδομάδα 1 είναι η πρώτη εβδομάδα που έχει τουλάχιστον 4 ημέρες το νέο έτος (δηλαδή την πρώτη Πέμπτη).</td></tr><tr><td> <code class="code1">%w</code></td><td> Ημέρα της εβδομάδας ως δεκαδικό (εύρος 0 έως 6), η Κυριακή είναι 0. Δείτε επίσης <code
-									class="code1">%u</code> .</td></tr><tr><td> <code class="code1">%x</code></td><td> Προτιμώμενη αναπαράσταση ημερομηνίας για την τρέχουσα τοπική ρύθμιση χωρίς την ώρα.</td></tr><tr><td> <code class="code1">%X</code></td><td> Προτιμώμενη αναπαράσταση ώρας για την τρέχουσα τοπική ρύθμιση χωρίς την ημερομηνία.</td></tr><tr><td> <code class="code1">%y</code></td><td> Το έτος ως δεκαδικός αριθμός χωρίς αιώνα (εύρος 00 έως 99).</td></tr><tr><td> <code class="code1">%Y</code></td><td> Το έτος ως δεκαδικός αριθμός συμπεριλαμβανομένου του αιώνα.</td></tr><tr><td> <code class="code1">%z</code></td><td> Η αριθμητική ζώνη ώρας <code class="code1">+hhmm</code> hhmm ή <code class="code1">-hhmm</code> (δηλαδή, η ώρα και τα λεπτά μετατοπίζονται από το UTC).</td></tr><tr><td> <code class="code1">%Z</code></td><td> Όνομα ή συντομογραφία ζώνης ώρας.</td></tr><tr><td> <code class="code1">%t</code></td><td> Σύντομη συντομογραφία ζώνης ώρας.</td></tr><tr><td> <code class="code1">%0</code></td><td> Έτος Κυριολεκτικά. Εντοπίζεται, κυρίως για ασιατικές τοποθεσίες. (zh-CN: 年, ko: 년)</td></tr><tr><td> <code class="code1">%1</code></td><td> Μήνας Κυριολεκτικά. Εντοπίζεται, κυρίως για ασιατικές τοποθεσίες. (zh-TW: 月, ko: 월)</td></tr><tr><td> <code class="code1">%2</code></td><td> Ημέρα Κυριολεκτικά. Εντοπίζεται, κυρίως για ασιατικές τοποθεσίες. (ja: 日, ko: 일)</td></tr></tbody></table><h3> Σημειώσεις συμβατότητας:</h3><ul><li> <code class="code1">%c</code> - η μορφοποιημένη συμβολοσειρά είναι ελαφρώς διαφορετική</li><li> <code class="code1">%D</code> - δεν υλοποιήθηκε (χρησιμοποιήστε <code class="code1">%m/%d/%y</code> ή <code class="code1">%d/%m/%y</code> )</li><li> <code class="code1">%e</code> - δεν προστίθεται χώρος</li><li> <code class="code1">%E</code> - δεν εφαρμόζεται</li><li> <code class="code1">%h</code> - δεν υλοποιήθηκε (χρησιμοποιήστε <code class="code1">%b</code> )</li><li> <code class="code1">%k</code> - δεν προστίθεται χώρος</li><li> <code class="code1">%n</code> - όπως <code class="code1">%m</code> , αλλά χωρίς μηδέν (χρήση <code class="code1">\n</code> για νέα γραμμή)</li><li> <code class="code1">%O</code> - δεν εφαρμόζεται</li><li> <code class="code1">%r</code> - δεν υλοποιήθηκε (χρησιμοποιήστε <code class="code1">%I:%M:%S %p</code> )</li><tr><td> <code class="code1">${subject}</code></td><td> Το θέμα του μηνύματος</td></tr><li> <code class="code1">%R</code> - δεν υλοποιήθηκε (χρησιμοποιήστε <code class="code1">%H:%M</code> )</li><li> <code class="code1">%t</code> - δεν υλοποιήθηκε (χρήση <code class="code1">\t</code> )</li><li> <code class="code1">%T</code> - δεν υλοποιήθηκε (χρησιμοποιήστε <code class="code1">%H:%M:%S</code> )</li><li> <code class="code1">%U</code> - δεν εφαρμόζεται</li><li> <code class="code1">%W</code> - δεν εφαρμόζεται</li><li> <code class="code1">%+</code> - δεν εφαρμόζεται</li><li> <code class="code1">%%</code> - δεν υλοποιήθηκε (χρήση <code class="code1">%</code> )</li></ul><br><br></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> -->
+    <script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script>
+    <title>PrintingTools NG Βοήθεια</title>
+  </head>
+  <body>
+    <h2 id="main_help">PrintingTools NG Βοήθεια</h2>
+    <br />
+    <h2 id="main_help">Επισκόπηση PrintingTools NG</h2>
+    <p>
+      Το PrintingTools NG είναι μια επόμενη επέκταση που βασίζεται στο πρωτότυπο έργο του Πάολο «Κάοσμος». Η
+      επέκταση επιτρέπει την προσαρμογή των κεφαλίδων εκτύπωσης καθώς και άλλων επιλογών.<br /><br />
+      Ευχαριστούμε τους ακόλουθους χρήστες για τις προτάσεις βελτίωσης και τη βοήθεια δοκιμής:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <h3>Υποστήριξη:</h3>
+    <p>
+      Δημοσιεύστε ζητήματα ή αιτήματα για δυνατότητες στο αποθετήριο GitHub επεκτάσεων:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      Σε ζητήματα σφαλμάτων, συμπεριλάβετε τις ακόλουθες πληροφορίες για να βοηθήσετε στην επίλυση των
+      προβλημάτων:<br />
+      - Έκδοση PrintingTools NG<br />
+      - Έκδοση Thunderbird<br />
+      - Λειτουργικό σύστημα και έκδοση<br />
+      - Έξοδος εντοπισμού σφαλμάτων (αντιγραφή από την Κονσόλα εντοπισμού σφαλμάτων - πρόσβαση με
+      Control-Shift-J)<br />
+      - Περιγραφή των βημάτων που οδηγούν στο ζήτημα<br />
+    </p>
+    <br />
+    <h2 id="customdate_format_help">Προσαρμοσμένη μορφή ημερομηνίας</h2>
+    <p>
+      Η επιλογή προσαρμοσμένης ημερομηνίας επιτρέπει τον πλήρη έλεγχο της μορφοποίησης ημερομηνίας που
+      χρησιμοποιείται τόσο για την Ημερομηνία όσο και για την Ημερομηνία λήψης στις κεφαλίδες του email. Η
+      προσαρμοσμένη ημερομηνία παρέχει πολλές τοπικές επιλογές που επιτρέπουν σχεδόν οποιαδήποτε μορφή. Λάβετε
+      υπόψη ότι η προσαρμοσμένη συμβολοσειρά ημερομηνίας μπορεί να περιλαμβάνει διαχωριστικά, κυριολεκτικά,
+      συμπεριλαμβανομένων χαρακτήρων unicode σε συνδυασμό με τα διακριτικά ημερομηνίας/ώρας που αναφέρονται
+      παρακάτω.<br /><br />
+      Παραδείγματα:<br /><br />
+      <table class="dateformat-table">
+        <thead>
+          <tr>
+            <td>Συμβολοσειρά ημερομηνίας</td>
+            <td>Αποτέλεσμα</td>
+            <td>Σημείωση</td>
+          </tr>
+        </thead>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td>2022年04月20日 水 EDT 16:06:45 [GMT -0400]</td>
+          <td>ja locale με κυριολεκτικά</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td>2022년04월20일 수 EDT 16:11:06</td>
+          <td>ko locale με κυριολεκτικά</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td>2022年04月20日周三 18:01:42 Ανατολική θερινή ώρα</td>
+          <td>Τοπική ρύθμιση zh-CN, σύντομη ημέρα</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td>2022年04月20日 星期三 18:01:42 EDT</td>
+          <td>Τοπική ρύθμιση zh-TW, μεγάλη μέρα</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td>20.04.2022 18:01:42 EDT</td>
+          <td>Διαχωριστές κουκκίδων</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%a, %b %d %Y %H:%M:%S</code></td>
+          <td>Mi, 20 Απριλίου 2022 18:01:42</td>
+          <td>de locale, σύντομη ημέρα/μήνα</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td>Τετάρτη, 20 Απριλίου 2022 (18:01:42) EDT</td>
+          <td>τοπικές ρυθμίσεις en-US, μεγάλη ημέρα/μήνα</td>
+        </tr>
+      </table>
+      <br />
+      Η προσαρμοσμένη μορφή ημερομηνίας χρησιμοποιεί ακολουθίες % που ταιριάζουν με τη λειτουργικότητα τύπου
+      <code>strftime()</code> Unix. Βασίζεται σε μια θύρα JavaScript της
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , μια συνάρτηση για τη διαμόρφωση της ημερομηνίας και της ώρας.<br />
+      Port of strftime() από τον TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <h3>Περιγραφές ακολουθίας μετατροπών</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Αλληλουχία</th>
+          <th>Περιγραφή</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Συντομευμένο όνομα της ημέρας της εβδομάδας.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Πλήρες όνομα της ημέρας της εβδομάδας.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Συντομευμένο όνομα μήνα.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Όνομα πλήρους μήνα.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Προτιμώμενη αναπαράσταση ημερομηνίας και ώρας (UTC) για την τρέχουσα τοπική ρύθμιση.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Αριθμός αιώνα (έτος/100) ως διψήφιος ακέραιος αριθμός.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>Ημέρα του μήνα ως δεκαδικός αριθμός (εύρος 01 έως 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>Ημέρα του μήνα ως δεκαδικός αριθμός (εύρος 1 έως 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>Μορφή ημερομηνίας ISO 8601 (ισοδύναμη με <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            ISO 8601 έτος βάσει εβδομάδας με δεκαδικό αριθμό τον αιώνα. Το 4-ψήφιο έτος αντιστοιχεί στον
+            αριθμό της εβδομάδας ISO (βλ. <code class="code1">%V</code> ). Αυτό έχει την ίδια μορφή και τιμή
+            με το <code class="code1">%Y</code> , εκτός από το ότι αν ο αριθμός της εβδομάδας ISO ανήκει στο
+            προηγούμενο ή το επόμενο έτος, χρησιμοποιείται αυτό το έτος.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>Όπως το <code class="code1">%G</code> , αλλά χωρίς αιώνα, δηλαδή με 2ψήφιο έτος (00-99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Η ώρα ως δεκαδικός αριθμός χρησιμοποιώντας ένα ρολόι 24 ωρών (εύρος 00 έως 23). Δείτε επίσης
+            <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Η ώρα ως δεκαδικός αριθμός χρησιμοποιώντας ένα ρολόι 12 ωρών (εύρος 01 έως 12). Δείτε επίσης
+            <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Ημέρα του έτους ως δεκαδικός αριθμός (εύρος 001 έως 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Η ώρα ως δεκαδικός αριθμός χρησιμοποιώντας ένα ρολόι 24 ωρών (εύρος 0 έως 23). Δείτε επίσης
+            <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Η ώρα ως δεκαδικός αριθμός χρησιμοποιώντας ένα ρολόι 12 ωρών (εύρος 1 έως 12). Δείτε επίσης
+            <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Ο μήνας ως δεκαδικός αριθμός (εύρος 01 έως 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Ο μήνας ως δεκαδικός αριθμός (εύρος 1 έως 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>Το λεπτό ως δεκαδικός αριθμός (εύρος 00 έως 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            Είτε &quot;AM&quot; ή &quot;PM&quot; σύμφωνα με τη δεδομένη τιμή ώρας. Το μεσημέρι αντιμετωπίζεται
+            ως &quot;ΜΜ&quot; και τα μεσάνυχτα ως &quot;ΠΜ&quot;.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>Όπως <code class="code1">%p</code> αλλά με πεζά (&quot;am&quot; ή &quot;pm&quot;).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Αριθμός δευτερολέπτων από την εποχή, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Δεύτερος ως δεκαδικός αριθμός (εύρος 00 έως 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            Ημέρα της εβδομάδας ως δεκαδικός (εύρος 1 έως 7), η Δευτέρα είναι 1. Δείτε επίσης
+            <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            Αριθμός εβδομάδας ISO 8601 του τρέχοντος έτους ως δεκαδικός αριθμός (εύρος 01 έως 53), όπου η
+            εβδομάδα 1 είναι η πρώτη εβδομάδα που έχει τουλάχιστον 4 ημέρες το νέο έτος (δηλαδή την πρώτη
+            Πέμπτη).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            Ημέρα της εβδομάδας ως δεκαδικό (εύρος 0 έως 6), η Κυριακή είναι 0. Δείτε επίσης
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Προτιμώμενη αναπαράσταση ημερομηνίας για την τρέχουσα τοπική ρύθμιση χωρίς την ώρα.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Προτιμώμενη αναπαράσταση ώρας για την τρέχουσα τοπική ρύθμιση χωρίς την ημερομηνία.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Το έτος ως δεκαδικός αριθμός χωρίς αιώνα (εύρος 00 έως 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Το έτος ως δεκαδικός αριθμός συμπεριλαμβανομένου του αιώνα.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            Η αριθμητική ζώνη ώρας <code class="code1">+hhmm</code> hhmm ή
+            <code class="code1">-hhmm</code> (δηλαδή, η ώρα και τα λεπτά μετατοπίζονται από το UTC).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Όνομα ή συντομογραφία ζώνης ώρας.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Σύντομη συντομογραφία ζώνης ώρας.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Έτος Κυριολεκτικά. Εντοπίζεται, κυρίως για ασιατικές τοποθεσίες. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Μήνας Κυριολεκτικά. Εντοπίζεται, κυρίως για ασιατικές τοποθεσίες. (zh-TW: 月, ko: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Ημέρα Κυριολεκτικά. Εντοπίζεται, κυρίως για ασιατικές τοποθεσίες. (ja: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Σημειώσεις συμβατότητας:</h3>
+    <ul>
+      <li><code class="code1">%c</code> - η μορφοποιημένη συμβολοσειρά είναι ελαφρώς διαφορετική</li>
+      <li>
+        <code class="code1">%D</code> - δεν υλοποιήθηκε (χρησιμοποιήστε <code class="code1">%m/%d/%y</code> ή
+        <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - δεν προστίθεται χώρος</li>
+      <li><code class="code1">%E</code> - δεν εφαρμόζεται</li>
+      <li><code class="code1">%h</code> - δεν υλοποιήθηκε (χρησιμοποιήστε <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - δεν προστίθεται χώρος</li>
+      <li>
+        <code class="code1">%n</code> - όπως <code class="code1">%m</code> , αλλά χωρίς μηδέν (χρήση
+        <code class="code1">\n</code> για νέα γραμμή)
+      </li>
+      <li><code class="code1">%O</code> - δεν εφαρμόζεται</li>
+      <li>
+        <code class="code1">%r</code> - δεν υλοποιήθηκε (χρησιμοποιήστε
+        <code class="code1">%I:%M:%S %p</code> )
+      </li>
+      <tr>
+        <td><code class="code1">${subject}</code></td>
+        <td>Το θέμα του μηνύματος</td>
+      </tr>
+      <li>
+        <code class="code1">%R</code> - δεν υλοποιήθηκε (χρησιμοποιήστε <code class="code1">%H:%M</code> )
+      </li>
+      <li><code class="code1">%t</code> - δεν υλοποιήθηκε (χρήση <code class="code1">\t</code> )</li>
+      <li>
+        <code class="code1">%T</code> - δεν υλοποιήθηκε (χρησιμοποιήστε <code class="code1">%H:%M:%S</code> )
+      </li>
+      <li><code class="code1">%U</code> - δεν εφαρμόζεται</li>
+      <li><code class="code1">%W</code> - δεν εφαρμόζεται</li>
+      <li><code class="code1">%+</code> - δεν εφαρμόζεται</li>
+      <li><code class="code1">%%</code> - δεν υλοποιήθηκε (χρήση <code class="code1">%</code> )</li>
+    </ul>
+    <br /><br />
+  </body>
+</html>
