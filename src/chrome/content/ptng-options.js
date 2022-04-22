@@ -34,18 +34,14 @@ function setComplexPref(pref, value) {
 }
 
 async function loadHelp(bmark) {
-	console.log("help load")
+	//console.log("help load")
 	t = await window.opener.ptngAddon.notifyTools.notifyBackground({ command: "openHelp", locale: Services.locale.appLocaleAsBCP47});
 }
 
 async function  initPMDpanel() {
 
 	// cleidigh
-	console.debug('initialize panel');
-
-	
-	// console.debug(window.arguments);
-
+	//console.debug('initialize panel');
 	
 	var win = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator)
@@ -213,12 +209,11 @@ async function  initPMDpanel() {
 	if (u.length < 7)
 		u[6] = "%r3";
 
-	console.log("hdf order")
 	gheaderList.clear();
 	for (var i = 0; i < u.length; i++) {
 		var lab = getHeaderLabel(u[i].replace('!', ''));
 		let show = !u[i].startsWith('!');
-		console.log(lab)
+		
 		gheaderList.add({ headerName: lab, headerToken: u[i], id: i + 1, show: show });
 	}
 	// console.debug(gheaderList.listElement.outerHTML);
@@ -331,16 +326,16 @@ function onSelectListRow(event, data_id) {
 }
 
 function getHeaderLabel(string) {
-	console.log("hdr str " + string)
+	
 	var bundle;
-	console.log(Services.locale.appLocaleAsBCP47)
+	//console.log(Services.locale.appLocaleAsBCP47)
 	if (Services.locale.appLocaleAsBCP47 === "ja") {
 		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
 	} else if (Services.locale.appLocaleAsBCP47 === "zh-CN") {
-		console.log("cn loc")
+		
 		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
 } else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
-		console.log("tw loc")
+		
 		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh-tw.properties");
 	} else {
 		bundle = strBundleService.createBundle("chrome://messenger/locale/mime.properties");
@@ -374,13 +369,12 @@ function getHeaderLabel(string) {
 }
 
 function savePMDprefs() {
-	console.debug('save options');
-	// if (fullPanel)
-	// savePMDabprefs(true);
+	//console.debug('save options');
+	
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
 	prefs.setCharPref("print_printer", "");
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
-	Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);
+	//Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);
 
 	prefs.setBoolPref("extensions.printingtoolsng.headers.useCcBcc_always", document.getElementById("useCcBccAlways").checked);
 

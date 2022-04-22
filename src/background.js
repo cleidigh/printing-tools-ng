@@ -121,8 +121,8 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			return rv;
 			break;
 		case "openHelp":
-			console.log("help")
-			console.log(info)
+			//console.log("help")
+			//console.log(info)
 			var locale = info.locale;
 
 			try {

@@ -4,7 +4,7 @@ var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime
 
 console.log("PTNG: Engine loaded")
 
-dtest();
+//dtest();
 
 function stest(f, d, l) {
 
@@ -527,16 +527,16 @@ var printingtools = {
 			let hdrVal = tr.firstChild.firstChild.nextSibling.textContent;
 			return { hdr: hdr, hdrVal: hdrVal }
 		});
-		console.log(t0hdrs)
+		//console.log(t0hdrs)
 
 		let dateHdr = t0hdrs.find(h => h.hdr == dateLocalized || h.hdr == dateEnUS);
-		console.log(dateHdr)
+		//console.log(dateHdr)
 
 		if (!dateHdr) {
 			printingtools.addHdr(dateLocalized, new Date().toLocaleString(), trs0[0].parentNode), true;
 		}
 
-		console.log(printingtools.doc.documentElement.outerHTML);
+		//console.log(printingtools.doc.documentElement.outerHTML);
 
 		var table1 = printingtools.getTable(1);
 		if (!table1) {
@@ -550,7 +550,7 @@ var printingtools = {
 			return;
 		}
 
-		trs1.map(e => console.log(e.outerHTML))
+		//trs1.map(e => console.log(e.outerHTML))
 
 		t1hdrs = trs1.map(tr => {
 			let hdr = tr.firstChild.firstChild.textContent.match(regExp)[1];
@@ -569,10 +569,10 @@ var printingtools = {
 		let toHdr = t1hdrs.find(h => h.hdr == toLocalized || h.hdr == toEnUS);
 
 		if (!toHdr) {
-			console.log("no to hdr")
+			//console.log("no to hdr")
 			printingtools.addHdr(toLocalized, "empty", trs1[0].parentNode), true;
 		}
-		console.log(printingtools.doc.documentElement.outerHTML);
+		//console.log(printingtools.doc.documentElement.outerHTML);
 
 		return
 
