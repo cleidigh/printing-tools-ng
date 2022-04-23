@@ -4,7 +4,7 @@ var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime
 
 console.log("PTNG: Engine loaded")
 
-//dtest();
+dtest();
 
 function stest(f, d, l) {
 
@@ -22,7 +22,7 @@ function dtest() {
 	strftime.getDayNames('en-US', 'short', 1)
 	strftime.getDayNames('zh-CN', 'short', 1)
 	strftime.getDayNames('zh-TW', 'short', 1)
-	strftime.getDayNames('de-DE', 'short', 1)
+	strftime.getDayNames('ja', 'long', 1)
 	strftime.getDayNames('ja', 'short', 1)
 	strftime.getDayNames('default', 'short', 1)
 	let dt = new Date();
@@ -33,14 +33,14 @@ function dtest() {
 	formatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium' });
 	console.log(formatter.format(dt))
 
-	formatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'long' });
+	formatter = new Intl.DateTimeFormat('ja', { dateStyle: 'long' });
 	console.log(formatter.format(dt))
 
-	formatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium' });
+	formatter = new Intl.DateTimeFormat('ja', { dateStyle: 'medium' });
 	console.log(formatter.format(dt))
 
 	console.log("cn full")
-	formatter = new Intl.DateTimeFormat('zh-TW', { dateStyle: 'full' });
+	formatter = new Intl.DateTimeFormat('ja', { dateStyle: 'full' });
 	console.log(formatter.format(dt))
 
 	formatter.formatToParts(dt).map(p => console.log(p))
@@ -60,7 +60,7 @@ function dtest() {
 	options.timeZoneName = 'long'
 
 	console.log(" op2")
-	formatter = new Intl.DateTimeFormat('de', options);
+	formatter = new Intl.DateTimeFormat('ja', options);
 	formatter.formatToParts(dt).map(p => console.log(p))
 
 	console.log(" op2 def")
