@@ -6,9 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-	<!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> -->
-	<script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script>
-
+	
 	<title>PrintingTools NG Help</title>
 </head>
 
@@ -61,7 +59,9 @@
 		used for both the Date and Received Date in the email headers.
 		The custom date provides multiple localized options allowing almost any format.
 		Note that the custom date string can include separators, literals including unicode
-		characters mixed with the date\time tokens listed below.<br>
+		characters mixed with the date\time tokens listed below.<br><br>
+		Note: The custom date results in the examples below will be different based on the actual date, the users locale and timezone.
+		<br>
 
 		<br>
 		Examples:<br><br>
@@ -75,27 +75,27 @@
 		</thead>
 		<tr>
 			<td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-			<td>2022年04月20日 水 EDT 16:06:45 [GMT -0400]</td>
+			<td>2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
 			<td>ja locale with literals</td>
 		</tr>
 		<tr>
 			<td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-			<td>2022년04월20일 수 EDT 16:11:06</td>
+			<td>2022년04월20일 수 KST 16:11:06</td>
 			<td>ko locale with literals</td>
 		</tr>
 		<tr>
 			<td><code class="code1">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-			<td>2022年04月20日 周三 18:01:42 Eastern Daylight Time</td>
+			<td>2022年04月20日 周三 18:01:42 北京时间</td>
 			<td>zh-CN locale, short day</td>
 		</tr>
 		<tr>
 			<td><code class="code1">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-			<td>2022年04月20日 星期三 18:01:42 EDT</td>
+			<td>2022年04月20日 星期三 18:01:42 CST</td>
 			<td>zh-TW locale, long day</td>
 		</tr>
 		<tr>
 			<td><code class="code1">%d.%m.%Y  %H:%M:%S %t</code></td>
-			<td>20.04.2022 18:01:42 EDT</td>
+			<td>20.04.2022 18:01:42 CET</td>
 			<td>Dot separators</td>
 		</tr>
 		<tr>

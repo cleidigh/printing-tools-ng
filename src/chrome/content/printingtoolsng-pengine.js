@@ -4,7 +4,7 @@ var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime
 
 console.log("PTNG: Engine loaded")
 
-dtest();
+//dtest();
 
 function stest(f, d, l) {
 
@@ -1573,20 +1573,18 @@ var printingtools = {
 		var imgs = printingtools.doc.getElementsByTagName("img");
 		for (i = 0; i < imgs.length; i++) {
 			if (imgs[i].getAttribute("class") != "attIcon") {
-				console.log("bef" + imgs[i].getAttribute("style"))
+				
 				let display = imgs[i].getAttribute("_display");
-				console.log("d " + imgs[i].getAttribute("_display"))
+				
 				if (display !== undefined && display !== null) {
-					console.log("reset d")
 					if (display == "") {
-						console.log("d to n")
+						
 						imgs[i].style.display = null;
 					} else {
 						imgs[i].style.display = display;
 					}
 
 					imgs[i].removeAttribute("_display");
-					console.log("af" + imgs[i].getAttribute("style"))
 				}
 
 			}
