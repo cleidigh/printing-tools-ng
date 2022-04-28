@@ -190,7 +190,7 @@ function sleep(ms) {
 // console.debug(translate);
 
 async function translateHelpPage() {
-	var localeFolders = _getAllFilesOrFolders(localeDir, true);
+	//var localeFolders = _getAllFilesOrFolders(localeDir, true);
 	
 	// var supportedLocales = ['ca', 'da', 'de', 'en-US', 'es-ES', 'fr', 'gl-ES', 'hu-HU', 'hy-AM'];
 
@@ -450,7 +450,7 @@ let inputFiles = ["printingtoolsng.dtd"];
 // 						'el', 'pl', 'da', 'pt-PT'];
 
 // printingtools
-var localeFolders = ['ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+var localeFolders = ['ca', 'da-DK', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
 'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 

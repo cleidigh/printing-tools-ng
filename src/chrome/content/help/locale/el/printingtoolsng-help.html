@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> -->
-    <script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script>
     <title>PrintingTools NG Βοήθεια</title>
   </head>
   <body>
@@ -55,6 +53,8 @@
       υπόψη ότι η προσαρμοσμένη συμβολοσειρά ημερομηνίας μπορεί να περιλαμβάνει διαχωριστικά, κυριολεκτικά,
       συμπεριλαμβανομένων χαρακτήρων unicode σε συνδυασμό με τα διακριτικά ημερομηνίας/ώρας που αναφέρονται
       παρακάτω.<br /><br />
+      Σημείωση: Τα αποτελέσματα προσαρμοσμένης ημερομηνίας στα παρακάτω παραδείγματα θα είναι διαφορετικά με
+      βάση την πραγματική ημερομηνία, τις τοπικές ρυθμίσεις των χρηστών και τη ζώνη ώρας.<br /><br />
       Παραδείγματα:<br /><br />
       <table class="dateformat-table">
         <thead>
@@ -65,38 +65,38 @@
           </tr>
         </thead>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td>2022年04月20日 水 EDT 16:06:45 [GMT -0400]</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
           <td>ja locale με κυριολεκτικά</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td>2022년04월20일 수 EDT 16:11:06</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
           <td>ko locale με κυριολεκτικά</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td>2022年04月20日周三 18:01:42 Ανατολική θερινή ώρα</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
           <td>Τοπική ρύθμιση zh-CN, σύντομη ημέρα</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td>2022年04月20日 星期三 18:01:42 EDT</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
           <td>Τοπική ρύθμιση zh-TW, μεγάλη μέρα</td>
         </tr>
         <tr>
-          <td><code class="code1">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td>20.04.2022 18:01:42 EDT</td>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
           <td>Διαχωριστές κουκκίδων</td>
         </tr>
         <tr>
-          <td><code class="code1">%a, %b %d %Y %H:%M:%S</code></td>
-          <td>Mi, 20 Απριλίου 2022 18:01:42</td>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
           <td>de locale, σύντομη ημέρα/μήνα</td>
         </tr>
         <tr>
-          <td><code class="code1">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td>Τετάρτη, 20 Απριλίου 2022 (18:01:42) EDT</td>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
           <td>τοπικές ρυθμίσεις en-US, μεγάλη ημέρα/μήνα</td>
         </tr>
       </table>

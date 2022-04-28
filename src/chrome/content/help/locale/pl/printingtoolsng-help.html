@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> -->
-    <script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script>
     <title>PrintingTools NG Pomoc</title>
   </head>
   <body>
@@ -51,6 +49,8 @@
       jak i Daty otrzymania w nagłówkach wiadomości e-mail. Niestandardowa data zapewnia wiele zlokalizowanych
       opcji pozwalających na prawie każdy format. Należy zauważyć, że niestandardowy ciąg daty może zawierać
       separatory, literały, w tym znaki Unicode, wymieszane z wymienionymi poniżej tokenami daty\godziny.<br /><br />
+      Uwaga: Niestandardowe wyniki dat w poniższych przykładach będą się różnić w zależności od rzeczywistej
+      daty, ustawień regionalnych użytkownika i strefy czasowej.<br /><br />
       Przykłady:<br /><br />
       <table class="dateformat-table">
         <thead>
@@ -61,38 +61,38 @@
           </tr>
         </thead>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td>2022年04月20日 水 EDT 16:06:45 [GMT -0400]</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
           <td>ja locale z literałami</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td>2022년04월20일 CET 16:11:06</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
           <td>ko locale z literałami</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td>2022年04月20日 周三 18:01:42 Czas wschodnio letni</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
           <td>lokalizacja zh-CN, krótki dzień</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td>2022年04月20日 星期三 18:01:42 EDT</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
           <td>lokalizacja zh-TW, długi dzień</td>
         </tr>
         <tr>
-          <td><code class="code1">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td>20.04.2022 18:01:42 EDT</td>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
           <td>Separatory kropek</td>
         </tr>
         <tr>
-          <td><code class="code1">%a, %b %d %Y %H:%M:%S</code></td>
-          <td>Mi, 20 kwi 2022 18:01:42</td>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
           <td>de locale, krótki dzień/miesiąc</td>
         </tr>
         <tr>
-          <td><code class="code1">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td>Środa, 20 kwietnia 2022 (18:01:42) EDT</td>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
           <td>lokalizacja en-US, długi dzień/miesiąc</td>
         </tr>
       </table>

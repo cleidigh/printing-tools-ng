@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> -->
-    <script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script>
     <title>PrintingTools NG 도움말</title>
   </head>
   <body>
@@ -51,6 +49,7 @@
       제어할 수 있습니다. 사용자 지정 날짜는 거의 모든 형식을 허용하는 여러 현지화된 옵션을 제공합니다. 사용자
       지정 날짜 문자열에는 아래 나열된 날짜\시간 토큰과 혼합된 유니코드 문자를 포함하는 리터럴, 구분 기호가
       포함될 수 있습니다.<br /><br />
+      참고: 아래 예의 사용자 지정 날짜 결과는 실제 날짜, 사용자 로캘 및 시간대에 따라 다릅니다.<br /><br />
       예:<br /><br />
       <table class="dateformat-table">
         <thead>
@@ -61,38 +60,38 @@
           </tr>
         </thead>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td>2022年04月20日 水 EDT 16:06:45 [GMT -0400]</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
           <td>리터럴이 있는 ja 로케일</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td>2022년04월20일 수 EDT 16:11:06</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
           <td>리터럴이 있는 ko 로케일</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td>2022年04月20日 周三 18:01:42 동부 일광 절약 시간</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
           <td>zh-CN 로케일, 짧은 날</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td>2022年04月20日 星期三 18:01:42 EDT</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
           <td>zh-TW 로케일, 긴 하루</td>
         </tr>
         <tr>
-          <td><code class="code1">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td>2022년 4월 20일 18:01:42 EDT</td>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
           <td>점 구분 기호</td>
         </tr>
         <tr>
-          <td><code class="code1">%a, %b %d %Y %H:%M:%S</code></td>
-          <td>미, 2022년 4월 20일 18:01:42</td>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
           <td>de locale, 짧은 일/월</td>
         </tr>
         <tr>
-          <td><code class="code1">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td>2022년 4월 20일 수요일 (18:01:42) EDT</td>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
           <td>en-US 로케일, 긴 일/월</td>
         </tr>
       </table>
@@ -122,7 +121,7 @@
         </tr>
         <tr>
           <td><code class="code1">%b</code></td>
-          <td>약식 월 이름입니다.</td>
+          <td>약식 월 이름.</td>
         </tr>
         <tr>
           <td><code class="code1">%B</code></td>

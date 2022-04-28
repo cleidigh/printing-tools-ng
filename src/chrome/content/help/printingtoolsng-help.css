@@ -60,9 +60,9 @@ table.menu-table .submenu2 {
 table.dateformat-table {
 	border: 1px solid black;
 	border-collapse: collapse;
-	width: 90%;
-	margin-left: 30px;
-	margin-right: 30px;
+	width: 95%;
+	margin-left: 25px;
+	margin-right: 25px;
 }
 
 table.dateformat-table tr,  table.dateformat-table td,  table.dateformat-table th {

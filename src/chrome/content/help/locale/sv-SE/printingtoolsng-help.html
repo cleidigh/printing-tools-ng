@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> -->
-    <script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script>
     <title>PrintingTools NG Hjälp</title>
   </head>
   <body>
@@ -51,6 +49,8 @@
       datum och mottaget datum i e-posthuvudena. Det anpassade datumet ger flera lokaliserade alternativ som
       tillåter nästan alla format. Observera att den anpassade datumsträngen kan inkludera separatorer,
       bokstaver inklusive unicode-tecken blandade med datum/tid-tokens som anges nedan.<br /><br />
+      Obs! De anpassade datumresultaten i exemplen nedan kommer att skilja sig beroende på det faktiska
+      datumet, användarens språk och tidszon.<br /><br />
       Exempel:<br /><br />
       <table class="dateformat-table">
         <thead>
@@ -61,38 +61,38 @@
           </tr>
         </thead>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td>2022年04月20日 水 EDT 16:06:45 [GMT -0400]</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
           <td>ja lokalitet med bokstaver</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td>2022년04월20일 수 EDT 16:11:06</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
           <td>ko-lokal med bokstaver</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td>2022年04月20日 周三 18:01:42 Eastern Daylight Time</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
           <td>zh-CN-lokal, kortdag</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td>2022, 04/04/20, 星期三 18:01:42 EDT</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
           <td>zh-TW-lokal, lång dag</td>
         </tr>
         <tr>
-          <td><code class="code1">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td>20.04.2022 18:01:42 EDT</td>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
           <td>Punktavskiljare</td>
         </tr>
         <tr>
-          <td><code class="code1">%a, %b %d %Y %H:%M:%S</code></td>
-          <td>Mi, 20 april 2022 18:01:42</td>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
           <td>de locale, kort dag/månad</td>
         </tr>
         <tr>
-          <td><code class="code1">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td>Onsdagen den 20 april 2022 (18:01:42) EDT</td>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
           <td>sv-USA språk, lång dag/månad</td>
         </tr>
       </table>

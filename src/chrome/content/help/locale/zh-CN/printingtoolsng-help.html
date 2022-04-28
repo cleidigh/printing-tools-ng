@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <!-- <script type="application/javascript" src="chrome://mboximport/content/utils.js"></script> -->
-    <script type="application/javascript" src="chrome://mboximport/content/mboximport/help.js"></script>
     <title>PrintingTools NG 帮助</title>
   </head>
   <body>
@@ -43,7 +41,7 @@
     <h2 id="customdate_format_help">自定义日期格式</h2>
     <p>
       自定义日期选项允许完全控制用于电子邮件标题中日期和接收日期的日期格式。自定义日期提供了多个允许几乎任何格式的本地化选项。请注意，自定义日期字符串可以包含分隔符、文字，包括与下面列出的日期\时间标记混合的
-      unicode 字符。<br /><br />例子：<br /><br />
+      unicode 字符。<br /><br />注意：以下示例中的自定义日期结果将根据实际日期、用户区域设置和时区而有所不同。<br /><br />例子：<br /><br />
       <table class="dateformat-table">
         <thead>
           <tr>
@@ -53,38 +51,38 @@
           </tr>
         </thead>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td>2022年04月20日 水 EDT 16:06:45 [GMT -0400]</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
           <td>带有文字的 ja 语言环境</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td>2022년04월20일 수 EDT 16:11:06</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
           <td>带有文字的 ko 语言环境</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td>2022年04月20日周三18:01:42东部夏令时间</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
           <td>zh-CN 语言环境，短日</td>
         </tr>
         <tr>
-          <td><code class="code1">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td>2022 年 1 月 20 日凌晨 0 点 48 分 01 秒 EDT</td>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
           <td>zh-TW 语言环境，漫长的一天</td>
         </tr>
         <tr>
-          <td><code class="code1">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td>美国东部时间 20.04.2022 18:01:42</td>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
           <td>点分隔符</td>
         </tr>
         <tr>
-          <td><code class="code1">%a, %b %d %Y %H:%M:%S</code></td>
-          <td>2022 年 4 月 20 日 18:01:42</td>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
           <td>本地化，短日/月</td>
         </tr>
         <tr>
-          <td><code class="code1">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td>美国东部时间 2022 年 4 月 20 日星期三 (18:01:42)</td>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
           <td>en-US 语言环境，长日/月</td>
         </tr>
       </table>
@@ -244,7 +242,7 @@
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            <code class="code1">+hhmm</code>或<code class="code1">-hhmm</code>数字时区（即相对于 UTC
+            <code class="code1">+hhmm</code>或<code class="code1">-hhmm</code>数字时区（即与 UTC
             的小时和分钟偏移量）。
           </td>
         </tr>

@@ -469,9 +469,7 @@ function savePMDprefs() {
 	}
 
 	prefs.setCharPref("extensions.printingtoolsng.debug.options", document.getElementById("debug-options").value);
-	console.log(document.getElementById("customDate").value)
-
-	console.log(strftime.strftime("%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]", new Date(), 'ja'))
+	
 }
 
 function savePMDabprefs(fullpanel) {
