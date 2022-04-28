@@ -1,6 +1,10 @@
 // var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
-var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
+//var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
+
+var st = {};
+
+Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/strftime.js", st);
 
 console.log("PTNG: Engine loaded")
 
@@ -1857,7 +1861,7 @@ var printingtools = {
 			} else if (longFormat === 3) {
 				let customDateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
 				let locale = Services.locale.appLocaleAsBCP47;
-				var formatted_date = strftime.strftime(customDateFormat, date_obj, locale);
+				var formatted_date = st.strftime.strftime(customDateFormat, date_obj, locale);
 
 			} else {
 				var formatted_date = date_obj.toUTCString();
