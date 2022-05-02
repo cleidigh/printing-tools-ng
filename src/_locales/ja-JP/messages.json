@@ -1,3 +1,4 @@
+
 {
 	"extensionName": {
 		"message": "PrintingTools NG"
@@ -6,12 +7,14 @@
 		"message": "メッセージとアドレス帳の印刷ツール（NextGen）"
 	},
 	"update_option_info": {
-		"message": "注：PrintingTools NG のオプションはアドオンマネージャーのメニューに移動しました。"
-	},
-	"moreinfo_button_label": {
-		"message": "詳細情報"
+		"message": "注：PrintingTools NG の設定はアドオンマネージャーのメニューに移動しました。"
 	},
 	"update_option_info2": {
-		"message": "PrintingTools NG の新しいツールバーボタンをお試しください。ツールバーのカスタマイズメニューからツールバーに追加してください。メッセージペインのヘッダーツールバーにも同様に追加できます。"
+		"message": "PrintingTools NG の新しいツールバーボタンをお試しください。ツールバーのカスタマイズメニューからツールバーに追加してください。\n メッセージペインのヘッダーツールバーにも同様に追加できます。"
+	},
+
+	"moreinfo_button_label": {
+		"message": "詳細情報"
 	}
+
 }
