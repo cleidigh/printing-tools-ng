@@ -1,0 +1,24 @@
+
+Version 2.1.1: April 6, 2022
+
+- Thunderbird 100+ support 
+- New custom date format including Asian year, month and day literals
+- Print multiple selections with the headers 
+- Added the Taiwanese locale (zh-TW)
+- Added a help page for the custom date format 
+
+Issues Addressed :
+
+- File/Open/Saved message... (eml file) will not print or preview (PTNG) #100
+- Header sort order inconsistent using zh-CN locale  #101
+- Interim support for 100.* prelude to ESR #103
+- Add a custom date format option (like ImportExportTools) #105
+- Add Multiple text selection for PTNG printing #99
+- Add Taiwanese zh-TW locale #107
+- Reorganize some options in dialog  #110
+- PTNG fails when [Date] header is missing #111
+- German Translation Header Background Color  #112
+- PTNG fails when [To] header is missing #79
+- Image resize alters some styling resulting in img issues #86
+- Extra headers (table3) not handled with multiple selections addition  #114
+- Data format: long and localized problem #116

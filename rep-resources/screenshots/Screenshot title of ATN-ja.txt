@@ -1,0 +1,35 @@
+
+----------------------------------------
+English screenshots title of ATN
+----------------------------------------
+
+Example of common PrintingTools NG Options
+
+Miscellaneous Options
+
+Style Options : Fonts, Borders, Background...
+
+Header order and hiding
+
+Global Options
+
+Toolbar Button：Print, Preview, PrintingTools NG Options (Add with Customize Toolbar)
+
+
+----------------------------------------
+Japanese screenshots title of ATN
+----------------------------------------
+
+PrintingTools NG 設定例
+
+全般設定
+
+スタイル設定 : フォント、枠線、背景色...
+
+ヘッダー設定 : 並び替えと非表示
+
+プリンター設定
+
+ツールバーボタン : 印刷、印刷プレビュー、PrintingTools NG 設定 （ツールバーのカスタマイズで追加）
+
+
