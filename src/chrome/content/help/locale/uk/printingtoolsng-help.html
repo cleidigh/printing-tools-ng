@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <title>PrintingTools NG Help</title>
+  </head>
+  <body>
+    <h2 id="main_help">PrintingTools NG Help</h2>
+    <br />
+    <h2 id="main_help">Огляд PrintingTools NG</h2>
+    <p>
+      PrintingTools NG — це подальше розширення, засноване на оригінальній роботі Паоло «Kaosmos». Розширення
+      дозволяє налаштувати заголовки друку, а також інші параметри.<br /><br />
+      Дякуємо наступним користувачам за пропозиції щодо покращення та допомогу щодо тестування:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <h3>Підтримка:</h3>
+    <p>
+      Будь ласка, опублікуйте проблеми або запити на функції в репозиторії розширень GitHub:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      У проблемах із помилками додайте таку інформацію, яка допоможе вирішити проблеми:<br />
+      - Версія PrintingTools NG<br />
+      - Версія Thunderbird<br />
+      - Операційна система та версія<br />
+      - Вивід налагодження (копія з консолі налагодження - доступ за допомогою Control-Shift-J)<br />
+      - Опис кроків, які ведуть до проблеми<br />
+    </p>
+    <br />
+    <h2 id="customdate_format_help">Користувацький формат дати</h2>
+    <p>
+      Опція спеціальної дати дозволяє повністю контролювати форматування дати, що використовується як для
+      дати, так і для дати отримання в заголовках електронних листів. Спеціальна дата надає кілька
+      локалізованих параметрів, що дозволяють практично будь-який формат. Зауважте, що спеціальний рядок дати
+      може включати роздільники, літерали, включаючи символи Юнікоду, змішані з маркерами дати/часу,
+      наведеними нижче.<br /><br />
+      Примітка. Результати спеціальної дати в прикладах нижче будуть відрізнятися залежно від фактичної дати,
+      місцевої настройки користувача та часового поясу.<br /><br />
+      Приклади:<br /><br />
+      <table class="dateformat-table">
+        <thead>
+          <tr>
+            <td>Рядок дати</td>
+            <td>Результат</td>
+            <td>Примітка</td>
+          </tr>
+        </thead>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+          <td>ja locale з літералами</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+          <td>локаль ko з літералами</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+          <td>zh-CN місцевість, короткий день</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+          <td>zh-TW місцевість, довгий день</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
+          <td>Роздільники точок</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+          <td>de locale, короткий день/місяць</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+          <td>en-US локаль, довгий день/місяць</td>
+        </tr>
+      </table>
+      <br />
+      Спеціальний формат дати використовує % послідовностей, що відповідають функціональності
+      <code>strftime()</code> Unix. Він заснований на порту JavaScript
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , функції для форматування дати та часу.<br />
+      Порт strftime() від TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <h3>Опис послідовності перетворення</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Послідовність</th>
+          <th>Опис</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Скорочена назва дня тижня.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Повна назва дня тижня.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Скорочена назва місяця.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Повна назва місяця.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Бажане представлення дати та часу (UTC) для поточного мовного стандарту.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Число століття (рік/100) як двозначне ціле число.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>День місяця у вигляді десяткового числа (діапазон від 01 до 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>День місяця у вигляді десяткового числа (діапазон від 1 до 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>Формат дати ISO 8601 (еквівалент <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            ISO 8601 тижневий рік із століттям у вигляді десяткового числа. 4-значний рік відповідає номеру
+            тижня ISO (див. <code class="code1">%V</code> ). Він має той самий формат і значення, що й
+            <code class="code1">%Y</code> , за винятком того, що якщо номер тижня ISO належить до попереднього
+            або наступного року, замість нього використовується цей рік.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>Як і <code class="code1">%G</code> , але без століття, тобто з 2-значним роком (00-99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Година як десяткове число з використанням 24-годинного годинника (діапазон від 00 до 23). Дивіться
+            також <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Година як десяткове число з використанням 12-годинного годинника (діапазон від 01 до 12). Див.
+            також <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>День року у вигляді десяткового числа (діапазон від 001 до 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Година як десяткове число з використанням 24-годинного годинника (діапазон від 0 до 23). Дивіться
+            також <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Година як десяткове число за допомогою 12-годинного годинника (діапазон від 1 до 12). Див. також
+            <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Місяць у вигляді десяткового числа (діапазон від 01 до 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Місяць у вигляді десяткового числа (діапазон від 1 до 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>Хвилина як десяткове число (діапазон від 00 до 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            &quot;AM&quot; або &quot;PM&quot; відповідно до заданого значення часу. Полдень розглядається як
+            «PM», а опівночі як «AM».
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>
+            Як <code class="code1">%p</code> , але в нижньому регістрі (&quot;am&quot; або &quot;pm&quot;).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Кількість секунд від епохи, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Другий у вигляді десяткового числа (діапазон від 00 до 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            День тижня як десятковий (діапазон від 1 до 7), понеділок дорівнює 1. Див. також
+            <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            Номер тижня за ISO 8601 поточного року у вигляді десяткового числа (діапазон від 01 до 53), де
+            тиждень 1 — це перший тиждень, який має принаймні 4 дні в новому році (тобто перший четвер).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            День тижня як десятковий (діапазон від 0 до 6), неділя дорівнює 0. Див. також
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Бажане представлення дати для поточного мовного стандарту без часу.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Бажане представлення часу для поточного мовного стандарту без дати.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Рік як десяткове число без століття (діапазон від 00 до 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Рік у вигляді десяткового числа, включаючи століття.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            Числовий часовий пояс <code class="code1">+hhmm</code> hhmm або
+            <code class="code1">-hhmm</code> (тобто зсув годин і хвилин від UTC).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Назва або абревіатура часового поясу.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Абревіатура короткого часового поясу.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Рік буквальний. Локалізовано, в основному для азіатських регіонів. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Літеральний місяць. Локалізовано, в основному для азіатських регіонів. (zh-TW: 月, ko: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Буквальний день. Локалізовано, в основному для азіатських регіонів. (я: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Примітки щодо сумісності:</h3>
+    <ul>
+      <li><code class="code1">%c</code> - відформатований рядок дещо відрізняється</li>
+      <li>
+        <code class="code1">%D</code> – не реалізовано (використовуйте <code class="code1">%m/%d/%y</code> або
+        <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - пробіл не додається</li>
+      <li><code class="code1">%E</code> - не реалізовано</li>
+      <li><code class="code1">%h</code> - не реалізовано (використовуйте <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - пробіл не додається</li>
+      <li>
+        <code class="code1">%n</code> - як <code class="code1">%m</code> , але без початкового нуля
+        (використовуйте <code class="code1">\n</code> для нового рядка)
+      </li>
+      <li><code class="code1">%O</code> - не реалізовано</li>
+      <li>
+        <code class="code1">%r</code> - не реалізовано (використовуйте
+        <code class="code1">%I:%M:%S %p</code> )
+      </li>
+      <tr>
+        <td><code class="code1">${subject}</code></td>
+        <td>Тема повідомлення</td>
+      </tr>
+      <li>
+        <code class="code1">%R</code> - не реалізовано (використовуйте <code class="code1">%H:%M</code> )
+      </li>
+      <li><code class="code1">%t</code> - не реалізовано (використовуйте <code class="code1">\t</code> )</li>
+      <li>
+        <code class="code1">%T</code> - не реалізовано (використовуйте <code class="code1">%H:%M:%S</code> )
+      </li>
+      <li><code class="code1">%U</code> - не реалізовано</li>
+      <li><code class="code1">%W</code> - не реалізовано</li>
+      <li><code class="code1">%+</code> - не реалізовано</li>
+      <li><code class="code1">%%</code> - не реалізовано (використовуйте <code class="code1">%</code> )</li>
+    </ul>
+    <br /><br />
+  </body>
+</html>

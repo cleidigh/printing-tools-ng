@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <title>PrintingTools NG 도움말</title>
+  </head>
+  <body>
+    <h2 id="main_help">PrintingTools NG 도움말</h2>
+    <br />
+    <h2 id="main_help">PrintingTools NG 개요</h2>
+    <p>
+      PrintingTools NG는 Paolo &quot;Kaosmos&quot;의 원본 작업을 기반으로 하는 후속 확장입니다. 확장 기능을
+      사용하면 인쇄 헤더 및 기타 옵션을 사용자 지정할 수 있습니다.<br /><br />
+      개선 제안 및 테스트 도움을 주신 다음 사용자에게 감사드립니다.<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <h3>지원하다:</h3>
+    <p>
+      확장 GitHub 리포지토리에 문제 또는 기능 요청을 게시하십시오:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      버그 문제에는 문제를 해결하는 데 도움이 되는 다음 정보를 포함하세요.<br />
+      - PrintingTools NG 버전<br />
+      - 썬더버드 버전<br />
+      - 운영 체제 및 버전<br />
+      - 디버그 출력(디버그 콘솔에서 복사 - Control-Shift-J로 액세스)<br />
+      - 문제로 이어지는 단계에 대한 설명<br />
+    </p>
+    <br />
+    <h2 id="customdate_format_help">사용자 지정 날짜 형식</h2>
+    <p>
+      사용자 지정 날짜 옵션을 사용하면 이메일 헤더의 날짜 및 수신 날짜 모두에 사용되는 날짜 형식을 완벽하게
+      제어할 수 있습니다. 사용자 지정 날짜는 거의 모든 형식을 허용하는 여러 현지화된 옵션을 제공합니다. 사용자
+      지정 날짜 문자열에는 아래 나열된 날짜\시간 토큰과 혼합된 유니코드 문자를 포함하는 리터럴, 구분 기호가
+      포함될 수 있습니다.<br /><br />
+      참고: 아래 예의 사용자 지정 날짜 결과는 실제 날짜, 사용자 로캘 및 시간대에 따라 다릅니다.<br /><br />
+      예:<br /><br />
+      <table class="dateformat-table">
+        <thead>
+          <tr>
+            <td>날짜 문자열</td>
+            <td>결과</td>
+            <td>메모</td>
+          </tr>
+        </thead>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+          <td>리터럴이 있는 ja 로케일</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+          <td>리터럴이 있는 ko 로케일</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+          <td>zh-CN 로케일, 짧은 날</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+          <td>zh-TW 로케일, 긴 하루</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
+          <td>점 구분 기호</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+          <td>de locale, 짧은 일/월</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+          <td>en-US 로케일, 긴 일/월</td>
+        </tr>
+      </table>
+      <br />
+      사용자 지정 날짜 형식은 <code>strftime()</code> Unix와 같은 기능과 일치하는 % 시퀀스를 사용합니다. 날짜
+      및 시간 형식을 지정하는 함수인
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      의 JavaScript 포트를 기반으로 합니다.<br />
+      TH Doan의 strftime() 포트(https://thdoan.github.io/strftime/)<br />
+    </p>
+    <h3>변환 순서 설명</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>순서</th>
+          <th>설명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>요일의 약어 이름입니다.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>요일의 전체 이름입니다.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>약식 월 이름.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>전체 월 이름.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>현재 로케일에 대한 UTC(선호하는 날짜 및 시간) 표현입니다.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>2자리 정수로 된 세기 숫자(연도/100).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>10진수로 된 월의 일(범위 01 - 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>10진수로 된 월의 일(범위 1 - 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>ISO 8601 날짜 형식( <code class="code1">%Y-%m-%d</code> 에 해당).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            10진수로 세기를 사용하는 ISO 8601 주 기반 연도입니다. 4자리 연도는 ISO 주 번호에 해당합니다(
+            <code class="code1">%V</code> 참조). ISO 주 번호가 이전 또는 다음 연도에 속하는 경우 해당 연도가
+            대신 사용된다는 점을 제외하고는 <code class="code1">%Y</code> 와 형식 및 값이 동일합니다.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>
+            <code class="code1">%G</code> 와 비슷하지만 세기가 없는 경우, 즉 2자리 연도(00-99)가 있습니다.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            24시간제를 사용하는 십진수로 표시한 시간(범위 00~23). <code class="code1">%k</code> 도
+            참조하십시오.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            12시간제를 사용하는 십진수로 표시한 시간(범위 01~12). <code class="code1">%l</code> 도
+            참조하십시오.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>10진수로 된 연도의 일입니다(범위 001에서 366까지).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            24시간제를 사용하는 십진수로 표시한 시간(0~23 범위). <code class="code1">%H</code> 도
+            참조하십시오.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            12시간제를 사용하는 십진수로 표시한 시간(1~12 범위). <code class="code1">%I</code> 도
+            참조하십시오.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>10진수로 된 월(범위 01 - 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>10진수로 된 월(범위 1~12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>10진수로 표시한 분(00~59 범위).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            주어진 시간 값에 따라 &quot;AM&quot; 또는 &quot;PM&quot;입니다. 정오는 &quot;PM&quot;으로 처리되고
+            자정은 &quot;AM&quot;으로 처리됩니다.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>
+            <code class="code1">%p</code> 와 유사하지만 소문자(&quot;am&quot; 또는 &quot;pm&quot;)입니다.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Epoch 이후 경과된 시간(초), 1970-01-01 00:00:00 +0000(UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>초를 10진수로 표시합니다(범위 00 ~ 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            10진수로 표시한 요일(범위 1에서 7), 월요일은 1입니다. <code class="code1">%w</code> 도
+            참조하십시오.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            ISO 8601 현재 연도의 주 번호를 10진수(범위 01 - 53)로 표시합니다. 여기서 주 1은 새해에 최소 4일이
+            있는 첫 번째 주(즉, 첫 번째 목요일)입니다.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>요일(범위 0~6), 일요일은 0입니다. <code class="code1">%u</code> 도 참조하십시오.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>시간이 없는 현재 로케일의 기본 날짜 표현입니다.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>날짜가 없는 현재 로케일의 기본 시간 표현입니다.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>세기가 없는 10진수로 된 연도(범위 00 - 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>세기를 포함하는 십진수로 된 연도.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            <code class="code1">+hhmm</code> 또는 <code class="code1">-hhmm</code> 숫자 시간대(즉, UTC에서
+            시간 및 분 오프셋).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>시간대 이름 또는 약어.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>짧은 시간대 약어.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>연도 리터럴. 주로 아시아 로케일용으로 현지화되었습니다. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>월 리터럴. 주로 아시아 로케일용으로 현지화되었습니다. (zh-TW: 월, 코: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>데이 리터럴. 주로 아시아 로케일용으로 현지화되었습니다. (ja: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>호환성 참고 사항:</h3>
+    <ul>
+      <li><code class="code1">%c</code> - 형식이 지정된 문자열이 약간 다릅니다.</li>
+      <li>
+        <code class="code1">%D</code> - 구현되지 않음( <code class="code1">%m/%d/%y</code> 또는
+        <code class="code1">%d/%m/%y</code> 사용)
+      </li>
+      <li><code class="code1">%e</code> - 공백이 추가되지 않음</li>
+      <li><code class="code1">%E</code> - 구현되지 않음</li>
+      <li><code class="code1">%h</code> - 구현되지 않음( <code class="code1">%b</code> 사용)</li>
+      <li><code class="code1">%k</code> - 공백이 추가되지 않음</li>
+      <li>
+        <code class="code1">%n</code> - <code class="code1">%m</code> 과 비슷하지만 선행 0이 없습니다(줄
+        바꿈에 <code class="code1">\n</code> 사용).
+      </li>
+      <li><code class="code1">%O</code> - 구현되지 않음</li>
+      <li><code class="code1">%r</code> - 구현되지 않음( <code class="code1">%I:%M:%S %p</code> 사용)</li>
+      <tr>
+        <td><code class="code1">${subject}</code></td>
+        <td>메시지의 제목</td>
+      </tr>
+      <li><code class="code1">%R</code> - 구현되지 않음( <code class="code1">%H:%M</code> 사용)</li>
+      <li><code class="code1">%t</code> - 구현되지 않음( <code class="code1">\t</code> 사용)</li>
+      <li><code class="code1">%T</code> - 구현되지 않음( <code class="code1">%H:%M:%S</code> 사용)</li>
+      <li><code class="code1">%U</code> - 구현되지 않음</li>
+      <li><code class="code1">%W</code> - 구현되지 않음</li>
+      <li><code class="code1">%+</code> - 구현되지 않음</li>
+      <li><code class="code1">%%</code> - 구현되지 않음( <code class="code1">%</code> 사용)</li>
+    </ul>
+    <br /><br />
+  </body>
+</html>

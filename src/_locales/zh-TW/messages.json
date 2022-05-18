@@ -1,0 +1,22 @@
+{	
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+
+	"extensionDescription": {
+		"message": "消息和地址打印工具 (NextGen)"
+	},
+
+	"update_option_info": {
+		"message": "注意：PrintingTools NG 的选项已移至附加管理器省略号菜单中。"
+	},
+
+	"update_option_info2": {
+		"message": "注意：试用新的 PrintingTools NG 工具栏按钮，使用 View/Toolbars/Customize 菜单将其添加到您的工具栏。您也可以将其添加到消息窗格的标题工具栏中。"
+	},
+
+	"moreinfo_button_label": {
+		"message": "更多信息"
+	}
+
+}

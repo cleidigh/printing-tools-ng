@@ -172,7 +172,7 @@ class ListController {
 	onBlur(event) {
 		let relatedTarget = event.relatedTarget;
 		return;
-
+/*
 		if (relatedTarget.id === "newButtonNBD" || relatedTarget.id === "editButtonNBD" || relatedTarget.id === "deleteButtonNBD") {
 			return;
 		}
@@ -184,6 +184,7 @@ class ListController {
 		if (selectedRow) {
 			selectedRow.classList.remove('selected-row');
 		}
+		*/
 	}
 
 

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <title>Aide de PrintingTools NG</title>
+  </head>
+  <body>
+    <h2 id="main_help">Aide de PrintingTools NG</h2>
+    <br />
+    <h2 id="main_help">Présentation de PrintingTools NG</h2>
+    <p>
+      PrintingTools NG est une extension de suivi basée sur le travail original de Paolo &quot;Kaosmos&quot;.
+      L&#39;extension permet la personnalisation des en-têtes d&#39;impression ainsi que d&#39;autres
+      options.<br /><br />
+      Merci aux utilisateurs suivants pour leurs suggestions d&#39;amélioration et leur aide au test :<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <h3>Soutien:</h3>
+    <p>
+      Veuillez publier des problèmes ou des demandes de fonctionnalités dans le référentiel GitHub des
+      extensions :
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      Dans les problèmes de bogue, incluez les informations suivantes pour aider à résoudre les problèmes :<br />
+      - Version PrintingTools NG<br />
+      -Version Thunderbird<br />
+      - Système d&#39;exploitation et version<br />
+      - Sortie de débogage (copie depuis la console de débogage - accès avec Control-Shift-J)<br />
+      - Une description des étapes menant au problème<br />
+    </p>
+    <br />
+    <h2 id="customdate_format_help">Format de date personnalisé</h2>
+    <p>
+      L&#39;option de date personnalisée permet un contrôle complet sur le formatage de la date utilisé à la
+      fois pour la date et la date de réception dans les en-têtes d&#39;e-mail. La date personnalisée fournit
+      plusieurs options localisées permettant presque tous les formats. Notez que la chaîne de date
+      personnalisée peut inclure des séparateurs, des littéraux comprenant des caractères Unicode mélangés aux
+      jetons date\heure répertoriés ci-dessous.<br /><br />
+      Remarque : Les résultats de la date personnalisée dans les exemples ci-dessous seront différents en
+      fonction de la date réelle, des paramètres régionaux et du fuseau horaire de l&#39;utilisateur.<br /><br />
+      Exemples:<br /><br />
+      <table class="dateformat-table">
+        <thead>
+          <tr>
+            <td>Chaîne de date</td>
+            <td>Résultat</td>
+            <td>Noter</td>
+          </tr>
+        </thead>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+          <td>ja locale avec des littéraux</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+          <td>ko locale avec des littéraux</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+          <td>zh-CN locale, jour court</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+          <td>Paramètres régionaux zh-TW, journée longue</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
+          <td>Séparateurs de points</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+          <td>de locale, jour court/mois</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+          <td>paramètres régionaux en-US, jour long/mois</td>
+        </tr>
+      </table>
+      <br />
+      Le format de date personnalisé utilise des séquences % correspondant à la fonctionnalité de type Unix de
+      <code>strftime()</code> . Il est basé sur un port JavaScript de
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , une fonction pour formater la date et l&#39;heure.<br />
+      Portage de strftime() par TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <h3>Descriptions des séquences de conversion</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Séquence</th>
+          <th>La description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Nom abrégé du jour de la semaine.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Nom complet du jour de la semaine.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Nom abrégé du mois.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Nom complet du mois.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>
+            Représentation préférée de la date et de l&#39;heure (UTC) pour les paramètres régionaux actuels.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Numéro du siècle (année/100) sous forme d&#39;entier à 2 chiffres.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>Jour du mois sous forme de nombre décimal (plage de 01 à 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>Jour du mois sous forme de nombre décimal (plage de 1 à 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>Format de date ISO 8601 (équivalent à <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            Année basée sur la semaine ISO 8601 avec le siècle comme nombre décimal. L&#39;année à 4 chiffres
+            correspond au numéro de semaine ISO (voir <code class="code1">%V</code> ). Il a le même format et
+            la même valeur que <code class="code1">%Y</code> , sauf que si le numéro de semaine ISO appartient
+            à l&#39;année précédente ou suivante, cette année est utilisée à la place.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>
+            Comme <code class="code1">%G</code> , mais sans siècle, c&#39;est-à-dire avec une année à 2
+            chiffres (00-99).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Heure sous forme de nombre décimal utilisant une horloge de 24 heures (plage de 00 à 23). Voir
+            aussi <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Heure sous forme de nombre décimal utilisant une horloge de 12 heures (plage de 01 à 12). Voir
+            aussi <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Jour de l&#39;année sous forme de nombre décimal (plage de 001 à 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Heure sous forme de nombre décimal utilisant une horloge de 24 heures (plage de 0 à 23). Voir
+            aussi <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Heure sous forme de nombre décimal utilisant une horloge de 12 heures (plage de 1 à 12). Voir
+            aussi <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Mois sous forme de nombre décimal (plage de 01 à 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Mois sous forme de nombre décimal (plage de 1 à 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>Minute sous forme de nombre décimal (plage de 00 à 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            Soit &quot;AM&quot; ou &quot;PM&quot; selon la valeur de temps donnée. Midi est traité comme
+            &quot;PM&quot; et minuit comme &quot;AM&quot;.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>Comme <code class="code1">%p</code> mais en minuscule (&quot;am&quot; ou &quot;pm&quot;).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Nombre de secondes depuis l&#39;époque, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Seconde sous forme de nombre décimal (plage de 00 à 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            Jour de la semaine sous forme décimale (plage de 1 à 7), lundi étant 1. Voir aussi
+            <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            Numéro de semaine ISO 8601 de l&#39;année en cours sous forme de nombre décimal (plage de 01 à
+            53), où la semaine 1 est la première semaine qui compte au moins 4 jours dans la nouvelle année
+            (c&#39;est-à-dire le premier jeudi).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            Jour de la semaine sous forme décimale (plage de 0 à 6), dimanche étant 0. Voir aussi
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Représentation de la date préférée pour les paramètres régionaux actuels sans l&#39;heure.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Représentation temporelle préférée pour les paramètres régionaux actuels sans la date.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Année sous forme de nombre décimal sans siècle (plage de 00 à 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Année sous forme de nombre décimal incluant le siècle.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            Le fuseau horaire numérique <code class="code1">+hhmm</code> ou
+            <code class="code1">-hhmm</code> (c&#39;est-à-dire le décalage des heures et des minutes par
+            rapport à UTC).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Nom ou abréviation du fuseau horaire.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Abréviation courte du fuseau horaire.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>
+            Littéral de l&#39;année. Localisé, principalement pour les paramètres régionaux asiatiques. (zh-CN
+            : 年, ko : 년)
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>
+            Littéral du mois. Localisé, principalement pour les paramètres régionaux asiatiques. (zh-TW : 月,
+            ko : 월)
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>
+            Littéral du jour. Localisé, principalement pour les paramètres régionaux asiatiques. (ja : 日, ko
+            : 일)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Remarques sur la compatibilité :</h3>
+    <ul>
+      <li><code class="code1">%c</code> - la chaîne formatée est légèrement différente</li>
+      <li>
+        <code class="code1">%D</code> - non implémenté (utilisez <code class="code1">%m/%d/%y</code> ou
+        <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - l&#39;espace n&#39;est pas ajouté</li>
+      <li><code class="code1">%E</code> - non implémenté</li>
+      <li><code class="code1">%h</code> - non implémenté (utilisez <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - l&#39;espace n&#39;est pas ajouté</li>
+      <li>
+        <code class="code1">%n</code> - comme <code class="code1">%m</code> , mais pas de zéro non
+        significatif (utilisez <code class="code1">\n</code> pour la nouvelle ligne)
+      </li>
+      <li><code class="code1">%O</code> - non implémenté</li>
+      <li>
+        <code class="code1">%r</code> - non implémenté (utilisez <code class="code1">%I:%M:%S %p</code> )
+      </li>
+      <tr>
+        <td><code class="code1">${subject}</code></td>
+        <td>Le sujet du message</td>
+      </tr>
+      <li><code class="code1">%R</code> - non implémenté (utilisez <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%t</code> - non implémenté (utilisez <code class="code1">\t</code> )</li>
+      <li><code class="code1">%T</code> - non implémenté (utilisez <code class="code1">%H:%M:%S</code> )</li>
+      <li><code class="code1">%U</code> - non implémenté</li>
+      <li><code class="code1">%W</code> - non implémenté</li>
+      <li><code class="code1">%+</code> - non implémenté</li>
+      <li><code class="code1">%%</code> - non implémenté (utilisez <code class="code1">%</code> )</li>
+    </ul>
+    <br /><br />
+  </body>
+</html>

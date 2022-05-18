@@ -1,16 +1,93 @@
 // var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
 
+var st = {};
 
-// Define our add-on ID, which is needed to resolve paths for files within our extension
-// and to be able to listen for notifications.
+Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/strftime.js", st);
 
 console.log("PTNG: Engine loaded")
 
-function ReplaceWithSelection() {
-	// disables the native function in TB 3.1, that prints
-	// selection without headers
-	return true;
+//dtest();
+
+function stest(f, d, l) {
+
+	console.log(strftime.strftime(f, d, l))
+}
+
+function dtest() {
+
+
+	console.log(navigator.language)
+	console.log(navigator.languages)
+	console.log(Services.locale.appLocaleAsBCP47)
+
+
+	strftime.getDayNames('en-US', 'short', 1)
+	strftime.getDayNames('zh-CN', 'short', 1)
+	strftime.getDayNames('zh-TW', 'short', 1)
+	strftime.getDayNames('ja', 'long', 1)
+	strftime.getDayNames('ja', 'short', 1)
+	strftime.getDayNames('default', 'short', 1)
+	let dt = new Date();
+
+	var formatter = new Intl.DateTimeFormat('default', { dateStyle: 'short' });
+	console.log(formatter.format(dt))
+
+	formatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium' });
+	console.log(formatter.format(dt))
+
+	formatter = new Intl.DateTimeFormat('ja', { dateStyle: 'long' });
+	console.log(formatter.format(dt))
+
+	formatter = new Intl.DateTimeFormat('ja', { dateStyle: 'medium' });
+	console.log(formatter.format(dt))
+
+	console.log("cn full")
+	formatter = new Intl.DateTimeFormat('ja', { dateStyle: 'full' });
+	console.log(formatter.format(dt))
+
+	formatter.formatToParts(dt).map(p => console.log(p))
+	//console.log([...])
+
+	options = {
+		weekday: 'short',
+		year: 'numeric', month: 'short',
+		hour: 'numeric', minute: 'numeric', day: 'numeric',
+		timeZoneName: 'short'
+	};
+
+	console.log(" op1")
+	formatter = new Intl.DateTimeFormat('de', options);
+	formatter.formatToParts(dt).map(p => console.log(p))
+
+	options.timeZoneName = 'long'
+
+	console.log(" op2")
+	formatter = new Intl.DateTimeFormat('ja', options);
+	formatter.formatToParts(dt).map(p => console.log(p))
+
+	console.log(" op2 def")
+	formatter = new Intl.DateTimeFormat('ja', options);
+	formatter.formatToParts(dt).map(p => console.log(p))
+
+
+	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'zh-CN'))
+	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'zh-TW'))
+	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'ko'))
+	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'ja'))
+
+	stest("%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]", dt, 'ja')
+	stest("%Y%0%m%1%d%2 %a %t %H:%M:%S", dt, 'ko')
+	stest("%Y%0%m%1%d%2 %a %H:%M:%S %Z", dt, 'zh-CN')
+	stest("%Y%0%m%1%d%2 %A %H:%M:%S %t", dt, 'zh-TW')
+
+
+	stest("%d.%m.%Y  %H:%M:%S %t", dt, 'de')
+
+	stest("%a, %b %d %Y %H:%M:%S", dt, 'de')
+	stest("%A, %B %d %Y (%H:%M:%S) %t", dt, 'en-US')
+
+
 }
 
 
@@ -34,24 +111,165 @@ var printingtools = {
 		printingtools.current = 0;
 		printingtools.num = gFolderDisplay.selectedCount;
 
-		
+		//console.log(gMessageDisplay.visible)
+		//console.log(gFolderDisplay.selectedMessage)
+		//console.log(gMessageDisplay.displayedMessage)
+
 		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false) {
-			if (
+			if (1 &&
 				gMessageDisplay.visible &&
 				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage
 
 			) {
-				
-				//console.log("Use created browser")
+
+
+				//console.log("Use existing print hidden pane")
+
+				let messagePaneBrowser = document.getElementById("messagepane");
+
+				// Load the only message in a hidden browser, then use the print preview UI.
+				let uri = gFolderDisplay.selectedMessageUris[0];
+				let messageService = messenger.messageServiceFromURI(uri);
+
+				printingtools.previewDoc = messagePaneBrowser.contentDocument
+
+				var ht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
+				var ht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
+				var ht3 = printingtools.previewDoc.querySelector('.moz-header-part3');
+
+				var ht1c = ht1.cloneNode(true)
+				ht1c.classList.add("orig")
+
+				if (ht2) {
+					var ht2c = ht2.cloneNode(true);
+				}
+
+				if (ht3) {
+					var ht3c = ht3.cloneNode(true);
+				}
+
+				await printingtools.reformatLayout();
+
+				var sel = window.getSelection();
+
+				var topSelection;
+
+				var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
+				if (th) {
+					topSelection = th;
+				} else {
+					topSelection = printingtools.previewDoc.querySelector('table');
+				}
+
+
+				const br = printingtools.previewDoc.querySelector('br');
+
+				//console.log(t)
+				// Create new range for the page and main headers 
+				const range = new Range();
+
+				// Start range at the top
+				range.setStartBefore(topSelection);
+
+				// End range at the br spacer
+				range.setEndAfter(br);
+
+				var selection = document.commandDispatcher.focusedWindow.getSelection();
+
+				// Carret selection not valid
+				if (selection.type == "Caret") {
+					selection.removeAllRanges();
+				}
+
+				if (selection.rangeCount) {
+					selection.addRange(range);
+				}
+
+				var w = document.commandDispatcher.focusedWindow
+
+				// Use message pane focus event to restore message 
+
+				var l = w.addEventListener("focus", function (e) {
+
+					//console.log("Message pane focused  ")
+
+					// Remove headers selection 
+					if (selection.rangeCount) {
+						selection.removeRange(range)
+					}
+
+
+					var mht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
+					var mht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
+					var mht3 = printingtools.previewDoc.querySelector('.moz-header-part3');
+
+					var body_elem = mht1.parentElement
+
+					mht1.remove();
+
+					if (mht2) {
+						mht2.remove();
+					}
+
+					if (mht3) {
+						mht3.remove();
+					}
+
+					var th = printingtools.previewDoc.querySelector('.ptng-tophdr');
+					if (th) {
+						th.remove();
+					}
+
+					var hr = printingtools.previewDoc.querySelector('hr');
+					if (hr) {
+						hr.remove();
+					}
+					//console.log("after remove ")
+					//console.log(printingtools.doc.documentElement.outerHTML);
+
+					if (ht3c) {
+						body_elem.prepend(ht3c);
+					}
+
+					if (ht2c) {
+						body_elem.prepend(ht2c);
+					}
+					body_elem.prepend(ht1c);
+
+					printingtools.showAttatchmentBodyTable();
+					printingtools.restoreIMGstyle();
+
+					//console.log("after rest")
+					//console.log(printingtools.doc.documentElement.outerHTML);
+
+				}, { once: true });
+
+
+				if (selection.rangeCount > 1 && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
+					//console.log("print sel")
+					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
+				} else {
+					//console.log("print no sel")
+					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: false });
+				}
+
+			} else {
+
+
+
+
+				console.log("Use created browser")
 				let uri = gFolderDisplay.selectedMessageUris[0];
 
-				//console.log("Msg URI: " + uri)
-				
+				console.log("Msg URI: " + uri)
+				if (!uri) {
+					return;
+				}
 				let messageService = messenger.messageServiceFromURI(uri);
 
 				var fakeMsgPane;
 				if (!document.getElementById("fp")) {
-					//console.log("create browser")
+					console.log("create browser")
 
 					fakeMsgPane = document.createXULElement("browser");
 					fakeMsgPane.setAttribute("id", "fp")
@@ -75,7 +293,7 @@ var printingtools = {
 
 				let docShell = fakeMsgPane.docShell;
 				docShell.appType = Ci.nsIDocShell.APP_TYPE_MAIL;
-				
+
 				//console.log(fakeMsgPane);
 
 				messageService.DisplayMessage(
@@ -93,42 +311,35 @@ var printingtools = {
 						break;
 				}
 
-				//console.log("af wait content")
-				//console.log(fakeMsgPane.contentDocument)
+				console.log("af wait content")
+				console.log(fakeMsgPane.contentDocument)
 
 				printingtools.previewDoc = fakeMsgPane.contentDocument;
-				
+
 				await printingtools.reformatLayout();
 
-				PrintUtils.startPrintWindow(fakeMsgPane.browsingContext, {});
-				
-			} else {
-				//console.log("Use existing print hidden pane")
+				console.log("af reformat")
+				PrintUtils.startPrintWindow(fakeMsgPane.browsingContext);
 
-				// Load the only message in a hidden browser, then use the print preview UI.
-				let uri = gFolderDisplay.selectedMessageUris[0];
-				let messageService = messenger.messageServiceFromURI(uri);
-				
-				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
-				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
 
-				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
-				
-				await printingtools.reformatLayout();
 
-				PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext, {});
-				
 			}
 
+			await new Promise(resolve => window.setTimeout(resolve, 400));
+			//selection.removeAllRanges()
+			//document.commandDispatcher.focusedWindow.reload()
 			return;
 		}
 
+		if (gFolderDisplay.selectedCount < 1) {
+			return;
+		}
 		var typeMsg = "";
-		
+
 		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 		typeMsg = "Use existing print hidden pane - multiple messages (" + printingtools.msgUris.length + ")";
-		
-		
+
+
 		console.log(typeMsg)
 		// Multiple messages. Get the printer settings, then load the messages into
 		// a hidden browser and print them one at a time.
@@ -149,11 +360,11 @@ var printingtools = {
 			let messageService = messenger.messageServiceFromURI(uri);
 
 			if (!PrintUtils.printBrowser) {
-				//console.log("no p brows")
+				console.log("no p brows")
 				let messagePaneBrowser = document.getElementById("messagepane");
 				messagePaneBrowser.browsingContext.print(ps);
 			} else {
-								
+				console.log("use pb print")
 				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
 
@@ -181,32 +392,32 @@ var printingtools = {
 		await printingtools.reformatLayout();
 
 		await PrintUtils.printBrowser.browsingContext.print(ps);
-	
+
 
 	},
 
 	cmd_printng_external: async function (extMsgReq) {
 		console.log("PrintingTools NG Received a message from external add-on", extMsgReq.messageHeader);
-			
+
 		//console.log(this.current)
 		//console.log(this.msgUris)
 
 		let msgHeader = extMsgReq.messageHeader;
-		
+
 		if (!msgHeader.id) {
-		  console.log("PTNG: No useful id for message");
-		  return;
+			console.log("PTNG: No useful id for message");
+			return;
 		}
-		
+
 		let realMessage = window.printingtoolsng.extension
-		  .messageManager.get(msgHeader.id);
+			.messageManager.get(msgHeader.id);
 		let uri = realMessage.folder.getUriForMsg(realMessage);
-		
+
 		//console.log(realMessage)
 		console.log(uri)
 
 
-		if(this.extRunning) {
+		if (this.extRunning) {
 			//console.log("Q dont run")
 			//console.log(this.externalQ)
 			this.externalQ.push(uri);
@@ -223,14 +434,14 @@ var printingtools = {
 		this.extRunning = true;
 		var extMsgURI;
 
-		while(this.externalQ.length) {
+		while (this.externalQ.length) {
 			//console.log("grab next ");
 			//console.log(this.externalQ)
-			extMsgURI= this.externalQ.shift()
+			extMsgURI = this.externalQ.shift()
 			//console.log(this.externalQ)
-			
+
 			//console.log(extMsgURI)
-				
+
 			await this.PrintExternalMsg(extMsgURI);
 			//console.log("after q ");
 		}
@@ -243,9 +454,9 @@ var printingtools = {
 
 	cmd_printng: async function (options) {
 
-		console.log("cmd_printng start" + this.running);
+		//console.log("cmd_printng start" + this.running);
 
-		
+
 		options = options || {};
 
 		//console.log(options)
@@ -258,18 +469,17 @@ var printingtools = {
 		this.running = true;
 		//console.log(options)
 
-
 		await this.PrintSelectedMessages(options);
 		console.log("PTNG: Done")
 
-		
+
 		this.running = false;
 
 		return;
 
 	},
 
-	
+
 	getMail3Pane: function () {
 		var w = Cc["@mozilla.org/appshell/window-mediator;1"]
 			.getService(Ci.nsIWindowMediator)
@@ -289,6 +499,106 @@ var printingtools = {
 
 	},
 
+	sanitizeHeaders: function () {
+
+
+		//console.log(printingtools.doc.documentElement.outerHTML);
+
+		var bundle;
+
+		if (Services.locale.appLocaleAsBCP47 === "ja") {
+			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
+		} else if (Services.locale.appLocaleAsBCP47 === "zh-CN") {
+			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
+		} else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh-tw.properties");
+		} else {
+			bundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/mime.properties");
+		}
+
+		var dateEnUS = "Date";
+		var toEnUS = "To";
+		var dateLocalized = bundle.GetStringFromID(1007);
+		var toLocalized = bundle.GetStringFromID(1012);
+
+		var regExp = new RegExp("(\\p{L}*)\\s*:", 'u');
+		var table0 = printingtools.getTable(0);
+		var trs0 = [...table0.getElementsByTagName("TR")];
+
+		t0hdrs = trs0.map(tr => {
+			let hdr = tr.firstChild.firstChild.textContent.match(regExp)[1];
+			let hdrVal = tr.firstChild.firstChild.nextSibling.textContent;
+			return { hdr: hdr, hdrVal: hdrVal }
+		});
+		//console.log(t0hdrs)
+
+		let dateHdr = t0hdrs.find(h => h.hdr == dateLocalized || h.hdr == dateEnUS);
+		//console.log(dateHdr)
+
+		if (!dateHdr) {
+			printingtools.addHdr(dateLocalized, new Date().toLocaleString(), trs0[0].parentNode), true;
+		}
+
+		//console.log(printingtools.doc.documentElement.outerHTML);
+
+		var table1 = printingtools.getTable(1);
+		if (!table1) {
+			return;
+		}
+
+		var trs1 = [...table1.getElementsByTagName("TR")];
+
+		if (!trs1 || trs1.length < 1) {
+
+			return;
+		}
+
+		//trs1.map(e => console.log(e.outerHTML))
+
+		t1hdrs = trs1.map(tr => {
+			let hdr = tr.firstChild.firstChild.textContent.match(regExp)[1];
+			let hdrVal = tr.firstChild.firstChild.nextSibling.textContent;
+			return { hdr: hdr, hdrVal: hdrVal }
+		});
+
+		if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+			if (t1hdrs.find(h => h.hdr == '到')) {
+				trs1[0].firstChild.firstChild.textContent = toLocalized + ':';
+				t1hdrs[0].hdr = toLocalized;
+			}
+		}
+
+
+		let toHdr = t1hdrs.find(h => h.hdr == toLocalized || h.hdr == toEnUS);
+
+		if (!toHdr) {
+			//console.log("no to hdr")
+			printingtools.addHdr(toLocalized, "empty", trs1[0].parentNode), true;
+		}
+		//console.log(printingtools.doc.documentElement.outerHTML);
+
+		return
+
+	},
+
+	addHdr(hdrName, hdrVal, parent, hide) {
+
+		var dummyHdr = printingtools.previewDoc.createElement("TR");
+		var dummyHdrTD = printingtools.previewDoc.createElement("TD");
+		var dummyHdrDIV = printingtools.previewDoc.createElement("DIV");
+
+		dummyHdrDIV.classList.add("moz-header-display-name");
+		dummyHdrDIV.innerText = hdrName + ":";
+
+		dummyHdrTD.appendChild(dummyHdrDIV);
+		var t = printingtools.previewDoc.createTextNode(hdrVal);
+		dummyHdrTD.appendChild(t)
+		dummyHdr.appendChild(dummyHdrTD);
+		dummyHdr.classList.add("ptng-hide-dummyhdr");
+		parent.appendChild(dummyHdr);
+
+	},
+
 	getIndexForHeader: function (string) {
 		var order = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.order");
 		var hdrs = order.split(",");
@@ -301,6 +611,7 @@ var printingtools = {
 				index = j | 0x100;
 			}
 		}
+		//console.log("idx " + string + " " + index)
 		return index;
 	},
 
@@ -318,8 +629,10 @@ var printingtools = {
 
 		if (Services.locale.appLocaleAsBCP47.split('-')[0] === "ja") {
 			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
-		} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
+		} else if (Services.locale.appLocaleAsBCP47 === "zh-CN") {
 			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
+		} else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+			bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh-tw.properties");
 		} else {
 			bundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/mime.properties");
 		}
@@ -332,6 +645,8 @@ var printingtools = {
 		var attachments = bundle.GetStringFromID(1028).replace(/\s*$/, "");
 		var subjectPresent = false;
 		var attPresent = false;
+		var toPresent = false;
+		var fromPresent = false;
 
 		var div;
 		var divHTML;
@@ -409,6 +724,7 @@ var printingtools = {
 			}
 			regExp = new RegExp(from + "\\s*:");
 			if (divHTML.match(regExp)) {
+				fromPresent = true;
 				index = printingtools.getIndexForHeader("%f");
 				if (index & 0x100) {
 					arr[index &= ~0x100] = trs[i];
@@ -422,12 +738,15 @@ var printingtools = {
 			regExp = new RegExp(date + "\\s*:");
 			if (divHTML.match(regExp)) {
 				index = printingtools.getIndexForHeader("%d");
-				if (index & 0x100) {
+				if (index & 0x100 || trs[i].classList.contains("ptng-hide-dummyhdr")) {
 					arr[index &= ~0x100] = trs[i];
 					arr[index &= ~0x100].style.display = "none";
+					printingtools.dateTRpos = index &= ~0x100;
+					//console.log("datepos" + index)
 				} else {
 					arr[index] = trs[i];
 					printingtools.dateTRpos = index;
+					//console.log("datepos" + index)
 				}
 				// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML} index ${printingtools.dateTRpos}`);
@@ -443,9 +762,26 @@ var printingtools = {
 			var bccPresent = false;
 
 			trs = table2.getElementsByTagName("TR");
+			//console.log("sort " + Services.locale.appLocaleAsBCP47)
 			for (var i = 0; i < trs.length; i++) {
 				var div = trs[i].firstChild.firstChild;
 				var divHTML = div.innerHTML.replace(/\&nbsp;/g, " ");
+
+				if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+					var div = trs[i].firstChild.firstChild;
+
+					if (divHTML.indexOf(bcc) == 0) {
+						divHTML = bcc + ":";
+						div.innerHTML = divHTML;
+						//console.log("rpl bcc " + div.outerHTML)
+					}
+					if (divHTML.indexOf(cc) == 0) {
+						divHTML = cc + ":";
+						div.innerHTML = divHTML;
+						//console.log("rpl cc " + div.outerHTML)
+					}
+				}
+
 				if (Services.locale.appLocaleAsBCP47 === "ja") {
 					var div = trs[i].firstChild.firstChild;
 					divHTML = divHTML.replace("To:", to + ':');
@@ -486,6 +822,8 @@ var printingtools = {
 						cc = "Cc";
 						bcc = "Bcc";
 					}
+
+
 				} else if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 					var div = trs[i].firstChild.firstChild;
 					if (divHTML.indexOf(bcc) > -1) {
@@ -503,9 +841,9 @@ var printingtools = {
 				regExp = new RegExp(to + "\\s*:");
 				if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r1");
-					// attPresent = true;
+					toPresent = true;
 					// Services.console.logStringMessage('to');
-					if (index & 0x100) {
+					if (index & 0x100 || trs[i].classList.contains("ptng-hide-dummyhdr")) {
 						arr[index &= ~0x100] = trs[i];
 						arr[index &= ~0x100].style.display = "none";
 					} else {
@@ -515,10 +853,14 @@ var printingtools = {
 					// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 					continue;
 				}
-				regExp = new RegExp(bcc + "\\s*:");
+				//console.log("bcc = " + bcc)
+				//console.log(divHTML)
+				regExp = new RegExp(bcc + ".*:");
 				index = printingtools.getIndexForHeader("%r3");
+				//console.log(divHTML.indexOf(bcc))
+				//console.log("check bcc")
 				if (divHTML.indexOf(bcc) == 0) {
-					// Services.console.logStringMessage('bcc');
+					//Services.console.logStringMessage('bcc');
 					bccPresent = true;
 
 					if (index & 0x100) {
@@ -528,14 +870,15 @@ var printingtools = {
 						trs[i].firstChild.classList.add("bccHdr");
 						arr[index] = trs[i];
 					}
-					// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+					//Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 					continue;
 				}
-
-				regExp = new RegExp(cc + "\\s*:");
+				//console.log("check cc")
+				regExp = new RegExp(cc + ".*:");
 				index = printingtools.getIndexForHeader("%r2");
 				if (divHTML.indexOf(cc) == 0) {
-					// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
+					//Services.console.logStringMessage('cc');
+					//Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
 					ccPresent = true;
 
 					if (index & 0x100) {
@@ -544,7 +887,7 @@ var printingtools = {
 					} else {
 						arr[index] = trs[i];
 					}
-					// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
+					//Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 					continue;
 				}
 			}
@@ -552,20 +895,33 @@ var printingtools = {
 
 		}
 
+		//console.log(arr)
 		index = printingtools.getIndexForHeader("%s");
 		let subjectIndex = index &= ~0x100;
 
 		index = printingtools.getIndexForHeader("%a");
 		let attIndex = index &= ~0x100;
 
+		index = printingtools.getIndexForHeader("%f");
+		let fromIndex = index &= ~0x100;
+
+		index = printingtools.getIndexForHeader("%r1");
+		let toIndex = index &= ~0x100;
 		index = printingtools.getIndexForHeader("%r2");
 		let ccIndex = index &= ~0x100;
 		index = printingtools.getIndexForHeader("%r3");
 		let bccIndex = index &= ~0x100;
 
-		// Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
-
 		let tempPos = printingtools.dateTRpos;
+
+		if (!fromPresent && fromIndex < printingtools.dateTRpos) {
+			tempPos--;
+		}
+
+		if (!toPresent && toIndex < printingtools.dateTRpos) {
+			tempPos--;
+		}
+
 		if (!ccPresent && ccIndex < printingtools.dateTRpos) {
 			// printingtools.dateTRpos--;
 			tempPos--;
@@ -583,7 +939,7 @@ var printingtools = {
 
 		if (subjectPresent && subjectIndex < printingtools.dateTRpos) {
 			// printingtools.dateTRpos--;
-			tempPos--;
+			//tempPos--;
 		}
 
 		printingtools.dateTRpos = tempPos;
@@ -592,174 +948,10 @@ var printingtools = {
 		for (var i = 0; i < arr.length; i++) {
 			if (arr[i])
 				tbody.appendChild(arr[i]);
-			// else
-			//	printingtools.dateTRpos = printingtools.dateTRpos - 1;
 		}
 
-		// Services.console.logStringMessage("after sort");
-		// Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
-	},
-
-	correctABprint: function (gennames) {
-		// console.debug('correct address book');
-		var gnLen = printingtools.doc.getElementsByTagName("GeneratedName").length;
-		var dirNode = printingtools.doc.getElementsByTagName("directory")[0];
-		var multipleCards = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards");
-		var sepr;
-
-		// if gnLen is equal to 1, we're printing a single contact		
-		if (gnLen == 1 && multipleCards) {
-			try {
-				// Get the selected cards from addressbook window
-				var abWin = Cc["@mozilla.org/appshell/window-mediator;1"].
-					getService(Ci.nsIWindowMediator).
-					getMostRecentWindow("mail:addressbook");
-				var start = new Object();
-				var end = new Object();
-				var card;
-				var treeSelection = abWin.gAbView.selection;
-				var numRanges = treeSelection.getRangeCount();
-				var parser = Cc["@mozilla.org/xmlextras/domparser;1"]
-					.createInstance(Ci.nsIDOMParser);
-				var firstCard = true;
-
-				for (var t = 0; t < numRanges; t++) {
-					treeSelection.getRangeAt(t, start, end);
-					for (var v = start.value; v <= end.value; v++) {
-						if (firstCard) {
-							// The first card is already present in print window
-							firstCard = false;
-							continue;
-						}
-						card = abWin.gAbView.getCardFromRow(v);
-						if (!card.isMailList) {
-							// Add the xml translation of card to the root node ("directory")
-							sepr = printingtools.doc.createElement("separator");
-							dirNode.appendChild(sepr);
-							var xmlParts = card.translateTo("xml").split("<table>");
-							// It's necessary to add a root node, otherwise parser will fail
-							var temp = "<root>" + xmlParts[0] + "</root>";
-							var gn = parser.parseFromString(temp, "text/xml");
-							dirNode.appendChild(gn.firstChild);
-							temp = "<root><table>" + xmlParts[1] + "</root>";
-							var table = parser.parseFromString(temp, "text/xml");
-							dirNode.appendChild(table.firstChild);
-						}
-					}
-				}
-				sepr = printingtools.doc.createElement("separator");
-				dirNode.appendChild(sepr);
-			}
-			catch (e) { }
-		}
-
-
-		var rule;
-		var hideHeaderCard = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.hide_header_card");
-		var compactFormat = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_just_addresses");
-		var smallFont = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size");
-		var maxCompact = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.max_compact");
-		var fontFamily = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family");
-		var cutNotes = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.cut_notes");
-		var addABname = printingtools.prefs.getBoolPref("extensions.printingtoolsng.addressbook.add_ab_name");
-
-		if (addABname) {
-			sepr = printingtools.doc.createElement("separator");
-			dirNode.insertBefore(sepr, dirNode.firstChild);
-			var sec = printingtools.doc.createElement("section");
-			var GN = printingtools.doc.createElement("GeneratedName");
-			var now = new Date();
-			var selDir = opener.GetSelectedDirectory();
-			var abDir = opener.GetDirectoryFromURI(selDir);
-			var intro = printingtools.doc.createElement("intro");
-			var abNameNode = printingtools.doc.createTextNode(abDir.dirName + " - " + now.toLocaleString());
-			GN.appendChild(abNameNode);
-			sec.appendChild(GN);
-			intro.appendChild(sec);
-			dirNode.insertBefore(intro, dirNode.firstChild);
-		}
-
-		if (!String.trim && hideHeaderCard) {
-			var ABbundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/addressbook/addressBook.properties");
-			// The heading card is taken from addressBook.properties
-			var headingCard = ABbundle.GetStringFromName("headingCardFor");
-			for (i = 0; i < gennames.length; i++) {
-				gennames[i].firstChild.nodeValue = gennames[i].firstChild.nodeValue.replace(headingCard, "");
-				if (maxCompact)
-					// Maybe this is superflous
-					gennames[i].firstChild.nodeValue = gennames[i].firstChild.nodeValue.replace("\n", "");
-			}
-		}
-
-		var tables = printingtools.doc.getElementsByTagName("table");
-		for (j = 0; j < tables.length; j++) {
-			var isMCFABinstalled = (printingtools.prefs.getPrefType("morecols.custom1.label") > 0);
-			if (isMCFABinstalled) {
-				for (var k = 1; k < 5; k++) {
-					var custom = tables[j].getElementsByTagName("Custom" + k.toString())[0];
-					if (custom) {
-						var newLabel = printingtools.prefs.getCharPref("morecols.custom" + k.toString() + ".label");
-						if (newLabel != "")
-							custom.previousSibling.firstChild.nodeValue = newLabel + ": ";
-					}
-				}
-			}
-
-			if (cutNotes) {
-				var notes = tables[j].getElementsByTagName("Notes")[0]
-				if (notes)
-					notes.firstChild.nodeValue = notes.firstChild.nodeValue.substring(0, 100) + " [...]";
-			}
-
-			if (maxCompact || compactFormat) {
-				// The first row contains name & addresses, the second one the other data
-				var trs = tables[j].childNodes;
-				if (!compactFormat) {
-					// Moving all the card properties in one single TR tag, the layout is much more compact
-					var chs = trs[1].childNodes;
-					trs[0].appendChild(chs[1]);
-					trs[0].appendChild(chs[0]);
-				}
-				if (maxCompact) {
-					// To compact more, the useless property "Displayname" is deleted
-					var lrow = tables[j].getElementsByTagName("labelrow")[0];
-					try { trs[1].appendChild(lrow); }
-					catch (e) { }
-
-					// Remove empty sections
-					var secs = tables[j].getElementsByTagName("section");
-					for (o = secs.length - 1; o > -1; o--) {
-						if (!secs[o].hasChildNodes())
-							secs[o].parentNode.removeChild(secs[o]);
-					}
-				}
-				// Delete the second TR tag
-				tables[j].removeChild(trs[1]);
-			}
-		}
-
-		if (maxCompact) {
-			// To compact more the layout, the margin is made smaller (usually is 20px)
-			rule = "GeneratedName {margin: 5px !important;}"
-			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
-		}
-		if (smallFont) {
-			var fontsize = printingtools.prefs.getIntPref("extensions.printingtoolsng.addressbook.custom_font_size");
-			rule = "* {font-size: " + fontsize + "px !important;}";
-			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
-			fontsize = fontsize + 2;
-			rule = "intro * {display:block !important; padding:15px !important; font-size:" + fontsize + "px !important;}"
-			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
-		}
-		else {
-			rule = "intro * {display:block !important; padding:15px !important; font-size:16px !important;}"
-			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
-		}
-		if (fontFamily) {
-			var fontfamily = printingtools.prefs.getCharPref("extensions.printingtoolsng.addressbook.font_family");
-			rule = "* {font-family: " + fontfamily + " !important;}";
-			printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
-		}
+		//Services.console.logStringMessage("after sort");
+		//Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
 	},
 
 	getHdr: async function () {
@@ -772,22 +964,44 @@ var printingtools = {
 			if (uris[printingtools.current].indexOf("file") == 0) {
 				// If we're printing a eml file, there is no nsIMsgHdr object, so we create an object just with properties
 				// used by the extension ("folder" and "dateInSeconds"), reading directly the file (needing just 1000 bytes)
-				console.log(uris[printingtools.current].split("?")[0])
+				//console.log(uris[printingtools.current].split("?")[0])
 				var dummy = {};
 				dummy.folder = null;
 
-				let f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]).replace(/\//g, "\\");
+				var os = navigator.platform.toLowerCase();
+				var f;
 
+
+				if (os.indexOf("win") > -1) {
+					f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]).replace(/\//g, "\\");
+				} else {
+					f = decodeURI(uris[printingtools.current].split("file://")[1].split("?")[0]);
+				}
 
 				let str_message = await IOUtils.readUTF8(f, { bytes: 3000 })
 
 				str_message = str_message.toLowerCase();
-				var dateOrig = str_message.split("\ndate:")[1].split("\n")[0];
+
+				// Handle absent Date hdr #109
+				try {
+					var dateOrig = str_message.split("\ndate:")[1].split("\n")[0];
+					//console.log("try date " + dateOrig)
+				} catch {
+					var dateOrig = new Date().toString();
+					//console.log("ca date " + dateOrig)
+				}
+
+				//console.log("fin date " + dateOrig)
 				dateOrig = dateOrig.replace(/ +$/, "");
 				dateOrig = dateOrig.replace(/^ +/, "");
 				var secs = Date.parse(dateOrig) / 1000;
 				dummy.dateInSeconds = secs;
+				dummy.dateReceived = secs;
 				printingtools.hdr = dummy;
+
+				//console.log(str_message)
+				//console.log(dummy)
+
 			}
 			else {
 				printingtools.hdr = m.msgHdrFromURI(uris[printingtools.current]);
@@ -799,7 +1013,7 @@ var printingtools = {
 
 		//console.debug('pTNG: Reformat layout ');
 
-	
+
 		printingtools.doc = printingtools.previewDoc;
 
 		//console.log(printingtools.doc.body.outerHTML)
@@ -815,10 +1029,13 @@ var printingtools = {
 			//Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 			return;
 		}
-		
+
+		printingtools.sanitizeHeaders();
+		//console.log(printingtools.doc.documentElement.outerHTML);
+
 		await printingtools.addAttTable(printingtools.attList);
 
-		
+
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
 		// If there is some "GeneratedName" tag, so we're printing from addressbook
@@ -858,7 +1075,7 @@ var printingtools = {
 		await printingtools.getHdr(); // save hdr
 		printingtools.current = printingtools.current + 1;
 
-		//console.debug('Tables');
+
 		var table1 = printingtools.getTable(0);
 		var table2 = printingtools.getTable(1);
 		var table3 = printingtools.getTable(2);
@@ -920,28 +1137,47 @@ var printingtools = {
 			// Services.console.logStringMessage("window: " + printingtools.getMail3Pane().document.URL);
 			//var sel = printingtools.getMail3Pane().content.getSelection();
 			var sel = document.commandDispatcher.focusedWindow.getSelection();
-			
+
 			var range2 = sel.getRangeAt(0);
 			var contents2 = range2.cloneContents();
 			// Services.console.logStringMessage(contents2.textContent);
 
 		} catch (error) {
 			sel = "";
-			 //Services.console.logStringMessage("no selection " + error );
+			//Services.console.logStringMessage("no selection " + error );
 		}
 
 		//Services.console.logStringMessage("sel " + sel);
 
-		if (sel && sel != "" && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
+		if (0 && sel && sel != "" && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
 			Services.console.logStringMessage("valid selection");
 			Services.console.logStringMessage("Selection :\n" + sel);
 			Services.console.logStringMessage("process selection");
-			var range = sel.getRangeAt(0);
-			var contents = range.cloneContents();
+			console.log(sel)
+			console.log(sel.rangeCount)
+			var contents = [];
+
+			for (let i = 0; i < sel.rangeCount; i++) {
+				console.log(sel.getRangeAt(i))
+				console.log(sel.getRangeAt(i).commonAncestorContainer)
+
+				let s = sel.getRangeAt(i).cloneContents();
+				console.log(s)
+
+				contents.push(s)
+				//contents = contents + sel.getRangeAt(i).cloneContents() + "...\n"
+			}
+
+
+			//console.log(sel.getRangeAt(1))
+
+			//var range = sel.getRangeAt(0);
+			//var contents = range.cloneContents();
 			Services.console.logStringMessage(contents);
+			console.log(contents)
 			printingtools.printSelection(contents);
 			// Services.console.logStringMessage("After selection");
-			// Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+			//Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 		}
 		else {
@@ -961,6 +1197,16 @@ var printingtools = {
 		if (!noheaders && printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate"))
 			printingtools.truncateHeaders(printingtools.maxChars);
 
+
+		if (table3 && !noExtHeaders) {
+
+			var trs = table3.getElementsByTagName("tr");
+			for (var i = trs.length - 1; i > -1; i--) {
+				table1.firstChild.appendChild(trs[i]);
+			}
+		}
+
+
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.align")) {
 			if (table2) {
 				var trs = table2.getElementsByTagName("tr");
@@ -968,11 +1214,6 @@ var printingtools = {
 					table1.firstChild.appendChild(trs[i]);
 			}
 
-			if (table3 && !noExtHeaders) {
-				var trs = table3.getElementsByTagName("tr");
-				for (var i = trs.length - 1; i > -1; i--)
-					table1.firstChild.appendChild(trs[i]);
-			}
 
 			var trs = table1.getElementsByTagName("tr");
 			for (var i = 0; i < trs.length; i++) {
@@ -1002,62 +1243,90 @@ var printingtools = {
 			}
 
 			let md = printingtools.getMail3Pane();
-			var tw = printingtools.doc.createElement("TABLE");
-			// var tw = md.document.createElement("TABLE");
-			tw.style.fontFamily = table1.style.fontFamily;
-			tw.style.fontSize = table1.style.fontSize;
 
-			trs = table1.getElementsByTagName("tr");
-			for (var i = 0; i < trs.length; i++) {
-				let trw = printingtools.doc.createElement("TR");
-				// let trw = md.document.createElement("TR");
-				trw.style.display = trs[i].style.display;
-				trs[i].firstChild.style.paddingLeft = "6px";
-				// trw.appendChild(trs[i].firstChild.cloneNode(true));
-				trw.innerHTML = trs[i].firstChild.outerHTML;
-				tw.appendChild(trw);
+			if (this.getTable(2)) {
+
+				var tw = printingtools.doc.createElement("TABLE");
+				// var tw = md.document.createElement("TABLE");
+				tw.style.fontFamily = table1.style.fontFamily;
+				tw.style.fontSize = table1.style.fontSize;
+
+				trs = table1.getElementsByTagName("tr");
+				for (var i = 0; i < trs.length; i++) {
+					let trw = printingtools.doc.createElement("TR");
+					// let trw = md.document.createElement("TR");
+					trw.style.display = trs[i].style.display;
+					trs[i].firstChild.style.paddingLeft = "6px";
+					// trw.appendChild(trs[i].firstChild.cloneNode(true));
+					trw.innerHTML = trs[i].firstChild.outerHTML;
+					tw.appendChild(trw);
+				}
+				// tw.style.height = 0;
+
+				tw.setAttribute("border", "1px solid black");
+				tw.setAttribute("border-collapse", "collapse");
+				tw.setAttribute("cellspacing", "0");
+				// md.document.body.appendChild(tw);
+
+				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
+					var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
+					var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
+					tw.style.fontFamily = mFamily;
+					tw.style.fontSize = mSize;
+				}
+
+				if (!table3) {
+					printingtools.insertAfter(tw, table2);
+					var maxHdrWidth = table2.nextSibling.getBoundingClientRect().width;
+
+				} else {
+					printingtools.insertAfter(tw, table3);
+					var maxHdrWidth = tw.getBoundingClientRect().width;
+					//console.log(maxHdrWidth)
+				}
+				//console.log(printingtools.doc.documentElement.outerHTML);
+				tw.remove()
 			}
-			// tw.style.height = 0;
 
-			tw.setAttribute("border", "1px solid black");
-			tw.setAttribute("border-collapse", "collapse");
-			tw.setAttribute("cellspacing", "0");
-			// md.document.body.appendChild(tw);
-			
-			if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
-				var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
-				var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
-				tw.style.fontFamily = mFamily;
-				tw.style.fontSize = mSize;
-			}
-
-			if (!table3) {
-				printingtools.insertAfter(tw, table2);
-				var maxHdrWidth = table2.nextSibling.getBoundingClientRect().width;
-			
+			if (this.getTable(2) && !noExtHeaders) {
+				//maxHdrWidth = 160;
 			} else {
-				printingtools.insertAfter(tw, table3);
+				let locale = Services.locale.appLocaleAsBCP47.split("-")[0];
+				let alwaysCcBcc = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always");
+
+				switch (locale) {
+					case "de":
+						if (!alwaysCcBcc) {
+							maxHdrWidth = 130;
+						} else {
+							maxHdrWidth = 110;
+						}
+						break;
+
+					default:
+						maxHdrWidth = 110;
+						break;
+				}
+
 			}
 
-			maxHdrWidth = 100;
+
 
 			for (var i = 0; i < trs.length; i++) {
 
 				trs[i].firstChild.setAttribute("width", `${maxHdrWidth}px`);
-				
+
 			}
-
-			tw.remove();
-			// console.debug('after she has a scalable');
-			// console.debug(tw.clientWidth);
-
 		}
 
-		// table1.setAttribute("width", "100%");
+		//console.log(printingtools.doc.documentElement.outerHTML);
+
 		table1.style.tableLayout = "fixed";
 		table1.style.marginRight = "10px";
-		table2.style.display = "none";
 
+		if (table2) {
+			table2.style.display = "none";
+		}
 
 		var backgroundColor = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.background.color");
 		if (!printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color")) {
@@ -1085,14 +1354,11 @@ var printingtools = {
 		}
 		printingtools.setTableLayout();
 
-		//Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
-
-
 		// Remove attachments  table from  end of message 
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list")) {
 			//console.log("remove att list")
-			printingtools.removeAttatchmentBodyTable();
+			printingtools.hideAttatchmentBodyTable();
 		}
 
 		dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
@@ -1100,10 +1366,10 @@ var printingtools = {
 			Services.console.logStringMessage("PTNG: final output:\n");
 			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 		}
-		
+
 	},
 
-	removeAttatchmentBodyTable: function () {
+	hideAttatchmentBodyTable: function () {
 
 		var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header")
 		for (let index = 0; index < attTableHdrs.length; index++) {
@@ -1111,14 +1377,26 @@ var printingtools = {
 			element.style.display = "none";
 		}
 
-
-
-
 		//console.log(attTableHdrs.outerHTML)
 		var attTableEntries = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table")
 		for (let index = 0; index < attTableEntries.length; index++) {
 			let element = attTableEntries[index];
 			element.style.display = "none";
+		}
+	},
+
+	showAttatchmentBodyTable: function () {
+
+		var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header")
+		for (let index = 0; index < attTableHdrs.length; index++) {
+			let element = attTableHdrs[index];
+			element.style.display = null;
+		}
+		//console.log(attTableHdrs.outerHTML)
+		var attTableEntries = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table")
+		for (let index = 0; index < attTableEntries.length; index++) {
+			let element = attTableEntries[index];
+			element.style.display = null;
 		}
 	},
 
@@ -1139,16 +1417,40 @@ var printingtools = {
 				}
 			}
 			containerDiv.innerHTML = "";
-			containerDiv.appendChild(contents);
+
+			//suff.textContent = "…  ";
+
+			contents.forEach(element => {
+				console.log(element)
+				console.log(element.firstChild.outerHTML)
+				console.log(element.firstChild)
+
+				var suff = printingtools.previewDoc.createElement("SPAN");
+				var br = printingtools.previewDoc.createElement("BR");
+				var br2 = printingtools.previewDoc.createElement("BR");
+				var t = printingtools.previewDoc.createElement("TABLE");
+				suff.textContent = "…  "
+
+				containerDiv.appendChild(element);
+				//t.appendChild(element);
+				containerDiv.appendChild(suff);
+				containerDiv.appendChild(br);
+				containerDiv.appendChild(br2);
+				//console.log(suff)
+				console.log(containerDiv.outerHTML)
+			});
+
 			var ops = containerDiv.getElementsByTagName("o:p");
 			for (i = 0; i < ops.length; i++)
 				// hides microsoft crap
 				ops[i].style.display = "none";
 			var hideImg = printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.hide");
-			if (hideImg || printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.resize"))
-				printingtools.setIMGstyle(hideImg);
+			//if (hideImg || printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.resize"))
+			//	printingtools.setIMGstyle(hideImg);
 		}
-		catch (e) { }
+		catch (e) {
+			console.log(e)
+		}
 	},
 
 	toggleInlinePref: function () {
@@ -1192,6 +1494,7 @@ var printingtools = {
 
 			var folder = printingtools.hdr.folder;
 			var h3 = printingtools.doc.createElement("h3");
+			h3.classList.add("ptng-tophdr");
 			var folderHtml = "";
 			var myname = "&nbsp;"
 
@@ -1247,23 +1550,62 @@ var printingtools = {
 		var imgs = printingtools.doc.getElementsByTagName("img");
 		for (i = 0; i < imgs.length; i++) {
 			if (imgs[i].getAttribute("class") != "attIcon") {
-				if (hide)
-					imgs[i].setAttribute("style", "display:none !important;");
-				else
-					imgs[i].setAttribute("style", "height:auto; width:auto; max-width:100%; max-height:100%;");
+				if (hide) {
+					imgs[i].setAttribute("_display", imgs[i].style.display);
+					imgs[i].style.display = "none";
+					console.log(imgs[i].getAttribute("style"))
+					//imgs[i].setAttribute("style", "display:none !important;");
+				} else {
+					if (imgs[i].style.display == "none" || imgs[i].getAttribute("shrinktofit")) {
+						return;
+					}
+					console.log(imgs[i].getAttribute("style"))
+					imgs[i].style.height = "auto";
+					imgs[i].style.width = "auto";
+					imgs[i].style.maxHeight = "100%";
+					imgs[i].style.maxWidth = "100%";
+				}
+
+				console.log(imgs[i].getAttribute("style"))
+
 			}
+		}
+	},
+
+	restoreIMGstyle: function () {
+		var imgs = printingtools.doc.getElementsByTagName("img");
+		for (i = 0; i < imgs.length; i++) {
+			if (imgs[i].getAttribute("class") != "attIcon") {
+				
+				let display = imgs[i].getAttribute("_display");
+				
+				if (display !== undefined && display !== null) {
+					if (display == "") {
+						
+						imgs[i].style.display = null;
+					} else {
+						imgs[i].style.display = display;
+					}
+
+					imgs[i].removeAttribute("_display");
+				}
+
+			}
+
 		}
 	},
 
 	getTable: function (num) {
 		// The function check if the requested table exists and if it's an header table
-		var tabclass = new Array("header-part1", "header-part2", "header-part3");
+		var tabclass = new Array(".moz-header-part1", ".moz-header-part2", ".moz-header-part3");
 		var doc = printingtools.previewDoc;
 		//console.debug('get Table ' + num);
-		var table = doc.getElementsByTagName("TABLE")[num];
-		//console.debug(table);
 
-		if (table && table.getAttribute("class") && table.getAttribute("class").includes(tabclass[num]))
+		//var table = doc.getElementsByTagName("TABLE")[num];
+		var table = doc.querySelector(tabclass[num]);
+
+		//if (table && table.getAttribute("class") && table.getAttribute("class").includes(tabclass[num]))
+		if (table)
 			return table;
 		else
 			return false;
@@ -1513,38 +1855,57 @@ var printingtools = {
 					options.hour12 = false;
 				}
 				formatted_date = new Intl.DateTimeFormat('default', options).format(date_obj);
-			}
-			else
+			} else if (longFormat === 2) {
 				var formatted_date = date_obj.toUTCString();
+			} else if (longFormat === 3) {
+				let customDateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
+				let locale = Services.locale.appLocaleAsBCP47;
+				var formatted_date = st.strftime.strftime(customDateFormat, date_obj, locale);
+
+			} else {
+				var formatted_date = date_obj.toUTCString();
+			}
 		}
-		catch (e) { }
+		catch (e) {
+			console.log(e)
+		}
+		//console.log(formatted_date)
 		return formatted_date;
 	},
 
 	correctDate: function () {
 		//console.log("start date")
 		var table = printingtools.getTable(0);
+		//console.log(table)
 		if (!table || !printingtools.hdr)
 			return;
 		var longFormat = printingtools.prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
+
 		var formatted_date = printingtools.formatDate((printingtools.hdr.dateInSeconds * 1000), longFormat);
 		if (!formatted_date)
 			return;
 
-		
+
 		var tds = table.getElementsByTagName("TD");
-		
+
 		var node = tds[tds.length - 1];
-		
+		//console.log(tds)
+		//console.log(node)
+
 		if (node) {
-			var data = node.childNodes[1].nodeValue;
+			//var data = node.childNodes[1].nodeValue;
 			node.childNodes[1].nodeValue = formatted_date;
 		}
 	},
 
 	appendReceivedTD: function () {
 		if (printingtools.hdr) {
-			var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
+			try {
+				var formatted_date = printingtools.formatDate((printingtools.hdr.getUint32Property("dateReceived") * 1000), null);
+			} catch {
+				var formatted_date = printingtools.formatDate((printingtools.hdr.dateReceived * 1000), null);
+			}
+
 			var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 			var headtable1 = printingtools.getTable(0);
 			var newTR = printingtools.doc.createElement("TR");
@@ -1556,8 +1917,7 @@ var printingtools = {
 
 			// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
 			if (headtable1 && headtable1.lastChild) {
-				// Services.console.logStringMessage("printingtools: rd " + printingtools.dateTRpos);
-				// Services.console.logStringMessage([...headtable1.lastChild.getElementsByTagName("TR")]);
+
 				var dateTR = headtable1.lastChild.getElementsByTagName("TR")[printingtools.dateTRpos];
 
 				headtable1.lastChild.insertBefore(newTR, dateTR.nextSibling);
@@ -1599,8 +1959,6 @@ var printingtools = {
 
 			let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
 			let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
-			console.log(fileNames)
-
 
 			printingtoolsng.attList = fileNames.map((fn, i) => {
 				return { name: fn, size: fileSizes[i] };
@@ -1652,9 +2010,10 @@ var printingtools = {
 		attTable.classList.add("mimeAttachmentTable");
 		var t;
 
-		if (t = this.getTable(1)) {
+		if (t = this.getTable(2)) {
 			t.after(attTable);
-
+		} else if (t = this.getTable(1)) {
+			t.after(attTable);
 		} else {
 			t = this.getTable(0);
 			t.after(attTable);
@@ -1861,7 +2220,7 @@ var printingtools = {
 	},
 
 	shutdown: function () {
-		if(document.getElementById("fp")) {
+		if (document.getElementById("fp")) {
 			document.getElementById("fp").remove();
 		}
 	}

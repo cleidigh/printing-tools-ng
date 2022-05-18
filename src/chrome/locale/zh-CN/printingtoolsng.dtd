@@ -39,8 +39,8 @@
 <!ENTITY PMDlabel22 "添加p7m和vCard附件">
 <!ENTITY PMDlabel23 "添加文件夹名称">
 <!ENTITY PMDlabel25 "使用黑色作为文本的底色">
-<!ENTITY long.label "长时区">
-<!ENTITY longLoc.label "长而局部">
+<!ENTITY long.label "长(UTC)">
+<!ENTITY longLoc.label "长(当地)">
 <!ENTITY short.label "短">
 <!ENTITY date.label "日期格式：">
 <!ENTITY addNameRG.label "在标题之前添加：">
@@ -67,3 +67,4 @@
 <!ENTITY ptng.label "印刷工具 NG">
 <!ENTITY ptngOptions.label "打印工具的选项">
 <!ENTITY debugOptions.label "调试选项">
+<!ENTITY date_custom.label "自设">

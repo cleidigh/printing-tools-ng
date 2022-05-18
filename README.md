@@ -1,7 +1,7 @@
 # ![PTng icon] PrintingTools NG
 
 
-[PrintingTools NG](https://addons.thunderbird.net/addon/printingtools-ng) adds many printing functions for messages and address books.
+[PrintingTools NG](https://addons.thunderbird.net/addon/printingtools-ng) adds many printing functions for messages and headers.
 
 This derivative add-on is the update of [PrintingTools](https://addons.thunderbird.net/addon/printingtools/), 
 the original work of [Paolo “Kaosmos”](https://addons.thunderbird.net/user/Paolo_Kaosmos/).
@@ -13,11 +13,11 @@ Original add-on’s homepage:
 https://addons.thunderbird.net/addon/printingtools/
 
 
-![PTng_version](https://img.shields.io/badge/version-v2.0.6-darkorange.png?label=PrintingTools%20NG)
-[![PTng_tb_version](https://img.shields.io/badge/version-v2.0.6-blue.png?label=Thunderbird%20Add-On)](https://addons.thunderbird.net/en-US/thunderbird/addon/)
-![Thunderbird_version](https://img.shields.io/badge/version-v68.0--78.*(89)-blue.png?label=Thunderbird)
+![PTng_version](https://img.shields.io/badge/version-v2.1.1-darkorange.png?label=PrintingTools%20NG)
+[![PTng_tb_version](https://img.shields.io/badge/version-v2.1.1-blue.png?label=Thunderbird%20Add-On)](https://addons.thunderbird.net/en-US/thunderbird/addon/)
+![Thunderbird_version](https://img.shields.io/badge/version-v91.0--102.*-blue.png?label=Thunderbird)
 [![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-red.png)](https://opensource.org/licenses/GPL-3.0)
-![Release Status](https://img.shields.io/badge/Release%20Status-v2.0.6%20Released-brightgreen.png)
+![Release Status](https://img.shields.io/badge/Release%20Status-v2.1.1%20Released-brightgreen.png)
 
 #
 
@@ -26,7 +26,7 @@ https://addons.thunderbird.net/addon/printingtools/
 PrintingTools NG provides numerous layout and formatting options for
 printing messages, the address books and individual contacts.  It is
 a fork and update of the original PrintingTools extension.  Currently
-the extension supports Thunderbird 68-78 (experimental 89+ support)
+the extension supports Thunderbird 68-102
 
 The following are the main enhancements provided by PrintingTools NG, 
 see the options for additional features.
@@ -46,12 +46,6 @@ see the options for additional features.
 - Configure font family and size
 - Highlight quoted text color, font and size
 - Print selected text only
-
-## AddressBook & Contact Layout & Formatting:
-- Configure font family and size
-- Compact printing format option
-- Print name and e-mail only
-- Remove "Card For" from entries
 
 ## Issues & Questions
 Post any issues or questions for PrintingTools NG under [Issues](https://github.com/cleidigh/printing-tools-ng/issues)

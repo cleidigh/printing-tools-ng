@@ -67,3 +67,4 @@
 <!ENTITY ptng.label "Tulostustyökalut NG">
 <!ENTITY ptngOptions.label "VAIHTOEHTOJEN TULOSTUSTYÖKALUT">
 <!ENTITY debugOptions.label "Virheenkorjausasetukset">
+<!ENTITY date_custom.label "Mukautettu">

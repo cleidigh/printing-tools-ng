@@ -67,3 +67,4 @@
 <!ENTITY ptng.label "Utskriftsverktyg NG">
 <!ENTITY ptngOptions.label "UTSKRIFTSVERKTYG FÖR ALTERNATIV">
 <!ENTITY debugOptions.label "Felsökningsalternativ">
+<!ENTITY date_custom.label "Beställnings">

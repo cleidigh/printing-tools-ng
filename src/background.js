@@ -34,6 +34,7 @@ messenger.WindowListener.registerChromeUrl([
 	["locale", "printingtoolsng", "sv-SE", "chrome/locale/sv-SE/"],
 	["locale", "printingtoolsng", "uk", "chrome/locale/uk/"],
 	["locale", "printingtoolsng", "zh-CN", "chrome/locale/zh-CN/"],
+	["locale", "printingtoolsng", "zh-TW", "chrome/locale/zh-TW/"],
 
 ]);
 
@@ -119,6 +120,23 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			let rv = await getAttatchmentList(info.messageId);
 			return rv;
 			break;
+		case "openHelp":
+			//console.log("help")
+			//console.log(info)
+			var locale = info.locale;
+
+			try {
+				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1200, height: 600})
+			} catch {
+				try {
+				locale = locale.Split('-')[0];
+				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel"})
+				} catch {
+					browser.windows.create({url: `chrome/content/help/locale/en-US/printingtoolsng-help.html`, type: "panel"})	
+				}
+			}
+			//browser.windows.create({url: "test.html", type: "panel"})
+			return "help";
 	}
 });
 

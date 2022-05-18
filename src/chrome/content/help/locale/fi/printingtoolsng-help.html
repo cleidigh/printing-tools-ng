@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <title>PrintingTools NG Ohje</title>
+  </head>
+  <body>
+    <h2 id="main_help">PrintingTools NG Ohje</h2>
+    <br />
+    <h2 id="main_help">PrintingTools NG Yleiskatsaus</h2>
+    <p>
+      PrintingTools NG on jatkolaajennus, joka perustuu Paolo &quot;Kaosmos&quot; alkuperäiseen teokseen.
+      Laajennus mahdollistaa tulostusotsikoiden ja muiden vaihtoehtojen mukauttamisen.<br /><br />
+      Kiitos seuraaville käyttäjille parannusehdotuksista ja testiavustuksesta:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <h3>Tuki:</h3>
+    <p>
+      Lähetä ongelmat tai ominaisuuspyynnöt laajennusten GitHub-tietovarastoon:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      Sisällytä virheongelmiin seuraavat tiedot ongelmien ratkaisemiseksi:<br />
+      - PrintingTools NG -versio<br />
+      - Thunderbird-versio<br />
+      - Käyttöjärjestelmä ja versio<br />
+      - Virheenkorjaustulos (kopioi virheenkorjauskonsolista - pääsy Control-Shift-J)<br />
+      - Kuvaus ongelmaan johtavista vaiheista<br />
+    </p>
+    <br />
+    <h2 id="customdate_format_help">Mukautettu päivämäärämuoto</h2>
+    <p>
+      Mukautettu päivämäärävaihtoehto mahdollistaa sähköpostin otsikoiden sekä päivämäärän että
+      vastaanottopäivämäärän päivämäärän muotoilun täydellisen hallinnan. Mukautettu päivämäärä tarjoaa useita
+      lokalisoituja vaihtoehtoja, jotka mahdollistavat melkein minkä tahansa muodon. Huomaa, että mukautettu
+      päivämäärämerkkijono voi sisältää erottimia, literaaleja, mukaan lukien unicode-merkkejä sekoitettuna
+      alla lueteltuihin päivämäärä/aika-tunnisteisiin.<br /><br />
+      Huomautus: Muokatut päivämäärätulokset alla olevissa esimerkeissä vaihtelevat todellisen päivämäärän,
+      käyttäjien kielen ja aikavyöhykkeen mukaan.<br /><br />
+      Esimerkkejä:<br /><br />
+      <table class="dateformat-table">
+        <thead>
+          <tr>
+            <td>Päivämäärämerkkijono</td>
+            <td>Tulos</td>
+            <td>Huomautus</td>
+          </tr>
+        </thead>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+          <td>ja locale literaaleilla</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+          <td>ko locale literaaleilla</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+          <td>zh-CN alue, lyhyt päivä</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+          <td>zh-TW alue, pitkä päivä</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
+          <td>Pisteerottimet</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+          <td>de locale, lyhyt päivä/kuukausi</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+          <td>fi-USA, pitkä päivä/kuukausi</td>
+        </tr>
+      </table>
+      <br />
+      Mukautettu päivämäärämuoto käyttää % sekvenssejä, jotka vastaavat <code>strftime()</code> Unixin
+      kaltaista toimintoa. Se perustuu
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      JavaScript-porttiin, funktioon, joka muotoilee päivämäärän ja kellonajan.<br />
+      Port of strftime() by TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <h3>Muunnossekvenssin kuvaukset</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Järjestys</th>
+          <th>Kuvaus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Viikonpäivän lyhennetty nimi.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Viikonpäivän koko nimi.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Lyhennetty kuukauden nimi.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Koko kuukauden nimi.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Ensisijainen päivämäärä ja kellonaika (UTC) nykyiselle maa-alueelle.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Vuosisadan luku (vuosi/100) 2-numeroisena kokonaislukuna.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>Kuukauden päivä desimaalilukuna (välillä 01-31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>Kuukauden päivä desimaalilukuna (välillä 1-31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>ISO 8601 -päivämäärämuoto (vastaa <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            ISO 8601 viikkoperusteinen vuosi vuosisata desimaalilukuna. 4-numeroinen vuosi vastaa
+            ISO-viikkonumeroa (katso <code class="code1">%V</code> ). Tällä on sama muoto ja arvo kuin
+            <code class="code1">%Y</code> , paitsi että jos ISO-viikon numero kuuluu edelliseen tai seuraavaan
+            vuoteen, käytetään sitä vuotta sen sijaan.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>
+            Kuten <code class="code1">%G</code> , mutta ilman vuosisataa, eli 2-numeroisella vuosiluvulla
+            (00-99).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Tunti desimaalilukuna käyttäen 24 tunnin kelloa (välillä 00-23). Katso myös
+            <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Tunti desimaalilukuna käyttäen 12 tunnin kelloa (alue 01-12). Katso myös
+            <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Vuoden päivä desimaalilukuna (välillä 001 - 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Tunti desimaalilukuna 24 tunnin kellon avulla (välillä 0-23). Katso myös
+            <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Tunti desimaalilukuna käyttämällä 12 tunnin kelloa (alue 1-12). Katso myös
+            <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Kuukausi desimaalilukuna (välillä 01-12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Kuukausi desimaalilukuna (välillä 1–12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>Minuutti desimaalilukuna (välillä 00 - 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            Joko &quot;AM&quot; tai &quot;PM&quot; annetun aika-arvon mukaan. Keskipäivää käsitellään nimellä
+            &quot;PM&quot; ja keskiyötä &quot;AM&quot;.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>
+            Kuten <code class="code1">%p</code> , mutta pienillä kirjaimilla (&quot;am&quot; tai
+            &quot;pm&quot;).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Sekuntien lukumäärä Epochista, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Toinen desimaalilukuna (välillä 00-59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            Viikonpäivä desimaalilukuna (väli 1-7), maanantaina 1. Katso myös <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            ISO 8601 kuluvan vuoden viikkonumero desimaalilukuna (välillä 01-53), jossa viikko 1 on
+            ensimmäinen viikko, jolla on vähintään 4 päivää uudessa vuodessa (eli ensimmäinen torstai).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            Viikonpäivä desimaalilukuna (alue 0-6), sunnuntain ollessa 0. Katso myös
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Ensisijainen päivämääräesitys nykyiselle maa-asetukselle ilman aikaa.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Ensisijainen aikaesitys nykyiselle maa-alueelle ilman päivämäärää.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Vuosi desimaalilukuna ilman vuosisataa (välillä 00-99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Vuosi desimaalilukuna, mukaan lukien vuosisata.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            Numeerinen aikavyöhyke <code class="code1">+hhmm</code> tai <code class="code1">-hhmm</code> (eli
+            tuntien ja minuuttien poikkeama UTC:stä).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Aikavyöhykkeen nimi tai lyhenne.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Lyhyt aikavyöhykelyhenne.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Vuosi kirjaimellisesti. Lokalisoitu, pääasiassa Aasian alueille. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Kuukausi kirjaimellisesti. Lokalisoitu, pääasiassa Aasian alueille. (zh-TW: 月, ko: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Päivä kirjaimellisesti. Lokalisoitu, pääasiassa Aasian alueille. (ja: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Yhteensopivuushuomautuksia:</h3>
+    <ul>
+      <li><code class="code1">%c</code> - muotoiltu merkkijono on hieman erilainen</li>
+      <li>
+        <code class="code1">%D</code> - ei käytössä (käytä <code class="code1">%m/%d/%y</code> tai
+        <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - tilaa ei ole lisätty</li>
+      <li><code class="code1">%E</code> - ei toteutettu</li>
+      <li><code class="code1">%h</code> - ei käytössä (käytä <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - välilyöntiä ei ole lisätty</li>
+      <li>
+        <code class="code1">%n</code> - kuten <code class="code1">%m</code> , mutta ei alkunollaa (käytä
+        <code class="code1">\n</code> rivinvaihdossa)
+      </li>
+      <li><code class="code1">%O</code> - ei toteutettu</li>
+      <li><code class="code1">%r</code> - ei toteutettu (käytä <code class="code1">%I:%M:%S %p</code> )</li>
+      <tr>
+        <td><code class="code1">${subject}</code></td>
+        <td>Viestin aihe</td>
+      </tr>
+      <li><code class="code1">%R</code> - ei käytössä (käytä <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%t</code> - ei toteutettu (käytä <code class="code1">\t</code> )</li>
+      <li><code class="code1">%T</code> - ei käytössä (käytä <code class="code1">%H:%M:%S</code> )</li>
+      <li><code class="code1">%U</code> - ei toteutettu</li>
+      <li><code class="code1">%W</code> - ei toteutettu</li>
+      <li><code class="code1">%+</code> - ei toteutettu</li>
+      <li><code class="code1">%%</code> - ei käytössä (käytä <code class="code1">%</code> )</li>
+    </ul>
+    <br /><br />
+  </body>
+</html>

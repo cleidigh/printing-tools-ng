@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <title>Pomocník PrintingTools NG</title>
+  </head>
+  <body>
+    <h2 id="main_help">Pomocník PrintingTools NG</h2>
+    <br />
+    <h2 id="main_help">Prehľad PrintingTools NG</h2>
+    <p>
+      PrintingTools NG je nadväzujúce rozšírenie založené na pôvodnej práci Paola &quot;Kaosmos&quot;.
+      Rozšírenie umožňuje prispôsobenie tlačových hlavičiek, ako aj ďalšie možnosti.<br /><br />
+      Ďakujeme nasledujúcim používateľom za návrhy na zlepšenie a pomoc pri testovaní:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <h3>Podpora:</h3>
+    <p>
+      Uverejnite problémy alebo požiadavky na funkcie v úložisku GitHub rozšírení:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues"
+        >Problémy s nástrojmi PrintingTools NG</a
+      ><br /><br />
+      Pri problémoch s chybami uveďte nasledujúce informácie, ktoré vám pomôžu vyriešiť problémy:<br />
+      - Verzia PrintingTools NG<br />
+      - Verzia Thunderbird<br />
+      - Operačný systém a verzia<br />
+      - Výstup ladenia (kopírovanie z konzoly ladenia - prístup pomocou Ctrl-Shift-J)<br />
+      - Popis krokov vedúcich k problému<br />
+    </p>
+    <br />
+    <h2 id="customdate_format_help">Vlastný formát dátumu</h2>
+    <p>
+      Možnosť vlastného dátumu umožňuje úplnú kontrolu nad formátovaním dátumu použitého pre dátum aj dátum
+      prijatia v hlavičkách e-mailu. Vlastný dátum poskytuje viacero lokalizovaných možností umožňujúcich
+      takmer akýkoľvek formát. Všimnite si, že vlastný reťazec dátumu môže obsahovať oddeľovače, literály
+      vrátane znakov Unicode zmiešané s tokenmi dátumu a času uvedenými nižšie.<br /><br />
+      Poznámka: Výsledky vlastného dátumu v príkladoch nižšie sa budú líšiť v závislosti od skutočného dátumu,
+      miestneho nastavenia používateľa a časového pásma.<br /><br />
+      Príklady:<br /><br />
+      <table class="dateformat-table">
+        <thead>
+          <tr>
+            <td>Dátumový reťazec</td>
+            <td>Výsledok</td>
+            <td>Poznámka</td>
+          </tr>
+        </thead>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+          <td>ja locale s literálmi</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+          <td>ko locale s literálmi</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+          <td>zh-CN locale, krátky deň</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+          <td>zh-TW locale, dlhý deň</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
+          <td>Oddeľovače bodov</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+          <td>de locale, krátky deň/mesiac</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+          <td>miestne nastavenie en-US, dlhý deň/mesiac</td>
+        </tr>
+      </table>
+      <br />
+      Vlastný formát dátumu využíva % sekvencie zodpovedajúce funkcii <code>strftime()</code> podobnej Unixu.
+      Je založený na JavaScriptovom porte
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , funkcii na formátovanie dátumu a času.<br />
+      Port of strftime() od TH Doana (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <h3>Popisy sekvencií konverzií</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Sekvencia</th>
+          <th>Popis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Skrátený názov dňa v týždni.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Celý názov dňa v týždni.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Skrátený názov mesiaca.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Názov celého mesiaca.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Preferované zobrazenie dátumu a času (UTC) pre aktuálne miestne nastavenie.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Číslo storočia (rok/100) ako 2-miestne celé číslo.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>Deň v mesiaci ako desatinné číslo (rozsah 01 až 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>Deň v mesiaci ako desatinné číslo (rozsah 1 až 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>Formát dátumu ISO 8601 (ekvivalent <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            Týždenný rok podľa normy ISO 8601 so storočím ako desatinným číslom. 4-ciferný rok zodpovedá číslu
+            týždňa podľa normy ISO (pozri <code class="code1">%V</code> ). Toto má rovnaký formát a hodnotu
+            ako <code class="code1">%Y</code> , s výnimkou toho, že ak číslo týždňa ISO patrí predchádzajúcemu
+            alebo nasledujúcemu roku, použije sa namiesto neho tento rok.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>Ako <code class="code1">%G</code> , ale bez storočia, teda s 2-ciferným rokom (00-99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Hodina ako desatinné číslo s použitím 24-hodinového formátu hodín (rozsah 00 až 23). Pozri tiež
+            <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Hodina ako desatinné číslo s použitím 12-hodinového formátu hodín (rozsah 01 až 12). Pozri tiež
+            <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Deň v roku ako desatinné číslo (rozsah 001 až 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Hodina ako desatinné číslo s použitím 24-hodinového formátu hodín (rozsah 0 až 23). Pozri tiež
+            <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Hodina ako desatinné číslo s použitím 12-hodinového formátu hodín (rozsah 1 až 12). Pozri tiež
+            <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Mesiac ako desatinné číslo (rozsah 01 až 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Mesiac ako desatinné číslo (rozsah 1 až 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>Minúta ako desatinné číslo (rozsah 00 až 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            Buď „AM“ alebo „PM“ podľa danej časovej hodnoty. Poludnie sa považuje za „PM“ a polnoc ako „AM“.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>
+            Ako <code class="code1">%p</code> , ale malými písmenami (&quot;am&quot; alebo &quot;pm&quot;).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Počet sekúnd od epochy, 1970-01-01 00:00:00 + 0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Druhé ako desiatkové číslo (rozsah 00 až 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            Deň v týždni ako desatinné číslo (rozsah 1 až 7), pondelok je 1. Pozri tiež
+            <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            ISO 8601 číslo týždňa aktuálneho roka ako desatinné číslo (rozsah 01 až 53), kde týždeň 1 je prvý
+            týždeň, ktorý má aspoň 4 dni v novom roku (t. j. prvý štvrtok).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            Deň v týždni ako desatinné číslo (rozsah 0 až 6), nedeľa je 0. Pozri tiež
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Preferovaná reprezentácia dátumu pre aktuálne miestne nastavenie bez času.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Preferovaná časová reprezentácia pre aktuálne miestne nastavenie bez dátumu.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Rok ako desatinné číslo bez storočia (rozsah 00 až 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Rok ako desatinné číslo vrátane storočia.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            Číselné časové pásmo <code class="code1">+hhmm</code> alebo <code class="code1">-hhmm</code> (t.
+            j. hodinový a minútový posun od UTC).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Názov alebo skratka časového pásma.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Skratka krátkeho časového pásma.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Rok doslovný. Lokalizované, hlavne pre ázijské lokality. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Mesiac doslovný. Lokalizované, hlavne pre ázijské lokality. (zh-TW: 月, ko: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Deň doslovný. Lokalizované, hlavne pre ázijské lokality. (ja: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Poznámky ku kompatibilite:</h3>
+    <ul>
+      <li><code class="code1">%c</code> – formátovaný reťazec je mierne odlišný</li>
+      <li>
+        <code class="code1">%D</code> – neimplementované (použite <code class="code1">%m/%d/%y</code> alebo
+        <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - medzera sa nepridáva</li>
+      <li><code class="code1">%E</code> – neimplementované</li>
+      <li><code class="code1">%h</code> – neimplementované (použite <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - medzera sa nepridáva</li>
+      <li>
+        <code class="code1">%n</code> – ako <code class="code1">%m</code> , ale bez úvodnej nuly (použite
+        <code class="code1">\n</code> pre nový riadok)
+      </li>
+      <li><code class="code1">%O</code> – neimplementované</li>
+      <li>
+        <code class="code1">%r</code> – neimplementované (použite <code class="code1">%I:%M:%S %p</code> )
+      </li>
+      <tr>
+        <td><code class="code1">${subject}</code></td>
+        <td>Predmet správy</td>
+      </tr>
+      <li><code class="code1">%R</code> – neimplementované (použite <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%t</code> – neimplementované (použite <code class="code1">\t</code> )</li>
+      <li><code class="code1">%T</code> – neimplementované (použite <code class="code1">%H:%M:%S</code> )</li>
+      <li><code class="code1">%U</code> – neimplementované</li>
+      <li><code class="code1">%W</code> – neimplementované</li>
+      <li><code class="code1">%+</code> – neimplementované</li>
+      <li><code class="code1">%%</code> – neimplementované (použite <code class="code1">%</code> )</li>
+    </ul>
+    <br /><br />
+  </body>
+</html>

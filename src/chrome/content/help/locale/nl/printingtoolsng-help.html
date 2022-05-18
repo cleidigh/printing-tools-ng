@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <title>Hulp bij PrintingTools NG</title>
+  </head>
+  <body>
+    <h2 id="main_help">Hulp bij PrintingTools NG</h2>
+    <br />
+    <h2 id="main_help">PrintingTools NG Overzicht</h2>
+    <p>
+      PrintingTools NG is een vervolguitbreiding gebaseerd op het originele werk van Paolo
+      &quot;Kaosmos&quot;. Met de extensie kunnen printkoppen en andere opties worden aangepast.<br /><br />
+      Met dank aan de volgende gebruikers voor suggesties voor verbeteringen en testhulp:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <h3>Steun:</h3>
+    <p>
+      Plaats problemen of functieverzoeken in de GitHub-repository met extensies:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      Neem bij bugproblemen de volgende informatie op om de problemen op te lossen:<br />
+      - PrintingTools NG-versie<br />
+      - Thunderbird-versie<br />
+      - Besturingssysteem en versie<br />
+      - Debug-uitvoer (kopiëren van de Debug Console - toegang met Control-Shift-J)<br />
+      - Een beschrijving van de stappen die tot het probleem hebben geleid<br />
+    </p>
+    <br />
+    <h2 id="customdate_format_help">Aangepast datumformaat</h2>
+    <p>
+      De aangepaste datumoptie zorgt voor de volledige controle over de datumnotatie die wordt gebruikt voor
+      zowel de datum als de ontvangstdatum in de e-mailheaders. De aangepaste datum biedt meerdere
+      gelokaliseerde opties die bijna elk formaat mogelijk maken. Houd er rekening mee dat de aangepaste
+      datumtekenreeks scheidingstekens, letterlijke waarden inclusief unicode-tekens kan bevatten, gemengd met
+      de datum\tijd-tokens die hieronder worden vermeld.<br /><br />
+      Opmerking: de resultaten van de aangepaste datum in de onderstaande voorbeelden zullen verschillen op
+      basis van de werkelijke datum, de landinstelling en de tijdzone van de gebruiker.<br /><br />
+      Voorbeelden:<br /><br />
+      <table class="dateformat-table">
+        <thead>
+          <tr>
+            <td>Datumtekenreeks</td>
+            <td>Resultaat</td>
+            <td>Opmerking</td>
+          </tr>
+        </thead>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+          <td>ja locale met letterlijke woorden</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+          <td>ko locale met letterlijke woorden</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+          <td>zh-CN landinstelling, korte dag</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+          <td>zh-TW landinstelling, lange dag</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
+          <td>Puntscheiders</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+          <td>de locale, korte dag/maand</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+          <td>nl-VS landinstelling, lange dag/maand</td>
+        </tr>
+      </table>
+      <br />
+      De aangepaste datumnotatie gebruikt % reeksen die overeenkomen met de
+      <code>strftime()</code> Unix-achtige functionaliteit. Het is gebaseerd op een JavaScript-poort van
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , een functie om de datum en tijd op te maken.<br />
+      Haven van strftime() door TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <h3>Beschrijvingen van conversiereeksen</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Volgorde</th>
+          <th>Beschrijving</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Afgekorte naam van de dag van de week.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Volledige naam van de dag van de week.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Afgekorte naam van de maand.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Naam van de volledige maand.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Weergave van voorkeursdatum en tijd (UTC) voor de huidige landinstelling.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Eeuwgetal (jaar/100) als een 2-cijferig geheel getal.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>Dag van de maand als decimaal getal (bereik 01 tot 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>Dag van de maand als decimaal getal (bereik 1 tot 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>Datumnotatie volgens ISO 8601 (gelijk aan <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            ISO 8601 weekgebaseerd jaar met eeuw als decimaal getal. Het 4-cijferige jaar komt overeen met het
+            ISO-weeknummer (zie <code class="code1">%V</code> ). Dit heeft hetzelfde formaat en dezelfde
+            waarde als <code class="code1">%Y</code> , behalve dat als het ISO-weeknummer bij het vorige of
+            volgende jaar hoort, dat jaar in plaats daarvan wordt gebruikt.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>
+            Zoals <code class="code1">%G</code> , maar zonder eeuw, dat wil zeggen met een jaartal van 2
+            cijfers (00-99).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Uur als een decimaal getal met een 24-uurs klok (bereik 00 tot 23). Zie ook
+            <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Uur als een decimaal getal met een 12-uurs klok (bereik 01 tot 12). Zie ook
+            <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Dag van het jaar als decimaal getal (bereik 001 tot 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Uur als een decimaal getal met een 24-uurs klok (bereik 0 tot 23). Zie ook
+            <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Uur als een decimaal getal met een 12-uurs klok (bereik 1 tot 12). Zie ook
+            <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Maand als decimaal getal (bereik 01 tot 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Maand als decimaal getal (bereik 1 tot 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>Minuut als decimaal getal (bereik 00 tot 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            Ofwel &quot;AM&quot; of &quot;PM&quot; volgens de opgegeven tijdswaarde. De middag wordt behandeld
+            als &quot;PM&quot; en middernacht als &quot;AM&quot;.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>
+            Zoals <code class="code1">%p</code> maar in kleine letters (&quot;am&quot; of &quot;pm&quot;).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Aantal seconden sinds het tijdperk, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Tweede als een decimaal getal (bereik 00 tot 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            Dag van de week als decimaal (bereik 1 tot 7), maandag is 1. Zie ook
+            <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            ISO 8601 weeknummer van het huidige jaar als decimaal getal (bereik 01 tot 53), waarbij week 1 de
+            eerste week is met minimaal 4 dagen in het nieuwe jaar (dat wil zeggen, de eerste donderdag).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            Dag van de week als decimaal (bereik 0 tot 6), zondag is 0. Zie ook
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Voorkeursdatumweergave voor de huidige landinstelling zonder de tijd.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Voorkeurstijdweergave voor de huidige landinstelling zonder de datum.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Jaar als decimaal getal zonder eeuw (bereik 00 tot 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Jaar als decimaal getal inclusief de eeuw.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            De <code class="code1">+hhmm</code> uumm of <code class="code1">-hhmm</code> numerieke tijdzone
+            (dat wil zeggen, de uren en minuten afwijking van UTC).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Tijdzonenaam of afkorting.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Korte tijdzone afkorting.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Jaar Letterlijk. Gelokaliseerd, voornamelijk voor Aziatische locaties. (zh-CN: 年, ko: )</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Maand letterlijk. Gelokaliseerd, voornamelijk voor Aziatische locaties. (zh-TW: 月, ko: )</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Dag letterlijk. Gelokaliseerd, voornamelijk voor Aziatische locaties. (ja: , ko: )</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Compatibiliteitsopmerkingen:</h3>
+    <ul>
+      <li><code class="code1">%c</code> - opgemaakte string is iets anders</li>
+      <li>
+        <code class="code1">%D</code> - niet geïmplementeerd (gebruik <code class="code1">%m/%d/%y</code> of
+        <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - spatie is niet toegevoegd</li>
+      <li><code class="code1">%E</code> - niet geïmplementeerd</li>
+      <li><code class="code1">%h</code> - niet geïmplementeerd (gebruik <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - spatie is niet toegevoegd</li>
+      <li>
+        <code class="code1">%n</code> - zoals <code class="code1">%m</code> , maar geen voorloopnul (gebruik
+        <code class="code1">\n</code> voor nieuwe regel)
+      </li>
+      <li><code class="code1">%O</code> - niet geïmplementeerd</li>
+      <li>
+        <code class="code1">%r</code> - niet geïmplementeerd (gebruik <code class="code1">%I:%M:%S %p</code> )
+      </li>
+      <tr>
+        <td><code class="code1">${subject}</code></td>
+        <td>Het onderwerp van het bericht</td>
+      </tr>
+      <li>
+        <code class="code1">%R</code> - niet geïmplementeerd (gebruik <code class="code1">%H:%M</code> )
+      </li>
+      <li><code class="code1">%t</code> - niet geïmplementeerd (gebruik <code class="code1">\t</code> )</li>
+      <li>
+        <code class="code1">%T</code> - niet geïmplementeerd (gebruik <code class="code1">%H:%M:%S</code> )
+      </li>
+      <li><code class="code1">%U</code> - niet geïmplementeerd</li>
+      <li><code class="code1">%W</code> - niet geïmplementeerd</li>
+      <li><code class="code1">%+</code> - niet geïmplementeerd</li>
+      <li><code class="code1">%%</code> - niet geïmplementeerd (gebruik <code class="code1">%</code> )</li>
+    </ul>
+    <br /><br />
+  </body>
+</html>

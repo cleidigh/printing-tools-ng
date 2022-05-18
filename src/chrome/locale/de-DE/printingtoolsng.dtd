@@ -59,7 +59,7 @@
 <!ENTITY showhide "Ein- oder Ausblenden">
 <!ENTITY useHeadersBkColor "Hintergrundfarbe der Kopfzeilen:">
 <!ENTITY borderStyle "Randstil:">
-<!ENTITY colorsNote "Hinweis: &quot;Hintergrund drucken (Farbe und Bilder)&quot; muss im Dialogfeld &quot;Seite einrichten...&quot; aktiviert sein">
+<!ENTITY colorsNote "Hinweis: &quot;Drucken&quot; >> &quot;Mehr Einstellungen&quot; >> Einstellungen: &quot;Hintergrund drucken&quot; muss aktiviert sein">
 <!ENTITY showSignatureVCFfiles "Signatur- und VCF-Dateien anzeigen">
 <!ENTITY useCcBccAlways "Verwenden Sie für alle Gebietsschemas die Abkürzungen &#39;Cc&#39; und &#39;Bcc&#39;">
 <!ENTITY HideInlineAttList "Inline-Anhangsliste ausblenden">
@@ -68,3 +68,4 @@
 <!ENTITY ptng.label "Druckwerkzeuge NG">
 <!ENTITY ptngOptions.label "Druckwerkzeuge NG Optionen">
 <!ENTITY debugOptions.label "Debug-Optionen">
+<!ENTITY date_custom.label "Benutzerdefiniert">

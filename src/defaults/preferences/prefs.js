@@ -35,6 +35,7 @@ pref("extensions.printingtoolsng.process.add_p7m_vcf_attach", true);
 pref("extensions.printingtoolsng.headers.addfolder", false);
 pref("extensions.printingtoolsng.messages.black_text", true);
 pref("extensions.printingtoolsng.date.long_format_type", 0);
+pref("extensions.printingtoolsng.date.custom_format", "%a, %B %e, %Y %t %H:%M:%S [GMT %z]");
 pref("extensions.printingtoolsng.headers.custom_name_value", "");
 pref("extensions.printingtoolsng.headers.add_name_type", 0);
 pref("extensions.printingtoolsng.change_branch", true);

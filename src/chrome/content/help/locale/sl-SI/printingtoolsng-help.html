@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <title>PrintingTools NG Help</title>
+  </head>
+  <body>
+    <h2 id="main_help">PrintingTools NG Help</h2>
+    <br />
+    <h2 id="main_help">PrintingTools NG Pregled</h2>
+    <p>
+      PrintingTools NG je naslednja razširitev, ki temelji na izvirnem delu Paola &quot;Kaosmos&quot;.
+      Razširitev omogoča prilagajanje tiskarskih glav in drugih možnosti.<br /><br />
+      Zahvaljujemo se naslednjim uporabnikom za predloge za izboljšave in pomoč pri testiranju:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <h3>Podpora:</h3>
+    <p>
+      Prosimo, objavite težave ali zahteve za funkcije v skladišču razširitev GitHub:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      Pri težavah z napakami vključite naslednje informacije za pomoč pri reševanju težav:<br />
+      - Različica PrintingTools NG<br />
+      - Različica Thunderbird<br />
+      - Operacijski sistem in različica<br />
+      - Izhod za odpravljanje napak (kopija iz konzole za odpravljanje napak - dostop s Control-Shift-J)<br />
+      – Opis korakov, ki vodijo do težave<br />
+    </p>
+    <br />
+    <h2 id="customdate_format_help">Oblika datuma po meri</h2>
+    <p>
+      Možnost datuma po meri omogoča popoln nadzor nad oblikovanjem datuma, ki se uporablja tako za datum kot
+      za datum prejema v glavah e-pošte. Datum po meri ponuja več lokaliziranih možnosti, ki omogočajo skoraj
+      vsako obliko. Upoštevajte, da lahko datumski niz po meri vključuje ločila, literale, vključno z znaki
+      unicode, pomešane s spodaj navedenimi žetoni datum/čas.<br /><br />
+      Opomba: Rezultati datuma po meri v spodnjih primerih se bodo razlikovali glede na dejanski datum, jezik
+      in časovni pas uporabnikov.<br /><br />
+      Primeri:<br /><br />
+      <table class="dateformat-table">
+        <thead>
+          <tr>
+            <td>Datumski niz</td>
+            <td>Rezultat</td>
+            <td>Opomba</td>
+          </tr>
+        </thead>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+          <td>ja locale z literali</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+          <td>ko locale z literali</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+          <td>zh-CN jezik, kratek dan</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+          <td>zh-TW jezik, dolg dan</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
+          <td>Ločevalniki pik</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+          <td>de locale, kratek dan/mesec</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+          <td>en-US jezik, dolg dan/mesec</td>
+        </tr>
+      </table>
+      <br />
+      Oblika datuma po meri uporablja % zaporedij, ki se ujemajo s <code>strftime()</code> Unix. Temelji na
+      vratu JavaScript
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , funkciji za oblikovanje datuma in časa.<br />
+      Port of strftime() avtorja TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <h3>Opisi zaporedja pretvorbe</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Zaporedje</th>
+          <th>Opis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Skrajšano ime dneva v tednu.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Polno ime dneva v tednu.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Skrajšano ime meseca.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Polno ime meseca.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Želena predstavitev datuma in časa (UTC) za trenutni jezik.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Stoletno število (leto/100) kot 2-mestno celo število.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>Dan v mesecu kot decimalno število (razpon od 01 do 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>Dan v mesecu kot decimalno število (razpon od 1 do 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>Oblika datuma ISO 8601 (enakovredno <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            ISO 8601 tedensko leto s stoletjem kot decimalnim številom. 4-mestno leto ustreza številki tedna
+            ISO (glejte <code class="code1">%V</code> ). To ima enako obliko in vrednost kot
+            <code class="code1">%Y</code> , le da če številka tedna ISO pripada prejšnjemu ali naslednjemu
+            letu, se namesto tega uporablja to leto.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>Kot <code class="code1">%G</code> , vendar brez stoletja, torej z 2-mestno letnico (00-99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Ura kot decimalno število z uporabo 24-urne ure (razpon od 00 do 23). Glej tudi
+            <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Ura kot decimalno število z 12-urno uro (razpon od 01 do 12). Glej tudi
+            <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Dan v letu kot decimalno število (razpon od 001 do 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Ura kot decimalno število z uporabo 24-urne ure (razpon od 0 do 23). Glej tudi
+            <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Ura kot decimalno število z 12-urno uro (razpon od 1 do 12). Glej tudi
+            <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Mesec kot decimalno število (razpon od 01 do 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Mesec kot decimalno število (razpon od 1 do 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>Minuta kot decimalno število (razpon od 00 do 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            Bodisi &quot;AM&quot; ali &quot;PM&quot; glede na dano časovno vrednost. Opoldan se obravnava kot
+            &quot;PM&quot;, polnoč pa kot &quot;AM&quot;.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>
+            Kot <code class="code1">%p</code> , vendar z malimi črkami (&quot;am&quot; ali &quot;pm&quot;).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Število sekund od epohe, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Drugo kot decimalno število (razpon od 00 do 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            Dan v tednu kot decimalka (razpon od 1 do 7), ponedeljek je 1. Glej tudi
+            <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            Številka tedna po ISO 8601 tekočega leta kot decimalno število (razpon od 01 do 53), kjer je teden
+            1 prvi teden, ki ima najmanj 4 dni v novem letu (to je prvi četrtek).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            Dan v tednu kot decimalka (razpon od 0 do 6), nedelja je 0. Glej tudi
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Želena predstavitev datuma za trenutno jezikovno nastavitev brez časa.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Želena predstavitev časa za trenutni jezik brez datuma.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Leto kot decimalno število brez stoletja (razpon od 00 do 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Leto kot decimalno število, vključno s stoletjem.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            <code class="code1">+hhmm</code> ali <code class="code1">-hhmm</code> številčni časovni pas (to je
+            odmik ure in minute od UTC).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Ime ali okrajšava časovnega pasu.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Kratka okrajšava časovnega pasu.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Letno dobesedno. Lokalizirano, predvsem za azijske kraje. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Mesec dobesedno. Lokalizirano, predvsem za azijske kraje. (zh-TW: 月, ko: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Dobesedni dan. Lokalizirano, predvsem za azijske kraje. (ja: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Opombe o združljivosti:</h3>
+    <ul>
+      <li><code class="code1">%c</code> - formatiran niz je nekoliko drugačen</li>
+      <li>
+        <code class="code1">%D</code> - ni implementirano (uporabite <code class="code1">%m/%d/%y</code> ali
+        <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - presledek ni dodan</li>
+      <li><code class="code1">%E</code> - ni implementirano</li>
+      <li><code class="code1">%h</code> - ni implementirano (uporabite <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - presledek ni dodan</li>
+      <li>
+        <code class="code1">%n</code> - kot <code class="code1">%m</code> , vendar brez vodilne ničle
+        (uporabite <code class="code1">\n</code> za novo vrstico)
+      </li>
+      <li><code class="code1">%O</code> - ni implementirano</li>
+      <li>
+        <code class="code1">%r</code> - ni implementirano (uporabite <code class="code1">%I:%M:%S %p</code> )
+      </li>
+      <tr>
+        <td><code class="code1">${subject}</code></td>
+        <td>Zadeva sporočila</td>
+      </tr>
+      <li><code class="code1">%R</code> - ni implementirano (uporabite <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%t</code> - ni implementirano (uporabite <code class="code1">\t</code> )</li>
+      <li>
+        <code class="code1">%T</code> - ni implementirano (uporabite <code class="code1">%H:%M:%S</code> )
+      </li>
+      <li><code class="code1">%U</code> - ni implementirano</li>
+      <li><code class="code1">%W</code> - ni implementirano</li>
+      <li><code class="code1">%+</code> - ni implementirano</li>
+      <li><code class="code1">%%</code> - ni implementirano (uporabi <code class="code1">%</code> )</li>
+    </ul>
+    <br /><br />
+  </body>
+</html>

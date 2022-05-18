@@ -5,7 +5,7 @@ ListController,
 */
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
-
+var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js"); 
 var PMDstr = Cc["@mozilla.org/supports-string;1"]
 	.createInstance(Ci.nsISupportsString);
 
@@ -33,20 +33,26 @@ function setComplexPref(pref, value) {
 	}
 }
 
-function initPMDpanel() {
+async function loadHelp(bmark) {
+	//console.log("help load")
+	t = await window.opener.ptngAddon.notifyTools.notifyBackground({ command: "openHelp", locale: Services.locale.appLocaleAsBCP47});
+}
+
+async function  initPMDpanel() {
 
 	// cleidigh
-	 console.debug('initialize panel');
-	// console.debug(window.arguments);
+	//console.debug('initialize panel');
+	
 	var win = Cc["@mozilla.org/appshell/window-mediator;1"]
-	.getService(Ci.nsIWindowMediator)
-	.getMostRecentWindow("mail:3pane");
+		.getService(Ci.nsIWindowMediator)
+		.getMostRecentWindow("mail:3pane");
 
+		
 	var PTNGVersion = win.printingtoolsng.extension.addonData.version;
-    
-    let title = document.getElementById("ptng-options").getAttribute("title");
 
-    document.getElementById("ptng-options").setAttribute("title", `${title} - v${PTNGVersion}`);
+	let title = document.getElementById("ptng-options").getAttribute("title");
+
+	document.getElementById("ptng-options").setAttribute("title", `${title} - v${PTNGVersion}`);
 
 	if (window.arguments) {
 		if (typeof window.arguments[0] === 'object' || window.arguments[0] === false) {
@@ -57,7 +63,7 @@ function initPMDpanel() {
 			fromPreview = window.arguments[0] || false;
 			abook = window.arguments[1] || false;
 		}
- 	} else {
+	} else {
 		fromPreview = false;
 		abook = false;
 	}
@@ -79,8 +85,8 @@ function initPMDpanel() {
 	initPMDabpanel();
 
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
-	
-	
+
+
 	document.getElementById("useCcBccAlways").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always");
 
 	if (Array.isArray) {
@@ -125,7 +131,7 @@ function initPMDpanel() {
 	document.getElementById("PMDselection").checked = prefs.getBoolPref("extensions.printingtoolsng.print.just_selection");
 	document.getElementById("PMDattachIcon").checked = prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
 	document.getElementById("num_atts_line").value = prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
-	
+
 	//document.getElementById("showButtonPreview").checked = prefs.getBoolPref("extensions.printingtoolsng.show_options_button");
 
 	document.getElementById("addP7M").checked = prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach");
@@ -137,12 +143,14 @@ function initPMDpanel() {
 	document.getElementById("alignHeaders").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.align");
 	document.getElementById("dateLongRG").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
 
+	document.getElementById("customDate").value = prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
+
 	var max_pre_len = prefs.getIntPref("extensions.printingtoolsng.pre_max_length");
 	if (max_pre_len > 0) {
 		document.getElementById("PREtruncate").checked = true;
 		document.getElementById("PREmaxchars").value = max_pre_len;
 	}
-	
+
 	document.getElementById("PMDsilent").checked = prefs.getBoolPref("extensions.printingtoolsng.print.silent");
 	document.getElementById("PMDprogress").checked = prefs.getBoolPref("extensions.printingtoolsng.print.showprogress");
 
@@ -205,14 +213,15 @@ function initPMDpanel() {
 	for (var i = 0; i < u.length; i++) {
 		var lab = getHeaderLabel(u[i].replace('!', ''));
 		let show = !u[i].startsWith('!');
+		
 		gheaderList.add({ headerName: lab, headerToken: u[i], id: i + 1, show: show });
 	}
 	// console.debug(gheaderList.listElement.outerHTML);
 	gheaderList.controller.selectRowByDataId('1');
-	
+
 	// Services.console.logStringMessage("printingtools: call printer setup");
 	setPrinterList();
-	
+
 	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
 	document.getElementById("useCcBccAlways").focus;
@@ -223,7 +232,7 @@ async function setPrinterList() {
 	try {
 		outputPrinter = prefs.getCharPref("print_printer");
 	} catch (error) {
-		
+
 	}
 	var printerListMenu = document.getElementById("OutputPrinter");
 	var selindex = 0;
@@ -231,14 +240,14 @@ async function setPrinterList() {
 
 	// change for 91
 	var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
-	.getService(Ci.nsIPrinterList);
+		.getService(Ci.nsIPrinterList);
 
 	// Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
 	var printers = await printerList.printers;
 	// var printers = [];
 	var i = 0;
 	// while(pe.hasMore()) {
-	for(let printer of printers) {
+	for (let printer of printers) {
 		printer.QueryInterface(Ci.nsIPrinter);
 		let printerName = printer.name;
 		var menuitem = document.createXULElement("menuitem");
@@ -248,7 +257,7 @@ async function setPrinterList() {
 		menuitem.setAttribute("value", printerName);
 		menuitem.setAttribute("label", printerName);
 		popup.appendChild(menuitem);
-		if ( printerName === outputPrinter) {
+		if (printerName === outputPrinter) {
 			selindex = i;
 			// Services.console.logStringMessage("printingtools: selected: " + outputPrinter);
 		}
@@ -258,7 +267,7 @@ async function setPrinterList() {
 	var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
 		.getService(Ci.nsIPrintSettingsService);
 
-	
+
 	printerListMenu.appendChild(popup);
 	printerListMenu.selectedIndex = selindex;
 	// Services.console.logStringMessage("printingtools: printerName index: " + selindex);
@@ -317,13 +326,21 @@ function onSelectListRow(event, data_id) {
 }
 
 function getHeaderLabel(string) {
+	
 	var bundle;
-		if ( Services.locale.appLocaleAsBCP47 === "ja") {
-			bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
-		} else {
-			bundle = strBundleService.createBundle("chrome://messenger/locale/mime.properties");
-		}
+	//console.log(Services.locale.appLocaleAsBCP47)
+	if (Services.locale.appLocaleAsBCP47 === "ja") {
+		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
+	} else if (Services.locale.appLocaleAsBCP47 === "zh-CN") {
 		
+		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
+} else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+		
+		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh-tw.properties");
+	} else {
+		bundle = strBundleService.createBundle("chrome://messenger/locale/mime.properties");
+	}
+
 	var bundle2 = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 	switch (string) {
 		case "%a":
@@ -335,8 +352,14 @@ function getHeaderLabel(string) {
 		case "%r1":
 			return bundle.GetStringFromID(1012);
 		case "%r2":
+			if (prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
+				return "Cc"
+			}
 			return bundle.GetStringFromID(1013);
 		case "%r3":
+			if (prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
+				return "Bcc"
+			}
 			return bundle.GetStringFromID(1023);
 		case "%d":
 			return bundle.GetStringFromID(1007);
@@ -346,16 +369,15 @@ function getHeaderLabel(string) {
 }
 
 function savePMDprefs() {
-	console.debug('save options');
-	// if (fullPanel)
-		// savePMDabprefs(true);
+	//console.debug('save options');
+	
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
 	prefs.setCharPref("print_printer", "");
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
-	Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);	
+	//Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);
 
 	prefs.setBoolPref("extensions.printingtoolsng.headers.useCcBcc_always", document.getElementById("useCcBccAlways").checked);
-	
+
 	var max_pre_len;
 	if (document.getElementById("PREtruncate").checked)
 		max_pre_len = document.getElementById("PREmaxchars").value;
@@ -385,14 +407,15 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.headers.addfolder", document.getElementById("addFolder").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.messages.black_text", document.getElementById("PMDblack").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.align", document.getElementById("alignHeaders").checked);
-	
+
 	//prefs.setBoolPref("extensions.printingtoolsng.show_options_button", document.getElementById("showButtonPreview").checked);
-	
+
 	prefs.setBoolPref("extensions.printingtoolsng.add_received_date", document.getElementById("addRdate").checked);
 
 
 	prefs.setIntPref("extensions.printingtoolsng.date.long_format_type", document.getElementById("dateLongRG").selectedIndex);
 
+	prefs.setStringPref("extensions.printingtoolsng.date.custom_format", document.getElementById("customDate").value);	
 	var size = document.getElementById("citeSize").selectedItem.id.replace("s", "");
 	prefs.setIntPref("extensions.printingtoolsng.cite.size", size);
 	prefs.setCharPref("extensions.printingtoolsng.cite.color", document.getElementById("citeColor").value);
@@ -415,7 +438,7 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.headers.use_background_color", ubkc);
 
 	prefs.setCharPref("extensions.printingtoolsng.headers.background.color", document.getElementById("headersBkColor").value);
-	
+
 
 	var list = document.getElementById("headersList");
 	var val = "";
@@ -442,10 +465,11 @@ function savePMDprefs() {
 			}
 		} catch (e) {
 			console.debug(e);
-		 }
+		}
 	}
 
 	prefs.setCharPref("extensions.printingtoolsng.debug.options", document.getElementById("debug-options").value);
+	
 }
 
 function savePMDabprefs(fullpanel) {
@@ -513,7 +537,7 @@ function move(offset) {
 	// Services.console.logStringMessage(listElement.outerHTML);
 	dumpList();
 
-	if (selectedID === 1 && offset  === 1 || selectedID === listElement.rows.length && offset  === -1) {
+	if (selectedID === 1 && offset === 1 || selectedID === listElement.rows.length && offset === -1) {
 		return;
 	}
 
@@ -535,7 +559,7 @@ function move(offset) {
 
 	// Services.console.logStringMessage(listElement.outerHTML);
 	dumpList();
-	
+
 	// Services.console.logStringMessage(`swap ${swapElement.getAttribute("data-id")}`);
 	if (offset === 1) {
 		selectedElement.setAttribute("data-id", selectedID - 1);
@@ -543,8 +567,8 @@ function move(offset) {
 		gheaderList.controller.selectRowByDataId(selectedID - 1);
 	} else {
 		selectedElement.setAttribute("data-id", selectedID + 1);
-		swapElement.setAttribute("data-id", selectedID );
-		
+		swapElement.setAttribute("data-id", selectedID);
+
 		gheaderList.controller.selectRowByDataId(selectedID + 1);
 	}
 	gheaderList.reIndex();
@@ -567,15 +591,15 @@ function toggleHeaderShow() {
 	var t = gheaderList.items[idx].values().headerToken;
 	t = ((s === "true") ? t.replace('!', '') : '!' + t);
 	// Services.console.logStringMessage(`after just ${s} ${t}`); 
-	gheaderList.items[idx].values({"show": s, "headerToken": t});
+	gheaderList.items[idx].values({ "show": s, "headerToken": t });
 
 	// Services.console.logStringMessage(`${selectedElement.outerHTML}\n${idx} ${s} ${t}`);
 	// Services.console.logStringMessage(gheaderList.list.outerHTML);
 	dumpList();
 	// if (s) {
-		
+
 	// } else {
-		
+
 	// }
 }
 
@@ -598,7 +622,7 @@ function toggleMessageStyle(el, notify) {
 		// alert("The system option:\n  Allow messages to use other fonts\nhas been enabled");
 		alert(bundle.GetStringFromName("allowFonts"));
 		prefs.setIntPref("browser.display.use_document_fonts", 1);
-	} else if(notify) {
+	} else if (notify) {
 		// alert("The system option:\n  Allow messages to use other fonts\nhas been disabled");
 		alert(bundle.GetStringFromName("disallowFonts"));
 		prefs.setIntPref("browser.display.use_document_fonts", 0);
@@ -618,6 +642,7 @@ function toggleDate() {
 
 document.addEventListener("dialogaccept", function (event) {
 	savePMDprefs();
+	
 });
 
 window.addEventListener("load", function (event) {

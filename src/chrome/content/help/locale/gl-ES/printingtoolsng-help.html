@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <title>Axuda de PrintingTools NG</title>
+  </head>
+  <body>
+    <h2 id="main_help">Axuda de PrintingTools NG</h2>
+    <br />
+    <h2 id="main_help">Visión xeral de PrintingTools NG</h2>
+    <p>
+      PrintingTools NG é unha extensión de seguimento baseada no traballo orixinal de Paolo
+      &quot;Kaosmos&quot;. A extensión permite a personalización das cabeceiras de impresión, así como outras
+      opcións.<br /><br />
+      Grazas aos seguintes usuarios polas suxestións de mellora e a axuda de proba:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <h3>Apoiar:</h3>
+    <p>
+      Publica problemas ou solicitudes de funcións no repositorio de extensións de GitHub:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      En problemas de erro, inclúa a seguinte información para axudar a resolver os problemas:<br />
+      - Versión PrintingTools NG<br />
+      - Versión Thunderbird<br />
+      - Sistema operativo e versión<br />
+      - Saída de depuración (copia desde a Consola de depuración - acceso con Control-Shift-J)<br />
+      - Descrición dos pasos que conducen ao problema<br />
+    </p>
+    <br />
+    <h2 id="customdate_format_help">Formato de data personalizado</h2>
+    <p>
+      A opción de data personalizada permite o control completo sobre o formato de data usado tanto para a
+      Data como para a Data de recepción nas cabeceiras do correo electrónico. A data personalizada ofrece
+      varias opcións localizadas que permiten case calquera formato. Teña en conta que a cadea de data
+      personalizada pode incluír separadores, literais incluíndo caracteres Unicode mesturados cos tokens de
+      data/hora que se indican a continuación.<br /><br />
+      Nota: os resultados da data personalizada dos exemplos seguintes serán diferentes en función da data
+      real, a configuración rexional dos usuarios e a zona horaria.<br /><br />
+      Exemplos:<br /><br />
+      <table class="dateformat-table">
+        <thead>
+          <tr>
+            <td>Cadena de data</td>
+            <td>Resultado</td>
+            <td>Nota</td>
+          </tr>
+        </thead>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+          <td>ja local con literais</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+          <td>ko local con literais</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+          <td>zh-CN local, día curto</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+          <td>zh-TW local, día longo</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+          <td class="notranslate">20.04.2022 18:01:42 CET</td>
+          <td>Separadores de puntos</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+          <td>de local, día/mes curto</td>
+        </tr>
+        <tr>
+          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+          <td>Localización en-US, día/mes longo</td>
+        </tr>
+      </table>
+      <br />
+      O formato de data personalizado utiliza secuencias % que coinciden coa función
+      <code>strftime()</code> similar a Unix. Está baseado nun porto JavaScript de
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , unha función para formatar a data e a hora.<br />
+      Porto de strftime() por TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <h3>Descricións de secuencias de conversión</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Secuencia</th>
+          <th>Descrición</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Nome abreviado do día da semana.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Nome completo do día da semana.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Nome abreviado do mes.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Nome do mes completo.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Representación de data e hora (UTC) preferida para a configuración rexional actual.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Número de século (ano/100) como un número enteiro de 2 díxitos.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>Día do mes como número decimal (intervalo de 01 a 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>Día do mes como número decimal (intervalo do 1 ao 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>Formato de data ISO 8601 (equivalente a <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            ISO 8601 ano baseado nunha semana co século como número decimal. O ano de 4 díxitos corresponde ao
+            número da semana ISO (ver <code class="code1">%V</code> ). Este ten o mesmo formato e valor que
+            <code class="code1">%Y</code> , excepto que se o número da semana ISO pertence ao ano anterior ou
+            ao seguinte, úsase ese ano no seu lugar.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>
+            Como <code class="code1">%G</code> , pero sen século, é dicir, cun ano de 2 díxitos (00-99).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Hora como número decimal usando un reloxo de 24 horas (intervalo de 00 a 23). Vexa tamén
+            <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Hora como número decimal usando un reloxo de 12 horas (intervalo de 01 a 12). Vexa tamén
+            <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Día do ano como número decimal (intervalo de 001 a 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Hora como número decimal usando un reloxo de 24 horas (intervalo de 0 a 23). Vexa tamén
+            <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Hora como número decimal usando un reloxo de 12 horas (intervalo de 1 a 12). Vexa tamén
+            <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Mes como número decimal (intervalo de 01 a 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Mes como número decimal (intervalo de 1 a 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>Minuto como número decimal (intervalo de 00 a 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            Ou &quot;AM&quot; ou &quot;PM&quot; segundo o valor da hora. O mediodía trátase como
+            &quot;PM&quot; e a medianoite como &quot;AM&quot;.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>Como <code class="code1">%p</code> pero en minúscula (&quot;am&quot; ou &quot;pm&quot;).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Número de segundos desde a Época, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Segundo como número decimal (intervalo de 00 a 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            Día da semana como decimal (intervalo de 1 a 7), sendo o luns 1. Consulte tamén
+            <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            Número de semana ISO 8601 do ano actual como número decimal (intervalo de 01 a 53), onde a semana
+            1 é a primeira semana que ten polo menos 4 días no ano novo (é dicir, o primeiro xoves).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            Día da semana como decimal (intervalo de 0 a 6), sendo o domingo 0. Consulte tamén
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Representación de data preferida para a rexión actual sen a hora.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Representación horaria preferida para a rexión actual sen a data.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Ano como número decimal sen século (intervalo de 00 a 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Ano como número decimal incluíndo o século.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            O fuso horario numérico <code class="code1">+hhmm</code> ou <code class="code1">-hhmm</code> (é
+            dicir, a compensación horaria e minutos con respecto ao UTC).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Nome ou abreviatura da zona horaria.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Abreviatura de fuso horario curto.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Ano Literal. Localizado, principalmente para locais asiáticos. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Mes literal. Localizado, principalmente para locais asiáticos. (zh-TW: 月, ko: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Día literal. Localizado, principalmente para locais asiáticos. (xa: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Notas de compatibilidade:</h3>
+    <ul>
+      <li><code class="code1">%c</code> : a cadea formatada é lixeiramente diferente</li>
+      <li>
+        <code class="code1">%D</code> - non implementado (use <code class="code1">%m/%d/%y</code> ou
+        <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - non se engade o espazo</li>
+      <li><code class="code1">%E</code> - non implementado</li>
+      <li><code class="code1">%h</code> - non implementado (use <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - non se engade espazo</li>
+      <li>
+        <code class="code1">%n</code> - como <code class="code1">%m</code> , pero sen cero inicial (use
+        <code class="code1">\n</code> para a nova liña)
+      </li>
+      <li><code class="code1">%O</code> - non implementado</li>
+      <li><code class="code1">%r</code> - non implementado (use <code class="code1">%I:%M:%S %p</code> )</li>
+      <tr>
+        <td><code class="code1">${subject}</code></td>
+        <td>O asunto da mensaxe</td>
+      </tr>
+      <li><code class="code1">%R</code> - non implementado (use <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%t</code> - non implementado (use <code class="code1">\t</code> )</li>
+      <li><code class="code1">%T</code> - non implementado (use <code class="code1">%H:%M:%S</code> )</li>
+      <li><code class="code1">%U</code> - non implementado</li>
+      <li><code class="code1">%W</code> - non implementado</li>
+      <li><code class="code1">%+</code> - non implementado</li>
+      <li><code class="code1">%%</code> - non implementado (use <code class="code1">%</code> )</li>
+    </ul>
+    <br /><br />
+  </body>
+</html>
