@@ -127,14 +127,7 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			let url2 = tabs[0].url
 			console.log(url2)
 
-			let mailType = false;
-			if(url1.startsWith("imap") || url1.startsWith("mailbox") || url1.startsWith("file")) {
-				mailType = true;
-			}
-			if(!mailType || url1.includes("&type=")) {
-				mailType = false;
-			}
-			return mailType;
+			return url1;
 		case "getAttatchmentList":
 			
 			let rv = await getAttatchmentList(info.messageId);

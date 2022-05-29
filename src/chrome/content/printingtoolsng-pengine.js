@@ -456,13 +456,24 @@ var printingtools = {
 
 		//console.log("cmd_printng start" + this.running);
 
-		let c = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
+		// only process mail types else use TB print 
+		let url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 
-		if(!c) {
+		let mailType = false;
+		if ((url.startsWith("imap") ||
+			url.startsWith("mailbox") ||
+			url.startsWith("file")) &&
+			!url.includes("&type=")) {
+			mailType = true;
+		} else {
+			mailType = false;
+		}
+
+		if (!mailType) {
 			goDoCommand("cmd_print");
 			return;
 		}
-		
+
 
 		options = options || {};
 
@@ -1583,12 +1594,12 @@ var printingtools = {
 		var imgs = printingtools.doc.getElementsByTagName("img");
 		for (i = 0; i < imgs.length; i++) {
 			if (imgs[i].getAttribute("class") != "attIcon") {
-				
+
 				let display = imgs[i].getAttribute("_display");
-				
+
 				if (display !== undefined && display !== null) {
 					if (display == "") {
-						
+
 						imgs[i].style.display = null;
 					} else {
 						imgs[i].style.display = display;
