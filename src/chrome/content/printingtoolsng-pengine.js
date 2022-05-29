@@ -456,6 +456,13 @@ var printingtools = {
 
 		//console.log("cmd_printng start" + this.running);
 
+		let c = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
+
+		if(!c) {
+			goDoCommand("cmd_print");
+			return;
+		}
+		
 
 		options = options || {};
 

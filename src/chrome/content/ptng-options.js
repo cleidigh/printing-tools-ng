@@ -124,7 +124,7 @@ async function  initPMDpanel() {
 	document.getElementById("resizeImgs").checked = prefs.getBoolPref("extensions.printingtoolsng.images.resize");
 	document.getElementById("PMDtruncate").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.truncate");
 	document.getElementById("PMDmaxchars").value = prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
-	document.getElementById("PMDprogress").checked = !prefs.getBoolPref("print.show_print_progress");
+	//document.getElementById("PMDprogress").checked = !prefs.getBoolPref("print.show_print_progress");
 	document.getElementById("PMDhideAtt").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments");
 	document.getElementById("InlineAttsListhide").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list");
 
@@ -152,7 +152,7 @@ async function  initPMDpanel() {
 	}
 
 	document.getElementById("PMDsilent").checked = prefs.getBoolPref("extensions.printingtoolsng.print.silent");
-	document.getElementById("PMDprogress").checked = prefs.getBoolPref("extensions.printingtoolsng.print.showprogress");
+	//document.getElementById("PMDprogress").checked = prefs.getBoolPref("extensions.printingtoolsng.print.showprogress");
 
 	var sID = "s" + prefs.getIntPref("extensions.printingtoolsng.cite.size");
 	document.getElementById("citeSize").selectedItem = document.getElementById(sID);
@@ -399,7 +399,7 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setIntPref("extensions.printingtoolsng.headers.maxchars", document.getElementById("PMDmaxchars").value);
 	prefs.setBoolPref("extensions.printingtoolsng.print.silent", document.getElementById("PMDsilent").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.print.showprogress", !document.getElementById("PMDprogress").checked);
+	//prefs.setBoolPref("extensions.printingtoolsng.print.showprogress", !document.getElementById("PMDprogress").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments", document.getElementById("PMDhideAtt").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments_list", document.getElementById("InlineAttsListhide").checked);

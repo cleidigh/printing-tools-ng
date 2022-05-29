@@ -115,6 +115,26 @@ browser.runtime.onInstalled.addListener(async (info) => {
 
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	switch (info.command) {
+		case "getCurrentURL":
+			// method one: via tabs in focused window
+			let w = await browser.windows.getAll({populate: true})
+			let cw = w.find(fw => fw.focused)
+			console.log(cw)
+			let url1 = cw.tabs.find(t => t.active).url;
+			console.log(url1);
+			// method two: from tabs/lastFocusedWindow
+			let tabs = await browser.tabs.query({lastFocusedWindow: true, active: true})
+			let url2 = tabs[0].url
+			console.log(url2)
+
+			let mailType = false;
+			if(url1.startsWith("imap") || url1.startsWith("mailbox") || url1.startsWith("file")) {
+				mailType = true;
+			}
+			if(!mailType || url1.includes("&type=")) {
+				mailType = false;
+			}
+			return mailType;
 		case "getAttatchmentList":
 			
 			let rv = await getAttatchmentList(info.messageId);
