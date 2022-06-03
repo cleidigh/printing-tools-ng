@@ -136,7 +136,6 @@ async function  initPMDpanel() {
 	document.getElementById("radiostyle").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.messages.style_apply");
 	document.getElementById("messageStyle").checked = prefs.getBoolPref("extensions.printingtoolsng.messages.style");
 	document.getElementById("addFolder").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.addfolder");
-	document.getElementById("PMDblack").checked = prefs.getBoolPref("extensions.printingtoolsng.messages.black_text");
 	document.getElementById("PMDtruncate").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.truncate");
 	document.getElementById("alignHeaders").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.align");
 	document.getElementById("dateLongRG").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
@@ -401,7 +400,6 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments_list", document.getElementById("InlineAttsListhide").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.print.just_selection", document.getElementById("PMDselection").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.addfolder", document.getElementById("addFolder").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.messages.black_text", document.getElementById("PMDblack").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.align", document.getElementById("alignHeaders").checked);
 
 	//prefs.setBoolPref("extensions.printingtoolsng.show_options_button", document.getElementById("showButtonPreview").checked);

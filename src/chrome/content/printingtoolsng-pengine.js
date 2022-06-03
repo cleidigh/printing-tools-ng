@@ -163,7 +163,7 @@ var printingtools = {
 
 
 				const br = printingtools.previewDoc.querySelector('br');
-				br.setAttribute("id","sep1")
+				br.setAttribute("id", "sep1")
 				//console.log(t)
 				// Create new range for the page and main headers 
 				const range = new Range();
@@ -1110,11 +1110,19 @@ var printingtools = {
 			var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
 			if (printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.style_apply") == 0) {
 
-				let mozTextFlowedDiv = printingtools.doc.querySelector("div.moz-text-plain");
-				
+				let mozPlainTextDiv = printingtools.doc.querySelector("div.moz-text-plain");
+
+				if (mozPlainTextDiv) {
+					mozPlainTextDiv.style.fontFamily = mFamily;
+					mozPlainTextDiv.style.mSize = mSize;
+				}
+
+				let mozTextFlowedDiv = printingtools.doc.querySelector("div.moz-text-flowed");
+
 				if (mozTextFlowedDiv) {
-				mozTextFlowedDiv.style.fontFamily = mFamily;
-				mozTextFlowedDiv.style.mSize = mSize;
+					mozTextFlowedDiv.style.fontFamily = mFamily;
+					mozTextFlowedDiv.style.mSize = mSize;
+					console.log(mozTextFlowedDiv.outerHTML)
 				}
 
 				rule = 'div.moz-text-html *  {font-size: +' + mSize + 'px !important; font-family: ' + mFamily + ' !important;}';

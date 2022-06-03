@@ -37,7 +37,7 @@
 							<radio label="&RG2.label;"/>
 							<radio label="" />
 						</radiogroup>
-						<html:input type="text" id="addNameBox" />
+						<html:input type="text" id="addNameBox" style="width: 430px"/>
 					</hbox>
 					<hbox align="center">
 					<spacer width="5px" />
@@ -151,12 +151,10 @@
 				</html:fieldset>
 			</tabpanel>
 			<tabpanel orient="vertical">
-				<hbox align="center">
-					<checkbox id="PMDblack" label="&PMDlabel25;" />
-				</hbox>
+			
 				<hbox align="center">
 					<checkbox id="messageStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleMessageStyle,300,this,true)" />
-					<menulist id="fontlist" style="width:140px"/>
+					<menulist id="fontlist" style="width:300px"/>
 					<label value="&withSize;"/>
 					<menulist id="fontsize">
 						<menupopup>
@@ -241,7 +239,7 @@
 				<hbox align="center">
 						<checkbox id="PMDborders" label="&PMDlabel3;. "  />
 						<label value="&borderStyle; (CSS)" />
-						<html:input type="text" id="border_style" value="" style="width:180px;" />
+						<html:input type="text" id="border_style" value="" style="width: 400px;" />
 					</hbox>
 					
 				<hbox align="center">
