@@ -163,7 +163,7 @@ var printingtools = {
 
 
 				const br = printingtools.previewDoc.querySelector('br');
-
+				br.setAttribute("id","sep1")
 				//console.log(t)
 				// Create new range for the page and main headers 
 				const range = new Range();
@@ -458,7 +458,7 @@ var printingtools = {
 
 		// only process mail types else use TB print 
 		let url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
-
+		//let url = "imap"
 		let mailType = false;
 		if ((url.startsWith("imap") ||
 			url.startsWith("mailbox") ||
@@ -1109,7 +1109,17 @@ var printingtools = {
 			var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
 			var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
 			if (printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.style_apply") == 0) {
-				rule = '* {font-size: +' + mSize + 'px !important; font-family: ' + mFamily + ' !important;}';
+
+				let mozTextFlowedDiv = printingtools.doc.querySelector("div.moz-text-plain");
+				
+				if (mozTextFlowedDiv) {
+				mozTextFlowedDiv.style.fontFamily = mFamily;
+				mozTextFlowedDiv.style.mSize = mSize;
+				}
+
+				rule = 'div.moz-text-html *  {font-size: +' + mSize + 'px !important; font-family: ' + mFamily + ' !important;}';
+
+				//rule = '* {font-size: +' + mSize + 'px !important; font-family: ' + mFamily + ' !important;}';
 				printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
 			}
 			else {

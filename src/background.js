@@ -116,6 +116,7 @@ browser.runtime.onInstalled.addListener(async (info) => {
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	switch (info.command) {
 		case "getCurrentURL":
+			console.log("geturl")
 			// method one: via tabs in focused window
 			let w = await browser.windows.getAll({populate: true})
 			let cw = w.find(fw => fw.focused)
