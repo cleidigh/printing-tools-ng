@@ -6,6 +6,9 @@ pref("extensions.printingtoolsng.headers.hide", false);
 pref("extensions.printingtoolsng.headers.truncate", false);
 pref("extensions.printingtoolsng.headers.maxchars", 80);
 pref("extensions.printingtoolsng.headers.useCcBcc_always", true);
+pref("extensions.printingtoolsng.headers.style", false);
+pref("extensions.printingtoolsng.headers.size", 10);
+
 pref("extensions.printingtoolsng.hide.inline_attachments", false);
 pref("extensions.printingtoolsng.hide.inline_attachments_list", false);
 pref("extensions.printingtoolsng.images.hide", false);

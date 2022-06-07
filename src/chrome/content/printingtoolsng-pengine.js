@@ -104,6 +104,7 @@ var printingtools = {
 	running: false,
 	extRunning: false,
 	externalQ: [],
+	msgRestoration: {},
 
 	/** Prints the messages selected in the thread pane. */
 	PrintSelectedMessages: async function (options) {
@@ -238,6 +239,19 @@ var printingtools = {
 
 					printingtools.showAttatchmentBodyTable();
 					printingtools.restoreIMGstyle();
+
+					// restore msg fonts
+					if (printingtools.msgRestoration.msgFontFamilyOrig) {
+						printingtools.msgRestoration.msgDiv.style.fontFamily = printingtools.msgRestoration.msgFontFamilyOrig;
+					}
+
+					if (printingtools.msgRestoration.msgFontSizeOrig) {
+						printingtools.msgRestoration.msgDiv.style.fontSize = printingtools.msgRestoration.msgFontSizeOrig;
+					}
+
+					printingtools.doc.styleSheets[0].deleteRule(printingtools.msgRestoration.ruleIndex);
+
+
 
 					//console.log("after rest")
 					//console.log(printingtools.doc.documentElement.outerHTML);
@@ -1105,47 +1119,58 @@ var printingtools = {
 		// if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.black_text"))
 		// printingtools.doc.body.removeAttribute("text");
 
+		var hSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.size");
+		var hFamily = printingtools.getComplexPref("extensions.printingtoolsng.headers.font_family");
+		var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
+		var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
-			var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
-			var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
-			if (printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.style_apply") == 0) {
 
-				let mozPlainTextDiv = printingtools.doc.querySelector("div.moz-text-plain");
+			var rule;
+			let mozPlainTextDiv = printingtools.doc.querySelector("div.moz-text-plain");
+			let mozTextFlowedDiv = printingtools.doc.querySelector("div.moz-text-flowed");
+			let mozTextHtmlDiv = printingtools.doc.querySelector("div.moz-text-html");
 
-				if (mozPlainTextDiv) {
-					mozPlainTextDiv.style.fontFamily = mFamily;
-					mozPlainTextDiv.style.mSize = mSize;
-				}
-
-				let mozTextFlowedDiv = printingtools.doc.querySelector("div.moz-text-flowed");
-
-				if (mozTextFlowedDiv) {
-					mozTextFlowedDiv.style.fontFamily = mFamily;
-					mozTextFlowedDiv.style.mSize = mSize;
-					console.log(mozTextFlowedDiv.outerHTML)
-				}
-
-				rule = 'div.moz-text-html *  {font-size: +' + mSize + 'px !important; font-family: ' + mFamily + ' !important;}';
-
-				//rule = '* {font-size: +' + mSize + 'px !important; font-family: ' + mFamily + ' !important;}';
-				printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
+			if (mozPlainTextDiv) {
+				printingtools.msgRestoration.msgDiv = mozPlainTextDiv;
+				printingtools.msgRestoration.msgFontFamilyOrig = mozPlainTextDiv.style.fontFamily;
+				printingtools.msgRestoration.msgFontSizeOrig = mozPlainTextDiv.style.fontSize;
+				mozPlainTextDiv.style.fontFamily = mFamily;
+				mozPlainTextDiv.style.fontSize = mSize;
+			} else if (mozTextFlowedDiv) {
+				printingtools.msgRestoration.msgDiv = mozTextFlowedDiv;
+				printingtools.msgRestoration.msgFontFamilyOrig = mozTextFlowedDiv.style.fontFamily;
+				printingtools.msgRestoration.msgFontSizeOrig = mozTextFlowedDiv.style.fontSize;
+				mozTextFlowedDiv.style.fontFamily = mFamily;
+				mozTextFlowedDiv.style.fontSize = mSize;
+			} else {
+				printingtools.msgRestoration.msgDiv = mozTextHtmlDiv;
+				printingtools.msgRestoration.msgFontFamilyOrig = null;
+				printingtools.msgRestoration.msgFontSizeOrig = null;
 			}
-			else {
-				if (table1) {
-					// table1.style.width = "75%";
-					table1.style.fontFamily = mFamily;
-					table1.style.fontSize = mSize;
-				}
-				if (table2) {
-					table2.style.fontFamily = mFamily;
-					table2.style.fontSize = mSize;
-				}
-				if (!noExtHeaders && hpref == 2 && table3) {
-					table3.style.fontFamily = mFamily;
-					table3.style.fontSize = mSize;
-				}
+
+			rule = 'div.moz-text-html *  {font-size: +' + mSize + 'px !important; font-family: ' + mFamily + ' !important;}';
+
+			//rule = '* {font-size: +' + mSize + 'px !important; font-family: ' + mFamily + ' !important;}';
+			printingtools.msgRestoration.ruleIndex = printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
+
+		}
+
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.style")) {
+			if (table1) {
+				// table1.style.width = "75%";
+				table1.style.fontFamily = hFamily;
+				table1.style.fontSize = hSize;
+			}
+			if (table2) {
+				table2.style.fontFamily = hFamily;
+				table2.style.fontSize = hSize;
+			}
+			if (!noExtHeaders && hpref == 2 && table3) {
+				table3.style.fontFamily = hFamily;
+				table3.style.fontSize = hSize;
 			}
 		}
+
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.cite.style")) {
 			var cSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.cite.size");
@@ -1304,11 +1329,11 @@ var printingtools = {
 				tw.setAttribute("cellspacing", "0");
 				// md.document.body.appendChild(tw);
 
-				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
-					var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
-					var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
-					tw.style.fontFamily = mFamily;
-					tw.style.fontSize = mSize;
+				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.style")) {
+					var hSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.size");
+					var hFamily = printingtools.getComplexPref("extensions.printingtoolsng.headers.font_family");
+					tw.style.fontFamily = hFamily;
+					tw.style.fontSize = hSize;
 				}
 
 				if (!table3) {
