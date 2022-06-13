@@ -28,7 +28,7 @@
 <!ENTITY style "Style">
 <!ENTITY PMDlabel21 "Hide always extended headers">
 <!ENTITY withSize "with size ">
-<!ENTITY forBody "Message Body">
+<!ENTITY messageBody "Message Body">
 <!ENTITY forHeaders "just for headers">
 <!ENTITY useHeadersBkColor "Use header background Color:">
 <!ENTITY misc "Miscellaneous">

@@ -16,7 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	 { key: "date_custom.label", text: "Custom"},
+	 { key: "messageBody", text: "Message Body"},
 
 	
 ];
@@ -407,7 +407,7 @@ function loadTranslationArray(inputFiles, options) {
 }
 
 // manifest files
-var options = {
+var optionsM = {
 	inputLocaleDir: `./src/_locales/en-US`,
 	outputLocaleDir: "./src/_locales",
 	outputLocaleDirSuffix: "",
@@ -416,7 +416,7 @@ var options = {
 };
 
 //  files from array
-var options3 = {
+var options = {
  	inputLocaleDir: `./src/chrome/locale/en-US/`,
  	outputLocaleDir: "./src/chrome/locale",
  	outputLocaleDirSuffix: "",
@@ -460,16 +460,16 @@ var localeFolders = ['ca', 'da-DK', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR',
 // var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
 // 	'sk-SK', 'sl-SI', 'sv-SE'];
 
-//localeFolders = ['zh-TW'];
+localeFolders = ['de-DE'];
 
 
 // localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];
 //localeFile = "settings.json";
 // t();
-translateHelpPage();
+//translateHelpPage();
 //translatePage();
 // translateAll("printingtoolsng.properties", translationArray, options);
-//translateAll(inputFiles, translationArray, options3);
+translateAll(inputFiles, translationArray, options);
 //translateAll("mboximport.dtd", translationArray, options);
 //loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];
