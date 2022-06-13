@@ -69,3 +69,4 @@
 <!ENTITY ptngOptions.label "AFDRUKTOOLS VAN OPTIES">
 <!ENTITY debugOptions.label "Foutopsporingsopties">
 <!ENTITY date_custom.label "Aangepast">
+<!ENTITY messageBody "bericht lichaam">

@@ -69,3 +69,4 @@
 <!ENTITY ptngOptions.label "EINES D&#39;IMPRESSIÓ D&#39;OPCIONS">
 <!ENTITY debugOptions.label "Opcions de depuració">
 <!ENTITY date_custom.label "Personalitzat">
+<!ENTITY messageBody "Cos del missatge">

@@ -69,3 +69,4 @@
 <!ENTITY ptngOptions.label "TLAČOVÉ NÁSTROJE MOŽNOSTÍ">
 <!ENTITY debugOptions.label "Možnosti ladenia">
 <!ENTITY date_custom.label "Vlastné">
+<!ENTITY messageBody "Telo správy">
