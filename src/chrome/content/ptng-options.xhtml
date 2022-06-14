@@ -27,14 +27,14 @@
 				<html:fieldset>
 					<spacer height="6px" />
 					<caption label="&PMDcaptionlabel;" />
-					<hbox padding-left="-8px">
+					<hbox align="center" padding-left="-8px">
 						<label value="&addNameRG.label;" />
 						<radiogroup orient="horizontal" id="addNameRG">
 							<radio label="&RG1.label;"/>
 							<radio label="&RG2.label;"/>
 							<radio label="" />
 						</radiogroup>
-						<html:input type="text" id="addNameBox" style="width: 430px"/>
+						<html:input type="text" id="addNameBox" style="width: 420px"/>
 					</hbox>
 					<hbox align="center">
 						<spacer width="5px" />
@@ -62,7 +62,7 @@
 							<radio label="&long.label;" />
 							<radio label="&date_custom.label;" />
 						</radiogroup>
-						<html:input type="text" id="customDate" size="36" />
+						<html:input type="text" id="customDate" size="32" />
 						<hbox class="adjusted-image-height" align="center"  style=" background-color: ;">
 							<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" width="20px" height="20px"  style="margin-left: 5px; margin-top: 0px;  margin-bottom: 0px; background-color: ;"
             					    onclick="loadHelp()" tooltiptext="help" />
@@ -151,7 +151,7 @@
 						
 							<label value="&colorsNote;" style="margin:5px; padding-left: 18px;"/>
 						</hbox>
-						<hbox>
+						<hbox align="center">
 							<checkbox id="headersStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleHeadersStyle,300,this)" />
 							<menulist id="hdrfontlist" style="width:300px"/>
 							<label value="&withSize;"/>
