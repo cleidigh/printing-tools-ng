@@ -468,14 +468,16 @@ var printingtools = {
 
 	cmd_printng: async function (options) {
 
-		//console.log("cmd_printng start" + this.running);
+		console.log("cmd_printng start" + this.running);
 
 		// only process mail types else use TB print 
 		let url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
+		//console.log(url)
 		//let url = "imap"
 		let mailType = false;
 		if ((url.startsWith("imap") ||
 			url.startsWith("mailbox") ||
+			url.startsWith("unknown") ||
 			url.startsWith("file")) &&
 			!url.includes("&type=")) {
 			mailType = true;
@@ -2020,7 +2022,9 @@ var printingtools = {
 
 			let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
 			let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
-
+			console.log(fileNames)
+			console.log(fileSizes)
+			
 			printingtoolsng.attList = fileNames.map((fn, i) => {
 				return { name: fn, size: fileSizes[i] };
 			});
@@ -2061,7 +2065,12 @@ var printingtools = {
 			attRowTR.appendChild(attTD);
 
 			attTD = printingtools.doc.createElement("TD");
-			attTD.textContent = printingtools.formatBytes(attEntry.size);
+			if(isNaN(attEntry.size)) {
+				attTD.textContent = attEntry.size;
+			} else {
+				attTD.textContent = printingtools.formatBytes(attEntry.size);
+			}
+			
 			attRowTR.appendChild(attTD);
 
 			attTable.appendChild(attRowTR);

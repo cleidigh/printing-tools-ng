@@ -118,7 +118,12 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 		case "getCurrentURL":
 			console.log("geturl")
 			// method one: via tabs in focused window
-			let w = await browser.windows.getAll({populate: true})
+			try {
+				let w = await browser.windows.getAll({populate: true})
+			} catch {
+				return "unknown";
+			}
+			
 			let cw = w.find(fw => fw.focused)
 			console.log(cw)
 			let url1 = cw.tabs.find(t => t.active).url;
