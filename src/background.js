@@ -116,23 +116,19 @@ browser.runtime.onInstalled.addListener(async (info) => {
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	switch (info.command) {
 		case "getCurrentURL":
-			console.log("geturl")
+			//console.log("geturl")
 			// method one: via tabs in focused window
 			try {
-				let w = await browser.windows.getAll({populate: true})
+				var w = await browser.windows.getAll({populate: true})
 			} catch {
 				return "unknown";
 			}
 			
 			let cw = w.find(fw => fw.focused)
-			console.log(cw)
+			//console.log(cw)
 			let url1 = cw.tabs.find(t => t.active).url;
-			console.log(url1);
-			// method two: from tabs/lastFocusedWindow
-			let tabs = await browser.tabs.query({lastFocusedWindow: true, active: true})
-			let url2 = tabs[0].url
-			console.log(url2)
-
+			//console.log(url1);
+			
 			return url1;
 		case "getAttatchmentList":
 			

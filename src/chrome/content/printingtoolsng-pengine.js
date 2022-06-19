@@ -470,10 +470,10 @@ var printingtools = {
 
 		console.log("cmd_printng start" + this.running);
 
-		// only process mail types else use TB print 
+		// only process mail types else use TB print #119
 		let url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 		//console.log(url)
-		//let url = "imap"
+		
 		let mailType = false;
 		if ((url.startsWith("imap") ||
 			url.startsWith("mailbox") ||
@@ -1344,7 +1344,7 @@ var printingtools = {
 
 				} else {
 					printingtools.insertAfter(tw, table3);
-					var maxHdrWidth = tw.getBoundingClientRect().width;
+					var maxHdrWidth = tw.getBoundingClientRect().width + 12;
 					//console.log(maxHdrWidth)
 				}
 				//console.log(printingtools.doc.documentElement.outerHTML);
@@ -1356,18 +1356,22 @@ var printingtools = {
 			} else {
 				let locale = Services.locale.appLocaleAsBCP47.split("-")[0];
 				let alwaysCcBcc = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always");
+				var fs = window.getComputedStyle(table1).getPropertyValue('font-size');
+				var fsn = Number(fs.split("px")[0])
 
 				switch (locale) {
 					case "de":
 						if (!alwaysCcBcc) {
-							maxHdrWidth = 130;
+							maxHdrWidth = 130 + 6*(fsn - 14);
+							
 						} else {
-							maxHdrWidth = 110;
+							maxHdrWidth = 110 + 6*(fsn - 14);
 						}
 						break;
 
 					default:
-						maxHdrWidth = 110;
+						
+						maxHdrWidth = 110 + 6*(fsn - 14);
 						break;
 				}
 
@@ -2022,8 +2026,6 @@ var printingtools = {
 
 			let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
 			let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
-			console.log(fileNames)
-			console.log(fileSizes)
 			
 			printingtoolsng.attList = fileNames.map((fn, i) => {
 				return { name: fn, size: fileSizes[i] };
@@ -2065,6 +2067,7 @@ var printingtools = {
 			attRowTR.appendChild(attTD);
 
 			attTD = printingtools.doc.createElement("TD");
+			// fix for #125 eml files have string sizes for attachments 
 			if(isNaN(attEntry.size)) {
 				attTD.textContent = attEntry.size;
 			} else {
