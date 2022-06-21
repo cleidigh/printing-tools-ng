@@ -1122,11 +1122,12 @@ var printingtools = {
 		// printingtools.doc.body.removeAttribute("text");
 
 		var hSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.size");
-		var hFamily = printingtools.getComplexPref("extensions.printingtoolsng.headers.font_family");
+		
 		var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
-		var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
+		
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
-
+			var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
+			
 			var rule;
 			let mozPlainTextDiv = printingtools.doc.querySelector("div.moz-text-plain");
 			let mozTextFlowedDiv = printingtools.doc.querySelector("div.moz-text-flowed");
@@ -1158,6 +1159,7 @@ var printingtools = {
 		}
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.style")) {
+			var hFamily = printingtools.getComplexPref("extensions.printingtoolsng.headers.font_family");
 			if (table1) {
 				// table1.style.width = "75%";
 				table1.style.fontFamily = hFamily;
