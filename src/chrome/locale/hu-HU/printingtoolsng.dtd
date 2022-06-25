@@ -1,8 +1,8 @@
 <!ENTITY PMDlabel1 "Helyi dátumformátum használata">
-<!ENTITY PMDlabel2 "Engedélyezze a mellékletek listájának testreszabott nézetét">
-<!ENTITY PMDlabel3 "Szegély a fejlécek körül">
-<!ENTITY PMDlabel4 "A fejlécek elrejtése">
-<!ENTITY PMDlabel5 "Az ennél hosszabb fejlécsorok levágása:">
+<!ENTITY PMDlabel2 "Mellékletek listájának testreszabása">
+<!ENTITY PMDlabel3 "Szegély a fejléc körül">
+<!ENTITY PMDlabel4 "A fejléc elrejtése">
+<!ENTITY PMDlabel5 "Fejlécelemek maximális hossza:">
 <!ENTITY PMDlabel6 "karakter.">
 <!ENTITY PMDlabel7 "A képek elrejtése">
 <!ENTITY PMDlabel8 "Nyomtatás a párbeszédablak nélkül">
@@ -55,14 +55,14 @@
 <!ENTITY addRdate.label "A beérkezés dátumának hozzáadása">
 <!ENTITY defaultPrinter "Alapértelmezett nyomtató">
 
-<!ENTITY attachmentsPerLine "Mellékletek soronként:">
-<!ENTITY wrap "Betakar">
+<!ENTITY attachmentsPerLine "Mellékletek a fejlécben soronként:">
+<!ENTITY wrap "Folytatólagosan">
 <!ENTITY showhide "Megjelenítés / elrejtés">
 <!ENTITY borderStyle "Szegély stílusa:">
 <!ENTITY colorsNote "Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen">
 <!ENTITY showSignatureVCFfiles "Aláírás és vcf fájlok megjelenítése">
 <!ENTITY useCcBccAlways "&#39;Cc&#39; és &#39;Bcc&#39; rövidítések használata az összes nyelvhez">
-<!ENTITY HideInlineAttList "Beágyazott mellékletlista elrejtése">
+<!ENTITY HideInlineAttList "A levélvégi mellékletlista elrejtése">
 <!ENTITY print.label "Nyomtatás">
 <!ENTITY printPreview.label "Nyomtatási előnézet">
 <!ENTITY ptng.label "Printing Tools NG">
