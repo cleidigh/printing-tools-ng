@@ -33,18 +33,18 @@
 <!ENTITY useHeadersBkColor "Fejléchez használandó háttérszín:">
 <!ENTITY misc "Egyéb">
 <!ENTITY order "Fejlécelemek sorrendje">
-<!ENTITY headers "fejlécek">
+<!ENTITY headers "fejlécelemek">
 <!ENTITY up "Fel">
 <!ENTITY down "Le">
-<!ENTITY otherHeaders "Más fejlécek, ha vannak, követik">
+<!ENTITY otherHeaders "További fejlécelemek ezek után (ha vannak)">
 <!ENTITY PMDlabel22 "p7m és a vCard mellékletek hozzáadása">
 <!ENTITY PMDlabel23 "Mappa nevének hozzáadása">
-<!ENTITY PMDlabel25 "Fekete alapszínt használata a szöveghez">
+<!ENTITY PMDlabel25 "Fekete alapszín használata a szöveghez">
 <!ENTITY long.label "hosszú UTC">
 <!ENTITY longLoc.label "hosszú helyi">
 <!ENTITY short.label "rövid">
 <!ENTITY date.label "Dátum formátum:">
-<!ENTITY addNameRG.label "Hozzáadás fejlécek előtt:">
+<!ENTITY addNameRG.label "Hozzáadás fejlécek elé:">
 <!ENTITY RG1.label "Semmi">
 <!ENTITY RG2.label "Felhasználónév">
 <!ENTITY alignHeaders.label "Fejlécek igazítása">
@@ -52,12 +52,12 @@
 <!ENTITY maxPreLen "A szöveg maximális szélessége:">
 <!ENTITY showButton.label "Beállítások gomb megjelenítése az előnézeti ablakban">
 <!ENTITY resizeImgs.label "A túl nagy képek átméretezése">
-<!ENTITY addRdate.label "A beérkezés dátumának hozzáadása">
+<!ENTITY addRdate.label "A beérkezés dátumának hozzáadása is">
 <!ENTITY defaultPrinter "Alapértelmezett nyomtató">
 
 <!ENTITY attachmentsPerLine "Mellékletek a fejlécben soronként:">
 <!ENTITY wrap "Folytatólagosan">
-<!ENTITY showhide "Megjelenítés / elrejtés">
+<!ENTITY showhide "Megjelenítés/elrejtés">
 <!ENTITY borderStyle "Szegély stílusa:">
 <!ENTITY colorsNote "Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen">
 <!ENTITY showSignatureVCFfiles "Aláírás és vcf fájlok megjelenítése">
