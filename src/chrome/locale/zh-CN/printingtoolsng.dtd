@@ -68,3 +68,4 @@
 <!ENTITY ptngOptions.label "打印工具的选项">
 <!ENTITY debugOptions.label "调试选项">
 <!ENTITY date_custom.label "自设">
+<!ENTITY messageBody "邮件正文">

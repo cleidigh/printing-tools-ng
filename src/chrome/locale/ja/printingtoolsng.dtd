@@ -28,7 +28,7 @@
 <!ENTITY style "スタイル">
 <!ENTITY PMDlabel21 "常時拡張ヘッダーを非表示にする">
 <!ENTITY withSize "サイズ">
-<!ENTITY forBody "本文用">
+<!ENTITY messageBody "本文">
 <!ENTITY forHeaders "ヘッダー用">
 <!ENTITY useHeadersBkColor "ヘッダーの背景色指定：">
 <!ENTITY misc "全般">

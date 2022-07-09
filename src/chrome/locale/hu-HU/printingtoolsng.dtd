@@ -68,3 +68,4 @@
 <!ENTITY ptngOptions.label "OPCIÓK NYOMTATÁSI ESZKÖZEI">
 <!ENTITY debugOptions.label "Hibakeresési beállítások">
 <!ENTITY date_custom.label "Egyedi">
+<!ENTITY messageBody "Üzenettörzs">

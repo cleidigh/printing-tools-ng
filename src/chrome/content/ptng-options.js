@@ -124,7 +124,7 @@ async function  initPMDpanel() {
 	document.getElementById("resizeImgs").checked = prefs.getBoolPref("extensions.printingtoolsng.images.resize");
 	document.getElementById("PMDtruncate").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.truncate");
 	document.getElementById("PMDmaxchars").value = prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");
-	document.getElementById("PMDprogress").checked = !prefs.getBoolPref("print.show_print_progress");
+
 	document.getElementById("PMDhideAtt").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments");
 	document.getElementById("InlineAttsListhide").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list");
 
@@ -132,13 +132,10 @@ async function  initPMDpanel() {
 	document.getElementById("PMDattachIcon").checked = prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
 	document.getElementById("num_atts_line").value = prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
 
-	//document.getElementById("showButtonPreview").checked = prefs.getBoolPref("extensions.printingtoolsng.show_options_button");
-
 	document.getElementById("addP7M").checked = prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach");
-	document.getElementById("radiostyle").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.messages.style_apply");
+	document.getElementById("headersStyle").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.style");
 	document.getElementById("messageStyle").checked = prefs.getBoolPref("extensions.printingtoolsng.messages.style");
 	document.getElementById("addFolder").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.addfolder");
-	document.getElementById("PMDblack").checked = prefs.getBoolPref("extensions.printingtoolsng.messages.black_text");
 	document.getElementById("PMDtruncate").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.truncate");
 	document.getElementById("alignHeaders").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.align");
 	document.getElementById("dateLongRG").selectedIndex = prefs.getIntPref("extensions.printingtoolsng.date.long_format_type");
@@ -152,10 +149,13 @@ async function  initPMDpanel() {
 	}
 
 	document.getElementById("PMDsilent").checked = prefs.getBoolPref("extensions.printingtoolsng.print.silent");
-	document.getElementById("PMDprogress").checked = prefs.getBoolPref("extensions.printingtoolsng.print.showprogress");
-
+	
 	var sID = "s" + prefs.getIntPref("extensions.printingtoolsng.cite.size");
 	document.getElementById("citeSize").selectedItem = document.getElementById(sID);
+	var hID = "h" + prefs.getIntPref("extensions.printingtoolsng.headers.size");
+	document.getElementById("hdrfontsize").selectedItem = document.getElementById(hID);
+
+	
 	var xID = "x" + prefs.getIntPref("extensions.printingtoolsng.messages.size");
 	document.getElementById("fontsize").selectedItem = document.getElementById(xID);
 
@@ -163,6 +163,7 @@ async function  initPMDpanel() {
 	document.getElementById("citeColor").value = prefs.getCharPref("extensions.printingtoolsng.cite.color");
 	document.getElementById("citeCheck").checked = prefs.getBoolPref("extensions.printingtoolsng.cite.style");
 
+	var hdrfontlist = document.getElementById("hdrfontlist");
 	var fontlist = document.getElementById("fontlist");
 	var fonten = Cc["@mozilla.org/gfx/fontenumerator;1"].createInstance(Ci.nsIFontEnumerator);
 	var allfonts = fonten.EnumerateAllFonts({});
@@ -182,7 +183,25 @@ async function  initPMDpanel() {
 	fontlist.appendChild(popup);
 	fontlist.selectedIndex = selindex;
 
+	var hdrselindex = 0;
+	var hdrpopup = document.createXULElement("menupopup");
+
+	for (var j = 0; j < allfonts.length; j++) {
+		let menuitem = document.createXULElement("menuitem");
+		menuitem.setAttribute("value", allfonts[j]);
+		menuitem.setAttribute("label", allfonts[j]);
+		if (prefs.getPrefType("extensions.printingtoolsng.headers.font_family") > 0 &&
+			allfonts[j] === getComplexPref("extensions.printingtoolsng.headers.font_family")) {
+			hdrselindex = j;
+		}
+		hdrpopup.appendChild(menuitem);
+	}
+	hdrfontlist.appendChild(hdrpopup);
+	hdrfontlist.selectedIndex = hdrselindex;
+
+
 	toggleCiteStyle(document.getElementById("citeCheck"));
+	toggleHeadersStyle(document.getElementById("headersStyle"), false);
 	toggleMessageStyle(document.getElementById("messageStyle"), false);
 	toggleAtt();
 
@@ -399,13 +418,11 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setIntPref("extensions.printingtoolsng.headers.maxchars", document.getElementById("PMDmaxchars").value);
 	prefs.setBoolPref("extensions.printingtoolsng.print.silent", document.getElementById("PMDsilent").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.print.showprogress", !document.getElementById("PMDprogress").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments", document.getElementById("PMDhideAtt").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments_list", document.getElementById("InlineAttsListhide").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.print.just_selection", document.getElementById("PMDselection").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.addfolder", document.getElementById("addFolder").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.messages.black_text", document.getElementById("PMDblack").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.align", document.getElementById("alignHeaders").checked);
 
 	//prefs.setBoolPref("extensions.printingtoolsng.show_options_button", document.getElementById("showButtonPreview").checked);
@@ -424,15 +441,25 @@ function savePMDprefs() {
 
 	prefs.setIntPref("extensions.printingtoolsng.headers.attachments_per_line", document.getElementById("num_atts_line").selectedItem.value);
 
+	var hdrfontlistchild = document.getElementById("hdrfontlist").getElementsByTagName("menuitem");
+	var hdrselfont = hdrfontlistchild[document.getElementById("hdrfontlist").selectedIndex].getAttribute("value");
+	console.log(hdrselfont)
+	setComplexPref("extensions.printingtoolsng.headers.font_family", hdrselfont);
+	
 	var fontlistchild = document.getElementById("fontlist").getElementsByTagName("menuitem");
 	var selfont = fontlistchild[document.getElementById("fontlist").selectedIndex].getAttribute("value");
 	setComplexPref("extensions.printingtoolsng.messages.font_family", selfont);
+	
 	setComplexPref("extensions.printingtoolsng.headers.custom_name_value", document.getElementById("addNameBox").value);
 
+	prefs.setBoolPref("extensions.printingtoolsng.headers.style", document.getElementById("headersStyle").checked);
+	size = document.getElementById("hdrfontsize").selectedItem.id.replace("h", "");
+	prefs.setIntPref("extensions.printingtoolsng.headers.size", size);
+	
 	prefs.setBoolPref("extensions.printingtoolsng.messages.style", document.getElementById("messageStyle").checked);
 	size = document.getElementById("fontsize").selectedItem.id.replace("x", "");
 	prefs.setIntPref("extensions.printingtoolsng.messages.size", size);
-	prefs.setIntPref("extensions.printingtoolsng.messages.style_apply", document.getElementById("radiostyle").selectedIndex);
+	
 
 	let ubkc = document.getElementById("useHeadersBkColor").checked;
 	prefs.setBoolPref("extensions.printingtoolsng.headers.use_background_color", ubkc);
@@ -612,10 +639,16 @@ function toggleCiteStyle(el) {
 	document.getElementById("citeSize").disabled = !el.checked;
 }
 
+
+function toggleHeadersStyle(el) {
+	document.getElementById("hdrfontlist").disabled = !el.checked;
+	document.getElementById("hdrfontsize").disabled = !el.checked;
+}
+
 function toggleMessageStyle(el, notify) {
 	document.getElementById("fontlist").disabled = !el.checked;
 	document.getElementById("fontsize").disabled = !el.checked;
-	document.getElementById("radiostyle").disabled = !el.checked;
+	//document.getElementById("radiostyle").disabled = !el.checked;
 	var strBundleService = Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService);
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 	if (document.getElementById("messageStyle").checked && notify) {

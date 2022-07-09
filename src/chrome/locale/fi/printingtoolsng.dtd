@@ -68,3 +68,4 @@
 <!ENTITY ptngOptions.label "VAIHTOEHTOJEN TULOSTUSTYÖKALUT">
 <!ENTITY debugOptions.label "Virheenkorjausasetukset">
 <!ENTITY date_custom.label "Mukautettu">
+<!ENTITY messageBody "Viestin runko">

@@ -104,6 +104,7 @@ var printingtools = {
 	running: false,
 	extRunning: false,
 	externalQ: [],
+	msgRestoration: {},
 
 	/** Prints the messages selected in the thread pane. */
 	PrintSelectedMessages: async function (options) {
@@ -163,7 +164,7 @@ var printingtools = {
 
 
 				const br = printingtools.previewDoc.querySelector('br');
-
+				br.setAttribute("id", "sep1")
 				//console.log(t)
 				// Create new range for the page and main headers 
 				const range = new Range();
@@ -238,6 +239,19 @@ var printingtools = {
 
 					printingtools.showAttatchmentBodyTable();
 					printingtools.restoreIMGstyle();
+
+					// restore msg fonts
+					if (printingtools.msgRestoration.msgFontFamilyOrig) {
+						printingtools.msgRestoration.msgDiv.style.fontFamily = printingtools.msgRestoration.msgFontFamilyOrig;
+					}
+
+					if (printingtools.msgRestoration.msgFontSizeOrig) {
+						printingtools.msgRestoration.msgDiv.style.fontSize = printingtools.msgRestoration.msgFontSizeOrig;
+					}
+
+					printingtools.doc.styleSheets[0].deleteRule(printingtools.msgRestoration.ruleIndex);
+
+
 
 					//console.log("after rest")
 					//console.log(printingtools.doc.documentElement.outerHTML);
@@ -454,7 +468,27 @@ var printingtools = {
 
 	cmd_printng: async function (options) {
 
-		//console.log("cmd_printng start" + this.running);
+		console.log("cmd_printng start" + this.running);
+
+		// only process mail types else use TB print #119
+		let url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
+		//console.log(url)
+		
+		let mailType = false;
+		if ((url.startsWith("imap") ||
+			url.startsWith("mailbox") ||
+			url.startsWith("unknown") ||
+			url.startsWith("file")) &&
+			!url.includes("&type=")) {
+			mailType = true;
+		} else {
+			mailType = false;
+		}
+
+		if (!mailType) {
+			goDoCommand("cmd_print");
+			return;
+		}
 
 
 		options = options || {};
@@ -1087,29 +1121,60 @@ var printingtools = {
 		// if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.black_text"))
 		// printingtools.doc.body.removeAttribute("text");
 
+		var hSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.size");
+		
+		var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
+		
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
-			var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
 			var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
-			if (printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.style_apply") == 0) {
-				rule = '* {font-size: +' + mSize + 'px !important; font-family: ' + mFamily + ' !important;}';
-				printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
+			
+			var rule;
+			let mozPlainTextDiv = printingtools.doc.querySelector("div.moz-text-plain");
+			let mozTextFlowedDiv = printingtools.doc.querySelector("div.moz-text-flowed");
+			let mozTextHtmlDiv = printingtools.doc.querySelector("div.moz-text-html");
+
+			if (mozPlainTextDiv) {
+				printingtools.msgRestoration.msgDiv = mozPlainTextDiv;
+				printingtools.msgRestoration.msgFontFamilyOrig = mozPlainTextDiv.style.fontFamily;
+				printingtools.msgRestoration.msgFontSizeOrig = mozPlainTextDiv.style.fontSize;
+				mozPlainTextDiv.style.fontFamily = mFamily;
+				mozPlainTextDiv.style.fontSize = mSize;
+			} else if (mozTextFlowedDiv) {
+				printingtools.msgRestoration.msgDiv = mozTextFlowedDiv;
+				printingtools.msgRestoration.msgFontFamilyOrig = mozTextFlowedDiv.style.fontFamily;
+				printingtools.msgRestoration.msgFontSizeOrig = mozTextFlowedDiv.style.fontSize;
+				mozTextFlowedDiv.style.fontFamily = mFamily;
+				mozTextFlowedDiv.style.fontSize = mSize;
+			} else {
+				printingtools.msgRestoration.msgDiv = mozTextHtmlDiv;
+				printingtools.msgRestoration.msgFontFamilyOrig = null;
+				printingtools.msgRestoration.msgFontSizeOrig = null;
 			}
-			else {
-				if (table1) {
-					// table1.style.width = "75%";
-					table1.style.fontFamily = mFamily;
-					table1.style.fontSize = mSize;
-				}
-				if (table2) {
-					table2.style.fontFamily = mFamily;
-					table2.style.fontSize = mSize;
-				}
-				if (!noExtHeaders && hpref == 2 && table3) {
-					table3.style.fontFamily = mFamily;
-					table3.style.fontSize = mSize;
-				}
+
+			rule = 'div.moz-text-html *  {font-size: +' + mSize + 'px !important; font-family: ' + mFamily + ' !important;}';
+
+			//rule = '* {font-size: +' + mSize + 'px !important; font-family: ' + mFamily + ' !important;}';
+			printingtools.msgRestoration.ruleIndex = printingtools.doc.styleSheets[0].insertRule(rule, printingtools.doc.styleSheets[0].cssRules.length);
+
+		}
+
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.style")) {
+			var hFamily = printingtools.getComplexPref("extensions.printingtoolsng.headers.font_family");
+			if (table1) {
+				// table1.style.width = "75%";
+				table1.style.fontFamily = hFamily;
+				table1.style.fontSize = hSize;
+			}
+			if (table2) {
+				table2.style.fontFamily = hFamily;
+				table2.style.fontSize = hSize;
+			}
+			if (!noExtHeaders && hpref == 2 && table3) {
+				table3.style.fontFamily = hFamily;
+				table3.style.fontSize = hSize;
 			}
 		}
+
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.cite.style")) {
 			var cSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.cite.size");
@@ -1268,11 +1333,11 @@ var printingtools = {
 				tw.setAttribute("cellspacing", "0");
 				// md.document.body.appendChild(tw);
 
-				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.messages.style")) {
-					var mSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.messages.size");
-					var mFamily = printingtools.getComplexPref("extensions.printingtoolsng.messages.font_family");
-					tw.style.fontFamily = mFamily;
-					tw.style.fontSize = mSize;
+				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.style")) {
+					var hSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.size");
+					var hFamily = printingtools.getComplexPref("extensions.printingtoolsng.headers.font_family");
+					tw.style.fontFamily = hFamily;
+					tw.style.fontSize = hSize;
 				}
 
 				if (!table3) {
@@ -1281,7 +1346,7 @@ var printingtools = {
 
 				} else {
 					printingtools.insertAfter(tw, table3);
-					var maxHdrWidth = tw.getBoundingClientRect().width;
+					var maxHdrWidth = tw.getBoundingClientRect().width + 12;
 					//console.log(maxHdrWidth)
 				}
 				//console.log(printingtools.doc.documentElement.outerHTML);
@@ -1293,18 +1358,22 @@ var printingtools = {
 			} else {
 				let locale = Services.locale.appLocaleAsBCP47.split("-")[0];
 				let alwaysCcBcc = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always");
+				var fs = window.getComputedStyle(table1).getPropertyValue('font-size');
+				var fsn = Number(fs.split("px")[0])
 
 				switch (locale) {
 					case "de":
 						if (!alwaysCcBcc) {
-							maxHdrWidth = 130;
+							maxHdrWidth = 130 + 6*(fsn - 14);
+							
 						} else {
-							maxHdrWidth = 110;
+							maxHdrWidth = 110 + 6*(fsn - 14);
 						}
 						break;
 
 					default:
-						maxHdrWidth = 110;
+						
+						maxHdrWidth = 110 + 6*(fsn - 14);
 						break;
 				}
 
@@ -1576,12 +1645,12 @@ var printingtools = {
 		var imgs = printingtools.doc.getElementsByTagName("img");
 		for (i = 0; i < imgs.length; i++) {
 			if (imgs[i].getAttribute("class") != "attIcon") {
-				
+
 				let display = imgs[i].getAttribute("_display");
-				
+
 				if (display !== undefined && display !== null) {
 					if (display == "") {
-						
+
 						imgs[i].style.display = null;
 					} else {
 						imgs[i].style.display = display;
@@ -1959,7 +2028,7 @@ var printingtools = {
 
 			let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
 			let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
-
+			
 			printingtoolsng.attList = fileNames.map((fn, i) => {
 				return { name: fn, size: fileSizes[i] };
 			});
@@ -2000,7 +2069,13 @@ var printingtools = {
 			attRowTR.appendChild(attTD);
 
 			attTD = printingtools.doc.createElement("TD");
-			attTD.textContent = printingtools.formatBytes(attEntry.size);
+			// fix for #125 eml files have string sizes for attachments 
+			if(isNaN(attEntry.size)) {
+				attTD.textContent = attEntry.size;
+			} else {
+				attTD.textContent = printingtools.formatBytes(attEntry.size);
+			}
+			
 			attRowTR.appendChild(attTD);
 
 			attTable.appendChild(attRowTR);

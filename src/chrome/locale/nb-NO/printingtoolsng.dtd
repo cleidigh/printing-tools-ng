@@ -69,3 +69,4 @@
 <!ENTITY ptngOptions.label "UTSKRIFTSVERKTØY AV ALTERNATIVER">
 <!ENTITY debugOptions.label "Feilsøkingsalternativer">
 <!ENTITY date_custom.label "Tilpasset">
+<!ENTITY messageBody "Meldingstekst">

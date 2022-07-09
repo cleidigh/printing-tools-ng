@@ -68,3 +68,4 @@
 <!ENTITY ptngOptions.label "FERRAMENTAS DE IMPRESIÓN DE OPCIÓNS">
 <!ENTITY debugOptions.label "Opcións de depuración">
 <!ENTITY date_custom.label "Personalizado">
+<!ENTITY messageBody "Corpo da mensaxe">
