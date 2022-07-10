@@ -443,7 +443,7 @@ function savePMDprefs() {
 
 	var hdrfontlistchild = document.getElementById("hdrfontlist").getElementsByTagName("menuitem");
 	var hdrselfont = hdrfontlistchild[document.getElementById("hdrfontlist").selectedIndex].getAttribute("value");
-	console.log(hdrselfont)
+	
 	setComplexPref("extensions.printingtoolsng.headers.font_family", hdrselfont);
 	
 	var fontlistchild = document.getElementById("fontlist").getElementsByTagName("menuitem");
