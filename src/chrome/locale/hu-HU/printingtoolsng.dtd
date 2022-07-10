@@ -69,3 +69,5 @@
 <!ENTITY ptngOptions.label "Printing Tools NG beállítások">
 <!ENTITY debugOptions.label "Hibakeresési beállítások">
 <!ENTITY date_custom.label "Egyéni">
+<!ENTITY messageBody "Üzenettörzs">
+

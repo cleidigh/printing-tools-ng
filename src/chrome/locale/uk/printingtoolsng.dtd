@@ -68,3 +68,4 @@
 <!ENTITY ptngOptions.label "ІНСТРУМЕНТИ ДРУКУ ВАРИАНТІВ">
 <!ENTITY debugOptions.label "Параметри налагодження">
 <!ENTITY date_custom.label "На замовлення">
+<!ENTITY messageBody "Тіло повідомлення">

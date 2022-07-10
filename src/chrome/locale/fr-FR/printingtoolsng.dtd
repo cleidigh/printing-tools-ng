@@ -69,3 +69,4 @@
 <!ENTITY ptngOptions.label "OUTILS D&#39;IMPRESSION DES OPTIONS">
 <!ENTITY debugOptions.label "Options de débogage">
 <!ENTITY date_custom.label "Coutume">
+<!ENTITY messageBody "Corps du message">

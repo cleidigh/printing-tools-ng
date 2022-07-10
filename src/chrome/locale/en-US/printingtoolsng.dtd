@@ -28,7 +28,7 @@
 <!ENTITY style "Style">
 <!ENTITY PMDlabel21 "Hide always extended headers">
 <!ENTITY withSize "with size ">
-<!ENTITY forBody "for body message">
+<!ENTITY messageBody "Message Body">
 <!ENTITY forHeaders "just for headers">
 <!ENTITY useHeadersBkColor "Use header background Color:">
 <!ENTITY misc "Miscellaneous">
@@ -59,7 +59,7 @@
 <!ENTITY wrap "Wrap">
 <!ENTITY showhide "Show / Hide">
 <!ENTITY borderStyle "Border style:">
-<!ENTITY colorsNote "Note: 'Images and Colors' needs to be enabled in the Print Page Setup dialog">
+<!ENTITY colorsNote "Note: Enable Print backgrounds in the Print dialog">
 <!ENTITY showSignatureVCFfiles "Show signature and vcf files">
 <!ENTITY useCcBccAlways "Use 'Cc' and 'Bcc' abbreviations for all locales">
 <!ENTITY HideInlineAttList "Hide inline attachment list">

@@ -69,3 +69,4 @@
 <!ENTITY ptngOptions.label "Druckwerkzeuge NG Optionen">
 <!ENTITY debugOptions.label "Debug-Optionen">
 <!ENTITY date_custom.label "Benutzerdefiniert">
+<!ENTITY messageBody "Nachrichtentext">

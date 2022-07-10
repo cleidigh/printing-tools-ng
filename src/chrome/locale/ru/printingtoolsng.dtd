@@ -68,3 +68,4 @@
 <!ENTITY ptngOptions.label "ИНСТРУМЕНТЫ ПЕЧАТИ ОПЦИИ">
 <!ENTITY debugOptions.label "Параметры отладки">
 <!ENTITY date_custom.label "Обычай">
+<!ENTITY messageBody "Тело сообщения">

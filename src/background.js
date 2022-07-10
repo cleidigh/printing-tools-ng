@@ -115,6 +115,21 @@ browser.runtime.onInstalled.addListener(async (info) => {
 
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	switch (info.command) {
+		case "getCurrentURL":
+			//console.log("geturl")
+			// method one: via tabs in focused window
+			try {
+				var w = await browser.windows.getAll({populate: true})
+			} catch {
+				return "unknown";
+			}
+			
+			let cw = w.find(fw => fw.focused)
+			//console.log(cw)
+			let url1 = cw.tabs.find(t => t.active).url;
+			//console.log(url1);
+			
+			return url1;
 		case "getAttatchmentList":
 			
 			let rv = await getAttatchmentList(info.messageId);
@@ -126,11 +141,11 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			var locale = info.locale;
 
 			try {
-				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1200, height: 600})
+				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1100, height: 520})
 			} catch {
 				try {
 				locale = locale.Split('-')[0];
-				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel"})
+				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1100, height: 520})
 				} catch {
 					browser.windows.create({url: `chrome/content/help/locale/en-US/printingtoolsng-help.html`, type: "panel"})	
 				}

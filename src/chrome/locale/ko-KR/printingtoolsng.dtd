@@ -68,3 +68,4 @@
 <!ENTITY ptngOptions.label "옵션의 인쇄 도구">
 <!ENTITY debugOptions.label "디버그 옵션">
 <!ENTITY date_custom.label "관습">
+<!ENTITY messageBody "메시지 본문">
