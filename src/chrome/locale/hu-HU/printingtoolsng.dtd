@@ -13,7 +13,7 @@
 <!ENTITY PMDcaptionlabel "Beállítások az üzenetek nyomtatásához">
 <!ENTITY PMDcaptionlabel2 "Globális nyomtatási beállítások">
 <!ENTITY PMDlabel12 "Más betűtípus és betűméret használata">
-<!ENTITY PMDlabel13 "A névjegy fejlécének elrejtése ("Card for") (&#39;Card for&#39;)">
+<!ENTITY PMDlabel13 "A névjegy fejlécének elrejtése (&#39;Card for&#39;)">
 <!ENTITY PMDlabel14 "Csak nevet és e-mail címet írjon be">
 <!ENTITY PMDcaptionlabel3 "A címjegyzék nyomtatásának beállításai">
 <!ENTITY PMDlabel15 "Kompakt elrendezés használata">
@@ -54,7 +54,6 @@
 <!ENTITY resizeImgs.label "A túl nagy képek átméretezése">
 <!ENTITY addRdate.label "A beérkezés dátumának hozzáadása is">
 <!ENTITY defaultPrinter "Alapértelmezett nyomtató">
-
 <!ENTITY attachmentsPerLine "Mellékletek a fejlécben soronként:">
 <!ENTITY wrap "Folytatólagosan">
 <!ENTITY showhide "Megjelenítés/elrejtés">
@@ -70,4 +69,3 @@
 <!ENTITY debugOptions.label "Hibakeresési beállítások">
 <!ENTITY date_custom.label "Egyéni">
 <!ENTITY messageBody "Üzenettörzs">
-
