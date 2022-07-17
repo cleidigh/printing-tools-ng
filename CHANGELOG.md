@@ -4,7 +4,7 @@
 
 Version 2.1.4 : Thunderbird 103 Support - July 18, 2022
 
-- Bump max version to 103.*
+- Bump max version to 103.0
 - Update HU locale - @efi99
 
 Version 2.1.3 : Thunderbird 102 Support - June 21, 2022
