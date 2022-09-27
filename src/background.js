@@ -141,11 +141,11 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			var locale = info.locale;
 
 			try {
-				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1200, height: 600})
+				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1100, height: 520})
 			} catch {
 				try {
 				locale = locale.Split('-')[0];
-				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel"})
+				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1100, height: 520})
 				} catch {
 					browser.windows.create({url: `chrome/content/help/locale/en-US/printingtoolsng-help.html`, type: "panel"})	
 				}

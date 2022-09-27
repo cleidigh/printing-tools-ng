@@ -2,6 +2,19 @@
 
 ## Versions
 
+Version 2.1.4 : Thunderbird 103 Support - July 18, 2022
+
+- Bump max version to 103.0
+- Update HU locale - @efi99
+
+Version 2.1.3 : Thunderbird 102 Support - June 21, 2022
+
+- Thunderbird 102 and 91 compatibility 
+- Added options to format fonts for both headers and body #120
+- Improved options UI #124
+- Fix printing of non email tabs #119
+- Fix EML files with attachments showing NaN for file sizes #125
+- Translation improvements for en-US and ja locales
 Version 2.0.6 : 68/78/89+ Update - May 29, 2021
 
 - Allow compatibility to 89+ (experimental support only) #66

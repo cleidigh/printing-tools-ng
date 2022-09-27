@@ -1,71 +1,71 @@
-<!ENTITY PMDlabel1 "Dátum lokalizációjának engedélyezése">
-<!ENTITY PMDlabel2 "Engedélyezze a mellékletek listájának testreszabott nézetét">
-<!ENTITY PMDlabel3 "Állítson be egy szegélyt a fejlécek körül">
-<!ENTITY PMDlabel4 "A fejlécek elrejtése">
-<!ENTITY PMDlabel5 "Vágja le a fejlécek vonalait körülbelül">
+<!ENTITY PMDlabel1 "Helyi dátumformátum használata">
+<!ENTITY PMDlabel2 "Mellékletek listájának testreszabása">
+<!ENTITY PMDlabel3 "Szegély a fejléc körül">
+<!ENTITY PMDlabel4 "A fejléc elrejtése">
+<!ENTITY PMDlabel5 "Fejlécelemek maximális hossza:">
 <!ENTITY PMDlabel6 "karakter.">
 <!ENTITY PMDlabel7 "A képek elrejtése">
-<!ENTITY PMDlabel8 "Nyomtasson a párbeszédablak nélkül">
-<!ENTITY PMDlabel9 "A nyomtatási folyamat sáv elrejtése">
-<!ENTITY PMDlabel10 "Inline mellékletek elrejtése">
-<!ENTITY PMDlabel11 "Adja hozzá a felhasználónevet a fejlécekhez">
-<!ENTITY PMDmenuitem "Nyomtatási lehetőségek">
-<!ENTITY PMDcaptionlabel "Opciók az üzenetek nyomtatásához">
-<!ENTITY PMDcaptionlabel2 "Globális nyomtatási lehetőségek">
-<!ENTITY PMDlabel12 "Használjon betűtípust pixel méretben">
-<!ENTITY PMDlabel13 "Az érintkező fejlécének elrejtése (&#39;Card for&#39;)">
-<!ENTITY PMDlabel14 "Adjon meg csak nevet és e-mail címeket">
-<!ENTITY PMDcaptionlabel3 "A címjegyzék nyomtatásának lehetőségei">
-<!ENTITY PMDlabel15 "Használjon kompakt elrendezést">
-<!ENTITY PMDlabel16 "Csak a kiválasztott nyomtatás, ha létezik">
-<!ENTITY cite.checkbox "Használjon stílust idézett szöveghez">
+<!ENTITY PMDlabel8 "Nyomtatás a párbeszédablak nélkül">
+<!ENTITY PMDlabel9 "A nyomtatási folyamatsáv elrejtése">
+<!ENTITY PMDlabel10 "Beágyazott mellékletek elrejtése">
+<!ENTITY PMDlabel11 "A felhasználónév hozzáadása a fejlécekhez">
+<!ENTITY PMDmenuitem "Nyomtatási beállítások">
+<!ENTITY PMDcaptionlabel "Beállítások az üzenetek nyomtatásához">
+<!ENTITY PMDcaptionlabel2 "Globális nyomtatási beállítások">
+<!ENTITY PMDlabel12 "Más betűtípus és betűméret használata">
+<!ENTITY PMDlabel13 "A névjegy fejlécének elrejtése (&#39;Card for&#39;)">
+<!ENTITY PMDlabel14 "Csak nevet és e-mail címet írjon be">
+<!ENTITY PMDcaptionlabel3 "A címjegyzék nyomtatásának beállításai">
+<!ENTITY PMDlabel15 "Kompakt elrendezés használata">
+<!ENTITY PMDlabel16 "Csak a kiválasztott nyomtatása, ha létezik">
+<!ENTITY cite.checkbox "Idézett szöveg stílusa">
 <!ENTITY cite.color "Szín:">
 <!ENTITY cite.size "Méret:">
-<!ENTITY PMDlabel17 "Adjon hozzá egy fájltípus-ikont">
-<!ENTITY PMDlabel18 "Használja a betűtípust:">
-<!ENTITY PMDlabel19 "Vágja le a „Megjegyzés” mezőt 100 karakterből">
-<!ENTITY PMDlabel20 "Adja hozzá a címjegyzék nevét és dátumát">
+<!ENTITY PMDlabel17 "Fájltípus ikon hozzáadása">
+<!ENTITY PMDlabel18 "Betűtípus használata:">
+<!ENTITY PMDlabel19 "A „Megjegyzés” mező 100 karakter feletti részének levágása">
+<!ENTITY PMDlabel20 "Címjegyzék szerinti név és a dátum hozzáadása">
 <!ENTITY style "Stílus">
 <!ENTITY PMDlabel21 "Mindig kiterjesztett fejlécek elrejtése">
 <!ENTITY withSize "mérettel">
-<!ENTITY forBody "test üzenet">
-<!ENTITY forHeaders "csak a fejlécek számára">
-<!ENTITY misc "Vegyes">
-<!ENTITY order "A fejlécek sorrendje">
-<!ENTITY headers "fejlécek">
+<!ENTITY forBody "üzenettörzs">
+<!ENTITY forHeaders "csak a fejlécek">
+<!ENTITY useHeadersBkColor "Fejléchez használandó háttérszín:">
+<!ENTITY misc "Egyéb">
+<!ENTITY order "Fejlécelemek sorrendje">
+<!ENTITY headers "fejlécelemek">
 <!ENTITY up "Fel">
 <!ENTITY down "Le">
-<!ENTITY otherHeaders "Más fejlécek, ha vannak, követik">
-<!ENTITY PMDlabel22 "Adja hozzá a p7m és a vCard mellékleteket">
-<!ENTITY PMDlabel23 "Adja hozzá a mappa nevét">
-<!ENTITY PMDlabel25 "Használjon fekete alapszínt a szöveghez">
+<!ENTITY otherHeaders "További fejlécelemek ezek után (ha vannak)">
+<!ENTITY PMDlabel22 "p7m és a vCard mellékletek hozzáadása">
+<!ENTITY PMDlabel23 "Mappa nevének hozzáadása">
+<!ENTITY PMDlabel25 "Fekete alapszín használata a szöveghez">
 <!ENTITY long.label "hosszú UTC">
-<!ENTITY longLoc.label "hosszú és lokalizált">
+<!ENTITY longLoc.label "hosszú helyi">
 <!ENTITY short.label "rövid">
 <!ENTITY date.label "Dátum formátum:">
-<!ENTITY addNameRG.label "Hozzáadás fejlécek előtt:">
+<!ENTITY addNameRG.label "Hozzáadás fejlécek elé:">
 <!ENTITY RG1.label "Semmi">
 <!ENTITY RG2.label "Felhasználónév">
-<!ENTITY alignHeaders.label "Igazítsa a fejléceket">
+<!ENTITY alignHeaders.label "Fejlécek igazítása">
 <!ENTITY multipleCards.label "Az összes kiválasztott névjegy nyomtatása">
 <!ENTITY maxPreLen "A szöveg maximális szélessége:">
-<!ENTITY showButton.label "Mutassa meg az Opciók gombot az előnézeti ablakban">
-<!ENTITY resizeImgs.label "A képek átméretezése túl nagy">
-<!ENTITY addRdate.label "Adja hozzá a kézhezvétel dátumát">
+<!ENTITY showButton.label "Beállítások gomb megjelenítése az előnézeti ablakban">
+<!ENTITY resizeImgs.label "A túl nagy képek átméretezése">
+<!ENTITY addRdate.label "A beérkezés dátumának hozzáadása is">
 <!ENTITY defaultPrinter "Alapértelmezett nyomtató">
-<!ENTITY attachmentsPerLine "Mellékletek soronként:">
-<!ENTITY wrap "Betakar">
-<!ENTITY showhide "Megjelenítés vagy elrejtés">
-<!ENTITY useHeadersBkColor "Használja a fejléc háttérszínét:">
-<!ENTITY borderStyle "Border stílus:">
+<!ENTITY attachmentsPerLine "Mellékletek a fejlécben soronként:">
+<!ENTITY wrap "Folytatólagosan">
+<!ENTITY showhide "Megjelenítés/elrejtés">
+<!ENTITY borderStyle "Szegély stílusa:">
 <!ENTITY colorsNote "Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen">
-<!ENTITY showSignatureVCFfiles "Aláírási és vcf fájlok megjelenítése">
-<!ENTITY useCcBccAlways "Használja a &#39;Cc&#39; és &#39;Bcc&#39; rövidítéseket az összes nyelvhez">
-<!ENTITY HideInlineAttList "Beépített mellékletlista elrejtése">
+<!ENTITY showSignatureVCFfiles "Aláírás és vcf fájlok megjelenítése">
+<!ENTITY useCcBccAlways "&#39;Cc&#39; és &#39;Bcc&#39; rövidítések használata az összes nyelvhez">
+<!ENTITY HideInlineAttList "A levélvégi mellékletlista elrejtése">
 <!ENTITY print.label "Nyomtatás">
 <!ENTITY printPreview.label "Nyomtatási előnézet">
-<!ENTITY ptng.label "Nyomtatási eszközök NG">
-<!ENTITY ptngOptions.label "OPCIÓK NYOMTATÁSI ESZKÖZEI">
+<!ENTITY ptng.label "Printing Tools NG">
+<!ENTITY ptngOptions.label "Printing Tools NG beállítások">
 <!ENTITY debugOptions.label "Hibakeresési beállítások">
-<!ENTITY date_custom.label "Egyedi">
+<!ENTITY date_custom.label "Egyéni">
 <!ENTITY messageBody "Üzenettörzs">
