@@ -360,11 +360,15 @@ var printingtools = {
 		let ps = PrintUtils.getPrintSettings();
 
 		if (options.printSilent == false) {
-			Cc["@mozilla.org/embedcomp/printingprompt-service;1"]
-				.getService(Ci.nsIPrintingPromptService)
-				.showPrintDialog(window, ps);
-			if (ps.isCancelled) {
-				return;
+			
+			try {
+				await Cc["@mozilla.org/widget/printdialog-service;1"]
+					.getService(Ci.nsIPrintDialogService)
+					.showPrintDialog(browsingContext.topChromeWindow, false, ps);
+			} catch (e) {
+				if (e.return == Cr.NS_ERROR_ABORT) {
+					return;
+				}
 			}
 		}
 
@@ -473,9 +477,14 @@ var printingtools = {
 		// only process mail types else use TB print #119
 		let url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 		//console.log(url)
-		
+		let suri = gFolderDisplay.selectedMessageUris;
+		console.log(suri)
+
 		let mailType = false;
-		if ((url.startsWith("imap") ||
+
+		if ((url == "chrome://messenger/content/multimessageview.xhtml" || url.startsWith("about:blank")) && suri) {
+			mailType = true;
+		} else if ((url.startsWith("imap") ||
 			url.startsWith("mailbox") ||
 			url.startsWith("unknown") ||
 			url.startsWith("file")) &&
