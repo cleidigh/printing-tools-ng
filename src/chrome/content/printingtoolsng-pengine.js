@@ -268,14 +268,10 @@ var printingtools = {
 				}
 
 			} else {
-
-
-
-
-				console.log("Use created browser")
+				//console.log("Use created browser")
 				let uri = gFolderDisplay.selectedMessageUris[0];
 
-				console.log("Msg URI: " + uri)
+				//console.log("Msg URI: " + uri)
 				if (!uri) {
 					return;
 				}
@@ -283,7 +279,7 @@ var printingtools = {
 
 				var fakeMsgPane;
 				if (!document.getElementById("fp")) {
-					console.log("create browser")
+					//console.log("create browser")
 
 					fakeMsgPane = document.createXULElement("browser");
 					fakeMsgPane.setAttribute("id", "fp")
@@ -325,18 +321,11 @@ var printingtools = {
 						break;
 				}
 
-				console.log("af wait content")
-				console.log(fakeMsgPane.contentDocument)
-
 				printingtools.previewDoc = fakeMsgPane.contentDocument;
 
 				await printingtools.reformatLayout();
 
-				console.log("af reformat")
 				PrintUtils.startPrintWindow(fakeMsgPane.browsingContext);
-
-
-
 			}
 
 			await new Promise(resolve => window.setTimeout(resolve, 400));
@@ -360,11 +349,15 @@ var printingtools = {
 		let ps = PrintUtils.getPrintSettings();
 
 		if (options.printSilent == false) {
-			Cc["@mozilla.org/embedcomp/printingprompt-service;1"]
-				.getService(Ci.nsIPrintingPromptService)
-				.showPrintDialog(window, ps);
-			if (ps.isCancelled) {
-				return;
+			
+			try {
+				await Cc["@mozilla.org/widget/printdialog-service;1"]
+					.getService(Ci.nsIPrintDialogService)
+					.showPrintDialog(browsingContext.topChromeWindow, false, ps);
+			} catch (e) {
+				if (e.return == Cr.NS_ERROR_ABORT) {
+					return;
+				}
 			}
 		}
 
@@ -378,7 +371,7 @@ var printingtools = {
 				let messagePaneBrowser = document.getElementById("messagepane");
 				messagePaneBrowser.browsingContext.print(ps);
 			} else {
-				console.log("use pb print")
+				//console.log("use pb print")
 				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
 
@@ -468,14 +461,19 @@ var printingtools = {
 
 	cmd_printng: async function (options) {
 
-		console.log("cmd_printng start" + this.running);
+		console.log("cmd_printng start: silent: " + this.running);
 
 		// only process mail types else use TB print #119
 		let url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 		//console.log(url)
-		
+		let suri = gFolderDisplay.selectedMessageUris;
+		//console.log(suri)
+
 		let mailType = false;
-		if ((url.startsWith("imap") ||
+
+		if ((url == "chrome://messenger/content/multimessageview.xhtml" || url.startsWith("about:blank")) && suri) {
+			mailType = true;
+		} else if ((url.startsWith("imap") ||
 			url.startsWith("mailbox") ||
 			url.startsWith("unknown") ||
 			url.startsWith("file")) &&

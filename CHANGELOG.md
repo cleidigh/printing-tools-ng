@@ -2,6 +2,10 @@
 
 ## Versions
 
+Version 2.1.5 : Maintenance Release  - October 13, 2022
+
+- Fix multiple selection printing #136
+
 Version 2.1.4 : Thunderbird 103 Support - July 18, 2022
 
 - Bump max version to 103.0
