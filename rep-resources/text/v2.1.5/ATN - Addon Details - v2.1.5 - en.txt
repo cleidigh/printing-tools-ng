@@ -1,0 +1,56 @@
+
+The following are the main enhancements provided by PrintingTools NG, see the options for additional features.
+
+Options & Menus:
+- Options access from the Tools/Add-on options.
+- Printing Options menu added to File menus.
+- Toolbar buttons for print, preview and options
+
+Message Layout & Formatting:
+- Add customizable header border with CSS.
+- Add header background color.
+- Add Username, Folder or custom title.
+- Several date formats including fully customizable dates
+- Hide standard or extended headers.
+- Reorder standard headers.
+- Add the attachment table to header with icons.
+- Hide the in body attachment list
+- Show signature files.
+- Hide inline attachments.
+- Configure font family and size.
+- Highlight quoted text color, font and size.
+- Print selected text only Including multiple selections with headers
+- Print multiple messages
+- Automatic, silent printing with FiltaQuila (v3.4+)
+
+This release could not have happened without the great support
+and help from the PTNG community.
+Thank you so much
+
+Version 2.1.5 : Maintenance Release  - October 13, 2022
+
+- Fix multiple selection printing #136
+
+Version 2.1.4 : Thunderbird 103 Support - July 18, 2022
+
+- Bump max version to 103.0
+- Update HU locale - @efi99 
+
+Version 2.1.3 : Thunderbird 102 Support - June 21, 2022
+
+- Thunderbird 102 and 91 compatibility 
+- Added options to format fonts for both headers and body #120
+- Improved options UI #124
+- Fix printing of non email tabs #119
+- Fix EML files with attachments showing NaN for file sizes #125
+- Translation improvements for en-US and ja locales
+
+Version 2.1.1: v100+ Update - May 6, 2022
+
+- Thunderbird 100+ support 
+- New custom date format including Asian year, month and day literals
+- Print multiple selections with the headers 
+- Added the Taiwanese locale (zh-TW)
+- Added a help page for the custom date format 
+- Multiple issues addressed , See release:
+  https://github.com/cleidigh/printing-tools-ng/issues/106
