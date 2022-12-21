@@ -2,10 +2,13 @@
 var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
 
 var st = {};
-
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/strftime.js", st);
 
-console.log("PTNG: Engine loaded")
+
+
+
+console.log("PTNG: Engine loaded ")
+
 
 //dtest();
 
@@ -258,12 +261,17 @@ var printingtools = {
 
 				}, { once: true });
 
+				console.log("subject mangle")
+				let s = printingtools.previewDoc.querySelector(".subjectHdr")
+				console.log(s)
+				console.log(s.parentElement.nextSibling.firstChild.textContent)
+				//s.parentElement.nextSibling.firstChild.textContent = "test away"
 
 				if (selection.rangeCount > 1 && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
 					//console.log("print sel")
 					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
 				} else {
-					//console.log("print no sel")
+					console.log("print no sel")
 					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: false });
 				}
 
@@ -348,9 +356,39 @@ var printingtools = {
 		// a hidden browser and print them one at a time.
 		let ps = PrintUtils.getPrintSettings();
 
-		if (options.printSilent == false) {
+		console.log(ps.printerName.toLowerCase().includes("pdf"))
+		var pdfOutput = false;
+		var pdfOutputEnabled;
+		var pdfOutputDir;
+
+		if (ps.printerName.toLowerCase().includes("pdf")) {
+			pdfOutput = true;
+			pdfOutputEnabled = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
+			pdfOutputDir = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
+			console.log(pdfOutputEnabled)
+			console.log(pdfOutputDir)
+			if (!pdfOutputEnabled || pdfOutputDir == "")
+				{
+					let fpMode = Ci.nsIFilePicker.modeGetFolder;
+					let fpTitle = "Select PDF Output Directory";
+					let fpDisplayDirectory = null;
+					let resultObj = await this.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
+					if (resultObj.result == -1) {
+						return;
+					}
+					pdfOutputDir = resultObj.folder;
+					printingtools.prefs.setStringPref("extensions.printingtoolsng.pdf.output_dir", pdfOutputDir)
+					console.log(resultObj);
+			} else {
+				console.log("no dir")
+				
+			}
+		}
+
+		if (options.printSilent == "7" || 0) {
 			
 			try {
+				console.log("sys dialog")
 				await Cc["@mozilla.org/widget/printdialog-service;1"]
 					.getService(Ci.nsIPrintDialogService)
 					.showPrintDialog(browsingContext.topChromeWindow, false, ps);
@@ -361,11 +399,25 @@ var printingtools = {
 			}
 		}
 
-		ps.printSilent = true;
+		ps.printSilent = false;
 
-		for (let uri of printingtools.msgUris) {
-			let messageService = messenger.messageServiceFromURI(uri);
+		var msgSubject;
+		var pdfFileName;
 
+		for (let msgURI of printingtools.msgUris) {
+			let messageService = messenger.messageServiceFromURI(msgURI);
+			let msgHdr = messenger.msgHdrFromURI(msgURI);
+			msgSubject = msgHdr.mime2DecodedSubject;
+
+			if (pdfOutput) {
+
+				console.log(pdfOutputDir)
+				pdfFileName = await this.utils.constructPDFoutputFilename(msgURI, pdfOutputDir);
+				//ps.toFileName = PathUtils.join(pdfOutputDir, pdfFileName);
+				ps.outputFormat = 2;
+				console.log(ps)
+
+			}
 			if (!PrintUtils.printBrowser) {
 				console.log("no p brows")
 				let messagePaneBrowser = document.getElementById("messagepane");
@@ -373,12 +425,19 @@ var printingtools = {
 			} else {
 				//console.log("use pb print")
 				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
-				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(uri).spec);
+				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
 
 				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
 				await printingtools.reformatLayout();
 
 				await PrintUtils.printBrowser.browsingContext.print(ps);
+				
+			}
+
+			if (pdfOutput) {
+				this.utils.PTNG_WriteStatus("Write: " + pdfFileName);
+			} else {
+				this.utils.PTNG_WriteStatus("Printing: " + msgSubject);
 			}
 		}
 	},
@@ -388,9 +447,48 @@ var printingtools = {
 		printingtools.current = 0;
 		printingtools.num = 1;
 		printingtools.msgUris = [msgURI];
-		let ps = PrintUtils.getPrintSettings();
-		ps.printSilent = true;
+		
 
+		let ps = PrintUtils.getPrintSettings();
+
+		console.log(ps.printerName.toLowerCase().includes("pdf"))
+		var pdfOutput = false;
+		var pdfOutputEnabled;
+		var pdfOutputDir;
+
+		if (ps.printerName.toLowerCase().includes("pdf")) {
+			pdfOutput = true;
+			pdfOutputEnabled = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
+			pdfOutputDir = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
+			console.log(pdfOutputEnabled)
+			console.log(pdfOutputDir)
+			if (!pdfOutputEnabled || pdfOutputDir == "")
+				{
+					let fpMode = Ci.nsIFilePicker.modeGetFolder;
+					let fpTitle = "Select PDF Output Directory";
+					let fpDisplayDirectory = null;
+					let resultObj = await this.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
+					if (resultObj.result == -1) {
+						return;
+					}
+					pdfOutputDir = resultObj.folder;
+					//printingtools.prefs.setStringPref("extensions.printingtoolsng.pdf.output_dir", pdfOutputDir)
+					console.log(resultObj);
+			} else {
+				console.log("no dir")
+				
+			}
+		}
+
+		if (pdfOutput) {
+
+			console.log(pdfOutputDir)
+			pdfFileName = await this.utils.constructPDFoutputFilename(msgURI, pdfOutputDir);
+			ps.toFileName = PathUtils.join(pdfOutputDir, pdfFileName);
+			ps.outputFormat = 2;
+			console.log(ps)
+
+		}
 		let messageService = messenger.messageServiceFromURI(msgURI);
 		await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 		await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
@@ -400,7 +498,11 @@ var printingtools = {
 
 		await PrintUtils.printBrowser.browsingContext.print(ps);
 
-
+		if (pdfOutput) {
+			this.utils.PTNG_WriteStatus("Write (Ext) : " + pdfFileName);
+		} else {
+			this.utils.PTNG_WriteStatus("Printing (Ext) : " + msgSubject);
+		}
 	},
 
 	cmd_printng_external: async function (extMsgReq) {
@@ -2018,6 +2120,15 @@ var printingtools = {
 		return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 	},
 
+	getFullMessage: async function (msgUri) {
+		printingtools.hdr = messenger.msgHdrFromURI(msgUri);
+
+		let mHdr = window.printingtoolsng.extension.messageManager.convert(printingtools.hdr);
+		let message = await window.ptngAddon.notifyTools.notifyBackground({ command: "getFullMessage", messageId: mHdr.id });
+		
+		return message;
+	},
+
 	getAttatchmentList: async function () {
 
 		let currentUri = printingtools.msgUris[printingtools.current];
@@ -2292,6 +2403,39 @@ var printingtools = {
 		return url;
 	},
 
+	 openFileDialog: async function (mode, title, initialDir, filter) {
+		let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
+		fp.init(window, title, mode);
+		fp.appendFilters(filter);
+		if (initialDir) {
+			fp.displayDirectory = nsiFileFromPath(initialDir);
+		}
+		let res = await new Promise(resolve => {
+			fp.open(resolve);
+		});
+		if (res !== Ci.nsIFilePicker.returnOK) {
+			return -1;
+		}
+	
+		console.log(fp.displayDirectory)
+		console.log(fp.file)
+		var files = fp.files;
+		var paths = [];
+		while (files.hasMoreElements()) {
+			var arg = files.getNext().QueryInterface(Ci.nsIFile);
+			paths.push(arg.path);
+			console.log(arg.path)
+		}
+		let resultObj = {};
+		resultObj.result = 0;
+		resultObj.filesArray = paths;
+		if (mode === Ci.nsIFilePicker.modeGetFolder) {
+			resultObj.folder = fp.file.path;
+		}
+	
+		return resultObj;
+	},
+	
 	shutdown: function () {
 		if (document.getElementById("fp")) {
 			document.getElementById("fp").remove();
@@ -2299,5 +2443,6 @@ var printingtools = {
 	}
 }
 
+Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js", printingtools);
 
-
+printingtools.utils.test();

@@ -114,6 +114,7 @@ browser.runtime.onInstalled.addListener(async (info) => {
 
 
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
+	let rv;
 	switch (info.command) {
 		case "getCurrentURL":
 			//console.log("geturl")
@@ -130,11 +131,16 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			//console.log(url1);
 			
 			return url1;
+		case "getFullMessage":
+			
+			rv = await getFullMessage(info.messageId);
+			return rv;
+		
 		case "getAttatchmentList":
 			
-			let rv = await getAttatchmentList(info.messageId);
+			rv = await getAttatchmentList(info.messageId);
 			return rv;
-			break;
+			
 		case "openHelp":
 			//console.log("help")
 			//console.log(info)
@@ -154,6 +160,17 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			return "help";
 	}
 });
+
+async function getFullMessage(messageId) {
+	
+	var m = await messenger.messages.getFull(messageId);
+	console.log(m)
+	var a = await messenger.messages.listAttachments(m.id);
+	//console.log(a)
+  
+	return m;
+}
+
 
 async function getAttatchmentList(messageId) {
 	
