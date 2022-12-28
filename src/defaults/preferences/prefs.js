@@ -55,5 +55,12 @@ pref("extensions.printingtoolsng.pdf.enable_pdf_output_dir", false);
 pref("extensions.printingtoolsng.pdf.output_dir", "");
 pref("extensions.printingtoolsng.pdf.custom_filename_format", "");
 pref("extensions.printingtoolsng.pdf.custom_date_format", "");
+pref("extensions.printingtoolsng.pdf.filename.prefix", "");
+pref("extensions.printingtoolsng.pdf.filename.suffix", "");
+pref("extensions.printingtoolsng.pdf.filename.filter_characters", "");
+pref("extensions.printingtoolsng.pdf.filename.latinize", false);
+pref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols", false);
+pref("extensions.printingtoolsng.pdf.filename.max_subject_len", 50);
+pref("extensions.printingtoolsng.pdf.filename.max_filename_len", 249);
 
 

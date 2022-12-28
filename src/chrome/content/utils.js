@@ -1,8 +1,10 @@
 // utils.js
 
 /* globals
+printingtools,
 IOUtils,
 PathUtils,
+st,
 
 */
 
@@ -18,33 +20,142 @@ var utils = {
 	constructPDFoutputFilename: async function (msgURI, outputDir) {
 		let msgHdr = messenger.msgHdrFromURI(msgURI);
 		var fileName;
-		var fileNameFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.custom_filename_format");
-		var dateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.custom_date_format");
-		
+
 		console.log(msgHdr);
 
-		var subject = msgHdr.mime2DecodedSubject;
-		var dateInSec = msgHdr.dateInSeconds;
+		fileName = await this.formatTokenizedFileName(msgHdr, outputDir);
+		
+		return fileName;
+	},
 
-		var customDate = st.strftime.strftime(dateFormat, new Date(dateInSec * 1000));
+	formatTokenizedFileName: async function (msgHdr, outputDir) {
+		// needed prefs
+		var fileNameFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.custom_filename_format");
+		var customDateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.custom_date_format");
+		var prefix = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.filename.prefix");
+		var suffix = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.filename.suffix");
+		var latinize = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.latinize");
+		var filterCharacters = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.filename.filter_characters");
+		var filterEmojisAndSymbols = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols");
+		var maxSubjectLen = printingtools.prefs.getIntPref("extensions.printingtoolsng.pdf.filename.max_subject_len");
+		var maxFileNameLen = printingtools.prefs.getIntPref("extensions.printingtoolsng.pdf.filename.max_filename_len");
+		
+		
+		// get raw hdr components
 
-		if (fileNameFormat == "{custom-date} {subject}") {
-			fileName =  customDate + " " + subject + ".pdf";
-		} else {
-			fileName = subject + ".pdf";
+		var rawSubject = msgHdr.mime2DecodedSubject;
+		var rawAuthor = msgHdr.mime2DecodedAuthor;
+		var rawDateInSeconds = msgHdr.dateInSeconds;
+		var rawRecipients = msgHdr.mime2DecodedRecipients;
+		var rawKey = msgHdr.messagekey;
+		var rawMsgFlags = msgHdr.Flags;
+		var rawFolder = msgHdr.folder;
+		var rawFolderFlags = msgHdr.folder.flags;
+
+		var fileName;
+
+		console.log(filterCharacters)
+		// set processed components
+
+		// Subject
+		var subject = "";
+		if (rawSubject) {
+			subject = rawSubject;
+			if (rawMsgFlags & 0x0010) {
+				subject = "Re_" + subject;
+			}
+
 		}
 
-		
-		fileName = this.subInvalidFileNameChars(fileName);
+		if (latinize) {
+			subject = this.latinizeString(subject);
+		}
 
-		
-		 fileName = this.latinizeString(fileName);
-		 
-		 fileName = this.subNonASCIICharacters(fileName);
-		 console.log(fileName)
-		fileName = await this.createUniqueFilename(outputDir, fileName, {fileNameOnly: true});
+		if (filterEmojisAndSymbols) {
+			subject = this.filterNonASCIICharacters(subject);
+		}
+		if (maxSubjectLen) {
+			subject = subject.substring(0, maxSubjectLen);
+		}
+
+		// Sender (author name, email)
+		var senderName = "";
+		var senderEmail = "";
+		if (rawAuthor) {
+			senderName = this.extractNameFromFullAddress(rawAuthor, false);
+			senderEmail = this.extractEmailsFromFullAddresses(rawAuthor)[0].email;
+			if (latinize) {
+				senderName = this.latinizeString(senderName);
+			}
+		}
+
+		// Recipient (name, email)
+		var recipientName = "";
+		var recipientEmail = "";
+		if (rawRecipients) {
+			recipientName = this.extractNameFromFullAddress(rawRecipients, true);
+			recipientEmail = this.extractEmailsFromFullAddresses(rawRecipients)[0].email;
+			// deal with e-mail without 'To:' headerSwitch to insiders
+			if (recipientEmail == "" || !recipientEmail) {
+				recipientEmail = "(none)";
+			}
+			if (latinize) {
+				recipientName = this.latinizeString(recipientName);
+			}
+		}
+
+		// Dates
+		var std8601Date = st.strftime.strftime("%y%m%d", new Date(rawDateInSeconds * 1000));
+		var customDate = st.strftime.strftime(customDateFormat, new Date(rawDateInSeconds * 1000));
+
+		// SmartName for Sent or Drafts folder
+		var isSentFolder = rawFolderFlags & 0x0200 || rawFolderFlags & 0x0400;
+		var isSentSubFolder = rawFolder.URI.indexOf("/Sent/");
+		var smartName;
+		if (isSentFolder || isSentSubFolder > -1) {
+			smartName = recipientName;
+		} else {
+			smartName = senderName;
+		}
+
+		// deTokenize and construct filename
+		console.log(fileNameFormat, subject, customDate, rawKey)
+		// Allow en-US tokens always
+		fileName = fileNameFormat;
+		fileName = fileName.replace("${subject}", subject);
+		fileName = fileName.replace("${sender}", senderName);
+		fileName = fileName.replace("${sender_email}", senderEmail);
+		fileName = fileName.replace("${recipient}", recipientName);
+		fileName = fileName.replace("${recipient_email}", recipientEmail);
+		fileName = fileName.replace("${smart_name}", smartName);
+		fileName = fileName.replace("${index}", rawKey);
+		fileName = fileName.replace("${prefix}", prefix);
+		fileName = fileName.replace("${suffix}", suffix);
+		fileName = fileName.replace("${date_custom}", customDate);
+		fileName = fileName.replace("${date}", std8601Date);
+
+		console.log(fileName, subject, filterCharacters)
+
+		if (filterCharacters !== "") {
+			let filter = new RegExp(`[${filterCharacters}]`, "g");
+			fileName = fileName.replace(filter, "");
+			console.log(fileName, filter)
+		}
+
+		fileName = this.subInvalidFileNameChars(fileName);
+		fileName += ".pdf";
+
+		console.log(fileName)
+		fileName = await this.createUniqueFilename(outputDir, fileName, { fileNameOnly: true });
+		if (maxFileNameLen && 0) {
+			maxFileNameLen -= (outputDir.length + 4);
+			fileName = fileName.substring(maxFileNameLen);
+		}
+
+		console.log(fileName, subject, customDate)
 
 		return fileName;
+
 	},
 
 	subInvalidFileNameChars: function (fileName) {
@@ -53,6 +164,28 @@ var utils = {
 		return fileName.replace(/[\/\\:<>*\?\"\|]/g, "_");
 
 	},
+
+	extractNameFromFullAddress: function (fullAddress, recipients) {
+		var name = fullAddress;
+		if (recipients) {
+			name = fullAddress.replace(/\s*\,.+/, "");
+		}
+		if (name.indexOf("<") > -1) {
+			name = name.replace(/\s*<.+>/, "");
+		} else {
+			name = name.replace(/[@\.]/g, "_");
+		}
+		return name;
+	},
+
+	extractEmailsFromFullAddresses(fullAddresses) {
+		var msgHeaderParser = Cc["@mozilla.org/messenger/headerparser;1"]
+			.getService(Ci.nsIMsgHeaderParser);
+		var strippedAddresses = {};
+		strippedAddresses = msgHeaderParser.makeFromDisplayAddress(fullAddresses, {});
+		return strippedAddresses;
+	},
+
 
 	latinizeString: function (str) {
 		var latinize = {};
@@ -958,24 +1091,24 @@ var utils = {
 			'ь': "'",
 			'б': 'b',
 			'ю': 'yu',
-		  };
-		
-			if (typeof str === 'string') {
-			  return str.replace(/[^A-Za-z0-9]/g, function(x) {
+		};
+
+		if (typeof str === 'string') {
+			return str.replace(/[^A-Za-z0-9]/g, function (x) {
 				return latinize.characters[x] || x;
-			  });
-			} else {
-			  return str;
-			}
-		  
-		
-		
+			});
+		} else {
+			return str;
+		}
+
+
+
 	},
 
-	subNonASCIICharacters: function (str) {
+	filterNonASCIICharacters: function (str) {
 		//str = str.replace(/[^\P{L}a-z][^a-z]*/gui, '_');
 		//str = str.replace(/[^\x00-\x7f]*/gi, '_');
-		str = str.replace(/[\u{0080}-\u{FFFF}]/gu,"");
+		str = str.replace(/[\u{0080}-\u{FFFF}]/gu, "");
 		str = str.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, '');
 
 
@@ -984,12 +1117,12 @@ var utils = {
 
 	createUniqueFilename: async function (parent, prefix, options) {
 
-		let ext = "";
+		var ext = "";
 		if (prefix.includes(".")) {
 			ext = "." + prefix.split('.').pop();
 		}
 
-		let name;
+		var name;
 		if (prefix.lastIndexOf(".") > -1) {
 			name = prefix.substring(0, (prefix.lastIndexOf('.')));
 		} else {
