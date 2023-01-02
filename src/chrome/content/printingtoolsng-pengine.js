@@ -10,88 +10,6 @@ Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/strftime.j
 console.log("PTNG: Engine loaded ")
 
 
-//dtest();
-
-function stest(f, d, l) {
-
-	console.log(strftime.strftime(f, d, l))
-}
-
-function dtest() {
-
-
-	console.log(navigator.language)
-	console.log(navigator.languages)
-	console.log(Services.locale.appLocaleAsBCP47)
-
-
-	strftime.getDayNames('en-US', 'short', 1)
-	strftime.getDayNames('zh-CN', 'short', 1)
-	strftime.getDayNames('zh-TW', 'short', 1)
-	strftime.getDayNames('ja', 'long', 1)
-	strftime.getDayNames('ja', 'short', 1)
-	strftime.getDayNames('default', 'short', 1)
-	let dt = new Date();
-
-	var formatter = new Intl.DateTimeFormat('default', { dateStyle: 'short' });
-	console.log(formatter.format(dt))
-
-	formatter = new Intl.DateTimeFormat('zh-CN', { dateStyle: 'medium' });
-	console.log(formatter.format(dt))
-
-	formatter = new Intl.DateTimeFormat('ja', { dateStyle: 'long' });
-	console.log(formatter.format(dt))
-
-	formatter = new Intl.DateTimeFormat('ja', { dateStyle: 'medium' });
-	console.log(formatter.format(dt))
-
-	console.log("cn full")
-	formatter = new Intl.DateTimeFormat('ja', { dateStyle: 'full' });
-	console.log(formatter.format(dt))
-
-	formatter.formatToParts(dt).map(p => console.log(p))
-	//console.log([...])
-
-	options = {
-		weekday: 'short',
-		year: 'numeric', month: 'short',
-		hour: 'numeric', minute: 'numeric', day: 'numeric',
-		timeZoneName: 'short'
-	};
-
-	console.log(" op1")
-	formatter = new Intl.DateTimeFormat('de', options);
-	formatter.formatToParts(dt).map(p => console.log(p))
-
-	options.timeZoneName = 'long'
-
-	console.log(" op2")
-	formatter = new Intl.DateTimeFormat('ja', options);
-	formatter.formatToParts(dt).map(p => console.log(p))
-
-	console.log(" op2 def")
-	formatter = new Intl.DateTimeFormat('ja', options);
-	formatter.formatToParts(dt).map(p => console.log(p))
-
-
-	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'zh-CN'))
-	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'zh-TW'))
-	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'ko'))
-	console.log(strftime.strftime('%a %t   %0  %1  %2', new Date(), 'ja'))
-
-	stest("%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]", dt, 'ja')
-	stest("%Y%0%m%1%d%2 %a %t %H:%M:%S", dt, 'ko')
-	stest("%Y%0%m%1%d%2 %a %H:%M:%S %Z", dt, 'zh-CN')
-	stest("%Y%0%m%1%d%2 %A %H:%M:%S %t", dt, 'zh-TW')
-
-
-	stest("%d.%m.%Y  %H:%M:%S %t", dt, 'de')
-
-	stest("%a, %b %d %Y %H:%M:%S", dt, 'de')
-	stest("%A, %B %d %Y (%H:%M:%S) %t", dt, 'en-US')
-
-
-}
 
 
 var printingtools = {
@@ -119,7 +37,27 @@ var printingtools = {
 		//console.log(gFolderDisplay.selectedMessage)
 		//console.log(gMessageDisplay.displayedMessage)
 
-		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false) {
+		var ps = PrintUtils.getPrintSettings();
+
+		console.log(ps.printerName.toLowerCase().includes("pdf"))
+		var pdfOutput = false;
+		var pdfOutputEnabled = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
+		var pdfOutputDir = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
+
+		if (ps.printerName.toLowerCase().includes("pdf") &&
+			gFolderDisplay.selectedCount == 1 && options.printSilent == false
+		) {
+			pdfOutput = true;
+			
+			console.log(pdfOutputEnabled)
+			console.log(pdfOutputDir)
+			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false)
+				{
+					var autoPDFSave = confirm("OK to Autosave PDF or cancel to preview ");
+				}
+			}
+
+		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false && !autoPDFSave) {
 			if (1 &&
 				gMessageDisplay.visible &&
 				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage
@@ -354,17 +292,10 @@ var printingtools = {
 		console.log(typeMsg)
 		// Multiple messages. Get the printer settings, then load the messages into
 		// a hidden browser and print them one at a time.
-		let ps = PrintUtils.getPrintSettings();
-
-		console.log(ps.printerName.toLowerCase().includes("pdf"))
-		var pdfOutput = false;
-		var pdfOutputEnabled;
-		var pdfOutputDir;
-
+		
 		if (ps.printerName.toLowerCase().includes("pdf")) {
 			pdfOutput = true;
-			pdfOutputEnabled = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
-			pdfOutputDir = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
+			
 			console.log(pdfOutputEnabled)
 			console.log(pdfOutputDir)
 			if (!pdfOutputEnabled || pdfOutputDir == "")
