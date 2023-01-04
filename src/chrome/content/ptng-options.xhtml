@@ -2,15 +2,20 @@
 <!DOCTYPE dialog [
 <!ENTITY % mainDTD SYSTEM "chrome://printingtoolsng/locale/printingtoolsng.dtd">
 %mainDTD;
+<!ENTITY % messengerDTD SYSTEM "chrome://messenger/locale/importDialog.dtd">%messengerDTD;
 ]>
-<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!-- <?xml-stylesheet href="chrome://global/skin/" type="text/css"?> -->
+<!-- <?xml-stylesheet type="text/css" href="chrome://global/skin/in-content/common.css"?> -->
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/icons.css"?>
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/colors.css"?>
 <?xml-stylesheet type="text/css" href="chrome://messenger/skin/messenger.css"?>
-<?xml-stylesheet type="text/css" href="chrome://messenger/skin/input-fields.css"?>
+<!-- <?xml-stylesheet type="text/css" href="chrome://messenger/skin/input-fields.css"?> -->
+<?xml-stylesheet type="text/css" href="chrome://messenger/skin/themeableDialog.css"?>
 <?xml-stylesheet type="text/css" href="chrome://printingtoolsng/content/ptng-options.css"?>
-<dialog id="ptng-options"
-		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-		xmlns:html="http://www.w3.org/1999/xhtml"
-        title="PrintingTools NG ">
+<window id="ptng-options"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	title="PrintingTools NG">
 	<script type="text/javascript"  src="chrome://printingtoolsng/content/ptng-options.js" />
 	<script type="application/x-javascript" src="chrome://printingtoolsng/content/modules/list.controller.js" />
 	<script type="text/javascript"  src="chrome://printingtoolsng/content/modules/List.js" />
@@ -23,138 +28,158 @@
 			<!-- <tab id="abTab" label="&PMDcaptionlabel3;" /> -->
 		</tabs>
 		<tabpanels id="tabs">
+			<!-- TAB1 Miscellaneous -->
 			<tabpanel orient="vertical">
-				<html:fieldset>
-					<spacer height="6px" />
-					<caption label="&PMDcaptionlabel;" />
-					<hbox align="center" padding-left="-8px">
-						<label value="&addNameRG.label;" />
-						<radiogroup orient="horizontal" id="addNameRG">
-							<radio label="&RG1.label;"/>
-							<radio label="&RG2.label;"/>
+				<!-- <html:fieldset> -->
+				<!-- <spacer height="2px" /> -->
+				<caption label="&PMDcaptionlabel;" />
+				<!-- <groupbox flex="1"> -->
+				<hbox>
+					<label style="font-weight: 700" value="&addNameRG.label;" />
+				</hbox>
+				<hbox>
+					<spacer width="24"/>
+					<radiogroup id="addNameRG">
+						<radio label="&RG1.label;" />
+						<radio label="&RG2.label;" />
+						<hbox>
 							<radio label="" />
-						</radiogroup>
-						<html:input type="text" id="addNameBox" style="width: 420px"/>
-					</hbox>
-					<hbox align="center">
-						<spacer width="5px" />
-						<checkbox id="addFolder" label="&PMDlabel23;" />
-					</hbox>
-					<spacer height="10px" />
-					<hbox align="center">
-						<spacer width="5px" />
-						<checkbox id="PMDhide" label="&PMDlabel4;" />
-					</hbox>
-					<hbox align="center">
-						<spacer width="5px" />
-						<checkbox id="PMDextHide" label="&PMDlabel21;" />
-					</hbox>
-					<spacer height="10px" />
-					<hbox align="center" id="dateLoc">
-						<checkbox id="PMDdate" label="&PMDlabel1;"  oncommand="setTimeout(toggleDate,200)" />
-					</hbox>
-					<hbox align="center">
-						<spacer width="30px" id="dateSpacer" />
-						<label value="&date.label;" />
-						<radiogroup orient="horizontal" id="dateLongRG">
-							<radio label="&short.label;" id="dateShortRadio" />
-							<radio label="&longLoc.label;"/>
-							<radio label="&long.label;" />
-							<radio label="&date_custom.label;" />
-						</radiogroup>
-						<html:input type="text" id="customDate" size="32" />
-						<hbox class="adjusted-image-height" align="center"  style=" background-color: ;">
-							<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" width="20px" height="20px"  style="margin-left: 5px; margin-top: 0px;  margin-bottom: 0px; background-color: ;"
-            					    onclick="loadHelp()" tooltiptext="help" />
+							<html:input type="text" id="addNameBox" size="34" />
 						</hbox>
+					</radiogroup>
+				</hbox>
+				<spacer height="2px" />
+				<!-- </groupbox> -->
+				<hbox align="center">
+					<spacer width="5px" />
+					<checkbox id="addFolder" label="&PMDlabel23;" />
+				</hbox>
+				<spacer height="8px" />
+				<hbox align="center" id="dateLoc">
+					<checkbox id="PMDdate" label="&PMDlabel1;"  oncommand="setTimeout(toggleDate,200)" />
+				</hbox>
+				<groupbox flex="1">
+					<hbox>
+						<label style="font-weight: 700" value="&date.label;" />
+					</hbox>
+					<hbox>
+						<spacer id="dateSpacer" />
+						<spacer width="24"/>
+						<radiogroup id="dateLongRG">
+							<radio label="&short.label;" id="dateShortRadio" />
+							<radio label="&longLoc.label;" />
+							<radio label="&long.label;" />
+							<hbox>
+								<radio label="&date_custom.label;" />
+								<html:input type="text" id="customDate" size="28" />
+								<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
+									<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
+							width="20px" height="20px" style="margin-left: 2px; margin-top: 0px; 
+							margin-bottom: 0px; background-color: ;" onclick="loadHelp()" title="Help" />
+								</hbox>
+							</hbox>
+						</radiogroup>
+					</hbox>
+					<spacer height="2px" />
+				</groupbox>
+				<hbox align="center">
+					<spacer width="5px" />
+					<checkbox id="addRdate" label="&addRdate.label;" />
+				</hbox>
+				<hbox align="center">
+					<spacer width="5px" />
+					<checkbox id="useCcBccAlways" label="&useCcBccAlways;" />
+				</hbox>
+				<spacer height="8px" />
+				<label value="Attachments:" style="font-weight: 700; width: 100px"/>
+				<hbox align="center">
+					<spacer width="5px" />
+					<checkbox id="PMDattach" label="&PMDlabel2;" oncommand="setTimeout(toggleAtt,200)" />
+				</hbox>
+				<hbox align="center">
+					<spacer width="30px" />
+					<checkbox id="PMDattachIcon" label="&PMDlabel17;" />
+				</hbox>
+				<hbox align="center">
+					<spacer width="30px" />
+					<checkbox id="addP7M" label="&showSignatureVCFfiles;" />
+				</hbox>
+				<hbox align="center">
+					<spacer width="30px" />
+					<label value="&attachmentsPerLine;"/>
+					<menulist id="num_atts_line" style="width: 100%" width="100%">
+						<menupopup>
+							<menuitem label="&wrap;" value="100" id="nal_w" />
+							<menuitem label="1" value="1" id="nal_1" />
+							<menuitem label="2" value="2" id="nal_2" />
+							<menuitem label="3" value="3" id="nal_3" />
+							<menuitem label="4" value="4" id="nal_4" />
+						</menupopup>
+					</menulist>
+				</hbox>
+				<hbox align="center">
+					<spacer width="5px" />
+					<checkbox id="InlineAttsListhide" label="&HideInlineAttList;" />
+					<spacer width="5px" />
+					<checkbox id="PMDhideAtt" label="&PMDlabel10;" />
+				</hbox>
+				<spacer height="8px" />
+				<label value="Images:" style="font-weight: 700; width: 100px"/>
+				<hbox align="center">
+					<spacer width="10px" />
+					<checkbox id="PMDhideImgs" label="&PMDlabel7;" />
+					<spacer width="5px" />
+					<checkbox id="resizeImgs" label="&resizeImgs.label;" />
+				</hbox>
+				<!-- 
+						<hbox align="center">
 						<spacer width="5px" />
-					</hbox>
-					<hbox align="center">
-						<spacer width="5px" />
-						<checkbox id="addRdate" label="&addRdate.label;" />
-					</hbox>
-					<hbox align="center">
-						<spacer width="5px" />
-						<checkbox id="useCcBccAlways" label="&useCcBccAlways;" />
-					</hbox>
-					<spacer height="10px" />
-					<hbox align="center">
-						<spacer width="5px" />
-						<checkbox id="PMDattach" label="&PMDlabel2;" oncommand="setTimeout(toggleAtt,200)" />
-					</hbox>
-					<hbox align="center">
-						<spacer width="30px" />
-						<checkbox id="PMDattachIcon" label="&PMDlabel17;" />
-					</hbox>
-					<hbox align="center">
-						<spacer width="30px" />
-						<checkbox id="addP7M" label="&showSignatureVCFfiles;" />
-					</hbox>
-					<hbox align="center">
-						<spacer width="30px" />
-						<label value="&attachmentsPerLine;"/>
-						<menulist id="num_atts_line" style="width: 100%" width="100%">
-							<menupopup>
-								<menuitem label="&wrap;" value="100" id="nal_w" />
-								<menuitem label="1" value="1" id="nal_1" />
-								<menuitem label="2" value="2" id="nal_2" />
-								<menuitem label="3" value="3" id="nal_3" />
-								<menuitem label="4" value="4" id="nal_4" />
-							</menupopup>
-						</menulist>
-					</hbox>
-					<hbox align="center">
-						<spacer width="5px" />
-						<checkbox id="InlineAttsListhide" label="&HideInlineAttList;" />
-					</hbox>
-					<hbox align="center">
-						<spacer width="5px" />
-						<checkbox id="PMDhideAtt" label="&PMDlabel10;" />
-					</hbox>
-					<spacer height="10px" />
-					<hbox align="center">
-						<spacer width="5px" />
-						<checkbox id="PMDhideImgs" label="&PMDlabel7;" />
-					</hbox>
-					<hbox align="center">
-						<spacer width="5px" />
-						<checkbox id="resizeImgs" label="&resizeImgs.label;" />
-					</hbox>
-					<!--
-	<hbox align="center">
-		<checkbox id="showButtonPreview" label="&showButton.label;"  /> 
-	</hbox>
--->
-				</html:fieldset>
+						<checkbox id="showButtonPreview" label="&showButton.label;"  /> 
+					</hbox>	 -->
+				<!-- </html:fieldset> -->
 			</tabpanel>
+			<!-- TAB2 Style -->
 			<tabpanel orient="vertical">
 				<html:fieldset>
-					<html:legend style="font-weight: 500; margin: 8px 6px 8px 6px;  padding-left: 6px; background-color: white">&headers;</html:legend>
+					<html:legend style="font-weight: 700; margin: 8px 6px 8px 6px; padding-left: 6px">&headers;</html:legend>
 					<vbox align="start" style="padding-left: 10px">
+						<hbox align="center">
+							<spacer width="5px" />
+							<checkbox id="PMDhide" label="&PMDlabel4;" />
+						</hbox>
+						<hbox align="center">
+							<spacer width="5px" />
+							<checkbox id="PMDextHide" label="&PMDlabel21;" />
+						</hbox>
 						<checkbox id="alignHeaders" label="&alignHeaders.label;"  />
 						<hbox align="center">
 							<checkbox id="PMDtruncate" label="&PMDlabel5;" />
-							<html:input type="text" id="PMDmaxchars" value="" style="width:40px;" />
+							<html:input type="text" id="PMDmaxchars" value="" style="width: 40px;" />
 							<label value="&PMDlabel6;" />
 						</hbox>
-						
 						<hbox align="center">
-							<checkbox id="PMDborders" label="&PMDlabel3;. "  />
-							<label value="&borderStyle; (CSS)" style="margin-bottom: 0px; margin-top: 0px;" />
-							<html:input type="text" id="border_style" value="" style="width: 400px;" />
+							<checkbox id="PMDborders" label="&PMDlabel3;" />
 						</hbox>
 						<hbox align="center">
+							<spacer width="24"/>
+							<label value="&borderStyle; (CSS)" style="margin-bottom: 0px; margin-top: 0px;" />
+							<html:input type="text" id="border_style" value="" style="width: 300px;" />
+						</hbox>
+						<hbox>
 							<checkbox id="useHeadersBkColor" label="&useHeadersBkColor;" oncommand="setTimeout(toggleUseBackgroundColor,300,this)"/>
-							<!-- <label value="Use Header Background Color : " style="margin:2px"/>  -->
-							<html:input type="color" id="headersBkColor" value="#ffffff" style="padding-right:4px"/>
-						
-						
-							<label value="&colorsNote;" style="margin:5px; padding-left: 18px;"/>
+							<html:input type="color" id="headersBkColor" value="#ffffff" style="padding-right: 4px" />
+						</hbox>
+						<hbox align="center">
+							<spacer width="24"/>
+							<label value="&colorsNote;" />
 						</hbox>
 						<hbox align="center">
 							<checkbox id="headersStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleHeadersStyle,300,this)" />
-							<menulist id="hdrfontlist" style="width:300px"/>
-							<label value="&withSize;"/>
+						</hbox>
+						<hbox align="center">
+							<spacer width="26"/>
+							<menulist id="hdrfontlist" style="width: 300px"/>
+							<label value="&withSize;" />
 							<menulist id="hdrfontsize">
 								<menupopup>
 									<menuitem label="7" value="7" id="h7" />
@@ -174,7 +199,6 @@
 									<menuitem label="30" value="30" id="h30" />
 									<menuitem label="36" value="36" id="h36" />
 									<menuitem label="50" value="50" id="h50" />
-									
 								</menupopup>
 							</menulist>
 						</hbox>
@@ -182,95 +206,77 @@
 				</html:fieldset>
 				<spacer height="6px"/>
 				<html:fieldset>
-					<html:legend style="font-weight: 500; margin: 8px; background-color: white">&messageBody;</html:legend>
+					<html:legend style="font-weight: 700; margin: 8px">&messageBody;</html:legend>
 					<vbox align="start" style="padding-left: 10px">
-					<hbox>
-							<checkbox id="PREtruncate" label="&maxPreLen;" />
-							<html:input type="text" id="PREmaxchars" value="" style="width:40px;" />
-						</hbox>
-					<hbox align="center">
-						<checkbox id="messageStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleMessageStyle,300,this,true)" />
-						<menulist id="fontlist" style="width:300px"/>
-						<label value="&withSize;"/>
-						<menulist id="fontsize">
-							<menupopup>
-								<menuitem label="7" value="7" id="x7" />
-								<menuitem label="8" value="8" id="x8" />
-								<menuitem label="9" value="9" id="x9" />
-								<menuitem label="10" value="10" id="x10" />
-								<menuitem label="11" value="11" id="x11" />
-								<menuitem label="12" value="12" id="x12" />
-								<menuitem label="13" value="13" id="x13" />
-								<menuitem label="14" value="14" id="x14"/>
-								<menuitem label="15" value="15" id="x15" />
-								<menuitem label="16" value="16" id="x16" />
-								<menuitem label="17" value="17" id="x17" />
-								<menuitem label="18" value="18" id="x18" />
-								<menuitem label="20" value="20" id="x20" />
-								<menuitem label="24" value="24" id="x24" />
-								<menuitem label="30" value="30" id="x30" />
-								<menuitem label="36" value="36" id="x36" />
-								<menuitem label="50" value="50" id="x50" />
-								<menuitem label="100" value="100" id="x100" />
-								<menuitem label="150" value="150" id="x150" />
-								<menuitem label="200" value="200" id="x200" />
-								<menuitem label="250" value="250" id="x250" />
-								<menuitem label="300" value="300" id="x300" />
-								<menuitem label="350" value="350" id="x350" />
-								<menuitem label="400" value="400" id="x400" />
-								<menuitem label="450" value="450" id="x450" />
-								<menuitem label="500" value="500" id="x500" />
-								<menuitem label="550" value="550" id="x550" />
-								<menuitem label="1000" value="1000" id="x1000" />
-							</menupopup>
-						</menulist>
-					</hbox>
-					
 						<hbox align="center">
-					<checkbox label="&cite.checkbox;" oncommand="setTimeout(toggleCiteStyle,300,this)" id="citeCheck" />
-					<label value="&cite.color;" style="margin:5px"/>
-					<html:input type="color" id="citeColor" value="#ffffff"/>
-					<label value="&cite.size;" style="margin:5px"/>
-					<menulist id="citeSize" style="width:70px" disabled="true">
-						<menupopup>
-							<menuitem label="7" value="7" id="s7" />
-							<menuitem label="8" value="8" id="s8" />
-							<menuitem label="9" value="9" id="s9" />
-							<menuitem label="10" value="10" id="s10" />
-							<menuitem label="11" value="11" id="s11" />
-							<menuitem label="12" value="12" id="s12" />
-							<menuitem label="13" value="13" id="s13" />
-							<menuitem label="14" value="14" id="s14"/>
-							<menuitem label="15" value="15" id="s15" />
-							<menuitem label="16" value="16" id="s16" />
-							<menuitem label="17" value="17" id="s17" />
-							<menuitem label="18" value="18" id="s18" />
-							<menuitem label="20" value="20" id="s20" />
-							<menuitem label="24" value="24" id="s24" />
-							<menuitem label="30" value="30" id="s30" />
-							<menuitem label="36" value="36" id="s36" />
-							<menuitem label="50" value="50" id="s50" />
-							<menuitem label="100" value="100" id="s100" />
-							<menuitem label="150" value="150" id="s150" />
-							<menuitem label="200" value="200" id="s200" />
-							<menuitem label="250" value="250" id="s250" />
-							<menuitem label="300" value="300" id="s300" />
-							<menuitem label="350" value="350" id="s350" />
-							<menuitem label="400" value="400" id="s400" />
-							<menuitem label="450" value="450" id="s450" />
-							<menuitem label="500" value="500" id="s500" />
-							<menuitem label="550" value="550" id="s550" />
-							<menuitem label="1000" value="1000" id="s1000" />
-						</menupopup>
-					</menulist>
-				</hbox>
-				</vbox>
+							<checkbox id="PREtruncate" label="&maxPreLen;" />
+							<html:input type="text" id="PREmaxchars" value="" style="width: 40px;" />
+						</hbox>
+						<hbox align="center">
+							<checkbox id="messageStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleMessageStyle,300,this,true)" />
+						</hbox>
+						<hbox align="center">
+							<spacer width="26"/>
+							<menulist id="fontlist" style="width: 300px"/>
+							<label value="&withSize;"/>
+							<menulist id="fontsize">
+								<menupopup>
+									<menuitem label="7" value="7" id="x7" />
+									<menuitem label="8" value="8" id="x8" />
+									<menuitem label="9" value="9" id="x9" />
+									<menuitem label="10" value="10" id="x10" />
+									<menuitem label="11" value="11" id="x11" />
+									<menuitem label="12" value="12" id="x12" />
+									<menuitem label="13" value="13" id="x13" />
+									<menuitem label="14" value="14" id="x14"/>
+									<menuitem label="15" value="15" id="x15" />
+									<menuitem label="16" value="16" id="x16" />
+									<menuitem label="17" value="17" id="x17" />
+									<menuitem label="18" value="18" id="x18" />
+									<menuitem label="20" value="20" id="x20" />
+									<menuitem label="24" value="24" id="x24" />
+									<menuitem label="30" value="30" id="x30" />
+									<menuitem label="36" value="36" id="x36" />
+									<menuitem label="50" value="50" id="x50" />
+								</menupopup>
+							</menulist>
+						</hbox>
+						<hbox align="center">
+							<checkbox label="&cite.checkbox;" oncommand="setTimeout(toggleCiteStyle,300,this)" id="citeCheck" />
+							<label value="&cite.color;" style="margin: 5px"/>
+							<html:input type="color" id="citeColor" value="#ffffff"/>
+							<label value="&cite.size;" style="margin: 5px"/>
+							<menulist id="citeSize" disabled="true">
+								<menupopup>
+									<menuitem label="7" value="7" id="s7" />
+									<menuitem label="8" value="8" id="s8" />
+									<menuitem label="9" value="9" id="s9" />
+									<menuitem label="10" value="10" id="s10" />
+									<menuitem label="11" value="11" id="s11" />
+									<menuitem label="12" value="12" id="s12" />
+									<menuitem label="13" value="13" id="s13" />
+									<menuitem label="14" value="14" id="s14"/>
+									<menuitem label="15" value="15" id="s15" />
+									<menuitem label="16" value="16" id="s16" />
+									<menuitem label="17" value="17" id="s17" />
+									<menuitem label="18" value="18" id="s18" />
+									<menuitem label="20" value="20" id="s20" />
+									<menuitem label="24" value="24" id="s24" />
+									<menuitem label="30" value="30" id="s30" />
+									<menuitem label="36" value="36" id="s36" />
+									<menuitem label="50" value="50" id="s50" />
+								</menupopup>
+							</menulist>
+						</hbox>
+					</vbox>
 				</html:fieldset>
-
 			</tabpanel>
+			<!-- TAB3 Headers order -->
 			<tabpanel>
 				<hbox>
+					<spacer width="15px"/>
 					<vbox>
+						<spacer height="15px"/>
 						<html:div id="headersListContainer" tabindex="0" class="table-list-hboxcontainer">
 							<html:table id="headersList" class="list table-list" >
 								<html:thead>
@@ -282,6 +288,8 @@
 						<label value="&otherHeaders;" />
 					</vbox>
 					<vbox>
+						<spacer height="15px"/>
+						<spacer width="15px"/>
 						<button label="&up;" onclick="move(1)" />
 						<spacer height="5px"/>
 						<button label="&down;" onclick="move(-1)" />
@@ -290,71 +298,181 @@
 					</vbox>
 				</hbox>
 			</tabpanel>
+			<!-- TAB4 Global printing options -->
 			<tabpanel>
-				<vbox>
-					<hbox align="center">
-						<html:label style="padding-left: 8px; padding-right: 4px;">&defaultPrinter;</html:label>
-						<menulist id="OutputPrinter"/>
+				<!-- <html:div style= "height: 200px; overflow-y: scroll; background-color2: yellow"> -->
+				<html:div style= "background-color2: yellow; padding-left: 10px">
+					<spacer height="2px"/>
+					<vbox>
+						<spacer height="2px"/>
+						<hbox>
+							<html:label style="padding-left: 1px; padding-right: 4px; 
+						font-weight: 700">&defaultPrinter;</html:label>
+							<spacer height="8px"/>
+							<hbox>
+							<spacer width="20px"/>
+							<menulist id="OutputPrinter" oncommand="printerChange();" style="padding-left: 20px"/>
+						</hbox>
+						</hbox>
+						<spacer height="4px"/>
+						<hbox align="center">
+							<spacer width="10px"/>
+							<checkbox id="PMDselection" label="&PMDlabel16;"  />
+						</hbox>
+						<hbox align="center">
+							<spacer width="10px"/>
+							<checkbox id="PMDsilent" label="&PMDlabel8;" />
+						</hbox>
+						<spacer height="15px"/>
+						<hbox align="center">
+							<label value="&debugOptions.label;: " />
+							<html:input type="text" id="debug-options" size="30" />
+						</hbox>
+						<spacer height="15px"/>
+						<label value="Page Options" style="font-weight: 700; width: 100px"/>
+						<spacer height="4px"/>
+						<hbox align="center" height="24px">
+						
+							<label value="Copies : " style="width: 120px"/>
+							
+							<hbox flex="0" width="300px" style="background-colorX: yellow">
+								<vbox>
+								<html:div id="parent">
+								<html:input id="copies-count" is="setting-number" 
+						data-setting-name="numCopies" min="1" max="10000" 
+						class="copy-count-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="1"/>
+						<html:div id="copies-count-error" class="error">Error</html:div>
+						</html:div>
+						</vbox>
+							</hbox>
+						</hbox>
+						<spacer height="10px"/>
+						<hbox>
+						<label value="Page Ranges : " style="width: 120px"/>
+						<radiogroup id="pageRangesRG" orient="horizontal" oncommand="pageRangeToggle(this);">
+						<radio label="All" />
+						
+						
+							<radio label="Custom" />
+
+							<html:div id="page-ranges-error-parent">
+							<html:input type="text" id="pages" size="15" required="" style="heightx: 24px; margin-left: 0px" />
+							<html:div id="page-ranges-error" class="error">Error</html:div>
+						</html:div>
+					</radiogroup>
+						
 					</hbox>
-					<spacer height="4px" />
-					<hbox align="center">
-						<checkbox id="PMDselection" label="&PMDlabel16;"  />
-					</hbox>
-					<hbox align="center">
-						<checkbox id="PMDsilent" label="&PMDlabel8;" />
-					</hbox>
-					<spacer height="30px"/>
-					<hbox align="center">
-						<label value="&debugOptions.label;: " />
-						<html:input type="text" id="debug-options" size="30" />
-					</hbox>
-				</vbox>
-			</tabpanel>
-			<tabpanel>
-				<vbox>
-					<hbox align="center">
-						<checkbox id="PMDabsmallfont" label="&PMDlabel12;" />
-						<menulist id="ABfontsize">
-							<menupopup>
-								<menuitem label="8"/>
-								<menuitem label="9"/>
-								<menuitem label="10"/>
-								<menuitem label="11"/>
-								<menuitem label="12"/>
-								<menuitem label="13"/>
-								<menuitem label="14"/>
-								<menuitem label="15"/>
-								<menuitem label="16"/>
-								<menuitem label="17"/>
-								<menuitem label="18"/>
-							</menupopup>
-						</menulist>
-					</hbox>
-					<hbox>
-						<checkbox id="ABcustomFont" label="&PMDlabel18; " />
-						<menulist id="ABfontlist" style="width:200px"/>
-						<!-- <menulist id="fontlist2" style="width:200px"/> -->
-					</hbox>
-					<hbox align="center">
-						<checkbox id="PMDabnohead" label="&PMDlabel13;" prefstring="extensions.printingtoolsng.addressbook.hide_header_card"/>
-					</hbox>
-					<hbox align="center">
-						<checkbox id="PMDabjustaddress" label="&PMDlabel14;" prefstring="extensions.printingtoolsng.addressbook.print_just_addresses"/>
-					</hbox>
-					<hbox align="center">
-						<checkbox id="PMDabmaxcompact" label="&PMDlabel15;" />
-					</hbox>
-					<hbox align="center">
-						<checkbox id="PMDcutnotes" label="&PMDlabel19;" />
-					</hbox>
-					<hbox align="center">
-						<checkbox id="PMDaddname" label="&PMDlabel20;" />
-					</hbox>
-					<hbox align="center">
-						<checkbox id="multipleCards" label="&multipleCards.label;" />
-					</hbox>
-				</vbox>
+
+						
+
+						<spacer height="10px"/>
+						<vbox  >
+							<hbox>
+								<label value="Margins : " style="width: 50px"/>
+								<label id="units" value="(inches)" />
+							</hbox>
+							<spacer height="5px"/>
+							<hbox>
+							<spacer width="80px"/>
+								<label value="Top " style="width: 30px"/>
+								<hbox width="80px">
+									<html:input id="margin-top" is="setting-number" 
+						data-setting-name="marginTop" min="0" max="10000" step="0.001"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50"/>
+								</hbox>
+								<spacer width="10px"/>
+								<hbox>
+									<label value="Bottom " style="width: 70px"/>
+								</hbox>
+								<hbox width="80px">
+									<html:input id="margin-bottom" is="setting-number" 
+						data-setting-name="marginBottom" min="0" max="10000" step="0.001"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50"/>
+								</hbox>
+							</hbox>
+							<spacer height="2px"/>
+							<hbox>
+							<spacer width="80px"/>
+								<label value="Left " style="width: 30px"/>
+								<hbox width="80px">
+									<html:input id="margin-left" is="setting-number" 
+						data-setting-name="numCopies" min="0" max="10000" step="0.001"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50"/>
+								</hbox>
+								<spacer width="10px"/>
+								<hbox>
+									<label value="Right " style="width: 70px"/>
+								</hbox>
+								<hbox width="80px">
+									<html:input id="margin-right" is="setting-number" 
+						data-setting-name="numCopies" min="0" max="10000" step="0.001"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50"/>
+								</hbox>
+							</hbox>
+						</vbox>
+						<spacer height="10px"/>
+						<hbox align="center">
+							<label value="Headers : " style="width: 60px"/>
+							<spacer width="5px"/>
+							<label value="Left " style="width: 20px"/>
+							<html:input type="text" id="headerleft" size="15" 
+						style="heightx: 24px; margin-left: 0px" />
+						</hbox>
+						<spacer height="2px"/>
+						<hbox align="center">
+							<spacer width="66px"/>
+							<label value="Center " style="width: 20px"/>
+							<html:input type="text" id="headercenter" size="15" 
+						style="heightx: 24px; margin-left: 0px" />
+						</hbox>
+						<spacer height="2px"/>
+						<hbox align="center">
+							<spacer width="78px"/>
+							<label value="Right " style="width: 20px"/>
+							<html:input type="text" id="headerright" size="15" 
+						style="heightx: 24px; margin-left: 0px" />
+						</hbox>
+						<spacer height="4px"/>
+						<hbox align="center">
+							<label value="Footers :  " style="width: 60px"/>
+							<spacer width="5px"/>
+							<label value="Left " style="width: 20px"/>
+							<html:input type="text" id="footerleft" size="15" 
+						style="heightx: 24px; margin-left: 0px" />
+						</hbox>
+						<spacer height="2px"/>
+						<hbox align="center">
+							<spacer width="66px"/>
+							<label value="Center " style="width: 20px"/>
+							<html:input type="text" id="footercenter" size="15" 
+						style="heightx: 24px; margin-left: 0px" />
+						</hbox>
+						<spacer height="2px"/>
+						<hbox align="center">
+							<spacer width="78px"/>
+							<label value="Right " style="width: 20px"/>
+							<html:input type="text" id="footerright" size="15" 
+						style="heightx: 24px; margin-left: 0px" />
+						</hbox>
+					</vbox>
+				</html:div>
 			</tabpanel>
 		</tabpanels>
 	</tabbox>
-</dialog>
+	<vbox height="8px"></vbox>
+	<hbox align="right">
+		<spacer flex="1"/>
+		<button id="okbutton" label="OK" oncommand="savePMDprefs();"/>
+		<button id="localfolder.btQuitter" label="Cancel" oncommand="window.close();"/>
+	</hbox>
+</window>

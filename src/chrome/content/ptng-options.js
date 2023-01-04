@@ -82,7 +82,7 @@ async function  initPMDpanel() {
 	}
 
 	fullPanel = true;
-	initPMDabpanel();
+	//initPMDabpanel();
 
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 
