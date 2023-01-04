@@ -55,10 +55,6 @@ messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/customizeToolbar.xhtml",
 	"chrome://printingtoolsng/content/customizeToolbarOL.js");
 
-//messenger.WindowListener.registerWindow(
-	//"chrome://messenger/content/addressbook/addressbook.xhtml",
-	//"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
-
 messenger.WindowListener.startListening();
 
 // cleidigh - thanks to John B for the update notification code

@@ -54,36 +54,6 @@ async function  initPMDpanel() {
 
 	document.getElementById("ptng-options").setAttribute("title", `${title} - v${PTNGVersion}`);
 
-	if (window.arguments) {
-		if (typeof window.arguments[0] === 'object' || window.arguments[0] === false) {
-			fromPreview = false;
-			abook = window.arguments[1] || false;
-
-		} else {
-			fromPreview = window.arguments[0] || false;
-			abook = window.arguments[1] || false;
-		}
-	} else {
-		fromPreview = false;
-		abook = false;
-	}
-	// console.debug(fromPreview);
-	// console.debug(abook);
-
-	var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
-		.getService(Ci.nsIWindowMediator);
-	var awin = wm.getMostRecentWindow("mail:addressbook");
-	if (awin) {
-		abook = true;
-	}
-
-	if (abook) {
-		document.getElementById("ptng-tbox").selectedIndex = 4;
-	}
-
-	fullPanel = true;
-	//initPMDabpanel();
-
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 
 
@@ -292,48 +262,6 @@ async function setPrinterList() {
 	// Services.console.logStringMessage("printingtools: printerName index: " + selindex);
 }
 
-function initPMDabpanel() {
-
-	document.getElementById("multipleCards").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards");
-	document.getElementById("PMDabmaxcompact").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.max_compact");
-	document.getElementById("PMDabsmallfont").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size");
-	document.getElementById("ABcustomFont").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family");
-	if (String.trim)
-		document.getElementById("PMDabnohead").collapsed = true;
-	else
-		document.getElementById("PMDabnohead").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.hide_header_card");
-	document.getElementById("PMDabjustaddress").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_just_addresses");
-	document.getElementById("PMDcutnotes").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.cut_notes");
-	document.getElementById("PMDaddname").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.add_ab_name");
-
-	var fontlist = document.getElementById("ABfontlist");
-	var fonten = Cc["@mozilla.org/gfx/fontenumerator;1"].createInstance(Ci.nsIFontEnumerator);
-	var allfonts = fonten.EnumerateAllFonts({});
-	var selindex = 0;
-	var popup = document.createXULElement("menupopup");
-
-	for (var j = 0; j < allfonts.length; j++) {
-		var menuitem = document.createXULElement("menuitem");
-		menuitem.setAttribute("value", allfonts[j]);
-		menuitem.setAttribute("label", allfonts[j]);
-		if (prefs.getPrefType("extensions.printingtoolsng.addressbook.font_family") > 0 &&
-			allfonts[j] === getComplexPref("extensions.printingtoolsng.addressbook.font_family")) {
-			selindex = j;
-		}
-		popup.appendChild(menuitem);
-	}
-	fontlist.appendChild(popup);
-	fontlist.selectedIndex = selindex;
-
-
-	document.getElementById("ABcustomFont").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family");
-	var fontsize = prefs.getIntPref("extensions.printingtoolsng.addressbook.custom_font_size");
-	if (fontsize > 7 && fontsize < 19)
-		document.getElementById("ABfontsize").selectedIndex = fontsize - 8;
-	else
-		document.getElementById("ABfontsize").selectedIndex = 2;
-
-}
 
 function onSelectListRow(event, data_id) {
 	if (event.type === 'onclick') {
@@ -497,39 +425,6 @@ function savePMDprefs() {
 
 	prefs.setCharPref("extensions.printingtoolsng.debug.options", document.getElementById("debug-options").value);
 	
-}
-
-function savePMDabprefs(fullpanel) {
-
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.max_compact", document.getElementById("PMDabmaxcompact").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size", document.getElementById("PMDabsmallfont").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.hide_header_card", document.getElementById("PMDabnohead").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.print_just_addresses", document.getElementById("PMDabjustaddress").checked);
-	prefs.setIntPref("extensions.printingtoolsng.addressbook.custom_font_size", document.getElementById("ABfontsize").selectedItem.label);
-
-	var fontlistchild = document.getElementById("ABfontlist").getElementsByTagName("menuitem");
-	var selfont = fontlistchild[document.getElementById("ABfontlist").selectedIndex].getAttribute("value");
-	setComplexPref("extensions.printingtoolsng.addressbook.font_family", selfont);
-
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family", document.getElementById("ABcustomFont").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.cut_notes", document.getElementById("PMDcutnotes").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.add_ab_name", document.getElementById("PMDaddname").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards", document.getElementById("multipleCards").checked);
-	if (document.getElementById("PMDabsmallfont") && opener.printingtools) {
-		var isContact = opener.printingtools.isContact;
-		opener.close();
-		var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
-			.getService(Ci.nsIWindowMediator);
-		var win = wm.getMostRecentWindow("mail:addressbook");
-		if (!win)
-			return;
-		if (!isContact) {
-			// console.debug('address.Preview');
-			win.AbPrintPreviewAddressBook();
-		}
-		else
-			win.AbPrintPreviewCard();
-	}
 }
 
 
