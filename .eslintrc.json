@@ -47,7 +47,7 @@
 		"no-unused-vars":"off",
 		"space-before-function-paren":"off",
 		"no-array-constructor": "warn",
-		"eqeqeq":"error",
+		
 		"no-octal":"off",
 		
 		"mozilla/import-globals": "off",

@@ -4,12 +4,12 @@ var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.js
 var st = {};
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/strftime.js", st);
 
-
+var { printerSettings } = ChromeUtils.import("chrome://printingtoolsng/content/printerSettings.js");
 
 
 console.log("PTNG: Engine loaded ")
 
-
+printerSettings.addPrintPreviewObserver(window);
 
 
 var printingtools = {

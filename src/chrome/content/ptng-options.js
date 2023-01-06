@@ -1,22 +1,22 @@
 /* globals
 List,
 ListController,
-
+printerSettings,
 */
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
-var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js"); 
+var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
+
+//printerSettings.window = window;
+
 var PMDstr = Cc["@mozilla.org/supports-string;1"]
 	.createInstance(Ci.nsISupportsString);
 
 var strBundleService = Services.strings;
 
 var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
-var fullPanel;
-var fromPreview;
 var gheaderList;
-var abook = false;
-
+var printerSettings;
 
 function getComplexPref(pref) {
 	if (prefs.getStringPref)
@@ -46,13 +46,14 @@ async function  initPMDpanel() {
 	var win = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator)
 		.getMostRecentWindow("mail:3pane");
-
 		
 	var PTNGVersion = win.printingtoolsng.extension.addonData.version;
 
 	let title = document.getElementById("ptng-options").getAttribute("title");
 
 	document.getElementById("ptng-options").setAttribute("title", `${title} - v${PTNGVersion}`);
+
+	printerSettings = win.printerSettings;
 
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 
@@ -213,6 +214,7 @@ async function  initPMDpanel() {
 
 	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
+	printerSettings.getPrinterSettings(window);
 	document.getElementById("useCcBccAlways").focus;
 }
 
@@ -234,8 +236,12 @@ async function setPrinterList() {
 	// Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
 	var printers = await printerList.printers;
 	// var printers = [];
-	var i = 0;
-	// while(pe.hasMore()) {
+	var i = 1;
+	var menuitem0 = document.createXULElement("menuitem");
+	menuitem0.setAttribute("value", "Mozilla Save to PDF");
+	menuitem0.setAttribute("label", "Save to PDF");
+	popup.appendChild(menuitem0);
+	
 	for (let printer of printers) {
 		printer.QueryInterface(Ci.nsIPrinter);
 		let printerName = printer.name;
@@ -253,15 +259,21 @@ async function setPrinterList() {
 		i++;
 	}
 
-	var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
-		.getService(Ci.nsIPrintSettingsService);
-
+	if (outputPrinter === "Mozilla Save to PDF") {
+		selindex = 0;
+	}
 
 	printerListMenu.appendChild(popup);
 	printerListMenu.selectedIndex = selindex;
 	// Services.console.logStringMessage("printingtools: printerName index: " + selindex);
 }
 
+function printerChange() {
+	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
+	prefs.setCharPref("print_printer", "");
+	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
+	//getPrinterSettings();
+}
 
 function onSelectListRow(event, data_id) {
 	if (event.type === 'onclick') {
@@ -404,27 +416,10 @@ function savePMDprefs() {
 	val = val + list.rows.item(6).getAttribute("data-headerToken");
 	prefs.setCharPref("extensions.printingtoolsng.headers.order", val);
 	prefs.setBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach", document.getElementById("addP7M").checked);
-	if (fromPreview) {
-		// console.debug('closing from preview');
-		try {
-			opener.close();
-			var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
-				.getService(Ci.nsIWindowMediator);
-			var win;
-			if (abook) {
-				win = wm.getMostRecentWindow("mail:addressbook");
-				win.AbPrintPreviewAddressBook();
-			} else {
-				win = wm.getMostRecentWindow("mail:3pane");
-				win.PrintEnginePrintPreview();
-			}
-		} catch (e) {
-			console.debug(e);
-		}
-	}
-
 	prefs.setCharPref("extensions.printingtoolsng.debug.options", document.getElementById("debug-options").value);
 	
+	printerSettings.savePrintSettings();
+	window.close();
 }
 
 
