@@ -10,6 +10,7 @@ st,
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
+var window;
 var document;
 
 var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
@@ -395,95 +396,99 @@ var printerSettings = {
     return val / 25.4;
   },
 
-  addPrintPreviewObserver: function (window) {
-    document = window.document;
+  addPrintPreviewObserver: function (win) {
+    document = win.document;
+    window = win;
+    console.log("add obsw", window);
     Services.obs.addObserver(this.printPreviewSetPrinterPrefs, "subdialog-loaded");
   },
 
   removePrintPreviewObserver: function () {
+    console.log("rem obs");
     Services.obs.removeObserver(this.printPreviewSetPrinterPrefs, "subdialog-loaded");
   },
 
   printPreviewSetPrinterPrefs: {
-    
-	
+
+
       async observe(subDialogWindow) {
         // A subDialog has been opened.
         console.log("subDialog opened: " + subDialogWindow.location.href);
-  
+
         // We only want to deal with the print subDialog.
         if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html?")) {
           return;
         }
-  
-  
-        //Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", subDialogWindow);
-  
+
+        console.log(window);
+
+        // Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", subDialogWindow);
+
         // subDialogWindow.printingtools.printT(subDialogWindow);
         // let mw = subDialogWindow.printingtools.getMail3Pane();
         // let ps = mw.document.documentElement.querySelector(".printPreviewStack print-preview browser");
         // console.debug(ps);
-  
+
         // ps.addEventListener('DOMContentLoaded', (event) => {
         // 	console.log('DOM fully loaded and parsed');
         // });
-  
+
         // Wait until print-settings in the subDialog have been loaded/rendered.
         await new Promise(resolve =>
           subDialogWindow.document.addEventListener("print-settings", resolve, { once: true })
         );
-  
+
         console.log("subDialog print-settings loaded");
         console.log("subDialog print-settings caller/opener: " + subDialogWindow.PrintEventHandler.activeCurrentURI);
-  
-        console.log(window.printingtools);
+
+        // console.log(window.printingtools);
         // setTimeout(subDialogWindow.printingtools.printT, 9000);
-  
-        //console.debug(subDialogWindow.document.documentElement.outerHTML);
+
+        // console.debug(subDialogWindow.document.documentElement.outerHTML);
         let cr = subDialogWindow.document.querySelector("#custom-range");
         let rp = subDialogWindow.document.querySelector("#range-picker");
         let mp = subDialogWindow.document.querySelector("#margins-picker");
         let cmg = subDialogWindow.document.querySelector("#custom-margins");
         let nc = subDialogWindow.document.querySelector("#copies-count");
-        
+
         let printerName = window.printingtools.prefs.getCharPref("print_printer").replace(/ /g, '_');
         console.debug(printerName);
         let props = window.printingtools.prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
         var customProps = JSON.parse(props);
-  
-    
+
+
         console.debug(mp);
         console.debug(rp.options);
         let o = [...rp.options];
         let rangeType;
         if (customProps.pageRanges.length == 0) {
-          rangeType = "all"
+          rangeType = "all";
         } else {
           rangeType = "custom";
-          cr.removeAttribute("disabled")
-          cr.removeAttribute("hidden")
+          cr.removeAttribute("disabled");
+          cr.removeAttribute("hidden");
         }
-        console.log(rangeType)
+        console.log(rangeType);
         rp.selectedIndex = o.findIndex(el => el.value == rangeType);
-  
-        
-        
-        cmg.removeAttribute("hidden")
+
+
+
+        cmg.removeAttribute("hidden");
         mp.selectedIndex = 3;
-  
-        
-      
-        cr.value = pageRangesToString(customProps["pageRanges"]);
-        
-        nc.value = customProps["numCopies"];
-      
-        
-  
-  
+
+
+
+        cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
+
+        nc.value = customProps.numCopies;
+
+
+
+
         },
 
   },
 
- 
+
 
 };

@@ -2371,6 +2371,7 @@ var printingtools = {
 		if (document.getElementById("fp")) {
 			document.getElementById("fp").remove();
 		}
+		printerSettings.removePrintPreviewObserver();
 	}
 }
 

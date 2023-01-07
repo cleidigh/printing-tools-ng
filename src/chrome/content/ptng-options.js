@@ -35,18 +35,18 @@ function setComplexPref(pref, value) {
 
 async function loadHelp(bmark) {
 	//console.log("help load")
-	t = await window.opener.ptngAddon.notifyTools.notifyBackground({ command: "openHelp", locale: Services.locale.appLocaleAsBCP47});
+	t = await window.opener.ptngAddon.notifyTools.notifyBackground({ command: "openHelp", locale: Services.locale.appLocaleAsBCP47 });
 }
 
-async function  initPMDpanel() {
+async function initPMDpanel() {
 
 	// cleidigh
 	//console.debug('initialize panel');
-	
+
 	var win = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator)
 		.getMostRecentWindow("mail:3pane");
-		
+
 	var PTNGVersion = win.printingtoolsng.extension.addonData.version;
 
 	let title = document.getElementById("ptng-options").getAttribute("title");
@@ -120,13 +120,13 @@ async function  initPMDpanel() {
 	}
 
 	document.getElementById("PMDsilent").checked = prefs.getBoolPref("extensions.printingtoolsng.print.silent");
-	
+
 	var sID = "s" + prefs.getIntPref("extensions.printingtoolsng.cite.size");
 	document.getElementById("citeSize").selectedItem = document.getElementById(sID);
 	var hID = "h" + prefs.getIntPref("extensions.printingtoolsng.headers.size");
 	document.getElementById("hdrfontsize").selectedItem = document.getElementById(hID);
 
-	
+
 	var xID = "x" + prefs.getIntPref("extensions.printingtoolsng.messages.size");
 	document.getElementById("fontsize").selectedItem = document.getElementById(xID);
 
@@ -203,7 +203,7 @@ async function  initPMDpanel() {
 	for (var i = 0; i < u.length; i++) {
 		var lab = getHeaderLabel(u[i].replace('!', ''));
 		let show = !u[i].startsWith('!');
-		
+
 		gheaderList.add({ headerName: lab, headerToken: u[i], id: i + 1, show: show });
 	}
 	// console.debug(gheaderList.listElement.outerHTML);
@@ -215,6 +215,8 @@ async function  initPMDpanel() {
 	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
 	printerSettings.getPrinterSettings(window);
+  addValidationListeners();
+  
 	document.getElementById("useCcBccAlways").focus;
 }
 
@@ -241,7 +243,7 @@ async function setPrinterList() {
 	menuitem0.setAttribute("value", "Mozilla Save to PDF");
 	menuitem0.setAttribute("label", "Save to PDF");
 	popup.appendChild(menuitem0);
-	
+
 	for (let printer of printers) {
 		printer.QueryInterface(Ci.nsIPrinter);
 		let printerName = printer.name;
@@ -272,7 +274,7 @@ function printerChange() {
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
 	prefs.setCharPref("print_printer", "");
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
-	//getPrinterSettings();
+	printerSettings.getPrinterSettings(window);
 }
 
 function onSelectListRow(event, data_id) {
@@ -285,16 +287,16 @@ function onSelectListRow(event, data_id) {
 }
 
 function getHeaderLabel(string) {
-	
+
 	var bundle;
 	//console.log(Services.locale.appLocaleAsBCP47)
 	if (Services.locale.appLocaleAsBCP47 === "ja") {
 		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
 	} else if (Services.locale.appLocaleAsBCP47 === "zh-CN") {
-		
+
 		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
-} else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
-		
+	} else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+
 		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh-tw.properties");
 	} else {
 		bundle = strBundleService.createBundle("chrome://messenger/locale/mime.properties");
@@ -329,7 +331,7 @@ function getHeaderLabel(string) {
 
 function savePMDprefs() {
 	//console.debug('save options');
-	
+
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
 	prefs.setCharPref("print_printer", "");
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
@@ -372,7 +374,7 @@ function savePMDprefs() {
 
 	prefs.setIntPref("extensions.printingtoolsng.date.long_format_type", document.getElementById("dateLongRG").selectedIndex);
 
-	prefs.setStringPref("extensions.printingtoolsng.date.custom_format", document.getElementById("customDate").value);	
+	prefs.setStringPref("extensions.printingtoolsng.date.custom_format", document.getElementById("customDate").value);
 	var size = document.getElementById("citeSize").selectedItem.id.replace("s", "");
 	prefs.setIntPref("extensions.printingtoolsng.cite.size", size);
 	prefs.setCharPref("extensions.printingtoolsng.cite.color", document.getElementById("citeColor").value);
@@ -383,23 +385,23 @@ function savePMDprefs() {
 
 	var hdrfontlistchild = document.getElementById("hdrfontlist").getElementsByTagName("menuitem");
 	var hdrselfont = hdrfontlistchild[document.getElementById("hdrfontlist").selectedIndex].getAttribute("value");
-	
+
 	setComplexPref("extensions.printingtoolsng.headers.font_family", hdrselfont);
-	
+
 	var fontlistchild = document.getElementById("fontlist").getElementsByTagName("menuitem");
 	var selfont = fontlistchild[document.getElementById("fontlist").selectedIndex].getAttribute("value");
 	setComplexPref("extensions.printingtoolsng.messages.font_family", selfont);
-	
+
 	setComplexPref("extensions.printingtoolsng.headers.custom_name_value", document.getElementById("addNameBox").value);
 
 	prefs.setBoolPref("extensions.printingtoolsng.headers.style", document.getElementById("headersStyle").checked);
 	size = document.getElementById("hdrfontsize").selectedItem.id.replace("h", "");
 	prefs.setIntPref("extensions.printingtoolsng.headers.size", size);
-	
+
 	prefs.setBoolPref("extensions.printingtoolsng.messages.style", document.getElementById("messageStyle").checked);
 	size = document.getElementById("fontsize").selectedItem.id.replace("x", "");
 	prefs.setIntPref("extensions.printingtoolsng.messages.size", size);
-	
+
 
 	let ubkc = document.getElementById("useHeadersBkColor").checked;
 	prefs.setBoolPref("extensions.printingtoolsng.headers.use_background_color", ubkc);
@@ -417,7 +419,7 @@ function savePMDprefs() {
 	prefs.setCharPref("extensions.printingtoolsng.headers.order", val);
 	prefs.setBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach", document.getElementById("addP7M").checked);
 	prefs.setCharPref("extensions.printingtoolsng.debug.options", document.getElementById("debug-options").value);
-	
+
 	printerSettings.savePrintSettings();
 	window.close();
 }
@@ -562,10 +564,190 @@ function toggleDate() {
 	document.getElementById("dateLongRG").disabled = !document.getElementById("PMDdate").checked;
 }
 
+function pageRangeToggle(pageRangeRG) {
+	console.log("toggle ", pageRangeRG.selectedIndex)
+	let cr = document.querySelector("#pages");
+	if (pageRangeRG.selectedIndex == 0) {
+
+
+		cr.setAttribute("disabled", "true");
+		cr.value = "1";
+		console.log(cr)
+	} else {
+		cr.removeAttribute("disabled");
+	}
+}
+
+function addValidationListeners() {
+
+	let cr = document.querySelector("#pages");
+	cr.addEventListener("keypress", handlePageRangesKeypress);
+	cr.addEventListener("input", pageRangesValidation);
+	let nc = document.querySelector("#copies-count");
+	nc.addEventListener("keypress", handleCopiesKeypress);
+	nc.addEventListener("input", copiesValidation);
+
+	let margin = document.querySelector("#margin-top");
+	margin.addEventListener("keypress", handleMarginsKeypress);
+	margin.addEventListener("input", handleMarginsValidation);
+	margin = document.querySelector("#margin-bottom");
+	margin.addEventListener("keypress", handleMarginsKeypress);
+	margin.addEventListener("input", handleMarginsValidation);
+	margin = document.querySelector("#margin-left");
+	margin.addEventListener("keypress", handleMarginsKeypress);
+	margin.addEventListener("input", handleMarginsValidation);
+	margin = document.querySelector("#margin-right");
+	margin.addEventListener("keypress", handleMarginsKeypress);
+	margin.addEventListener("input", handleMarginsValidation);
+
+}
+
+
+function handleCopiesKeypress(e) {
+	console.log(e)
+	let char = String.fromCharCode(e.charCode);
+	let acceptedChar = char.match(/^[0-9]$/);
+	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
+		e.preventDefault();
+	}
+	//copiesValidation();
+}
+
+function copiesValidation() {
+	let nc = document.querySelector("#copies-count");
+	let nce = document.querySelector("#copies-count-error");
+	console.log("chk v", nc.validity.valueMissing)
+	let v = nc.validity;
+	console.log(v)
+	if (nc.validity.valueMissing) {
+		console.log("v m")
+		//nc.setCustomValidity("Value Required");
+		//nc.reportValidity();
+		nce.textContent = "Copies value required"
+		let l = nce.textContent.length * 0.50 + "em";
+		nce.style.width = l
+		nce.className = "error active";
+		enableOKbutton(false);
+	} else {
+		nce.className = "error";
+		enableOKbutton(true);
+	}
+}
+function handlePageRangesKeypress(e) {
+	console.log(e)
+	let char = String.fromCharCode(e.charCode);
+	let acceptedChar = char.match(/^[0-9,-]$/);
+	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
+		e.preventDefault();
+		//let cr = document.querySelector("#pages");
+		//cr.setCustomValidity("invalid");
+	}
+}
+
+function pageRangesValidation(e) {
+	let pr = document.querySelector("#pages");
+	let pre = document.querySelector("#page-ranges-error");
+	console.log("chk v", pr.validity.valueMissing)
+	let v = pr.validity;
+	console.log(v)
+	if (pr.validity.valueMissing) {
+		console.log("v m")
+		//nc.setCustomValidity("Value Required");
+		//nc.reportValidity();
+		pre.textContent = "Page Ranges value required"
+		let l = pre.textContent.length * 0.50 + "em";
+		pre.style.width = l
+		pre.className = "error active";
+		enableOKbutton(false);
+	} else if (pageRangesStringValidation(pr.value)) {
+		if (pageRangesStringValidation(pr.value) == 1) {
+			pre.textContent = "Page Ranges value cannot be zero"
+		} else {
+			pre.textContent = "Page Range end must be greater than start"
+		}
+		let l = pre.textContent.length * 0.50 + "em";
+		pre.style.width = "100%"
+		pre.className = "error active";
+		enableOKbutton(false);
+	} else {
+		pre.className = "error";
+		enableOKbutton(true);
+	}
+}
+
+function handleMarginsKeypress(e) {
+	console.log(e)
+	let char = String.fromCharCode(e.charCode);
+	let acceptedChar = char.match(/^[0-9]$/);
+	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
+		e.preventDefault();
+	}
+	//copiesValidation();
+}
+
+function handleMarginsValidation(e) {
+	console.log(e)
+	let margin = e.target;
+
+	if (margin.validity.valueMissing) {
+		enableOKbutton(false);
+	} else {
+		enableOKbutton(true);
+	}
+}
+
+function enableOKbutton(enable) {
+	let okButton = document.getElementById("okbutton");
+	if (enable) {
+
+	}
+	okButton.disabled = !enable;
+}
+function pageRangesStringValidation(pageRangesStr) {
+
+	let ranges = pageRangesStr.split(",");
+
+	for (let range of ranges) {
+		let rangeParts = range.split("-");
+		let startRange = parseInt(rangeParts[0], 10);
+		let endRange = parseInt(
+			rangeParts.length == 2 ? rangeParts[1] : rangeParts[0],
+			10
+		);
+
+		console.log(startRange)
+		console.log(endRange)
+
+		if (startRange == 0 || endRange == 0) {
+			console.log("zero")
+			return 1;
+		}
+		// If the startRange was not specified, then we infer this
+		// to be 1.
+		if (isNaN(startRange) && rangeParts[0] == "") {
+			startRange = 1;
+		}
+		// If the end range was not specified, then we infer this
+		// to be the total number of pages.
+		if (isNaN(endRange) && rangeParts[1] == "") {
+			endRange = 1000;
+		}
+
+		if (endRange < startRange) {
+			return 2;
+		}
+
+
+	}
+
+	return 0;
+}
+
+
 
 document.addEventListener("dialogaccept", function (event) {
 	savePMDprefs();
-	
+
 });
 
 window.addEventListener("load", function (event) {
