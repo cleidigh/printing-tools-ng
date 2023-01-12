@@ -6,8 +6,9 @@ printerSettings,
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
+var { utils} = ChromeUtils.import("chrome://printingtoolsng/content/utils.js", utils);
 
-//printerSettings.window = window;
+utils.window = window;
 
 var PMDstr = Cc["@mozilla.org/supports-string;1"]
 	.createInstance(Ci.nsISupportsString);
@@ -99,7 +100,7 @@ async function initPMDpanel() {
 	document.getElementById("PMDhideAtt").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments");
 	document.getElementById("InlineAttsListhide").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list");
 
-	document.getElementById("PMDselection").checked = prefs.getBoolPref("extensions.printingtoolsng.print.just_selection");
+	// document.getElementById("PMDselection").checked = prefs.getBoolPref("extensions.printingtoolsng.print.just_selection");
 	document.getElementById("PMDattachIcon").checked = prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
 	document.getElementById("num_atts_line").value = prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
 
@@ -209,6 +210,17 @@ async function initPMDpanel() {
 	// console.debug(gheaderList.listElement.outerHTML);
 	gheaderList.controller.selectRowByDataId('1');
 
+  // PDF Output Options
+  document.getElementById("enablePDFoutputDir").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
+  document.getElementById("PDFoutputDir").value = prefs.getCharPref("extensions.printingtoolsng.pdf.output_dir");
+  document.getElementById("customDatePDF").value = prefs.getCharPref("extensions.printingtoolsng.pdf.filename.custom_date_format");
+  document.getElementById("prefixText").value = prefs.getCharPref("extensions.printingtoolsng.pdf.filename.prefix");
+  document.getElementById("suffixText").value = prefs.getCharPref("extensions.printingtoolsng.pdf.filename.suffix");
+  document.getElementById("enableLatinize").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.latinize");
+  document.getElementById("enableEmojiAndSymbolFilter").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols");
+  document.getElementById("characterFilter").value = prefs.getCharPref("extensions.printingtoolsng.pdf.filename.filter_characters");
+  document.getElementById("PDFcustomFilenameFormat").value = prefs.getCharPref("extensions.printingtoolsng.pdf.custom_filename_format");
+
 	// Services.console.logStringMessage("printingtools: call printer setup");
 	setPrinterList();
 
@@ -216,8 +228,22 @@ async function initPMDpanel() {
 
 	printerSettings.getPrinterSettings(window);
   addValidationListeners();
-  
+
 	document.getElementById("useCcBccAlways").focus;
+}
+
+async function pickPDFoutputDir() {
+  let fpMode = Ci.nsIFilePicker.modeGetFolder;
+					let fpTitle = "Select PDF Output Directory";
+					let fpDisplayDirectory = null;
+					let resultObj = await utils.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
+					if (resultObj.result == -1) {
+						return;
+					}
+					let pdfOutputDir = resultObj.folder;
+					
+          document.getElementById("PDFoutputDir").value = pdfOutputDir;
+  
 }
 
 async function setPrinterList() {
@@ -363,13 +389,10 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments", document.getElementById("PMDhideAtt").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments_list", document.getElementById("InlineAttsListhide").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.print.just_selection", document.getElementById("PMDselection").checked);
+	//prefs.setBoolPref("extensions.printingtoolsng.print.just_selection", document.getElementById("PMDselection").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.addfolder", document.getElementById("addFolder").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.align", document.getElementById("alignHeaders").checked);
-
-	//prefs.setBoolPref("extensions.printingtoolsng.show_options_button", document.getElementById("showButtonPreview").checked);
-
-	prefs.setBoolPref("extensions.printingtoolsng.add_received_date", document.getElementById("addRdate").checked);
+  prefs.setBoolPref("extensions.printingtoolsng.add_received_date", document.getElementById("addRdate").checked);
 
 
 	prefs.setIntPref("extensions.printingtoolsng.date.long_format_type", document.getElementById("dateLongRG").selectedIndex);
@@ -420,6 +443,17 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach", document.getElementById("addP7M").checked);
 	prefs.setCharPref("extensions.printingtoolsng.debug.options", document.getElementById("debug-options").value);
 
+    // PDF Output Options
+    prefs.setBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir", document.getElementById("enablePDFoutputDir").checked);
+    prefs.setCharPref("extensions.printingtoolsng.pdf.output_dir", document.getElementById("PDFoutputDir").value);
+    prefs.setCharPref("extensions.printingtoolsng.pdf.filename.custom_date_format", document.getElementById("customDatePDF").value);
+    prefs.setCharPref("extensions.printingtoolsng.pdf.filename.prefix", document.getElementById("prefixText").value);
+    prefs.setCharPref("extensions.printingtoolsng.pdf.filename.suffix", document.getElementById("suffixText").value);
+    prefs.setBoolPref("extensions.printingtoolsng.pdf.filename.latinize", document.getElementById("enableLatinize").checked);
+    prefs.setBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols", document.getElementById("enableEmojiAndSymbolFilter").checked);
+    prefs.setCharPref("extensions.printingtoolsng.pdf.filename.filter_characters", document.getElementById("characterFilter").value);
+    prefs.setCharPref("extensions.printingtoolsng.pdf.custom_filename_format", document.getElementById("PDFcustomFilenameFormat").value);
+  
 	printerSettings.savePrintSettings();
 	window.close();
 }

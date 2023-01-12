@@ -120,8 +120,8 @@ width: 100%;
 	font-weight: 500;
 	color: black;
 	text-align: left;
-	padding-right: 6px;
-	padding-left: 6px;
+	padding-right: 12px;
+	padding-left: 20px;
 	background-color: #f9f9f9;
 	/* background-color: aquamarine; */
   }
@@ -135,11 +135,12 @@ width: 100%;
 	white-space: nowrap;
 	height: 14px;
 	/* vertical-align: top; */
-	padding-right: 6px;
-	padding-left: 6px;
+	padding-right: 12px;
+	padding-left: 20px;
 	/* padding: 4px; */
 	/* border-bottom: 1px solid #d2d2d2; */
 	/* background-color: red !important; */
+	
   }
 
 

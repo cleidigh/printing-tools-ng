@@ -44,7 +44,7 @@ pref("extensions.printingtoolsng.debug.options", "");
 pref("extensions.printingtoolsng.pdf.enable_pdf_output_dir", false);
 pref("extensions.printingtoolsng.pdf.output_dir", "");
 pref("extensions.printingtoolsng.pdf.custom_filename_format", "");
-pref("extensions.printingtoolsng.pdf.custom_date_format", "");
+pref("extensions.printingtoolsng.pdf.filename.custom_date_format", "");
 pref("extensions.printingtoolsng.pdf.filename.prefix", "");
 pref("extensions.printingtoolsng.pdf.filename.suffix", "");
 pref("extensions.printingtoolsng.pdf.filename.filter_characters", "");
