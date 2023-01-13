@@ -36,7 +36,7 @@ var utils = {
   formatTokenizedFileName: async function (msgHdr, outputDir) {
     // needed prefs
     var fileNameFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.custom_filename_format");
-    var customDateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.custom_date_format");
+    var customDateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.filename.custom_date_format");
     var prefix = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.filename.prefix");
     var suffix = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.filename.suffix");
     var latinize = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.latinize");
