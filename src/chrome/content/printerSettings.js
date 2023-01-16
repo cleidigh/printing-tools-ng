@@ -10,6 +10,11 @@ st,
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
+var window3Pane = Cc["@mozilla.org/appshell/window-mediator;1"]
+      .getService(Ci.nsIWindowMediator)
+      .getMostRecentWindow("mail:3pane");
+
+var printingtools = window3Pane.printingtools;
 var window;
 var document;
 
@@ -84,6 +89,12 @@ var printerSettings = {
 
     let nc = document.querySelector("#copies-count");
     nc.value = printSettings.numCopies;
+    if (printerName.toLowerCase().includes("pdf")) {
+      nc.setAttribute("disabled", "");
+    } else {
+      nc.removeAttribute("disabled");
+    }
+
     console.log(printSettings.numCopies);
     let units = printSettings.paperSizeUnit;
 
@@ -396,15 +407,11 @@ var printerSettings = {
     return val / 25.4;
   },
 
-  addPrintPreviewObserver: function (win) {
-    document = win.document;
-    window = win;
-    console.log("add obsw", window);
+  addPrintPreviewObserver: function () {
     Services.obs.addObserver(this.printPreviewSetPrinterPrefs, "subdialog-loaded");
   },
 
   removePrintPreviewObserver: function () {
-    console.log("rem obs");
     Services.obs.removeObserver(this.printPreviewSetPrinterPrefs, "subdialog-loaded");
   },
 
@@ -451,9 +458,9 @@ var printerSettings = {
         let cmg = subDialogWindow.document.querySelector("#custom-margins");
         let nc = subDialogWindow.document.querySelector("#copies-count");
 
-        let printerName = window.printingtools.prefs.getCharPref("print_printer").replace(/ /g, '_');
+        let printerName = printingtools.prefs.getCharPref("print_printer").replace(/ /g, '_');
         console.debug(printerName);
-        let props = window.printingtools.prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
+        let props = printingtools.prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
         var customProps = JSON.parse(props);
 
 
@@ -480,9 +487,10 @@ var printerSettings = {
 
         cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
 
+        console.log(nc.value)
         nc.value = customProps.numCopies;
 
-
+        console.log(nc.value , customProps.numCopies)
 
 
         },

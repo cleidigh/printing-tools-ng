@@ -27,10 +27,6 @@
 		<tabpanels id="tabs">
 			<!-- TAB1 Miscellaneous -->
 			<tabpanel orient="vertical">
-				<!-- <html:fieldset> -->
-				<!-- <spacer height="2px" /> -->
-				<caption label="&PMDcaptionlabel;" />
-				<!-- <groupbox flex="1"> -->
 				<hbox>
 					<label style="font-weight: 700" value="&addNameRG.label;" />
 				</hbox>
@@ -41,7 +37,7 @@
 						<radio label="&RG2.label;" />
 						<hbox>
 							<radio label="" />
-							<html:input type="text" id="addNameBox" size="34" />
+							<html:input type="text" id="addNameBox" size="46" />
 						</hbox>
 					</radiogroup>
 				</hbox>
@@ -89,7 +85,7 @@
 					<spacer height="22px" />
 					<hbox align="center">
 						<label value="&debugOptions.label;: " />
-						<html:input type="text" id="debug-options" size="40" />
+						<html:input type="text" id="debug-options" size="41" />
 					</hbox>
 				</groupbox>
 			</tabpanel>
@@ -174,8 +170,6 @@
 								</html:thead>
 							</html:table>
 						</html:div>
-						<!-- <spacer height="5px"/> -->
-						<!-- <label value="&otherHeaders;" /> -->
 					</vbox>
 					<vbox style="padding-left: 30px;">
 						<spacer height="15px"/>
@@ -194,8 +188,6 @@
 				<hbox>
 					<label style="font-weight: 700" value="&messageBody;" />
 				</hbox>
-					
-					
 						<spacer height="8px" />
 						<vbox align="start" style="padding-left: 10px">
 							<hbox align="center">
@@ -312,9 +304,12 @@
 					<hbox align="center">
 						<checkbox id="enablePDFoutputDir" label="Enable PDF Output Directory" />
 					</hbox>
+					<spacer height="3px" />
 					<hbox align="center">
 						<label value="Output Directory" />
-						<html:input id="PDFoutputDir" type="text" size="50" />
+						</hbox>
+						<hbox align="center">
+						<html:input id="PDFoutputDir" type="text" size="58" />
 						<button id="PDFoutputDirBrowse" label="Browse" oncommand="pickPDFoutputDir()" />
 					</hbox>
 					<spacer height="12px" />
@@ -384,11 +379,13 @@
 							<spacer width="10px"/>
 							<checkbox id="PMDsilent" label="&PMDlabel8;" />
 						</hbox>
+
 						<spacer height="8px"/>
 						<label value="Page Options" style="font-weight: 700; width: 100px"/>
+						<vbox style="padding-left: 10px">
 						<spacer height="4px"/>
 						<hbox align="center" height="24px">
-							<label value="Copies : " style="width: 120px"/>
+							<label value="Copies" style="width: 120px"/>
 							<hbox flex="0" width="300px" style="background-colorX: yellow">
 								<vbox>
 									<html:div id="parent">
@@ -404,7 +401,7 @@
 						</hbox>
 						<spacer height="10px"/>
 						<hbox>
-							<label value="Page Ranges : " style="width: 120px"/>
+							<label value="Page Ranges" style="width: 120px"/>
 							<radiogroup id="pageRangesRG" orient="horizontal" oncommand="pageRangeToggle(this);">
 								<radio label="All" />
 								<radio label="Custom" />
@@ -414,10 +411,11 @@
 								</html:div>
 							</radiogroup>
 						</hbox>
+						</vbox>
 						<spacer height="10px"/>
-						<vbox  >
+						<vbox style="padding-left: 10px">
 							<hbox>
-								<label value="Margins : " style="width: 50px"/>
+								<label value="Margins" style="width: 50px"/>
 								<label id="units" value="(inches)" />
 							</hbox>
 							<spacer height="5px"/>
@@ -468,7 +466,7 @@
 							</hbox>
 						</vbox>
 						<spacer height="10px"/>
-
+						<vbox style="padding-left: 10px">
 						<html:table>
 
 							<html:tr>
@@ -533,49 +531,8 @@
 
 
 						</html:table>
-
-						<!-- <hbox align="center"> 
-							<label value="Headers : " style="width: 60px"/>
-							<spacer width="5px"/>
-							<label value="Left " style="width: 20px"/>
-							<html:input type="text" id="headerleft" size="15" style="heightx: 24px; margin-left: 0px" />
-						</hbox>
-						<spacer height="2px"/>
-						<hbox align="center">
-							<spacer width="66px"/>
-							<label value="Center " style="width: 20px"/>
-							<html:input type="text" id="headercenter" size="15" 
-						style="heightx: 24px; margin-left: 0px" />
-						</hbox>
-						<spacer height="2px"/>
-						<hbox align="center">
-							<spacer width="78px"/>
-							<label value="Right " style="width: 20px"/>
-							<html:input type="text" id="headerright" size="15" 
-						style="heightx: 24px; margin-left: 0px" />
-						</hbox>
-						<spacer height="4px"/>
-						<hbox align="center">
-							<label value="Footers :  " style="width: 60px"/>
-							<spacer width="5px"/>
-							<label value="Left " style="width: 20px"/>
-							<html:input type="text" id="footerleft" size="15" 
-						style="heightx: 24px; margin-left: 0px" />
-						</hbox>
-						<spacer height="2px"/>
-						<hbox align="center">
-							<spacer width="66px"/>
-							<label value="Center " style="width: 20px"/>
-							<html:input type="text" id="footercenter" size="15" 
-						style="heightx: 24px; margin-left: 0px" />
-						</hbox>
-						<spacer height="2px"/>
-						<hbox align="center">
-							<spacer width="78px"/>
-							<label value="Right " style="width: 20px"/>
-							<html:input type="text" id="footerright" size="15" 
-						style="heightx: 24px; margin-left: 0px" />
-						</hbox> -->
+						</vbox>
+						
 					</vbox>
 				</html:div>
 			</tabpanel>

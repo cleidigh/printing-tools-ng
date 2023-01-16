@@ -9,7 +9,7 @@ var { printerSettings } = ChromeUtils.import("chrome://printingtoolsng/content/p
 
 console.log("PTNG: Engine loaded ")
 
-printerSettings.addPrintPreviewObserver(window);
+printerSettings.addPrintPreviewObserver();
 
 
 var printingtools = {
@@ -205,7 +205,7 @@ var printingtools = {
 				console.log(s.parentElement.nextSibling.firstChild.textContent)
 				//s.parentElement.nextSibling.firstChild.textContent = "test away"
 
-				if (selection.rangeCount > 1 && printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.just_selection")) {
+				if (selection.rangeCount > 1) {
 					//console.log("print sel")
 					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
 				} else {
@@ -303,7 +303,8 @@ var printingtools = {
 					let fpMode = Ci.nsIFilePicker.modeGetFolder;
 					let fpTitle = "Select PDF Output Directory";
 					let fpDisplayDirectory = null;
-					let resultObj = await this.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
+					this.utils.window = window;
+					let resultObj = await this.utils.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
 					if (resultObj.result == -1) {
 						return;
 					}
@@ -398,7 +399,8 @@ var printingtools = {
 					let fpMode = Ci.nsIFilePicker.modeGetFolder;
 					let fpTitle = "Select PDF Output Directory";
 					let fpDisplayDirectory = null;
-					let resultObj = await this.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
+					this.utils.window = window;
+					let resultObj = await this.utils.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
 					if (resultObj.result == -1) {
 						return;
 					}
@@ -2334,6 +2336,7 @@ var printingtools = {
 		return url;
 	},
 
+	/*
 	 openFileDialog: async function (mode, title, initialDir, filter) {
 		let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
 		fp.init(window, title, mode);
@@ -2366,6 +2369,7 @@ var printingtools = {
 	
 		return resultObj;
 	},
+	*/
 	
 	shutdown: function () {
 		if (document.getElementById("fp")) {

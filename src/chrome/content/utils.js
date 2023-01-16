@@ -187,15 +187,9 @@ var utils = {
     return strippedAddresses;
   },
 
-
-
   filterNonASCIICharacters: function (str) {
-    //str = str.replace(/[^\P{L}a-z][^a-z]*/gui, '_');
-    //str = str.replace(/[^\x00-\x7f]*/gi, '_');
     str = str.replace(/[\u{0080}-\u{FFFF}]/gu, "");
     str = str.replace(/[^\p{L}\p{N}\p{P}\p{Z}^$\n]/gu, '');
-
-
     return str;
   },
 
@@ -233,7 +227,6 @@ var utils = {
       let index = i.toString().padStart(3, '0');
       tmpUniqueName = await PathUtils.join(parent, `${name}-${index}${ext}`);
 
-      //console.log(tmpUniqueName)
       if (!await IOUtils.exists(tmpUniqueName)) {
         if (options && options.create) {
           await IOUtils.write(tmpUniqueName, new Uint8Array(), { mode: "create" });
@@ -263,15 +256,12 @@ var utils = {
 		if (res !== Ci.nsIFilePicker.returnOK) {
 			return -1;
 		}
-	
-		console.log(fp.displayDirectory)
-		console.log(fp.file)
+
 		var files = fp.files;
 		var paths = [];
 		while (files.hasMoreElements()) {
 			var arg = files.getNext().QueryInterface(Ci.nsIFile);
 			paths.push(arg.path);
-			console.log(arg.path)
 		}
 		let resultObj = {};
 		resultObj.result = 0;
@@ -279,7 +269,6 @@ var utils = {
 		if (mode === Ci.nsIFilePicker.modeGetFolder) {
 			resultObj.folder = fp.file.path;
 		}
-	
 		return resultObj;
 	},
 
