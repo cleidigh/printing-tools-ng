@@ -14,7 +14,7 @@ var window3Pane = Cc["@mozilla.org/appshell/window-mediator;1"]
       .getService(Ci.nsIWindowMediator)
       .getMostRecentWindow("mail:3pane");
 
-var printingtools = window3Pane.printingtools;
+//var printingtools = window3Pane.printingtools;
 var window;
 var document;
 
@@ -427,7 +427,14 @@ var printerSettings = {
           return;
         }
 
-        console.log(window);
+        var window3Pane = Cc["@mozilla.org/appshell/window-mediator;1"]
+        .getService(Ci.nsIWindowMediator)
+        .getMostRecentWindow("mail:3pane");
+  
+  var printingtools = window3Pane.printingtools;
+  
+        console.log("pt obj")
+        console.log(printingtools);
 
         // Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", subDialogWindow);
 
