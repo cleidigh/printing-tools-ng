@@ -21,7 +21,7 @@ var EXPORTED_SYMBOLS = ["utils"];
 var utils = {
 
   test: function () {
-    console.log("utils test");
+    console.log("utils test", window);
   },
 
   constructPDFoutputFilename: async function (msgURI, outputDir) {
@@ -242,9 +242,9 @@ var utils = {
 
   openFileDialog: async function (mode, title, initialDir, filter) {
 		let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
-    if (!window) {
-      var window = this.window;
-    }
+    //if (!window) {
+//      var window = this.window;
+    //}
 		fp.init(window, title, mode);
 		fp.appendFilters(filter);
 		if (initialDir) {

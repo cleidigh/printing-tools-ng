@@ -427,25 +427,8 @@ var printerSettings = {
           return;
         }
 
-        var window3Pane = Cc["@mozilla.org/appshell/window-mediator;1"]
-        .getService(Ci.nsIWindowMediator)
-        .getMostRecentWindow("mail:3pane");
-  
-  var printingtools = window3Pane.printingtools;
-  
-        console.log("pt obj")
-        console.log(printingtools);
-
-        // Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", subDialogWindow);
-
-        // subDialogWindow.printingtools.printT(subDialogWindow);
-        // let mw = subDialogWindow.printingtools.getMail3Pane();
-        // let ps = mw.document.documentElement.querySelector(".printPreviewStack print-preview browser");
-        // console.debug(ps);
-
-        // ps.addEventListener('DOMContentLoaded', (event) => {
-        // 	console.log('DOM fully loaded and parsed');
-        // });
+        var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
+        
 
         // Wait until print-settings in the subDialog have been loaded/rendered.
         await new Promise(resolve =>
@@ -465,9 +448,9 @@ var printerSettings = {
         let cmg = subDialogWindow.document.querySelector("#custom-margins");
         let nc = subDialogWindow.document.querySelector("#copies-count");
 
-        let printerName = printingtools.prefs.getCharPref("print_printer").replace(/ /g, '_');
+        let printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
         console.debug(printerName);
-        let props = printingtools.prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
+        let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
         var customProps = JSON.parse(props);
 
 
@@ -484,13 +467,8 @@ var printerSettings = {
         }
         console.log(rangeType);
         rp.selectedIndex = o.findIndex(el => el.value == rangeType);
-
-
-
         cmg.removeAttribute("hidden");
         mp.selectedIndex = 3;
-
-
 
         cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
 

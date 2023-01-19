@@ -231,6 +231,16 @@ input[type="number"].photon-number2 {
 	opacity: 0.5;
   }
 
+#PDFoutputDir:lang(en-US) {
+	width: 400px;
+	background-color: aquamarine !important;
+}
+
+#PDFoutputDir:lang(ja) {
+	width: 500px;
+	background-color: red !important;
+
+}
 #parent {
 	position: relative;
 }

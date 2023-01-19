@@ -6,7 +6,12 @@ printerSettings,
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
-var { utils} = ChromeUtils.import("chrome://printingtoolsng/content/utils.js", utils);
+//var { utils} = ChromeUtils.import("chrome://printingtoolsng/content/utils.js", utils);
+
+//var utils = {};
+Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
+console.log(utils)
+utils.test();
 
 utils.window = window;
 
@@ -53,6 +58,8 @@ async function initPMDpanel() {
 	let title = document.getElementById("ptng-options").getAttribute("title");
 
 	document.getElementById("ptng-options").setAttribute("title", `${title} - v${PTNGVersion}`);
+
+	document.getElementById("ptng-options").setAttribute("lang", Services.locale.appLocaleAsBCP47);
 
 	printerSettings = win.printerSettings;
 
