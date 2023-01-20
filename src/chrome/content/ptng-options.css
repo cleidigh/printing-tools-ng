@@ -233,14 +233,121 @@ input[type="number"].photon-number2 {
 
 #PDFoutputDir:lang(en-US) {
 	width: 400px;
-	background-color: aquamarine !important;
 }
 
 #PDFoutputDir:lang(ja) {
-	width: 500px;
-	background-color: red !important;
+	width: 400px;
+}
+
+#customDatePDF:lang(en-US) {
+	width: 280px;
+}
+
+#customDatePDF:lang(ja) {
+	width: 280px;
+}
+
+#prefixText:lang(en-US) {
+	width: 160px;
+}
+
+#prefixText:lang(ja) {
+	width: 160px;
+}
+
+#suffixText:lang(en-US) {
+	width: 160px;
+}
+
+#suffixText:lang(ja) {
+	width: 160px;
+}
+
+#characterFilter:lang(en-US) {
+	width: 364px;
+}
+
+#characterFilter:lang(ja) {
+	width: 364px;
+}
+
+#PDFcustomFilenameFormat:lang(en-US) {
+	width: 364px;
+}
+
+#PDFcustomFilenameFormat:lang(ja) {
+	width: 364px;
+}
+
+#addNameBox:lang(en-US) {
+	width: 300px;
+}
+
+#addNameBox:lang(ja) {
+	width: 300px;
+}
+
+#customDate:lang(en-US) {
+	width: 280px;
+}
+
+#customDate:lang(ja) {
+	width: 280px;
+}
+
+#debug-options:lang(en-US) {
+	width: 300px;
+}
+
+#debug-options:lang(ja) {
+	width: 300px;
+}
+
+#border_style:lang(en-US) {
+	width: 320px;
+}
+
+#border_style:lang(ja) {
+	width: 320px;
+}
+/*
+
+#:lang(en-US) {
+	width: px;
+}
+
+#:lang(ja) {
+	width: px;
+}
+
+
+#:lang(en-US) {
+	width: px;
+}
+
+#:lang(ja) {
+	width: px;
+}
+*/	
+
+.margins-hdrftr-tbl table, td {
+	/* background-color:#d2d2d2; */
+	/* border: 1px solid black; */
+	border-collapse: collapse;
+	width: 100%;
 
 }
+
+.margins-hdrftr-tbl tr:nth-child(3) > td { 
+	padding-top: 10px;
+	/* background-color: azure; */
+}
+
+.hdrftr {
+	width: 7em;
+}
+/* validation rules */
+
 #parent {
 	position: relative;
 }

@@ -37,7 +37,7 @@
 						<radio label="&RG2.label;" />
 						<hbox>
 							<radio label="" />
-							<html:input type="text" id="addNameBox" size="46" />
+							<html:input type="text" id="addNameBox" />
 						</hbox>
 					</radiogroup>
 				</hbox>
@@ -64,7 +64,7 @@
 							<radio label="&long.label;" />
 							<hbox>
 								<radio label="&date_custom.label;" />
-								<html:input type="text" id="customDate" size="40" />
+								<html:input type="text" id="customDate" />
 								<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
 									<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
 							width="20px" height="20px" style="margin-left: 2px; margin-top: 0px; 
@@ -85,13 +85,12 @@
 					<spacer height="22px" />
 					<hbox align="center">
 						<label value="&debugOptions.label;: " />
-						<html:input type="text" id="debug-options" size="41" />
+						<html:input type="text" id="debug-options" />
 					</hbox>
 				</groupbox>
 			</tabpanel>
 			<!-- TAB2 Headers -->
 			<tabpanel orient="vertical">
-				<!-- <html:fieldset> -->
 				<hbox>
 					<label style="font-weight: 700" value="&headers;" />
 				</hbox>
@@ -115,16 +114,12 @@
 					<hbox align="center">
 						<spacer width="24"/>
 						<label value="&borderStyle; (CSS)" style="margin-bottom: 0px; margin-top: 0px;" />
-						<html:input type="text" id="border_style" value="" style="width: 300px;" />
+						<html:input type="text" id="border_style" value="" />
 					</hbox>
 					<hbox>
 						<checkbox id="useHeadersBkColor" label="&useHeadersBkColor;" oncommand="setTimeout(toggleUseBackgroundColor,300,this)"/>
 						<html:input type="color" id="headersBkColor" value="#ffffff" style="padding-right: 4px" />
 					</hbox>
-					<!-- <hbox align="center"> -->
-					<!-- <spacer width="24"/> -->
-					<!-- <label value="&colorsNote;" /> -->
-					<!-- </hbox> -->
 					<hbox align="center">
 						<checkbox id="headersStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleHeadersStyle,300,this)" />
 					</hbox>
@@ -185,73 +180,72 @@
 			<!-- TAB3 Body -->
 			<tabpanel>
 				<vbox>
-				<hbox>
-					<label style="font-weight: 700" value="&messageBody;" />
-				</hbox>
-						<spacer height="8px" />
-						<vbox align="start" style="padding-left: 10px">
-							<hbox align="center">
-								<checkbox id="PREtruncate" label="&maxPreLen;" />
-								<html:input type="text" id="PREmaxchars" value="" style="width: 40px;" />
-							</hbox>
-							<hbox align="center">
-								<checkbox id="messageStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleMessageStyle,300,this,true)" />
-							</hbox>
-							<hbox align="center">
-								<spacer width="26"/>
-								<menulist id="fontlist" style="width: 300px"/>
-								<label value="&withSize;"/>
-								<menulist id="fontsize">
-									<menupopup>
-										<menuitem label="7" value="7" id="x7" />
-										<menuitem label="8" value="8" id="x8" />
-										<menuitem label="9" value="9" id="x9" />
-										<menuitem label="10" value="10" id="x10" />
-										<menuitem label="11" value="11" id="x11" />
-										<menuitem label="12" value="12" id="x12" />
-										<menuitem label="13" value="13" id="x13" />
-										<menuitem label="14" value="14" id="x14"/>
-										<menuitem label="15" value="15" id="x15" />
-										<menuitem label="16" value="16" id="x16" />
-										<menuitem label="17" value="17" id="x17" />
-										<menuitem label="18" value="18" id="x18" />
-										<menuitem label="20" value="20" id="x20" />
-										<menuitem label="24" value="24" id="x24" />
-										<menuitem label="30" value="30" id="x30" />
-										<menuitem label="36" value="36" id="x36" />
-										<menuitem label="50" value="50" id="x50" />
-									</menupopup>
-								</menulist>
-							</hbox>
-							<hbox align="center">
-								<checkbox label="&cite.checkbox;" oncommand="setTimeout(toggleCiteStyle,300,this)" id="citeCheck" />
-								<label value="&cite.color;" style="margin: 5px"/>
-								<html:input type="color" id="citeColor" value="#ffffff"/>
-								<label value="&cite.size;" style="margin: 5px"/>
-								<menulist id="citeSize" disabled="true">
-									<menupopup>
-										<menuitem label="7" value="7" id="s7" />
-										<menuitem label="8" value="8" id="s8" />
-										<menuitem label="9" value="9" id="s9" />
-										<menuitem label="10" value="10" id="s10" />
-										<menuitem label="11" value="11" id="s11" />
-										<menuitem label="12" value="12" id="s12" />
-										<menuitem label="13" value="13" id="s13" />
-										<menuitem label="14" value="14" id="s14"/>
-										<menuitem label="15" value="15" id="s15" />
-										<menuitem label="16" value="16" id="s16" />
-										<menuitem label="17" value="17" id="s17" />
-										<menuitem label="18" value="18" id="s18" />
-										<menuitem label="20" value="20" id="s20" />
-										<menuitem label="24" value="24" id="s24" />
-										<menuitem label="30" value="30" id="s30" />
-										<menuitem label="36" value="36" id="s36" />
-										<menuitem label="50" value="50" id="s50" />
-									</menupopup>
-								</menulist>
-							</hbox>
-						</vbox>
-					
+					<hbox>
+						<label style="font-weight: 700" value="&messageBody;" />
+					</hbox>
+					<spacer height="8px" />
+					<vbox align="start" style="padding-left: 10px">
+						<hbox align="center">
+							<checkbox id="PREtruncate" label="&maxPreLen;" />
+							<html:input type="text" id="PREmaxchars" value="" style="width: 40px;" />
+						</hbox>
+						<hbox align="center">
+							<checkbox id="messageStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleMessageStyle,300,this,true)" />
+						</hbox>
+						<hbox align="center">
+							<spacer width="26"/>
+							<menulist id="fontlist" style="width: 300px"/>
+							<label value="&withSize;"/>
+							<menulist id="fontsize">
+								<menupopup>
+									<menuitem label="7" value="7" id="x7" />
+									<menuitem label="8" value="8" id="x8" />
+									<menuitem label="9" value="9" id="x9" />
+									<menuitem label="10" value="10" id="x10" />
+									<menuitem label="11" value="11" id="x11" />
+									<menuitem label="12" value="12" id="x12" />
+									<menuitem label="13" value="13" id="x13" />
+									<menuitem label="14" value="14" id="x14"/>
+									<menuitem label="15" value="15" id="x15" />
+									<menuitem label="16" value="16" id="x16" />
+									<menuitem label="17" value="17" id="x17" />
+									<menuitem label="18" value="18" id="x18" />
+									<menuitem label="20" value="20" id="x20" />
+									<menuitem label="24" value="24" id="x24" />
+									<menuitem label="30" value="30" id="x30" />
+									<menuitem label="36" value="36" id="x36" />
+									<menuitem label="50" value="50" id="x50" />
+								</menupopup>
+							</menulist>
+						</hbox>
+						<hbox align="center">
+							<checkbox label="&cite.checkbox;" oncommand="setTimeout(toggleCiteStyle,300,this)" id="citeCheck" />
+							<label value="&cite.color;" style="margin: 5px"/>
+							<html:input type="color" id="citeColor" value="#ffffff"/>
+							<label value="&cite.size;" style="margin: 5px"/>
+							<menulist id="citeSize" disabled="true">
+								<menupopup>
+									<menuitem label="7" value="7" id="s7" />
+									<menuitem label="8" value="8" id="s8" />
+									<menuitem label="9" value="9" id="s9" />
+									<menuitem label="10" value="10" id="s10" />
+									<menuitem label="11" value="11" id="s11" />
+									<menuitem label="12" value="12" id="s12" />
+									<menuitem label="13" value="13" id="s13" />
+									<menuitem label="14" value="14" id="s14"/>
+									<menuitem label="15" value="15" id="s15" />
+									<menuitem label="16" value="16" id="s16" />
+									<menuitem label="17" value="17" id="s17" />
+									<menuitem label="18" value="18" id="s18" />
+									<menuitem label="20" value="20" id="s20" />
+									<menuitem label="24" value="24" id="s24" />
+									<menuitem label="30" value="30" id="s30" />
+									<menuitem label="36" value="36" id="s36" />
+									<menuitem label="50" value="50" id="s50" />
+								</menupopup>
+							</menulist>
+						</hbox>
+					</vbox>
 					<label value="Attachments:" style="font-weight: 700; width: 100px"/>
 					<hbox align="center">
 						<spacer width="5px" />
@@ -307,15 +301,15 @@
 					<spacer height="3px" />
 					<hbox align="center">
 						<label value="Output Directory" />
-						</hbox>
-						<hbox align="center">
+					</hbox>
+					<hbox align="center">
 						<html:input id="PDFoutputDir" type="text"  />
 						<button id="PDFoutputDirBrowse" label="Browse" oncommand="pickPDFoutputDir()" />
 					</hbox>
 					<spacer height="12px" />
 					<hbox align="center" >
 						<label id="PDFcustomDateLabel" style="padding-top: 3px;" >Custom Date Format</label>
-						<html:input type="text" id="customDatePDF" size="40" />
+						<html:input type="text" id="customDatePDF" />
 						<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
 							<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
 							width="20px" height="20px" style="margin-left: 2px; margin-top: 0px; 
@@ -323,15 +317,15 @@
 						</hbox>
 					</hbox>
 					<spacer height="4px" />
-						<hbox align="center">
-							<label value="Prefix" />
-							<html:input id="prefixText" size="22"/>
-						</hbox>
-						<spacer height="4px" />
-						<hbox align="center" >
-							<label value="Suffix" />
-							<html:input id="suffixText" size="22"/>
-						</hbox>
+					<hbox align="center">
+						<label value="Prefix" />
+						<html:input id="prefixText"/>
+					</hbox>
+					<spacer height="4px" />
+					<hbox align="center" >
+						<label value="Suffix" />
+						<html:input id="suffixText"/>
+					</hbox>
 					<spacer height="12px" />
 					<hbox align="center">
 						<checkbox id="enableLatinize" label="Latinize Subject and Names" />
@@ -341,12 +335,12 @@
 					</hbox>
 					<hbox align="center">
 						<label value="Filter Characters" />
-						<html:input id="characterFilter" type="text" size="52" />
+						<html:input id="characterFilter" type="text"  />
 					</hbox>
 					<spacer height="26px" />
 					<hbox style="height: ;" >
 						<label style="padding-top: 3px;" >Filename Format</label>
-						<html:input type="text" id="PDFcustomFilenameFormat" size="52" />
+						<html:input type="text" id="PDFcustomFilenameFormat" />
 						<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
 							<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
 							width="20px" height="20px" style="margin-left: 2px; margin-top: 0px; 
@@ -360,7 +354,6 @@
 				<html:div style= "background-color2: yellow; padding-left: 10px">
 					<spacer height="6px"/>
 					<vbox>
-						
 						<hbox>
 							<html:label style="padding-left: 1px; padding-right: 4px; 
 						font-weight: 700">&defaultPrinter;</html:label>
@@ -370,52 +363,54 @@
 								<menulist id="OutputPrinter" oncommand="printerChange();" style="padding-left: 20px"/>
 							</hbox>
 						</hbox>
-						
 						<spacer height="4px"/>
 						<hbox align="center">
 							<spacer width="10px"/>
 							<checkbox id="PMDsilent" label="&PMDlabel8;" />
 						</hbox>
-
 						<spacer height="8px"/>
 						<label value="Page Options" style="font-weight: 700; width: 100px"/>
 						<vbox style="padding-left: 10px">
-						<spacer height="4px"/>
-						<hbox align="center" height="24px">
-							<label value="Copies" style="width: 120px"/>
-							<hbox flex="0" width="300px" style="background-colorX: yellow">
-								<vbox>
-									<html:div id="parent">
-										<html:input id="copies-count" is="setting-number" 
+							<spacer height="4px"/>
+							<hbox align="center" height="24px">
+								<label value="Copies" style="width: 120px"/>
+								<hbox flex="0" width="300px" style="background-colorX: yellow">
+									<vbox>
+										<html:div id="parent">
+											<html:input id="copies-count" is="setting-number" 
 						data-setting-name="numCopies" min="1" max="10000" 
 						class="copy-count-input photon-number2" 
 						aria-errormessage="error-invalid-copies" required="" 
 						type="number" autocomplete="off" value="1"/>
-										<html:div id="copies-count-error" class="error">Error</html:div>
-									</html:div>
-								</vbox>
+											<html:div id="copies-count-error" class="error">Error</html:div>
+										</html:div>
+									</vbox>
+								</hbox>
 							</hbox>
-						</hbox>
-						<spacer height="10px"/>
-						<hbox>
-							<label value="Page Ranges" style="width: 120px"/>
-							<radiogroup id="pageRangesRG" orient="horizontal" oncommand="pageRangeToggle(this);">
-								<radio label="All" />
-								<radio label="Custom" />
-								<html:div id="page-ranges-error-parent">
-									<html:input type="text" id="pages" size="15" required="" style="heightx: 24px; margin-left: 0px" />
-									<html:div id="page-ranges-error" class="error">Error</html:div>
-								</html:div>
-							</radiogroup>
-						</hbox>
+							<spacer height="10px"/>
+							<hbox>
+								<label value="Page Ranges" style="width: 120px"/>
+								<radiogroup id="pageRangesRG" orient="horizontal" oncommand="pageRangeToggle(this);">
+									<radio label="All" />
+									<radio label="Custom" />
+									<html:div id="page-ranges-error-parent">
+										<html:input type="text" id="pages" size="15" required="" style="heightx: 24px; margin-left: 0px" />
+										<html:div id="page-ranges-error" class="error">Error</html:div>
+									</html:div>
+								</radiogroup>
+							</hbox>
 						</vbox>
 						<spacer height="10px"/>
 						<vbox style="padding-left: 10px">
+							
+							<!--
 							<hbox>
 								<label value="Margins" style="width: 50px"/>
 								<label id="units" value="(inches)" />
 							</hbox>
 							<spacer height="5px"/>
+
+							
 							<hbox>
 								<spacer width="80px"/>
 								<label value="Top " style="width: 30px"/>
@@ -461,75 +456,141 @@
 						type="number" autocomplete="off" value="0.50"/>
 								</hbox>
 							</hbox>
+
+							-->
 						</vbox>
-						<spacer height="10px"/>
+						<spacer height="8px"/>
 						<vbox style="padding-left: 10px">
-						<html:table>
+							<html:table id="margins-hdrftr-table" class="margins-hdrftr-tbl">
 
-							<html:tr>
-								<html:td>Headers
+								<html:tr>
+									<html:td>Margins <label id="units" value="(inches)" />
 								</html:td>
-								<html:td>Left
+									<html:td>Top
 								</html:td>
-								<html:td>
-									<html:input type="text" id="headerleft" size="15" style="heightx: 24px; margin-left: 0px" />
+									<html:td>
+									<html:input id="margin-top" is="setting-number" 
+						data-setting-name="marginTop" min="0" max="10000" step="0.001"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50"/>
+									</html:td>
+									<html:td>Bottom
 								</html:td>
-							</html:tr>
+									<html:td>
+									<html:input id="margin-bottom" is="setting-number" 
+						data-setting-name="marginTop" min="0" max="10000" step="0.001"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50"/>
+								</html:td>
+								</html:tr>
 
-							<html:tr>
-								<html:td>
+								<html:tr>
+									<html:td>
 								</html:td>
-								<html:td>Center
+									<html:td>Left
 								</html:td>
-								<html:td>
-									<html:input type="text" id="headercenter" size="15" style="heightx: 24px; margin-left: 0px" />
+									<html:td>
+									<html:input id="margin-left" is="setting-number" 
+						data-setting-name="marginTop" min="0" max="10000" step="0.001"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50"/>
+									</html:td>
+									<html:td>Right
 								</html:td>
-							</html:tr>
+									<html:td>
+									<html:input id="margin-right" is="setting-number" 
+						data-setting-name="marginTop" min="0" max="10000" step="0.001"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50"/>
+								</html:td>
+								</html:tr>
 
-<html:tr>
-								<html:td>
+								<html:tr>
+									<html:td>Headers
 								</html:td>
-								<html:td>Right
+									<html:td>Left
 								</html:td>
-								<html:td>
-									<html:input type="text" id="headerright" size="15" style="heightx: 24px; margin-left: 0px" />								
+									<html:td>
+										<html:input type="text" id="headerleft" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
+									</html:td>
+									<html:td>
 								</html:td>
-							</html:tr>
-
-							<html:tr>
-								<html:td>Footers
+									<html:td>
 								</html:td>
-								<html:td>Left
-								</html:td>
-								<html:td>
-									<html:input type="text" id="footerleft" size="15" style="heightx: 24px; margin-left: 0px" />								
-								</html:td>
-							</html:tr>
-
-							<html:tr>
-								<html:td>
-								</html:td>
-								<html:td>Center
-								</html:td>
-								<html:td>
-									<html:input type="text" id="footercenter" size="15" style="heightx: 24px; margin-left: 0px" />
-								</html:td>
-							</html:tr>
-
-							<html:tr>
-								<html:td>
-								</html:td>
-								<html:td>Right
-								</html:td>
-								<html:td>
-									<html:input type="text" id="footerright" size="15" style="heightx: 24px; margin-left: 0px" />
-								</html:td>
-							</html:tr>
+								</html:tr>
 
 
-						</html:table>
+								<html:tr>
+									<html:td>
+								</html:td>
+									<html:td>Center
+								</html:td>
+									<html:td>
+										<html:input type="text" id="headercenter" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
+									</html:td>
+									<html:td>
+								</html:td>
+									<html:td>
+								</html:td>
+								</html:tr>
+								<html:tr>
+									<html:td>
+								</html:td>
+									<html:td>Right
+								</html:td>
+									<html:td>
+										<html:input type="text" id="headerright" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
+									</html:td>
+									<html:td>
+								</html:td>
+									<html:td>
+								</html:td>
+								</html:tr>
+								<html:tr>
+									<html:td>Footers
+								</html:td>
+									<html:td>Left
+								</html:td>
+									<html:td>
+										<html:input type="text" id="footerleft" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
+									</html:td>
+									<html:td>
+								</html:td>
+									<html:td>
+								</html:td>
+								</html:tr>
+								<html:tr>
+									<html:td>
+								</html:td>
+									<html:td>Center
+								</html:td>
+									<html:td>
+										<html:input type="text" id="footercenter" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
+									</html:td>
+									<html:td>
+								</html:td>
+									<html:td>
+								</html:td>
+								</html:tr>
+								<html:tr>
+									<html:td>
+								</html:td>
+									<html:td>Right
+								</html:td>
+									<html:td>
+										<html:input type="text" id="footerright" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
+									</html:td>
+									<html:td>
+								</html:td>
+									<html:td>
+								</html:td>
+								</html:tr>
+							</html:table>
 						</vbox>
-						
 					</vbox>
 				</html:div>
 			</tabpanel>
