@@ -69,3 +69,7 @@
 <!ENTITY ptngOptions.label "Printing Tools NG Options">
 <!ENTITY debugOptions.label "Debug Options">
 <!ENTITY date_custom.label "Custom">
+
+<!ENTITY body "Body">
+<!ENTITY pdf_output "PDF Output">
+<!ENTITY print_and_pageoptions "Print and Page Options">

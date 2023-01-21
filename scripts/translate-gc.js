@@ -16,7 +16,9 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	 { key: "messageBody", text: "Message Body"},
+	 { key: "body", text: "Body"},
+	 { key: "pdf_output", text: "PDF Output" },
+	 { key: "print_and_pageoptions", text: "Print and Page Options" },
 
 	
 ];
