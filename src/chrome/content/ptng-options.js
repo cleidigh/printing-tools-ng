@@ -719,7 +719,7 @@ function pageRangesValidation(e) {
 function handleMarginsKeypress(e) {
 	console.log(e)
 	let char = String.fromCharCode(e.charCode);
-	let acceptedChar = char.match(/^[0-9]$/);
+	let acceptedChar = char.match(/^[0-9.]$/);
 	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
 		e.preventDefault();
 	}

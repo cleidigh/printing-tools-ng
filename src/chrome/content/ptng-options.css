@@ -236,7 +236,7 @@ input[type="number"].photon-number2 {
 }
 
 #PDFoutputDir:lang(ja) {
-	width: 400px;
+	width: 450px;
 }
 
 #customDatePDF:lang(en-US) {
@@ -244,7 +244,7 @@ input[type="number"].photon-number2 {
 }
 
 #customDatePDF:lang(ja) {
-	width: 280px;
+	width: 450px;
 }
 
 #prefixText:lang(en-US) {
@@ -252,7 +252,7 @@ input[type="number"].photon-number2 {
 }
 
 #prefixText:lang(ja) {
-	width: 160px;
+	width: 300px;
 }
 
 #suffixText:lang(en-US) {
@@ -260,7 +260,7 @@ input[type="number"].photon-number2 {
 }
 
 #suffixText:lang(ja) {
-	width: 160px;
+	width: 300px;
 }
 
 #characterFilter:lang(en-US) {
@@ -268,7 +268,7 @@ input[type="number"].photon-number2 {
 }
 
 #characterFilter:lang(ja) {
-	width: 364px;
+	width: 350px;
 }
 
 #PDFcustomFilenameFormat:lang(en-US) {
@@ -276,7 +276,7 @@ input[type="number"].photon-number2 {
 }
 
 #PDFcustomFilenameFormat:lang(ja) {
-	width: 364px;
+	width: 350px;
 }
 
 #addNameBox:lang(en-US) {
@@ -284,7 +284,7 @@ input[type="number"].photon-number2 {
 }
 
 #addNameBox:lang(ja) {
-	width: 300px;
+	width: 400px;
 }
 
 #customDate:lang(en-US) {
@@ -292,7 +292,7 @@ input[type="number"].photon-number2 {
 }
 
 #customDate:lang(ja) {
-	width: 280px;
+	width: 450px;
 }
 
 #debug-options:lang(en-US) {
@@ -300,7 +300,7 @@ input[type="number"].photon-number2 {
 }
 
 #debug-options:lang(ja) {
-	width: 300px;
+	width: 350px;
 }
 
 #border_style:lang(en-US) {
@@ -308,7 +308,7 @@ input[type="number"].photon-number2 {
 }
 
 #border_style:lang(ja) {
-	width: 320px;
+	width: 300px;
 }
 /*
 
@@ -330,10 +330,10 @@ input[type="number"].photon-number2 {
 }
 */	
 
-.margins-hdrftr-tbl table, td {
-	/* background-color:#d2d2d2; */
+.margins-hdrftr-tbl table, td, tr {
+	/* background-color:azure; */
 	/* border: 1px solid black; */
-	border-collapse: collapse;
+	/* border-collapse: collapse; */
 	width: 100%;
 
 }
@@ -343,8 +343,14 @@ input[type="number"].photon-number2 {
 	/* background-color: azure; */
 }
 
+.margins-hdrftr-tbl td:nth-child(4) { 
+	padding-left: 15px;
+	padding-right: 15px;
+	/* background-color: azure; */
+}
+
 .hdrftr {
-	width: 7em;
+	width: 6em;
 }
 /* validation rules */
 
