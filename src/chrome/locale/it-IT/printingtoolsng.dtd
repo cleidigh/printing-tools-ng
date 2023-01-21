@@ -69,3 +69,6 @@
 <!ENTITY debugOptions.label "Opzioni di debug">
 <!ENTITY date_custom.label "Costume">
 <!ENTITY messageBody "corpo del messaggio">
+<!ENTITY body "Corpo">
+<!ENTITY pdf_output "Uscita PDF">
+<!ENTITY print_and_pageoptions "Opzioni di stampa e pagina">

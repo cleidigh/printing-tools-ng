@@ -70,3 +70,6 @@
 <!ENTITY debugOptions.label "Options de débogage">
 <!ENTITY date_custom.label "Coutume">
 <!ENTITY messageBody "Corps du message">
+<!ENTITY body "Corps">
+<!ENTITY pdf_output "Sortie PDF">
+<!ENTITY print_and_pageoptions "Options d&#39;impression et de mise en page">

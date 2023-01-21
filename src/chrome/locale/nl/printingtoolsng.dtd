@@ -70,3 +70,6 @@
 <!ENTITY debugOptions.label "Foutopsporingsopties">
 <!ENTITY date_custom.label "Aangepast">
 <!ENTITY messageBody "bericht lichaam">
+<!ENTITY body "Lichaam">
+<!ENTITY pdf_output "PDF-uitvoer">
+<!ENTITY print_and_pageoptions "Afdruk- en pagina-opties">

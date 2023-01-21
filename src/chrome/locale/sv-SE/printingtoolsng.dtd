@@ -69,3 +69,6 @@
 <!ENTITY debugOptions.label "Felsökningsalternativ">
 <!ENTITY date_custom.label "Beställnings">
 <!ENTITY messageBody "Meddelandetext">
+<!ENTITY body "Kropp">
+<!ENTITY pdf_output "PDF-utdata">
+<!ENTITY print_and_pageoptions "Utskrifts- och sidalternativ">

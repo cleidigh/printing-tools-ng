@@ -70,3 +70,6 @@
 <!ENTITY debugOptions.label "Opcions de depuració">
 <!ENTITY date_custom.label "Personalitzat">
 <!ENTITY messageBody "Cos del missatge">
+<!ENTITY body "Cos">
+<!ENTITY pdf_output "Sortida PDF">
+<!ENTITY print_and_pageoptions "Opcions d&#39;impressió i pàgina">

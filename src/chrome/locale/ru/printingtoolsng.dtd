@@ -69,3 +69,6 @@
 <!ENTITY debugOptions.label "Параметры отладки">
 <!ENTITY date_custom.label "Обычай">
 <!ENTITY messageBody "Тело сообщения">
+<!ENTITY body "Тело">
+<!ENTITY pdf_output "Вывод в формате PDF">
+<!ENTITY print_and_pageoptions "Параметры печати и страницы">

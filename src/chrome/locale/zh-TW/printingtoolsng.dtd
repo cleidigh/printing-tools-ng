@@ -69,3 +69,6 @@
 <!ENTITY debugOptions.label "调试选项">
 <!ENTITY date_custom.label "自設">
 <!ENTITY messageBody "邮件正文">
+<!ENTITY body "身体">
+<!ENTITY pdf_output "PDF 输出">
+<!ENTITY print_and_pageoptions "打印和页面选项">

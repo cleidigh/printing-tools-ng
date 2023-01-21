@@ -69,3 +69,6 @@
 <!ENTITY debugOptions.label "Επιλογές εντοπισμού σφαλμάτων">
 <!ENTITY date_custom.label "Εθιμο">
 <!ENTITY messageBody "Σώμα μηνύματος">
+<!ENTITY body "Σώμα">
+<!ENTITY pdf_output "Έξοδος PDF">
+<!ENTITY print_and_pageoptions "Επιλογές εκτύπωσης και σελίδας">

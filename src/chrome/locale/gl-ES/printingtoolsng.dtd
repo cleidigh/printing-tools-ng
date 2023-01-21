@@ -69,3 +69,6 @@
 <!ENTITY debugOptions.label "Opcións de depuración">
 <!ENTITY date_custom.label "Personalizado">
 <!ENTITY messageBody "Corpo da mensaxe">
+<!ENTITY body "Corpo">
+<!ENTITY pdf_output "Saída PDF">
+<!ENTITY print_and_pageoptions "Opcións de impresión e páxina">

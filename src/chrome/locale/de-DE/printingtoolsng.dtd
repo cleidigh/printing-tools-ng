@@ -70,3 +70,6 @@
 <!ENTITY debugOptions.label "Debug-Optionen">
 <!ENTITY date_custom.label "Benutzerdefiniert">
 <!ENTITY messageBody "Nachrichtentext">
+<!ENTITY body "Körper">
+<!ENTITY pdf_output "PDF-Ausgabe">
+<!ENTITY print_and_pageoptions "Druck- und Seitenoptionen">

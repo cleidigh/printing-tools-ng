@@ -69,3 +69,6 @@
 <!ENTITY debugOptions.label "디버그 옵션">
 <!ENTITY date_custom.label "관습">
 <!ENTITY messageBody "메시지 본문">
+<!ENTITY body "신체">
+<!ENTITY pdf_output "PDF 출력">
+<!ENTITY print_and_pageoptions "인쇄 및 페이지 옵션">

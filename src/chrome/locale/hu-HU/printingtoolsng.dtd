@@ -69,3 +69,7 @@
 <!ENTITY debugOptions.label "Hibakeresési beállítások">
 <!ENTITY date_custom.label "Egyéni">
 <!ENTITY messageBody "Üzenettörzs">
+
+<!ENTITY body "Test">
+<!ENTITY pdf_output "PDF kimenet">
+<!ENTITY print_and_pageoptions "Nyomtatási és oldalbeállítások">

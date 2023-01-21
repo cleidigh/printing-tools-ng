@@ -70,3 +70,6 @@
 <!ENTITY debugOptions.label "Feilsøkingsalternativer">
 <!ENTITY date_custom.label "Tilpasset">
 <!ENTITY messageBody "Meldingstekst">
+<!ENTITY body "Kropp">
+<!ENTITY pdf_output "PDF-utgang">
+<!ENTITY print_and_pageoptions "Utskrifts- og sidealternativer">

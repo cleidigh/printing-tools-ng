@@ -70,3 +70,6 @@
 <!ENTITY debugOptions.label "Možnosti ladenia">
 <!ENTITY date_custom.label "Vlastné">
 <!ENTITY messageBody "Telo správy">
+<!ENTITY body "Telo">
+<!ENTITY pdf_output "Výstup PDF">
+<!ENTITY print_and_pageoptions "Možnosti tlače a strany">

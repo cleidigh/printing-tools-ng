@@ -70,3 +70,6 @@
 <!ENTITY debugOptions.label "Fejlfindingsindstillinger">
 <!ENTITY date_custom.label "Brugerdefinerede">
 <!ENTITY messageBody "Meddelelsestekst">
+<!ENTITY body "Legeme">
+<!ENTITY pdf_output "PDF-output">
+<!ENTITY print_and_pageoptions "Udskrifts- og sideindstillinger">

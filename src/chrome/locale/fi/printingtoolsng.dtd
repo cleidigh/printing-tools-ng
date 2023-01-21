@@ -69,3 +69,6 @@
 <!ENTITY debugOptions.label "Virheenkorjausasetukset">
 <!ENTITY date_custom.label "Mukautettu">
 <!ENTITY messageBody "Viestin runko">
+<!ENTITY body "Runko">
+<!ENTITY pdf_output "PDF-tulostus">
+<!ENTITY print_and_pageoptions "Tulostus- ja sivuasetukset">

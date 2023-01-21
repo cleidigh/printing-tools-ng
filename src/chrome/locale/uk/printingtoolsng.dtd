@@ -69,3 +69,6 @@
 <!ENTITY debugOptions.label "Параметри налагодження">
 <!ENTITY date_custom.label "На замовлення">
 <!ENTITY messageBody "Тіло повідомлення">
+<!ENTITY body "Тіло">
+<!ENTITY pdf_output "Вихід PDF">
+<!ENTITY print_and_pageoptions "Параметри друку та сторінки">

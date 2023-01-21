@@ -69,3 +69,6 @@
 <!ENTITY debugOptions.label "Možnosti odpravljanja napak">
 <!ENTITY date_custom.label "Po meri">
 <!ENTITY messageBody "Telo sporočila">
+<!ENTITY body "Telo">
+<!ENTITY pdf_output "Izpis PDF">
+<!ENTITY print_and_pageoptions "Možnosti tiskanja in strani">

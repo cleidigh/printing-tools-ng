@@ -69,3 +69,6 @@
 <!ENTITY debugOptions.label "Վրիպազերծման ընտրանքներ">
 <!ENTITY date_custom.label "Պատվերով">
 <!ENTITY messageBody "Հաղորդագրության մարմին">
+<!ENTITY body "Մարմին">
+<!ENTITY pdf_output "PDF ելք">
+<!ENTITY print_and_pageoptions "Տպման և էջի ընտրանքներ">

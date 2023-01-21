@@ -70,3 +70,6 @@
 <!ENTITY debugOptions.label "Opcje debugowania">
 <!ENTITY date_custom.label "Zwyczaj">
 <!ENTITY messageBody "Treść wiadomości">
+<!ENTITY body "Ciało">
+<!ENTITY pdf_output "Wyjście PDF">
+<!ENTITY print_and_pageoptions "Opcje drukowania i strony">
