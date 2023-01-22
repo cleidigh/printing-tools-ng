@@ -73,3 +73,17 @@
 <!ENTITY body "Cos">
 <!ENTITY pdf_output "Sortida PDF">
 <!ENTITY print_and_pageoptions "Opcions d&#39;impressió i pàgina">
+<!ENTITY headers_order "Ordre de capçaleres">
+<!ENTITY attachments "Adjunts">
+<!ENTITY images "Imatges">
+<!ENTITY pdf_file_naming "Denominació de fitxers PDF">
+<!ENTITY enable_pdfdir "Activa el directori de sortida de PDF">
+<!ENTITY output_dir "Directori de sortida">
+<!ENTITY browse "Navega">
+<!ENTITY custom_date_format "Format de data personalitzat">
+<!ENTITY prefix "Prefix">
+<!ENTITY suffix "Sufix">
+<!ENTITY latinize "Llatinitzar Matèria i Noms">
+<!ENTITY remove_emojis "Elimina els emojis i els símbols Unicode">
+<!ENTITY filter_characters "Filtrar caràcters">
+<!ENTITY filename_format "Format de nom de fitxer">

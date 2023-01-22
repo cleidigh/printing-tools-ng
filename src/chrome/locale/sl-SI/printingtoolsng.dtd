@@ -72,3 +72,17 @@
 <!ENTITY body "Telo">
 <!ENTITY pdf_output "Izpis PDF">
 <!ENTITY print_and_pageoptions "Možnosti tiskanja in strani">
+<!ENTITY headers_order "Vrstni red glav">
+<!ENTITY attachments "priloge">
+<!ENTITY images "Slike">
+<!ENTITY pdf_file_naming "Poimenovanje datoteke PDF">
+<!ENTITY enable_pdfdir "Omogoči izhodni imenik PDF">
+<!ENTITY output_dir "Izhodni imenik">
+<!ENTITY browse "Prebrskaj">
+<!ENTITY custom_date_format "Oblika datuma po meri">
+<!ENTITY prefix "Predpona">
+<!ENTITY suffix "Pripona">
+<!ENTITY latinize "Latinizirajte subjekte in imena">
+<!ENTITY remove_emojis "Odstranite emojije in simbole Unicode">
+<!ENTITY filter_characters "Filtriraj znake">
+<!ENTITY filename_format "Oblika imena datoteke">

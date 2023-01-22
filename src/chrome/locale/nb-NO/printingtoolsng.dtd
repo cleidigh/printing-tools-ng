@@ -73,3 +73,17 @@
 <!ENTITY body "Kropp">
 <!ENTITY pdf_output "PDF-utgang">
 <!ENTITY print_and_pageoptions "Utskrifts- og sidealternativer">
+<!ENTITY headers_order "Overskrifter rekkefølge">
+<!ENTITY attachments "Vedlegg">
+<!ENTITY images "Bilder">
+<!ENTITY pdf_file_naming "Navngivning av PDF-filer">
+<!ENTITY enable_pdfdir "Aktiver PDF-utdatakatalog">
+<!ENTITY output_dir "Utdatakatalog">
+<!ENTITY browse "Bla gjennom">
+<!ENTITY custom_date_format "Egendefinert datoformat">
+<!ENTITY prefix "Prefiks">
+<!ENTITY suffix "Suffiks">
+<!ENTITY latinize "Latiniser emne og navn">
+<!ENTITY remove_emojis "Fjern Unicode-emojier og symboler">
+<!ENTITY filter_characters "Filtrer tegn">
+<!ENTITY filename_format "Filnavnformat">

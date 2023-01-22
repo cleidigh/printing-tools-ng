@@ -72,3 +72,17 @@
 <!ENTITY body "Մարմին">
 <!ENTITY pdf_output "PDF ելք">
 <!ENTITY print_and_pageoptions "Տպման և էջի ընտրանքներ">
+<!ENTITY headers_order "Վերնագրերի կարգը">
+<!ENTITY attachments "Կցորդներ">
+<!ENTITY images "Պատկերներ">
+<!ENTITY pdf_file_naming "PDF ֆայլի անվանում">
+<!ENTITY enable_pdfdir "Միացնել PDF ելքային գրացուցակը">
+<!ENTITY output_dir "Արդյունքների տեղեկատու">
+<!ENTITY browse "Թերթիր">
+<!ENTITY custom_date_format "Անհատականացված ամսաթվի ձևաչափ">
+<!ENTITY prefix "Նախածանց">
+<!ENTITY suffix "վերջածանց">
+<!ENTITY latinize "Լատինականացնել առարկաները և անունները">
+<!ENTITY remove_emojis "Հեռացրեք Unicode Emojis-ն ու խորհրդանիշները">
+<!ENTITY filter_characters "Զտիչ կերպարներ">
+<!ENTITY filename_format "Ֆայլի անվան ձևաչափ">

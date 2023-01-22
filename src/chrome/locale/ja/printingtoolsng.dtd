@@ -73,3 +73,18 @@
 <!ENTITY body "ボディ設定">
 <!ENTITY pdf_output "PDF 出力設定">
 <!ENTITY print_and_pageoptions "プリンターとページ印刷設定">
+
+<!ENTITY headers_order "ヘッダーの並び替え">
+<!ENTITY attachments "添付ファイル">
+<!ENTITY images "画像">
+<!ENTITY pdf_file_naming "PDF ファイルの命名">
+<!ENTITY enable_pdfdir "PDF の出力先フォルダーを有効にする">
+<!ENTITY output_dir "出力先フォルダー指定">
+<!ENTITY browse "選択">
+<!ENTITY custom_date_format "カスタム日時形式">
+<!ENTITY prefix "接頭語">
+<!ENTITY suffix "接尾語">
+<!ENTITY latinize "件名と命名のラテン語化">
+<!ENTITY remove_emojis "Unicode 絵文字と記号を削除する">
+<!ENTITY filter_characters "フィルター文字列">
+<!ENTITY filename_format "ファイル名形式">

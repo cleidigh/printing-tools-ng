@@ -72,3 +72,17 @@
 <!ENTITY body "신체">
 <!ENTITY pdf_output "PDF 출력">
 <!ENTITY print_and_pageoptions "인쇄 및 페이지 옵션">
+<!ENTITY headers_order "헤더 순서">
+<!ENTITY attachments "첨부파일">
+<!ENTITY images "이미지">
+<!ENTITY pdf_file_naming "PDF 파일 명명">
+<!ENTITY enable_pdfdir "PDF 출력 디렉토리 활성화">
+<!ENTITY output_dir "출력 디렉토리">
+<!ENTITY browse "검색">
+<!ENTITY custom_date_format "맞춤 날짜 형식">
+<!ENTITY prefix "접두사">
+<!ENTITY suffix "접미사">
+<!ENTITY latinize "제목과 이름을 라틴어로">
+<!ENTITY remove_emojis "유니코드 이모티콘 및 기호 제거">
+<!ENTITY filter_characters "필터 문자">
+<!ENTITY filename_format "파일 이름 형식">

@@ -73,3 +73,17 @@
 <!ENTITY body "Telo">
 <!ENTITY pdf_output "Výstup PDF">
 <!ENTITY print_and_pageoptions "Možnosti tlače a strany">
+<!ENTITY headers_order "Poradie hlavičiek">
+<!ENTITY attachments "Prílohy">
+<!ENTITY images "snímky">
+<!ENTITY pdf_file_naming "Pomenovanie súboru PDF">
+<!ENTITY enable_pdfdir "Povoliť výstupný adresár PDF">
+<!ENTITY output_dir "Výstupný adresár">
+<!ENTITY browse "Prehľadávať">
+<!ENTITY custom_date_format "Vlastný formát dátumu">
+<!ENTITY prefix "Predpona">
+<!ENTITY suffix "Prípona">
+<!ENTITY latinize "Latinizovať predmet a mená">
+<!ENTITY remove_emojis "Odstráňte emotikony a symboly Unicode">
+<!ENTITY filter_characters "Filtrovať znaky">
+<!ENTITY filename_format "Formát názvu súboru">

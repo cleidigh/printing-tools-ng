@@ -72,3 +72,17 @@
 <!ENTITY body "Тіло">
 <!ENTITY pdf_output "Вихід PDF">
 <!ENTITY print_and_pageoptions "Параметри друку та сторінки">
+<!ENTITY headers_order "Порядок заголовків">
+<!ENTITY attachments "Додатки">
+<!ENTITY images "Зображення">
+<!ENTITY pdf_file_naming "Іменування файлів PDF">
+<!ENTITY enable_pdfdir "Увімкнути каталог виведення PDF">
+<!ENTITY output_dir "Вихідний каталог">
+<!ENTITY browse "переглядати">
+<!ENTITY custom_date_format "Спеціальний формат дати">
+<!ENTITY prefix "Префікс">
+<!ENTITY suffix "Суфікс">
+<!ENTITY latinize "Латинізуйте тему та імена">
+<!ENTITY remove_emojis "Видаліть емодзі та символи Unicode">
+<!ENTITY filter_characters "Фільтр символів">
+<!ENTITY filename_format "Формат імені файлу">

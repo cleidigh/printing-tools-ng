@@ -73,3 +73,17 @@
 <!ENTITY body "Test">
 <!ENTITY pdf_output "PDF kimenet">
 <!ENTITY print_and_pageoptions "Nyomtatási és oldalbeállítások">
+<!ENTITY headers_order "Fejlécek sorrendje">
+<!ENTITY attachments "Mellékletek">
+<!ENTITY images "Képek">
+<!ENTITY pdf_file_naming "PDF fájl elnevezése">
+<!ENTITY enable_pdfdir "PDF kimeneti könyvtár engedélyezése">
+<!ENTITY output_dir "Kimeneti könyvtár">
+<!ENTITY browse "Tallózás">
+<!ENTITY custom_date_format "Egyéni dátumformátum">
+<!ENTITY prefix "Előtag">
+<!ENTITY suffix "Utótag">
+<!ENTITY latinize "A tárgy és a nevek latinosítása">
+<!ENTITY remove_emojis "Távolítsa el az Unicode hangulatjeleket és szimbólumokat">
+<!ENTITY filter_characters "Karakterek szűrése">
+<!ENTITY filename_format "Fájlnév formátum">

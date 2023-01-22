@@ -72,3 +72,17 @@
 <!ENTITY body "Тело">
 <!ENTITY pdf_output "Вывод в формате PDF">
 <!ENTITY print_and_pageoptions "Параметры печати и страницы">
+<!ENTITY headers_order "Порядок заголовков">
+<!ENTITY attachments "Вложения">
+<!ENTITY images "Картинки">
+<!ENTITY pdf_file_naming "Именование PDF-файлов">
+<!ENTITY enable_pdfdir "Включить выходной каталог PDF">
+<!ENTITY output_dir "Выходной каталог">
+<!ENTITY browse "Просматривать">
+<!ENTITY custom_date_format "Пользовательский формат даты">
+<!ENTITY prefix "Приставка">
+<!ENTITY suffix "Суффикс">
+<!ENTITY latinize "Латинизировать тему и имена">
+<!ENTITY remove_emojis "Удалить смайлики и символы Unicode">
+<!ENTITY filter_characters "Символы фильтра">
+<!ENTITY filename_format "Формат имени файла">

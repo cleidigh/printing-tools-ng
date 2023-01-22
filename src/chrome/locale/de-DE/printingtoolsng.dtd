@@ -73,3 +73,17 @@
 <!ENTITY body "Körper">
 <!ENTITY pdf_output "PDF-Ausgabe">
 <!ENTITY print_and_pageoptions "Druck- und Seitenoptionen">
+<!ENTITY headers_order "Header-Reihenfolge">
+<!ENTITY attachments "Anhänge">
+<!ENTITY images "Bilder">
+<!ENTITY pdf_file_naming "Benennung von PDF-Dateien">
+<!ENTITY enable_pdfdir "PDF-Ausgabeverzeichnis aktivieren">
+<!ENTITY output_dir "Ausgabe Verzeichnis">
+<!ENTITY browse "Durchsuche">
+<!ENTITY custom_date_format "Benutzerdefiniertes Datumsformat">
+<!ENTITY prefix "Präfix">
+<!ENTITY suffix "Suffix">
+<!ENTITY latinize "Betreff und Namen latinisieren">
+<!ENTITY remove_emojis "Entfernen Sie Unicode-Emojis und -Symbole">
+<!ENTITY filter_characters "Zeichen filtern">
+<!ENTITY filename_format "Dateinamenformat">

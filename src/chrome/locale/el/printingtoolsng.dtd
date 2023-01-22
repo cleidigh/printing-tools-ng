@@ -72,3 +72,17 @@
 <!ENTITY body "Σώμα">
 <!ENTITY pdf_output "Έξοδος PDF">
 <!ENTITY print_and_pageoptions "Επιλογές εκτύπωσης και σελίδας">
+<!ENTITY headers_order "Σειρά κεφαλίδων">
+<!ENTITY attachments "Συνημμένα">
+<!ENTITY images "εικόνες">
+<!ENTITY pdf_file_naming "Ονομασία αρχείων PDF">
+<!ENTITY enable_pdfdir "Ενεργοποιήστε τον κατάλογο εξόδου PDF">
+<!ENTITY output_dir "Κατάλογο εξόδου">
+<!ENTITY browse "Ξεφυλλίζω">
+<!ENTITY custom_date_format "Προσαρμοσμένη μορφή ημερομηνίας">
+<!ENTITY prefix "Πρόθεμα">
+<!ENTITY suffix "Κατάληξη">
+<!ENTITY latinize "Λατινοποίηση θεμάτων και ονομάτων">
+<!ENTITY remove_emojis "Αφαιρέστε Unicode Emojis και σύμβολα">
+<!ENTITY filter_characters "Φιλτράρισμα χαρακτήρων">
+<!ENTITY filename_format "Μορφή ονόματος αρχείου">
