@@ -16,20 +16,23 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "headers_order", text: "Headers Order" },
-	{ key: "attachments", text: "Attachments" },
-	{ key: "images", text: "Images" },
-	{ key: "pdf_file_naming", text: "PDF File Naming" },
-	{ key: "enable_pdfdir", text: "Enable PDF Output Directory" },
-	{ key: "output_dir", text: "Output Directory" },
-	{ key: "browse", text: "Browse" },
-	{ key: "custom_date_format", text: "Custom Date Format" },
-	{ key: "prefix", text: "Prefix" },
-	{ key: "suffix", text: "Suffix" },
-	{ key: "latinize", text: "Latinize Subject and Names" },
-	{ key: "remove_emojis", text: "Remove Unicode Emojis and Symbols" },
-	{ key: "filter_characters", text: "Filter Characters" },
-	{ key: "filename_format", text: "Filename Format" },
+	{ key: "page_options", text: "Page Options" },
+	{ key: "copies", text: "Copies" },
+	{ key: "all", text: "All" },
+	{ key: "custom", text: "Custom" },
+	{ key: "page_ranges", text: "Page Ranges" },
+	{ key: "margins", text: "Margins" },
+	{ key: "top", text: "Top" },
+	{ key: "bottom", text: "Bottom" },
+	{ key: "left", text: "Left" },
+	{ key: "right", text: "Right" },
+	{ key: "center", text: "Center" },
+	{ key: "footers", text: "Footers" },
+	{ key: "cancel", text: "Cancel" },
+	{ key: "&OK;", text: "OK" },
+	
+
+	
 
 	
 ];

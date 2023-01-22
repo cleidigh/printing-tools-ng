@@ -91,5 +91,18 @@
 <!ENTITY filter_characters "Filter Characters">
 <!ENTITY filename_format "Filename Format">
 
-<!ENTITY x "">
+<!ENTITY page_options "Page Options">
+<!ENTITY copies "Copies">
+<!ENTITY all "All">
+<!ENTITY page_ranges "Page Ranges">
+<!ENTITY margins "Margins">
+<!ENTITY custom "Custom">
+<!ENTITY top "Top">
+<!ENTITY bottom "Bottom">
+<!ENTITY left "Left">
+<!ENTITY right "Right">
+<!ENTITY center "Center">
+<!ENTITY footers "Footers">
+<!ENTITY cancel "Cancel">
+<!ENTITY OK "OK">
 

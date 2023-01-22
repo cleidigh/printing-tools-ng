@@ -369,11 +369,11 @@
 							<checkbox id="PMDsilent" label="&PMDlabel8;" />
 						</hbox>
 						<spacer height="8px"/>
-						<label value="Page Options" style="font-weight: 700; width: 100px"/>
+						<label value="&page_options;" style="font-weight: 700; width: 100px"/>
 						<vbox style="padding-left: 10px">
 							<spacer height="4px"/>
 							<hbox align="center" height="24px">
-								<label value="Copies" style="width: 120px"/>
+								<label value="&copies;" style="width: 120px"/>
 								<hbox flex="0" width="300px" style="background-colorX: yellow">
 									<vbox>
 										<html:div id="parent">
@@ -389,10 +389,10 @@
 							</hbox>
 							<spacer height="10px"/>
 							<hbox>
-								<label value="Page Ranges" style="width: 120px"/>
+								<label value="&page_ranges;" style="width: 120px"/>
 								<radiogroup id="pageRangesRG" orient="horizontal" oncommand="pageRangeToggle(this);">
-									<radio label="All" />
-									<radio label="Custom" />
+									<radio label="&all;" />
+									<radio label="&custom;" />
 									<html:div id="page-ranges-error-parent">
 										<html:input type="text" id="pages" size="15" required="" style="heightx: 24px; margin-left: 0px" />
 										<html:div id="page-ranges-error" class="error">Error</html:div>
@@ -464,9 +464,9 @@
 							<html:table id="margins-hdrftr-table" class="margins-hdrftr-tbl">
 
 								<html:tr>
-									<html:td>Margins <label id="units" value="(inches)" />
+									<html:td>&margins;<label id="units" value="(inches)" />
 								</html:td>
-									<html:td>Top
+									<html:td>&top;
 								</html:td>
 									<html:td>
 									<html:input id="margin-top" is="setting-number" 
@@ -475,7 +475,7 @@
 						aria-errormessage="error-invalid-copies" required="" 
 						type="number" autocomplete="off" value="0.50" style="width: 100%"/>
 									</html:td>
-									<html:td>Bottom
+									<html:td>&bottom;
 								</html:td>
 									<html:td>
 									<html:input id="margin-bottom" is="setting-number" 
@@ -489,7 +489,7 @@
 								<html:tr>
 									<html:td>
 								</html:td>
-									<html:td>Left
+									<html:td>&left;
 								</html:td>
 									<html:td>
 									<html:input id="margin-left" is="setting-number" 
@@ -498,7 +498,7 @@
 						aria-errormessage="error-invalid-copies" required="" 
 						type="number" autocomplete="off" value="0.50"/>
 									</html:td>
-									<html:td>Right
+									<html:td>&right;
 								</html:td>
 									<html:td>
 									<html:input id="margin-right" is="setting-number" 
@@ -510,9 +510,9 @@
 								</html:tr>
 
 								<html:tr>
-									<html:td>Headers
+									<html:td>&headers;
 								</html:td>
-									<html:td>Left
+									<html:td>&left;
 								</html:td>
 									<html:td>
 										<html:input type="text" id="headerleft" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
@@ -527,7 +527,7 @@
 								<html:tr>
 									<html:td>
 								</html:td>
-									<html:td>Center
+									<html:td>&center;
 								</html:td>
 									<html:td>
 										<html:input type="text" id="headercenter" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
@@ -540,7 +540,7 @@
 								<html:tr>
 									<html:td>
 								</html:td>
-									<html:td>Right
+									<html:td>&right;
 								</html:td>
 									<html:td>
 										<html:input type="text" id="headerright" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
@@ -551,9 +551,9 @@
 								</html:td>
 								</html:tr>
 								<html:tr>
-									<html:td>Footers
+									<html:td>&footers;
 								</html:td>
-									<html:td>Left
+									<html:td>&left;
 								</html:td>
 									<html:td>
 										<html:input type="text" id="footerleft" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
@@ -566,7 +566,7 @@
 								<html:tr>
 									<html:td>
 								</html:td>
-									<html:td>Center
+									<html:td>&center;
 								</html:td>
 									<html:td>
 										<html:input type="text" id="footercenter" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
@@ -579,7 +579,7 @@
 								<html:tr>
 									<html:td>
 								</html:td>
-									<html:td>Right
+									<html:td>&right;
 								</html:td>
 									<html:td>
 										<html:input type="text" id="footerright" class="hdrftr" style="heightx: 24px; margin-left: 0px" />
@@ -599,7 +599,7 @@
 	<vbox height="8px"></vbox>
 	<hbox align="right">
 		<spacer flex="1"/>
-		<button id="okbutton" label="OK" oncommand="savePMDprefs();"/>
-		<button id="localfolder.btQuitter" label="Cancel" oncommand="window.close();"/>
+		<button id="okbutton" label="&OK;" oncommand="savePMDprefs();"/>
+		<button id="cancelbutton" label="&cancel;" oncommand="window.close();"/>
 	</hbox>
 </window>
