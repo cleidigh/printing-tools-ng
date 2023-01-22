@@ -29,7 +29,7 @@ var translationArray = [
 	{ key: "center", text: "Center" },
 	{ key: "footers", text: "Footers" },
 	{ key: "cancel", text: "Cancel" },
-	{ key: "&OK;", text: "OK" },
+	
 	
 
 	
