@@ -152,7 +152,7 @@
 				</vbox>
 				<spacer height="6px"/>
 				<hbox>
-					<label style="font-weight: 700" value="Headers Order" />
+					<label style="font-weight: 700" value="&headers_order;" />
 				</hbox>
 				<hbox>
 					<spacer width="15px"/>
@@ -246,7 +246,7 @@
 							</menulist>
 						</hbox>
 					</vbox>
-					<label value="Attachments:" style="font-weight: 700; width: 100px"/>
+					<label value="&attachments;" style="font-weight: 700; width: 100px"/>
 					<hbox align="center">
 						<spacer width="5px" />
 						<checkbox id="PMDattach" label="&PMDlabel2;" oncommand="setTimeout(toggleAtt,200)" />
@@ -279,7 +279,7 @@
 						<checkbox id="PMDhideAtt" label="&PMDlabel10;" />
 					</hbox>
 					<spacer height="8px" />
-					<label value="Images:" style="font-weight: 700; width: 100px"/>
+					<label value="&images;" style="font-weight: 700; width: 100px"/>
 					<hbox align="center">
 						<spacer width="10px" />
 						<checkbox id="PMDhideImgs" label="&PMDlabel7;" />
@@ -291,12 +291,12 @@
 			<!-- TAB4 PDF options -->
 			<tabpanel orient="vertical">
 				<hbox>
-					<label style="font-weight: 700" value="PDF File Naming" />
+					<label style="font-weight: 700" value="&pdf_file_naming;" />
 				</hbox>
 				<spacer height="8px" />
 				<vbox align="start" style="padding-left: 10px">
 					<hbox align="center">
-						<checkbox id="enablePDFoutputDir" label="Enable PDF Output Directory" />
+						<checkbox id="enablePDFoutputDir" label="&enable_pdfdir;" />
 					</hbox>
 					<spacer height="3px" />
 					<hbox align="center">
@@ -304,11 +304,11 @@
 					</hbox>
 					<hbox align="center">
 						<html:input id="PDFoutputDir" type="text"  />
-						<button id="PDFoutputDirBrowse" label="Browse" oncommand="pickPDFoutputDir()" />
+						<button id="PDFoutputDirBrowse" label="&browse;" oncommand="pickPDFoutputDir()" />
 					</hbox>
 					<spacer height="12px" />
 					<hbox align="center" >
-						<label id="PDFcustomDateLabel" style="padding-top: 3px;" >Custom Date Format</label>
+						<label id="PDFcustomDateLabel" style="padding-top: 3px;" >&custom_date_format;</label>
 						<html:input type="text" id="customDatePDF" />
 						<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
 							<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
@@ -318,28 +318,28 @@
 					</hbox>
 					<spacer height="4px" />
 					<hbox align="center">
-						<label value="Prefix" />
+						<label value="&prefix;" />
 						<html:input id="prefixText"/>
 					</hbox>
 					<spacer height="4px" />
 					<hbox align="center" >
-						<label value="Suffix" />
+						<label value="&suffix;" />
 						<html:input id="suffixText"/>
 					</hbox>
 					<spacer height="12px" />
 					<hbox align="center">
-						<checkbox id="enableLatinize" label="Latinize Subject and Names" />
+						<checkbox id="enableLatinize" label="&latinize;" />
 					</hbox>
 					<hbox align="center">
-						<checkbox id="enableEmojiAndSymbolFilter" label="Remove Unicode Emojis and Symbols" />
+						<checkbox id="enableEmojiAndSymbolFilter" label="&remove_emojis;" />
 					</hbox>
 					<hbox align="center">
-						<label value="Filter Characters" />
+						<label value="&filter_characters;" />
 						<html:input id="characterFilter" type="text"  />
 					</hbox>
 					<spacer height="26px" />
 					<hbox style="height: ;" >
-						<label style="padding-top: 3px;" >Filename Format</label>
+						<label style="padding-top: 3px;" >&filename_format;</label>
 						<html:input type="text" id="PDFcustomFilenameFormat" />
 						<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
 							<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 

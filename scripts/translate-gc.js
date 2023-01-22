@@ -16,9 +16,20 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	 { key: "body", text: "Body"},
-	 { key: "pdf_output", text: "PDF Output" },
-	 { key: "print_and_pageoptions", text: "Print and Page Options" },
+	{ key: "headers_order", text: "Headers Order" },
+	{ key: "attachments", text: "Attachments" },
+	{ key: "images", text: "Images" },
+	{ key: "pdf_file_naming", text: "PDF File Naming" },
+	{ key: "enable_pdfdir", text: "Enable PDF Output Directory" },
+	{ key: "output_dir", text: "Output Directory" },
+	{ key: "browse", text: "Browse" },
+	{ key: "custom_date_format", text: "Custom Date Format" },
+	{ key: "prefix", text: "Prefix" },
+	{ key: "suffix", text: "Suffix" },
+	{ key: "latinize", text: "Latinize Subject and Names" },
+	{ key: "remove_emojis", text: "Remove Unicode Emojis and Symbols" },
+	{ key: "filter_characters", text: "Filter Characters" },
+	{ key: "filename_format", text: "Filename Format" },
 
 	
 ];

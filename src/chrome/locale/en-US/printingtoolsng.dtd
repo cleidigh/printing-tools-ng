@@ -73,3 +73,23 @@
 <!ENTITY body "Body">
 <!ENTITY pdf_output "PDF Output">
 <!ENTITY print_and_pageoptions "Print and Page Options">
+
+<!ENTITY headers_order "Headers Order">
+
+<!ENTITY attachments "Attachments">
+<!ENTITY images "Images">
+
+<!ENTITY pdf_file_naming "PDF File Naming">
+<!ENTITY enable_pdfdir "Enable PDF Output Directory">
+<!ENTITY output_dir "Output Directory">
+<!ENTITY browse "Browse">
+<!ENTITY custom_date_format "Custom Date Format">
+<!ENTITY prefix "Prefix">
+<!ENTITY suffix "Suffix">
+<!ENTITY latinize "Latinize Subject and Names">
+<!ENTITY remove_emojis "Remove Unicode Emojis and Symbols">
+<!ENTITY filter_characters "Filter Characters">
+<!ENTITY filename_format "Filename Format">
+
+<!ENTITY x "">
+
