@@ -370,13 +370,20 @@
 						</hbox>
 						<spacer height="8px"/>
 						<label value="&page_options;" style="font-weight: 700; width: 100px"/>
-						<vbox style="padding-left: 10px">
-							<spacer height="4px"/>
-							<hbox align="center" height="24px">
-								<label value="&copies;" style="width: 120px"/>
-								<hbox flex="0" width="300px" style="background-colorX: yellow">
-									<vbox>
-										<html:div id="parent">
+					
+					
+							
+						<spacer height="8px"/>
+						<html:div id="t1"></html:div>
+						<html:div>
+						
+							<html:table id="margins-hdrftr-table" class="margins-hdrftr-tbl" style="border-collapse: collapse;">
+
+ <html:tr>
+									<html:td>&copies;
+								</html:td>
+									<html:td colspan="4">
+<html:div id="parent">
 											<html:input id="copies-count" is="setting-number" 
 						data-setting-name="numCopies" min="1" max="10000" 
 						class="copy-count-input photon-number2" 
@@ -384,31 +391,23 @@
 						type="number" autocomplete="off" value="1"/>
 											<html:div id="copies-count-error" class="error">Error</html:div>
 										</html:div>
-									</vbox>
-								</hbox>
-							</hbox>
-							<spacer height="10px"/>
-							<hbox>
-								<label value="&page_ranges;" style="width: 120px"/>
-								<radiogroup id="pageRangesRG" orient="horizontal" oncommand="pageRangeToggle(this);">
+									</html:td>
+								</html:tr>
+
+									<html:tr>
+									<html:td>&page_ranges;
+								</html:td>
+									<html:td colspan="4" >
+							<radiogroup id="pageRangesRG" orient="horizontal" oncommand="pageRangeToggle(this);" >
 									<radio label="&all;" />
 									<radio label="&custom;" />
 									<html:div id="page-ranges-error-parent">
-										<html:input type="text" id="pages" size="15" required="" style="heightx: 24px; margin-left: 0px" />
+										<html:input type="text" id="pages" size="16" required="" style="heightx: 24px; margin-left: 0px" />
 										<html:div id="page-ranges-error" class="error">Error</html:div>
 									</html:div>
 								</radiogroup>
-							</hbox>
-						</vbox>
-						<spacer height="10px"/>
-						<!-- <vbox style="padding-left: 12px"> -->
-							
-							
-						<spacer height="8px"/>
-						<html:div id="t1"></html:div>
-						<html:div>
-						<!-- <vbox style="padding-left: 10px; background-color2: yellow;"> -->
-							<html:table id="margins-hdrftr-table" class="margins-hdrftr-tbl" style="border-collapse: collapse;">
+									</html:td>
+								</html:tr>
 
 								<html:tr>
 									<html:td id="frfc">&margins;<label id="units" value="(inches)" />
@@ -457,7 +456,7 @@
 								</html:tr>
 
 								<html:tr>
-									<html:td>&headers;
+									<html:td>&page_headers;
 								</html:td>
 									<html:td>&left;
 								</html:td>

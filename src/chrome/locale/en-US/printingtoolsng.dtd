@@ -101,6 +101,7 @@
 <!ENTITY bottom "Bottom">
 <!ENTITY left "Left">
 <!ENTITY right "Right">
+<!ENTITY page_headers "Headers">
 <!ENTITY center "Center">
 <!ENTITY footers "Footers">
 <!ENTITY cancel "Cancel">

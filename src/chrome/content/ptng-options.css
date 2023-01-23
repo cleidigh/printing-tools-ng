@@ -231,12 +231,16 @@ input[type="number"].photon-number2 {
 	opacity: 0.5;
   }
 
-#PDFoutputDir:lang(en-US) {
+#pageRangesRG {
+ margin-left: -8px;
+}
+
+#PDFoutputDir:not(:lang(ja)) {
 	width: 400px;
 }
 
 #PDFoutputDir:lang(ja) {
-	width: 450px;
+	width: 400px;
 }
 
 #customDatePDF:lang(en-US) {
@@ -244,31 +248,31 @@ input[type="number"].photon-number2 {
 }
 
 #customDatePDF:lang(ja) {
-	width: 450px;
+	width: 280px;
 }
 
 #prefixText:lang(en-US) {
-	width: 160px;
+	width: 18px;
 }
 
 #prefixText:lang(ja) {
-	width: 300px;
+	width: 180px;
 }
 
 #suffixText:lang(en-US) {
-	width: 160px;
+	width: 180px;
 }
 
 #suffixText:lang(ja) {
-	width: 300px;
+	width: 180px;
 }
 
 #characterFilter:lang(en-US) {
-	width: 364px;
+	width: 280px;
 }
 
 #characterFilter:lang(ja) {
-	width: 350px;
+	width: 280px;
 }
 
 #PDFcustomFilenameFormat:lang(en-US) {
@@ -276,11 +280,11 @@ input[type="number"].photon-number2 {
 }
 
 #PDFcustomFilenameFormat:lang(ja) {
-	width: 350px;
+	width: 364px;
 }
 
 #addNameBox:lang(en-US) {
-	width: 300px;
+	width: 400px;
 }
 
 #addNameBox:lang(ja) {
@@ -292,7 +296,7 @@ input[type="number"].photon-number2 {
 }
 
 #customDate:lang(ja) {
-	width: 450px;
+	width: 280px;
 }
 
 #debug-options:lang(en-US) {
@@ -300,7 +304,7 @@ input[type="number"].photon-number2 {
 }
 
 #debug-options:lang(ja) {
-	width: 350px;
+	width: 300px;
 }
 
 #border_style:lang(en-US) {
@@ -308,7 +312,7 @@ input[type="number"].photon-number2 {
 }
 
 #border_style:lang(ja) {
-	width: 300px;
+	width: 320px;
 }
 /*
 
@@ -334,25 +338,57 @@ input[type="number"].photon-number2 {
 	background-color: aqua;
 }
 #margins-hdrftr-table {
-margin-left: 12px;
+margin-left: 20px;
 }
 
 .margins-hdrftr-tbl table, td, tr {
 	/* background-color:azure; */
 	/* border: 1px solid black; */
 	border-collapse: collapse;
-	width: 100%;
+	/* width: 100%; */
 
 }
 
-.margins-hdrftr-tbl tr:nth-child(3) > td { 
+.margins-hdrftr-tbl tr:nth-child(2) > td { 
 	padding-top: 10px;
 	/* background-color: azure; */
 }
 
-.margins-hdrftr-tbl td:nth-child(4) { 
+.margins-hdrftr-tbl tr:nth-child(3) > td { 
+	padding-top: 14px;
+	/* background-color: azure; */
+}
+
+.margins-hdrftr-tbl tr:nth-child(4) > td { 
+	padding-top: 6px;
+	/* background-color: azure; */
+}
+
+.margins-hdrftr-tbl tr:nth-child(5) > td { 
+	padding-top: 10px;
+	/* background-color: azure; */
+}
+
+.margins-hdrftr-tbl tr:nth-child(8) > td { 
+	padding-top: 10px;
+	/* background-color: azure; */
+}
+
+.margins-hdrftr-tbl td:nth-child(1) { 
 	padding-left: 0px;
-	padding-right: 0px;
+	padding-right: 36px;
+	/* background-color: azure; */
+}
+
+.margins-hdrftr-tbl td:nth-child(2) { 
+	padding-left: 0px;
+	padding-right: 20px;
+	/* background-color: azure; */
+}
+
+.margins-hdrftr-tbl td:nth-child(4) { 
+	padding-left: 10px;
+	padding-right: 10px;
 	/* background-color: azure; */
 }
 

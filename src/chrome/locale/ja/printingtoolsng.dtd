@@ -33,7 +33,7 @@
 <!ENTITY useHeadersBkColor "ヘッダーの背景色指定：">
 <!ENTITY misc "全般設定">
 <!ENTITY order "ヘッダー">
-<!ENTITY headers "ヘッダー">
+<!ENTITY headers "ヘッダー設定">
 <!ENTITY up "上へ">
 <!ENTITY down "下へ">
 <!ENTITY otherHeaders "他のヘッダーがある場合は下段に印刷されます">
@@ -70,9 +70,9 @@
 <!ENTITY debugOptions.label "デバッグ設定">
 <!ENTITY date_custom.label "カスタム形式">
 
-<!ENTITY body "ボディ設定">
+<!ENTITY body "本文設定">
 <!ENTITY pdf_output "PDF 出力設定">
-<!ENTITY print_and_pageoptions "プリンターとページ印刷設定">
+<!ENTITY print_and_pageoptions "プリンターとページ設定">
 
 <!ENTITY headers_order "ヘッダーの並び替え">
 <!ENTITY attachments "添付ファイル">
@@ -89,7 +89,7 @@
 <!ENTITY filter_characters "フィルター文字列">
 <!ENTITY filename_format "ファイル名形式">
 
-<!ENTITY page_options "ページ印刷設定">
+<!ENTITY page_options "ページ設定">
 <!ENTITY copies "部数">
 <!ENTITY all "すべて">
 <!ENTITY custom "カスタム">
@@ -100,5 +100,6 @@
 <!ENTITY left "左">
 <!ENTITY right "右">
 <!ENTITY center "中央">
+<!ENTITY page_headers "ヘッダー">
 <!ENTITY footers "フッター">
 <!ENTITY cancel "キャンセル">

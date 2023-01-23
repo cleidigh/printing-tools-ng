@@ -71,8 +71,8 @@
 <!ENTITY date_custom.label "Benutzerdefiniert">
 <!ENTITY messageBody "Nachrichtentext">
 <!ENTITY body "Körper">
-<!ENTITY pdf_output "PDF-Ausgabe">
-<!ENTITY print_and_pageoptions "Druck- und Seitenoptionen">
+<!ENTITY pdf_output "PDF Ausgabe">
+<!ENTITY print_and_pageoptions "Druck und Seitenoptionen">
 <!ENTITY headers_order "Header-Reihenfolge">
 <!ENTITY attachments "Anhänge">
 <!ENTITY images "Bilder">
@@ -93,10 +93,11 @@
 <!ENTITY custom "Benutzerdefiniert">
 <!ENTITY page_ranges "Seitenbereiche">
 <!ENTITY margins "Ränder">
-<!ENTITY top "oben">
+<!ENTITY top "Oben">
 <!ENTITY bottom "Unterseite">
 <!ENTITY left "Links">
 <!ENTITY right "Rechts">
 <!ENTITY center "Center">
 <!ENTITY footers "Fußzeilen">
 <!ENTITY cancel "Absagen">
+<!ENTITY page_headers "Überschriften">

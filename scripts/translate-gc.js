@@ -16,19 +16,8 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "page_options", text: "Page Options" },
-	{ key: "copies", text: "Copies" },
-	{ key: "all", text: "All" },
-	{ key: "custom", text: "Custom" },
-	{ key: "page_ranges", text: "Page Ranges" },
-	{ key: "margins", text: "Margins" },
-	{ key: "top", text: "Top" },
-	{ key: "bottom", text: "Bottom" },
-	{ key: "left", text: "Left" },
-	{ key: "right", text: "Right" },
-	{ key: "center", text: "Center" },
-	{ key: "footers", text: "Footers" },
-	{ key: "cancel", text: "Cancel" },
+	{ key: "page_headers", text: "Headers" },
+	
 	
 	
 
