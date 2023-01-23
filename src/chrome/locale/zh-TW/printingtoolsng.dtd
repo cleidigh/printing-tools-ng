@@ -86,3 +86,16 @@
 <!ENTITY remove_emojis "删除 Unicode 表情符号和符号">
 <!ENTITY filter_characters "过滤字符">
 <!ENTITY filename_format "文件名格式">
+<!ENTITY page_options "页面选项">
+<!ENTITY copies "份数">
+<!ENTITY all "全部">
+<!ENTITY custom "风俗">
+<!ENTITY page_ranges "页面范围">
+<!ENTITY margins "边距">
+<!ENTITY top "最佳">
+<!ENTITY bottom "底部">
+<!ENTITY left "剩下">
+<!ENTITY right "正确的">
+<!ENTITY center "中心">
+<!ENTITY footers "页脚">
+<!ENTITY cancel "取消">

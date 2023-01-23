@@ -86,3 +86,16 @@
 <!ENTITY remove_emojis "Poista Unicode-emojit ja symbolit">
 <!ENTITY filter_characters "Suodata merkit">
 <!ENTITY filename_format "Tiedostonimen muoto">
+<!ENTITY page_options "Sivun asetukset">
+<!ENTITY copies "Kopioita">
+<!ENTITY all "Kaikki">
+<!ENTITY custom "Mukautettu">
+<!ENTITY page_ranges "Sivualueet">
+<!ENTITY margins "Marginaalit">
+<!ENTITY top "Ylös">
+<!ENTITY bottom "Pohja">
+<!ENTITY left "Vasen">
+<!ENTITY right "Oikein">
+<!ENTITY center "Keskusta">
+<!ENTITY footers "Alatunnisteet">
+<!ENTITY cancel "Peruuttaa">

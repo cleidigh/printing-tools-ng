@@ -87,3 +87,16 @@
 <!ENTITY remove_emojis "Fjern Unicode-emojis og symboler">
 <!ENTITY filter_characters "Filtrer tegn">
 <!ENTITY filename_format "Filnavn format">
+<!ENTITY page_options "Sideindstillinger">
+<!ENTITY copies "Kopier">
+<!ENTITY all "Alle">
+<!ENTITY custom "Brugerdefinerede">
+<!ENTITY page_ranges "Sideintervaller">
+<!ENTITY margins "Marginer">
+<!ENTITY top "Top">
+<!ENTITY bottom "Bund">
+<!ENTITY left "Venstre">
+<!ENTITY right "Ret">
+<!ENTITY center "Centrum">
+<!ENTITY footers "Sidefødder">
+<!ENTITY cancel "Afbestille">

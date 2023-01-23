@@ -87,3 +87,16 @@
 <!ENTITY remove_emojis "Supprimer les émoticônes et symboles Unicode">
 <!ENTITY filter_characters "Filtrer les caractères">
 <!ENTITY filename_format "Format du nom de fichier">
+<!ENTITY page_options "Options de page">
+<!ENTITY copies "Copies">
+<!ENTITY all "Tous">
+<!ENTITY custom "Personnalisé">
+<!ENTITY page_ranges "Plages de pages">
+<!ENTITY margins "Marges">
+<!ENTITY top "Haut">
+<!ENTITY bottom "Bas">
+<!ENTITY left "La gauche">
+<!ENTITY right "Droite">
+<!ENTITY center "Centre">
+<!ENTITY footers "Pieds de page">
+<!ENTITY cancel "Annuler">

@@ -86,3 +86,16 @@
 <!ENTITY remove_emojis "Eliminar emojis e símbolos Unicode">
 <!ENTITY filter_characters "Filtrar caracteres">
 <!ENTITY filename_format "Formato de nome de ficheiro">
+<!ENTITY page_options "Opcións da páxina">
+<!ENTITY copies "Copias">
+<!ENTITY all "Todos">
+<!ENTITY custom "Personalizado">
+<!ENTITY page_ranges "Intervalos de páxinas">
+<!ENTITY margins "Marxes">
+<!ENTITY top "Arriba">
+<!ENTITY bottom "Abaixo">
+<!ENTITY left "Esquerda">
+<!ENTITY right "Certo">
+<!ENTITY center "Centro">
+<!ENTITY footers "Pé de páxina">
+<!ENTITY cancel "Cancelar">

@@ -87,3 +87,16 @@
 <!ENTITY remove_emojis "Verwijder Unicode-emoji&#39;s en -symbolen">
 <!ENTITY filter_characters "Filter karakters">
 <!ENTITY filename_format "Bestandsnaam Formaat">
+<!ENTITY page_options "Pagina-opties">
+<!ENTITY copies "Kopieën">
+<!ENTITY all "Allemaal">
+<!ENTITY custom "Aangepast">
+<!ENTITY page_ranges "Paginabereiken">
+<!ENTITY margins "Marges">
+<!ENTITY top "Bovenkant">
+<!ENTITY bottom "Onderkant">
+<!ENTITY left "Links">
+<!ENTITY right "Rechts">
+<!ENTITY center "Centrum">
+<!ENTITY footers "Voetteksten">
+<!ENTITY cancel "Annuleren">

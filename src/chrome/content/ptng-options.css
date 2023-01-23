@@ -330,10 +330,17 @@ input[type="number"].photon-number2 {
 }
 */	
 
+#t1 {
+	background-color: aqua;
+}
+#margins-hdrftr-table {
+margin-left: 12px;
+}
+
 .margins-hdrftr-tbl table, td, tr {
 	/* background-color:azure; */
 	/* border: 1px solid black; */
-	/* border-collapse: collapse; */
+	border-collapse: collapse;
 	width: 100%;
 
 }
@@ -344,8 +351,8 @@ input[type="number"].photon-number2 {
 }
 
 .margins-hdrftr-tbl td:nth-child(4) { 
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: 0px;
+	padding-right: 0px;
 	/* background-color: azure; */
 }
 

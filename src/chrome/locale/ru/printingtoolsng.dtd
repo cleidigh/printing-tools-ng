@@ -86,3 +86,16 @@
 <!ENTITY remove_emojis "Удалить смайлики и символы Unicode">
 <!ENTITY filter_characters "Символы фильтра">
 <!ENTITY filename_format "Формат имени файла">
+<!ENTITY page_options "Параметры страницы">
+<!ENTITY copies "Копии">
+<!ENTITY all "Все">
+<!ENTITY custom "Обычай">
+<!ENTITY page_ranges "Диапазоны страниц">
+<!ENTITY margins "Поля">
+<!ENTITY top "Верхняя">
+<!ENTITY bottom "Низ">
+<!ENTITY left "Левый">
+<!ENTITY right "Верно">
+<!ENTITY center "Центр">
+<!ENTITY footers "Нижние колонтитулы">
+<!ENTITY cancel "Отмена">

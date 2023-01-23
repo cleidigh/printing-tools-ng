@@ -87,3 +87,16 @@
 <!ENTITY remove_emojis "Elimina els emojis i els símbols Unicode">
 <!ENTITY filter_characters "Filtrar caràcters">
 <!ENTITY filename_format "Format de nom de fitxer">
+<!ENTITY page_options "Opcions de pàgina">
+<!ENTITY copies "Còpies">
+<!ENTITY all "Tots">
+<!ENTITY custom "Personalitzat">
+<!ENTITY page_ranges "Intervals de pàgines">
+<!ENTITY margins "Marges">
+<!ENTITY top "Superior">
+<!ENTITY bottom "A baix">
+<!ENTITY left "Esquerra">
+<!ENTITY right "Dret">
+<!ENTITY center "Centre">
+<!ENTITY footers "Peus de pàgina">
+<!ENTITY cancel "Cancel · lar">

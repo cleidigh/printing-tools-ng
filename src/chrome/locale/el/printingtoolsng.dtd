@@ -86,3 +86,16 @@
 <!ENTITY remove_emojis "Αφαιρέστε Unicode Emojis και σύμβολα">
 <!ENTITY filter_characters "Φιλτράρισμα χαρακτήρων">
 <!ENTITY filename_format "Μορφή ονόματος αρχείου">
+<!ENTITY page_options "Επιλογές σελίδας">
+<!ENTITY copies "Αντίγραφα">
+<!ENTITY all "Ολα">
+<!ENTITY custom "Εθιμο">
+<!ENTITY page_ranges "Εύρος σελίδων">
+<!ENTITY margins "Περιθώρια">
+<!ENTITY top "Μπλουζα">
+<!ENTITY bottom "Κάτω μέρος">
+<!ENTITY left "Αριστερά">
+<!ENTITY right "σωστά">
+<!ENTITY center "Κέντρο">
+<!ENTITY footers "Υποσέλιδα">
+<!ENTITY cancel "Ματαίωση">

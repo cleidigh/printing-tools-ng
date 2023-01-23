@@ -86,3 +86,16 @@
 <!ENTITY remove_emojis "Видаліть емодзі та символи Unicode">
 <!ENTITY filter_characters "Фільтр символів">
 <!ENTITY filename_format "Формат імені файлу">
+<!ENTITY page_options "Параметри сторінки">
+<!ENTITY copies "Копії">
+<!ENTITY all "все">
+<!ENTITY custom "Custom">
+<!ENTITY page_ranges "Діапазони сторінок">
+<!ENTITY margins "Поля">
+<!ENTITY top "Топ">
+<!ENTITY bottom "Дно">
+<!ENTITY left "Ліворуч">
+<!ENTITY right "правильно">
+<!ENTITY center "центр">
+<!ENTITY footers "Колонтитули">
+<!ENTITY cancel "Скасувати">

@@ -87,3 +87,16 @@
 <!ENTITY remove_emojis "Odstráňte emotikony a symboly Unicode">
 <!ENTITY filter_characters "Filtrovať znaky">
 <!ENTITY filename_format "Formát názvu súboru">
+<!ENTITY page_options "Možnosti stránky">
+<!ENTITY copies "Kópie">
+<!ENTITY all "Všetky">
+<!ENTITY custom "Vlastné">
+<!ENTITY page_ranges "Rozsahy strán">
+<!ENTITY margins "Okraje">
+<!ENTITY top "Hore">
+<!ENTITY bottom "Spodná časť">
+<!ENTITY left "Vľavo">
+<!ENTITY right "Správny">
+<!ENTITY center "centrum">
+<!ENTITY footers "Päty">
+<!ENTITY cancel "Zrušiť">

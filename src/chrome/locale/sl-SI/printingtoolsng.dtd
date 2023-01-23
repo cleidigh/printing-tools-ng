@@ -86,3 +86,16 @@
 <!ENTITY remove_emojis "Odstranite emojije in simbole Unicode">
 <!ENTITY filter_characters "Filtriraj znake">
 <!ENTITY filename_format "Oblika imena datoteke">
+<!ENTITY page_options "Možnosti strani">
+<!ENTITY copies "Kopije">
+<!ENTITY all "Vse">
+<!ENTITY custom "Po meri">
+<!ENTITY page_ranges "Območja strani">
+<!ENTITY margins "Robovi">
+<!ENTITY top "Vrh">
+<!ENTITY bottom "Spodaj">
+<!ENTITY left "levo">
+<!ENTITY right "Prav">
+<!ENTITY center "Center">
+<!ENTITY footers "Noge">
+<!ENTITY cancel "Prekliči">

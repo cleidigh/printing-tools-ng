@@ -88,3 +88,17 @@
 <!ENTITY remove_emojis "Unicode 絵文字と記号を削除する">
 <!ENTITY filter_characters "フィルター文字列">
 <!ENTITY filename_format "ファイル名形式">
+
+<!ENTITY page_options "ページ印刷設定">
+<!ENTITY copies "部数">
+<!ENTITY all "すべて">
+<!ENTITY custom "カスタム">
+<!ENTITY page_ranges "ページ指定">
+<!ENTITY margins "余白">
+<!ENTITY top "上">
+<!ENTITY bottom "下">
+<!ENTITY left "左">
+<!ENTITY right "右">
+<!ENTITY center "中央">
+<!ENTITY footers "フッター">
+<!ENTITY cancel "キャンセル">

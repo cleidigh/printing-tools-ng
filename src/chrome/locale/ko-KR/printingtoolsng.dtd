@@ -86,3 +86,16 @@
 <!ENTITY remove_emojis "유니코드 이모티콘 및 기호 제거">
 <!ENTITY filter_characters "필터 문자">
 <!ENTITY filename_format "파일 이름 형식">
+<!ENTITY page_options "페이지 옵션">
+<!ENTITY copies "사본">
+<!ENTITY all "모두">
+<!ENTITY custom "관습">
+<!ENTITY page_ranges "페이지 범위">
+<!ENTITY margins "여백">
+<!ENTITY top "맨 위">
+<!ENTITY bottom "맨 아래">
+<!ENTITY left "왼쪽">
+<!ENTITY right "오른쪽">
+<!ENTITY center "센터">
+<!ENTITY footers "바닥글">
+<!ENTITY cancel "취소">

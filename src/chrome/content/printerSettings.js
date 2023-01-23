@@ -67,7 +67,7 @@ var printerSettings = {
 
     console.log(printSettings.paperSizeUnit);
     let un = document.querySelector("#units");
-    let unitsStr = ["(inches)", "(mm)"];
+    let unitsStr = ["(in)", "(mm)"];
     un.value = unitsStr[printSettings.paperSizeUnit];
 
     let prRG = document.querySelector("#pageRangesRG");
@@ -124,7 +124,11 @@ var printerSettings = {
     el = document.querySelector("#footerright");
     el.value = printSettings.footerStrRight;
 
-
+    el = document.querySelector("#frfc");
+    let frfc_cs = window.getComputedStyle(el);
+    let frfc_width = frfc_cs.getPropertyValue("width");
+    console.log(frfc_width)
+    // el = document.querySelector("#t1").style.width = frfc_width;
   },
 
   pageRangesToString: function (pageRanges) {
