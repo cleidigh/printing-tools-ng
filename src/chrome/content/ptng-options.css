@@ -236,22 +236,22 @@ input[type="number"].photon-number2 {
 }
 
 #PDFoutputDir:not(:lang(ja)) {
-	width: 400px;
+	width: 410px;
 }
 
 #PDFoutputDir:lang(ja) {
 	width: 400px;
 }
 
-#customDatePDF:lang(en-US) {
-	width: 280px;
+#customDatePDF:not(:lang(ja)) {
+	width: 255px;
 }
 
 #customDatePDF:lang(ja) {
-	width: 280px;
+	width: 400px;
 }
 
-#prefixText:lang(en-US) {
+#prefixText:not(:lang(ja)) {
 	width: 180px;
 }
 
@@ -259,7 +259,7 @@ input[type="number"].photon-number2 {
 	width: 180px;
 }
 
-#suffixText:lang(en-US) {
+#suffixText:not(:lang(ja)) {
 	width: 180px;
 }
 
@@ -267,7 +267,7 @@ input[type="number"].photon-number2 {
 	width: 180px;
 }
 
-#characterFilter:lang(en-US) {
+#characterFilter:not(:lang(ja)) {
 	width: 280px;
 }
 
@@ -275,39 +275,39 @@ input[type="number"].photon-number2 {
 	width: 280px;
 }
 
-#PDFcustomFilenameFormat:lang(en-US) {
+#PDFcustomFilenameFormat:not(:lang(ja)) {
 	width: 364px;
 }
 
 #PDFcustomFilenameFormat:lang(ja) {
-	width: 364px;
+	width: 390px;
 }
 
-#addNameBox:lang(en-US) {
-	width: 400px;
+#addNameBox:not(:lang(ja)) {
+	width: 350px;
 }
 
 #addNameBox:lang(ja) {
 	width: 400px;
 }
 
-#customDate:lang(en-US) {
-	width: 280px;
+#customDate:not(:lang(ja)) {
+	width: 255px;
 }
 
 #customDate:lang(ja) {
-	width: 280px;
+	width: 390px;
 }
 
-#debug-options:lang(en-US) {
-	width: 300px;
+#debug-options:not(:lang(ja)) {
+	width: 380px;
 }
 
 #debug-options:lang(ja) {
-	width: 300px;
+	width: 380px;
 }
 
-#border_style:lang(en-US) {
+#border_style:not(:lang(ja)) {
 	width: 320px;
 }
 
@@ -394,6 +394,7 @@ margin-left: 20px;
 
 .hdrftr {
 	width: 6em;
+	
 }
 /* validation rules */
 
