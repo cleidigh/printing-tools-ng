@@ -16,7 +16,16 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "page_headers", text: "Headers" },
+	{ key: "confirm_pdf_autosave", text: "Click OK to Autosave PDF or Cancel to Preview" },
+	{ key: "select_pdf_dir", text: "Select PDF Output Directory" },
+	{ key: "writing", text: "Writing" },
+	{ key: "printing", text: "Printing" },
+	{ key: "err_copies_val_req", text: "Copies value required" },
+	{ key: "err_pageranges_val_req", text: "Page Ranges value required" },
+	{ key: "err_pageranges_val_notzero", text: "Page Ranges value cannot be zero" },
+	{ key: "err_pageranges_val_endgrbeg", text: "Page Range end must be greater than start" },
+	
+
 	
 	
 	

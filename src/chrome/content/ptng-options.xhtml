@@ -150,14 +150,14 @@
 						</menulist>
 					</hbox>
 				</vbox>
-				<spacer height="6px"/>
+				<spacer height="15px"/>
 				<hbox>
 					<label style="font-weight: 700" value="&headers_order;" />
 				</hbox>
 				<hbox>
 					<spacer width="15px"/>
 					<vbox>
-						<spacer height="15px"/>
+						<spacer height="8px"/>
 						<html:div id="headersListContainer" tabindex="0" class="table-list-hboxcontainer">
 							<html:table id="headersList" class="list table-list" style="widthx: 120%">
 								<html:thead>
@@ -246,9 +246,11 @@
 							</menulist>
 						</hbox>
 					</vbox>
+					<spacer height="15px" />
 					<label value="&attachments;" style="font-weight: 700; width: 100px"/>
+					<spacer height="8px" />
 					<hbox align="center">
-						<spacer width="5px" />
+						<spacer width="10px" />
 						<checkbox id="PMDattach" label="&PMDlabel2;" oncommand="setTimeout(toggleAtt,200)" />
 					</hbox>
 					<hbox align="center">
@@ -260,7 +262,7 @@
 						<checkbox id="addP7M" label="&showSignatureVCFfiles;" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="30px" />
+						<spacer width="35px" />
 						<label value="&attachmentsPerLine;"/>
 						<menulist id="num_atts_line" style="width: 100%" width="100%">
 							<menupopup>
@@ -273,12 +275,12 @@
 						</menulist>
 					</hbox>
 					<hbox align="center">
-						<spacer width="5px" />
+						<spacer width="10px" />
 						<checkbox id="InlineAttsListhide" label="&HideInlineAttList;" />
 						<spacer width="5px" />
 						<checkbox id="PMDhideAtt" label="&PMDlabel10;" />
 					</hbox>
-					<spacer height="8px" />
+					<spacer height="15px" />
 					<label value="&images;" style="font-weight: 700; width: 100px"/>
 					<hbox align="center">
 						<spacer width="10px" />
@@ -352,14 +354,14 @@
 			<!-- TAB5 Global printing options -->
 			<tabpanel>
 				<html:div style= "background-color2: yellow; padding-left: 10px">
-					<spacer height="6px"/>
+					<spacer height="0px"/>
 					<vbox>
 						<hbox>
 							<html:label style="padding-left: 1px; padding-right: 4px; 
 						font-weight: 700">&defaultPrinter;</html:label>
 							<spacer height="8px"/>
 							<hbox>
-								<spacer width="20px"/>
+								<spacer width="15px"/>
 								<menulist id="OutputPrinter" oncommand="printerChange();" style="padding-left: 20px"/>
 							</hbox>
 						</hbox>
@@ -368,7 +370,7 @@
 							<spacer width="10px"/>
 							<checkbox id="PMDsilent" label="&PMDlabel8;" />
 						</hbox>
-						<spacer height="8px"/>
+						<spacer height="12px"/>
 						<label value="&page_options;" style="font-weight: 700; width: 100px"/>
 					
 					
@@ -460,13 +462,15 @@
 								</html:td>
 									<html:td>&left;
 								</html:td>
-									<html:td >
-										<html:input type="text" id="headerleft" class="hdrftr" style="heightx: 24px; margin-left: 0px;" />
+									<html:td colspan="3">
+										<html:input type="text" id="headerleft" class="hdrftr2" style="width2: 6em; margin-left: 0px;" />
 									</html:td>
-									<html:td>
+									
+									<!--<html:td>
 								</html:td>
 								<html:td>
 								</html:td>
+								-->
 								</html:tr>
 
 

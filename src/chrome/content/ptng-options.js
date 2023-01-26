@@ -664,7 +664,14 @@ function copiesValidation() {
 		console.log("v m")
 		//nc.setCustomValidity("Value Required");
 		//nc.reportValidity();
+		//pstr
 		nce.textContent = "Copies value required"
+		let l = nce.textContent.length * 0.50 + "em";
+		nce.style.width = l
+		nce.className = "error active";
+		enableOKbutton(false);
+	} else if (nc.validity.rangeUnderflow) {
+		nce.textContent = "Copies value cannot be zero"
 		let l = nce.textContent.length * 0.50 + "em";
 		nce.style.width = l
 		nce.className = "error active";

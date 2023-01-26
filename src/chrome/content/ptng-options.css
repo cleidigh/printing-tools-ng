@@ -396,6 +396,19 @@ margin-left: 20px;
 	width: 6em;
 	
 }
+
+.hdrftr2 {
+	width: 238px;
+	
+}
+
+.hdrftr2:lang(ja) {
+	width: 228px;
+}
+
+.hdrftr2:lang(de) {
+	width: 256px;
+}
 /* validation rules */
 
 #parent {
@@ -430,7 +443,7 @@ input:required:invalid {
 .error {
 	display: none;
 	
-	padding: 0;
+	padding: 6px;
 
   font-size: 100%;
   color: white  !important;
@@ -443,7 +456,6 @@ input:required:invalid {
 
 .active {
 	display: inline;
-	padding: 3px;
 	z-index: 1000;
 }
 

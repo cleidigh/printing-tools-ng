@@ -19,6 +19,7 @@ var printingtools = {
 	prefs: Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch),
 	maxChars: null,
 	strBundleService: Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService),
+	mainStrBundle: null,
 	previewDoc: null,
 	msgUris: null,
 	attList: null,
@@ -52,8 +53,8 @@ var printingtools = {
 			console.log(pdfOutputEnabled)
 			console.log(pdfOutputDir)
 			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false)
-				{
-					var autoPDFSave = confirm("OK to Autosave PDF or cancel to preview ");
+				{ //pstr
+					var autoPDFSave = confirm(this.mainStrBundle.GetStringFromName("confirm_pdf_autosave"));
 				}
 			}
 
@@ -199,12 +200,6 @@ var printingtools = {
 
 				}, { once: true });
 
-				console.log("subject mangle")
-				let s = printingtools.previewDoc.querySelector(".subjectHdr")
-				console.log(s)
-				console.log(s.parentElement.nextSibling.firstChild.textContent)
-				//s.parentElement.nextSibling.firstChild.textContent = "test away"
-
 				if (selection.rangeCount > 1) {
 					//console.log("print sel")
 					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
@@ -301,6 +296,7 @@ var printingtools = {
 			if (!pdfOutputEnabled || pdfOutputDir == "")
 				{
 					let fpMode = Ci.nsIFilePicker.modeGetFolder;
+					//pstr
 					let fpTitle = "Select PDF Output Directory";
 					let fpDisplayDirectory = null;
 					this.utils.window = window;
@@ -345,7 +341,7 @@ var printingtools = {
 
 				console.log(pdfOutputDir)
 				pdfFileName = await this.utils.constructPDFoutputFilename(msgURI, pdfOutputDir);
-				//ps.toFileName = PathUtils.join(pdfOutputDir, pdfFileName);
+				ps.toFileName = PathUtils.join(pdfOutputDir, pdfFileName);
 				ps.outputFormat = 2;
 				console.log(ps)
 
@@ -365,9 +361,10 @@ var printingtools = {
 				await PrintUtils.printBrowser.browsingContext.print(ps);
 				
 			}
-
+			//pstr
 			if (pdfOutput) {
-				this.utils.PTNG_WriteStatus("Write: " + pdfFileName);
+				console.log("pdf wr")
+				this.utils.PTNG_WriteStatus("Writing: " + pdfFileName);
 			} else {
 				this.utils.PTNG_WriteStatus("Printing: " + msgSubject);
 			}
@@ -397,6 +394,7 @@ var printingtools = {
 			if (!pdfOutputEnabled || pdfOutputDir == "")
 				{
 					let fpMode = Ci.nsIFilePicker.modeGetFolder;
+					//pstr
 					let fpTitle = "Select PDF Output Directory";
 					let fpDisplayDirectory = null;
 					this.utils.window = window;
@@ -432,6 +430,7 @@ var printingtools = {
 		await PrintUtils.printBrowser.browsingContext.print(ps);
 
 		if (pdfOutput) {
+			//pstr
 			this.utils.PTNG_WriteStatus("Write (Ext) : " + pdfFileName);
 		} else {
 			this.utils.PTNG_WriteStatus("Printing (Ext) : " + msgSubject);
@@ -2380,5 +2379,5 @@ var printingtools = {
 }
 
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js", printingtools);
-
+printingtools.mainStrBundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties"),
 printingtools.utils.test();
