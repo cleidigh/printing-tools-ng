@@ -30,7 +30,6 @@
 				<hbox>
 					<label style="font-weight: 700" value="&addNameRG.label;" />
 				</hbox>
-				<spacer height="5px"/>
 				<hbox>
 					<spacer width="24"/>
 					<radiogroup id="addNameRG">
@@ -45,7 +44,7 @@
 				<spacer height="2px" />
 				<!-- </groupbox> -->
 				<hbox align="center">
-					<spacer width="10px" />
+					<spacer width="5px" />
 					<checkbox id="addFolder" label="&PMDlabel23;" />
 				</hbox>
 				<spacer height="8px" />
@@ -53,11 +52,9 @@
 					<checkbox id="PMDdate" label="&PMDlabel1;"  oncommand="setTimeout(toggleDate,200)" />
 				</hbox>
 				<groupbox flex="1">
-				<spacer height="15px"/>
 					<hbox>
 						<label style="font-weight: 700" value="&date.label;" />
 					</hbox>
-					<spacer height="8px"/>
 					<hbox>
 						<spacer id="dateSpacer" />
 						<spacer width="24"/>
@@ -78,16 +75,15 @@
 					</hbox>
 					<spacer height="2px" />
 					<hbox align="center">
-						<spacer width="10px" />
+						<spacer width="5px" />
 						<checkbox id="addRdate" label="&addRdate.label;" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="10px" />
+						<spacer width="5px" />
 						<checkbox id="useCcBccAlways" label="&useCcBccAlways;" />
 					</hbox>
 					<spacer height="22px" />
 					<hbox align="center">
-						<spacer width="15px"/>
 						<label value="&debugOptions.label;: " />
 						<html:input type="text" id="debug-options" />
 					</hbox>
@@ -98,9 +94,10 @@
 				<hbox>
 					<label style="font-weight: 700" value="&headers;" />
 				</hbox>
-				<spacer height="8px"/>
+				<spacer height="8px" />
 				<vbox align="start" style="padding-left: 10px">
 					<hbox align="center">
+						<spacer width="0px" />
 						<checkbox id="PMDhide" label="&PMDlabel4;" />
 						<spacer width="5px" />
 						<checkbox id="PMDextHide" label="&PMDlabel21;" />
@@ -158,7 +155,7 @@
 					<label style="font-weight: 700" value="&headers_order;" />
 				</hbox>
 				<hbox>
-					<spacer width="20px"/>
+					<spacer width="15px"/>
 					<vbox>
 						<spacer height="8px"/>
 						<html:div id="headersListContainer" tabindex="0" class="table-list-hboxcontainer">
@@ -170,7 +167,8 @@
 						</html:div>
 					</vbox>
 					<vbox style="padding-left: 30px;">
-						<spacer height="4px" width="30px"/>
+						<spacer height="15px"/>
+						<spacer width="30px"/>
 						<button label="&up;" onclick="move(1)" />
 						<spacer height="5px"/>
 						<button label="&down;" onclick="move(-1)" />
@@ -185,7 +183,7 @@
 					<hbox>
 						<label style="font-weight: 700" value="&messageBody;" />
 					</hbox>
-					<spacer height="7px"/>
+					<spacer height="8px" />
 					<vbox align="start" style="padding-left: 10px">
 						<hbox align="center">
 							<checkbox id="PREtruncate" label="&maxPreLen;" />
@@ -248,23 +246,23 @@
 							</menulist>
 						</hbox>
 					</vbox>
-					<spacer height="15px"/>
+					<spacer height="15px" />
 					<label value="&attachments;" style="font-weight: 700; width: 100px"/>
-					<spacer height="8px"/>
+					<spacer height="8px" />
 					<hbox align="center">
-						<spacer width="10px"/>
+						<spacer width="10px" />
 						<checkbox id="PMDattach" label="&PMDlabel2;" oncommand="setTimeout(toggleAtt,200)" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="30px"/>
+						<spacer width="30px" />
 						<checkbox id="PMDattachIcon" label="&PMDlabel17;" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="30px"/>
+						<spacer width="30px" />
 						<checkbox id="addP7M" label="&showSignatureVCFfiles;" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="35px"/>
+						<spacer width="35px" />
 						<label value="&attachmentsPerLine;"/>
 						<menulist id="num_atts_line" style="width: 100%" width="100%">
 							<menupopup>
@@ -277,14 +275,13 @@
 						</menulist>
 					</hbox>
 					<hbox align="center">
-						<spacer width="10px"/>
+						<spacer width="10px" />
 						<checkbox id="InlineAttsListhide" label="&HideInlineAttList;" />
 						<spacer width="5px" />
 						<checkbox id="PMDhideAtt" label="&PMDlabel10;" />
 					</hbox>
-					<spacer height="15px"/>
+					<spacer height="15px" />
 					<label value="&images;" style="font-weight: 700; width: 100px"/>
-					<spacer height="8px"/>
 					<hbox align="center">
 						<spacer width="10px" />
 						<checkbox id="PMDhideImgs" label="&PMDlabel7;" />
@@ -303,17 +300,15 @@
 					<hbox align="center">
 						<checkbox id="enablePDFoutputDir" label="&enable_pdfdir;" />
 					</hbox>
-					<spacer height="3px"/>
+					<spacer height="3px" />
 					<hbox align="center">
-						<spacer width="25px"/>
 						<label value="&output_dir;" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="25px"/>
 						<html:input id="PDFoutputDir" type="text"  />
 						<button id="PDFoutputDirBrowse" label="&browse;" oncommand="pickPDFoutputDir()" />
 					</hbox>
-					<spacer height="12px"/>
+					<spacer height="12px" />
 					<hbox align="center" >
 						<label id="PDFcustomDateLabel" style="padding-top: 3px;" >&custom_date_format;</label>
 						<html:input type="text" id="customDatePDF" />
@@ -323,29 +318,28 @@
 							margin-bottom: 0px; background-color: ;" onclick="loadHelp()" title="Help" />
 						</hbox>
 					</hbox>
-					<spacer height="15px"/>
+					<spacer height="4px" />
 					<hbox align="center">
 						<label value="&prefix;" />
 						<html:input id="prefixText"/>
 					</hbox>
-					<spacer height="4px"/>
+					<spacer height="4px" />
 					<hbox align="center" >
 						<label value="&suffix;" />
 						<html:input id="suffixText"/>
 					</hbox>
-					<spacer height="12px"/>
+					<spacer height="12px" />
 					<hbox align="center">
 						<checkbox id="enableLatinize" label="&latinize;" />
 					</hbox>
 					<hbox align="center">
 						<checkbox id="enableEmojiAndSymbolFilter" label="&remove_emojis;" />
 					</hbox>
-					<spacer height="12px"/>
 					<hbox align="center">
 						<label value="&filter_characters;" />
 						<html:input id="characterFilter" type="text"  />
 					</hbox>
-					<spacer height="26px"/>
+					<spacer height="26px" />
 					<hbox style="height: ;" >
 						<label style="padding-top: 3px;" >&filename_format;</label>
 						<html:input type="text" id="PDFcustomFilenameFormat" />
@@ -359,7 +353,8 @@
 			</tabpanel>
 			<!-- TAB5 Global printing options -->
 			<tabpanel>
-				<html:div style= "background-color2: yellow; padding-left: 0px">
+				<html:div style= "background-color2: yellow; padding-left: 10px">
+					<spacer height="0px"/>
 					<vbox>
 						<hbox>
 							<html:label style="padding-left: 1px; padding-right: 4px; 
@@ -375,8 +370,11 @@
 							<spacer width="10px"/>
 							<checkbox id="PMDsilent" label="&PMDlabel8;" />
 						</hbox>
-						<spacer height="15px"/>
+						<spacer height="12px"/>
 						<label value="&page_options;" style="font-weight: 700; width: 100px"/>
+					
+					
+							
 						<spacer height="8px"/>
 						<html:div id="t1"></html:div>
 						<html:div>
@@ -406,7 +404,7 @@
 									<radio label="&all;" />
 									<radio label="&custom;" />
 									<html:div id="page-ranges-error-parent">
-										<html:input type="text" id="pages" size="12" required="" style="heightx: 24px; margin-left: 0px" />
+										<html:input type="text" id="pages" size="14" required="" style="heightx: 24px; margin-left: 0px" />
 										<html:div id="page-ranges-error" class="error">Error</html:div>
 									</html:div>
 								</radiogroup>

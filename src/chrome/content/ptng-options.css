@@ -240,7 +240,7 @@ input[type="number"].photon-number2 {
 }
 
 #PDFoutputDir:lang(ja) {
-	width: 400px;
+	width: 420px;
 }
 
 #customDatePDF:not(:lang(ja)) {
