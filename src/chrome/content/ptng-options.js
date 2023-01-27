@@ -219,14 +219,14 @@ async function initPMDpanel() {
 
   // PDF Output Options
   document.getElementById("enablePDFoutputDir").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
-  document.getElementById("PDFoutputDir").value = prefs.getCharPref("extensions.printingtoolsng.pdf.output_dir");
-  document.getElementById("customDatePDF").value = prefs.getCharPref("extensions.printingtoolsng.pdf.filename.custom_date_format");
-  document.getElementById("prefixText").value = prefs.getCharPref("extensions.printingtoolsng.pdf.filename.prefix");
-  document.getElementById("suffixText").value = prefs.getCharPref("extensions.printingtoolsng.pdf.filename.suffix");
+  document.getElementById("PDFoutputDir").value = prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
+  document.getElementById("customDatePDF").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.custom_date_format");
+  document.getElementById("prefixText").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.prefix");
+  document.getElementById("suffixText").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.suffix");
   document.getElementById("enableLatinize").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.latinize");
   document.getElementById("enableEmojiAndSymbolFilter").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols");
-  document.getElementById("characterFilter").value = prefs.getCharPref("extensions.printingtoolsng.pdf.filename.filter_characters");
-  document.getElementById("PDFcustomFilenameFormat").value = prefs.getCharPref("extensions.printingtoolsng.pdf.custom_filename_format");
+  document.getElementById("characterFilter").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.filter_characters");
+  document.getElementById("PDFcustomFilenameFormat").value = prefs.getStringPref("extensions.printingtoolsng.pdf.custom_filename_format");
 
 	// Services.console.logStringMessage("printingtools: call printer setup");
 	setPrinterList();
@@ -452,14 +452,14 @@ function savePMDprefs() {
 
     // PDF Output Options
     prefs.setBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir", document.getElementById("enablePDFoutputDir").checked);
-    prefs.setCharPref("extensions.printingtoolsng.pdf.output_dir", document.getElementById("PDFoutputDir").value);
-    prefs.setCharPref("extensions.printingtoolsng.pdf.filename.custom_date_format", document.getElementById("customDatePDF").value);
-    prefs.setCharPref("extensions.printingtoolsng.pdf.filename.prefix", document.getElementById("prefixText").value);
-    prefs.setCharPref("extensions.printingtoolsng.pdf.filename.suffix", document.getElementById("suffixText").value);
+    prefs.setStringPref("extensions.printingtoolsng.pdf.output_dir", document.getElementById("PDFoutputDir").value);
+    prefs.setStringPref("extensions.printingtoolsng.pdf.filename.custom_date_format", document.getElementById("customDatePDF").value);
+    prefs.setStringPref("extensions.printingtoolsng.pdf.filename.prefix", document.getElementById("prefixText").value);
+    prefs.setStringPref("extensions.printingtoolsng.pdf.filename.suffix", document.getElementById("suffixText").value);
     prefs.setBoolPref("extensions.printingtoolsng.pdf.filename.latinize", document.getElementById("enableLatinize").checked);
     prefs.setBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols", document.getElementById("enableEmojiAndSymbolFilter").checked);
-    prefs.setCharPref("extensions.printingtoolsng.pdf.filename.filter_characters", document.getElementById("characterFilter").value);
-    prefs.setCharPref("extensions.printingtoolsng.pdf.custom_filename_format", document.getElementById("PDFcustomFilenameFormat").value);
+    prefs.setStringPref("extensions.printingtoolsng.pdf.filename.filter_characters", document.getElementById("characterFilter").value);
+    prefs.setStringPref("extensions.printingtoolsng.pdf.custom_filename_format", document.getElementById("PDFcustomFilenameFormat").value);
   
 	printerSettings.savePrintSettings();
 	window.close();
