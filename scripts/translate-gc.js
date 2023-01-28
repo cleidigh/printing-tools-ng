@@ -86,7 +86,7 @@ async function translateAllLocales(iFile, sourceArray, locales, format, options)
 		var shortLocale = locale.split('-')[0];
 
 		if (shortLocale === referenceLocaleId) {
-			continue;
+			//continue;
 		}
 
 		console.debug('Locale ' + locale + ' ' + locales);
@@ -436,7 +436,7 @@ var options = {
  	outputLocaleDir: "./src/chrome/locale",
  	outputLocaleDirSuffix: "",
  	append: true,
- 	outputFormat: 0,
+ 	outputFormat: 1,
  };
 
 //  files from base locale 
@@ -465,8 +465,8 @@ let inputFiles = ["printingtoolsng.properties"];
 // 						'el', 'pl', 'da', 'pt-PT'];
 
 // printingtools
-//var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-//'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
+var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 
 // localeFolders = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
@@ -475,7 +475,7 @@ let inputFiles = ["printingtoolsng.properties"];
 // var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
 // 	'sk-SK', 'sl-SI', 'sv-SE'];
 
-localeFolders = ['de-DE'];
+//localeFolders = ['en-US'];
 
 
 // localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];
