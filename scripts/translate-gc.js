@@ -21,6 +21,7 @@ var translationArray = [
 	{ key: "writing", text: "Writing" },
 	{ key: "printing", text: "Printing" },
 	{ key: "err_copies_val_req", text: "Copies value required" },
+	{ key: "err_copies_val_notzero", text: "Copies value cannot be zero" },
 	{ key: "err_pageranges_val_req", text: "Page Ranges value required" },
 	{ key: "err_pageranges_val_notzero", text: "Page Ranges value cannot be zero" },
 	{ key: "err_pageranges_val_endgrbeg", text: "Page Range end must be greater than start" },
@@ -454,8 +455,8 @@ var options = {
 // let inputFiles = ["overlay.properties"];
 // let inputFiles = ["settings.dtd", "overlay.dtd", "overlay.properties"];
 
-//let inputFiles = ["printingtoolsng.properties"];
-let inputFiles = ["printingtoolsng.dtd"];
+let inputFiles = ["printingtoolsng.properties"];
+//let inputFiles = ["printingtoolsng.dtd"];
 
 //let inputFiles = ["messages.json"];
 // let inputFiles = ["autobackup.dtd", "autobackup.properties", "mboximport.dtd", "mboximport.properties", "profilewizard.dtd", "profilewizard.properties"];
@@ -464,8 +465,8 @@ let inputFiles = ["printingtoolsng.dtd"];
 // 						'el', 'pl', 'da', 'pt-PT'];
 
 // printingtools
-var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
+//var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+//'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 
 // localeFolders = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
@@ -474,7 +475,7 @@ var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi',
 // var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
 // 	'sk-SK', 'sl-SI', 'sv-SE'];
 
-//localeFolders = ['de-DE'];
+localeFolders = ['de-DE'];
 
 
 // localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];

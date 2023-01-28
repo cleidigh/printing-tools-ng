@@ -665,13 +665,13 @@ function copiesValidation() {
 		//nc.setCustomValidity("Value Required");
 		//nc.reportValidity();
 		//pstr
-		nce.textContent = "Copies value required"
+		nce.textContent = this.mainStrBundle.GetStringFromName("err_copies_val_req");
 		let l = nce.textContent.length * 0.50 + "em";
 		nce.style.width = l
 		nce.className = "error active";
 		enableOKbutton(false);
 	} else if (nc.validity.rangeUnderflow) {
-		nce.textContent = "Copies value cannot be zero"
+		nce.textContent = this.mainStrBundle.GetStringFromName("err_copies_val_notzero");
 		let l = nce.textContent.length * 0.50 + "em";
 		nce.style.width = l
 		nce.className = "error active";
@@ -702,16 +702,16 @@ function pageRangesValidation(e) {
 		console.log("v m")
 		//nc.setCustomValidity("Value Required");
 		//nc.reportValidity();
-		pre.textContent = "Page Ranges value required"
+		pre.textContent = this.mainStrBundle.GetStringFromName("err_pageranges_val_req");
 		let l = pre.textContent.length * 0.50 + "em";
 		pre.style.width = l
 		pre.className = "error active";
 		enableOKbutton(false);
 	} else if (pageRangesStringValidation(pr.value)) {
 		if (pageRangesStringValidation(pr.value) == 1) {
-			pre.textContent = "Page Ranges value cannot be zero"
+			pre.textContent = this.mainStrBundle.GetStringFromName("err_pageranges_val_notzero");
 		} else {
-			pre.textContent = "Page Range end must be greater than start"
+			pre.textContent = this.mainStrBundle.GetStringFromName("err_pageranges_val_endgrbeg");
 		}
 		let l = pre.textContent.length * 0.50 + "em";
 		pre.style.width = "100%"
