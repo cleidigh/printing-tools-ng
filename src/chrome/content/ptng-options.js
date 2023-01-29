@@ -19,6 +19,7 @@ var PMDstr = Cc["@mozilla.org/supports-string;1"]
 	.createInstance(Ci.nsISupportsString);
 
 var strBundleService = Services.strings;
+var mainStrBundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 
 var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
 var gheaderList;
@@ -665,13 +666,13 @@ function copiesValidation() {
 		//nc.setCustomValidity("Value Required");
 		//nc.reportValidity();
 		//pstr
-		nce.textContent = this.mainStrBundle.GetStringFromName("err_copies_val_req");
+		nce.textContent = mainStrBundle.GetStringFromName("err_copies_val_req");
 		let l = nce.textContent.length * 0.50 + "em";
 		nce.style.width = l
 		nce.className = "error active";
 		enableOKbutton(false);
 	} else if (nc.validity.rangeUnderflow) {
-		nce.textContent = this.mainStrBundle.GetStringFromName("err_copies_val_notzero");
+		nce.textContent = mainStrBundle.GetStringFromName("err_copies_val_notzero");
 		let l = nce.textContent.length * 0.50 + "em";
 		nce.style.width = l
 		nce.className = "error active";
@@ -702,16 +703,16 @@ function pageRangesValidation(e) {
 		console.log("v m")
 		//nc.setCustomValidity("Value Required");
 		//nc.reportValidity();
-		pre.textContent = this.mainStrBundle.GetStringFromName("err_pageranges_val_req");
+		pre.textContent = mainStrBundle.GetStringFromName("err_pageranges_val_req");
 		let l = pre.textContent.length * 0.50 + "em";
 		pre.style.width = l
 		pre.className = "error active";
 		enableOKbutton(false);
 	} else if (pageRangesStringValidation(pr.value)) {
 		if (pageRangesStringValidation(pr.value) == 1) {
-			pre.textContent = this.mainStrBundle.GetStringFromName("err_pageranges_val_notzero");
+			pre.textContent = mainStrBundle.GetStringFromName("err_pageranges_val_notzero");
 		} else {
-			pre.textContent = this.mainStrBundle.GetStringFromName("err_pageranges_val_endgrbeg");
+			pre.textContent = mainStrBundle.GetStringFromName("err_pageranges_val_endgrbeg");
 		}
 		let l = pre.textContent.length * 0.50 + "em";
 		pre.style.width = "100%"

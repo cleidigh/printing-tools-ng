@@ -39,10 +39,10 @@ var printerSettings = {
   },
 
   getPrinterSettings: function (window) {
-    var w = Cc["@mozilla.org/appshell/window-mediator;1"]
+    var win = Cc["@mozilla.org/appshell/window-mediator;1"]
       .getService(Ci.nsIWindowMediator)
       .getMostRecentWindow("mail:3pane");
-    var printSettings = w.PrintUtils.getPrintSettings();
+    var printSettings = win.PrintUtils.getPrintSettings();
     document = window.document;
     console.log("set print settings ", document);
 
@@ -124,11 +124,19 @@ var printerSettings = {
     el = document.querySelector("#footerright");
     el.value = printSettings.footerStrRight;
 
-    el = document.querySelector("#frfc");
+    el = document.querySelector("#leftHeaderTD");
     let frfc_cs = window.getComputedStyle(el);
     let frfc_width = frfc_cs.getPropertyValue("width");
     console.log(frfc_width)
-    // el = document.querySelector("#t1").style.width = frfc_width;
+    let w = Number(frfc_width.split("px")[0]) + 4;
+    let ws = w + "px"
+    console.log(ws)
+    document.querySelector("#headerleft").style.width = ws;
+    document.querySelector("#headercenter").style.width = ws;
+    document.querySelector("#headerright").style.width = ws;
+    document.querySelector("#footerleft").style.width = ws;
+    document.querySelector("#footercenter").style.width = ws;
+    document.querySelector("#footerright").style.width = ws;
   },
 
   pageRangesToString: function (pageRanges) {

@@ -393,20 +393,22 @@ margin-left: 20px;
 }
 
 .hdrftr {
-	width: 6em;
-	
+	padding-right: 0;
+	margin-right: 0;
+	padding-left: 0;
+	margin-left: 0;
 }
 
 .hdrftr2 {
-	width: 238px;
-	
+	/* width: 60px; */
+	background-color: aqua I !important;
 }
 
-.hdrftr2:lang(ja) {
+.hdrftr3:lang(ja) {
 	width: 228px;
 }
 
-.hdrftr2:lang(de) {
+.hdrftr3:lang(de) {
 	width: 256px;
 }
 /* validation rules */
