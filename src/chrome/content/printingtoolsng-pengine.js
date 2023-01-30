@@ -394,8 +394,8 @@ var printingtools = {
 				{
 					let fpMode = Ci.nsIFilePicker.modeGetFolder;
 					//pstr
-					this.mainStrBundle.GetStringFromName("select_pdf_dir")
-					let fpTitle = "Select PDF Output Directory";
+					
+					let fpTitle = this.mainStrBundle.GetStringFromName("select_pdf_dir");
 					let fpDisplayDirectory = null;
 					this.utils.window = window;
 					let resultObj = await this.utils.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
@@ -430,12 +430,12 @@ var printingtools = {
 		await PrintUtils.printBrowser.browsingContext.print(ps);
 
 		if (pdfOutput) {
-			//pstr
-			this.mainStrBundle.GetStringFromName("select_pdf_dir")
-			this.utils.PTNG_WriteStatus("Write (Ext) : " + pdfFileName);
+			this.utils.PTNG_WriteStatus(this.mainStrBundle.GetStringFromName("writing") + " (Ext): " + pdfFileName);
 		} else {
-			this.utils.PTNG_WriteStatus("Printing (Ext) : " + msgSubject);
+			this.utils.PTNG_WriteStatus(this.mainStrBundle.GetStringFromName("printing") + " (Ext): " + msgSubject);
 		}
+
+		
 	},
 
 	cmd_printng_external: async function (extMsgReq) {

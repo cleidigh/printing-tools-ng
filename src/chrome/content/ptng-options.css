@@ -382,15 +382,17 @@ margin-left: 20px;
 
 .margins-hdrftr-tbl td:nth-child(2) { 
 	padding-left: 0px;
-	padding-right: 20px;
-	/* background-color: azure; */
+	padding-right: 14px;
+	
 }
 
 .margins-hdrftr-tbl td:nth-child(4) { 
-	padding-left: 10px;
-	padding-right: 10px;
-	/* background-color: azure; */
+	padding-left: 25px;
+	padding-right: 0px;
+	
 }
+
+
 
 .hdrftr {
 	padding-right: 0;

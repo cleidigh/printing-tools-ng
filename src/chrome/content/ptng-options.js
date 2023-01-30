@@ -242,7 +242,8 @@ async function initPMDpanel() {
 
 async function pickPDFoutputDir() {
   let fpMode = Ci.nsIFilePicker.modeGetFolder;
-					let fpTitle = "Select PDF Output Directory";
+					
+					let fpTitle = this.mainStrBundle.GetStringFromName("select_pdf_dir");
 					let fpDisplayDirectory = null;
 					let resultObj = await utils.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
 					if (resultObj.result == -1) {
