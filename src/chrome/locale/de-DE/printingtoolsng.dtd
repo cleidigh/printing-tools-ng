@@ -70,14 +70,14 @@
 <!ENTITY debugOptions.label "Debug-Optionen">
 <!ENTITY date_custom.label "Benutzerdefiniert">
 <!ENTITY messageBody "Nachrichtentext">
-<!ENTITY body "Körper">
+<!ENTITY body "Textteil">
 <!ENTITY pdf_output "PDF Ausgabe">
 <!ENTITY print_and_pageoptions "Druck und Seitenoptionen">
-<!ENTITY headers_order "Header-Reihenfolge">
+<!ENTITY headers_order "Reihenfolge">
 <!ENTITY attachments "Anhänge">
 <!ENTITY images "Bilder">
-<!ENTITY pdf_file_naming "Benennung von PDF-Dateien">
-<!ENTITY enable_pdfdir "PDF-Ausgabeverzeichnis aktivieren">
+<!ENTITY pdf_file_naming "Benennung von PDF Dateien">
+<!ENTITY enable_pdfdir "PDF Ausgabeverzeichnis aktivieren">
 <!ENTITY output_dir "Ausgabe Verzeichnis">
 <!ENTITY browse "Durchsuche">
 <!ENTITY custom_date_format "Benutzerdefiniertes Datumsformat">
@@ -99,5 +99,5 @@
 <!ENTITY right "Rechts">
 <!ENTITY center "Center">
 <!ENTITY footers "Fußzeilen">
-<!ENTITY cancel "Absagen">
+<!ENTITY cancel "Abbrechen">
 <!ENTITY page_headers "Überschriften">

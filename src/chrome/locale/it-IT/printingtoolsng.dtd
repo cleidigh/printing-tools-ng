@@ -93,8 +93,8 @@
 <!ENTITY page_ranges "Intervalli di pagine">
 <!ENTITY margins "Margini">
 <!ENTITY top "Superiore">
-<!ENTITY bottom "Parte inferiore">
-<!ENTITY left "Sono partiti">
+<!ENTITY bottom "Inferiore">
+<!ENTITY left "Sinistra">
 <!ENTITY right "Destra">
 <!ENTITY center "Centro">
 <!ENTITY footers "Piè di pagina">
