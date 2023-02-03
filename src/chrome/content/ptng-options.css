@@ -342,8 +342,8 @@ margin-left: 20px;
 }
 
 .margins-hdrftr-tbl table, td, tr {
-	background-color:azure;
-	border: 1px solid black;
+	/* background-color:azure; */
+	/* border: 1px solid black; */
 	border-collapse: collapse;
 	/* width: 100%; */
 
@@ -390,7 +390,7 @@ margin-left: 20px;
 .margins-hdrftr-tbl td:nth-child(4) { 
 	padding-left: 25px;
 	padding-right: 0px;
-	text-align: right;
+	/* text-align: right; */
 }
 
 

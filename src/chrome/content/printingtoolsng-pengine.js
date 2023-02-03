@@ -1,3 +1,26 @@
+/*
+	PrintingTools NG is a derivative extension for Thunderbird 68+
+	providing printing tools for messages.
+	The derivative extension authors:
+		Copyright (C) 2023 : Christopher Leidigh
+
+	The original extension & derivatives, PrintingTools, by Paolo "Kaosmos",
+	is covered by the GPLv3 open-source license (see LICENSE file).
+		Copyright (C) 2007 : Paolo "Kaosmos"
+
+	PrintingTools NG is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 // var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
 

@@ -1,3 +1,27 @@
+/*
+  PrintingTools NG is a derivative extension for Thunderbird 68+
+  providing printing tools for messages.
+  The derivative extension authors:
+    Copyright (C) 2023 : Christopher Leidigh
+
+  The original extension & derivatives, PrintingTools, by Paolo "Kaosmos",
+  is covered by the GPLv3 open-source license (see LICENSE file).
+    Copyright (C) 2007 : Paolo "Kaosmos"
+
+  PrintingTools NG is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 
 /* globals
 Services,
@@ -11,10 +35,9 @@ st,
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 var window3Pane = Cc["@mozilla.org/appshell/window-mediator;1"]
-      .getService(Ci.nsIWindowMediator)
-      .getMostRecentWindow("mail:3pane");
+  .getService(Ci.nsIWindowMediator)
+  .getMostRecentWindow("mail:3pane");
 
-//var printingtools = window3Pane.printingtools;
 var window;
 var document;
 
@@ -22,8 +45,9 @@ var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch
 
 var EXPORTED_SYMBOLS = ["printerSettings"];
 
+// These are our default settings for those we control separate from main prefs
 var printerSettings = {
-   defaultPTNGprinterSettings:  {
+  defaultPTNGprinterSettings: {
     numCopies: 1,
     pageRanges: [],
     marginTop: 0.5,
@@ -39,54 +63,48 @@ var printerSettings = {
   },
 
   getPrinterSettings: function (window) {
-    var win = Cc["@mozilla.org/appshell/window-mediator;1"]
-      .getService(Ci.nsIWindowMediator)
-      .getMostRecentWindow("mail:3pane");
-    var printSettings = win.PrintUtils.getPrintSettings();
+    var printSettings = window3Pane.PrintUtils.getPrintSettings();
     document = window.document;
-    console.log("set print settings ", document);
+    console.log("get print settings ", document);
 
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
     let p = `extensions.printingtoolsng.printer.${printerNameEsc}`;
-    console.log(p);
-    let t = prefs.getPrefType(`extensions.printingtoolsng.printer.${printerNameEsc}`);
-    console.log(t);
+
+    let t = prefs.getPrefType(p);
+
     var props;
     var customProps;
-
+    // Check if we need to initialize PTNG printer settings
     if (t > 0) {
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
-
-      console.log(printSettings);
-
     } else {
       this.initCustomPrinterOptions(printerName);
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
     }
 
-    console.log(printSettings.paperSizeUnit);
+    //console.log(printSettings.paperSizeUnit);
+    // 0=in, 1=mm
+    let units = printSettings.paperSizeUnit;
     let un = document.querySelector("#units");
     let unitsStr = ["(in)", "(mm)"];
-    un.value = unitsStr[printSettings.paperSizeUnit];
+    un.value = unitsStr[units];
 
     let prRG = document.querySelector("#pageRangesRG");
     let cr = document.querySelector("#pages");
     let pr = printSettings.pageRanges;
 
     if (pr.length == 0) {
-      console.log(pr);
       prRG.selectedIndex = 0;
       cr.setAttribute("disabled", "true");
       cr.value = "1";
-      console.log(cr);
     } else {
-      console.log(pr);
       prRG.selectedIndex = 1;
       cr.removeAttribute("disabled");
       cr.value = this.pageRangesToString(pr);
     }
 
+    // disable copies for PDF printers
     let nc = document.querySelector("#copies-count");
     nc.value = printSettings.numCopies;
     if (printerName.toLowerCase().includes("pdf")) {
@@ -95,20 +113,15 @@ var printerSettings = {
       nc.removeAttribute("disabled");
     }
 
-    console.log(printSettings.numCopies);
-    let units = printSettings.paperSizeUnit;
-
+    // Round all margins to two decimal places
     let el = document.querySelector("#margin-top");
     el.value = this.inchesToPaperUnits(printSettings.marginTop, units).toFixed(2);
     el = document.querySelector("#margin-bottom");
     el.value = this.inchesToPaperUnits(printSettings.marginBottom, units).toFixed(2);
-
     el = document.querySelector("#margin-left");
     el.value = this.inchesToPaperUnits(printSettings.marginLeft, units).toFixed(2);
-
     el = document.querySelector("#margin-right");
     el.value = this.inchesToPaperUnits(printSettings.marginRight, units).toFixed(2);
-
 
     el = document.querySelector("#headerleft");
     el.value = printSettings.headerStrLeft;
@@ -124,13 +137,14 @@ var printerSettings = {
     el = document.querySelector("#footerright");
     el.value = printSettings.footerStrRight;
 
+    // Use the leftheader cell to determine table right edge
+    // then we calc needed input to fill width
     el = document.querySelector("#leftHeaderTD");
     let frfc_cs = window.getComputedStyle(el);
     let frfc_width = frfc_cs.getPropertyValue("width");
-    console.log(frfc_width)
     let w = Number(frfc_width.split("px")[0]) + 4;
-    let ws = w + "px"
-    console.log(ws)
+    let ws = w + "px";
+    // set all hdr ftr inputs to edge of table
     document.querySelector("#headerleft").style.width = ws;
     document.querySelector("#headercenter").style.width = ws;
     document.querySelector("#headerright").style.width = ws;
@@ -141,8 +155,7 @@ var printerSettings = {
 
   pageRangesToString: function (pageRanges) {
     var pageRangesStr = "";
-    console.log(pageRanges);
-    console.log(pageRanges.length);
+
     if (pageRanges.length == 0) {
       return [];
     }
@@ -150,12 +163,11 @@ var printerSettings = {
     for (let pair = 0; pair < totalRangeItems - 1; pair += 2) {
       let startRange = pageRanges[pair];
       let endRange = pageRanges[pair + 1];
-      console.log(startRange + " - " + endRange);
+      // console.log(startRange + " - " + endRange);
       if (startRange == endRange) {
         pageRangesStr += startRange;
       } else {
         pageRangesStr += (startRange + "-" + endRange);
-        console.log(pageRangesStr);
       }
       if (pair < totalRangeItems - 2) {
         pageRangesStr += ", ";
@@ -167,7 +179,7 @@ var printerSettings = {
 
   setPageRangesFromString: function (pageRangesStr) {
     var pageRanges = [];
-    console.log(pageRangesStr);
+
     if (pageRangesStr == "") {
       return pageRanges;
     }
@@ -180,9 +192,6 @@ var printerSettings = {
         rangeParts.length == 2 ? rangeParts[1] : rangeParts[0],
         10
       );
-
-      console.log(startRange);
-      console.log(endRange);
 
       if (isNaN(startRange) && isNaN(endRange)) {
         continue;
@@ -207,9 +216,8 @@ var printerSettings = {
       }
       pageRanges.push(startRange);
       pageRanges.push(endRange);
-
     }
-    console.log(pageRanges);
+
     return pageRanges;
   },
 
@@ -227,31 +235,18 @@ var printerSettings = {
     return val * 25.4;
   },
 
-
-
   savePrinterSettingsFromPTNGsettings: function () {
-    var w = Cc["@mozilla.org/appshell/window-mediator;1"]
-      .getService(Ci.nsIWindowMediator)
-      .getMostRecentWindow("mail:3pane");
-    var printSettings = w.PrintUtils.getPrintSettings();
-
-    console.log(printSettings);
+    var printSettings = window3Pane.PrintUtils.getPrintSettings();
 
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
-    let p = `extensions.printingtoolsng.printer.${printerNameEsc}`;
-    console.log(p);
+
     let t = prefs.getPrefType(`extensions.printingtoolsng.printer.${printerNameEsc}`);
-    console.log(t);
-    var props;
-    var customProps;
 
     if (t > 0) {
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
       let cr = document.querySelector("#pages");
       cr.value = printSettings.pageRanges;
-      console.log(printSettings);
-
     } else {
       this.initCustomPrinterOptions(printerName);
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
@@ -261,27 +256,21 @@ var printerSettings = {
     PSSVC.savePrintSettingsToPrefs(printSettings, true, Ci.nsIPrintSettings.kInitSaveAll);
   },
 
-
-
   savePrintSettings: function () {
     var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
       .getService(Ci.nsIPrintSettingsService);
-    var ps;
+    var printSettings;
     if (PSSVC.newPrintSettings) {
-      ps = PSSVC.newPrintSettings;
+      printSettings = PSSVC.newPrintSettings;
     } else {
-      ps = PSSVC.createNewPrintSettings();
+      printSettings = PSSVC.createNewPrintSettings();
     }
 
-    ps.printerName = document.getElementById("OutputPrinter").value;
-    PSSVC.initPrintSettingsFromPrefs(ps, true, ps.kInitSaveAll);
-    console.log(ps.marginTop);
-    ps.marginTop = 1.6;
-    console.log(ps.marginTop);
+    printSettings.printerName = document.getElementById("OutputPrinter").value;
+    PSSVC.initPrintSettingsFromPrefs(printSettings, true, printSettings.kInitSaveAll);
 
-    var printSettings = ps;
     let nc = Number(document.querySelector("#copies-count").value);
-    console.log(nc);
+
     if (nc < 1 || nc > 1000) {
       nc = 1;
       alert("Copies out of range: set to  1");
@@ -345,18 +334,12 @@ var printerSettings = {
     el = document.querySelector("#footerright");
     printSettings.footerStrRight = el.value;
 
-
-    console.log(printSettings);
-    // printSettings.marginTop = "0.6";
-    // console.log(printSettings.marginTop)
     PSSVC.savePrintSettingsToPrefs(printSettings, true, Ci.nsIPrintSettings.kInitSaveAll);
 
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
-    let p = `extensions.printingtoolsng.printer.${printerNameEsc}`;
-    console.log(p);
-    let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`);
 
+    let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`);
     var customProps = JSON.parse(props);
 
     for (const printProperty in customProps) {
@@ -369,24 +352,17 @@ var printerSettings = {
 
   initCustomPrinterOptions: function (printerName) {
     let printerNameEsc = printerName.replace(/ /g, '_');
-    let p = `extensions.printingtoolsng.printer.${printerNameEsc}`;
-    console.log(p);
     let t = prefs.getPrefType(`extensions.printingtoolsng.printer.${printerNameEsc}`);
-    console.log(t);
-    var props;
 
     if (t == 0) {
       let customProps = this.defaultPTNGprinterSettings;
       let customPropsStr = JSON.stringify(customProps);
-      prefs.setStringPref(p, customPropsStr);
-
+      prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, customPropsStr);
     }
-
   },
 
   setPrinterSettingsFromPTNGsettings: function (printerSettings) {
     let printerNameEsc = printerSettings.printerName.replace(/ /g, '_');
-    let p = `extensions.printingtoolsng.printer.${printerNameEsc}`;
     let t = prefs.getPrefType(`extensions.printingtoolsng.printer.${printerNameEsc}`);
 
     if (t == 0) {
@@ -395,16 +371,10 @@ var printerSettings = {
 
     let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`);
     var customProps = JSON.parse(props);
-    let pr = "pageRanges";
-
-    console.log(customProps);
-    console.log(printerSettings.numCopies);
-    // printerSettings["pageRanges"] = [1]
 
     for (const printProperty in customProps) {
-
       printerSettings[printProperty] = customProps[printProperty];
-      console.log(printProperty + "" + printerSettings[printProperty]);
+      //  console.log(printProperty + "" + printerSettings[printProperty]);
     }
     return printerSettings;
   },
@@ -419,6 +389,10 @@ var printerSettings = {
     return val / 25.4;
   },
 
+  // We setup an observer for the preview subdialog so we can set
+  // PTNG preferences which are not set in printsettings
+  // nCopies and pageRanges are set from PTNG settings
+
   addPrintPreviewObserver: function () {
     Services.obs.addObserver(this.printPreviewSetPrinterPrefs, "subdialog-loaded");
   },
@@ -427,73 +401,54 @@ var printerSettings = {
     Services.obs.removeObserver(this.printPreviewSetPrinterPrefs, "subdialog-loaded");
   },
 
+  // observer
   printPreviewSetPrinterPrefs: {
 
+    async observe(subDialogWindow) {
+      // A subDialog has been opened.
+      // console.log("subDialog opened: " + subDialogWindow.location.href);
 
-      async observe(subDialogWindow) {
-        // A subDialog has been opened.
-        console.log("subDialog opened: " + subDialogWindow.location.href);
+      // We only want to deal with the print subDialog.
+      if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html?")) {
+        return;
+      }
 
-        // We only want to deal with the print subDialog.
-        if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html?")) {
-          return;
-        }
+      var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
 
-        var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
-        
+      // Wait until print-settings in the subDialog have been loaded/rendered.
+      await new Promise(resolve =>
+        subDialogWindow.document.addEventListener("print-settings", resolve, { once: true })
+      );
 
-        // Wait until print-settings in the subDialog have been loaded/rendered.
-        await new Promise(resolve =>
-          subDialogWindow.document.addEventListener("print-settings", resolve, { once: true })
-        );
+      // console.log("subDialog print-settings loaded");
 
-        console.log("subDialog print-settings loaded");
-        console.log("subDialog print-settings caller/opener: " + subDialogWindow.PrintEventHandler.activeCurrentURI);
+      let cr = subDialogWindow.document.querySelector("#custom-range");
+      let rp = subDialogWindow.document.querySelector("#range-picker");
+      let mp = subDialogWindow.document.querySelector("#margins-picker");
+      let cmg = subDialogWindow.document.querySelector("#custom-margins");
+      let nc = subDialogWindow.document.querySelector("#copies-count");
 
-        // console.log(window.printingtools);
-        // setTimeout(subDialogWindow.printingtools.printT, 9000);
+      let printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
 
-        // console.debug(subDialogWindow.document.documentElement.outerHTML);
-        let cr = subDialogWindow.document.querySelector("#custom-range");
-        let rp = subDialogWindow.document.querySelector("#range-picker");
-        let mp = subDialogWindow.document.querySelector("#margins-picker");
-        let cmg = subDialogWindow.document.querySelector("#custom-margins");
-        let nc = subDialogWindow.document.querySelector("#copies-count");
+      let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
+      var customProps = JSON.parse(props);
 
-        let printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
-        console.debug(printerName);
-        let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
-        var customProps = JSON.parse(props);
+      let o = [...rp.options];
+      let rangeType;
+      if (customProps.pageRanges.length == 0) {
+        rangeType = "all";
+      } else {
+        rangeType = "custom";
+        cr.removeAttribute("disabled");
+        cr.removeAttribute("hidden");
+      }
 
+      rp.selectedIndex = o.findIndex(el => el.value == rangeType);
+      cmg.removeAttribute("hidden");
+      mp.selectedIndex = 3;
 
-        console.debug(mp);
-        console.debug(rp.options);
-        let o = [...rp.options];
-        let rangeType;
-        if (customProps.pageRanges.length == 0) {
-          rangeType = "all";
-        } else {
-          rangeType = "custom";
-          cr.removeAttribute("disabled");
-          cr.removeAttribute("hidden");
-        }
-        console.log(rangeType);
-        rp.selectedIndex = o.findIndex(el => el.value == rangeType);
-        cmg.removeAttribute("hidden");
-        mp.selectedIndex = 3;
-
-        cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
-
-        console.log(nc.value)
-        nc.value = customProps.numCopies;
-
-        console.log(nc.value , customProps.numCopies)
-
-
-        },
-
+      cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
+      nc.value = customProps.numCopies;
+    },
   },
-
-
-
 };
