@@ -276,7 +276,7 @@ async function setPrinterList() {
 	var i = 1;
 	var menuitem0 = document.createXULElement("menuitem");
 	menuitem0.setAttribute("value", "Mozilla Save to PDF");
-	menuitem0.setAttribute("label", "Save to PDF");
+	menuitem0.setAttribute("label", this.mainStrBundle.GetStringFromName("save_to_pdf"));
 	popup.appendChild(menuitem0);
 
 	for (let printer of printers) {

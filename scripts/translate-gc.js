@@ -476,3 +476,5 @@ translateAll(inputFiles, translationArray, options);
 //translateAll("mboximport.dtd", translationArray, options);
 //loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];
+
+// node .\scripts\translate-gc.js
