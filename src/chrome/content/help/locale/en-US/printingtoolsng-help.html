@@ -19,40 +19,7 @@
 	<p>PrintingTools NG is a follow-on extension based on the original work of Paolo "Kaosmos".
 		The extension allows for the customization of printing headers as well as other options.
 		<br><br>
-		Thanks to the following users for enhancement suggestions and test help:<br><br>
 
-		- <code class="notranslate">@kiki-ja (major release and feature management help)</code><br>
-		- <code class="notranslate">@KC-T</code><br>
-		- <code class="notranslate">@jobisoft</code><br>
-		- <code class="notranslate">@tidebre67</code><br>
-		- <code class="notranslate">@reinerblock</code><br>
-		- <code class="notranslate">@querixg</code><br>
-		- <code class="notranslate">@RRoenn</code><br>
-		- <code class="notranslate">@madvinegar</code><br>
-		- <code class="notranslate">@ditchfinder</code><br>
-		- <code class="notranslate">@3LaHoonK</code><br>
-		- <code class="notranslate">@realraven</code><br>
-		- <code class="notranslate">@librelegal</code><br>
-		- <code class="notranslate">@Francewhoa</code><br>
-		- <code class="notranslate">@foxfan100</code><br>
-		- <code class="notranslate">@pechh</code><br>
-
-	</p>
-
-	<h3>Support:</h3>
-	<p>
-		Please post issues or feature requests in the extensions GitHub repository: <a class="link1"
-			href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a><br>
-		<br>
-		In bug issues, include the following information to help solve the issues:<br>
-		- PrintingTools NG version<br>
-		- Thunderbird version<br>
-		- Operating system and version<br>
-		- Debug output (copy from the Debug Console - access with Control-Shift-J)<br>
-		- A description of the steps leading to the issue<br>
-
-	</p>
-	<br>
 
 	<h2 id="customdate_format_help">Custom Date Format</h2>
 	<p>The custom date option allows for the complete control over the date formatting
@@ -317,8 +284,172 @@
 		<li><code class="code1">%%</code> - not implemented (use <code class="code1">%</code>)</li>
 	</ul>
 
-	<br><br>
+	<br>
+	
+	<h2>PDF Output and Auto File Naming</h2>
+	
+	<p>
+		PDF Output can now be both auto named using a token system and
+		saved to a pre-defined PDF output directory. This is particularly 
+		useful when printing multiple selected emails as it is not necessary 
+		to choose a name and location for each email.
+	<p/>
+	<p>
+		Enable the PDF output directory and choose a directory for the save
+		location. The output filename will follow the configured filename format.
+		<p/>
+		<p>
+		The filename format consists of tokens and any static characters such
+		as separators or whitespace. The extended file name formatting utilizes tokens. The exact filename can be constructed
+		utilizing the tokens as well as any text or valid filename characters.
+		Invalid characters are: <code> | * : < > ? \ / " </code>
+		<p/>
+		<p>
+		The default name format is: ${subject} which is just the subject of the email.
+		<p/>
+		<p>
+			Examples</p>
+			<p>
+			<span class="notranslate"><code>${subject}</code></span> - The default format, subject of the email<br>
+			<span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Use the custom date format instead of default<br>
+			<span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - With some custom text<br>
+				</p>
+				<p>
+		
+				The table below describes the full set of tokens that can be used in the Filename Format.
+			</p>
 
+	</p>
+
+	<table class="token-table">
+		<tr>
+			<td>Token</td>
+			<td>Description</td>
+		</tr>
+		<tr>
+			<td class="notranslate"><code>${subject}</code></td>
+			<td>The subject of the message.</td>
+		</tr>
+		<tr>
+			<td class="notranslate"><code>${sender}</code></td>
+			<td>The name of the message sender.</td>
+		</tr>
+		<tr>
+			<td class="notranslate"><code>${recipient}</code></td>
+			<td>The name of the message recipient.</td>
+		</tr>
+		<tr>
+			<td class="notranslate"><code>${sender_email}</code></td>
+			<td>The e-mail address of the message sender.</td>
+		</tr>
+		<tr>
+			<td class="notranslate"><code>${recipient_email}</code></td>
+			<td>The e-mail address of the message recipient.</td>
+		</tr>
+		<tr>
+			<td class="notranslate"><code>${smart_name}</code></td>
+			<td>The recipients if the message is in a Sent folder, otherwise the sender name </td>
+		</tr>
+		<tr>
+			<td class="notranslate"><code>${index}</code></td>
+			<td>The message index number.</td>
+		</tr>
+		<tr>
+			<td class="notranslate"><code>${prefix}</code></td>
+			<td>The prefix text option value.</td>
+		</tr>
+		<tr>
+			<td class="notranslate"><code>${suffix}</code></td>
+			<td>The suffix text option value.</td>
+		</tr>
+
+		<tr>
+			<td class="notranslate"><code>${date}</code></td>
+			<td>The standard date format. The default format is: YYYYMMDDHHmm </td>
+		</tr>
+		<tr>
+			<td class="notranslate"><code>${date_custom}</code></td>
+			<td>The custom date format. See the custom date formatting section.</td>
+		</tr>
+
+	</table>
+
+	<br>
+
+	<h2>Print and Page Options</h2>
+	<p>
+		These options allow you to set per printer page options. It is
+		also possible to set the silent mode where the preview dialog is
+		not shown and printing is done immediately.
+	</p>
+	<p>The page options allow you to set items when both preview 
+		or printing is done. Some items are not available to be set
+		in the preview dialog, these include the headers and footers.
+		Other items are not retained by the preview and normally would 
+		have to be set each time a print is done. 
+	</p>
+
+	<p>
+		These include copies and page ranges. A typical use case is where 
+		one wishes to print just the first page of an email as the default.
+		 normally one would have to make the page ranges change each time.
+	</p>
+	<p>Notes:</p>
+	<p>Page ranges are described the same way as in the preview. Examples are
+		1, 1-2, 3-4,5. Note that if a preset page ranges is not valid for a 
+		given message, the preview will show an error. 
+	</p>
+	<p>The margins can be set using units appropriate for the users locale, 
+		either inches or millimeters (in or mm).
+	</p>
+	<p></p>
+	<p>The headers and footers can be set to include various message variables 
+		listed below. Additionally arbitrary text can also be included.
+	</p>
+	<div class="indent1">
+	<li >&D = Date (when saved)</li>
+	<li>&P = Page Number in saved file</li>
+		<li>&PT = Page Number with Total (“3 of 5”)</li>
+		<li>&T = Page Title (Subject of the message)</li>
+		<li>&U = URL (The URL of the message)</li>
+	</div>
+
+
+
+
+	<h2>Support</h2>
+	<p>
+		Please post issues or feature requests in the extensions GitHub repository: <a class="link1"
+			href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a><br>
+		<br>
+		In bug issues, include the following information to help solve the issues:<br>
+		- PrintingTools NG version<br>
+		- Thunderbird version<br>
+		- Operating system and version<br>
+		- Debug output (copy from the Debug Console - access with Control-Shift-J)<br>
+		- A description of the steps leading to the issue<br>
+
+	</p>
+	<br>
+<p>
+	Thanks to the following users for enhancement suggestions and test help:<br><br>
+
+	- <code class="notranslate">@kiki-ja (major release and feature management help)</code><br>
+	- <code class="notranslate">@KC-T</code><br>
+	- <code class="notranslate">@jobisoft</code><br>
+	- <code class="notranslate">@tidebre67</code><br>
+	- <code class="notranslate">@reinerblock</code><br>
+	- <code class="notranslate">@querixg</code><br>
+	- <code class="notranslate">@RRoenn</code><br>
+	- <code class="notranslate">@madvinegar</code><br>
+	- <code class="notranslate">@ditchfinder</code><br>
+	- <code class="notranslate">@3LaHoonK</code><br>
+	- <code class="notranslate">@realraven</code><br>
+	- <code class="notranslate">@librelegal</code><br>
+	- <code class="notranslate">@Francewhoa</code><br>
+	- <code class="notranslate">@foxfan100</code><br>
+	- <code class="notranslate">@pechh</code><br>
+</p>
 
 </body>
 

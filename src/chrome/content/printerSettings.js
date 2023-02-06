@@ -138,6 +138,16 @@ var printerSettings = {
     el.value = printSettings.footerStrRight;
 
     // Use the leftheader cell to determine table right edge
+    // we must reset our input widths so our calculations start
+    // with the base tablesize if we change printers
+    
+    document.querySelector("#headerleft").style.width = "";
+    document.querySelector("#headercenter").style.width = "";
+    document.querySelector("#headerright").style.width = "";
+    document.querySelector("#footerleft").style.width = "";
+    document.querySelector("#footercenter").style.width = "";
+    document.querySelector("#footerright").style.width = "";
+
     // then we calc needed input to fill width
     el = document.querySelector("#leftHeaderTD");
     let frfc_cs = window.getComputedStyle(el);
