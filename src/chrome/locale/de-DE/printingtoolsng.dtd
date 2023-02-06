@@ -94,10 +94,10 @@
 <!ENTITY page_ranges "Seitenbereiche">
 <!ENTITY margins "Ränder">
 <!ENTITY top "Oben">
-<!ENTITY bottom "Unterseite">
+<!ENTITY bottom "Unten">
 <!ENTITY left "Links">
 <!ENTITY right "Rechts">
-<!ENTITY center "Center">
+<!ENTITY center "Mitte">
 <!ENTITY footers "Fußzeilen">
 <!ENTITY cancel "Abbrechen">
-<!ENTITY page_headers "Überschriften">
+<!ENTITY page_headers "Kopfzeilen">

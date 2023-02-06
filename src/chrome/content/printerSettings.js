@@ -85,6 +85,10 @@ var printerSettings = {
 
     //console.log(printSettings.paperSizeUnit);
     // 0=in, 1=mm
+
+    console.log("getting prefs")
+    console.log("printer ", printSettings.printerName)
+    console.log("page units ", printSettings.paperSizeUnit)
     let units = printSettings.paperSizeUnit;
     let un = document.querySelector("#units");
     let unitsStr = ["(in)", "(mm)"];
@@ -140,7 +144,7 @@ var printerSettings = {
     // Use the leftheader cell to determine table right edge
     // we must reset our input widths so our calculations start
     // with the base tablesize if we change printers
-    
+
     document.querySelector("#headerleft").style.width = "";
     document.querySelector("#headercenter").style.width = "";
     document.querySelector("#headerright").style.width = "";
@@ -344,7 +348,16 @@ var printerSettings = {
     el = document.querySelector("#footerright");
     printSettings.footerStrRight = el.value;
 
-    PSSVC.savePrintSettingsToPrefs(printSettings, true, Ci.nsIPrintSettings.kInitSaveAll);
+    let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
+    Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
+    Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
+    Ci.nsIPrintSettings.kInitSaveFooterRight;
+
+    console.log("saving prefs")
+    console.log("printer ", printSettings.printerName)
+    console.log("page units ", printSettings.paperSizeUnit)
+    
+    PSSVC.savePrintSettingsToPrefs(printSettings, true, savePrefs);
 
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
