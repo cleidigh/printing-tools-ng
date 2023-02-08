@@ -242,7 +242,7 @@ var utils = {
 
   openFileDialog: async function (mode, title, initialDir, filter) {
 		let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
-
+    let resultObj = {};
 		fp.init(window, title, mode);
 		fp.appendFilters(filter);
 		if (initialDir) {
@@ -252,7 +252,8 @@ var utils = {
 			fp.open(resolve);
 		});
 		if (res !== Ci.nsIFilePicker.returnOK) {
-			return -1;
+      resultObj.result = -1;
+			return resultObj;
 		}
 
 		var files = fp.files;
@@ -261,7 +262,7 @@ var utils = {
 			var arg = files.getNext().QueryInterface(Ci.nsIFile);
 			paths.push(arg.path);
 		}
-		let resultObj = {};
+		
 		resultObj.result = 0;
 		resultObj.filesArray = paths;
 		if (mode === Ci.nsIFilePicker.modeGetFolder) {

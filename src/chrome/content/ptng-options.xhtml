@@ -361,15 +361,37 @@
 			<tabpanel>
 				<html:div style= "background-color2: yellow; padding-left: 0px">
 					<vbox>
-						<hbox>
+						<!-- <hbox> -->
+
+							<!-- <hbox style = " background-color: green; width2 : 100%"> -->
+
+							<html:table style= " background-color2: yellow; width: 100%; border2: solid 1px">
+							<html:tr>
+							<html:td style= " background-color2: green">
 							<html:label style="padding-left: 1px; padding-right: 4px; 
 						font-weight: 700">&defaultPrinter;</html:label>
+						<!-- </hbox> -->
+							<!-- <hbox style = " background-color: yellow; width2 : 100%"> -->
+							</html:td>
+							<html:td style="text-align: right">
+							<!-- <label style="text-align: right">HLP</label> -->
+<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
+							width="20px" height="20px" style="margin-left: 2px; margin-top: 0px; 
+							margin-bottom: 0px; background-color: ;" onclick="loadHelp()" title="Help" />
+							</html:td>
+							</html:tr>
+							</html:table>
+							
+							
+
+
+
 							<spacer height="8px"/>
 							<hbox>
 								<spacer width="15px"/>
 								<menulist id="OutputPrinter" oncommand="printerChange();" style="padding-left: 20px"/>
 							</hbox>
-						</hbox>
+						<!-- </hbox> -->
 						<spacer height="4px"/>
 						<hbox align="center">
 							<spacer width="10px"/>

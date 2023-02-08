@@ -2358,41 +2358,6 @@ var printingtools = {
 		// console.debug(url);
 		return url;
 	},
-
-	/*
-	 openFileDialog: async function (mode, title, initialDir, filter) {
-		let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
-		fp.init(window, title, mode);
-		fp.appendFilters(filter);
-		if (initialDir) {
-			fp.displayDirectory = nsiFileFromPath(initialDir);
-		}
-		let res = await new Promise(resolve => {
-			fp.open(resolve);
-		});
-		if (res !== Ci.nsIFilePicker.returnOK) {
-			return -1;
-		}
-	
-		console.log(fp.displayDirectory)
-		console.log(fp.file)
-		var files = fp.files;
-		var paths = [];
-		while (files.hasMoreElements()) {
-			var arg = files.getNext().QueryInterface(Ci.nsIFile);
-			paths.push(arg.path);
-			console.log(arg.path)
-		}
-		let resultObj = {};
-		resultObj.result = 0;
-		resultObj.filesArray = paths;
-		if (mode === Ci.nsIFilePicker.modeGetFolder) {
-			resultObj.folder = fp.file.path;
-		}
-	
-		return resultObj;
-	},
-	*/
 	
 	shutdown: function () {
 		if (document.getElementById("fp")) {

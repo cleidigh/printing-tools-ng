@@ -79,7 +79,7 @@
 <!ENTITY pdf_file_naming "Benennung von PDF Dateien">
 <!ENTITY enable_pdfdir "PDF Ausgabeverzeichnis aktivieren">
 <!ENTITY output_dir "Ausgabe Verzeichnis">
-<!ENTITY browse "Durchsuche">
+<!ENTITY browse "Durchsuchen">
 <!ENTITY custom_date_format "Benutzerdefiniertes Datumsformat">
 <!ENTITY prefix "Präfix">
 <!ENTITY suffix "Suffix">

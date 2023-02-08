@@ -89,6 +89,11 @@ var printerSettings = {
     console.log("getting prefs")
     console.log("printer ", printSettings.printerName)
     console.log("page units ", printSettings.paperSizeUnit)
+    console.log("margin top ", printSettings.marginTop)
+    console.log("margin bottom ", printSettings.marginBottom)
+    console.log("margin left ", printSettings.marginLeft)
+    console.log("margin right ", printSettings.marginRight)
+
     let units = printSettings.paperSizeUnit;
     let un = document.querySelector("#units");
     let unitsStr = ["(in)", "(mm)"];
@@ -354,9 +359,14 @@ var printerSettings = {
     Ci.nsIPrintSettings.kInitSaveFooterRight;
 
     console.log("saving prefs")
+    
     console.log("printer ", printSettings.printerName)
     console.log("page units ", printSettings.paperSizeUnit)
-    
+    console.log("margin top ", printSettings.marginTop)
+    console.log("margin bottom ", printSettings.marginBottom)
+    console.log("margin left ", printSettings.marginLeft)
+    console.log("margin right ", printSettings.marginRight)
+
     PSSVC.savePrintSettingsToPrefs(printSettings, true, savePrefs);
 
     let printerName = printSettings.printerName;
@@ -370,6 +380,8 @@ var printerSettings = {
     }
 
     let js = JSON.stringify(customProps);
+    console.log("saving ptng settings")
+    console.log(js)
     prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, js);
   },
 
@@ -456,6 +468,7 @@ var printerSettings = {
       let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
       var customProps = JSON.parse(props);
 
+      console.log(customProps)
       let o = [...rp.options];
       let rangeType;
       if (customProps.pageRanges.length == 0) {
@@ -469,8 +482,12 @@ var printerSettings = {
       rp.selectedIndex = o.findIndex(el => el.value == rangeType);
       cmg.removeAttribute("hidden");
       mp.selectedIndex = 3;
-
+      nc.value = customProps.numCopies;
+      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
+      nc.value = customProps.numCopies;
+      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
+      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 250));
       nc.value = customProps.numCopies;
     },
   },
