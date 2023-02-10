@@ -66,7 +66,7 @@ var printerSettings = {
     var printSettings = window3Pane.PrintUtils.getPrintSettings();
     document = window.document;
     console.log("get print settings ", document);
-
+    console.log("printer Settings on entry\n ", printSettings)
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
     let p = `extensions.printingtoolsng.printer.${printerNameEsc}`;
@@ -124,14 +124,18 @@ var printerSettings = {
 
     // Round all margins to two decimal places
     let el = document.querySelector("#margin-top");
-    el.value = this.inchesToPaperUnits(printSettings.marginTop, units).toFixed(2);
+    // el.value = this.inchesToPaperUnits(printSettings.marginTop, units).toFixed(2);
+    el.value = printSettings.marginTop.toFixed(2);
     el = document.querySelector("#margin-bottom");
-    el.value = this.inchesToPaperUnits(printSettings.marginBottom, units).toFixed(2);
+    // el.value = this.inchesToPaperUnits(printSettings.marginBottom, units).toFixed(2);
+    el.value = printSettings.marginBottom.toFixed(2);
     el = document.querySelector("#margin-left");
-    el.value = this.inchesToPaperUnits(printSettings.marginLeft, units).toFixed(2);
+    // el.value = this.inchesToPaperUnits(printSettings.marginLeft, units).toFixed(2);
+    el.value = printSettings.marginLeft.toFixed(2);
     el = document.querySelector("#margin-right");
-    el.value = this.inchesToPaperUnits(printSettings.marginRight, units).toFixed(2);
-
+    // el.value = this.inchesToPaperUnits(printSettings.marginRight, units).toFixed(2);
+    el.value = printSettings.marginRight.toFixed(2);
+    
     el = document.querySelector("#headerleft");
     el.value = printSettings.headerStrLeft;
     el = document.querySelector("#headercenter");
@@ -389,12 +393,18 @@ var printerSettings = {
     prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, js);
   },
 
-  initCustomPrinterOptions: function (printerName) {
+  initCustomPrinterOptions: function (printerName, units) {
     let printerNameEsc = printerName.replace(/ /g, '_');
     let t = prefs.getPrefType(`extensions.printingtoolsng.printer.${printerNameEsc}`);
 
     if (t == 0) {
       let customProps = this.defaultPTNGprinterSettings;
+      if (units) {
+        customProps.marginTop = 12.7;
+        customProps.marginBottom = 12.7;
+        customProps.marginLeft = 12.7;
+        customProps.marginRight = 12.7;
+      }
       let customPropsStr = JSON.stringify(customProps);
       prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, customPropsStr);
     }
@@ -405,7 +415,7 @@ var printerSettings = {
     let t = prefs.getPrefType(`extensions.printingtoolsng.printer.${printerNameEsc}`);
 
     if (t == 0) {
-      this.initCustomPrinterOptions(printerSettings.printerName);
+      this.initCustomPrinterOptions(printerSettings.printerName, printerSettings.paperSizeUnit);
     }
 
     let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`);

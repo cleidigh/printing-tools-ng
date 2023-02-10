@@ -64,6 +64,8 @@ async function initPMDpanel() {
 
 	printerSettings = win.printerSettings;
 
+	console.log(mainStrBundle.GetStringFromName("dateformatTB5"));
+
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 
 
@@ -256,22 +258,27 @@ async function pickPDFoutputDir() {
 }
 
 async function setPrinterList() {
-	var outputPrinter = null;
-	try {
-		outputPrinter = prefs.getCharPref("print_printer");
-	} catch (error) {
-
-	}
-	var printerListMenu = document.getElementById("OutputPrinter");
-	var selindex = 0;
-	var popup = document.createXULElement("menupopup");
-
 	// change for 91
 	var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
 		.getService(Ci.nsIPrinterList);
 
 	// Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
 	var printers = await printerList.printers;
+	var defaultPrinter = printerList.systemDefaultPrinterName;
+
+	var outputPrinter = null;
+	try {
+		outputPrinter = prefs.getCharPref("print_printer");
+	} catch (error) {
+		console.log("no tb printer")
+		outputPrinter = defaultPrinter;
+	}
+	
+	var printerListMenu = document.getElementById("OutputPrinter");
+	var selindex = 0;
+	var popup = document.createXULElement("menupopup");
+
+	
 	// var printers = [];
 	var i = 1;
 	var menuitem0 = document.createXULElement("menuitem");
