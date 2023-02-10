@@ -309,7 +309,8 @@ var printerSettings = {
 
     let units = printSettings.paperSizeUnit;
     let el = document.querySelector("#margin-top");
-    let val = this.paperUnitsToInches(this.toInchValue(el.value), units);
+    // let val = this.paperUnitsToInches(this.toInchValue(el.value), units);
+    let val = Number(el.value);
     if (val == undefined) {
       val = 0.5;
       alert("Margin out of range: set to  0.5");
@@ -317,7 +318,8 @@ var printerSettings = {
     printSettings.marginTop = val;
 
     el = document.querySelector("#margin-bottom");
-    val = this.paperUnitsToInches(this.toInchValue(el.value), units);
+    // val = this.paperUnitsToInches(this.toInchValue(el.value), units);
+    val = Number(el.value);
     if (val == undefined) {
       val = 0.5;
       alert("Margin out of range: set to  0.5");
@@ -325,14 +327,16 @@ var printerSettings = {
     printSettings.marginBottom = val;
 
     el = document.querySelector("#margin-left");
-    val = this.paperUnitsToInches(this.toInchValue(el.value), units);
+    // val = this.paperUnitsToInches(this.toInchValue(el.value), units);
+    val = Number(el.value);
     if (val == undefined) {
       val = 0.5;
       alert("Margin out of range: set to  0.5");
     }
     printSettings.marginLeft = val;
     el = document.querySelector("#margin-right");
-    val = this.paperUnitsToInches(this.toInchValue(el.value), units);
+    // val = this.paperUnitsToInches(this.toInchValue(el.value), units);
+    val = Number(el.value);
     if (val == undefined) {
       val = 0.5;
       alert("Margin out of range: set to  0.5");
