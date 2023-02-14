@@ -231,12 +231,12 @@ async function initPMDpanel() {
   document.getElementById("characterFilter").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.filter_characters");
   document.getElementById("PDFcustomFilenameFormat").value = prefs.getStringPref("extensions.printingtoolsng.pdf.custom_filename_format");
 
-	// Services.console.logStringMessage("printingtools: call printer setup");
-	setPrinterList();
+	Services.console.logStringMessage("printingtools: call printer setup");
 
 	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
-	printerSettings.getPrinterSettings(window);
+	var outputPrinter =  await setPrinterList();
+	printerSettings.getPrinterSettings(window, outputPrinter);
   addValidationListeners();
 
 	document.getElementById("useCcBccAlways").focus;
@@ -267,13 +267,15 @@ async function setPrinterList() {
 	var defaultPrinter = printerList.systemDefaultPrinterName;
 
 	var outputPrinter = null;
-	try {
+	var type = prefs.getPrefType("print_printer");
+	if (type) {
 		outputPrinter = prefs.getCharPref("print_printer");
-	} catch (error) {
+	} else {
 		console.log("no tb printer")
 		outputPrinter = defaultPrinter;
 	}
-	
+
+	console.log(outputPrinter)
 	var printerListMenu = document.getElementById("OutputPrinter");
 	var selindex = 0;
 	var popup = document.createXULElement("menupopup");
@@ -310,13 +312,15 @@ async function setPrinterList() {
 	printerListMenu.appendChild(popup);
 	printerListMenu.selectedIndex = selindex;
 	// Services.console.logStringMessage("printingtools: printerName index: " + selindex);
+	console.log("Selected printer : ", outputPrinter);
+	return outputPrinter;
 }
 
 function printerChange() {
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
 	prefs.setCharPref("print_printer", "");
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
-	printerSettings.getPrinterSettings(window);
+	printerSettings.getPrinterSettings(window, document.getElementById("OutputPrinter").value);
 }
 
 function onSelectListRow(event, data_id) {
@@ -470,7 +474,7 @@ function savePMDprefs() {
     prefs.setStringPref("extensions.printingtoolsng.pdf.filename.filter_characters", document.getElementById("characterFilter").value);
     prefs.setStringPref("extensions.printingtoolsng.pdf.custom_filename_format", document.getElementById("PDFcustomFilenameFormat").value);
   
-	printerSettings.savePrintSettings();
+	printerSettings.savePrintSettings(window);
 	window.close();
 }
 
@@ -735,7 +739,7 @@ function pageRangesValidation(e) {
 function handleMarginsKeypress(e) {
 	console.log(e)
 	let char = String.fromCharCode(e.charCode);
-	let acceptedChar = char.match(/^[0-9.]$/);
+	let acceptedChar = char.match(/^[0-9,.]$/);
 	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
 		e.preventDefault();
 	}

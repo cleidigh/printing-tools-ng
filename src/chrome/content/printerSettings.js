@@ -41,7 +41,11 @@ var window3Pane = Cc["@mozilla.org/appshell/window-mediator;1"]
 var window;
 var document;
 
+var locale = Services.locale.appLocaleAsBCP47;
+
 var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
+var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
+  .getService(Ci.nsIPrintSettingsService);
 
 var EXPORTED_SYMBOLS = ["printerSettings"];
 
@@ -50,10 +54,10 @@ var printerSettings = {
   defaultPTNGprinterSettings: {
     numCopies: 1,
     pageRanges: [],
-    marginTop: 0.5,
-    marginBottom: 0.5,
-    marginLeft: 0.5,
-    marginRight: 0.5,
+    // marginTop: 0.5,
+    // marginBottom: 0.5,
+    // marginLeft: 0.5,
+    // marginRight: 0.5,
     headerStrLeft: "",
     headerStrCenter: "&T",
     headerStrRight: "",
@@ -62,8 +66,19 @@ var printerSettings = {
     footerStrRight: "&D",
   },
 
-  getPrinterSettings: function (window) {
-    var printSettings = window3Pane.PrintUtils.getPrintSettings();
+  getPrinterSettings: function (window, outputPrinter) {
+    var document = window.document;
+    var printSettings;
+    if (PSSVC.newPrintSettings) {
+      printSettings = PSSVC.newPrintSettings;
+    } else {
+      printSettings = PSSVC.createNewPrintSettings();
+    }
+
+    printSettings.printerName = outputPrinter;
+    PSSVC.initPrintSettingsFromPrefs(printSettings, true, printSettings.kInitSaveAll);
+    printSettings.isInitializedFromPrinter = true;
+
     document = window.document;
     console.log("get print settings ", document);
     console.log("printer Settings on entry\n ", printSettings)
@@ -75,10 +90,12 @@ var printerSettings = {
 
     var props;
     var customProps;
+    console.log("get ptng ", printerName, t)
     // Check if we need to initialize PTNG printer settings
     if (t > 0) {
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
     } else {
+      console.log("init ptng ", printerName)
       this.initCustomPrinterOptions(printerName);
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
     }
@@ -94,10 +111,11 @@ var printerSettings = {
     console.log("margin left ", printSettings.marginLeft)
     console.log("margin right ", printSettings.marginRight)
 
-    let units = printSettings.paperSizeUnit;
+    let paperSizeUnit = printSettings.paperSizeUnit;
+    let localeUnits = (locale == "en-US") ? 0 : 1;
     let un = document.querySelector("#units");
     let unitsStr = ["(in)", "(mm)"];
-    un.value = unitsStr[units];
+    un.value = unitsStr[localeUnits];
 
     let prRG = document.querySelector("#pageRangesRG");
     let cr = document.querySelector("#pages");
@@ -124,18 +142,17 @@ var printerSettings = {
 
     // Round all margins to two decimal places
     let el = document.querySelector("#margin-top");
-    // el.value = this.inchesToPaperUnits(printSettings.marginTop, units).toFixed(2);
-    el.value = printSettings.marginTop.toFixed(2);
+    el.value = this.paperToLocaleUnits(printSettings.marginTop, paperSizeUnit).toFixed(2);
+
     el = document.querySelector("#margin-bottom");
-    // el.value = this.inchesToPaperUnits(printSettings.marginBottom, units).toFixed(2);
-    el.value = printSettings.marginBottom.toFixed(2);
+    el.value = this.paperToLocaleUnits(printSettings.marginBottom, paperSizeUnit).toFixed(2);
+
     el = document.querySelector("#margin-left");
-    // el.value = this.inchesToPaperUnits(printSettings.marginLeft, units).toFixed(2);
-    el.value = printSettings.marginLeft.toFixed(2);
+    el.value = this.paperToLocaleUnits(printSettings.marginLeft, paperSizeUnit).toFixed(2);
+
     el = document.querySelector("#margin-right");
-    // el.value = this.inchesToPaperUnits(printSettings.marginRight, units).toFixed(2);
-    el.value = printSettings.marginRight.toFixed(2);
-    
+    el.value = this.paperToLocaleUnits(printSettings.marginRight, paperSizeUnit).toFixed(2);
+
     el = document.querySelector("#headerleft");
     el.value = printSettings.headerStrLeft;
     el = document.querySelector("#headercenter");
@@ -258,6 +275,36 @@ var printerSettings = {
     return val * 25.4;
   },
 
+  paperToLocaleUnits: function (paperVal, paperSizeUnit) {
+    let localeUnits = (locale == "en-US") ? 0 : 1;
+
+    // locale uses mm
+    if (localeUnits == paperSizeUnit) {
+      return paperVal;
+    }
+    // convert to mm
+    if (localeUnits) {
+      return paperVal * 25.4;
+    }
+    // convert to inches
+    return paperVal / 25.4;
+  },
+
+  localeToPaperUnits: function (localeVal, paperSizeUnit) {
+    let localeUnits = (locale == "en-US") ? 0 : 1;
+
+    // locale uses mm
+    if (localeUnits == paperSizeUnit) {
+      return localeVal;
+    }
+    // convert to inches
+    if (localeUnits) {
+      return localeVal / 25.4;
+    }
+    // convert to mm
+    return localeVal * 25.4;
+  },
+
   savePrinterSettingsFromPTNGsettings: function () {
     var printSettings = window3Pane.PrintUtils.getPrintSettings();
 
@@ -279,9 +326,8 @@ var printerSettings = {
     PSSVC.savePrintSettingsToPrefs(printSettings, true, Ci.nsIPrintSettings.kInitSaveAll);
   },
 
-  savePrintSettings: function () {
-    var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
-      .getService(Ci.nsIPrintSettingsService);
+  savePrintSettings: function (window) {
+    var document = window.document;
     var printSettings;
     if (PSSVC.newPrintSettings) {
       printSettings = PSSVC.newPrintSettings;
@@ -311,40 +357,21 @@ var printerSettings = {
       printSettings.pageRanges = this.setPageRangesFromString(pr.value);
     }
 
-    let units = printSettings.paperSizeUnit;
+    let paperSizeUnit = printSettings.paperSizeUnit;
     let el = document.querySelector("#margin-top");
-    // let val = this.paperUnitsToInches(this.toInchValue(el.value), units);
-    let val = Number(el.value);
-    if (val == undefined) {
-      val = 0.5;
-      alert("Margin out of range: set to  0.5");
-    }
+    let val = this.localeToPaperUnits(Number(el.value), paperSizeUnit);
     printSettings.marginTop = val;
 
     el = document.querySelector("#margin-bottom");
-    // val = this.paperUnitsToInches(this.toInchValue(el.value), units);
-    val = Number(el.value);
-    if (val == undefined) {
-      val = 0.5;
-      alert("Margin out of range: set to  0.5");
-    }
+    val = this.localeToPaperUnits(Number(el.value), paperSizeUnit);
     printSettings.marginBottom = val;
 
     el = document.querySelector("#margin-left");
-    // val = this.paperUnitsToInches(this.toInchValue(el.value), units);
-    val = Number(el.value);
-    if (val == undefined) {
-      val = 0.5;
-      alert("Margin out of range: set to  0.5");
-    }
+    val = this.localeToPaperUnits(Number(el.value), paperSizeUnit);
     printSettings.marginLeft = val;
+
     el = document.querySelector("#margin-right");
-    // val = this.paperUnitsToInches(this.toInchValue(el.value), units);
-    val = Number(el.value);
-    if (val == undefined) {
-      val = 0.5;
-      alert("Margin out of range: set to  0.5");
-    }
+    val = this.localeToPaperUnits(Number(el.value), paperSizeUnit);
     printSettings.marginRight = val;
 
     el = document.querySelector("#headerleft");
@@ -362,12 +389,12 @@ var printerSettings = {
     printSettings.footerStrRight = el.value;
 
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
-    Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
-    Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
-    Ci.nsIPrintSettings.kInitSaveFooterRight;
+      Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
+      Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
+      Ci.nsIPrintSettings.kInitSaveFooterRight;
 
     console.log("saving prefs")
-    
+
     console.log("printer ", printSettings.printerName)
     console.log("page units ", printSettings.paperSizeUnit)
     console.log("margin top ", printSettings.marginTop)
@@ -389,7 +416,7 @@ var printerSettings = {
 
     let js = JSON.stringify(customProps);
     console.log("saving ptng settings")
-    console.log(js)
+    console.log(js, printerNameEsc)
     prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, js);
   },
 
@@ -399,12 +426,7 @@ var printerSettings = {
 
     if (t == 0) {
       let customProps = this.defaultPTNGprinterSettings;
-      if (units) {
-        customProps.marginTop = 12.7;
-        customProps.marginBottom = 12.7;
-        customProps.marginLeft = 12.7;
-        customProps.marginRight = 12.7;
-      }
+
       let customPropsStr = JSON.stringify(customProps);
       prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, customPropsStr);
     }
@@ -496,13 +518,15 @@ var printerSettings = {
       rp.selectedIndex = o.findIndex(el => el.value == rangeType);
       cmg.removeAttribute("hidden");
       mp.selectedIndex = 3;
-      nc.value = customProps.numCopies;
-      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
-      nc.value = customProps.numCopies;
-      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
+      nc.value = customProps.numCopies;
+      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
+      nc.value = customProps.numCopies;
+      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
+
       await new Promise(resolve => subDialogWindow.setTimeout(resolve, 250));
       nc.value = customProps.numCopies;
+
     },
   },
 };
