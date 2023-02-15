@@ -142,16 +142,16 @@ var printerSettings = {
 
     // Round all margins to two decimal places
     let el = document.querySelector("#margin-top");
-    el.value = this.paperToLocaleUnits(printSettings.marginTop, paperSizeUnit).toFixed(2);
+    el.value = this.inchesToLocaleUnits(printSettings.marginTop, localeUnits).toFixed(2);
 
     el = document.querySelector("#margin-bottom");
-    el.value = this.paperToLocaleUnits(printSettings.marginBottom, paperSizeUnit).toFixed(2);
+    el.value = this.inchesToLocaleUnits(printSettings.marginBottom, localeUnits).toFixed(2);
 
     el = document.querySelector("#margin-left");
-    el.value = this.paperToLocaleUnits(printSettings.marginLeft, paperSizeUnit).toFixed(2);
+    el.value = this.inchesToLocaleUnits(printSettings.marginLeft, localeUnits).toFixed(2);
 
     el = document.querySelector("#margin-right");
-    el.value = this.paperToLocaleUnits(printSettings.marginRight, paperSizeUnit).toFixed(2);
+    el.value = this.inchesToLocaleUnits(printSettings.marginRight, localeUnits).toFixed(2);
 
     el = document.querySelector("#headerleft");
     el.value = printSettings.headerStrLeft;
@@ -275,6 +275,27 @@ var printerSettings = {
     return val * 25.4;
   },
 
+  localeUnitsToInches: function (localeVal, localeUnits) {
+    // let localeUnits = (locale == "en-US") ? 0 : 1;
+
+    // locale uses mm
+    if (localeUnits) {
+      return localeVal / 25.4;
+    }
+    return localeVal;
+    
+  },
+
+  inchesToLocaleUnits: function (localeVal, localeUnits) {
+    // let localeUnits = (locale == "en-US") ? 0 : 1;
+
+    // locale uses mm
+    if (localeUnits) {
+      return localeVal * 25.4;
+    }
+    return localeVal;
+    
+  },
   paperToLocaleUnits: function (paperVal, paperSizeUnit) {
     let localeUnits = (locale == "en-US") ? 0 : 1;
 
@@ -328,6 +349,7 @@ var printerSettings = {
 
   savePrintSettings: function (window) {
     var document = window.document;
+    let localeUnits = (locale == "en-US") ? 0 : 1;
     var printSettings;
     if (PSSVC.newPrintSettings) {
       printSettings = PSSVC.newPrintSettings;
@@ -359,19 +381,19 @@ var printerSettings = {
 
     let paperSizeUnit = printSettings.paperSizeUnit;
     let el = document.querySelector("#margin-top");
-    let val = this.localeToPaperUnits(Number(el.value), paperSizeUnit);
+    let val = this.localeUnitsToInches(Number(el.value), localeUnits);
     printSettings.marginTop = val;
 
     el = document.querySelector("#margin-bottom");
-    val = this.localeToPaperUnits(Number(el.value), paperSizeUnit);
+    val = this.localeUnitsToInches(Number(el.value), localeUnits);
     printSettings.marginBottom = val;
 
     el = document.querySelector("#margin-left");
-    val = this.localeToPaperUnits(Number(el.value), paperSizeUnit);
+    val = this.localeUnitsToInches(Number(el.value), localeUnits);
     printSettings.marginLeft = val;
 
     el = document.querySelector("#margin-right");
-    val = this.localeToPaperUnits(Number(el.value), paperSizeUnit);
+    val = this.localeUnitsToInches(Number(el.value), localeUnits);
     printSettings.marginRight = val;
 
     el = document.querySelector("#headerleft");
