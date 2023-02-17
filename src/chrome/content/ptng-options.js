@@ -750,7 +750,8 @@ function handleMarginsValidation(e) {
 	console.log(e)
 	let margin = e.target;
 
-	if (margin.validity.valueMissing) {
+	// console.log(margin.validity);
+	if (margin.validity.valueMissing || margin.validity.badInput) {
 		enableOKbutton(false);
 	} else {
 		enableOKbutton(true);

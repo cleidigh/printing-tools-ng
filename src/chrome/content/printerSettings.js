@@ -142,16 +142,20 @@ var printerSettings = {
 
     // Round all margins to two decimal places
     let el = document.querySelector("#margin-top");
-    el.value = this.inchesToLocaleUnits(printSettings.marginTop, localeUnits).toFixed(2);
+    let n = this.inchesToLocaleUnits(printSettings.marginTop, localeUnits).toFixed(2);
+    el.value =  new Intl.NumberFormat(locale).format(n);
 
     el = document.querySelector("#margin-bottom");
-    el.value = this.inchesToLocaleUnits(printSettings.marginBottom, localeUnits).toFixed(2);
+    n = this.inchesToLocaleUnits(printSettings.marginBottom, localeUnits).toFixed(2);
+    el.value =  new Intl.NumberFormat(locale).format(n);
 
     el = document.querySelector("#margin-left");
-    el.value = this.inchesToLocaleUnits(printSettings.marginLeft, localeUnits).toFixed(2);
+    n = this.inchesToLocaleUnits(printSettings.marginLeft, localeUnits).toFixed(2);
+    el.value =  new Intl.NumberFormat(locale).format(n);
 
     el = document.querySelector("#margin-right");
-    el.value = this.inchesToLocaleUnits(printSettings.marginRight, localeUnits).toFixed(2);
+    n = this.inchesToLocaleUnits(printSettings.marginRight, localeUnits).toFixed(2);
+    el.value =  new Intl.NumberFormat(locale).format(n);
 
     el = document.querySelector("#headerleft");
     el.value = printSettings.headerStrLeft;
@@ -415,10 +419,12 @@ var printerSettings = {
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
       Ci.nsIPrintSettings.kInitSaveFooterRight;
 
-    console.log("saving prefs")
+    console.log("\nPTNG: Saving prefs on options exit")
 
     console.log("printer ", printSettings.printerName)
+    console.log("paperId ", printSettings.paperId)
     console.log("page units ", printSettings.paperSizeUnit)
+    console.log("copies ", printSettings.numCopies)
     console.log("margin top ", printSettings.marginTop)
     console.log("margin bottom ", printSettings.marginBottom)
     console.log("margin left ", printSettings.marginLeft)
@@ -436,6 +442,7 @@ var printerSettings = {
       customProps[printProperty] = printSettings[printProperty];
     }
 
+    customProps.numCopies = nc;
     let js = JSON.stringify(customProps);
     console.log("saving ptng settings")
     console.log(js, printerNameEsc)
@@ -545,8 +552,8 @@ var printerSettings = {
       await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
       nc.value = customProps.numCopies;
       await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
-
-      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 250));
+      nc.value = customProps.numCopies;
+      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 350));
       nc.value = customProps.numCopies;
 
     },
