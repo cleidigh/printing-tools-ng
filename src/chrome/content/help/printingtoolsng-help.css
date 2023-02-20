@@ -1,9 +1,38 @@
+
+
+:root {
+    --dialog-bgcolor: Field;
+    --dialog-text-color: FieldText;
+	--in-content-box-background: Field !important;
+	--in-content-accent-color: rgb(69, 161, 255);
+	--list-item-hover: rgb(116, 183, 249);
+	--list-highlight-text-color: black;
+	--in-content-button-background: rgba(207, 207, 216, 0.33);
+	--list-disabled-font-color: #cccccc;
+	--table-stripe-even: #f2f2f2;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dialog-bgcolor: rgb(35, 34, 43);
+        --dialog-text-color: #f7f7f7;
+		--table-stripe-even: rgb(66, 64, 80);
+	}
+}
+
 body {
-	background-color: whitesmoke;
+	background-color: var(--dialog-bgcolor);
 	font-family: 'Roboto', sans-serif;
+	color: var(--dialog-text-color);
+	margin: 12px;
 }
 
 p {
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.indent0 {
 	margin-left: 30px;
 	margin-right: 30px;
 }
@@ -13,7 +42,7 @@ p {
 	margin-right: 30px;
 }
 .link1 {
-	color: darkblue;
+	color: cornflowerblue;
 	text-decoration: underline;
 }
 
@@ -65,8 +94,8 @@ table.dateformat-table {
 	border: 1px solid black;
 	border-collapse: collapse;
 	width: 95%;
-	margin-left: 25px;
-	margin-right: 25px;
+	margin-left: 30px;
+	margin-right: 30px;
 }
 
 table.dateformat-table tr,  table.dateformat-table td,  table.dateformat-table th {
@@ -77,12 +106,12 @@ table.dateformat-table tr,  table.dateformat-table td,  table.dateformat-table t
 }
 
 table.dateformat-table tr td:first-child {
-	padding-left: 30px;
+	padding-left: 6px;
 }
 
 
 table.dateformat-table tr:nth-child(even) {
-	background-color: #f2f2f2;
+	background-color: var(--table-stripe-even);
 }
 
 table.dateformat-table thead {
@@ -106,7 +135,7 @@ table.token-table tr,  table.token-table td,  table.token-table th {
 }
 
 table.token-table tr:nth-child(odd) {
-	background-color: #f2f2f2;
+	background-color: var(--table-stripe-even);
 }
 
 table.token-table tr:nth-child(1) {
