@@ -7,103 +7,98 @@
     <title>PrintingTools NG Hjelp</title>
   </head>
   <body>
-    <h2 id="main_help">PrintingTools NG Hjelp</h2>
+    <table style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Hjelp</div>
+          <div>v2.2.0</div>
+        </td>
+        <td style="text-align: right;">
+          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
+        </td>
+      </tr>
+    </table>
     <br />
     <h2 id="main_help">PrintingTools NG Oversikt</h2>
     <p>
-      PrintingTools NG er en oppfølgingsutvidelse basert på originalverket til Paolo &quot;Kaosmos&quot;.
-      Utvidelsen gir mulighet for tilpasning av utskriftshoder så vel som andre alternativer.<br /><br />
-      Takk til følgende brukere for forbedringsforslag og testhjelp:<br /><br />
-      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
-      - <code class="notranslate">@KC-T</code><br />
-      - <code class="notranslate">@jobisoft</code><br />
-      - <code class="notranslate">@tidebre67</code><br />
-      - <code class="notranslate">@reinerblock</code><br />
-      - <code class="notranslate">@querixg</code><br />
-      - <code class="notranslate">@RRoenn</code><br />
-      - <code class="notranslate">@madvinegar</code><br />
-      - <code class="notranslate">@ditchfinder</code><br />
-      - <code class="notranslate">@3LaHoonK</code><br />
-      - <code class="notranslate">@realraven</code><br />
-      - <code class="notranslate">@librelegal</code><br />
-      - <code class="notranslate">@Francewhoa</code><br />
-      - <code class="notranslate">@foxfan100</code><br />
-      - <code class="notranslate">@pechh</code><br />
+      PrintingTools NG gir mulighet for mange tilpasninger av e-postutskrift. Utvidelsen har mange
+      alternativer for både overskriftene og meldingsdelene. I tillegg kan sidealternativer angis som ikke kan
+      gjøres i den vanlige forhåndsvisningen av Thunderbird. PDF-utdata kan også gjøres med automatisk
+      navngivning ved å bruke et fleksibelt tokenbasert system.
     </p>
-    <h3>Brukerstøtte:</h3>
     <p>
-      Vennligst legg ut problemer eller funksjonsforespørsler i GitHub-depotet for utvidelser:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
-      ><br /><br />
-      I feilproblemer, ta med følgende informasjon for å hjelpe deg med å løse problemene:<br />
-      - PrintingTools NG versjon<br />
-      - Thunderbird-versjon<br />
-      - Operativsystem og versjon<br />
-      - Feilsøkingsutgang (kopi fra feilsøkingskonsollen - tilgang med Control-Shift-J)<br />
-      - En beskrivelse av trinnene som fører til problemet<br />
+      PrintingTools NG-knappen bør legges til på verktøylinjen for å aktivere både utskriftstilgang og
+      alternativer. I tillegg kan du få tilgang til alternativer med skiftenøkkelknappen for utvidelsen på
+      tilleggsfanen.
     </p>
+    <p>Følgende er et eksempel på topptekstformatering:</p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Egendefinert datoformat</h2>
     <p>
       Alternativet tilpasset dato gir full kontroll over datoformateringen som brukes for både dato og mottatt
       dato i e-postoverskriftene. Den tilpassede datoen gir flere lokaliserte alternativer som tillater nesten
-      alle formater. Vær oppmerksom på at den egendefinerte datostrengen kan inkludere skilletegn, bokstaver
-      inkludert unicode-tegn blandet med dato\klokkeslett-tokenene oppført nedenfor.<br /><br />
+      alle formater. Merk at den egendefinerte datostrengen kan inkludere skilletegn, bokstaver inkludert
+      unicode-tegn blandet med dato\klokkeslett-tokenene som er oppført nedenfor.<br /><br />
       Merk: De tilpassede datoresultatene i eksemplene nedenfor vil være forskjellige basert på den faktiske
-      datoen, brukerens lokalitet og tidssone.<br /><br />
-      Eksempler:<br /><br />
-      <table class="dateformat-table">
-        <thead>
-          <tr>
-            <td>Datostreng</td>
-            <td>Resultat</td>
-            <td>Merk</td>
-          </tr>
-        </thead>
+      datoen, brukerens lokalitet og tidssone.
+    </p>
+    <br />
+    <h3 class="indent0">Eksempler:</h3>
+    <table class="dateformat-table">
+      <thead>
         <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-          <td>ja lokalitet med bokstaver</td>
+          <td>Datostreng</td>
+          <td>Resultat</td>
+          <td>Merk</td>
         </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-          <td>ko-lokalitet med bokstaver</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-          <td>zh-CN-lokalitet, kort dag</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-          <td>zh-TW-lokalitet, lang dag</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td class="notranslate">20.04.2022 18:01:42 CET</td>
-          <td>Punktskillere</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
-          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-          <td>de locale, kort dag/måned</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-          <td>en-US lokalitet, lang dag/måned</td>
-        </tr>
-      </table>
-      <br />
+      </thead>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+        <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+        <td>ja lokalitet med bokstaver</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+        <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+        <td>ko-lokalitet med bokstaver</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+        <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+        <td>zh-CN-lokalitet, kort dag</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+        <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+        <td>zh-TW-lokalitet, lang dag</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+        <td class="notranslate">20.04.2022 18:01:42 CET</td>
+        <td>Punktskillere</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+        <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+        <td>de locale, kort dag/måned</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+        <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+        <td>en-US lokalitet, lang dag/måned</td>
+      </tr>
+    </table>
+    <br />
+    <p>
       Det tilpassede datoformatet bruker %-sekvenser som samsvarer med den
       <code>strftime()</code> Unix-lignende funksjonaliteten. Den er basert på en JavaScript-port av
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , en funksjon for å formatere dato og klokkeslett.<br />
       Port of strftime() av TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
-    <h3>Konverteringssekvensbeskrivelser</h3>
+    <br />
+    <h3 style="margin-left: 30px;">Konverteringssekvensbeskrivelser</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -130,7 +125,7 @@
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
-          <td>Foretrukket representasjon av dato og klokkeslett (UTC) for gjeldende lokalitet.</td>
+          <td>Foretrukket dato og klokkeslett (UTC) representasjon for gjeldende lokalitet.</td>
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
@@ -152,7 +147,7 @@
           <td><code class="code1">%G</code></td>
           <td>
             ISO 8601 ukebasert årstall med århundre som desimaltall. Det 4-sifrede året tilsvarer
-            ISO-ukenummeret (se <code class="code1">%V</code> ). Denne har samme format og verdi som
+            ISO-ukenummeret (se <code class="code1">%V</code> ). Dette har samme format og verdi som
             <code class="code1">%Y</code> , bortsett fra at hvis ISO-ukenummeret tilhører forrige eller neste
             år, brukes det året i stedet.
           </td>
@@ -184,7 +179,7 @@
         <tr>
           <td><code class="code1">%k</code></td>
           <td>
-            Time som et desimaltall ved hjelp av en 24-timers klokke (område 0 til 23). Se også
+            Time som et desimaltall ved bruk av en 24-timers klokke (område 0 til 23). Se også
             <code class="code1">%H</code> .
           </td>
         </tr>
@@ -217,7 +212,7 @@
         <tr>
           <td><code class="code1">%P</code></td>
           <td>
-            Som <code class="code1">%p</code> men med små bokstaver (&quot;am&quot; eller &quot;pm&quot;).
+            Som <code class="code1">%p</code> , men med små bokstaver (&quot;am&quot; eller &quot;pm&quot;).
           </td>
         </tr>
         <tr>
@@ -262,8 +257,8 @@
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            Den numeriske tidssonen <code class="code1">+hhmm</code> eller
-            <code class="code1">-hhmm</code> (det vil si time- og minuttforskyvningen fra UTC).
+            Den <code class="code1">+hhmm</code> eller <code class="code1">-hhmm</code> numeriske tidssonen
+            (det vil si time- og minuttforskyvningen fra UTC).
           </td>
         </tr>
         <tr>
@@ -288,7 +283,7 @@
         </tr>
       </tbody>
     </table>
-    <h3>Kompatibilitetsmerknader:</h3>
+    <h3 class="indent0">Kompatibilitetsmerknader:</h3>
     <ul>
       <li><code class="code1">%c</code> - formatert streng er litt annerledes</li>
       <li>
@@ -307,10 +302,6 @@
       <li>
         <code class="code1">%r</code> - ikke implementert (bruk <code class="code1">%I:%M:%S %p</code> )
       </li>
-      <tr>
-        <td><code class="code1">${subject}</code></td>
-        <td>Emnet for meldingen</td>
-      </tr>
       <li><code class="code1">%R</code> – ikke implementert (bruk <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - ikke implementert (bruk <code class="code1">\t</code> )</li>
       <li><code class="code1">%T</code> - ikke implementert (bruk <code class="code1">%H:%M:%S</code> )</li>
@@ -319,6 +310,159 @@
       <li><code class="code1">%+</code> - ikke implementert</li>
       <li><code class="code1">%%</code> - ikke implementert (bruk <code class="code1">%</code> )</li>
     </ul>
-    <br /><br />
+    <br />
+    <h2>PDF-utdata og automatisk filnavn</h2>
+    <p>
+      PDF-utdata kan nå både navngis automatisk ved hjelp av et token-system og lagres i en forhåndsdefinert
+      PDF-utdatakatalog. Dette er spesielt nyttig når du skriver ut flere utvalgte e-poster, da det ikke er
+      nødvendig å velge navn og sted for hver e-post.
+    </p>
+    <p />
+    <p>
+      Aktiver PDF-utdatakatalogen og velg en katalog for lagringsstedet. Utdatafilnavnet vil følge det
+      konfigurerte filnavnsformatet.
+    </p>
+    <p />
+    <p>
+      Filnavnformatet består av tokens og eventuelle statiske tegn som skilletegn eller mellomrom. Den
+      utvidede filnavnformateringen bruker tokens. Det eksakte filnavnet kan konstrueres ved å bruke tokens,
+      så vel som tekst eller gyldige filnavntegn. Ugyldige tegn er: <code>| * : &lt; &gt; ? \ / &quot;</code>
+    </p>
+    <p />
+    <p>Standard navneformat er: ${subject} som bare er emnet for e-posten.</p>
+    <p />
+    <p>Eksempler</p>
+    <p>
+      <span class="notranslate"><code>${subject}</code></span> – Standardformatet, emnet for e-posten<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Bruk det
+      egendefinerte datoformatet i stedet for standard<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> – Med litt
+      egendefinert tekst<br />
+    </p>
+    <p>Tabellen nedenfor beskriver hele settet med tokens som kan brukes i filnavnformatet.</p>
+    <table class="token-table">
+      <tr>
+        <td>Token</td>
+        <td>Beskrivelse</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${subject}</code></td>
+        <td>Emnet for meldingen.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender}</code></td>
+        <td>Navnet på meldingsavsenderen.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient}</code></td>
+        <td>Navnet på meldingsmottakeren.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender_email}</code></td>
+        <td>E-postadressen til meldingsavsenderen.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient_email}</code></td>
+        <td>E-postadressen til meldingsmottakeren.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${smart_name}</code></td>
+        <td>Mottakerne hvis meldingen er i en Sendt-mappe, ellers avsendernavnet</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${index}</code></td>
+        <td>Meldingsindeksnummeret.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${prefix}</code></td>
+        <td>Prefikstekstalternativverdien.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${suffix}</code></td>
+        <td>Alternativverdien for suffikstekst.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date}</code></td>
+        <td>Standard datoformat. Standardformatet er: ÅÅÅÅMMDDHHmm</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date_custom}</code></td>
+        <td>Det egendefinerte datoformatet. Se delen for tilpasset datoformatering.</td>
+      </tr>
+    </table>
+    <br />
+    <h2>Utskrifts- og sidealternativer</h2>
+    <p>
+      Disse alternativene lar deg angi alternativer per skriverside. Det er også mulig å stille inn stille
+      modus der forhåndsvisningsdialogen ikke vises og utskriften gjøres umiddelbart.
+    </p>
+    <p>
+      Sidealternativene lar deg angi elementer når både forhåndsvisning eller utskrift er ferdig. Noen
+      elementer er ikke tilgjengelige for å angis i forhåndsvisningsdialogen, disse inkluderer topp- og
+      bunntekst. Andre elementer beholdes ikke av forhåndsvisningen og vil normalt måtte angis hver gang en
+      utskrift er ferdig.
+    </p>
+    <p>
+      Disse inkluderer kopier og sideområder. Et typisk brukstilfelle er der man ønsker å skrive ut bare den
+      første siden i en e-post som standard. normalt må man få sideområdene til å endre seg hver gang.
+    </p>
+    <p>Merknader:</p>
+    <p>
+      Sideområder beskrives på samme måte som i forhåndsvisningen. Eksempler er 1, 1-2, 3-4,5. Merk at hvis et
+      forhåndsinnstilt sideområde ikke er gyldig for en gitt melding, vil forhåndsvisningen vise en feil.
+    </p>
+    <p>
+      Marginene kan settes ved å bruke enheter som passer for brukerens lokalitet, enten tommer eller
+      millimeter (in eller mm).
+    </p>
+    <p></p>
+    <p>
+      Topp- og bunntekstene kan settes til å inkludere ulike meldingsvariabler som er oppført nedenfor. I
+      tillegg kan vilkårlig tekst også inkluderes.
+    </p>
+    <div class="indent1">
+      <li>&amp;D = Dato (når lagret)</li>
+      <li>&amp;P = Sidenummer i lagret fil</li>
+      <li>&amp;PT = Sidetall med totalt (&quot;3 av 5&quot;)</li>
+      <li>&amp;T = Sidetittel (emne for meldingen)</li>
+      <li>&amp;U = URL (URLen til meldingen)</li>
+    </div>
+    <h2>Brukerstøtte</h2>
+    <p>
+      Vennligst legg ut problemer eller funksjonsforespørsler i GitHub-depotet for utvidelser:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      I feilproblemer, ta med følgende informasjon for å hjelpe deg med å løse problemene:<br />
+      - PrintingTools NG versjon<br />
+      - Thunderbird-versjon<br />
+      - Operativsystem og versjon<br />
+      - Feilsøkingsutgang (kopi fra feilsøkingskonsollen - tilgang med Control-Shift-J)<br />
+      - En beskrivelse av trinnene som fører til problemet<br />
+    </p>
+    <h2>Studiepoeng</h2>
+    <div class="indent1">
+      <li>PrintingTools NG er basert på den originale utvidelsen av Paolo &quot;Kosmos&quot;</li>
+      <li>List.js av Jonny Strömberg https://listjs.com</li>
+      <li>Latinize.js av Jakub Dundalek https://github.com/dundalek/latinize</li>
+    </div>
+    <p>
+      Takk til følgende brukere for forbedringsforslag og testhjelp:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
   </body>
 </html>

@@ -7,42 +7,32 @@
     <title>Axuda de PrintingTools NG</title>
   </head>
   <body>
-    <h2 id="main_help">Axuda de PrintingTools NG</h2>
+    <table style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">Axuda de PrintingTools NG</div>
+          <div>v2.2.0</div>
+        </td>
+        <td style="text-align: right;">
+          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
+        </td>
+      </tr>
+    </table>
     <br />
-    <h2 id="main_help">Visión xeral de PrintingTools NG</h2>
+    <h2 id="main_help">PrintingTools NG Visión xeral</h2>
     <p>
-      PrintingTools NG é unha extensión de seguimento baseada no traballo orixinal de Paolo
-      &quot;Kaosmos&quot;. A extensión permite a personalización das cabeceiras de impresión, así como outras
-      opcións.<br /><br />
-      Grazas aos seguintes usuarios polas suxestións de mellora e a axuda de proba:<br /><br />
-      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
-      - <code class="notranslate">@KC-T</code><br />
-      - <code class="notranslate">@jobisoft</code><br />
-      - <code class="notranslate">@tidebre67</code><br />
-      - <code class="notranslate">@reinerblock</code><br />
-      - <code class="notranslate">@querixg</code><br />
-      - <code class="notranslate">@RRoenn</code><br />
-      - <code class="notranslate">@madvinegar</code><br />
-      - <code class="notranslate">@ditchfinder</code><br />
-      - <code class="notranslate">@3LaHoonK</code><br />
-      - <code class="notranslate">@realraven</code><br />
-      - <code class="notranslate">@librelegal</code><br />
-      - <code class="notranslate">@Francewhoa</code><br />
-      - <code class="notranslate">@foxfan100</code><br />
-      - <code class="notranslate">@pechh</code><br />
+      PrintingTools NG permite moitas personalizacións para a impresión de correo electrónico. A extensión ten
+      moitas opcións tanto para as cabeceiras como para as partes da mensaxe. Ademais, pódense configurar
+      opcións de páxina que non se poden facer na vista previa de impresión normal de Thunderbird. A saída de
+      PDF tamén se pode facer coa denominación automática mediante un sistema flexible baseado en tokens.
     </p>
-    <h3>Apoiar:</h3>
     <p>
-      Publica problemas ou solicitudes de funcións no repositorio de extensións de GitHub:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
-      ><br /><br />
-      En problemas de erro, inclúa a seguinte información para axudar a resolver os problemas:<br />
-      - Versión PrintingTools NG<br />
-      - Versión Thunderbird<br />
-      - Sistema operativo e versión<br />
-      - Saída de depuración (copia desde a Consola de depuración - acceso con Control-Shift-J)<br />
-      - Descrición dos pasos que conducen ao problema<br />
+      O botón PrintingTools NG debería engadirse á barra de ferramentas para habilitar tanto o acceso á
+      impresión como as opcións. Ademais, pódese acceder ás opcións co botón da chave inglesa para a extensión
+      na pestana do complemento.
     </p>
+    <p>O seguinte é un exemplo do formato de cabeceira:</p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Formato de data personalizado</h2>
     <p>
@@ -52,60 +42,64 @@
       personalizada pode incluír separadores, literais incluíndo caracteres Unicode mesturados cos tokens de
       data/hora que se indican a continuación.<br /><br />
       Nota: os resultados da data personalizada dos exemplos seguintes serán diferentes en función da data
-      real, a configuración rexional dos usuarios e a zona horaria.<br /><br />
-      Exemplos:<br /><br />
-      <table class="dateformat-table">
-        <thead>
-          <tr>
-            <td>Cadena de data</td>
-            <td>Resultado</td>
-            <td>Nota</td>
-          </tr>
-        </thead>
+      real, a configuración rexional dos usuarios e a zona horaria.
+    </p>
+    <br />
+    <h3 class="indent0">Exemplos:</h3>
+    <table class="dateformat-table">
+      <thead>
         <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-          <td>ja local con literais</td>
+          <td>Cadena de data</td>
+          <td>Resultado</td>
+          <td>Nota</td>
         </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-          <td>ko local con literais</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-          <td>zh-CN local, día curto</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-          <td>zh-TW local, día longo</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td class="notranslate">20.04.2022 18:01:42 CET</td>
-          <td>Separadores de puntos</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
-          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-          <td>de local, día/mes curto</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-          <td>Localización en-US, día/mes longo</td>
-        </tr>
-      </table>
-      <br />
-      O formato de data personalizado utiliza secuencias % que coinciden coa función
+      </thead>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+        <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+        <td>ja local con literais</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+        <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+        <td>ko local con literais</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+        <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+        <td>zh-CN local, día curto</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+        <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+        <td>zh-TW local, día longo</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+        <td class="notranslate">20.04.2022 18:01:42 CET</td>
+        <td>Separadores de puntos</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+        <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+        <td>de local, día/mes curto</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+        <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+        <td>gl-US Localización, día/mes longo</td>
+      </tr>
+    </table>
+    <br />
+    <p>
+      O formato de data personalizado utiliza secuencias % que coinciden coa funcionalidade
       <code>strftime()</code> similar a Unix. Está baseado nun porto JavaScript de
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , unha función para formatar a data e a hora.<br />
       Porto de strftime() por TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
-    <h3>Descricións de secuencias de conversión</h3>
+    <br />
+    <h3 style="margin-left: 30px;">Descricións de secuencias de conversión</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -212,13 +206,13 @@
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            Ou &quot;AM&quot; ou &quot;PM&quot; segundo o valor da hora. O mediodía trátase como
+            &quot;AM&quot; ou &quot;PM&quot; segundo o valor de hora indicado. O mediodía trátase como
             &quot;PM&quot; e a medianoite como &quot;AM&quot;.
           </td>
         </tr>
         <tr>
           <td><code class="code1">%P</code></td>
-          <td>Como <code class="code1">%p</code> pero en minúscula (&quot;am&quot; ou &quot;pm&quot;).</td>
+          <td>Como <code class="code1">%p</code> pero en minúsculas (&quot;am&quot; ou &quot;pm&quot;).</td>
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
@@ -269,7 +263,7 @@
           <td><code class="code1">%z</code></td>
           <td>
             O fuso horario numérico <code class="code1">+hhmm</code> ou <code class="code1">-hhmm</code> (é
-            dicir, a compensación horaria e minutos con respecto ao UTC).
+            dicir, a desfase de hora e minuto respecto da UTC).
           </td>
         </tr>
         <tr>
@@ -294,9 +288,9 @@
         </tr>
       </tbody>
     </table>
-    <h3>Notas de compatibilidade:</h3>
+    <h3 class="indent0">Notas de compatibilidade:</h3>
     <ul>
-      <li><code class="code1">%c</code> : a cadea formatada é lixeiramente diferente</li>
+      <li><code class="code1">%c</code> - a cadea formatada é lixeiramente diferente</li>
       <li>
         <code class="code1">%D</code> - non implementado (use <code class="code1">%m/%d/%y</code> ou
         <code class="code1">%d/%m/%y</code> )
@@ -311,10 +305,6 @@
       </li>
       <li><code class="code1">%O</code> - non implementado</li>
       <li><code class="code1">%r</code> - non implementado (use <code class="code1">%I:%M:%S %p</code> )</li>
-      <tr>
-        <td><code class="code1">${subject}</code></td>
-        <td>O asunto da mensaxe</td>
-      </tr>
       <li><code class="code1">%R</code> - non implementado (use <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - non implementado (use <code class="code1">\t</code> )</li>
       <li><code class="code1">%T</code> - non implementado (use <code class="code1">%H:%M:%S</code> )</li>
@@ -323,6 +313,167 @@
       <li><code class="code1">%+</code> - non implementado</li>
       <li><code class="code1">%%</code> - non implementado (use <code class="code1">%</code> )</li>
     </ul>
-    <br /><br />
+    <br />
+    <h2>Saída de PDF e nomeamento automático de ficheiros</h2>
+    <p>
+      A saída de PDF agora pódese nomear automaticamente mediante un sistema de tokens e gardarse nun
+      directorio de saída PDF predefinido. Isto é especialmente útil cando se imprimen varios correos
+      electrónicos seleccionados xa que non é necesario escoller un nome e unha localización para cada correo
+      electrónico.
+    </p>
+    <p />
+    <p>
+      Activa o directorio de saída do PDF e escolla un directorio para a localización de gardar. O nome do
+      ficheiro de saída seguirá o formato de nome de ficheiro configurado.
+    </p>
+    <p />
+    <p>
+      O formato do nome de ficheiro está composto por tokens e calquera carácter estático, como separadores ou
+      espazos en branco. O formato de nome de ficheiro estendido utiliza tokens. O nome de ficheiro exacto
+      pódese construír utilizando as fichas, así como calquera texto ou caracteres de nome de ficheiro
+      válidos. Os caracteres non válidos son: <code>| * : &lt; &gt; ? \ / &quot;</code>
+    </p>
+    <p />
+    <p>O formato de nome predeterminado é: ${subject} que é só o asunto do correo electrónico.</p>
+    <p />
+    <p>Exemplos</p>
+    <p>
+      <span class="notranslate"><code>${subject}</code></span> : o formato predeterminado, o asunto do correo
+      electrónico<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> : use o formato de data
+      personalizado en lugar do predeterminado<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Con algún texto
+      personalizado<br />
+    </p>
+    <p>
+      A táboa seguinte describe o conxunto completo de tokens que se poden usar no formato de nome de
+      ficheiro.
+    </p>
+    <table class="token-table">
+      <tr>
+        <td>Token</td>
+        <td>Descrición</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${subject}</code></td>
+        <td>O asunto da mensaxe.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender}</code></td>
+        <td>O nome do remitente da mensaxe.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient}</code></td>
+        <td>O nome do destinatario da mensaxe.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender_email}</code></td>
+        <td>O enderezo de correo electrónico do remitente da mensaxe.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient_email}</code></td>
+        <td>O enderezo de correo electrónico do destinatario da mensaxe.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${smart_name}</code></td>
+        <td>Os destinatarios se a mensaxe está nun cartafol Enviados, se non, o nome do remitente</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${index}</code></td>
+        <td>O número de índice da mensaxe.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${prefix}</code></td>
+        <td>O valor da opción de texto do prefixo.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${suffix}</code></td>
+        <td>O valor da opción de texto do sufixo.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date}</code></td>
+        <td>O formato de data estándar. O formato predeterminado é: YYYYMMDDHHmm</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date_custom}</code></td>
+        <td>O formato de data personalizado. Consulte a sección de formato de data personalizado.</td>
+      </tr>
+    </table>
+    <br />
+    <h2>Opcións de impresión e páxina</h2>
+    <p>
+      Estas opcións permítenche configurar as opcións por páxina da impresora. Tamén é posible establecer o
+      modo silencioso onde non se mostra o diálogo de vista previa e a impresión realízase inmediatamente.
+    </p>
+    <p>
+      As opcións de páxina permítenche configurar elementos cando se faga a vista previa ou a impresión.
+      Algúns elementos non están dispoñibles para seren configurados no diálogo de vista previa, incluídos os
+      encabezados e os pés de páxina. Outros elementos non se conservan na vista previa e normalmente deberían
+      configurarse cada vez que se fai unha impresión.
+    </p>
+    <p>
+      Estes inclúen copias e intervalos de páxinas. Un caso de uso típico é cando se desexa imprimir só a
+      primeira páxina dun correo electrónico como opción predeterminada. normalmente habería que facer que os
+      intervalos de páxinas cambien cada vez.
+    </p>
+    <p>Notas:</p>
+    <p>
+      Os intervalos de páxinas descríbense do mesmo xeito que na vista previa. Exemplos son 1, 1-2, 3-4,5.
+      Teña en conta que se un intervalo de páxinas predefinido non é válido para unha determinada mensaxe, a
+      vista previa mostrará un erro.
+    </p>
+    <p>
+      As marxes pódense establecer usando unidades apropiadas para a localización do usuario, xa sexan
+      polgadas ou milímetros (polgadas ou mm).
+    </p>
+    <p></p>
+    <p>
+      As cabeceiras e os pés de páxina pódense configurar para incluír varias variables de mensaxes listadas a
+      continuación. Ademais, tamén se pode incluír texto arbitrario.
+    </p>
+    <div class="indent1">
+      <li>&amp;D = Data (cando se garda)</li>
+      <li>&amp;P = Número de páxina no ficheiro gardado</li>
+      <li>&amp;PT = Número de páxina con total (&quot;3 de 5&quot;)</li>
+      <li>&amp;T = Título da páxina (Asunto da mensaxe)</li>
+      <li>&amp;U = URL (URL da mensaxe)</li>
+    </div>
+    <h2>Apoiar</h2>
+    <p>
+      Publica problemas ou solicitudes de funcións no repositorio de extensións de GitHub:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      En problemas de erro, inclúa a seguinte información para axudar a resolver os problemas:<br />
+      - Versión PrintingTools NG<br />
+      - Versión Thunderbird<br />
+      - Sistema operativo e versión<br />
+      - Saída de depuración (copia desde a Consola de depuración - acceso con Control-Shift-J)<br />
+      - Descrición dos pasos que conducen ao problema<br />
+    </p>
+    <h2>Créditos</h2>
+    <div class="indent1">
+      <li>PrintingTools NG está baseado na extensión orixinal de Paolo &quot;Kosmos&quot;</li>
+      <li>List.js de Jonny Strömberg https://listjs.com</li>
+      <li>Latinize.js de Jakub Dundalek https://github.com/dundalek/latinize</li>
+    </div>
+    <p>
+      Grazas aos seguintes usuarios polas suxestións de mellora e a axuda de proba:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
   </body>
 </html>

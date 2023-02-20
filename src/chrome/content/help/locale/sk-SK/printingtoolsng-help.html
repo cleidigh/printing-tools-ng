@@ -7,42 +7,31 @@
     <title>Pomocník PrintingTools NG</title>
   </head>
   <body>
-    <h2 id="main_help">Pomocník PrintingTools NG</h2>
+    <table style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">Pomocník PrintingTools NG</div>
+          <div>v2.2.0</div>
+        </td>
+        <td style="text-align: right;">
+          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
+        </td>
+      </tr>
+    </table>
     <br />
     <h2 id="main_help">Prehľad PrintingTools NG</h2>
     <p>
-      PrintingTools NG je nadväzujúce rozšírenie založené na pôvodnej práci Paola &quot;Kaosmos&quot;.
-      Rozšírenie umožňuje prispôsobenie tlačových hlavičiek, ako aj ďalšie možnosti.<br /><br />
-      Ďakujeme nasledujúcim používateľom za návrhy na zlepšenie a pomoc pri testovaní:<br /><br />
-      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
-      - <code class="notranslate">@KC-T</code><br />
-      - <code class="notranslate">@jobisoft</code><br />
-      - <code class="notranslate">@tidebre67</code><br />
-      - <code class="notranslate">@reinerblock</code><br />
-      - <code class="notranslate">@querixg</code><br />
-      - <code class="notranslate">@RRoenn</code><br />
-      - <code class="notranslate">@madvinegar</code><br />
-      - <code class="notranslate">@ditchfinder</code><br />
-      - <code class="notranslate">@3LaHoonK</code><br />
-      - <code class="notranslate">@realraven</code><br />
-      - <code class="notranslate">@librelegal</code><br />
-      - <code class="notranslate">@Francewhoa</code><br />
-      - <code class="notranslate">@foxfan100</code><br />
-      - <code class="notranslate">@pechh</code><br />
+      PrintingTools NG umožňuje mnoho prispôsobení tlače e-mailom. Rozšírenie má veľa možností pre hlavičky aj
+      časti správy. Okrem toho je možné nastaviť možnosti strany, ktoré nemožno vykonať v bežnom náhľade tlače
+      Thunderbird. Výstup PDF možno vykonať aj s automatickým pomenovaním pomocou flexibilného systému
+      založeného na tokenoch.
     </p>
-    <h3>Podpora:</h3>
     <p>
-      Uverejnite problémy alebo požiadavky na funkcie v úložisku GitHub rozšírení:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues"
-        >Problémy s nástrojmi PrintingTools NG</a
-      ><br /><br />
-      Pri problémoch s chybami uveďte nasledujúce informácie, ktoré vám pomôžu vyriešiť problémy:<br />
-      - Verzia PrintingTools NG<br />
-      - Verzia Thunderbird<br />
-      - Operačný systém a verzia<br />
-      - Výstup ladenia (kopírovanie z konzoly ladenia - prístup pomocou Ctrl-Shift-J)<br />
-      - Popis krokov vedúcich k problému<br />
+      Tlačidlo PrintingTools NG by sa malo pridať na panel s nástrojmi, aby ste umožnili prístup k tlači aj
+      možnosti. Ďalšie možnosti sú dostupné pomocou tlačidla kľúča pre rozšírenie na karte doplnku.
     </p>
+    <p>Nasleduje príklad formátovania hlavičky:</p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Vlastný formát dátumu</h2>
     <p>
@@ -51,60 +40,64 @@
       takmer akýkoľvek formát. Všimnite si, že vlastný reťazec dátumu môže obsahovať oddeľovače, literály
       vrátane znakov Unicode zmiešané s tokenmi dátumu a času uvedenými nižšie.<br /><br />
       Poznámka: Výsledky vlastného dátumu v príkladoch nižšie sa budú líšiť v závislosti od skutočného dátumu,
-      miestneho nastavenia používateľa a časového pásma.<br /><br />
-      Príklady:<br /><br />
-      <table class="dateformat-table">
-        <thead>
-          <tr>
-            <td>Dátumový reťazec</td>
-            <td>Výsledok</td>
-            <td>Poznámka</td>
-          </tr>
-        </thead>
+      miestneho nastavenia používateľa a časového pásma.
+    </p>
+    <br />
+    <h3 class="indent0">Príklady:</h3>
+    <table class="dateformat-table">
+      <thead>
         <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-          <td>ja locale s literálmi</td>
+          <td>Dátumový reťazec</td>
+          <td>Výsledok</td>
+          <td>Poznámka</td>
         </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-          <td>ko locale s literálmi</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-          <td>zh-CN locale, krátky deň</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-          <td>zh-TW locale, dlhý deň</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td class="notranslate">20.04.2022 18:01:42 CET</td>
-          <td>Oddeľovače bodov</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
-          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-          <td>de locale, krátky deň/mesiac</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-          <td>miestne nastavenie en-US, dlhý deň/mesiac</td>
-        </tr>
-      </table>
-      <br />
-      Vlastný formát dátumu využíva % sekvencie zodpovedajúce funkcii <code>strftime()</code> podobnej Unixu.
-      Je založený na JavaScriptovom porte
+      </thead>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+        <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+        <td>ja locale s literálmi</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+        <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+        <td>ko locale s literálmi</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+        <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+        <td>zh-CN locale, krátky deň</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+        <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+        <td>zh-TW locale, dlhý deň</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+        <td class="notranslate">20.04.2022 18:01:42 CET</td>
+        <td>Oddeľovače bodov</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+        <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+        <td>de locale, krátky deň/mesiac</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+        <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+        <td>miestne nastavenie en-US, dlhý deň/mesiac</td>
+      </tr>
+    </table>
+    <br />
+    <p>
+      Vlastný formát dátumu využíva % sekvencie zodpovedajúce funkcii <code>strftime()</code> typu Unix. Je
+      založený na JavaScriptovom porte
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , funkcii na formátovanie dátumu a času.<br />
       Port of strftime() od TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
-    <h3>Popisy sekvencií konverzií</h3>
+    <br />
+    <h3 style="margin-left: 30px;">Popisy sekvencií konverzií</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -284,7 +277,7 @@
         </tr>
         <tr>
           <td><code class="code1">%1</code></td>
-          <td>Mesiac doslovný. Lokalizované, hlavne pre ázijské lokality. (zh-TW: 月, ko: 월)</td>
+          <td>Doslovný mesiac. Lokalizované, hlavne pre ázijské lokality. (zh-TW: 月, ko: 월)</td>
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
@@ -292,9 +285,9 @@
         </tr>
       </tbody>
     </table>
-    <h3>Poznámky ku kompatibilite:</h3>
+    <h3 class="indent0">Poznámky ku kompatibilite:</h3>
     <ul>
-      <li><code class="code1">%c</code> – formátovaný reťazec je mierne odlišný</li>
+      <li><code class="code1">%c</code> – formátovaný reťazec sa mierne líši</li>
       <li>
         <code class="code1">%D</code> – neimplementované (použite <code class="code1">%m/%d/%y</code> alebo
         <code class="code1">%d/%m/%y</code> )
@@ -311,10 +304,6 @@
       <li>
         <code class="code1">%r</code> – neimplementované (použite <code class="code1">%I:%M:%S %p</code> )
       </li>
-      <tr>
-        <td><code class="code1">${subject}</code></td>
-        <td>Predmet správy</td>
-      </tr>
       <li><code class="code1">%R</code> – neimplementované (použite <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> – neimplementované (použite <code class="code1">\t</code> )</li>
       <li><code class="code1">%T</code> – neimplementované (použite <code class="code1">%H:%M:%S</code> )</li>
@@ -323,6 +312,160 @@
       <li><code class="code1">%+</code> – neimplementované</li>
       <li><code class="code1">%%</code> – neimplementované (použite <code class="code1">%</code> )</li>
     </ul>
-    <br /><br />
+    <br />
+    <h2>Výstup PDF a automatické pomenovanie súborov</h2>
+    <p>
+      Výstup PDF je teraz možné automaticky pomenovať pomocou systému tokenov a uložiť do preddefinovaného
+      výstupného adresára PDF. To je užitočné najmä pri tlači viacerých vybraných e-mailov, pretože nie je
+      potrebné vyberať názov a umiestnenie pre každý e-mail.
+    </p>
+    <p />
+    <p>
+      Povoľte výstupný adresár PDF a vyberte adresár pre umiestnenie uloženia. Výstupný názov súboru bude mať
+      nastavený formát súboru.
+    </p>
+    <p />
+    <p>
+      Formát súboru pozostáva z tokenov a akýchkoľvek statických znakov, ako sú oddeľovače alebo medzery.
+      Rozšírené formátovanie názvu súboru využíva tokeny. Presný názov súboru možno vytvoriť pomocou tokenov,
+      ako aj ľubovoľného textu alebo platných znakov názvu súboru. Neplatné znaky sú:
+      <code>| * : &lt; &gt; ? \ / &quot;</code>
+    </p>
+    <p />
+    <p>Predvolený formát mena je: ${predmet}, ktorý je len predmetom e-mailu.</p>
+    <p />
+    <p>Príklady</p>
+    <p>
+      <span class="notranslate"><code>${subject}</code></span> – Predvolený formát, predmet e-mailu<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – použite vlastný
+      formát dátumu namiesto predvoleného<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> – S nejakým vlastným
+      textom<br />
+    </p>
+    <p>Nižšie uvedená tabuľka popisuje celú sadu tokenov, ktoré možno použiť vo formáte názvu súboru.</p>
+    <table class="token-table">
+      <tr>
+        <td>Token</td>
+        <td>Popis</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${subject}</code></td>
+        <td>Predmet správy.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender}</code></td>
+        <td>Meno odosielateľa správy.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient}</code></td>
+        <td>Meno príjemcu správy.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender_email}</code></td>
+        <td>E-mailová adresa odosielateľa správy.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient_email}</code></td>
+        <td>E-mailová adresa príjemcu správy.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${smart_name}</code></td>
+        <td>Príjemcovia, ak je správa v priečinku Odoslané, inak meno odosielateľa</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${index}</code></td>
+        <td>Indexové číslo správy.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${prefix}</code></td>
+        <td>Hodnota možnosti textu predpony.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${suffix}</code></td>
+        <td>Hodnota možnosti textu prípony.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date}</code></td>
+        <td>Štandardný formát dátumu. Predvolený formát je: RRRRMMDDHHmm</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date_custom}</code></td>
+        <td>Vlastný formát dátumu. Pozrite si sekciu vlastného formátovania dátumu.</td>
+      </tr>
+    </table>
+    <br />
+    <h2>Možnosti tlače a strany</h2>
+    <p>
+      Tieto možnosti vám umožňujú nastaviť možnosti pre stránku tlačiarne. Je tiež možné nastaviť tichý režim,
+      kedy sa dialógové okno náhľadu nezobrazí a tlač sa vykoná okamžite.
+    </p>
+    <p>
+      Možnosti strany vám umožňujú nastaviť položky, keď sa dokončí ukážka alebo tlač. Niektoré položky nie je
+      možné nastaviť v dialógovom okne ukážky, medzi ktoré patria hlavičky a päty. Ostatné položky náhľad
+      neuchová a normálne by sa museli nastaviť pri každej tlači.
+    </p>
+    <p>
+      Patria sem kópie a rozsahy strán. Typickým prípadom použitia je situácia, keď si želáte vytlačiť iba
+      prvú stranu e-mailu ako predvolenú. za normálnych okolností by sa rozsah stránok musel zakaždým meniť.
+    </p>
+    <p>Poznámky:</p>
+    <p>
+      Rozsahy strán sú opísané rovnakým spôsobom ako v náhľade. Príklady sú 1, 1-2, 3-4,5. Upozorňujeme, že ak
+      prednastavené rozsahy strán nie sú platné pre danú správu, ukážka zobrazí chybu.
+    </p>
+    <p>
+      Okraje je možné nastaviť pomocou jednotiek vhodných pre miestne nastavenie používateľa, či už ide o
+      palce alebo milimetre (in alebo mm).
+    </p>
+    <p></p>
+    <p>
+      Hlavičky a päty je možné nastaviť tak, aby zahŕňali rôzne premenné správy uvedené nižšie. Okrem toho
+      môže byť zahrnutý aj ľubovoľný text.
+    </p>
+    <div class="indent1">
+      <li>&amp;D = Dátum (pri uložení)</li>
+      <li>&amp;P = Číslo stránky v uloženom súbore</li>
+      <li>&amp;PT = Číslo stránky s celkovým súčtom („3 z 5“)</li>
+      <li>&amp;T = Názov stránky (predmet správy)</li>
+      <li>&amp;U = URL (URL správy)</li>
+    </div>
+    <h2>podpora</h2>
+    <p>
+      Uverejnite problémy alebo požiadavky na funkcie v úložisku GitHub rozšírení:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues"
+        >Problémy s nástrojmi PrintingTools NG</a
+      ><br /><br />
+      Pri problémoch s chybami uveďte nasledujúce informácie, ktoré vám pomôžu vyriešiť problémy:<br />
+      - Verzia PrintingTools NG<br />
+      - Verzia Thunderbird<br />
+      - Operačný systém a verzia<br />
+      - Výstup ladenia (kopírovanie z konzoly ladenia - prístup pomocou Ctrl-Shift-J)<br />
+      - Popis krokov vedúcich k problému<br />
+    </p>
+    <h2>Kredity</h2>
+    <div class="indent1">
+      <li>PrintingTools NG je založený na pôvodnom rozšírení od Paola &quot;Kosmos&quot;</li>
+      <li>List.js od Jonnyho Strömberga https://listjs.com</li>
+      <li>Latinize.js od Jakuba Dundalka https://github.com/dundalek/latinize</li>
+    </div>
+    <p>
+      Ďakujeme nasledujúcim používateľom za návrhy na zlepšenie a pomoc pri testovaní:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
   </body>
 </html>

@@ -7,43 +7,33 @@
     <title>Ayuda de PrintingTools NG</title>
   </head>
   <body>
-    <h2 id="main_help">Ayuda de PrintingTools NG</h2>
+    <table style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">Ayuda de PrintingTools NG</div>
+          <div>v2.2.0</div>
+        </td>
+        <td style="text-align: right;">
+          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
+        </td>
+      </tr>
+    </table>
     <br />
     <h2 id="main_help">Descripción general de PrintingTools NG</h2>
     <p>
-      PrintingTools NG es una extensión de seguimiento basada en el trabajo original de Paolo
-      &quot;Kaosmos&quot;. La extensión permite la personalización de los encabezados de impresión, así como
-      otras opciones.<br /><br />
-      Gracias a los siguientes usuarios por las sugerencias de mejoras y la ayuda para las pruebas:<br /><br />
-      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
-      - <code class="notranslate">@KC-T</code><br />
-      - <code class="notranslate">@jobisoft</code><br />
-      - <code class="notranslate">@tidebre67</code><br />
-      - <code class="notranslate">@reinerblock</code><br />
-      - <code class="notranslate">@querixg</code><br />
-      - <code class="notranslate">@RRoenn</code><br />
-      - <code class="notranslate">@madvinegar</code><br />
-      - <code class="notranslate">@ditchfinder</code><br />
-      - <code class="notranslate">@3LaHoonK</code><br />
-      - <code class="notranslate">@realraven</code><br />
-      - <code class="notranslate">@librelegal</code><br />
-      - <code class="notranslate">@Francewhoa</code><br />
-      - <code class="notranslate">@foxfan100</code><br />
-      - <code class="notranslate">@pechh</code><br />
+      PrintingTools NG permite muchas personalizaciones para la impresión de correos electrónicos. La
+      extensión tiene muchas opciones tanto para los encabezados como para las partes del mensaje. Además, se
+      pueden configurar opciones de página que no se pueden hacer en la vista previa de impresión normal de
+      Thunderbird. La salida de PDF también se puede hacer con nombres automáticos utilizando un sistema
+      flexible basado en tokens.
     </p>
-    <h3>Apoyo:</h3>
     <p>
-      Publique problemas o solicitudes de funciones en el repositorio de extensiones de GitHub:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues"
-        >Problemas de PrintingTools NG</a
-      ><br /><br />
-      En problemas de errores, incluya la siguiente información para ayudar a resolver los problemas:<br />
-      - Versión NG de PrintingTools<br />
-      - Versión Thunderbird<br />
-      - Sistema operativo y versión<br />
-      - Salida de depuración (copia desde la consola de depuración - acceso con Control-Shift-J)<br />
-      - Una descripción de los pasos que conducen al problema.<br />
+      El botón PrintingTools NG debe agregarse a la barra de herramientas para habilitar tanto el acceso de
+      impresión como las opciones. Se puede acceder a las opciones adicionales mediante el botón de llave
+      inglesa para la extensión en la pestaña del complemento.
     </p>
+    <p>El siguiente es un ejemplo del formato del encabezado:</p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Formato de fecha personalizado</h2>
     <p>
@@ -53,60 +43,64 @@
       cuenta que la cadena de fecha personalizada puede incluir separadores, literales que incluyen caracteres
       Unicode mezclados con los tokens de fecha/hora que se enumeran a continuación.<br /><br />
       Nota: Los resultados de la fecha personalizada en los ejemplos a continuación serán diferentes según la
-      fecha real, la configuración regional de los usuarios y la zona horaria.<br /><br />
-      Ejemplos:<br /><br />
-      <table class="dateformat-table">
-        <thead>
-          <tr>
-            <td>Cadena de fecha</td>
-            <td>Resultado</td>
-            <td>Nota</td>
-          </tr>
-        </thead>
+      fecha real, la configuración regional de los usuarios y la zona horaria.
+    </p>
+    <br />
+    <h3 class="indent0">Ejemplos:</h3>
+    <table class="dateformat-table">
+      <thead>
         <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-          <td>ja locale con literales</td>
+          <td>Cadena de fecha</td>
+          <td>Resultado</td>
+          <td>Nota</td>
         </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-          <td>ko locale con literales</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-          <td>Localización zh-CN, día corto</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-          <td>local zh-TW, día largo</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td class="notranslate">20.04.2022 18:01:42 CET</td>
-          <td>Separadores de puntos</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
-          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-          <td>de locale, día/mes corto</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-          <td>configuración regional en-US, día/mes largo</td>
-        </tr>
-      </table>
-      <br />
+      </thead>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+        <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+        <td>ja locale con literales</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+        <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+        <td>ko locale con literales</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+        <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+        <td>Localización zh-CN, día corto</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+        <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+        <td>local zh-TW, día largo</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+        <td class="notranslate">20.04.2022 18:01:42 CET</td>
+        <td>Separadores de puntos</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+        <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+        <td>de locale, día/mes corto</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+        <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+        <td>configuración regional en-US, día/mes largos</td>
+      </tr>
+    </table>
+    <br />
+    <p>
       El formato de fecha personalizado utiliza secuencias % que coinciden con la funcionalidad similar a
       <code>strftime()</code> Unix. Se basa en un puerto JavaScript de
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , una función para formatear la fecha y la hora.<br />
       Puerto de strftime() por TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
-    <h3>Descripciones de la secuencia de conversión</h3>
+    <br />
+    <h3 style="margin-left: 30px;">Descripciones de la secuencia de conversión</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -295,7 +289,7 @@
         </tr>
       </tbody>
     </table>
-    <h3>Notas de compatibilidad:</h3>
+    <h3 class="indent0">Notas de compatibilidad:</h3>
     <ul>
       <li><code class="code1">%c</code> - la cadena formateada es ligeramente diferente</li>
       <li>
@@ -312,10 +306,6 @@
       </li>
       <li><code class="code1">%O</code> - no implementado</li>
       <li><code class="code1">%r</code> - no implementado (use <code class="code1">%I:%M:%S %p</code> )</li>
-      <tr>
-        <td><code class="code1">${subject}</code></td>
-        <td>El asunto del mensaje</td>
-      </tr>
       <li><code class="code1">%R</code> - no implementado (use <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - no implementado (use <code class="code1">\t</code> )</li>
       <li><code class="code1">%T</code> - no implementado (use <code class="code1">%H:%M:%S</code> )</li>
@@ -324,6 +314,172 @@
       <li><code class="code1">%+</code> - no implementado</li>
       <li><code class="code1">%%</code> - no implementado (use <code class="code1">%</code> )</li>
     </ul>
-    <br /><br />
+    <br />
+    <h2>Salida de PDF y nomenclatura automática de archivos</h2>
+    <p>
+      La salida de PDF ahora puede tener un nombre automático mediante un sistema de fichas y guardarse en un
+      directorio de salida de PDF predefinido. Esto es especialmente útil cuando se imprimen varios correos
+      electrónicos seleccionados, ya que no es necesario elegir un nombre y una ubicación para cada correo
+      electrónico.
+    </p>
+    <p />
+    <p>
+      Habilite el directorio de salida de PDF y elija un directorio para la ubicación de guardado. El nombre
+      del archivo de salida seguirá el formato de nombre de archivo configurado.
+    </p>
+    <p />
+    <p>
+      El formato del nombre de archivo consta de tokens y cualquier carácter estático, como separadores o
+      espacios en blanco. El formato de nombre de archivo extendido utiliza tokens. El nombre de archivo
+      exacto se puede construir utilizando los tokens, así como cualquier texto o caracteres de nombre de
+      archivo válidos. Los caracteres no válidos son: <code>| * : &lt; &gt; ? \ / &quot;</code>
+    </p>
+    <p />
+    <p>El formato de nombre predeterminado es: ${subject}, que es solo el asunto del correo electrónico.</p>
+    <p />
+    <p>Ejemplos</p>
+    <p>
+      <span class="notranslate"><code>${subject}</code></span> - El formato predeterminado, asunto del correo
+      electrónico<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> : use el formato de
+      fecha personalizado en lugar del predeterminado<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Con texto
+      personalizado<br />
+    </p>
+    <p>
+      La siguiente tabla describe el conjunto completo de tokens que se pueden usar en el formato de nombre de
+      archivo.
+    </p>
+    <table class="token-table">
+      <tr>
+        <td>Simbólico</td>
+        <td>Descripción</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${subject}</code></td>
+        <td>El asunto del mensaje.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender}</code></td>
+        <td>El nombre del remitente del mensaje.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient}</code></td>
+        <td>El nombre del destinatario del mensaje.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender_email}</code></td>
+        <td>La dirección de correo electrónico del remitente del mensaje.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient_email}</code></td>
+        <td>La dirección de correo electrónico del destinatario del mensaje.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${smart_name}</code></td>
+        <td>
+          Los destinatarios si el mensaje está en una carpeta Enviados, de lo contrario, el nombre del
+          remitente
+        </td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${index}</code></td>
+        <td>El número de índice del mensaje.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${prefix}</code></td>
+        <td>El valor de la opción de texto del prefijo.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${suffix}</code></td>
+        <td>El valor de la opción de texto del sufijo.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date}</code></td>
+        <td>El formato de fecha estándar. El formato predeterminado es: AAAAMMDDHHmm</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date_custom}</code></td>
+        <td>El formato de fecha personalizado. Consulte la sección de formato de fecha personalizado.</td>
+      </tr>
+    </table>
+    <br />
+    <h2>Opciones de impresión y página</h2>
+    <p>
+      Estas opciones le permiten establecer opciones por página de impresora. También es posible establecer el
+      modo silencioso en el que no se muestra el cuadro de diálogo de vista previa y la impresión se realiza
+      de inmediato.
+    </p>
+    <p>
+      Las opciones de página le permiten configurar elementos cuando se realiza la vista previa o la
+      impresión. Algunos elementos no están disponibles para establecerse en el cuadro de diálogo de vista
+      previa, estos incluyen los encabezados y pies de página. La vista previa no retiene otros elementos y,
+      por lo general, deben configurarse cada vez que se realiza una impresión.
+    </p>
+    <p>
+      Estos incluyen copias y rangos de páginas. Un caso de uso típico es cuando uno desea imprimir solo la
+      primera página de un correo electrónico como predeterminado. normalmente uno tendría que hacer que los
+      rangos de página cambien cada vez.
+    </p>
+    <p>Notas:</p>
+    <p>
+      Los rangos de páginas se describen de la misma manera que en la vista previa. Los ejemplos son 1, 1-2,
+      3-4,5. Tenga en cuenta que si un intervalo de páginas predeterminado no es válido para un mensaje
+      determinado, la vista previa mostrará un error.
+    </p>
+    <p>
+      Los márgenes se pueden configurar usando unidades apropiadas para la configuración regional de los
+      usuarios, ya sea pulgadas o milímetros (in o mm).
+    </p>
+    <p></p>
+    <p>
+      Los encabezados y pies de página se pueden configurar para incluir varias variables de mensaje que se
+      enumeran a continuación. Además, también se puede incluir texto arbitrario.
+    </p>
+    <div class="indent1">
+      <li>&amp;D = Fecha (cuando se guardó)</li>
+      <li>&amp;P = Número de página en el archivo guardado</li>
+      <li>&amp;PT = Número de página con total (&quot;3 de 5&quot;)</li>
+      <li>&amp;T = Título de la página (Asunto del mensaje)</li>
+      <li>&amp;U = URL (La URL del mensaje)</li>
+    </div>
+    <h2>Apoyo</h2>
+    <p>
+      Publique problemas o solicitudes de funciones en el repositorio de extensiones de GitHub:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues"
+        >Problemas de PrintingTools NG</a
+      ><br /><br />
+      En problemas de errores, incluya la siguiente información para ayudar a resolver los problemas:<br />
+      - Versión NG de PrintingTools<br />
+      - Versión Thunderbird<br />
+      - Sistema operativo y versión<br />
+      - Salida de depuración (copia desde la consola de depuración - acceso con Control-Shift-J)<br />
+      - Una descripción de los pasos que conducen al problema.<br />
+    </p>
+    <h2>Créditos</h2>
+    <div class="indent1">
+      <li>PrintingTools NG se basa en la extensión original de Paolo &quot;Kosmos&quot;</li>
+      <li>List.js por Jonny Strömberg https://listjs.com</li>
+      <li>Latinize.js por Jakub Dundalek https://github.com/dundalek/latinize</li>
+    </div>
+    <p>
+      Gracias a los siguientes usuarios por las sugerencias de mejoras y la ayuda para las pruebas:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
   </body>
 </html>
