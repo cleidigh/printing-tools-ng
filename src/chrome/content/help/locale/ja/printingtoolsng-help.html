@@ -13,7 +13,7 @@
           <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG ヘルプ</div>
           <div>v2.2.0</div>
         </td>
-        <td style="text-align: right;">
+        <td style="text-align: right; padding-right: 35px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
@@ -26,12 +26,32 @@
       Thunderbird の印刷プレビューでは設定できないページ オプションを設定できます。 PDF 出力は、柔軟なトークン
       ベースのシステムを使用して、自動命名で行うこともできます。
     </p>
+    <h3 class="indent0">ツールバーに印刷NGボタンを追加：</h3>
     <p>
-      印刷アクセスとオプションの両方を有効にするには、PrintingTools NG
+      印刷アクセスとオプションの両方を有効にするには、[印刷 NG]
       ボタンをツールバーに追加する必要があります。さらに、アドオン タブの拡張機能のレンチ
       ボタンからオプションにアクセスできます。
     </p>
-    <p>以下は、ヘッダーの書式設定の例です。</p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
+    <br />
+    <p>次の手順に従って、ツールバーにボタンを配置します。</p>
+    <div class="indent1">
+      <li>メールツールバーの空きスペースを右クリック</li>
+      <li>[カスタム...] を選択すると、[ツールバーのカスタマイズ] ウィンドウが開きます</li>
+      <li>[印刷 NG] ボタンを見つける</li>
+      <li>ボタンを目的の場所にドラッグ アンド ドロップします。</li>
+      <li>ボタンを使用して、印刷、プレビュー、オプション、およびヘルプを表示します</li>
+    </div>
+    <h3 class="indent0">以下は、ヘッダーの書式設定機能の一部の例です。</h3>
+    <div class="indent1">
+      <li>CSS を使用してカスタマイズされたヘッダー ボーダー スタイル (上下、青)</li>
+      <li>ヘッダーの背景色</li>
+      <li>整列されたヘッダー</li>
+      <li>カスタマイズされたヘッダーの順序</li>
+      <li>ページタイトルとメッセージフォルダ</li>
+      <li>ヘッダーにアイコンが表示された添付リスト</li>
+      <li>完全にカスタマイズ可能な日付形式の国際形式</li>
+    </div>
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">カスタム日付形式</h2>
@@ -102,7 +122,7 @@
     <table class="dateformat-table">
       <thead>
         <tr>
-          <th style="width: 8%; text-align: left;">順序</th>
+          <th>順序</th>
           <th>説明</th>
         </tr>
       </thead>
@@ -330,7 +350,7 @@
     </p>
     <p />
     <p>
-      ファイル名の形式は、トークンと区切り文字や空白などの静的文字で構成されます。拡張ファイル名のフォーマットでは、トークンが使用されます。正確なファイル名は、トークンと任意のテキストまたは有効なファイル名文字を使用して構築できます。無効な文字は次のとおりです:
+      ファイル名の形式は、トークンと区切り文字や空白などの静的文字で構成されます。拡張ファイル名のフォーマットでは、トークンが使用されます。正確なファイル名は、トークンと任意のテキストまたは有効なファイル名文字を使用して作成できます。無効な文字は次のとおりです:
       <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />

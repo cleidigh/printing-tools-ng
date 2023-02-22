@@ -13,7 +13,7 @@
           <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG 帮助</div>
           <div>v2.2.0</div>
         </td>
-        <td style="text-align: right;">
+        <td style="text-align: right; padding-right: 35px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
@@ -25,11 +25,30 @@
       允许对电子邮件打印进行许多自定义。该扩展有许多用于标头和消息部分的选项。此外，可以设置页面选项，这在正常的
       Thunderbird 打印预览中无法完成。 PDF 输出也可以使用灵活的基于令牌的系统通过自动命名来完成。
     </p>
+    <h3 class="indent0">将 Print NG 按钮添加到工具栏：</h3>
     <p>
-      应将 PrintingTools NG
-      按钮添加到工具栏以启用打印访问和选项。此外，可以通过插件选项卡上扩展的扳手按钮访问其他选项。
+      打印 NG 按钮应添加到工具栏以启用打印访问和选项。此外，可以通过插件选项卡上扩展的扳手按钮访问其他选项。
     </p>
-    <p>以下是标头格式的示例：</p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
+    <br />
+    <p>按照以下步骤将按钮放置在工具栏上：</p>
+    <div class="indent1">
+      <li>右键单击邮件工具栏上的空白区域</li>
+      <li>选择自定义...这将打开自定义工具栏窗口</li>
+      <li>找到打印 NG 按钮</li>
+      <li>将按钮拖放到您想要的位置</li>
+      <li>使用按钮进行打印、预览、选项和帮助</li>
+    </div>
+    <h3 class="indent0">以下是一些标题格式功能的示例：</h3>
+    <div class="indent1">
+      <li>使用 CSS 自定义页眉边框样式（顶部和底部，蓝色）</li>
+      <li>标题背景颜色</li>
+      <li>对齐标题</li>
+      <li>自定义标题顺序</li>
+      <li>页面标题和消息文件夹</li>
+      <li>标题中带有图标的附件列表</li>
+      <li>完全可定制的日期格式国际格式</li>
+    </div>
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">自定义日期格式</h2>
@@ -207,7 +226,7 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            ISO 8601 十进制数形式的当年的 ISO 8601 周数（范围 01 到 53），其中第 1 周是新年中至少有 4
+            ISO 8601 当前年份的周数，以十进制数表示（范围从 01 到 53），其中第 1 周是新年中至少有 4
             天的第一周（即第一个星期四）。
           </td>
         </tr>

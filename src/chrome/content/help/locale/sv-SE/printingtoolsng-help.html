@@ -13,7 +13,7 @@
           <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Hjälp</div>
           <div>v2.2.0</div>
         </td>
-        <td style="text-align: right;">
+        <td style="text-align: right; padding-right: 35px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
@@ -26,11 +26,31 @@
       Thunderbird-förhandsgranskningen. PDF-utdata kan också göras med automatisk namngivning med ett
       flexibelt tokenbaserat system.
     </p>
+    <h3 class="indent0">Lägga till knappen Print NG i verktygsfältet:</h3>
     <p>
-      Knappen PrintingTools NG bör läggas till i verktygsfältet för att möjliggöra både utskriftsåtkomst och
+      Knappen Skriv ut NG bör läggas till i verktygsfältet för att möjliggöra både utskriftsåtkomst och
       alternativ. Ytterligare alternativ kan nås med skiftnyckelknappen för tillägget på tilläggsfliken.
     </p>
-    <p>Följande är ett exempel på rubrikformatering:</p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
+    <br />
+    <p>Följ dessa steg för att placera knappen i verktygsfältet:</p>
+    <div class="indent1">
+      <li>Högerklicka på ett tomt utrymme i e-postverktygsfältet</li>
+      <li>Välj Anpassad... Detta öppnar fönstret Anpassa verktygsfält</li>
+      <li>Leta upp knappen Skriv ut NG</li>
+      <li>Dra och släpp knappen till önskad plats</li>
+      <li>Använd knappen för Skriv ut, Förhandsgranska, Alternativ och Hjälp</li>
+    </div>
+    <h3 class="indent0">Följande är ett exempel på några av headerformateringsfunktionerna:</h3>
+    <div class="indent1">
+      <li>Anpassad rubrikkantsstil med CSS (överst och nederst, blå)</li>
+      <li>Rubrik bakgrundsfärg</li>
+      <li>Justerade rubriker</li>
+      <li>Anpassad rubrikordning</li>
+      <li>Sidrubrik och meddelandemapp</li>
+      <li>Bilaga lista med ikoner i rubriken</li>
+      <li>Fullt anpassningsbart datumformat internationell formatering</li>
+    </div>
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Anpassat datumformat</h2>
@@ -299,15 +319,15 @@
         <code class="code1">%n</code> - som <code class="code1">%m</code> , men ingen inledande nolla (använd
         <code class="code1">\n</code> för nyrad)
       </li>
-      <li><code class="code1">%O</code> - ej implementerad</li>
+      <li><code class="code1">%O</code> - inte implementerat</li>
       <li>
         <code class="code1">%r</code> - inte implementerad (använd <code class="code1">%I:%M:%S %p</code> )
       </li>
       <li><code class="code1">%R</code> - inte implementerad (använd <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - inte implementerad (använd <code class="code1">\t</code> )</li>
       <li><code class="code1">%T</code> - inte implementerad (använd <code class="code1">%H:%M:%S</code></li>
-      <li><code class="code1">%U</code> - inte implementerat</li>
-      <li><code class="code1">%W</code> - inte implementerat</li>
+      <li><code class="code1">%U</code> - inte implementerad</li>
+      <li><code class="code1">%W</code> - inte implementerad</li>
       <li><code class="code1">%+</code> - inte implementerat</li>
       <li><code class="code1">%%</code> - inte implementerad (använd <code class="code1">%</code> )</li>
     </ul>

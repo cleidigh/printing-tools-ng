@@ -13,7 +13,7 @@
           <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Pomoc</div>
           <div>v2.2.0</div>
         </td>
-        <td style="text-align: right;">
+        <td style="text-align: right; padding-right: 35px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
@@ -26,12 +26,32 @@
       można zrobić w normalnym podglądzie wydruku Thunderbirda. Wyjście PDF można również wykonać z
       automatycznym nazewnictwem przy użyciu elastycznego systemu opartego na tokenach.
     </p>
+    <h3 class="indent0">Dodanie przycisku Drukuj NG do paska narzędzi:</h3>
     <p>
-      Przycisk PrintingTools NG należy dodać do paska narzędzi, aby umożliwić zarówno dostęp do drukowania,
-      jak i opcje. Dostęp do dodatkowych opcji można uzyskać za pomocą przycisku klucza dla rozszerzenia na
-      karcie dodatków.
+      Do paska narzędzi należy dodać przycisk Drukuj NG, aby umożliwić zarówno dostęp do drukowania, jak i
+      opcje. Dostęp do dodatkowych opcji można uzyskać za pomocą przycisku klucza dla rozszerzenia na karcie
+      dodatków.
     </p>
-    <p>Poniżej znajduje się przykład formatowania nagłówka:</p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
+    <br />
+    <p>Wykonaj następujące kroki, aby umieścić przycisk na pasku narzędzi:</p>
+    <div class="indent1">
+      <li>Kliknij prawym przyciskiem myszy puste miejsce na pasku narzędzi poczty</li>
+      <li>Wybierz Niestandardowy... Spowoduje to otwarcie okna Dostosuj pasek narzędzi</li>
+      <li>Znajdź przycisk Drukuj NG</li>
+      <li>Przeciągnij i upuść przycisk w wybrane miejsce</li>
+      <li>Użyj przycisku Drukuj, Podgląd, Opcje i Pomoc</li>
+    </div>
+    <h3 class="indent0">Poniżej przedstawiono przykład niektórych funkcji formatowania nagłówka:</h3>
+    <div class="indent1">
+      <li>Dostosowany styl obramowania nagłówka za pomocą CSS (góra i dół, niebieski)</li>
+      <li>Kolor tła nagłówka</li>
+      <li>Wyrównane nagłówki</li>
+      <li>Dostosowana kolejność nagłówków</li>
+      <li>Tytuł strony i folder wiadomości</li>
+      <li>Lista załączników z ikonami w nagłówku</li>
+      <li>W pełni konfigurowalny format daty formatowanie międzynarodowe</li>
+    </div>
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Niestandardowy format daty</h2>
@@ -94,7 +114,7 @@
       Niestandardowy format daty wykorzystuje sekwencje % pasujące do funkcjonalności podobnej do uniksowej
       <code>strftime()</code> . Opiera się na javascriptowym porcie
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , funkcji formatującej datę i godzinę.<br />
+      , funkcji formatującej datę i czas.<br />
       Port strftime() autorstwa TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
