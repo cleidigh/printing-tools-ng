@@ -76,8 +76,8 @@ browser.runtime.onMessageExternal.addListener(handleMessage);
 let l = messenger.i18n.getUILanguage();
 
 browser.runtime.onInstalled.addListener(async (info) => {
-	console.log(info)
 	info.locale = l;
+	
 	browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1180, height: 520})
 });
 
@@ -149,15 +149,20 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			//console.log("help")
 			//console.log(info)
 			var locale = info.locale;
-
+			
+			var bm = "";
+			if (info.bmark) {
+				bm = info.bmark;
+				console.log(bm)
+			}
 			try {
-				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1180, height: 520})
+				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520})
 			} catch {
 				try {
 				locale = locale.Split('-')[0];
-				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1180, height: 520})
+				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520})
 				} catch {
-					browser.windows.create({url: `chrome/content/help/locale/en-US/printingtoolsng-help.html`, type: "panel"})	
+					browser.windows.create({url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel"})	
 				}
 			}
 			//browser.windows.create({url: "test.html", type: "panel"})

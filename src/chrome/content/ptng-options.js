@@ -40,11 +40,6 @@ function setComplexPref(pref, value) {
 	}
 }
 
-async function loadHelp(bmark) {
-	//console.log("help load")
-	t = await window.opener.ptngAddon.notifyTools.notifyBackground({ command: "openHelp", locale: Services.locale.appLocaleAsBCP47 });
-}
-
 async function initPMDpanel() {
 
 	// cleidigh

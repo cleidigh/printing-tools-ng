@@ -271,6 +271,16 @@ var utils = {
 		return resultObj;
 	},
 
+  
+ loadHelp: async function (bmark) {
+	let win = window;
+  if (!win.ptngAddon) {
+    win = window.opener;
+  }
+	t = await win.ptngAddon.notifyTools.notifyBackground({ command: "openHelp", locale: Services.locale.appLocaleAsBCP47, bmark: bmark});
+},
+
+
   PTNG_WriteStatus: function (text, displayDelay) {
     if (document.getElementById("statusText")) {
       document.getElementById("statusText").setAttribute("label", text);

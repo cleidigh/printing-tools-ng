@@ -26,6 +26,7 @@ var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.js
 
 var st = {};
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/strftime.js", st);
+Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
 
 var { printerSettings } = ChromeUtils.import("chrome://printingtoolsng/content/printerSettings.js");
 
