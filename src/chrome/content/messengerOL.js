@@ -118,7 +118,6 @@ function onLoad() {
 
 	extMsgHandler = window.ptngAddon.notifyTools.addListener(handleExternalPrint);
 
-
 }
 
 // -- Define listeners for messages from the background script.

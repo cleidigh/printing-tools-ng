@@ -1,6 +1,7 @@
 // background.js - this kicks off the WindowListener framework
 // console.debug('background Start');
 
+
 messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
 
 // Register all necessary conIt's6'tent, Resources, and locales
@@ -74,7 +75,14 @@ browser.runtime.onMessageExternal.addListener(handleMessage);
 
 let l = messenger.i18n.getUILanguage();
 
+browser.runtime.onInstalled.addListener(async (info) => {
+	console.log(info)
+	info.locale = l;
+	browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1180, height: 520})
+});
 
+
+/*
 // show notification when this version is being installed or updated
 browser.runtime.onInstalled.addListener(async (info) => {
 	let version = parseInt((await browser.runtime.getBrowserInfo()).version.split(".").shift(), 10);
@@ -107,7 +115,7 @@ browser.runtime.onInstalled.addListener(async (info) => {
 		});
 	}
 });
-
+*/
 
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	let rv;
