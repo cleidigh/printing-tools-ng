@@ -16,7 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "save_to_pdf", text: "Save to PDF" },
+	{ key: "Help", text: "Help" },
 
 
 	
@@ -424,7 +424,7 @@ var options = {
  	outputLocaleDir: "./src/chrome/locale",
  	outputLocaleDirSuffix: "",
  	append: true,
- 	outputFormat: 1,
+ 	outputFormat: 0,
  };
 
 //  files from base locale 
@@ -443,8 +443,8 @@ var options = {
 // let inputFiles = ["overlay.properties"];
 // let inputFiles = ["settings.dtd", "overlay.dtd", "overlay.properties"];
 
-let inputFiles = ["printingtoolsng.properties"];
-//let inputFiles = ["printingtoolsng.dtd"];
+//let inputFiles = ["printingtoolsng.properties"];
+let inputFiles = ["printingtoolsng.dtd"];
 
 //let inputFiles = ["messages.json"];
 // let inputFiles = ["autobackup.dtd", "autobackup.properties", "mboximport.dtd", "mboximport.properties", "profilewizard.dtd", "profilewizard.properties"];
@@ -456,8 +456,9 @@ let inputFiles = ["printingtoolsng.properties"];
 var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
 'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
-var localeFolders = ['ja', 'ca', 'da-DK', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
+// help
+//var localeFolders = ['ja', 'ca', 'da-DK', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+//'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 // localeFolders = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
 // 'el', 'pl', 'da', 'pt-PT', 'ca', 'gl-ES', 'sk-SK', 'sl-SI', 'sv-SE'];
@@ -471,10 +472,10 @@ var localeFolders = ['ja', 'ca', 'da-DK', 'de', 'el', 'en-US', 'es-ES', 'fi', 'f
 // localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];
 //localeFile = "settings.json";
 // t();
-translateHelpPage();
+//translateHelpPage();
 //translatePage();
 // translateAll("printingtoolsng.properties", translationArray, options);
-//translateAll(inputFiles, translationArray, options);
+translateAll(inputFiles, translationArray, options);
 //translateAll("mboximport.dtd", translationArray, options);
 //loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];
