@@ -359,29 +359,24 @@
 			</tabpanel>
 			<!-- TAB5 Global printing options -->
 			<tabpanel>
-				<html:div style= "background-color2: yellow; padding-left: 0px">
+				<html:div style= "padding-left: 0px">
 					<vbox>
-						<!-- <hbox> -->
 
-							<!-- <hbox style = " background-color: green; width2 : 100%"> -->
-
-							<html:table style= " background-color2: yellow; width: 100%; border2: solid 1px">
+							<div>
+							<html:table style= "">
 							<html:tr>
-							<html:td style= " background-color2: green">
+							<html:td style= "vertical-alignment: center">
 							<html:label style="padding-left: 1px; padding-right: 4px; 
-						font-weight: 700">&defaultPrinter;</html:label>
-						<!-- </hbox> -->
-							<!-- <hbox style = " background-color: yellow; width2 : 100%"> -->
+								font-weight: 700">&defaultPrinter;</html:label>
 							</html:td>
-							<html:td style="text-align: right">
-							<!-- <label style="text-align: right">HLP</label> -->
-<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
-							width="20px" height="20px" style="margin-left: 2px; margin-top: 0px; 
+							<html:td style="">
+								<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
+							width="20px" height="20px" style="margin-left: 2px; margin-top: 3px; 
 							margin-bottom: 0px; background-color: ;" onclick="utils.loadHelp('#print_options_help')" title="Help" />
 							</html:td>
 							</html:tr>
 							</html:table>
-							
+							</div>
 							
 
 
@@ -398,7 +393,23 @@
 							<checkbox id="PMDsilent" label="&PMDlabel8;" />
 						</hbox>
 						<spacer height="15px"/>
-						<label value="&page_options;" style="font-weight: 700; width: 100px"/>
+
+<div>
+							<html:table style= "">
+							<html:tr>
+							<html:td style= "">
+							<html:label style="padding-left: 1px; padding-right: 4px; 
+								font-weight: 700">&page_options;</html:label>
+							</html:td>
+							<html:td style="">
+								<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
+							width="20px" height="20px" style="margin-left: 2px; margin-top: 3px; 
+							margin-bottom: 0px; background-color: ;" onclick="utils.loadHelp('#print_options_help')" title="Help" />
+							</html:td>
+							</html:tr>
+							</html:table>
+							</div>
+
 						<spacer height="8px"/>
 						
 						<html:div>
@@ -406,12 +417,12 @@
 							<html:table id="margins-hdrftr-table" class="margins-hdrftr-tbl" style="border-collapse: collapse;">
 
  <html:tr>
-									<html:td>&copies;
+									<html:td>&Scale;
 								</html:td>
 									<html:td colspan="4">
 <html:div id="parent">
 											<html:input id="copies-count" is="setting-number" 
-						data-setting-name="numCopies" min="1" max="10000" 
+						data-setting-name="numCopies" min="10" max="200" 
 						class="copy-count-input photon-number2" 
 						aria-errormessage="error-invalid-copies" required="" 
 						type="number" autocomplete="off" value="1"/>

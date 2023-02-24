@@ -52,7 +52,7 @@ var EXPORTED_SYMBOLS = ["printerSettings"];
 // These are our default settings for those we control separate from main prefs
 var printerSettings = {
   defaultPTNGprinterSettings: {
-    numCopies: 1,
+    numCopies: 100,
     pageRanges: [],
     // marginTop: 0.5,
     // marginBottom: 0.5,
@@ -135,9 +135,9 @@ var printerSettings = {
     let nc = document.querySelector("#copies-count");
     nc.value = printSettings.numCopies;
     if (printerName.toLowerCase().includes("pdf")) {
-      nc.setAttribute("disabled", "");
+      // nc.setAttribute("disabled", "");
     } else {
-      nc.removeAttribute("disabled");
+      // nc.removeAttribute("disabled");
     }
 
     // Round all margins to two decimal places
@@ -414,10 +414,22 @@ var printerSettings = {
     el = document.querySelector("#footerright");
     printSettings.footerStrRight = el.value;
 
+    
+    if (nc != 100) {
+      console.log("scaling: ", nc)
+      printSettings.shrinkToFit = false;
+      printSettings.scaling = nc / 100;
+    } else {
+      printSettings.shrinkToFit = true;
+      printSettings.scaling = 1;
+    }
+
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
       Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
-      Ci.nsIPrintSettings.kInitSaveFooterRight;
+      Ci.nsIPrintSettings.kInitSaveFooterRight |
+      Ci.nsIPrintSettings.kInitSaveShrinkToFit |
+      Ci.nsIPrintSettings.kInitSaveScaling;
 
     console.log("\nPTNG: Saving prefs on options exit")
 
@@ -521,12 +533,17 @@ var printerSettings = {
       );
 
       // console.log("subDialog print-settings loaded");
-
+      console.log(subDialogWindow.document.documentElement.innerHTML)
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
       let nc = subDialogWindow.document.querySelector("#copies-count");
+
+      let psc = subDialogWindow.document.querySelector("#percent-scale-choice");
+      let ps = subDialogWindow.document.querySelector("#percent-scale");
+      //console.log()
+      //psc.checked = true;
 
       let printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
 
@@ -548,14 +565,16 @@ var printerSettings = {
       cmg.removeAttribute("hidden");
       mp.selectedIndex = 3;
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
-      nc.value = customProps.numCopies;
-      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
-      nc.value = customProps.numCopies;
-      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
-      nc.value = customProps.numCopies;
-      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 350));
-      nc.value = customProps.numCopies;
 
+      //ps.value = customProps.numCopies;
+      //await new Promise(resolve => subDialogWindow.setTimeout(resolve, 100));
+      //nc.value = customProps.numCopies;
+      //await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
+      //nc.value = customProps.numCopies;
+      //ps.value = customProps.numCopies;
+      //await new Promise(resolve => subDialogWindow.setTimeout(resolve, 350));
+      //nc.value = customProps.numCopies;
+      //ps.value = customProps.numCopies;
     },
   },
 };

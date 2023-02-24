@@ -16,7 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "Help", text: "Help" },
+	{ key: "Scale", text: "Scale" },
 
 
 	

@@ -24,7 +24,7 @@ body {
 	background-color: var(--dialog-bgcolor);
 	font-family: 'Roboto', sans-serif;
 	color: var(--dialog-text-color);
-	margin: 12px;
+	margin: 25px;
 }
 
 p {

@@ -6,9 +6,9 @@ printerSettings,
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
-//var { utils} = ChromeUtils.import("chrome://printingtoolsng/content/utils.js", utils);
 
-//var utils = {};
+
+
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
 console.log(utils)
 utils.test();
@@ -24,6 +24,8 @@ var mainStrBundle = strBundleService.createBundle("chrome://printingtoolsng/loca
 var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
 var gheaderList;
 var printerSettings;
+var validationIds = [];
+
 
 function getComplexPref(pref) {
 	if (prefs.getStringPref)
@@ -232,6 +234,7 @@ async function initPMDpanel() {
 
 	var outputPrinter =  await setPrinterList();
 	printerSettings.getPrinterSettings(window, outputPrinter);
+	initValidationIds();
   addValidationListeners();
 
 	document.getElementById("useCcBccAlways").focus;
@@ -662,41 +665,56 @@ function handleCopiesKeypress(e) {
 	//copiesValidation();
 }
 
+function initValidationIds() {
+	validationIds.push("copies-count");
+	validationIds.push("pages");
+	validationIds.push("margin-top");
+	validationIds.push("margin-bottom");
+	validationIds.push("margin-left");
+	validationIds.push("margin-right");
+
+	// validationIds.push("");
+
+}
+
+function checkValidationIdsStatus() {
+	var status = true;
+	validationIds.forEach(id => {
+		let item = document.getElementById(id);
+		if (!item.checkValidity()) {
+			status = false;
+		}
+	});
+	console.log("validity: ", status)
+	return status;
+}
+
 function copiesValidation() {
 	let nc = document.querySelector("#copies-count");
 	let nce = document.querySelector("#copies-count-error");
-	console.log("chk v", nc.validity.valueMissing)
-	let v = nc.validity;
-	console.log(v)
+
 	if (nc.validity.valueMissing) {
-		console.log("v m")
-		//nc.setCustomValidity("Value Required");
-		//nc.reportValidity();
-		//pstr
 		nce.textContent = mainStrBundle.GetStringFromName("err_copies_val_req");
 		let l = nce.textContent.length * 0.50 + "em";
 		nce.style.width = l
 		nce.className = "error active";
-		enableOKbutton(false);
 	} else if (nc.validity.rangeUnderflow) {
 		nce.textContent = mainStrBundle.GetStringFromName("err_copies_val_notzero");
 		let l = nce.textContent.length * 0.50 + "em";
 		nce.style.width = l
 		nce.className = "error active";
-		enableOKbutton(false);
 	} else {
 		nce.className = "error";
-		enableOKbutton(true);
 	}
+	enableOKbuttonOnValidation();
 }
+
 function handlePageRangesKeypress(e) {
 	console.log(e)
 	let char = String.fromCharCode(e.charCode);
 	let acceptedChar = char.match(/^[0-9,-]$/);
 	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
 		e.preventDefault();
-		//let cr = document.querySelector("#pages");
-		//cr.setCustomValidity("invalid");
 	}
 }
 
@@ -707,14 +725,10 @@ function pageRangesValidation(e) {
 	let v = pr.validity;
 	console.log(v)
 	if (pr.validity.valueMissing) {
-		console.log("v m")
-		//nc.setCustomValidity("Value Required");
-		//nc.reportValidity();
 		pre.textContent = mainStrBundle.GetStringFromName("err_pageranges_val_req");
 		let l = pre.textContent.length * 0.50 + "em";
 		pre.style.width = l
 		pre.className = "error active";
-		enableOKbutton(false);
 	} else if (pageRangesStringValidation(pr.value)) {
 		if (pageRangesStringValidation(pr.value) == 1) {
 			pre.textContent = mainStrBundle.GetStringFromName("err_pageranges_val_notzero");
@@ -724,11 +738,10 @@ function pageRangesValidation(e) {
 		let l = pre.textContent.length * 0.50 + "em";
 		pre.style.width = "100%"
 		pre.className = "error active";
-		enableOKbutton(false);
 	} else {
 		pre.className = "error";
-		enableOKbutton(true);
 	}
+	enableOKbuttonOnValidation();
 }
 
 function handleMarginsKeypress(e) {
@@ -742,24 +755,22 @@ function handleMarginsKeypress(e) {
 }
 
 function handleMarginsValidation(e) {
-	console.log(e)
 	let margin = e.target;
-
-	// console.log(margin.validity);
-	if (margin.validity.valueMissing || margin.validity.badInput) {
-		enableOKbutton(false);
-	} else {
-		enableOKbutton(true);
-	}
+	enableOKbuttonOnValidation();
 }
 
-function enableOKbutton(enable) {
+function enableOKbuttonOnValidation() {
+
 	let okButton = document.getElementById("okbutton");
-	if (enable) {
-
+	if (!checkValidationIdsStatus()) {
+		okButton.disabled = true;
+	} else {
+		okButton.disabled = false;
 	}
-	okButton.disabled = !enable;
+	
+	
 }
+
 function pageRangesStringValidation(pageRangesStr) {
 
 	let ranges = pageRangesStr.split(",");
