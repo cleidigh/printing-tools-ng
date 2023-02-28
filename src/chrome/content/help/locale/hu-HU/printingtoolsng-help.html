@@ -13,7 +13,7 @@
           <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Súgó</div>
           <div>v2.2.0</div>
         </td>
-        <td style="text-align: right; padding-right: 35px;">
+        <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
@@ -51,6 +51,7 @@
       <li>Mellékletlista ikonokkal a fejlécben</li>
       <li>Teljesen testreszabható dátumformátum nemzetközi formázás</li>
     </div>
+    <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Egyéni dátumformátum</h2>
@@ -334,7 +335,7 @@
       <li><code class="code1">%%</code> – nincs implementálva (használd <code class="code1">%</code> )</li>
     </ul>
     <br />
-    <h2>PDF kimenet és automatikus fájlelnevezés</h2>
+    <h2 id="pdf_output_help">PDF kimenet és automatikus fájlelnevezés</h2>
     <p>
       A PDF kimenet immár automatikusan elnevezhető egy token rendszerrel, és elmenthető egy előre
       meghatározott PDF kimeneti könyvtárba. Ez különösen akkor hasznos, ha több kiválasztott e-mailt nyomtat,
@@ -416,7 +417,7 @@
       </tr>
     </table>
     <br />
-    <h2>Nyomtatási és oldalbeállítások</h2>
+    <h2 id="print_options_help">Nyomtatási és oldalbeállítások</h2>
     <p>
       Ezek az opciók lehetővé teszik, hogy nyomtatónkénti oldalbeállításokat állítson be. Lehetőség van a néma
       üzemmód beállítására is, ahol az előnézeti párbeszédpanel nem jelenik meg, és a nyomtatás azonnal
@@ -449,8 +450,8 @@
       tartalmazzák. Ezenkívül tetszőleges szöveg is beilleszthető.
     </p>
     <div class="indent1">
-      <li>&amp;D = Dátum (mentéskor)</li>
-      <li>&amp;P = Oldalszám a mentett fájlban</li>
+      <li>&amp;D = Dátum</li>
+      <li>&amp;P = Oldalszám</li>
       <li>&amp;PT = Oldalszám összesen (&quot;3/5&quot;)</li>
       <li>&amp;T = Oldal címe (az üzenet tárgya)</li>
       <li>&amp;U = URL (az üzenet URL-je)</li>

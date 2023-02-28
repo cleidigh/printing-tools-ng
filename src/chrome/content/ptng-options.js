@@ -236,7 +236,7 @@ async function initPMDpanel() {
 	printerSettings.getPrinterSettings(window, outputPrinter);
 	initValidationIds();
   addValidationListeners();
-
+  enableOKbuttonOnValidation();
 	document.getElementById("useCcBccAlways").focus;
 }
 

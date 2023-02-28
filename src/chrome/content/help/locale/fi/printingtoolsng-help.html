@@ -13,7 +13,7 @@
           <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Ohje</div>
           <div>v2.2.0</div>
         </td>
-        <td style="text-align: right; padding-right: 35px;">
+        <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
@@ -51,6 +51,7 @@
       <li>Liiteluettelo, jonka otsikossa on kuvakkeet</li>
       <li>Täysin muokattavissa oleva päivämäärämuoto kansainvälinen muotoilu</li>
     </div>
+    <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Mukautettu päivämäärämuoto</h2>
@@ -320,7 +321,7 @@
       <li><code class="code1">%e</code> - tilaa ei ole lisätty</li>
       <li><code class="code1">%E</code> - ei toteutettu</li>
       <li><code class="code1">%h</code> - ei käytössä (käytä <code class="code1">%b</code> )</li>
-      <li><code class="code1">%k</code> - tilaa ei ole lisätty</li>
+      <li><code class="code1">%k</code> - välilyöntiä ei ole lisätty</li>
       <li>
         <code class="code1">%n</code> - kuten <code class="code1">%m</code> , mutta ei alkunollaa (käytä
         <code class="code1">\n</code> rivinvaihdossa)
@@ -332,11 +333,11 @@
       <li><code class="code1">%T</code> - ei käytössä (käytä <code class="code1">%H:%M:%S</code> )</li>
       <li><code class="code1">%U</code> - ei toteutettu</li>
       <li><code class="code1">%W</code> - ei toteutettu</li>
-      <li><code class="code1">%+</code> - ei toteutettu</li>
+      <li><code class="code1">%+</code> - ei otettu käyttöön</li>
       <li><code class="code1">%%</code> - ei käytössä (käytä <code class="code1">%</code> )</li>
     </ul>
     <br />
-    <h2>PDF-tulostus ja automaattinen tiedostojen nimeäminen</h2>
+    <h2 id="pdf_output_help">PDF-tulostus ja automaattinen tiedostojen nimeäminen</h2>
     <p>
       PDF-tulostus voidaan nyt sekä nimetä automaattisesti token-järjestelmän avulla että tallentaa ennalta
       määritettyyn PDF-tulostushakemistoon. Tämä on erityisen hyödyllistä tulostettaessa useita valittuja
@@ -417,7 +418,7 @@
       </tr>
     </table>
     <br />
-    <h2>Tulostus- ja sivuasetukset</h2>
+    <h2 id="print_options_help">Tulostus- ja sivuasetukset</h2>
     <p>
       Näiden asetusten avulla voit määrittää tulostinkohtaiset sivuasetukset. On myös mahdollista asettaa
       hiljainen tila, jossa esikatseluikkunaa ei näytetä ja tulostus tapahtuu välittömästi.
@@ -446,8 +447,8 @@
       mielivaltaista tekstiä voidaan sisällyttää.
     </p>
     <div class="indent1">
-      <li>&amp;D = Päivämäärä (tallennettuna)</li>
-      <li>&amp;P = Sivunumero tallennetussa tiedostossa</li>
+      <li>&amp;D = Päivämäärä</li>
+      <li>&amp;P = Sivunumero</li>
       <li>&amp;PT = sivunumero yhteensä (&quot;3/5&quot;)</li>
       <li>&amp;T = Sivun otsikko (viestin aihe)</li>
       <li>&amp;U = URL (viestin URL-osoite)</li>

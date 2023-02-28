@@ -13,7 +13,7 @@
           <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Hjälp</div>
           <div>v2.2.0</div>
         </td>
-        <td style="text-align: right; padding-right: 35px;">
+        <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
@@ -51,6 +51,7 @@
       <li>Bilaga lista med ikoner i rubriken</li>
       <li>Fullt anpassningsbart datumformat internationell formatering</li>
     </div>
+    <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Anpassat datumformat</h2>
@@ -319,20 +320,20 @@
         <code class="code1">%n</code> - som <code class="code1">%m</code> , men ingen inledande nolla (använd
         <code class="code1">\n</code> för nyrad)
       </li>
-      <li><code class="code1">%O</code> - inte implementerat</li>
+      <li><code class="code1">%O</code> - ej implementerad</li>
       <li>
         <code class="code1">%r</code> - inte implementerad (använd <code class="code1">%I:%M:%S %p</code> )
       </li>
       <li><code class="code1">%R</code> - inte implementerad (använd <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - inte implementerad (använd <code class="code1">\t</code> )</li>
       <li><code class="code1">%T</code> - inte implementerad (använd <code class="code1">%H:%M:%S</code></li>
-      <li><code class="code1">%U</code> - inte implementerad</li>
-      <li><code class="code1">%W</code> - inte implementerad</li>
+      <li><code class="code1">%U</code> - inte implementerat</li>
+      <li><code class="code1">%W</code> - inte implementerat</li>
       <li><code class="code1">%+</code> - inte implementerat</li>
       <li><code class="code1">%%</code> - inte implementerad (använd <code class="code1">%</code> )</li>
     </ul>
     <br />
-    <h2>PDF-utdata och automatisk filnamngivning</h2>
+    <h2 id="pdf_output_help">PDF-utdata och automatisk filnamngivning</h2>
     <p>
       PDF-utdata kan nu både namnges automatiskt med hjälp av ett tokensystem och sparas i en fördefinierad
       PDF-utdatakatalog. Detta är särskilt användbart när du skriver ut flera utvalda e-postmeddelanden
@@ -416,7 +417,7 @@
       </tr>
     </table>
     <br />
-    <h2>Utskrifts- och sidalternativ</h2>
+    <h2 id="print_options_help">Utskrifts- och sidalternativ</h2>
     <p>
       Dessa alternativ låter dig ställa in alternativ per skrivarsida. Det är också möjligt att ställa in det
       tysta läget där förhandsgranskningsdialogrutan inte visas och utskriften görs omedelbart.
@@ -448,8 +449,8 @@
       Dessutom kan godtycklig text inkluderas.
     </p>
     <div class="indent1">
-      <li>&amp;D = Datum (när sparat)</li>
-      <li>&amp;P = Sidnummer i sparad fil</li>
+      <li>&amp;D = Datum</li>
+      <li>&amp;P = Sidnummer</li>
       <li>&amp;PT = Sidnummer med totalt (&quot;3 av 5&quot;)</li>
       <li>&amp;T = Sidrubrik (Ämne för meddelandet)</li>
       <li>&amp;U = URL (webbadressen till meddelandet)</li>

@@ -52,7 +52,8 @@ var EXPORTED_SYMBOLS = ["printerSettings"];
 // These are our default settings for those we control separate from main prefs
 var printerSettings = {
   defaultPTNGprinterSettings: {
-    numCopies: 100,
+    numCopies: 1,
+    scaling: 1,
     pageRanges: [],
     // marginTop: 0.5,
     // marginBottom: 0.5,
@@ -133,7 +134,7 @@ var printerSettings = {
 
     // disable copies for PDF printers
     let nc = document.querySelector("#copies-count");
-    nc.value = printSettings.numCopies;
+    nc.value = printSettings.scaling * 100;
     if (printerName.toLowerCase().includes("pdf")) {
       // nc.setAttribute("disabled", "");
     } else {
@@ -330,8 +331,36 @@ var printerSettings = {
     return localeVal * 25.4;
   },
 
-  savePrinterSettingsFromPTNGsettings: function () {
-    var printSettings = window3Pane.PrintUtils.getPrintSettings();
+  savePrinterSettingsFromPTNGsettings: async function () {
+
+    var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
+		.getService(Ci.nsIPrinterList);
+
+	// Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
+	var printers = await printerList.printers;
+	var defaultPrinter = printerList.systemDefaultPrinterName;
+
+	var outputPrinter = null;
+	var type = prefs.getPrefType("print_printer");
+	if (type) {
+		outputPrinter = prefs.getCharPref("print_printer");
+	} else {
+		console.log("no tb printer")
+		outputPrinter = defaultPrinter;
+	}
+
+
+    var printSettings;
+    if (PSSVC.newPrintSettings) {
+      printSettings = PSSVC.newPrintSettings;
+    } else {
+      printSettings = PSSVC.createNewPrintSettings();
+    }
+
+    printSettings.printerName = outputPrinter;
+
+    PSSVC.initPrintSettingsFromPrefs(printSettings, true, printSettings.kInitSaveAll);
+    printSettings.isInitializedFromPrinter = true;
 
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
@@ -340,15 +369,19 @@ var printerSettings = {
 
     if (t > 0) {
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
-      let cr = document.querySelector("#pages");
-      cr.value = printSettings.pageRanges;
     } else {
       this.initCustomPrinterOptions(printerName);
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
     }
-    var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
-      .getService(Ci.nsIPrintSettingsService);
-    PSSVC.savePrintSettingsToPrefs(printSettings, true, Ci.nsIPrintSettings.kInitSaveAll);
+ 
+    console.log(printSettings, PSSVC)
+      let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
+        Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
+        Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
+        Ci.nsIPrintSettings.kInitSaveFooterRight |
+        Ci.nsIPrintSettings.kInitSaveShrinkToFit |
+        Ci.nsIPrintSettings.kInitSaveScaling;
+    PSSVC.savePrintSettingsToPrefs(printSettings, true, savePrefs);
   },
 
   savePrintSettings: function (window) {
@@ -473,22 +506,34 @@ var printerSettings = {
     }
   },
 
-  setPrinterSettingsFromPTNGsettings: function (printerSettings) {
-    let printerNameEsc = printerSettings.printerName.replace(/ /g, '_');
+  setPrinterSettingsFromPTNGsettings: function (printSettings) {
+    let printerNameEsc = printSettings.printerName.replace(/ /g, '_');
     let t = prefs.getPrefType(`extensions.printingtoolsng.printer.${printerNameEsc}`);
 
     if (t == 0) {
-      this.initCustomPrinterOptions(printerSettings.printerName, printerSettings.paperSizeUnit);
+      this.initCustomPrinterOptions(printSettings.printerName, printSettings.paperSizeUnit);
     }
 
     let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`);
     var customProps = JSON.parse(props);
 
     for (const printProperty in customProps) {
-      printerSettings[printProperty] = customProps[printProperty];
+      printSettings[printProperty] = customProps[printProperty];
       //  console.log(printProperty + "" + printerSettings[printProperty]);
     }
-    return printerSettings;
+
+       
+    if (printSettings.scaling != 1) {
+      console.log("scaling: ")
+      printSettings.shrinkToFit = false;
+      
+    } else {
+      printSettings.shrinkToFit = true;
+      
+    }
+
+
+    return printSettings;
   },
 
   paperUnitsToInches: function (val, units) {

@@ -13,7 +13,7 @@
           <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG 帮助</div>
           <div>v2.2.0</div>
         </td>
-        <td style="text-align: right; padding-right: 35px;">
+        <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
@@ -49,6 +49,7 @@
       <li>标题中带有图标的附件列表</li>
       <li>完全可定制的日期格式国际格式</li>
     </div>
+    <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">自定义日期格式</h2>
@@ -226,7 +227,7 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            ISO 8601 当前年份的周数，以十进制数表示（范围从 01 到 53），其中第 1 周是新年中至少有 4
+            ISO 8601 十进制数形式的当年的 ISO 8601 周数（范围 01 到 53），其中第 1 周是新年中至少有 4
             天的第一周（即第一个星期四）。
           </td>
         </tr>
@@ -309,7 +310,7 @@
       <li><code class="code1">%%</code> - 未实现（使用<code class="code1">%</code> ）</li>
     </ul>
     <br />
-    <h2>PDF 输出和自动文件命名</h2>
+    <h2 id="pdf_output_help">PDF 输出和自动文件命名</h2>
     <p>
       PDF 输出现在可以使用令牌系统自动命名并保存到预定义的 PDF
       输出目录。这在打印多封选定的电子邮件时特别有用，因为不必为每封电子邮件选择名称和位置。
@@ -387,7 +388,7 @@
       </tr>
     </table>
     <br />
-    <h2>打印和页面选项</h2>
+    <h2 id="print_options_help">打印和页面选项</h2>
     <p>这些选项允许您设置每个打印机页面选项。也可以设置不显示预览对话框并立即完成打印的静音模式。</p>
     <p>
       页面选项允许您在预览或打印完成时设置项目。有些项目无法在预览对话框中设置，包括页眉和页脚。其他项目不会被预览保留，通常必须在每次打印完成时进行设置。
@@ -404,8 +405,8 @@
     <p></p>
     <p>页眉和页脚可以设置为包括下面列出的各种消息变量。此外，还可以包含任意文本。</p>
     <div class="indent1">
-      <li>&amp;D = 日期（保存时）</li>
-      <li>&amp;P = 保存文件中的页码</li>
+      <li>&amp;D = 日期</li>
+      <li>&amp;P = 页码</li>
       <li>&amp;PT = 总页数（“3 of 5”）</li>
       <li>&amp;T = 页面标题（消息的主题）</li>
       <li>&amp;U = URL（消息的URL）</li>

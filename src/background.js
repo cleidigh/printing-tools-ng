@@ -78,7 +78,7 @@ let l = messenger.i18n.getUILanguage();
 browser.runtime.onInstalled.addListener(async (info) => {
 	info.locale = l;
 	
-	browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1180, height: 520})
+	//browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1180, height: 520})
 });
 
 

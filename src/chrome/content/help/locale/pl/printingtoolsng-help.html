@@ -13,7 +13,7 @@
           <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Pomoc</div>
           <div>v2.2.0</div>
         </td>
-        <td style="text-align: right; padding-right: 35px;">
+        <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
@@ -52,6 +52,7 @@
       <li>Lista załączników z ikonami w nagłówku</li>
       <li>W pełni konfigurowalny format daty formatowanie międzynarodowe</li>
     </div>
+    <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Niestandardowy format daty</h2>
@@ -114,7 +115,7 @@
       Niestandardowy format daty wykorzystuje sekwencje % pasujące do funkcjonalności podobnej do uniksowej
       <code>strftime()</code> . Opiera się na javascriptowym porcie
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , funkcji formatującej datę i czas.<br />
+      , funkcji formatującej datę i godzinę.<br />
       Port strftime() autorstwa TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
@@ -335,7 +336,7 @@
       <li><code class="code1">%%</code> - nie zaimplementowano (użyj <code class="code1">%</code> )</li>
     </ul>
     <br />
-    <h2>Wyjście PDF i automatyczne nazewnictwo plików</h2>
+    <h2 id="pdf_output_help">Wyjście PDF i automatyczne nazewnictwo plików</h2>
     <p>
       Wyjściowym plikom PDF można teraz zarówno automatycznie nadawać nazwy przy użyciu systemu tokenów, jak i
       zapisywać je we wstępnie zdefiniowanym katalogu wyjściowym PDF. Jest to szczególnie przydatne w
@@ -417,7 +418,7 @@
       </tr>
     </table>
     <br />
-    <h2>Opcje drukowania i strony</h2>
+    <h2 id="print_options_help">Opcje drukowania i strony</h2>
     <p>
       Opcje te umożliwiają ustawienie opcji dla poszczególnych stron drukarki. Możliwe jest również ustawienie
       trybu cichego, w którym okno dialogowe podglądu nie jest wyświetlane, a drukowanie jest wykonywane
@@ -449,8 +450,8 @@
       Dodatkowo można dołączyć dowolny tekst.
     </p>
     <div class="indent1">
-      <li>&amp;D = Data (po zapisaniu)</li>
-      <li>&amp;P = Numer strony w zapisanym pliku</li>
+      <li>&amp;D = Data</li>
+      <li>&amp;P = Numer strony</li>
       <li>&amp;PT = numer strony z sumą („3 z 5”)</li>
       <li>&amp;T = Tytuł strony (Temat wiadomości)</li>
       <li>&amp;U = URL (URL wiadomości)</li>

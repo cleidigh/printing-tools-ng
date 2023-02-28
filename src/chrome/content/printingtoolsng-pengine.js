@@ -62,6 +62,8 @@ var printingtools = {
 		//console.log(gFolderDisplay.selectedMessage)
 		//console.log(gMessageDisplay.displayedMessage)
 
+		await printerSettings.savePrinterSettingsFromPTNGsettings();
+
 		var ps = PrintUtils.getPrintSettings();
 
 		console.log(ps.printerName.toLowerCase().includes("pdf"))
