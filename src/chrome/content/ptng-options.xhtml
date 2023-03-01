@@ -416,20 +416,27 @@
 						
 							<html:table id="margins-hdrftr-table" class="margins-hdrftr-tbl" style="border-collapse: collapse;">
 
- <html:tr>
+<html:tr>
 									<html:td>&Scale;
 								</html:td>
-									<html:td colspan="4">
-<html:div id="parent">
-											<html:input id="copies-count" is="setting-number" 
+									<html:td colspan="4" style="vertical-align: center">
+							<radiogroup id="scaleRG" orient="horizontal" oncommand="pageRangeToggle(this);" >
+									<radio label2="An Seitenbreite anpassen" label="用紙幅に合わせる"/>
+									<radio label="&Scale;" />
+									<html:div id="parent" style="padding-top: 2px">
+
+										<html:input id="copies-count" is="setting-number" 
 						data-setting-name="numCopies" min="10" max="200" 
 						class="copy-count-input photon-number2" 
 						aria-errormessage="error-invalid-copies" required="" 
 						type="number" autocomplete="off" value="1"/>
 											<html:div id="copies-count-error" class="error">Error</html:div>
-										</html:div>
+
+									</html:div>
+								</radiogroup>
 									</html:td>
 								</html:tr>
+
 
 									<html:tr>
 									<html:td>&page_ranges;

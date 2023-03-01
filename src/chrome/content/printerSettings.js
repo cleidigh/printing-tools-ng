@@ -52,13 +52,12 @@ var EXPORTED_SYMBOLS = ["printerSettings"];
 // These are our default settings for those we control separate from main prefs
 var printerSettings = {
   defaultPTNGprinterSettings: {
-    numCopies: 1,
     scaling: 1,
     pageRanges: [],
-    // marginTop: 0.5,
-    // marginBottom: 0.5,
-    // marginLeft: 0.5,
-    // marginRight: 0.5,
+    marginTop: 0.5,
+    marginBottom: 0.5,
+    marginLeft: 0.5,
+    marginRight: 0.5,
     headerStrLeft: "",
     headerStrCenter: "&T",
     headerStrRight: "",
@@ -336,7 +335,6 @@ var printerSettings = {
     var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
 		.getService(Ci.nsIPrinterList);
 
-	// Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
 	var printers = await printerList.printers;
 	var defaultPrinter = printerList.systemDefaultPrinterName;
 
@@ -403,7 +401,7 @@ var printerSettings = {
       nc = 1;
       alert("Copies out of range: set to  1");
     }
-    printSettings.numCopies = nc;
+    //printSettings.numCopies = nc;
 
     let prRG = document.querySelector("#pageRangesRG");
     let pr = document.querySelector("#pages");
@@ -487,7 +485,7 @@ var printerSettings = {
       customProps[printProperty] = printSettings[printProperty];
     }
 
-    customProps.numCopies = nc;
+    //customProps.numCopies = nc;
     let js = JSON.stringify(customProps);
     console.log("saving ptng settings")
     console.log(js, printerNameEsc)

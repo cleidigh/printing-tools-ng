@@ -58,20 +58,8 @@ messenger.WindowListener.registerWindow(
 
 messenger.WindowListener.startListening();
 
-// cleidigh - thanks to John B for the update notification code
-
-// onButtonClicked listener for the notification
-messenger.notificationbar.onButtonClicked.addListener((windowId, notificationId, buttonId) => {
-	if (["btn-moreinfo"].includes(buttonId)) {
-		messenger.windows.openDefaultBrowser("https://thunderbird.topicbox.com/groups/addons/T02a09c034809ca6d/resolving-the-add-on-options-chaos-introduced-by-my-wrapper-apis-windowlistener-and-bootstraploader");
-	}
-});
-
-
-
+// listener for external print requests eg FiltaQuila 
 browser.runtime.onMessageExternal.addListener(handleMessage);
-
-
 
 let l = messenger.i18n.getUILanguage();
 
@@ -79,6 +67,8 @@ browser.runtime.onInstalled.addListener(async (info) => {
 	info.locale = l;
 	
 	//browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1180, height: 520})
+
+	await browser.tabs.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, index: 1})
 });
 
 
@@ -156,16 +146,15 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 				console.log(bm)
 			}
 			try {
-				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520})
+				await browser.tabs.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, index: 1})
 			} catch {
 				try {
 				locale = locale.Split('-')[0];
-				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520})
+					await browser.tabs.create({url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1})
 				} catch {
-					browser.windows.create({url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel"})	
+					await browser.tabs.create({url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1})
 				}
 			}
-			//browser.windows.create({url: "test.html", type: "panel"})
 			return "help";
 	}
 });

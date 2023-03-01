@@ -693,12 +693,12 @@ function copiesValidation() {
 	let nc = document.querySelector("#copies-count");
 	let nce = document.querySelector("#copies-count-error");
 
-	if (nc.validity.valueMissing) {
+	if (nc.validity.valueMissing || nc.validity.rangeUnderflow || nc.validity.rangeOverflow) {
 		nce.textContent = mainStrBundle.GetStringFromName("err_copies_val_req");
 		let l = nce.textContent.length * 0.50 + "em";
 		nce.style.width = l
 		nce.className = "error active";
-	} else if (nc.validity.rangeUnderflow) {
+	} else if (nc.validity.rangeUnderflowX) {
 		nce.textContent = mainStrBundle.GetStringFromName("err_copies_val_notzero");
 		let l = nce.textContent.length * 0.50 + "em";
 		nce.style.width = l
