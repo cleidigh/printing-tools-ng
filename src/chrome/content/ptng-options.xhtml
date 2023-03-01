@@ -420,17 +420,17 @@
 									<html:td>&Scale;
 								</html:td>
 									<html:td colspan="4" style="vertical-align: center">
-							<radiogroup id="scaleRG" orient="horizontal" oncommand="pageRangeToggle(this);" >
+							<radiogroup id="scaleRG" orient="horizontal" oncommand="scaleToggle(this);" >
 									<radio label="&fitToWidth;"/>
 									<radio label="&Scale;" />
 									<html:div id="parent" style="padding-top: 3px">
 
-										<html:input id="copies-count" is="setting-number" 
-						data-setting-name="numCopies" min="10" max="200" 
+										<html:input id="scale" is="setting-number" 
+						data-setting-name="scaling" min="10" max="200" 
 						class="copy-count-input photon-number2" 
-						aria-errormessage="error-invalid-copies" required="" 
+						aria-errormessage="error-invalid-scale" required="" 
 						type="number" autocomplete="off" value="1"/>
-											<html:div id="copies-count-error" class="error">Error</html:div>
+											<html:div id="scale-error" class="error">Error</html:div>
 
 									</html:div>
 								</radiogroup>

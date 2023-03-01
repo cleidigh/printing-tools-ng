@@ -2,16 +2,12 @@
 List,
 ListController,
 printerSettings,
+utils,
 */
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
-
-
-
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
-console.log(utils)
-utils.test();
 
 utils.window = window;
 
@@ -616,6 +612,20 @@ function toggleDate() {
 	document.getElementById("dateLongRG").disabled = !document.getElementById("PMDdate").checked;
 }
 
+function scaleToggle(scaleRG) {
+	console.log("toggle ", scaleRG.selectedIndex)
+	let se = document.querySelector("#scale");
+	if (scaleRG.selectedIndex == 0) {
+
+
+		se.setAttribute("disabled", "true");
+		se.value = "100";
+		console.log(se)
+	} else {
+		se.removeAttribute("disabled");
+	}
+}
+
 function pageRangeToggle(pageRangeRG) {
 	console.log("toggle ", pageRangeRG.selectedIndex)
 	let cr = document.querySelector("#pages");
@@ -635,9 +645,9 @@ function addValidationListeners() {
 	let cr = document.querySelector("#pages");
 	cr.addEventListener("keypress", handlePageRangesKeypress);
 	cr.addEventListener("input", pageRangesValidation);
-	let nc = document.querySelector("#copies-count");
-	nc.addEventListener("keypress", handleCopiesKeypress);
-	nc.addEventListener("input", copiesValidation);
+	let se = document.querySelector("#scale");
+	se.addEventListener("keypress", handleScaleKeypress);
+	se.addEventListener("input", scaleValidation);
 
 	let margin = document.querySelector("#margin-top");
 	margin.addEventListener("keypress", handleMarginsKeypress);
@@ -655,18 +665,17 @@ function addValidationListeners() {
 }
 
 
-function handleCopiesKeypress(e) {
+function handleScaleKeypress(e) {
 	console.log(e)
 	let char = String.fromCharCode(e.charCode);
 	let acceptedChar = char.match(/^[0-9]$/);
 	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
 		e.preventDefault();
 	}
-	//copiesValidation();
 }
 
 function initValidationIds() {
-	validationIds.push("copies-count");
+	validationIds.push("scale");
 	validationIds.push("pages");
 	validationIds.push("margin-top");
 	validationIds.push("margin-bottom");
@@ -689,22 +698,16 @@ function checkValidationIdsStatus() {
 	return status;
 }
 
-function copiesValidation() {
-	let nc = document.querySelector("#copies-count");
-	let nce = document.querySelector("#copies-count-error");
+function scaleValidation() {
+	let se = document.querySelector("#scale");
+	let se_err = document.querySelector("#scale-error");
 
-	if (nc.validity.valueMissing || nc.validity.rangeUnderflow || nc.validity.rangeOverflow) {
-		nce.textContent = mainStrBundle.GetStringFromName("err_copies_val_req");
-		let l = nce.textContent.length * 0.50 + "em";
-		nce.style.width = l
-		nce.className = "error active";
-	} else if (nc.validity.rangeUnderflowX) {
-		nce.textContent = mainStrBundle.GetStringFromName("err_copies_val_notzero");
-		let l = nce.textContent.length * 0.50 + "em";
-		nce.style.width = l
-		nce.className = "error active";
+	if (se.validity.valueMissing || se.validity.rangeUnderflow || se.validity.rangeOverflow) {
+		se_err.textContent = mainStrBundle.GetStringFromName("err_copies_val_req");
+		se_err.style.width = "170px";
+		se_err.className = "error active";
 	} else {
-		nce.className = "error";
+		se_err.className = "error";
 	}
 	enableOKbuttonOnValidation();
 }

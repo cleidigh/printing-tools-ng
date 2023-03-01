@@ -117,6 +117,21 @@ var printerSettings = {
     let unitsStr = ["(in)", "(mm)"];
     un.value = unitsStr[localeUnits];
 
+    // setup scaling
+    let se = document.querySelector("#scale");
+    let seRG = document.querySelector("#scaleRG");
+    se.value = printSettings.scaling * 100;
+    
+
+    if (printSettings.shrinkToFit) {
+      seRG.selectedIndex = 0;
+      se.setAttribute("disabled", "true");
+    } else {
+      seRG.selectedIndex = 1;
+      se.removeAttribute("disabled");
+      
+    }
+
     let prRG = document.querySelector("#pageRangesRG");
     let cr = document.querySelector("#pages");
     let pr = printSettings.pageRanges;
@@ -131,15 +146,7 @@ var printerSettings = {
       cr.value = this.pageRangesToString(pr);
     }
 
-    // disable copies for PDF printers
-    let nc = document.querySelector("#copies-count");
-    nc.value = printSettings.scaling * 100;
-    if (printerName.toLowerCase().includes("pdf")) {
-      // nc.setAttribute("disabled", "");
-    } else {
-      // nc.removeAttribute("disabled");
-    }
-
+    
     // Round all margins to two decimal places
     let el = document.querySelector("#margin-top");
     let n = this.inchesToLocaleUnits(printSettings.marginTop, localeUnits).toFixed(2);
@@ -395,13 +402,16 @@ var printerSettings = {
     printSettings.printerName = document.getElementById("OutputPrinter").value;
     PSSVC.initPrintSettingsFromPrefs(printSettings, true, printSettings.kInitSaveAll);
 
-    let nc = Number(document.querySelector("#copies-count").value);
-
-    if (nc < 1 || nc > 1000) {
-      nc = 1;
-      alert("Copies out of range: set to  1");
+    let scale = Number(document.querySelector("#scale").value);
+   
+    if (scale != 100) {
+      console.log("scaling: ", scale)
+      printSettings.shrinkToFit = false;
+      printSettings.scaling = scale / 100;
+    } else {
+      printSettings.shrinkToFit = true;
+      printSettings.scaling = 1;
     }
-    //printSettings.numCopies = nc;
 
     let prRG = document.querySelector("#pageRangesRG");
     let pr = document.querySelector("#pages");
@@ -446,15 +456,6 @@ var printerSettings = {
     printSettings.footerStrRight = el.value;
 
     
-    if (nc != 100) {
-      console.log("scaling: ", nc)
-      printSettings.shrinkToFit = false;
-      printSettings.scaling = nc / 100;
-    } else {
-      printSettings.shrinkToFit = true;
-      printSettings.scaling = 1;
-    }
-
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
       Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
@@ -581,7 +582,7 @@ var printerSettings = {
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
-      let nc = subDialogWindow.document.querySelector("#copies-count");
+      
 
       let psc = subDialogWindow.document.querySelector("#percent-scale-choice");
       let ps = subDialogWindow.document.querySelector("#percent-scale");
