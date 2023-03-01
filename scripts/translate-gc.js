@@ -443,8 +443,8 @@ var options = {
 // let inputFiles = ["overlay.properties"];
 // let inputFiles = ["settings.dtd", "overlay.dtd", "overlay.properties"];
 
-let inputFiles = ["printingtoolsng.properties"];
-//let inputFiles = ["printingtoolsng.dtd"];
+//let inputFiles = ["printingtoolsng.properties"];
+let inputFiles = ["printingtoolsng.dtd"];
 
 //let inputFiles = ["messages.json"];
 // let inputFiles = ["autobackup.dtd", "autobackup.properties", "mboximport.dtd", "mboximport.properties", "profilewizard.dtd", "profilewizard.properties"];
