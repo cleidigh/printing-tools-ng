@@ -695,7 +695,7 @@ function scaleValidation() {
 	let se_err = document.querySelector("#scale-error");
 
 	if (se.validity.valueMissing || se.validity.rangeUnderflow || se.validity.rangeOverflow) {
-		se_err.textContent = mainStrBundle.GetStringFromName("err_copies_val_req");
+		se_err.textContent = mainStrBundle.GetStringFromName("err_scale_val_req");
 		se_err.style.width = "170px";
 		se_err.className = "error active";
 	} else {
