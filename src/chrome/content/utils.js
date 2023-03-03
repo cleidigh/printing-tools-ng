@@ -20,6 +20,8 @@ var EXPORTED_SYMBOLS = ["utils"];
 
 var utils = {
 
+  prefs: Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch),
+
   test: function () {
     console.log("utils test", window);
   },
@@ -273,11 +275,17 @@ var utils = {
 
   
  loadHelp: async function (bmark) {
+  var opentype = "tab";
+  var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+		if (dbgopts.indexOf("helpinwin") > -1) {
+      opentype = "win";
+    }
+  
 	let win = window;
   if (!win.ptngAddon) {
     win = window.opener;
   }
-	t = await win.ptngAddon.notifyTools.notifyBackground({ command: "openHelp", locale: Services.locale.appLocaleAsBCP47, bmark: bmark});
+	t = await win.ptngAddon.notifyTools.notifyBackground({ command: "openHelp", locale: Services.locale.appLocaleAsBCP47, bmark: bmark, opentype: opentype});
 },
 
 

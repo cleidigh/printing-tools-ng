@@ -437,33 +437,44 @@
 
 	<h2 id="print_options_help">Print and Page Options</h2>
 	<p>
-		These options allow you to set per printer page options. It is
-		also possible to set the silent mode where the preview dialog is
+		These options allow you to set the default printer as well as 
+		per printer page options. It is	also possible to set the silent mode where the preview dialog is
 		not shown and printing is done immediately.
 	</p>
 	<p>The page options allow you to set items when both preview
-		or printing is done. Some items are not available to be set
-		in the preview dialog, these include the headers and footers.
+		or printing is done. These options are persistent across 
+		printing. If options set in PrintingTools NG are changed 
+		in the print preview they will not affect subsequent prints.
+		Some items are not available to be set in the preview dialog, 
+		these include the headers and footers.
 		Other items are not retained by the preview and normally would
-		have to be set each time a print is done.
+		have to be set each time a print is done. PrintingTools NG
+		solves both these issues.
 	</p>
 
 	<p>
-		These include copies and page ranges. A typical use case is where
+		One item not saved by the preview is the page ranges. A typical use case is where
 		one wishes to print just the first page of an email as the default.
-		normally one would have to make the page ranges change each time.
+		normally one would have to make the page ranges change each time. Note 
+		if a page range set in PrintingTools NG is not valid such as exceeding 
+		the number of pages, the range will need to be corrected in the preview 
+		before printing. A page range set to "1" will always be valid and prints 
+		the first page of the message.
 	</p>
 	<p>Notes:</p>
+	<p>The scaling option allows one to set a persistent scale.</p>
 	<p>Page ranges are described the same way as in the preview. Examples are
 		1, 1-2, 3-4,5. Note that if a preset page ranges is not valid for a
 		given message, the preview will show an error.
 	</p>
 	<p>The margins can be set using units appropriate for the users locale,
-		either inches or millimeters (in or mm).
+		either inches or millimeters (in or mm). Note, due to rounding errors,
+		some mm values may be saved with small differences.
 	</p>
 	<p></p>
 	<p>The headers and footers can be set to include various message variables
-		listed below. Additionally arbitrary text can also be included.
+		listed below. Additionally arbitrary text can also be included. To print 
+		no headers or footers and save printing space, just make all fields blank.
 	</p>
 	<div class="indent1">
 		<li>&D = Date</li>

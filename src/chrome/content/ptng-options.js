@@ -619,7 +619,7 @@ function scaleToggle(scaleRG) {
 
 
 		se.setAttribute("disabled", "true");
-		se.value = "100";
+		//se.value = "100";
 		console.log(se)
 	} else {
 		se.removeAttribute("disabled");

@@ -52,6 +52,7 @@ var EXPORTED_SYMBOLS = ["printerSettings"];
 // These are our default settings for those we control separate from main prefs
 var printerSettings = {
   defaultPTNGprinterSettings: {
+    shrinkToFit: 1,
     scaling: 1,
     pageRanges: [],
     marginTop: 0.5,
@@ -105,7 +106,8 @@ var printerSettings = {
 
     console.log("getting prefs")
     console.log("printer ", printSettings.printerName)
-    console.log("page units ", printSettings.paperSizeUnit)
+    console.log("ShrinkToFit  ", printSettings.shrinkToFit)
+    console.log("scale ", printSettings.scaling)
     console.log("margin top ", printSettings.marginTop)
     console.log("margin bottom ", printSettings.marginBottom)
     console.log("margin left ", printSettings.marginLeft)
@@ -403,15 +405,15 @@ var printerSettings = {
     PSSVC.initPrintSettingsFromPrefs(printSettings, true, printSettings.kInitSaveAll);
 
     let scale = Number(document.querySelector("#scale").value);
+    let scaleRG = document.querySelector("#scaleRG");
    
-    if (scale != 100) {
-      console.log("scaling: ", scale)
+    if (scaleRG.selectedIndex) {
       printSettings.shrinkToFit = false;
-      printSettings.scaling = scale / 100;
     } else {
       printSettings.shrinkToFit = true;
-      printSettings.scaling = 1;
     }
+
+    printSettings.scaling = scale / 100;
 
     let prRG = document.querySelector("#pageRangesRG");
     let pr = document.querySelector("#pages");
@@ -521,7 +523,7 @@ var printerSettings = {
       //  console.log(printProperty + "" + printerSettings[printProperty]);
     }
 
-       
+       /*
     if (printSettings.scaling != 1) {
       console.log("scaling: ")
       printSettings.shrinkToFit = false;
@@ -530,7 +532,7 @@ var printerSettings = {
       printSettings.shrinkToFit = true;
       
     }
-
+*/
 
     return printSettings;
   },

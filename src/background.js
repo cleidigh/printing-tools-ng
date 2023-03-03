@@ -65,10 +65,10 @@ let l = messenger.i18n.getUILanguage();
 
 browser.runtime.onInstalled.addListener(async (info) => {
 	info.locale = l;
-	
+
 	//browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1180, height: 520})
 
-	await browser.tabs.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, index: 1})
+	await browser.tabs.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, index: 1 })
 });
 
 
@@ -114,45 +114,57 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			//console.log("geturl")
 			// method one: via tabs in focused window
 			try {
-				var w = await browser.windows.getAll({populate: true})
+				var w = await browser.windows.getAll({ populate: true })
 			} catch {
 				return "unknown";
 			}
-			
+
 			let cw = w.find(fw => fw.focused)
 			//console.log(cw)
 			let url1 = cw.tabs.find(t => t.active).url;
 			//console.log(url1);
-			
+
 			return url1;
 		case "getFullMessage":
-			
+
 			rv = await getFullMessage(info.messageId);
 			return rv;
-		
+
 		case "getAttatchmentList":
-			
+
 			rv = await getAttatchmentList(info.messageId);
 			return rv;
-			
+
 		case "openHelp":
-			//console.log("help")
-			//console.log(info)
+			console.log("help")
+			console.log(info)
 			var locale = info.locale;
-			
+
 			var bm = "";
 			if (info.bmark) {
 				bm = info.bmark;
 				console.log(bm)
 			}
 			try {
-				await browser.tabs.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, index: 1})
+				if (info.opentype == "tab") {
+					await browser.tabs.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, index: 1 })
+				} else {
+					browser.windows.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+				}
 			} catch {
 				try {
-				locale = locale.Split('-')[0];
-					await browser.tabs.create({url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1})
+					locale = locale.Split('-')[0];
+					if (info.opentype == "tab") {
+						await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
+					} else {
+						browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+					}
 				} catch {
-					await browser.tabs.create({url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1})
+					if (info.opentype == "tab") {
+						await browser.tabs.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1 })
+					} else {
+						browser.windows.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+					}
 				}
 			}
 			return "help";
@@ -160,33 +172,33 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 });
 
 async function getFullMessage(messageId) {
-	
+
 	var m = await messenger.messages.getFull(messageId);
 	console.log(m)
 	var a = await messenger.messages.listAttachments(m.id);
 	//console.log(a)
-  
+
 	return m;
 }
 
 
 async function getAttatchmentList(messageId) {
-	
+
 	var m = await messenger.messages.get(messageId);
 	//console.log(m)
 	var a = await messenger.messages.listAttachments(m.id);
 	//console.log(a)
-  
+
 	return a;
 }
 
 // External print handler 
 function handleMessage(message, sender) {
-	
+
 	//console.log(message)
-	messenger.NotifyTools.notifyExperiment({command: "handleExternalPrint", messageHeader: message.messageHeader}).then((data) => {
-	//console.log(data)
-			return  true ;
+	messenger.NotifyTools.notifyExperiment({ command: "handleExternalPrint", messageHeader: message.messageHeader }).then((data) => {
+		//console.log(data)
+		return true;
 	});
 
 	return true;
