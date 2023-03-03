@@ -2,16 +2,8 @@
 	"extensionName": {
 		"message": "PrintingTools NG"
 	},
+
 	"extensionDescription": {
-		"message": "Eines d&#39;impressió de missatges i adreces (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Nota: les opcions de PrintingTools NG s&#39;han mogut al menú de punts suspensius del gestor de complements."
-	},
-	"moreinfo_button_label": {
-		"message": "Més informació"
-	},
-	"update_option_info2": {
-		"message": "Nota: Proveu el nou botó de la barra d&#39;eines PrintingTools NG, utilitzeu el menú Visualitza/Barres d&#39;eines/Personalitza per afegir-lo a la vostra barra d&#39;eines. També podeu afegir-lo a la barra d&#39;eines de capçalera del panell de missatges."
+		"message": "Impressió de missatges, capçaleres i eines de sortida de PDF (Nextgen)"
 	}
 }

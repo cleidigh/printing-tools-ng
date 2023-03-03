@@ -17,7 +17,7 @@ const translate = new Translate({ projectId, key });
 var translationArray = [
 	// { key: "", text: "" },
 	{ key: "extensionName", text: "PrintingTools NG" },
-	{ key: "extensionDescription", text: "Message Printing and PDF Output Tools" },
+	{ key: "extensionDescription", text: "Message Printing, Headers and PDF Output Tools (Nextgen)" },
 
 
 	
@@ -157,7 +157,7 @@ async function translateAllLocales(iFile, sourceArray, locales, format, options)
 		lt = lt.join('\n');
 
 		if (options.outputFormat === 3) {
-			// lt = `{\n${lt}\n}`;
+			lt = `{\n${lt}\n}`;
 		}
 
 		lt = lt.replace(/<nl>/g, "\\n");

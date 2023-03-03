@@ -2,16 +2,8 @@
 	"extensionName": {
 		"message": "PrintingTools NG"
 	},
+
 	"extensionDescription": {
-		"message": "Hulpmiddelen voor het afdrukken van berichten en adressen (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Opmerking: de opties van PrintingTools NG zijn verplaatst naar het ellipsenmenu van de add-on manager."
-	},
-	"moreinfo_button_label": {
-		"message": "Meer informatie"
-	},
-	"update_option_info2": {
-		"message": "Opmerking: Probeer de nieuwe PrintingTools NG-werkbalkknop uit, gebruik het menu Beeld/Werkbalken/Aanpassen om het aan uw werkbalk toe te voegen. U kunt het ook toevoegen aan de koptekstwerkbalk van het berichtenvenster."
+		"message": "Berichten afdrukken, kopteksten en PDF-uitvoertools (Nextgen)"
 	}
 }

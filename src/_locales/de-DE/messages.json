@@ -2,16 +2,8 @@
 	"extensionName": {
 		"message": "PrintingTools NG"
 	},
+
 	"extensionDescription": {
-		"message": "Tools zum Drucken von Nachrichten und Adressen (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Hinweis: Die Optionen von PrintingTools NG wurden in das Ellipsenmenü des Add-On-Managers verschoben."
-	},
-	"moreinfo_button_label": {
-		"message": "Mehr Info"
-	},
-	"update_option_info2": {
-		"message": "Note: Probieren Sie den neuen PrintingTools NG toolbar button, zu finden wie folgt: Ansicht >> Symbolleisten >> Anpassen und füge 'Drucken NG' zur Symbolleiste hinzu. Sie können  'Drucken NG' auch in die Nachrichten Symbolleiste auf diese Weise einfügen."
+		"message": "Nachrichtendruck, Kopfzeilen und PDF-Ausgabetools (Nextgen)"
 	}
 }

@@ -2,16 +2,8 @@
 	"extensionName": {
 		"message": "PrintingTools NG"
 	},
+
 	"extensionDescription": {
-		"message": "Verktøy for utskrift av melding og adresse (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Merk: Alternativer for PrintingTools NG er flyttet til tilleggsadministratorens ellipsemeny."
-	},
-	"moreinfo_button_label": {
-		"message": "Mer informasjon"
-	},
-	"update_option_info2": {
-		"message": "Merk: Prøv den nye PrintingTools NG-verktøylinjeknappen, bruk Vis/Verktøylinjer/Tilpass-menyen for å legge den til på verktøylinjen. Du kan også legge den til på overskriftsverktøylinjen i meldingsruten."
+		"message": "Meldingsutskrift, topptekster og PDF-utdataverktøy (Nextgen)"
 	}
 }
