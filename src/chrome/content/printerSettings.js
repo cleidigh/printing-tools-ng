@@ -488,7 +488,6 @@ var printerSettings = {
       customProps[printProperty] = printSettings[printProperty];
     }
 
-    //customProps.numCopies = nc;
     let js = JSON.stringify(customProps);
     console.log("saving ptng settings")
     console.log(js, printerNameEsc)
@@ -520,19 +519,7 @@ var printerSettings = {
 
     for (const printProperty in customProps) {
       printSettings[printProperty] = customProps[printProperty];
-      //  console.log(printProperty + "" + printerSettings[printProperty]);
     }
-
-       /*
-    if (printSettings.scaling != 1) {
-      console.log("scaling: ")
-      printSettings.shrinkToFit = false;
-      
-    } else {
-      printSettings.shrinkToFit = true;
-      
-    }
-*/
 
     return printSettings;
   },
@@ -549,7 +536,7 @@ var printerSettings = {
 
   // We setup an observer for the preview subdialog so we can set
   // PTNG preferences which are not set in printsettings
-  // nCopies and pageRanges are set from PTNG settings
+  // pageRanges is set from PTNG settings
 
   addPrintPreviewObserver: function () {
     Services.obs.addObserver(this.printPreviewSetPrinterPrefs, "subdialog-loaded");
@@ -584,19 +571,12 @@ var printerSettings = {
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
-      
-
-      let psc = subDialogWindow.document.querySelector("#percent-scale-choice");
-      let ps = subDialogWindow.document.querySelector("#percent-scale");
-      //console.log()
-      //psc.checked = true;
 
       let printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
 
       let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
       var customProps = JSON.parse(props);
 
-      console.log(customProps)
       let o = [...rp.options];
       let rangeType;
       if (customProps.pageRanges.length == 0) {
@@ -610,17 +590,9 @@ var printerSettings = {
       rp.selectedIndex = o.findIndex(el => el.value == rangeType);
       cmg.removeAttribute("hidden");
       mp.selectedIndex = 3;
+      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 100));
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
 
-      //ps.value = customProps.numCopies;
-      //await new Promise(resolve => subDialogWindow.setTimeout(resolve, 100));
-      //nc.value = customProps.numCopies;
-      //await new Promise(resolve => subDialogWindow.setTimeout(resolve, 200));
-      //nc.value = customProps.numCopies;
-      //ps.value = customProps.numCopies;
-      //await new Promise(resolve => subDialogWindow.setTimeout(resolve, 350));
-      //nc.value = customProps.numCopies;
-      //ps.value = customProps.numCopies;
     },
   },
 };
