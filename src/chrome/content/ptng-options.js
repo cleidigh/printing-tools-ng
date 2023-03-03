@@ -57,10 +57,7 @@ async function initPMDpanel() {
 
 	printerSettings = win.printerSettings;
 
-	console.log(mainStrBundle.GetStringFromName("dateformatTB5"));
-
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
-
 
 	document.getElementById("useCcBccAlways").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always");
 
@@ -213,42 +210,42 @@ async function initPMDpanel() {
 	// console.debug(gheaderList.listElement.outerHTML);
 	gheaderList.controller.selectRowByDataId('1');
 
-  // PDF Output Options
-  document.getElementById("enablePDFoutputDir").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
-  document.getElementById("PDFoutputDir").value = prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
-  document.getElementById("customDatePDF").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.custom_date_format");
-  document.getElementById("prefixText").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.prefix");
-  document.getElementById("suffixText").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.suffix");
-  document.getElementById("enableLatinize").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.latinize");
-  document.getElementById("enableEmojiAndSymbolFilter").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols");
-  document.getElementById("characterFilter").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.filter_characters");
-  document.getElementById("PDFcustomFilenameFormat").value = prefs.getStringPref("extensions.printingtoolsng.pdf.custom_filename_format");
+	// PDF Output Options
+	document.getElementById("enablePDFoutputDir").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
+	document.getElementById("PDFoutputDir").value = prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
+	document.getElementById("customDatePDF").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.custom_date_format");
+	document.getElementById("prefixText").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.prefix");
+	document.getElementById("suffixText").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.suffix");
+	document.getElementById("enableLatinize").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.latinize");
+	document.getElementById("enableEmojiAndSymbolFilter").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols");
+	document.getElementById("characterFilter").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.filter_characters");
+	document.getElementById("PDFcustomFilenameFormat").value = prefs.getStringPref("extensions.printingtoolsng.pdf.custom_filename_format");
 
 	Services.console.logStringMessage("printingtools: call printer setup");
 
 	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
-	var outputPrinter =  await setPrinterList();
+	var outputPrinter = await setPrinterList();
 	printerSettings.getPrinterSettings(window, outputPrinter);
 	initValidationIds();
-  addValidationListeners();
-  enableOKbuttonOnValidation();
+	addValidationListeners();
+	enableOKbuttonOnValidation();
 	document.getElementById("useCcBccAlways").focus;
 }
 
 async function pickPDFoutputDir() {
-  let fpMode = Ci.nsIFilePicker.modeGetFolder;
-					
-					let fpTitle = this.mainStrBundle.GetStringFromName("select_pdf_dir");
-					let fpDisplayDirectory = null;
-					let resultObj = await utils.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
-					if (resultObj.result == -1) {
-						return;
-					}
-					let pdfOutputDir = resultObj.folder;
-					
-          document.getElementById("PDFoutputDir").value = pdfOutputDir;
-  
+	let fpMode = Ci.nsIFilePicker.modeGetFolder;
+
+	let fpTitle = this.mainStrBundle.GetStringFromName("select_pdf_dir");
+	let fpDisplayDirectory = null;
+	let resultObj = await utils.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
+	if (resultObj.result == -1) {
+		return;
+	}
+	let pdfOutputDir = resultObj.folder;
+
+	document.getElementById("PDFoutputDir").value = pdfOutputDir;
+
 }
 
 async function setPrinterList() {
@@ -265,17 +262,14 @@ async function setPrinterList() {
 	if (type) {
 		outputPrinter = prefs.getCharPref("print_printer");
 	} else {
-		console.log("no tb printer")
 		outputPrinter = defaultPrinter;
 	}
 
-	console.log(outputPrinter)
+	// console.log(outputPrinter)
 	var printerListMenu = document.getElementById("OutputPrinter");
 	var selindex = 0;
 	var popup = document.createXULElement("menupopup");
 
-	
-	// var printers = [];
 	var i = 1;
 	var menuitem0 = document.createXULElement("menuitem");
 	menuitem0.setAttribute("value", "Mozilla Save to PDF");
@@ -287,14 +281,11 @@ async function setPrinterList() {
 		let printerName = printer.name;
 		var menuitem = document.createXULElement("menuitem");
 
-		// Services.console.logStringMessage("printingtools: printerName: " + printerName);
-		// printers.push(printerName);
 		menuitem.setAttribute("value", printerName);
 		menuitem.setAttribute("label", printerName);
 		popup.appendChild(menuitem);
 		if (printerName === outputPrinter) {
 			selindex = i;
-			// Services.console.logStringMessage("printingtools: selected: " + outputPrinter);
 		}
 		i++;
 	}
@@ -305,8 +296,7 @@ async function setPrinterList() {
 
 	printerListMenu.appendChild(popup);
 	printerListMenu.selectedIndex = selindex;
-	// Services.console.logStringMessage("printingtools: printerName index: " + selindex);
-	console.log("Selected printer : ", outputPrinter);
+	// console.log("Selected printer : ", outputPrinter);
 	return outputPrinter;
 }
 
@@ -318,18 +308,13 @@ function printerChange() {
 }
 
 function onSelectListRow(event, data_id) {
-	if (event.type === 'onclick') {
-		// miczThunderStatsPrefPanel.onNBDItemClick(event, data_id);
 
-	} else {
-		// miczThunderStatsPrefPanel.updateNBDButtons(window);
-	}
 }
 
 function getHeaderLabel(string) {
 
 	var bundle;
-	//console.log(Services.locale.appLocaleAsBCP47)
+	// console.log(Services.locale.appLocaleAsBCP47)
 	if (Services.locale.appLocaleAsBCP47 === "ja") {
 		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
 	} else if (Services.locale.appLocaleAsBCP47 === "zh-CN") {
@@ -370,13 +355,11 @@ function getHeaderLabel(string) {
 }
 
 function savePMDprefs() {
-	//console.debug('save options');
+	// console.debug('save options');
 
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
 	prefs.setCharPref("print_printer", "");
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
-	//Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);
-
 	prefs.setBoolPref("extensions.printingtoolsng.headers.useCcBcc_always", document.getElementById("useCcBccAlways").checked);
 
 	var max_pre_len;
@@ -403,10 +386,10 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments", document.getElementById("PMDhideAtt").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments_list", document.getElementById("InlineAttsListhide").checked);
-	//prefs.setBoolPref("extensions.printingtoolsng.print.just_selection", document.getElementById("PMDselection").checked);
+
 	prefs.setBoolPref("extensions.printingtoolsng.headers.addfolder", document.getElementById("addFolder").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.align", document.getElementById("alignHeaders").checked);
-  prefs.setBoolPref("extensions.printingtoolsng.add_received_date", document.getElementById("addRdate").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.add_received_date", document.getElementById("addRdate").checked);
 
 
 	prefs.setIntPref("extensions.printingtoolsng.date.long_format_type", document.getElementById("dateLongRG").selectedIndex);
@@ -457,17 +440,17 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach", document.getElementById("addP7M").checked);
 	prefs.setCharPref("extensions.printingtoolsng.debug.options", document.getElementById("debug-options").value);
 
-    // PDF Output Options
-    prefs.setBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir", document.getElementById("enablePDFoutputDir").checked);
-    prefs.setStringPref("extensions.printingtoolsng.pdf.output_dir", document.getElementById("PDFoutputDir").value);
-    prefs.setStringPref("extensions.printingtoolsng.pdf.filename.custom_date_format", document.getElementById("customDatePDF").value);
-    prefs.setStringPref("extensions.printingtoolsng.pdf.filename.prefix", document.getElementById("prefixText").value);
-    prefs.setStringPref("extensions.printingtoolsng.pdf.filename.suffix", document.getElementById("suffixText").value);
-    prefs.setBoolPref("extensions.printingtoolsng.pdf.filename.latinize", document.getElementById("enableLatinize").checked);
-    prefs.setBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols", document.getElementById("enableEmojiAndSymbolFilter").checked);
-    prefs.setStringPref("extensions.printingtoolsng.pdf.filename.filter_characters", document.getElementById("characterFilter").value);
-    prefs.setStringPref("extensions.printingtoolsng.pdf.custom_filename_format", document.getElementById("PDFcustomFilenameFormat").value);
-  
+	// PDF Output Options
+	prefs.setBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir", document.getElementById("enablePDFoutputDir").checked);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.output_dir", document.getElementById("PDFoutputDir").value);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.filename.custom_date_format", document.getElementById("customDatePDF").value);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.filename.prefix", document.getElementById("prefixText").value);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.filename.suffix", document.getElementById("suffixText").value);
+	prefs.setBoolPref("extensions.printingtoolsng.pdf.filename.latinize", document.getElementById("enableLatinize").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols", document.getElementById("enableEmojiAndSymbolFilter").checked);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.filename.filter_characters", document.getElementById("characterFilter").value);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.custom_filename_format", document.getElementById("PDFcustomFilenameFormat").value);
+
 	printerSettings.savePrintSettings(window);
 	window.close();
 }
@@ -559,15 +542,8 @@ function toggleHeaderShow() {
 	t = ((s === "true") ? t.replace('!', '') : '!' + t);
 	// Services.console.logStringMessage(`after just ${s} ${t}`); 
 	gheaderList.items[idx].values({ "show": s, "headerToken": t });
-
-	// Services.console.logStringMessage(`${selectedElement.outerHTML}\n${idx} ${s} ${t}`);
-	// Services.console.logStringMessage(gheaderList.list.outerHTML);
 	dumpList();
-	// if (s) {
-
-	// } else {
-
-	// }
+	
 }
 
 function toggleUseBackgroundColor(el) {
@@ -588,15 +564,13 @@ function toggleHeadersStyle(el) {
 function toggleMessageStyle(el, notify) {
 	document.getElementById("fontlist").disabled = !el.checked;
 	document.getElementById("fontsize").disabled = !el.checked;
-	//document.getElementById("radiostyle").disabled = !el.checked;
+
 	var strBundleService = Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService);
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 	if (document.getElementById("messageStyle").checked && notify) {
-		// alert("The system option:\n  Allow messages to use other fonts\nhas been enabled");
 		alert(bundle.GetStringFromName("allowFonts"));
 		prefs.setIntPref("browser.display.use_document_fonts", 1);
 	} else if (notify) {
-		// alert("The system option:\n  Allow messages to use other fonts\nhas been disabled");
 		alert(bundle.GetStringFromName("disallowFonts"));
 		prefs.setIntPref("browser.display.use_document_fonts", 0);
 	}
@@ -613,7 +587,6 @@ function toggleDate() {
 }
 
 function scaleToggle(scaleRG) {
-	console.log("toggle ", scaleRG.selectedIndex)
 	let se = document.querySelector("#scale");
 	if (scaleRG.selectedIndex == 0) {
 		se.setAttribute("disabled", "true");
@@ -623,11 +596,8 @@ function scaleToggle(scaleRG) {
 }
 
 function pageRangeToggle(pageRangeRG) {
-	console.log("toggle ", pageRangeRG.selectedIndex)
 	let cr = document.querySelector("#pages");
 	if (pageRangeRG.selectedIndex == 0) {
-
-
 		cr.setAttribute("disabled", "true");
 		cr.value = "1";
 		console.log(cr)
@@ -705,7 +675,6 @@ function scaleValidation() {
 }
 
 function handlePageRangesKeypress(e) {
-	console.log(e)
 	let char = String.fromCharCode(e.charCode);
 	let acceptedChar = char.match(/^[0-9,-]$/);
 	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
@@ -716,13 +685,11 @@ function handlePageRangesKeypress(e) {
 function pageRangesValidation(e) {
 	let pr = document.querySelector("#pages");
 	let pre = document.querySelector("#page-ranges-error");
-	console.log("chk v", pr.validity.valueMissing)
-	let v = pr.validity;
-	console.log(v)
+
 	if (pr.validity.valueMissing) {
 		pre.textContent = mainStrBundle.GetStringFromName("err_pageranges_val_req");
 		let l = pre.textContent.length * 0.50 + "em";
-		pre.style.width = l
+		pre.style.width = l;
 		pre.className = "error active";
 	} else if (pageRangesStringValidation(pr.value)) {
 		if (pageRangesStringValidation(pr.value) == 1) {
@@ -730,8 +697,8 @@ function pageRangesValidation(e) {
 		} else {
 			pre.textContent = mainStrBundle.GetStringFromName("err_pageranges_val_endgrbeg");
 		}
-		let l = pre.textContent.length * 0.50 + "em";
-		pre.style.width = "100%"
+
+		pre.style.width = "100%";
 		pre.className = "error active";
 	} else {
 		pre.className = "error";
@@ -740,17 +707,14 @@ function pageRangesValidation(e) {
 }
 
 function handleMarginsKeypress(e) {
-	console.log(e)
 	let char = String.fromCharCode(e.charCode);
 	let acceptedChar = char.match(/^[0-9,.]$/);
 	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
 		e.preventDefault();
 	}
-	//copiesValidation();
 }
 
 function handleMarginsValidation(e) {
-	let margin = e.target;
 	enableOKbuttonOnValidation();
 }
 
@@ -762,8 +726,6 @@ function enableOKbuttonOnValidation() {
 	} else {
 		okButton.disabled = false;
 	}
-	
-	
 }
 
 function pageRangesStringValidation(pageRangesStr) {
@@ -778,11 +740,7 @@ function pageRangesStringValidation(pageRangesStr) {
 			10
 		);
 
-		console.log(startRange)
-		console.log(endRange)
-
 		if (startRange == 0 || endRange == 0) {
-			console.log("zero")
 			return 1;
 		}
 		// If the startRange was not specified, then we infer this
@@ -799,14 +757,9 @@ function pageRangesStringValidation(pageRangesStr) {
 		if (endRange < startRange) {
 			return 2;
 		}
-
-
 	}
-
 	return 0;
 }
-
-
 
 document.addEventListener("dialogaccept", function (event) {
 	savePMDprefs();
