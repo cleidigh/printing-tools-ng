@@ -440,22 +440,29 @@
     <br />
     <h2 id="print_options_help">Options d&#39;impression et de mise en page</h2>
     <p>
-      Ces options vous permettent de définir des options par page d&#39;imprimante. Il est également possible
-      de définir le mode silencieux où la boîte de dialogue d&#39;aperçu n&#39;est pas affichée et
-      l&#39;impression est effectuée immédiatement.
+      Ces options vous permettent de définir l&#39;imprimante par défaut ainsi que les options de page de
+      l&#39;imprimante. Il est également possible de définir le mode silencieux où la boîte de dialogue
+      d&#39;aperçu n&#39;est pas affichée et l&#39;impression est effectuée immédiatement.
     </p>
     <p>
       Les options de page vous permettent de définir des éléments lorsque l&#39;aperçu ou l&#39;impression est
-      terminée. Certains éléments ne peuvent pas être définis dans la boîte de dialogue d&#39;aperçu,
-      notamment les en-têtes et les pieds de page. Les autres éléments ne sont pas retenus par l&#39;aperçu et
-      devraient normalement être définis à chaque fois qu&#39;une impression est effectuée.
+      terminée. Ces options sont persistantes à travers l&#39;impression. Si les options définies dans
+      PrintingTools NG sont modifiées dans l&#39;aperçu avant impression, elles n&#39;affecteront pas les
+      impressions suivantes. Certains éléments ne peuvent pas être définis dans la boîte de dialogue
+      d&#39;aperçu, notamment les en-têtes et les pieds de page. Les autres éléments ne sont pas retenus par
+      l&#39;aperçu et devraient normalement être définis à chaque fois qu&#39;une impression est effectuée.
+      PrintingTools NG résout ces deux problèmes.
     </p>
     <p>
-      Ceux-ci incluent les copies et les plages de pages. Un cas d&#39;utilisation typique est celui où
-      l&#39;on souhaite n&#39;imprimer que la première page d&#39;un e-mail par défaut. normalement, il
-      faudrait faire en sorte que les plages de pages changent à chaque fois.
+      Un élément non enregistré par l&#39;aperçu est les plages de pages. Un cas d&#39;utilisation typique est
+      celui où l&#39;on souhaite n&#39;imprimer que la première page d&#39;un e-mail par défaut. normalement,
+      il faudrait faire en sorte que les plages de pages changent à chaque fois. Notez que si une plage de
+      pages définie dans PrintingTools NG n&#39;est pas valide, par exemple en dépassant le nombre de pages,
+      la plage devra être corrigée dans l&#39;aperçu avant l&#39;impression. Une plage de pages définie sur
+      &quot;1&quot; sera toujours valide et imprime la première page du message.
     </p>
     <p>Remarques:</p>
+    <p>L&#39;option de mise à l&#39;échelle permet de définir une échelle persistante.</p>
     <p>
       Les plages de pages sont décrites de la même manière que dans l&#39;aperçu. Les exemples sont 1, 1-2,
       3-4,5. Notez que si une plage de pages prédéfinie n&#39;est pas valide pour un message donné,
@@ -463,12 +470,15 @@
     </p>
     <p>
       Les marges peuvent être définies à l&#39;aide d&#39;unités adaptées aux paramètres régionaux de
-      l&#39;utilisateur, en pouces ou en millimètres (in ou mm).
+      l&#39;utilisateur, en pouces ou en millimètres (in ou mm). Notez qu&#39;en raison d&#39;erreurs
+      d&#39;arrondi, certaines valeurs en mm peuvent être enregistrées avec de petites différences.
     </p>
     <p></p>
     <p>
       Les en-têtes et pieds de page peuvent être définis pour inclure diverses variables de message
-      répertoriées ci-dessous. De plus, du texte arbitraire peut également être inclus.
+      répertoriées ci-dessous. De plus, du texte arbitraire peut également être inclus. Pour n&#39;imprimer
+      aucun en-tête ni pied de page et économiser de l&#39;espace d&#39;impression, il vous suffit de vider
+      tous les champs.
     </p>
     <div class="indent1">
       <li>&amp;J = Date</li>

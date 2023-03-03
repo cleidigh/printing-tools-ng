@@ -419,21 +419,28 @@
     <br />
     <h2 id="print_options_help">Utskrifts- och sidalternativ</h2>
     <p>
-      Dessa alternativ låter dig ställa in alternativ per skrivarsida. Det är också möjligt att ställa in det
-      tysta läget där förhandsgranskningsdialogrutan inte visas och utskriften görs omedelbart.
+      Dessa alternativ låter dig ställa in standardskrivaren och alternativen per skrivarsida. Det är också
+      möjligt att ställa in det tysta läget där förhandsgranskningsdialogrutan inte visas och utskriften görs
+      omedelbart.
     </p>
     <p>
-      Sidalternativen låter dig ställa in objekt när både förhandsgranskning eller utskrift är klar. Vissa
-      objekt är inte tillgängliga för att ställas in i förhandsgranskningsdialogrutan, dessa inkluderar
-      sidhuvuden och sidfötter. Andra objekt behålls inte av förhandsgranskningen och skulle normalt behöva
-      ställas in varje gång en utskrift görs.
+      Sidalternativen låter dig ställa in objekt när både förhandsgranskning eller utskrift är klar. Dessa
+      alternativ är beständiga över hela utskriften. Om alternativen som ställts in i PrintingTools NG ändras
+      i förhandsgranskningen av utskriften kommer de inte att påverka efterföljande utskrifter. Vissa objekt
+      är inte tillgängliga för att ställas in i förhandsgranskningsdialogrutan, dessa inkluderar sidhuvuden
+      och sidfötter. Andra objekt behålls inte av förhandsgranskningen och skulle normalt behöva ställas in
+      varje gång en utskrift görs. PrintingTools NG löser båda dessa problem.
     </p>
     <p>
-      Dessa inkluderar kopior och sidintervall. Ett typiskt användningsfall är när man vill skriva ut bara den
-      första sidan i ett e-postmeddelande som standard. normalt skulle man behöva ändra sidintervallen varje
-      gång.
+      Ett objekt som inte sparas av förhandsgranskningen är sidintervallen. Ett typiskt användningsfall är när
+      man vill skriva ut bara den första sidan i ett e-postmeddelande som standard. normalt skulle man behöva
+      ändra sidintervallen varje gång. Observera att om ett sidintervall som ställts in i PrintingTools NG
+      inte är giltigt, till exempel att överskrida antalet sidor, måste intervallet korrigeras i
+      förhandsgranskningen innan utskrift. Ett sidintervall inställt på &quot;1&quot; kommer alltid att vara
+      giltigt och skriver ut första sidan i meddelandet.
     </p>
     <p>Anmärkningar:</p>
+    <p>Skalningsalternativet låter en ställa in en beständig skala.</p>
     <p>
       Sidintervall beskrivs på samma sätt som i förhandsgranskningen. Exempel är 1, 1-2, 3-4,5. Observera att
       om ett förinställt sidintervall inte är giltigt för ett givet meddelande kommer förhandsgranskningen att
@@ -441,12 +448,14 @@
     </p>
     <p>
       Marginalerna kan ställas in med hjälp av enheter som är lämpliga för användarens lokalitet, antingen tum
-      eller millimeter (in eller mm).
+      eller millimeter (in eller mm). Observera att på grund av avrundningsfel kan vissa mm-värden sparas med
+      små skillnader.
     </p>
     <p></p>
     <p>
       Sidhuvuden och sidfötter kan ställas in så att de inkluderar olika meddelandevariabler som anges nedan.
-      Dessutom kan godtycklig text inkluderas.
+      Dessutom kan godtycklig text inkluderas. För att inte skriva ut sidhuvuden eller sidfötter och spara
+      utskriftsutrymme, gör bara alla fält tomma.
     </p>
     <div class="indent1">
       <li>&amp;D = Datum</li>

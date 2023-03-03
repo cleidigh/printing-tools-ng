@@ -423,21 +423,28 @@
     <br />
     <h2 id="print_options_help">Opcións de impresión e páxina</h2>
     <p>
-      Estas opcións permítenche configurar as opcións por páxina da impresora. Tamén é posible establecer o
-      modo silencioso onde non se mostra o diálogo de vista previa e a impresión realízase inmediatamente.
+      Estas opcións permítenche configurar a impresora predeterminada así como as opcións por páxina de
+      impresora. Tamén é posible establecer o modo silencioso onde non se mostra o diálogo de vista previa e a
+      impresión realízase inmediatamente.
     </p>
     <p>
-      As opcións de páxina permítenche configurar elementos cando se faga a vista previa ou a impresión.
-      Algúns elementos non están dispoñibles para seren configurados no diálogo de vista previa, incluídos os
-      encabezados e os pés de páxina. Outros elementos non se conservan na vista previa e normalmente deberían
-      configurarse cada vez que se fai unha impresión.
+      As opcións de páxina permítenche configurar elementos cando se faga a vista previa ou a impresión. Estas
+      opcións son persistentes durante a impresión. Se se modifican as opcións definidas en PrintingTools NG
+      na vista previa de impresión, non afectarán ás impresións posteriores. Algúns elementos non están
+      dispoñibles para seren configurados no diálogo de vista previa, incluídos os encabezados e os pés de
+      páxina. Outros elementos non se conservan na vista previa e normalmente deberían configurarse cada vez
+      que se fai unha impresión. PrintingTools NG resolve estes dous problemas.
     </p>
     <p>
-      Estes inclúen copias e intervalos de páxinas. Un caso de uso típico é cando se desexa imprimir só a
-      primeira páxina dun correo electrónico como opción predeterminada. normalmente habería que facer que os
-      intervalos de páxinas cambien cada vez.
+      Un elemento que non se gardou na vista previa son os intervalos de páxinas. Un caso de uso típico é
+      cando se desexa imprimir só a primeira páxina dun correo electrónico como opción predeterminada.
+      normalmente habería que facer que os intervalos de páxinas cambien cada vez. Teña en conta que se un
+      intervalo de páxinas definido en PrintingTools NG non é válido, como exceder o número de páxinas, o
+      intervalo deberá ser corrixido na vista previa antes de imprimir. Un intervalo de páxinas definido en
+      &quot;1&quot; sempre será válido e imprime a primeira páxina da mensaxe.
     </p>
     <p>Notas:</p>
+    <p>A opción de escalado permite establecer unha escala persistente.</p>
     <p>
       Os intervalos de páxinas descríbense do mesmo xeito que na vista previa. Exemplos son 1, 1-2, 3-4,5.
       Teña en conta que se un intervalo de páxinas predefinido non é válido para unha determinada mensaxe, a
@@ -445,12 +452,14 @@
     </p>
     <p>
       As marxes pódense establecer usando unidades apropiadas para a localización do usuario, xa sexan
-      polgadas ou milímetros (polgadas ou mm).
+      polgadas ou milímetros (polgadas ou mm). Teña en conta que, debido a erros de redondeo, algúns valores
+      en mm poden gardarse con pequenas diferenzas.
     </p>
     <p></p>
     <p>
       As cabeceiras e os pés de páxina pódense configurar para incluír varias variables de mensaxes listadas a
-      continuación. Ademais, tamén se pode incluír texto arbitrario.
+      continuación. Ademais, tamén se pode incluír texto arbitrario. Para non imprimir cabeceiras nin pés de
+      páxina e aforrar espazo de impresión, só tes que deixar todos os campos en branco.
     </p>
     <div class="indent1">
       <li>&amp;D = Data</li>

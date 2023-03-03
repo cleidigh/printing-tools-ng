@@ -433,22 +433,28 @@
     <br />
     <h2 id="print_options_help">Afdruk- en pagina-opties</h2>
     <p>
-      Met deze opties kunt u per printer pagina-opties instellen. Het is ook mogelijk om de stille modus in te
-      stellen, waarbij het voorbeelddialoogvenster niet wordt weergegeven en het afdrukken direct wordt
-      uitgevoerd.
+      Met deze opties kunt u zowel de standaardprinter als pagina-opties per printer instellen. Het is ook
+      mogelijk om de stille modus in te stellen, waarbij het voorbeelddialoogvenster niet wordt weergegeven en
+      het afdrukken direct wordt uitgevoerd.
     </p>
     <p>
       Met de pagina-opties kunt u items instellen wanneer zowel het voorbeeld als het afdrukken is voltooid.
-      Sommige items kunnen niet worden ingesteld in het voorbeelddialoogvenster, waaronder de kop- en
-      voetteksten. Andere items worden niet vastgehouden door het voorbeeld en moeten normaal gesproken elke
-      keer dat er een afdruk wordt gemaakt, worden ingesteld.
+      Deze opties zijn permanent tijdens het afdrukken. Als opties die zijn ingesteld in PrintingTools NG
+      worden gewijzigd in het afdrukvoorbeeld, hebben ze geen invloed op volgende afdrukken. Sommige items
+      kunnen niet worden ingesteld in het voorbeelddialoogvenster, waaronder de kop- en voetteksten. Andere
+      items worden niet vastgehouden door het voorbeeld en moeten normaal gesproken elke keer dat er een
+      afdruk wordt gemaakt, worden ingesteld. PrintingTools NG lost beide problemen op.
     </p>
     <p>
-      Deze omvatten kopieën en paginareeksen. Een typische use-case is waar men standaard alleen de eerste
-      pagina van een e-mail wil afdrukken. normaal gesproken zou men de paginabereiken elke keer moeten laten
-      veranderen.
+      Een item dat niet is opgeslagen door het voorbeeld, zijn de paginabereiken. Een typische use-case is
+      waar men standaard alleen de eerste pagina van een e-mail wil afdrukken. normaal gesproken zou men de
+      paginabereiken elke keer moeten laten veranderen. Let op: als een in PrintingTools NG ingesteld
+      paginabereik niet geldig is, bijvoorbeeld als het aantal pagina&#39;s wordt overschreden, moet het
+      bereik in het voorbeeld worden gecorrigeerd voordat het wordt afgedrukt. Een paginabereik ingesteld op
+      &quot;1&quot; is altijd geldig en drukt de eerste pagina van het bericht af.
     </p>
     <p>Opmerkingen:</p>
+    <p>Met de schaaloptie kan een blijvende schaal worden ingesteld.</p>
     <p>
       Paginabereiken worden op dezelfde manier beschreven als in het voorbeeld. Voorbeelden zijn 1, 1-2,
       3-4,5. Merk op dat als een vooraf ingesteld paginabereik niet geldig is voor een bepaald bericht, het
@@ -456,12 +462,14 @@
     </p>
     <p>
       De marges kunnen worden ingesteld met eenheden die geschikt zijn voor de landinstelling van de
-      gebruiker, inches of millimeters (in of mm).
+      gebruiker, inches of millimeters (in of mm). Let op, vanwege afrondingsfouten kunnen sommige mm-waarden
+      met kleine verschillen worden opgeslagen.
     </p>
     <p></p>
     <p>
       De kop- en voetteksten kunnen zo worden ingesteld dat ze verschillende onderstaande berichtvariabelen
-      bevatten. Daarnaast kan ook willekeurige tekst worden opgenomen.
+      bevatten. Daarnaast kan ook willekeurige tekst worden opgenomen. Om geen kop- of voetteksten af te
+      drukken en afdrukruimte te besparen, maakt u alle velden leeg.
     </p>
     <div class="indent1">
       <li>&amp;D = Datum</li>
@@ -489,7 +497,7 @@
       <li>Latinize.js door Jakub Dundalek https://github.com/dundalek/latinize</li>
     </div>
     <p>
-      Dank aan de volgende gebruikers voor verbeteringssuggesties en testhulp:<br /><br />
+      Dank aan de volgende gebruikers voor verbeteringenuggesties en testhulp:<br /><br />
       - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
       - <code class="notranslate">@RRoenn</code><br />
       - <code class="notranslate">@tidebre67</code><br />

@@ -109,7 +109,7 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>configuración regional en-US, día/mes largo</td>
+        <td>configuración regional en-US, día/mes largos</td>
       </tr>
     </table>
     <br />
@@ -254,8 +254,8 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Número de semana ISO 8601 del año actual como un número decimal (rango 01 a 53), donde la semana 1
-            es la primera semana que tiene al menos 4 días en el nuevo año (es decir, el primer jueves).
+            Número de semana ISO 8601 del año actual como número decimal (rango 01 a 53), donde la semana 1 es
+            la primera semana que tiene al menos 4 días en el nuevo año (es decir, el primer jueves).
           </td>
         </tr>
         <tr>
@@ -427,22 +427,28 @@
     <br />
     <h2 id="print_options_help">Opciones de impresión y página</h2>
     <p>
-      Estas opciones le permiten establecer opciones por página de impresora. También es posible establecer el
-      modo silencioso en el que no se muestra el cuadro de diálogo de vista previa y la impresión se realiza
-      de inmediato.
+      Estas opciones le permiten configurar la impresora predeterminada, así como las opciones por página de
+      la impresora. También es posible establecer el modo silencioso en el que no se muestra el cuadro de
+      diálogo de vista previa y la impresión se realiza de inmediato.
     </p>
     <p>
       Las opciones de página le permiten configurar elementos cuando se realiza la vista previa o la
-      impresión. Algunos elementos no están disponibles para establecerse en el cuadro de diálogo de vista
-      previa, estos incluyen los encabezados y pies de página. La vista previa no retiene otros elementos y,
-      por lo general, deben configurarse cada vez que se realiza una impresión.
+      impresión. Estas opciones son persistentes a lo largo de la impresión. Si las opciones configuradas en
+      PrintingTools NG se cambian en la vista previa de impresión, no afectarán las impresiones posteriores.
+      Algunos elementos no están disponibles para establecerse en el cuadro de diálogo de vista previa, estos
+      incluyen los encabezados y pies de página. La vista previa no retiene otros elementos y, por lo general,
+      deben configurarse cada vez que se realiza una impresión. PrintingTools NG resuelve ambos problemas.
     </p>
     <p>
-      Estos incluyen copias y rangos de páginas. Un caso de uso típico es cuando uno desea imprimir solo la
-      primera página de un correo electrónico como predeterminado. normalmente uno tendría que hacer que los
-      rangos de página cambien cada vez.
+      Un elemento que no guarda la vista previa son los rangos de página. Un caso de uso típico es cuando uno
+      desea imprimir solo la primera página de un correo electrónico como predeterminado. normalmente uno
+      tendría que hacer que los rangos de página cambien cada vez. Tenga en cuenta que si un rango de páginas
+      establecido en PrintingTools NG no es válido, por ejemplo, si excede el número de páginas, el rango
+      deberá corregirse en la vista previa antes de imprimir. Un intervalo de páginas establecido en
+      &quot;1&quot; siempre será válido e imprime la primera página del mensaje.
     </p>
     <p>Notas:</p>
+    <p>La opción de escalado permite establecer una escala persistente.</p>
     <p>
       Los rangos de páginas se describen de la misma manera que en la vista previa. Los ejemplos son 1, 1-2,
       3-4,5. Tenga en cuenta que si un intervalo de páginas predeterminado no es válido para un mensaje
@@ -450,12 +456,14 @@
     </p>
     <p>
       Los márgenes se pueden configurar usando unidades apropiadas para la configuración regional de los
-      usuarios, ya sea pulgadas o milímetros (in o mm).
+      usuarios, ya sea pulgadas o milímetros (in o mm). Tenga en cuenta que, debido a errores de redondeo,
+      algunos valores en mm pueden guardarse con pequeñas diferencias.
     </p>
     <p></p>
     <p>
       Los encabezados y pies de página se pueden configurar para incluir varias variables de mensaje que se
-      enumeran a continuación. Además, también se puede incluir texto arbitrario.
+      enumeran a continuación. Además, también se puede incluir texto arbitrario. Para no imprimir encabezados
+      ni pies de página y ahorrar espacio de impresión, deje todos los campos en blanco.
     </p>
     <div class="indent1">
       <li>&amp;D = Fecha</li>

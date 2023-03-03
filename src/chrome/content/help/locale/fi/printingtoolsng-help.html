@@ -420,31 +420,40 @@
     <br />
     <h2 id="print_options_help">Tulostus- ja sivuasetukset</h2>
     <p>
-      Näiden asetusten avulla voit määrittää tulostinkohtaiset sivuasetukset. On myös mahdollista asettaa
-      hiljainen tila, jossa esikatseluikkunaa ei näytetä ja tulostus tapahtuu välittömästi.
+      Näiden asetusten avulla voit määrittää oletustulostimen sekä tulostinsivun asetukset. On myös
+      mahdollista asettaa hiljainen tila, jossa esikatseluikkunaa ei näytetä ja tulostus tapahtuu
+      välittömästi.
     </p>
     <p>
-      Sivuasetusten avulla voit määrittää kohteita, kun sekä esikatselu että tulostus on valmis. Joitakin
-      kohteita ei voi asettaa esikatseluikkunassa, esimerkiksi ylä- ja alatunnisteet. Muut kohteet eivät säily
-      esikatselussa, ja ne on normaalisti asetettava joka kerta, kun tulostetaan.
+      Sivuasetusten avulla voit määrittää kohteita, kun sekä esikatselu että tulostus on valmis. Nämä
+      vaihtoehdot ovat pysyviä koko tulostuksen ajan. Jos PrintingTools NG:ssä asetettuja asetuksia muutetaan
+      tulostuksen esikatselussa, ne eivät vaikuta seuraaviin tulosteisiin. Joitakin kohteita ei voi asettaa
+      esikatseluikkunassa, esimerkiksi ylä- ja alatunnisteet. Muut kohteet eivät säily esikatselussa, ja ne on
+      normaalisti asetettava joka kerta, kun tulostetaan. PrintingTools NG ratkaisee nämä molemmat ongelmat.
     </p>
     <p>
-      Näitä ovat kopiot ja sivualueet. Tyypillinen käyttötapaus on, kun halutaan tulostaa vain sähköpostin
-      ensimmäinen sivu oletusarvoisesti. normaalisti sivualueita on muutettava joka kerta.
+      Yksi kohde, jota esikatselu ei ole tallentanut, ovat sivualueet. Tyypillinen käyttötapaus on, kun
+      halutaan tulostaa vain sähköpostin ensimmäinen sivu oletusarvoisesti. normaalisti sivualueita on
+      muutettava joka kerta. Huomaa, jos PrintingTools NG:ssä asetettu sivualue ei kelpaa, kuten sivumäärä
+      ylittää, alue on korjattava esikatselussa ennen tulostamista. Sivualue, joka on asetettu arvoon
+      &quot;1&quot;, on aina voimassa ja tulostaa viestin ensimmäisen sivun.
     </p>
     <p>Huomautuksia:</p>
+    <p>Skaalausvaihtoehdon avulla voidaan asettaa pysyvä asteikko.</p>
     <p>
       Sivualueet kuvataan samalla tavalla kuin esikatselussa. Esimerkkejä ovat 1, 1-2, 3-4,5. Huomaa, että jos
       esiasetettu sivualue ei kelpaa tietylle viestille, esikatselu näyttää virheilmoituksen.
     </p>
     <p>
       Marginaalit voidaan asettaa käyttämällä käyttäjän maa-alueelle sopivia yksiköitä, joko tuumina tai
-      millimetreinä (in tai mm).
+      millimetreinä (in tai mm). Huomaa, että pyöristysvirheiden vuoksi jotkin mm-arvot voidaan tallentaa
+      pienin eroin.
     </p>
     <p></p>
     <p>
       Ylä- ja alatunnisteet voidaan asettaa sisältämään erilaisia alla lueteltuja viestimuuttujia. Lisäksi
-      mielivaltaista tekstiä voidaan sisällyttää.
+      mielivaltaista tekstiä voidaan sisällyttää. Jos et halua tulostaa ylä- tai alatunnisteita ja säästää
+      tulostustilaa, jätä kaikki kentät tyhjiksi.
     </p>
     <div class="indent1">
       <li>&amp;D = Päivämäärä</li>
@@ -462,7 +471,7 @@
       - PrintingTools NG -versio<br />
       - Thunderbird-versio<br />
       - Käyttöjärjestelmä ja versio<br />
-      - Virheenkorjaustulos (kopioi virheenkorjauskonsolista - pääsy Ctrl-Shift-J)<br />
+      - Virheenkorjaustulos (kopioi virheenkorjauskonsolista - pääsy Control-Shift-J)<br />
       - Kuvaus ongelmaan johtavista vaiheista<br />
     </p>
     <h2>Krediitit</h2>

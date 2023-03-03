@@ -115,7 +115,7 @@
       Niestandardowy format daty wykorzystuje sekwencje % pasujące do funkcjonalności podobnej do uniksowej
       <code>strftime()</code> . Opiera się na javascriptowym porcie
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , funkcji formatującej datę i godzinę.<br />
+      , funkcji formatującej datę i czas.<br />
       Port strftime() autorstwa TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
@@ -420,34 +420,42 @@
     <br />
     <h2 id="print_options_help">Opcje drukowania i strony</h2>
     <p>
-      Opcje te umożliwiają ustawienie opcji dla poszczególnych stron drukarki. Możliwe jest również ustawienie
-      trybu cichego, w którym okno dialogowe podglądu nie jest wyświetlane, a drukowanie jest wykonywane
-      natychmiast.
+      Opcje te umożliwiają ustawienie drukarki domyślnej oraz opcji poszczególnych stron drukarki. Możliwe
+      jest również ustawienie trybu cichego, w którym okno dialogowe podglądu nie jest wyświetlane, a
+      drukowanie jest wykonywane natychmiast.
     </p>
     <p>
-      Opcje strony umożliwiają ustawianie pozycji, gdy zarówno podgląd, jak i drukowanie są zakończone.
-      Niektórych elementów nie można ustawić w oknie dialogowym podglądu, na przykład nagłówków i stopek. Inne
-      elementy nie są zachowywane w podglądzie i zwykle trzeba je ustawiać za każdym razem, gdy drukowany jest
-      wydruk.
+      Opcje strony umożliwiają ustawianie pozycji, gdy zarówno podgląd, jak i drukowanie są zakończone. Te
+      opcje są trwałe podczas drukowania. Jeśli opcje ustawione w PrintingTools NG zostaną zmienione w
+      podglądzie wydruku, nie będą miały wpływu na kolejne wydruki. Niektórych elementów nie można ustawić w
+      oknie dialogowym podglądu, na przykład nagłówków i stopek. Inne elementy nie są zachowywane w podglądzie
+      i zwykle trzeba je ustawiać za każdym razem, gdy drukowany jest wydruk. PrintingTools NG rozwiązuje oba
+      te problemy.
     </p>
     <p>
-      Należą do nich kopie i zakresy stron. Typowym przypadkiem użycia jest sytuacja, w której chce się
-      domyślnie wydrukować tylko pierwszą stronę wiadomości e-mail. normalnie trzeba by zmieniać zakresy stron
-      za każdym razem.
+      Jednym z elementów, które nie zostały zapisane w podglądzie, są zakresy stron. Typowym przypadkiem
+      użycia jest sytuacja, w której chce się domyślnie wydrukować tylko pierwszą stronę wiadomości e-mail.
+      normalnie trzeba by zmieniać zakresy stron za każdym razem. Uwaga, jeśli zakres stron ustawiony w
+      PrintingTools NG jest nieprawidłowy, na przykład przekracza liczbę stron, przed drukowaniem należy
+      skorygować zakres stron w podglądzie. Zakres stron ustawiony na „1” będzie zawsze ważny i spowoduje
+      wydrukowanie pierwszej strony wiadomości.
     </p>
     <p>Uwagi:</p>
+    <p>Opcja skalowania pozwala na ustawienie trwałej skali.</p>
     <p>
       Zakresy stron są opisane w taki sam sposób jak w podglądzie. Przykładami są 1, 1-2, 3-4,5. Zwróć uwagę,
       że jeśli wstępnie ustawione zakresy stron nie pasują do danej wiadomości, na podglądzie pojawi się błąd.
     </p>
     <p>
       Marginesy można ustawić za pomocą jednostek odpowiednich dla lokalizacji użytkownika, cali lub
-      milimetrów (cale lub mm).
+      milimetrów (cale lub mm). Uwaga, ze względu na błędy zaokrągleń, niektóre wartości w mm mogą zostać
+      zapisane z niewielkimi różnicami.
     </p>
     <p></p>
     <p>
       Nagłówki i stopki można ustawić tak, aby zawierały różne zmienne wiadomości wymienione poniżej.
-      Dodatkowo można dołączyć dowolny tekst.
+      Dodatkowo można dołączyć dowolny tekst. Aby nie drukować nagłówków ani stopek i zaoszczędzić miejsce na
+      drukowanie, po prostu wyczyść wszystkie pola.
     </p>
     <div class="indent1">
       <li>&amp;D = Data</li>

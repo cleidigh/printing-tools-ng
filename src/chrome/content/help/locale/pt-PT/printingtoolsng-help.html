@@ -98,7 +98,7 @@
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
         <td class="notranslate">20.04.2022 18:01:42 CET</td>
-        <td>Separadores de ponto</td>
+        <td>Separadores de pontos</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
@@ -423,21 +423,28 @@
     <br />
     <h2 id="print_options_help">Opções de impressão e página</h2>
     <p>
-      Essas opções permitem definir opções por página da impressora. Também é possível definir o modo
-      silencioso em que a caixa de diálogo de visualização não é exibida e a impressão é feita imediatamente.
+      Essas opções permitem que você defina a impressora padrão, bem como as opções de página da impressora.
+      Também é possível definir o modo silencioso em que a caixa de diálogo de visualização não é exibida e a
+      impressão é feita imediatamente.
     </p>
     <p>
       As opções de página permitem que você defina itens quando a visualização ou a impressão estiverem
-      concluídas. Alguns itens não estão disponíveis para serem definidos na caixa de diálogo de visualização,
-      incluindo os cabeçalhos e rodapés. Outros itens não são retidos pela pré-visualização e normalmente
-      teriam que ser definidos sempre que uma impressão é feita.
+      concluídas. Essas opções são persistentes na impressão. Se as opções definidas no PrintingTools NG forem
+      alteradas na visualização da impressão, elas não afetarão as impressões subsequentes. Alguns itens não
+      estão disponíveis para serem definidos na caixa de diálogo de visualização, incluindo os cabeçalhos e
+      rodapés. Outros itens não são retidos pela pré-visualização e normalmente teriam que ser definidos
+      sempre que uma impressão é feita. O PrintingTools NG resolve esses dois problemas.
     </p>
     <p>
-      Isso inclui cópias e intervalos de páginas. Um caso de uso típico é quando se deseja imprimir apenas a
-      primeira página de um e-mail como padrão. normalmente, seria necessário fazer com que os intervalos de
-      páginas mudassem a cada vez.
+      Um item não salvo pela visualização são os intervalos de páginas. Um caso de uso típico é quando se
+      deseja imprimir apenas a primeira página de um e-mail como padrão. normalmente, seria necessário fazer
+      com que os intervalos de páginas mudassem a cada vez. Observe que se um intervalo de páginas definido no
+      PrintingTools NG não for válido, como exceder o número de páginas, o intervalo precisará ser corrigido
+      na visualização antes da impressão. Um intervalo de páginas definido como &quot;1&quot; sempre será
+      válido e imprime a primeira página da mensagem.
     </p>
     <p>Notas:</p>
+    <p>A opção de dimensionamento permite definir uma escala persistente.</p>
     <p>
       Os intervalos de páginas são descritos da mesma forma que na visualização. Exemplos são 1, 1-2, 3-4,5.
       Observe que, se um intervalo de páginas predefinido não for válido para uma determinada mensagem, a
@@ -445,12 +452,14 @@
     </p>
     <p>
       As margens podem ser definidas usando unidades apropriadas para a localidade do usuário, polegadas ou
-      milímetros (polegadas ou mm).
+      milímetros (polegadas ou mm). Observe que, devido a erros de arredondamento, alguns valores de mm podem
+      ser salvos com pequenas diferenças.
     </p>
     <p></p>
     <p>
       Os cabeçalhos e rodapés podem ser configurados para incluir várias variáveis de mensagem listadas
-      abaixo. Além disso, texto arbitrário também pode ser incluído.
+      abaixo. Além disso, texto arbitrário também pode ser incluído. Para não imprimir cabeçalhos ou rodapés e
+      economizar espaço de impressão, basta deixar todos os campos em branco.
     </p>
     <div class="indent1">
       <li>&amp;D = Data</li>

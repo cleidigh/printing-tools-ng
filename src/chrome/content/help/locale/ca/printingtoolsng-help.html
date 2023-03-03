@@ -317,7 +317,7 @@
         <code class="code1">%D</code> - no implementat (utilitza <code class="code1">%m/%d/%y</code> o
         <code class="code1">%d/%m/%y</code> )
       </li>
-      <li><code class="code1">%e</code> - l&#39;espai no s&#39;afegeix</li>
+      <li><code class="code1">%e</code> - l&#39;espai no s&#39;ha afegit</li>
       <li><code class="code1">%E</code> - no implementat</li>
       <li><code class="code1">%h</code> - no implementat (utilitza <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - l&#39;espai no s&#39;afegeix</li>
@@ -427,21 +427,29 @@
     <br />
     <h2 id="print_options_help">Opcions d&#39;impressió i pàgina</h2>
     <p>
-      Aquestes opcions us permeten establir opcions per pàgina de la impressora. També és possible configurar
-      el mode silenciós on no es mostri el diàleg de vista prèvia i la impressió es faci immediatament.
+      Aquestes opcions us permeten establir la impressora predeterminada així com les opcions per pàgina
+      d&#39;impressora. També és possible configurar el mode silenciós on no es mostri el diàleg de vista
+      prèvia i la impressió es faci immediatament.
     </p>
     <p>
       Les opcions de pàgina us permeten establir elements quan s&#39;hagi acabat la vista prèvia o la
-      impressió. Alguns elements no estan disponibles per configurar-los al diàleg de vista prèvia, aquests
-      inclouen les capçaleres i peus de pàgina. Altres elements no es conserven a la vista prèvia i normalment
-      s&#39;haurien de configurar cada vegada que es fa una impressió.
+      impressió. Aquestes opcions són persistents durant la impressió. Si les opcions establertes a
+      PrintingTools NG es canvien a la vista prèvia d&#39;impressió, no afectaran les impressions posteriors.
+      Alguns elements no estan disponibles per configurar-los al diàleg de vista prèvia, aquests inclouen les
+      capçaleres i peus de pàgina. Altres elements no es conserven a la vista prèvia i normalment
+      s&#39;haurien de configurar cada vegada que es fa una impressió. PrintingTools NG resol aquests dos
+      problemes.
     </p>
     <p>
-      Aquests inclouen còpies i intervals de pàgines. Un cas d&#39;ús típic és quan es vol imprimir només la
-      primera pàgina d&#39;un correu electrònic com a predeterminada. normalment s&#39;hauria de fer canviar
-      els intervals de pàgines cada vegada.
+      Un element que no desa la previsualització són els intervals de pàgines. Un cas d&#39;ús típic és quan
+      es vol imprimir només la primera pàgina d&#39;un correu electrònic com a predeterminada. normalment
+      s&#39;hauria de fer canviar els intervals de pàgines cada vegada. Tingueu en compte que si un interval
+      de pàgines establert a PrintingTools NG no és vàlid, com ara superar el nombre de pàgines, caldrà
+      corregir l&#39;interval a la vista prèvia abans d&#39;imprimir. Un interval de pàgines establert en
+      &quot;1&quot; sempre serà vàlid i imprimeix la primera pàgina del missatge.
     </p>
     <p>Notes:</p>
+    <p>L&#39;opció d&#39;escala permet establir una escala persistent.</p>
     <p>
       Els intervals de pàgines es descriuen de la mateixa manera que a la vista prèvia. Els exemples són 1,
       1-2, 3-4,5. Tingueu en compte que si un interval de pàgina preestablert no és vàlid per a un missatge
@@ -449,12 +457,14 @@
     </p>
     <p>
       Els marges es poden establir utilitzant unitats adequades per a la configuració regional de
-      l&#39;usuari, ja sigui polzades o mil·límetres (polzades o mm).
+      l&#39;usuari, ja sigui polzades o mil·límetres (polzades o mm). Tingueu en compte que a causa dels
+      errors d&#39;arrodoniment, alguns valors de mm es poden desar amb petites diferències.
     </p>
     <p></p>
     <p>
       Les capçaleres i peus de pàgina es poden configurar per incloure diverses variables de missatge que
-      s&#39;enumeren a continuació. A més, també es pot incloure text arbitrari.
+      s&#39;enumeren a continuació. A més, també es pot incloure text arbitrari. Per no imprimir cap capçalera
+      ni peu de pàgina i estalviar espai d&#39;impressió, només cal deixar tots els camps en blanc.
     </p>
     <div class="indent1">
       <li>&amp;D = Data</li>

@@ -414,32 +414,40 @@
     <br />
     <h2 id="print_options_help">Utskrifts- og sidealternativer</h2>
     <p>
-      Disse alternativene lar deg angi alternativer per skriverside. Det er også mulig å stille inn stille
-      modus der forhåndsvisningsdialogen ikke vises og utskriften gjøres umiddelbart.
+      Disse alternativene lar deg angi standard skriver og alternativer per skriverside. Det er også mulig å
+      stille inn stille modus der forhåndsvisningsdialogen ikke vises og utskriften gjøres umiddelbart.
     </p>
     <p>
-      Sidealternativene lar deg angi elementer når både forhåndsvisning eller utskrift er ferdig. Noen
-      elementer er ikke tilgjengelige for å angis i forhåndsvisningsdialogen, disse inkluderer topp- og
-      bunntekst. Andre elementer beholdes ikke av forhåndsvisningen og vil normalt måtte angis hver gang en
-      utskrift er ferdig.
+      Sidealternativene lar deg angi elementer når både forhåndsvisning eller utskrift er ferdig. Disse
+      alternativene er vedvarende på hele utskriften. Hvis alternativene som er angitt i PrintingTools NG
+      endres i forhåndsvisningen, vil de ikke påvirke etterfølgende utskrifter. Noen elementer er ikke
+      tilgjengelige for å angis i forhåndsvisningsdialogen, disse inkluderer topp- og bunntekst. Andre
+      elementer beholdes ikke av forhåndsvisningen og vil normalt måtte angis hver gang en utskrift er ferdig.
+      PrintingTools NG løser begge disse problemene.
     </p>
     <p>
-      Disse inkluderer kopier og sideområder. Et typisk brukstilfelle er der man ønsker å skrive ut bare den
-      første siden i en e-post som standard. normalt må man få sideområdene til å endre seg hver gang.
+      Et element som ikke lagres av forhåndsvisningen, er sideområdene. Et typisk brukstilfelle er der man
+      ønsker å skrive ut bare den første siden i en e-post som standard. normalt må man få sideområdene til å
+      endre seg hver gang. Merk at hvis et sideområde angitt i PrintingTools NG ikke er gyldig, for eksempel
+      overskridelse av antall sider, må området korrigeres i forhåndsvisningen før utskrift. Et sideområde
+      satt til &quot;1&quot; vil alltid være gyldig og skriver ut den første siden av meldingen.
     </p>
     <p>Merknader:</p>
+    <p>Skaleringsalternativet lar en sette en vedvarende skala.</p>
     <p>
       Sideområder beskrives på samme måte som i forhåndsvisningen. Eksempler er 1, 1-2, 3-4,5. Merk at hvis et
       forhåndsinnstilt sideområde ikke er gyldig for en gitt melding, vil forhåndsvisningen vise en feil.
     </p>
     <p>
       Marginene kan settes ved å bruke enheter som passer for brukerens lokalitet, enten tommer eller
-      millimeter (in eller mm).
+      millimeter (in eller mm). Merk at på grunn av avrundingsfeil kan enkelte mm-verdier lagres med små
+      forskjeller.
     </p>
     <p></p>
     <p>
       Topp- og bunntekstene kan settes til å inkludere ulike meldingsvariabler som er oppført nedenfor. I
-      tillegg kan vilkårlig tekst også inkluderes.
+      tillegg kan vilkårlig tekst også inkluderes. For å ikke skrive ut topp- eller bunntekst og spare
+      utskriftsplass, gjør du bare alle felt tomme.
     </p>
     <div class="indent1">
       <li>&amp;D = Dato</li>

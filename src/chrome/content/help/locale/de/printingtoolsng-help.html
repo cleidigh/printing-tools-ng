@@ -421,11 +421,11 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${prefix}</code></td>
-        <td>Der Wert der Präfixtextoption.</td>
+        <td>Der Wert der Präfix-Textoption.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
-        <td>Der Suffix-Textoptionswert.</td>
+        <td>Der Wert der Suffix-Textoption.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
@@ -440,23 +440,30 @@
       </tr>
     </table>
     <br />
-    <h2 id="print_options_help">Druck- und Seitenoptionen</h2>
+    <h2 id="print_options_help">Druck und Seitenoptionen</h2>
     <p>
-      Mit diesen Optionen können Sie Optionen pro Druckerseite festlegen. Es ist auch möglich, den stillen
-      Modus einzustellen, in dem der Vorschaudialog nicht angezeigt wird und der Druck sofort ausgeführt wird.
+      Mit diesen Optionen können Sie den Standarddrucker sowie Optionen pro Druckerseite festlegen. Es ist
+      auch möglich, den stillen Modus einzustellen, in dem der Vorschaudialog nicht angezeigt wird und der
+      Druck sofort ausgeführt wird.
     </p>
     <p>
       Mit den Seitenoptionen können Sie Elemente festlegen, wenn sowohl die Vorschau als auch der Druckvorgang
-      abgeschlossen sind. Einige Elemente können nicht im Vorschaudialog eingestellt werden, dazu gehören die
-      Kopf- und Fußzeilen. Andere Elemente werden von der Vorschau nicht beibehalten und müssten normalerweise
-      bei jedem Druckvorgang eingestellt werden.
+      abgeschlossen sind. Diese Optionen bleiben beim Drucken bestehen. Wenn in PrintingTools NG eingestellte
+      Optionen in der Druckvorschau geändert werden, wirken sich diese nicht auf nachfolgende Drucke aus.
+      Einige Elemente können nicht im Vorschaudialog eingestellt werden, dazu gehören die Kopf- und Fußzeilen.
+      Andere Elemente werden von der Vorschau nicht beibehalten und müssten normalerweise bei jedem
+      Druckvorgang eingestellt werden. PrintingTools NG löst diese beiden Probleme.
     </p>
     <p>
-      Dazu gehören Kopien und Seitenbereiche. Ein typischer Anwendungsfall ist, dass standardmäßig nur die
-      erste Seite einer E-Mail gedruckt werden soll. Normalerweise müsste man die Seitenbereiche jedes Mal
-      ändern.
+      Ein Element, das von der Vorschau nicht gespeichert wird, sind die Seitenbereiche. Ein typischer
+      Anwendungsfall ist, dass standardmäßig nur die erste Seite einer E-Mail gedruckt werden soll.
+      Normalerweise müsste man die Seitenbereiche jedes Mal ändern. Beachten Sie, dass, wenn ein in
+      PrintingTools NG eingestellter Seitenbereich nicht gültig ist, z. B. wenn die Anzahl der Seiten
+      überschritten wird, der Bereich vor dem Drucken in der Vorschau korrigiert werden muss. Ein auf
+      &quot;1&quot; gesetzter Seitenbereich ist immer gültig und druckt die erste Seite der Nachricht.
     </p>
     <p>Anmerkungen:</p>
+    <p>Die Skalierungsoption ermöglicht es, eine dauerhafte Skalierung festzulegen.</p>
     <p>
       Seitenbereiche werden genauso beschrieben wie in der Vorschau. Beispiele sind 1, 1-2, 3-4,5. Beachten
       Sie, dass die Vorschau einen Fehler anzeigt, wenn ein voreingestellter Seitenbereich für eine bestimmte
@@ -464,18 +471,20 @@
     </p>
     <p>
       Die Ränder können mit Einheiten eingestellt werden, die für das Gebietsschema des Benutzers geeignet
-      sind, entweder Zoll oder Millimeter (in oder mm).
+      sind, entweder Zoll oder Millimeter (in oder mm). Beachten Sie, dass aufgrund von Rundungsfehlern einige
+      mm-Werte mit kleinen Abweichungen gespeichert werden können.
     </p>
     <p></p>
     <p>
       Die Kopf- und Fußzeilen können so eingestellt werden, dass sie verschiedene unten aufgeführte
-      Nachrichtenvariablen enthalten. Zusätzlich kann auch beliebiger Text eingefügt werden.
+      Nachrichtenvariablen enthalten. Zusätzlich kann auch beliebiger Text eingefügt werden. Um keine Kopf-
+      oder Fußzeilen zu drucken und Platz zu sparen, lassen Sie einfach alle Felder leer.
     </p>
     <div class="indent1">
       <li>&amp;D = Datum</li>
       <li>&amp;P = Seitenzahl</li>
       <li>&amp;PT = Seitenzahl mit Summe („3 von 5“)</li>
-      <li>&amp;T = Seitentitel (Betreff der Nachricht)</li>
+      <li>&amp;T = Betreff der Nachricht</li>
       <li>&amp;U = URL (Die URL der Nachricht)</li>
     </div>
     <h2>Unterstützung</h2>

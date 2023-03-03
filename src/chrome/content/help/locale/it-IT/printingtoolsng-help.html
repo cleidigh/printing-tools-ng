@@ -431,22 +431,29 @@
     <br />
     <h2 id="print_options_help">Opzioni di stampa e pagina</h2>
     <p>
-      Queste opzioni consentono di impostare le opzioni per pagina della stampante. È anche possibile
-      impostare la modalità silenziosa in cui la finestra di dialogo di anteprima non viene visualizzata e la
-      stampa viene eseguita immediatamente.
+      Queste opzioni consentono di impostare la stampante predefinita e le opzioni per la pagina della
+      stampante. È anche possibile impostare la modalità silenziosa in cui la finestra di dialogo di anteprima
+      non viene visualizzata e la stampa viene eseguita immediatamente.
     </p>
     <p>
       Le opzioni della pagina consentono di impostare gli elementi al termine dell&#39;anteprima o della
-      stampa. Alcuni elementi non sono disponibili per essere impostati nella finestra di dialogo di
-      anteprima, questi includono intestazioni e piè di pagina. Altri elementi non vengono mantenuti
-      dall&#39;anteprima e normalmente dovrebbero essere impostati ogni volta che viene eseguita una stampa.
+      stampa. Queste opzioni sono persistenti durante la stampa. Se le opzioni impostate in PrintingTools NG
+      vengono modificate nell&#39;anteprima di stampa, non influiranno sulle stampe successive. Alcuni
+      elementi non sono disponibili per essere impostati nella finestra di dialogo di anteprima, questi
+      includono intestazioni e piè di pagina. Altri elementi non vengono mantenuti dall&#39;anteprima e
+      normalmente dovrebbero essere impostati ogni volta che viene eseguita una stampa. PrintingTools NG
+      risolve entrambi questi problemi.
     </p>
     <p>
-      Questi includono copie e intervalli di pagine. Un caso d&#39;uso tipico è quando si desidera stampare
-      solo la prima pagina di un&#39;e-mail come impostazione predefinita. normalmente si dovrebbe far
-      cambiare ogni volta gli intervalli di pagine.
+      Un elemento non salvato dall&#39;anteprima sono gli intervalli di pagine. Un caso d&#39;uso tipico è
+      quando si desidera stampare solo la prima pagina di un&#39;e-mail come impostazione predefinita.
+      normalmente si dovrebbe far cambiare ogni volta gli intervalli di pagine. Nota se un intervallo di
+      pagine impostato in PrintingTools NG non è valido, ad esempio superando il numero di pagine,
+      l&#39;intervallo dovrà essere corretto nell&#39;anteprima prima della stampa. Un intervallo di pagine
+      impostato su &quot;1&quot; sarà sempre valido e stamperà la prima pagina del messaggio.
     </p>
     <p>Appunti:</p>
+    <p>L&#39;opzione di ridimensionamento consente di impostare una scala persistente.</p>
     <p>
       Gli intervalli di pagine sono descritti allo stesso modo dell&#39;anteprima. Gli esempi sono 1, 1-2,
       3-4,5. Si noti che se un intervallo di pagine preimpostato non è valido per un dato messaggio,
@@ -454,12 +461,14 @@
     </p>
     <p>
       I margini possono essere impostati utilizzando le unità appropriate per le impostazioni locali
-      dell&#39;utente, pollici o millimetri (in o mm).
+      dell&#39;utente, pollici o millimetri (in o mm). Nota, a causa di errori di arrotondamento, alcuni
+      valori in mm potrebbero essere salvati con piccole differenze.
     </p>
     <p></p>
     <p>
       Le intestazioni ei piè di pagina possono essere impostati in modo da includere varie variabili di
-      messaggio elencate di seguito. Inoltre, è possibile includere anche testo arbitrario.
+      messaggio elencate di seguito. Inoltre, è possibile includere anche testo arbitrario. Per non stampare
+      intestazioni o piè di pagina e risparmiare spazio di stampa, è sufficiente rendere vuoti tutti i campi.
     </p>
     <div class="indent1">
       <li>&amp;D = Data</li>
