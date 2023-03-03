@@ -16,7 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "err_scale_val_req", text: "Scale value required between 10 and 200" },
+	{ key: "extensionDescription", text: "Message Printing and PDF Output Tools" },
 
 
 	
@@ -475,7 +475,7 @@ var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi',
 //translateHelpPage();
 //translatePage();
 // translateAll("printingtoolsng.properties", translationArray, options);
-translateAll(inputFiles, translationArray, options);
+translateAll(inputFiles, translationArray, optionsM);
 //translateAll("mboximport.dtd", translationArray, options);
 //loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];
