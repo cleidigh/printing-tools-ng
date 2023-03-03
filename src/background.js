@@ -65,47 +65,9 @@ let l = messenger.i18n.getUILanguage();
 
 browser.runtime.onInstalled.addListener(async (info) => {
 	info.locale = l;
-
-	//browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1180, height: 520})
-
 	await browser.tabs.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, index: 1 })
 });
 
-
-/*
-// show notification when this version is being installed or updated
-browser.runtime.onInstalled.addListener(async (info) => {
-	let version = parseInt((await browser.runtime.getBrowserInfo()).version.split(".").shift(), 10);
-	if (version < 78)
-		return;
-
-	if (!["update", "install"].includes(info.reason))
-		return;
-	var msg = messenger.i18n.getMessage("update_option_info2");
-	let windows = await messenger.mailTabs.query({});
-
-	for (let window of windows) {
-		await messenger.notificationbar.create({
-			windowId: window.windowId,
-			label: msg,
-			priority: messenger.notificationbar.PRIORITY_WARNING_HIGH,
-
-			icon: "chrome/content/icons/printing-tools-ng-icon-32px.png",
-			placement: "bottom",
-			style: {
-				"background-color": "yellow",
-			},
-			buttons: [
-				{
-					id: "btn-moreinfo",
-					label: messenger.i18n.getMessage("moreinfo_button_label"),
-					accesskey: "m",
-				}
-			]
-		});
-	}
-});
-*/
 
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	let rv;
