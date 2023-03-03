@@ -16,10 +16,9 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
+	{ key: "extensionName", text: "PrintingTools NG" },
 	{ key: "extensionDescription", text: "Message Printing and PDF Output Tools" },
 
-
-	
 
 	
 ];
@@ -443,10 +442,10 @@ var options = {
 // let inputFiles = ["overlay.properties"];
 // let inputFiles = ["settings.dtd", "overlay.dtd", "overlay.properties"];
 
-let inputFiles = ["printingtoolsng.properties"];
+//let inputFiles = ["printingtoolsng.properties"];
 //let inputFiles = ["printingtoolsng.dtd"];
 
-//let inputFiles = ["messages.json"];
+let inputFiles = ["messages.json"];
 // let inputFiles = ["autobackup.dtd", "autobackup.properties", "mboximport.dtd", "mboximport.properties", "profilewizard.dtd", "profilewizard.properties"];
 //let inputFiles = ["mboximport.properties"];
 // var supportedLocales = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
