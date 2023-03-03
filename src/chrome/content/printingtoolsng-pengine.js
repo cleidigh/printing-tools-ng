@@ -62,6 +62,7 @@ var printingtools = {
 		//console.log(gFolderDisplay.selectedMessage)
 		//console.log(gMessageDisplay.displayedMessage)
 
+		// loadptng settings 
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 
 		var ps = PrintUtils.getPrintSettings();
@@ -403,9 +404,9 @@ var printingtools = {
 		printingtools.msgUris = [msgURI];
 		
 
+		await printerSettings.savePrinterSettingsFromPTNGsettings();
 		let ps = PrintUtils.getPrintSettings();
 
-		console.log(ps.printerName.toLowerCase().includes("pdf"))
 		var pdfOutput = false;
 		var pdfOutputEnabled;
 		var pdfOutputDir;
@@ -414,13 +415,10 @@ var printingtools = {
 			pdfOutput = true;
 			pdfOutputEnabled = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
 			pdfOutputDir = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
-			console.log(pdfOutputEnabled)
-			console.log(pdfOutputDir)
+			
 			if (!pdfOutputEnabled || pdfOutputDir == "")
 				{
 					let fpMode = Ci.nsIFilePicker.modeGetFolder;
-					//pstr
-					
 					let fpTitle = this.mainStrBundle.GetStringFromName("select_pdf_dir");
 					let fpDisplayDirectory = null;
 					this.utils.window = window;
@@ -429,22 +427,17 @@ var printingtools = {
 						return;
 					}
 					pdfOutputDir = resultObj.folder;
-					//printingtools.prefs.setStringPref("extensions.printingtoolsng.pdf.output_dir", pdfOutputDir)
-					console.log(resultObj);
 			} else {
-				console.log("no dir")
+				console.log("PTNG: PDF output to: ", pdfOutputDir);
 				
 			}
 		}
 
 		if (pdfOutput) {
 
-			console.log(pdfOutputDir)
 			pdfFileName = await this.utils.constructPDFoutputFilename(msgURI, pdfOutputDir);
 			ps.toFileName = PathUtils.join(pdfOutputDir, pdfFileName);
 			ps.outputFormat = 2;
-			console.log(ps)
-
 		}
 		let messageService = messenger.messageServiceFromURI(msgURI);
 		await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
@@ -480,10 +473,6 @@ var printingtools = {
 		let realMessage = window.printingtoolsng.extension
 			.messageManager.get(msgHeader.id);
 		let uri = realMessage.folder.getUriForMsg(realMessage);
-
-		//console.log(realMessage)
-		console.log(uri)
-
 
 		if (this.extRunning) {
 			//console.log("Q dont run")
