@@ -616,11 +616,7 @@ function scaleToggle(scaleRG) {
 	console.log("toggle ", scaleRG.selectedIndex)
 	let se = document.querySelector("#scale");
 	if (scaleRG.selectedIndex == 0) {
-
-
 		se.setAttribute("disabled", "true");
-		//se.value = "100";
-		console.log(se)
 	} else {
 		se.removeAttribute("disabled");
 	}
@@ -666,7 +662,6 @@ function addValidationListeners() {
 
 
 function handleScaleKeypress(e) {
-	console.log(e)
 	let char = String.fromCharCode(e.charCode);
 	let acceptedChar = char.match(/^[0-9]$/);
 	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
@@ -681,9 +676,6 @@ function initValidationIds() {
 	validationIds.push("margin-bottom");
 	validationIds.push("margin-left");
 	validationIds.push("margin-right");
-
-	// validationIds.push("");
-
 }
 
 function checkValidationIdsStatus() {
@@ -694,7 +686,7 @@ function checkValidationIdsStatus() {
 			status = false;
 		}
 	});
-	console.log("validity: ", status)
+
 	return status;
 }
 
