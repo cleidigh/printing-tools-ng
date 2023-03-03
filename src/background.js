@@ -98,14 +98,11 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			return rv;
 
 		case "openHelp":
-			console.log("help")
-			console.log(info)
 			var locale = info.locale;
 
 			var bm = "";
 			if (info.bmark) {
 				bm = info.bmark;
-				console.log(bm)
 			}
 			try {
 				if (info.opentype == "tab") {
@@ -136,10 +133,6 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 async function getFullMessage(messageId) {
 
 	var m = await messenger.messages.getFull(messageId);
-	console.log(m)
-	var a = await messenger.messages.listAttachments(m.id);
-	//console.log(a)
-
 	return m;
 }
 

@@ -374,7 +374,7 @@ var printingtools = {
 				messagePaneBrowser.browsingContext.print(ps);
 			} else {
 				//console.log("use pb print")
-				//await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+
 				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
 
 				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
@@ -2355,5 +2355,4 @@ var printingtools = {
 }
 
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js", printingtools);
-printingtools.mainStrBundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties"),
-printingtools.utils.test();
+printingtools.mainStrBundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
