@@ -365,21 +365,16 @@ var printingtools = {
 			msgSubject = msgHdr.mime2DecodedSubject;
 
 			if (pdfOutput) {
-
-				console.log(pdfOutputDir)
 				pdfFileName = await this.utils.constructPDFoutputFilename(msgURI, pdfOutputDir);
 				ps.toFileName = PathUtils.join(pdfOutputDir, pdfFileName);
 				ps.outputFormat = 2;
-				console.log(ps)
-
 			}
 			if (!PrintUtils.printBrowser) {
-				console.log("no p brows")
 				let messagePaneBrowser = document.getElementById("messagepane");
 				messagePaneBrowser.browsingContext.print(ps);
 			} else {
 				//console.log("use pb print")
-				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+				//await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
 
 				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
