@@ -312,8 +312,8 @@ var printingtools = {
 		if (ps.printerName.toLowerCase().includes("pdf")) {
 			pdfOutput = true;
 			
-			console.log(pdfOutputEnabled)
-			console.log(pdfOutputDir)
+			// console.log(pdfOutputEnabled)
+			// console.log(pdfOutputDir)
 			if (!pdfOutputEnabled || pdfOutputDir == "")
 				{
 					let fpMode = Ci.nsIFilePicker.modeGetFolder;
