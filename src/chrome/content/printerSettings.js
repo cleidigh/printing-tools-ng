@@ -123,7 +123,7 @@ var printerSettings = {
     let se = document.querySelector("#scale");
     let seRG = document.querySelector("#scaleRG");
     se.value = printSettings.scaling * 100;
-    
+
 
     if (printSettings.shrinkToFit) {
       seRG.selectedIndex = 0;
@@ -131,7 +131,7 @@ var printerSettings = {
     } else {
       seRG.selectedIndex = 1;
       se.removeAttribute("disabled");
-      
+
     }
 
     let prRG = document.querySelector("#pageRangesRG");
@@ -148,23 +148,23 @@ var printerSettings = {
       cr.value = this.pageRangesToString(pr);
     }
 
-    
+
     // Round all margins to two decimal places
     let el = document.querySelector("#margin-top");
     let n = this.inchesToLocaleUnits(printSettings.marginTop, localeUnits).toFixed(2);
-    el.value =  new Intl.NumberFormat(locale).format(n);
+    el.value = new Intl.NumberFormat(locale).format(n);
 
     el = document.querySelector("#margin-bottom");
     n = this.inchesToLocaleUnits(printSettings.marginBottom, localeUnits).toFixed(2);
-    el.value =  new Intl.NumberFormat(locale).format(n);
+    el.value = new Intl.NumberFormat(locale).format(n);
 
     el = document.querySelector("#margin-left");
     n = this.inchesToLocaleUnits(printSettings.marginLeft, localeUnits).toFixed(2);
-    el.value =  new Intl.NumberFormat(locale).format(n);
+    el.value = new Intl.NumberFormat(locale).format(n);
 
     el = document.querySelector("#margin-right");
     n = this.inchesToLocaleUnits(printSettings.marginRight, localeUnits).toFixed(2);
-    el.value =  new Intl.NumberFormat(locale).format(n);
+    el.value = new Intl.NumberFormat(locale).format(n);
 
     el = document.querySelector("#headerleft");
     el.value = printSettings.headerStrLeft;
@@ -296,7 +296,7 @@ var printerSettings = {
       return localeVal / 25.4;
     }
     return localeVal;
-    
+
   },
 
   inchesToLocaleUnits: function (localeVal, localeUnits) {
@@ -307,7 +307,7 @@ var printerSettings = {
       return localeVal * 25.4;
     }
     return localeVal;
-    
+
   },
   paperToLocaleUnits: function (paperVal, paperSizeUnit) {
     let localeUnits = (locale == "en-US") ? 0 : 1;
@@ -342,19 +342,19 @@ var printerSettings = {
   savePrinterSettingsFromPTNGsettings: async function () {
 
     var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
-		.getService(Ci.nsIPrinterList);
+      .getService(Ci.nsIPrinterList);
 
-	var printers = await printerList.printers;
-	var defaultPrinter = printerList.systemDefaultPrinterName;
+    var printers = await printerList.printers;
+    var defaultPrinter = printerList.systemDefaultPrinterName;
 
-	var outputPrinter = null;
-	var type = prefs.getPrefType("print_printer");
-	if (type) {
-		outputPrinter = prefs.getCharPref("print_printer");
-	} else {
-		console.log("no tb printer")
-		outputPrinter = defaultPrinter;
-	}
+    var outputPrinter = null;
+    var type = prefs.getPrefType("print_printer");
+    if (type) {
+      outputPrinter = prefs.getCharPref("print_printer");
+    } else {
+      console.log("no tb printer")
+      outputPrinter = defaultPrinter;
+    }
 
 
     var printSettings;
@@ -380,14 +380,13 @@ var printerSettings = {
       this.initCustomPrinterOptions(printerName);
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
     }
- 
-    console.log(printSettings, PSSVC)
-      let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
-        Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
-        Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
-        Ci.nsIPrintSettings.kInitSaveFooterRight |
-        Ci.nsIPrintSettings.kInitSaveShrinkToFit |
-        Ci.nsIPrintSettings.kInitSaveScaling;
+
+    let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
+      Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
+      Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
+      Ci.nsIPrintSettings.kInitSaveFooterRight |
+      Ci.nsIPrintSettings.kInitSaveShrinkToFit |
+      Ci.nsIPrintSettings.kInitSaveScaling;
     PSSVC.savePrintSettingsToPrefs(printSettings, true, savePrefs);
   },
 
@@ -406,7 +405,7 @@ var printerSettings = {
 
     let scale = Number(document.querySelector("#scale").value);
     let scaleRG = document.querySelector("#scaleRG");
-   
+
     if (scaleRG.selectedIndex) {
       printSettings.shrinkToFit = false;
     } else {
@@ -457,7 +456,7 @@ var printerSettings = {
     el = document.querySelector("#footerright");
     printSettings.footerStrRight = el.value;
 
-    
+
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
       Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
@@ -566,7 +565,7 @@ var printerSettings = {
       );
 
       // console.log("subDialog print-settings loaded");
-      console.log(subDialogWindow.document.documentElement.innerHTML)
+      // console.log(subDialogWindow.document.documentElement.innerHTML)
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");

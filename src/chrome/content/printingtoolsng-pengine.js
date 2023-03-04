@@ -66,8 +66,6 @@ var printingtools = {
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 
 		var ps = PrintUtils.getPrintSettings();
-
-		console.log(ps.printerName.toLowerCase().includes("pdf"))
 		var pdfOutput = false;
 		var pdfOutputEnabled = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
 		var pdfOutputDir = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
@@ -77,10 +75,8 @@ var printingtools = {
 		) {
 			pdfOutput = true;
 			
-			console.log(pdfOutputEnabled)
-			console.log(pdfOutputDir)
 			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false)
-				{ //pstr
+				{
 					var autoPDFSave = confirm(this.mainStrBundle.GetStringFromName("confirm_pdf_autosave"));
 				}
 			}
@@ -91,8 +87,6 @@ var printingtools = {
 				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage
 
 			) {
-
-
 				//console.log("Use existing print hidden pane")
 
 				let messagePaneBrowser = document.getElementById("messagepane");
@@ -510,9 +504,9 @@ var printingtools = {
 
 		// only process mail types else use TB print #119
 		let url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
-		//console.log(url)
+		console.log(url)
 		let suri = gFolderDisplay.selectedMessageUris;
-		//console.log(suri)
+		console.log(suri)
 
 		let mailType = false;
 
