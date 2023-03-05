@@ -1665,15 +1665,12 @@ var printingtools = {
 					if (imgs[i].style.display == "none" || imgs[i].getAttribute("shrinktofit")) {
 						return;
 					}
-					console.log(imgs[i].getAttribute("style"))
+
 					imgs[i].style.height = "auto";
 					imgs[i].style.width = "auto";
 					imgs[i].style.maxHeight = "100%";
 					imgs[i].style.maxWidth = "100%";
 				}
-
-				console.log(imgs[i].getAttribute("style"))
-
 			}
 		}
 	},

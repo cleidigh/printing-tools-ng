@@ -707,10 +707,20 @@ function pageRangesValidation(e) {
 }
 
 function handleMarginsKeypress(e) {
+	console.log(e)
 	let char = String.fromCharCode(e.charCode);
 	let acceptedChar = char.match(/^[0-9,.]$/);
 	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
 		e.preventDefault();
+	}
+	let val = e.target.value;
+	// console.log(val)
+	if (val.includes(".")) {
+		let l = val.split(".")[1].length;
+		// console.log(l)
+		if (l == 2 && char.match(/^[0-9,.]$/)) {
+			e.preventDefault();
+		}
 	}
 }
 

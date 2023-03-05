@@ -427,8 +427,14 @@ var printerSettings = {
 
     let paperSizeUnit = printSettings.paperSizeUnit;
     let el = document.querySelector("#margin-top");
+    console.log(el.value)
+    console.log(Number(el.value))
+    
+
     let val = this.localeUnitsToInches(Number(el.value), localeUnits);
+    console.log(val)
     printSettings.marginTop = val;
+    console.log(printSettings.marginTop)
 
     el = document.querySelector("#margin-bottom");
     val = this.localeUnitsToInches(Number(el.value), localeUnits);
@@ -589,7 +595,14 @@ var printerSettings = {
       rp.selectedIndex = o.findIndex(el => el.value == rangeType);
       cmg.removeAttribute("hidden");
       mp.selectedIndex = 3;
-      await new Promise(resolve => subDialogWindow.setTimeout(resolve, 100));
+      
+      // test
+      var delay = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.prefix");
+      if (isNaN(delay)) {
+        delay = 0;
+      }
+      console.log(delay)
+      await new Promise(resolve => subDialogWindow.setTimeout(resolve, delay));
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
 
     },
