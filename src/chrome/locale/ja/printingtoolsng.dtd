@@ -75,8 +75,10 @@
 <!ENTITY print_and_pageoptions "プリンターとページ設定">
 
 <!ENTITY headers_order "ヘッダーの並び替え">
+
 <!ENTITY attachments "添付ファイル">
 <!ENTITY images "画像">
+
 <!ENTITY pdf_file_naming "PDF ファイルの命名">
 <!ENTITY enable_pdfdir "PDF の出力先フォルダーを有効にする">
 <!ENTITY output_dir "出力先フォルダー指定">
@@ -103,7 +105,6 @@
 <!ENTITY page_headers "ヘッダー">
 <!ENTITY footers "フッター">
 <!ENTITY cancel "キャンセル">
-
 <!ENTITY Help "ヘルプ">
 <!ENTITY Scale "倍率">
 <!ENTITY fitToWidth "用紙幅に合わせる">
