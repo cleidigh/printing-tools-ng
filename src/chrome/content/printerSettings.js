@@ -595,14 +595,7 @@ var printerSettings = {
       rp.selectedIndex = o.findIndex(el => el.value == rangeType);
       cmg.removeAttribute("hidden");
       mp.selectedIndex = 3;
-      
-      // test
-      var delay = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.prefix");
-      if (isNaN(delay)) {
-        delay = 0;
-      }
-      console.log(delay)
-      await new Promise(resolve => subDialogWindow.setTimeout(resolve, delay));
+
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
 
     },
