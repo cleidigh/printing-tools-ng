@@ -440,7 +440,7 @@
       </tr>
     </table>
     <br />
-    <h2 id="print_options_help">Druck und Seitenoptionen</h2>
+    <h2 id="print_options_help">Druck- und Seitenoptionen</h2>
     <p>
       Mit diesen Optionen können Sie den Standarddrucker sowie Optionen pro Druckerseite festlegen. Es ist
       auch möglich, den stillen Modus einzustellen, in dem der Vorschaudialog nicht angezeigt wird und der
@@ -483,8 +483,8 @@
     <div class="indent1">
       <li>&amp;D = Datum</li>
       <li>&amp;P = Seitenzahl</li>
-      <li>&amp;PT = Seitenzahl mit Summe („3 von 5“)</li>
-      <li>&amp;T = Betreff der Nachricht</li>
+      <li>&amp;PT = Seitenzahl und Seitenanzahl („3 von 5“)</li>
+      <li>&amp;T = Seitentitel (Betreff der Nachricht)</li>
       <li>&amp;U = URL (Die URL der Nachricht)</li>
     </div>
     <h2>Unterstützung</h2>
@@ -499,6 +499,21 @@
       - Debug-Ausgabe (Kopie aus der Debug-Konsole - Zugriff mit Control-Shift-J)<br />
       - Eine Beschreibung der Schritte, die zu dem Problem geführt haben<br />
     </p>
+    <h2>Debug-Optionen</h2>
+    <p>
+      Die Debug-Optionen sind eine Reihe von Schlüsselwörtern, die als durch Leerzeichen getrennte Liste
+      eingegeben werden. Die Optionen werden normalerweise für die Konsolen-Debugging-Ausgabe verwendet,
+      können aber auch zum Testen oder für andere Modi verwendet werden.
+    </p>
+    <div class="indent1">
+      <li>initialsource - Nachrichtenquelle anzeigen, bevor PTNG eine Formatierung vornimmt</li>
+      <li>finaloutput - Zeigt die endgültige Nachrichtenausgabe an</li>
+      <li>pdfoutput - Debug-Ausgabe für die Ausgabe von PDF-Nachrichten</li>
+      <li>printsettings - Debug-Ausgabe für Druck- und Seitenoptionen</li>
+      <li>
+        helpinwin - Modus-Flag, um die Hilfe in einem Fenster statt standardmäßig in einem Tab anzuzeigen
+      </li>
+    </div>
     <h2>Kredite</h2>
     <div class="indent1">
       <li>PrintingTools NG basiert auf der Originalerweiterung von Paolo „Kosmos“</li>
