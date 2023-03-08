@@ -55,7 +55,7 @@
     <br>
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br>
-    <h2 id="customdate_format_help">カスタム日付形式</h2>
+    <h2 id="customdate_format_help">カスタム日時形式</h2>
     <p>
       カスタム日時オプションを使用するとメッセージヘッダーの日時と受信日時の両方に使用される書式を完全に制御できます。
       カスタム日時にはほぼすべての形式を可能にする複数のローカライズされたオプションを提供します。
@@ -68,8 +68,8 @@
       <thead>
         <tr>
           <td>日時文字列</td>
-          <td>結果</td>
-          <td>備考</td>
+          <td style="padding-left: 10px">結果</td>
+          <td style="padding-left: 10px">備考</td>
         </tr>
       </thead>
       <tr>
@@ -123,7 +123,7 @@
     <table class="dateformat-table">
       <thead>
         <tr>
-          <th style="width: 11%; padding-left: 10px;" align="left;">シーケンス</th>
+          <th style="width: 13%; padding-left: 10px" align="left">シーケンス</th>
           <th>説明</th>
         </tr>
       </thead>
@@ -359,7 +359,7 @@
         class="notranslate"
         ><code>${prefix}_${date_custom}_${sender}</code></span
       >
-      - デフォルトの代わりにカスタムの日付形式を使用<br><span class="notranslate"
+      - デフォルトの代わりにカスタムの日時形式を使用<br><span class="notranslate"
         ><code>${subject}-GmailMsg-${date}-${index}</code></span
         > - カスタムテキスト付き<br>
     </p>
@@ -367,8 +367,8 @@
     次の表はファイル名形式で使用できるトークン一式を示したものです。</p>
     <table class="token-table">
       <tr>
-        <td>トークン</td>
-        <td>説明</td>
+        <td style="padding-left: 10px">トークン</td>
+        <td style="padding-left: 10px">説明</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${subject}</code></td>
@@ -471,17 +471,17 @@
       - 問題の再現手順の説明<br>
     </p>
     <br> <!-- add by @kiki-ja -->
-    <h2>デバッグ オプション</h2>
+    <h2>デバッグオプション</h2>
     <p>
       デバッグ
-      オプションは、スペースで区切られたリストとして入力される一連のキーワードです。オプションは通常、コンソールのデバッグ出力に使用されますが、テストや別のモードにも使用できます。
+      オプションはスペースで区切ったリストとして入力する一連のキーワードです。このオプションは通常はコンソールのデバッグ出力に使用されますがテストや別のモードにも使用できます。
     </p>
     <div class="indent1">
-      <li>initialsource - PTNG がフォーマットを行う前にメッセージのソースを表示する</li>
+      <li>initialsource - PrintingTools NG がフォーマットを行う前にメッセージのソースを表示します</li>
       <li>finaloutput - 最終的なメッセージ出力を表示します</li>
-      <li>pdfoutput - PDF メッセージ出力のデバッグ出力</li>
-      <li>printsettings - 印刷およびページ オプションのデバッグ出力</li>
-      <li>helpinwin - 標準のタブではなくウィンドウにヘルプを表示するモード フラグ</li>
+      <li>pdfoutput - PDF メッセージ出力のデバッグ出力です</li>
+      <li>printsettings - 印刷およびページ設定のデバッグ出力です</li>
+      <li>helpinwin - ヘルプを標準のタブではなくウィンドウで表示するモードフラグです</li>
     </div>
     <br>
     <h2>クレジット</h2>
