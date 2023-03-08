@@ -24,13 +24,9 @@
 			<tab label="  &pdf_output;  " />
 			<tab label="  &print_and_pageoptions;  " />
 		</tabs>
-
 		<tabpanels id="tabs">
-
 			<!-- TAB1 Miscellaneous -->
 			<tabpanel orient="vertical">
-			<html:div style="padding-left: 5px">
-				<spacer height="8px"/>
 				<hbox>
 					<label style="font-weight: 700" value="&addNameRG.label;" />
 				</hbox>
@@ -47,7 +43,7 @@
 					</radiogroup>
 				</hbox>
 				<spacer height="2px" />
-
+				<!-- </groupbox> -->
 				<hbox align="center">
 					<spacer width="10px" />
 					<checkbox id="addFolder" label="&PMDlabel23;" />
@@ -96,13 +92,9 @@
 						<html:input type="text" id="debug-options" />
 					</hbox>
 				</groupbox>
-			</html:div>
 			</tabpanel>
-
 			<!-- TAB2 Headers -->
 			<tabpanel orient="vertical">
-			<html:div style="padding-left: 5px">
-				<spacer height="8px"/>
 				<hbox>
 					<label style="font-weight: 700" value="&headers;" />
 				</hbox>
@@ -186,14 +178,10 @@
 						<button label="&showhide;" onclick="toggleHeaderShow()" />
 					</vbox>
 				</hbox>
-			</html:div>
 			</tabpanel>
-
 			<!-- TAB3 Body -->
 			<tabpanel>
-			<html:div style="padding-left: 5px">
 				<vbox>
-					<spacer height="8px"/>
 					<hbox>
 						<label style="font-weight: 700" value="&messageBody;" />
 					</hbox>
@@ -304,13 +292,9 @@
 						<checkbox id="resizeImgs" label="&resizeImgs.label;" />
 					</hbox>
 				</vbox>
-			</html:div>
 			</tabpanel>
-
 			<!-- TAB4 PDF options -->
 			<tabpanel orient="vertical">
-			<html:div style="padding-left: 5px">
-				<spacer height="8px"/>
 				<hbox>
 					<label style="font-weight: 700" value="&pdf_file_naming;" />
 				</hbox>
@@ -372,12 +356,10 @@
 						</hbox>
 					</hbox>
 				</vbox>
-			</html:div>
 			</tabpanel>
-
 			<!-- TAB5 Global printing options -->
 			<tabpanel>
-				<html:div style="padding-left: 0px">
+				<html:div style= "padding-left: 0px">
 					<vbox>
 
 							<div>
@@ -397,20 +379,22 @@
 							</div>
 							
 
+
+
 							<spacer height="8px"/>
 							<hbox>
-							<spacer width="15px"/>
-							<menulist id="OutputPrinter" oncommand="printerChange();" style="padding-left: 24px"/>
+								<spacer width="15px"/>
+								<menulist id="OutputPrinter" oncommand="printerChange();" style="padding-left: 20px"/>
 							</hbox>
-
-							<spacer height="4px"/>
-							<hbox align="center">
-							<spacer width="14px"/>
+						<!-- </hbox> -->
+						<spacer height="4px"/>
+						<hbox align="center">
+							<spacer width="10px"/>
 							<checkbox id="PMDsilent" label="&PMDlabel8;" />
-							</hbox>
-							<spacer height="15px"/>
+						</hbox>
+						<spacer height="15px"/>
 
-							<div>
+<div>
 							<html:table style= "">
 							<html:tr>
 							<html:td style= "">
@@ -426,161 +410,170 @@
 							</html:table>
 							</div>
 
-							<spacer height="8px"/>
-
-							<html:div>
+						<spacer height="8px"/>
+						
+						<html:div>
+						
 							<html:table id="margins-hdrftr-table" class="margins-hdrftr-tbl" style="border-collapse: collapse;">
 
-							<html:tr>
-								<html:td>&Scale;
+<html:tr>
+									<html:td>&Scale;
 								</html:td>
-								<html:td colspan="4" style="vertical-align: center">
-								<radiogroup id="scaleRG" orient="horizontal" oncommand="scaleToggle(this);" >
-								<radio label="&fitToWidth;"/>
-								<radio label="&Scale;" />
-								<html:div id="parent" style="padding-top: 3px">
-								<html:input id="scale" is="setting-number" 
-									data-setting-name="scaling" min="10" max="200" 
-									class="copy-count-input photon-number2" 
-									aria-errormessage="error-invalid-scale" required="" 
-									type="number" autocomplete="off" value="1"/>
-								<html:div id="scale-error" class="error">Error</html:div>
-								</html:div>
+									<html:td colspan="4" style="vertical-align: center">
+							<radiogroup id="scaleRG" orient="horizontal" oncommand="scaleToggle(this);" >
+									<radio label="&fitToWidth;"/>
+									<radio label="&Scale;" />
+									<html:div id="parent" style="padding-top: 3px">
+
+										<html:input id="scale" is="setting-number" 
+						data-setting-name="scaling" min="10" max="200" 
+						class="copy-count-input photon-number2" 
+						aria-errormessage="error-invalid-scale" required="" 
+						type="number" autocomplete="off" value="1"/>
+											<html:div id="scale-error" class="error">Error</html:div>
+
+									</html:div>
 								</radiogroup>
-								</html:td>
-							</html:tr>
+									</html:td>
+								</html:tr>
 
-							<html:tr>
-								<html:td>&page_ranges;
+
+									<html:tr>
+									<html:td>&page_ranges;
 								</html:td>
-								<html:td colspan="4" >
-								<radiogroup id="pageRangesRG" orient="horizontal" oncommand="pageRangeToggle(this);" >
-								<radio label="&all;" />
-								<radio label="&custom;" />
-								<html:div id="page-ranges-error-parent">
-								<html:input type="text" id="pages" size="12" required="" 
-									style="padding-right: 0; margin-right: 0px" />
-								<html:div id="page-ranges-error" class="error">Error</html:div>
-								</html:div>
+									<html:td colspan="4" >
+							<radiogroup id="pageRangesRG" orient="horizontal" oncommand="pageRangeToggle(this);" >
+									<radio label="&all;" />
+									<radio label="&custom;" />
+									<html:div id="page-ranges-error-parent">
+										<html:input type="text" id="pages" size="12" required="" style="padding-right: 0; margin-right: 0px" />
+										<html:div id="page-ranges-error" class="error">Error</html:div>
+									</html:div>
 								</radiogroup>
-								</html:td>
-							</html:tr>
+									</html:td>
+								</html:tr>
 
-							<html:tr>
-								<html:td id="frfc">&margins;<label id="units" value="(inches)" />
+								<html:tr>
+									<html:td id="frfc">&margins;<label id="units" value="(inches)" />
 								</html:td>
-								<html:td>&top;
+									<html:td>&top;
+								</html:td>
+									<html:td>
+									<html:input id="margin-top" is="setting-number" 
+						data-setting-name="marginTop" min="0" max="10000" step="0.01"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50" style="width: 100%"/>
+									</html:td>
+									<html:td>&bottom;
+								</html:td>
+									<html:td style="text-align: right">
+									<html:input id="margin-bottom" is="setting-number" 
+						data-setting-name="marginTop" min="0" max="10000" step="0.001"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50"/>
+								</html:td>
+								</html:tr>
+
+								<html:tr>
+									<html:td>
+								</html:td>
+									<html:td>&left;
+								</html:td>
+									<html:td>
+									<html:input id="margin-left" is="setting-number" 
+						data-setting-name="marginTop" min="0" max="10000" step="0.001"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50"/>
+									</html:td>
+									<html:td>&right;
+								</html:td>
+									<html:td style="text-align: right">
+									<html:input id="margin-right" is="setting-number" 
+						data-setting-name="marginTop" min="0" max="10000" step="0.001"
+						class="margin-input photon-number2" 
+						aria-errormessage="error-invalid-copies" required="" 
+						type="number" autocomplete="off" value="0.50"/>
+								</html:td>
+								</html:tr>
+
+								<html:tr>
+									<html:td>&page_headers;
+								</html:td>
+									<html:td>&left;
+								</html:td>
+									<html:td id="leftHeaderTD" colspan="3">
+										<html:input type="text" id="headerleft" class="hdrftr" />
+									</html:td>
+									
+									<!--<html:td>
 								</html:td>
 								<html:td>
-								<html:input id="margin-top" is="setting-number" 
-										data-setting-name="marginTop" min="0" max="10000" step="0.01"
-										class="margin-input photon-number2" 
-										aria-errormessage="error-invalid-copies" required="" 
-										type="number" autocomplete="off" value="0.50" style="width: 100%"/>
 								</html:td>
-								<html:td>&bottom;
-								</html:td>
-								<html:td style="text-align: right">
-								<html:input id="margin-bottom" is="setting-number" 
-										data-setting-name="marginTop" min="0" max="10000" step="0.001"
-										class="margin-input photon-number2" 
-										aria-errormessage="error-invalid-copies" required="" 
-										type="number" autocomplete="off" value="0.50"/>
-								</html:td>
-							</html:tr>
+								-->
+								</html:tr>
 
-							<html:tr>
-								<html:td>
-								</html:td>
-								<html:td>&left;
-								</html:td>
-								<html:td>
-								<html:input id="margin-left" is="setting-number" 
-										data-setting-name="marginTop" min="0" max="10000" step="0.001"
-										class="margin-input photon-number2" 
-										aria-errormessage="error-invalid-copies" required="" 
-										type="number" autocomplete="off" value="0.50"/>
-								</html:td>
-								<html:td>&right;
-								</html:td>
-								<html:td style="text-align: right">
-								<html:input id="margin-right" is="setting-number" 
-										data-setting-name="marginTop" min="0" max="10000" step="0.001"
-										class="margin-input photon-number2" 
-										aria-errormessage="error-invalid-copies" required="" 
-										type="number" autocomplete="off" value="0.50"/>
-								</html:td>
-							</html:tr>
 
-							<html:tr>
-								<html:td>&page_headers;
+								<html:tr>
+									<html:td>
 								</html:td>
-								<html:td>&left;
+									<html:td>&center;
 								</html:td>
-								<html:td id="leftHeaderTD" colspan="3">
-								<html:input type="text" id="headerleft" class="hdrftr" />
+									<html:td colspan="3">
+										<html:input type="text" id="headercenter" class="hdrftr" />
+									</html:td>
+									
+								</html:tr>
+								<html:tr>
+									<html:td>
 								</html:td>
-							</html:tr>
-
-							<html:tr>
-								<html:td>
+									<html:td>&right;
 								</html:td>
-								<html:td>&center;
+									<html:td colspan="3">
+										<html:input type="text" id="headerright" class="hdrftr" />
+									</html:td>
+									
+								</html:tr>
+								<html:tr>
+									<html:td>&footers;
 								</html:td>
-								<html:td colspan="3">
-									<html:input type="text" id="headercenter" class="hdrftr" />
+									<html:td>&left;
 								</html:td>
-							</html:tr>
-
-							<html:tr>
-								<html:td>
+									<html:td colspan="3">
+										<html:input type="text" id="footerleft" class="hdrftr" />
+									</html:td>
+									
+								</html:tr>
+								<html:tr>
+									<html:td>
 								</html:td>
-								<html:td>&right;
+									<html:td>&center;
 								</html:td>
-								<html:td colspan="3">
-								<html:input type="text" id="headerright" class="hdrftr" />
+									<html:td colspan="3">
+										<html:input type="text" id="footercenter" class="hdrftr"  />
+									</html:td>
+									
+								</html:tr>
+								<html:tr>
+									<html:td>
 								</html:td>
-							</html:tr>
-
-							<html:tr>
-								<html:td>&footers;
+									<html:td>&right;
 								</html:td>
-								<html:td>&left;
-								</html:td>
-								<html:td colspan="3">
-								<html:input type="text" id="footerleft" class="hdrftr" />
-								</html:td>
-							</html:tr>
-
-							<html:tr>
-								<html:td>
-								</html:td>
-								<html:td>&center;
-								</html:td>
-								<html:td colspan="3">
-								<html:input type="text" id="footercenter" class="hdrftr"  />
-								</html:td>
-							</html:tr>
-
-							<html:tr>
-								<html:td>
-								</html:td>
-								<html:td>&right;
-								</html:td>
-								<html:td colspan="3">
-								<html:input type="text" id="footerright" class="hdrftr"  />
-								</html:td>
-							</html:tr>
-
+									<html:td colspan="3">
+										<html:input type="text" id="footerright" class="hdrftr"  />
+									</html:td>
+									
+								</html:tr>
 							</html:table>
 							</html:div>
-
+						<!-- </vbox> -->
 					</vbox>
 				</html:div>
 			</tabpanel>
 		</tabpanels>
 	</tabbox>
-
 	<vbox height="8px"></vbox>
 	<hbox align="right">
 		<spacer flex="1"/>
