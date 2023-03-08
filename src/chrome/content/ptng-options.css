@@ -307,11 +307,11 @@ input[type="radio"]:disabled+span>label {
 }
 
 #debug-options:not(:lang(ja)) {
-	width: 380px;
+	width: 350px;
 }
 
 #debug-options:lang(ja) {
-	width: 380px;
+	width: 350px;
 }
 
 #border_style:not(:lang(ja)) {
