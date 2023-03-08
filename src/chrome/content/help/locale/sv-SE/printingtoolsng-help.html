@@ -320,15 +320,15 @@
         <code class="code1">%n</code> - som <code class="code1">%m</code> , men ingen inledande nolla (använd
         <code class="code1">\n</code> för nyrad)
       </li>
-      <li><code class="code1">%O</code> - ej implementerad</li>
+      <li><code class="code1">%O</code> - inte implementerat</li>
       <li>
         <code class="code1">%r</code> - inte implementerad (använd <code class="code1">%I:%M:%S %p</code> )
       </li>
       <li><code class="code1">%R</code> - inte implementerad (använd <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - inte implementerad (använd <code class="code1">\t</code> )</li>
       <li><code class="code1">%T</code> - inte implementerad (använd <code class="code1">%H:%M:%S</code></li>
-      <li><code class="code1">%U</code> - inte implementerat</li>
-      <li><code class="code1">%W</code> - inte implementerat</li>
+      <li><code class="code1">%U</code> - inte implementerad</li>
+      <li><code class="code1">%W</code> - inte implementerad</li>
       <li><code class="code1">%+</code> - inte implementerat</li>
       <li><code class="code1">%%</code> - inte implementerad (använd <code class="code1">%</code> )</li>
     </ul>
@@ -476,18 +476,24 @@
       - Felsökningsutgång (kopiera från felsökningskonsolen - åtkomst med Control-Shift-J)<br />
       - En beskrivning av stegen som leder till problemet<br />
     </p>
-    <h2>Felsökningsalternativ</h2>
+    <h2 id="debug_options_help">Felsökningsalternativ</h2>
     <p>
       Felsökningsalternativen är en uppsättning nyckelord som anges som en blankstegsseparerad lista.
       Alternativen används vanligtvis för konsolfelsökning, men kan också användas för testning eller olika
       lägen.
     </p>
     <div class="indent1">
-      <li>initialsource - visa meddelandekällan innan PTNG gör någon formatering</li>
-      <li>finaloutput - visa det slutliga meddelandet</li>
-      <li>pdfoutput - felsök utdata för PDF-meddelandeutdata</li>
-      <li>utskriftsinställningar - felsök utdata för utskrifts- och sidalternativ</li>
-      <li>helpinwin - lägesflagga för att visa hjälp i ett fönster istället för standarden i en flik</li>
+      <li>
+        <code class="notranslate">initialsource</code> - visa meddelandekällan innan PTNG gör någon
+        formatering
+      </li>
+      <li><code class="notranslate">finaloutput</code> - visa det slutliga meddelandet</li>
+      <li><code class="notranslate">pdfoutput</code> - debug output för PDF-meddelandeutdata</li>
+      <li><code class="notranslate">printsettings</code> - felsök utdata för utskrifts- och sidalternativ</li>
+      <li>
+        <code class="notranslate">helpinwin</code> - lägesflagga för att visa hjälp i ett fönster istället för
+        standarden i en flik
+      </li>
     </div>
     <h2>Krediter</h2>
     <div class="indent1">

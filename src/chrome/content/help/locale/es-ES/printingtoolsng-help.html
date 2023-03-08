@@ -254,8 +254,8 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Número de semana ISO 8601 del año actual como número decimal (rango 01 a 53), donde la semana 1 es
-            la primera semana que tiene al menos 4 días en el nuevo año (es decir, el primer jueves).
+            Número de semana ISO 8601 del año actual como un número decimal (rango 01 a 53), donde la semana 1
+            es la primera semana que tiene al menos 4 días en el nuevo año (es decir, el primer jueves).
           </td>
         </tr>
         <tr>
@@ -443,9 +443,9 @@
       Un elemento que no guarda la vista previa son los rangos de página. Un caso de uso típico es cuando uno
       desea imprimir solo la primera página de un correo electrónico como predeterminado. normalmente uno
       tendría que hacer que los rangos de página cambien cada vez. Tenga en cuenta que si un rango de páginas
-      establecido en PrintingTools NG no es válido, por ejemplo, si excede el número de páginas, el rango
-      deberá corregirse en la vista previa antes de imprimir. Un intervalo de páginas establecido en
-      &quot;1&quot; siempre será válido e imprime la primera página del mensaje.
+      establecido en PrintingTools NG no es válido, como exceder el número de páginas, el rango deberá
+      corregirse en la vista previa antes de imprimir. Un intervalo de páginas establecido en &quot;1&quot;
+      siempre será válido e imprime la primera página del mensaje.
     </p>
     <p>Notas:</p>
     <p>La opción de escalado permite establecer una escala persistente.</p>
@@ -485,19 +485,28 @@
       - Salida de depuración (copia desde la consola de depuración - acceso con Control-Shift-J)<br />
       - Una descripción de los pasos que conducen al problema.<br />
     </p>
-    <h2>Opciones de depuración</h2>
+    <h2 id="debug_options_help">Opciones de depuración</h2>
     <p>
       Las opciones de depuración son un conjunto de palabras clave que se ingresan como una lista separada por
       espacios. Las opciones se usan normalmente para la salida de depuración de la consola, pero también se
       pueden usar para pruebas o diferentes modos.
     </p>
     <div class="indent1">
-      <li>fuente inicial: muestra la fuente del mensaje antes de que PTNG realice cualquier formateo</li>
-      <li>finaloutput - muestra la salida del mensaje final</li>
-      <li>pdfoutput - salida de depuración para la salida de mensajes PDF</li>
-      <li>printsettings - salida de depuración para opciones de impresión y página</li>
       <li>
-        helpinwin - indicador de modo para mostrar ayuda en una ventana en lugar del estándar en una pestaña
+        <code class="notranslate">initialsource</code> : muestra la fuente del mensaje antes de que PTNG
+        realice cualquier formateo
+      </li>
+      <li><code class="notranslate">finaloutput</code> - muestra la salida del mensaje final</li>
+      <li>
+        <code class="notranslate">pdfoutput</code> - salida de depuración para la salida de mensajes PDF
+      </li>
+      <li>
+        <code class="notranslate">printsettings</code> - salida de depuración para opciones de impresión y
+        página
+      </li>
+      <li>
+        <code class="notranslate">helpinwin</code> - indicador de modo para mostrar ayuda en una ventana en
+        lugar del estándar en una pestaña
       </li>
     </div>
     <h2>Créditos</h2>

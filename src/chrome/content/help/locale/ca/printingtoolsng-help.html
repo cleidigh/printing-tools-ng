@@ -317,7 +317,7 @@
         <code class="code1">%D</code> - no implementat (utilitza <code class="code1">%m/%d/%y</code> o
         <code class="code1">%d/%m/%y</code> )
       </li>
-      <li><code class="code1">%e</code> - l&#39;espai no s&#39;ha afegit</li>
+      <li><code class="code1">%e</code> - l&#39;espai no s&#39;afegeix</li>
       <li><code class="code1">%E</code> - no implementat</li>
       <li><code class="code1">%h</code> - no implementat (utilitza <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - l&#39;espai no s&#39;afegeix</li>
@@ -485,20 +485,28 @@
       - Sortida de depuració (còpia des de la consola de depuració - accés amb Control-Maj-J)<br />
       - Una descripció dels passos que han conduït al problema<br />
     </p>
-    <h2>Opcions de depuració</h2>
+    <h2 id="debug_options_help">Opcions de depuració</h2>
     <p>
       Les opcions de depuració són un conjunt de paraules clau que s&#39;introdueixen com una llista separada
       per espais. Les opcions s&#39;utilitzen normalment per a la sortida de depuració de la consola, però
       també es poden utilitzar per a proves o diferents modes.
     </p>
     <div class="indent1">
-      <li>initialsource: mostra la font del missatge abans que PTNG faci qualsevol format</li>
-      <li>finaloutput: mostra la sortida del missatge final</li>
-      <li>pdfoutput - sortida de depuració per a la sortida de missatges PDF</li>
-      <li>printsettings: depura la sortida per a les opcions d&#39;impressió i de pàgina</li>
       <li>
-        helpinwin - marca de mode per mostrar l&#39;ajuda en una finestra en lloc de l&#39;estàndard en una
-        pestanya
+        <code class="notranslate">initialsource</code> : mostra la font del missatge abans que PTNG faci
+        qualsevol format
+      </li>
+      <li><code class="notranslate">finaloutput</code> : mostra la sortida del missatge final</li>
+      <li>
+        <code class="notranslate">pdfoutput</code> - sortida de depuració per a la sortida de missatges PDF
+      </li>
+      <li>
+        <code class="notranslate">printsettings</code> : depura la sortida per a les opcions d&#39;impressió i
+        de pàgina
+      </li>
+      <li>
+        <code class="notranslate">helpinwin</code> - marca de mode per mostrar l&#39;ajuda en una finestra en
+        lloc de l&#39;estàndard en una pestanya
       </li>
     </div>
     <h2>Crèdits</h2>

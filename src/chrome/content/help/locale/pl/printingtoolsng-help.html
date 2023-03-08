@@ -115,7 +115,7 @@
       Niestandardowy format daty wykorzystuje sekwencje % pasujące do funkcjonalności podobnej do uniksowej
       <code>strftime()</code> . Opiera się na javascriptowym porcie
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , funkcji formatującej datę i czas.<br />
+      , funkcji formatującej datę i godzinę.<br />
       Port strftime() autorstwa TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
@@ -477,18 +477,26 @@
       - Wyjście debugowania (kopiowanie z konsoli debugowania - dostęp za pomocą Control-Shift-J)<br />
       - Opis kroków prowadzących do problemu<br />
     </p>
-    <h2>Opcje debugowania</h2>
+    <h2 id="debug_options_help">Opcje debugowania</h2>
     <p>
       Opcje debugowania to zestaw słów kluczowych, które są wprowadzane jako lista oddzielona spacjami. Opcje
       są zwykle używane do debugowania danych wyjściowych konsoli, ale mogą być również używane do testowania
       lub w innych trybach.
     </p>
     <div class="indent1">
-      <li>initialsource - pokaż źródło wiadomości, zanim PTNG wykona jakiekolwiek formatowanie</li>
-      <li>finaloutput - pokaż końcowe wyjście wiadomości</li>
-      <li>pdfoutput - wyjście debugowania dla wyjścia wiadomości PDF</li>
-      <li>printsettings - wyjście debugowania dla opcji drukowania i strony</li>
-      <li>helpinwin - flaga trybu wyświetlająca pomoc w oknie zamiast standardowo w zakładce</li>
+      <li>
+        <code class="notranslate">initialsource</code> - pokaż źródło wiadomości, zanim PTNG wykona
+        jakiekolwiek formatowanie
+      </li>
+      <li><code class="notranslate">finaloutput</code> - pokaż końcowe wyjście wiadomości</li>
+      <li><code class="notranslate">pdfoutput</code> - wyjście debugowania dla wyjścia wiadomości PDF</li>
+      <li>
+        <code class="notranslate">printsettings</code> - wyjście debugowania dla opcji drukowania i strony
+      </li>
+      <li>
+        <code class="notranslate">helpinwin</code> - flaga trybu wyświetlająca pomoc w oknie zamiast
+        standardowo w zakładce
+      </li>
     </div>
     <h2>Kredyty</h2>
     <div class="indent1">
