@@ -44,8 +44,8 @@ var document;
 var locale = Services.locale.appLocaleAsBCP47;
 
 var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
-var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
-  .getService(Ci.nsIPrintSettingsService);
+var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"].getService(Ci.nsIPrintSettingsService);
+var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
 var EXPORTED_SYMBOLS = ["printerSettings"];
 
@@ -81,17 +81,18 @@ var printerSettings = {
     printSettings.isInitializedFromPrinter = true;
 
     document = window.document;
-    console.log("get print settings ", document);
-    console.log("printer Settings on entry\n ", printSettings)
+
+    if (dbgopts.indexOf("printsettings") > -1) {
+      console.log("PTNG: getPrinterSettings");
+      console.log("PTNG: printSettings on entry: ", printSettings);
+    }
+
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
     let p = `extensions.printingtoolsng.printer.${printerNameEsc}`;
 
     let t = prefs.getPrefType(p);
 
-    var props;
-    var customProps;
-    console.log("get ptng ", printerName, t)
     // Check if we need to initialize PTNG printer settings
     if (t > 0) {
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
@@ -101,17 +102,26 @@ var printerSettings = {
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
     }
 
-    //console.log(printSettings.paperSizeUnit);
-    // 0=in, 1=mm
+    if (dbgopts.indexOf("printsettings") > -1) {
+      console.log("PTNG: printer PTNG prefs for: ", printSettings.printerName);
+      console.log(prefs.getStringPref(p));
+      console.log("PTNG: merged printSettings : ", printSettings);
+      console.log("PTNG: key prefs:");
+      console.log("  printer: ", printSettings.printerName);
+      console.log("  paperId: ", printSettings.paperId);
+      console.log("  paperSizeUnit: ", printSettings.paperSizeUnit);
 
-    console.log("getting prefs")
-    console.log("printer ", printSettings.printerName)
-    console.log("ShrinkToFit  ", printSettings.shrinkToFit)
-    console.log("scale ", printSettings.scaling)
-    console.log("margin top ", printSettings.marginTop)
-    console.log("margin bottom ", printSettings.marginBottom)
-    console.log("margin left ", printSettings.marginLeft)
-    console.log("margin right ", printSettings.marginRight)
+      console.log("  shrinkToFit:   ", printSettings.shrinkToFit);
+      console.log("  scale:      ", printSettings.scaling);
+      console.log("  pageRanges: ", printSettings.pageRanges);
+      console.log("  margin top:    ", printSettings.marginTop);
+      console.log("  margin bottom: ", printSettings.marginBottom);
+      console.log("  margin left:   ", printSettings.marginLeft);
+      console.log("  margin right   ", printSettings.marginRight);
+    }
+
+
+
 
     let paperSizeUnit = printSettings.paperSizeUnit;
     let localeUnits = (locale == "en-US") ? 0 : 1;
@@ -425,16 +435,9 @@ var printerSettings = {
       printSettings.pageRanges = this.setPageRangesFromString(pr.value);
     }
 
-    let paperSizeUnit = printSettings.paperSizeUnit;
     let el = document.querySelector("#margin-top");
-    console.log(el.value)
-    console.log(Number(el.value))
-    
-
     let val = this.localeUnitsToInches(Number(el.value), localeUnits);
-    console.log(val)
     printSettings.marginTop = val;
-    console.log(printSettings.marginTop)
 
     el = document.querySelector("#margin-bottom");
     val = this.localeUnitsToInches(Number(el.value), localeUnits);
@@ -470,16 +473,22 @@ var printerSettings = {
       Ci.nsIPrintSettings.kInitSaveShrinkToFit |
       Ci.nsIPrintSettings.kInitSaveScaling;
 
-    console.log("\nPTNG: Saving prefs on options exit")
+    if (dbgopts.indexOf("printsettings") > -1) {
+      console.log("\nPTNG: Saving prefs on options exit");
+      console.log("PTNG: merged printSettings : ", printSettings);
+      console.log("PTNG: key prefs:");
+      console.log("  printer: ", printSettings.printerName);
+      console.log("  paperId: ", printSettings.paperId);
+      console.log("  paperSizeUnit: ", printSettings.paperSizeUnit);
 
-    console.log("printer ", printSettings.printerName)
-    console.log("paperId ", printSettings.paperId)
-    console.log("page units ", printSettings.paperSizeUnit)
-    console.log("copies ", printSettings.numCopies)
-    console.log("margin top ", printSettings.marginTop)
-    console.log("margin bottom ", printSettings.marginBottom)
-    console.log("margin left ", printSettings.marginLeft)
-    console.log("margin right ", printSettings.marginRight)
+      console.log("  shrinkToFit:   ", printSettings.shrinkToFit);
+      console.log("  scale:      ", printSettings.scaling);
+      console.log("  pageRanges: ", printSettings.pageRanges);
+      console.log("  margin top:    ", printSettings.marginTop);
+      console.log("  margin bottom: ", printSettings.marginBottom);
+      console.log("  margin left:   ", printSettings.marginLeft);
+      console.log("  margin right   ", printSettings.marginRight);
+    }
 
     PSSVC.savePrintSettingsToPrefs(printSettings, true, savePrefs);
 
@@ -494,8 +503,11 @@ var printerSettings = {
     }
 
     let js = JSON.stringify(customProps);
-    console.log("saving ptng settings")
-    console.log(js, printerNameEsc)
+    if (dbgopts.indexOf("printsettings") > -1) {
+      console.log("PTNG: saving ptng printer pref:");
+      console.log(js, printerNameEsc);
+    }
+
     prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, js);
   },
 
