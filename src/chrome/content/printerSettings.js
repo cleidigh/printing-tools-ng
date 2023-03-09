@@ -97,7 +97,6 @@ var printerSettings = {
     if (t > 0) {
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
     } else {
-      console.log("init ptng ", printerName)
       this.initCustomPrinterOptions(printerName);
       printSettings = this.setPrinterSettingsFromPTNGsettings(printSettings);
     }
@@ -120,10 +119,6 @@ var printerSettings = {
       console.log("  margin right   ", printSettings.marginRight);
     }
 
-
-
-
-    let paperSizeUnit = printSettings.paperSizeUnit;
     let localeUnits = (locale == "en-US") ? 0 : 1;
     let un = document.querySelector("#units");
     let unitsStr = ["(in)", "(mm)"];
@@ -134,16 +129,15 @@ var printerSettings = {
     let seRG = document.querySelector("#scaleRG");
     se.value = printSettings.scaling * 100;
 
-
     if (printSettings.shrinkToFit) {
       seRG.selectedIndex = 0;
       se.setAttribute("disabled", "true");
     } else {
       seRG.selectedIndex = 1;
       se.removeAttribute("disabled");
-
     }
 
+    // setup pageRanges
     let prRG = document.querySelector("#pageRangesRG");
     let cr = document.querySelector("#pages");
     let pr = printSettings.pageRanges;
@@ -176,6 +170,7 @@ var printerSettings = {
     n = this.inchesToLocaleUnits(printSettings.marginRight, localeUnits).toFixed(2);
     el.value = new Intl.NumberFormat(locale).format(n);
 
+    // setup headers and footers
     el = document.querySelector("#headerleft");
     el.value = printSettings.headerStrLeft;
     el = document.querySelector("#headercenter");
@@ -299,26 +294,21 @@ var printerSettings = {
   },
 
   localeUnitsToInches: function (localeVal, localeUnits) {
-    // let localeUnits = (locale == "en-US") ? 0 : 1;
-
     // locale uses mm
     if (localeUnits) {
       return localeVal / 25.4;
     }
     return localeVal;
-
   },
 
   inchesToLocaleUnits: function (localeVal, localeUnits) {
-    // let localeUnits = (locale == "en-US") ? 0 : 1;
-
     // locale uses mm
     if (localeUnits) {
       return localeVal * 25.4;
     }
     return localeVal;
-
   },
+
   paperToLocaleUnits: function (paperVal, paperSizeUnit) {
     let localeUnits = (locale == "en-US") ? 0 : 1;
 
@@ -362,10 +352,8 @@ var printerSettings = {
     if (type) {
       outputPrinter = prefs.getCharPref("print_printer");
     } else {
-      console.log("no tb printer")
       outputPrinter = defaultPrinter;
     }
-
 
     var printSettings;
     if (PSSVC.newPrintSettings) {
@@ -541,19 +529,10 @@ var printerSettings = {
     return printSettings;
   },
 
-  paperUnitsToInches: function (val, units) {
-    if (isNaN(val) || val < 0 || val > 2000) {
-      return undefined;
-    }
-    if (units == 0) {
-      return val;
-    }
-    return val / 25.4;
-  },
-
   // We setup an observer for the preview subdialog so we can set
   // PTNG preferences which are not set in printsettings
-  // pageRanges is set from PTNG settings
+  // pageRanges is set from PTNG settings. Other prefs can be
+  // saved and read through the printer prefs.
 
   addPrintPreviewObserver: function () {
     Services.obs.addObserver(this.printPreviewSetPrinterPrefs, "subdialog-loaded");
@@ -594,6 +573,7 @@ var printerSettings = {
       let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
       var customProps = JSON.parse(props);
 
+      // Unhide the custom range Input if custom page ranges
       let o = [...rp.options];
       let rangeType;
       if (customProps.pageRanges.length == 0) {
@@ -603,11 +583,14 @@ var printerSettings = {
         cr.removeAttribute("disabled");
         cr.removeAttribute("hidden");
       }
-
       rp.selectedIndex = o.findIndex(el => el.value == rangeType);
+
+      // Always show custom margins group
       cmg.removeAttribute("hidden");
       mp.selectedIndex = 3;
 
+      // Set pageRanges - NOTE: This has a timing dependency, a delay
+      // will cause odd preview page errors
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
 
     },
