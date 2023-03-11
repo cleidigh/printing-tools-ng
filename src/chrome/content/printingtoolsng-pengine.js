@@ -95,8 +95,8 @@ var printingtools = {
 		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false && !autoPDFSave) {
 			if (1 &&
 				gMessageDisplay.visible &&
-				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage
-
+				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage &&
+				!gFolderDisplay.selectedMessageUris[0].startsWith("convers")
 			) {
 				console.log("Use existing print hidden pane")
 
