@@ -72,21 +72,42 @@ browser.runtime.onInstalled.addListener(async (info) => {
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 	let rv;
 	switch (info.command) {
+		case "windowsGetAll":
+			var w = await browser.windows.getAll(info.options);
+			return w;
 		case "getCurrentURL":
-			//console.log("geturl")
+			console.log("geturl")
 			// method one: via tabs in focused window
 			try {
-				var w = await browser.windows.getAll({ populate: true })
+				var w = await browser.windows.getAll({ populate: true });
+				console.log(w);
 			} catch {
+				console.log("get windows exception ")
 				return "unknown";
 			}
 
 			let cw = w.find(fw => fw.focused)
-			//console.log(cw)
+			console.log(cw)
 			let url1 = cw.tabs.find(t => t.active).url;
-			//console.log(url1);
+			if (!url1) {
+				url1 = "undefinedURL";
+			}
+			console.log(url1);
 
 			return url1;
+		case "getSelectedMessages":
+			var w = await browser.windows.getCurrent({ populate: true });
+			var t = await browser.tabs.query({currentWindow: true, active: true, mailTab: true})
+			console.log(t);
+			console.log(t.id);
+			var msgList = [];
+			try {
+				msgList = await browser.mailTabs.getSelectedMessages();
+				console.log(msgList);
+			} catch {
+				console.log("err");
+			}
+				return msgList;
 		case "getFullMessage":
 
 			rv = await getFullMessage(info.messageId);

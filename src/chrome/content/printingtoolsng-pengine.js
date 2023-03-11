@@ -90,15 +90,15 @@ var printingtools = {
 				}
 			}
 			
-  
-			
+			let messagePaneBrowserx = document.getElementById("messagepane");
+			console.log(messagePaneBrowserx)
 		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false && !autoPDFSave) {
 			if (1 &&
 				gMessageDisplay.visible &&
 				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage
 
 			) {
-				//console.log("Use existing print hidden pane")
+				console.log("Use existing print hidden pane")
 
 				let messagePaneBrowser = document.getElementById("messagepane");
 
@@ -245,7 +245,7 @@ var printingtools = {
 				}
 
 			} else {
-				//console.log("Use created browser")
+				console.log("Use created browser")
 				let uri = gFolderDisplay.selectedMessageUris[0];
 
 				//console.log("Msg URI: " + uri)
@@ -529,9 +529,31 @@ var printingtools = {
 
 		console.log("cmd_printng start: silent: " + this.running);
 
+		var allWin = await window.ptngAddon.notifyTools.notifyBackground({ command: "windowsGetAll", options: {populate: true}});
+		var curWin = allWin.find(win => win.focused)
+		console.log(curWin)
+		var curTab = curWin.tabs.find(tab => tab.active);
+		var mailType = false;
+		
+		if (curTab.mailTab) {
+			mailType = true;
+		} else if (curTab.type == "messageDisplay") {
+			mailType = true;
+		}
+
+/*
 		// only process mail types else use TB print #119
 		let url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 		console.log(url)
+		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
+		console.log(msgList)
+		msgList.messages.forEach(msg => {
+			let realMessage = window.printingtoolsng.extension
+			.messageManager.get(msg.id);
+			
+			let uri = realMessage.folder.getUriForMsg(realMessage);
+			console.log(uri)
+		});
 		let suri = gFolderDisplay.selectedMessageUris;
 		console.log(suri)
 
@@ -548,7 +570,7 @@ var printingtools = {
 		} else {
 			mailType = false;
 		}
-
+*/
 		if (!mailType) {
 			goDoCommand("cmd_print");
 			return;
