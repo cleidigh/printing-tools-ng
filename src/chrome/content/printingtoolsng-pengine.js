@@ -54,14 +54,19 @@ var printingtools = {
 
 	/** Prints the messages selected in the thread pane. */
 	PrintSelectedMessages: async function (options) {
-
+		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		printingtools.current = 0;
 		printingtools.num = gFolderDisplay.selectedCount;
 
+		
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: selectedMessageUris", gFolderDisplay.selectedMessageUris);
+		  }
 		//console.log(gMessageDisplay.visible)
 		//console.log(gFolderDisplay.selectedMessage)
 		//console.log(gMessageDisplay.displayedMessage)
 
+		var url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 		// loadptng settings 
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 
@@ -74,7 +79,7 @@ var printingtools = {
 			gFolderDisplay.selectedCount == 1 && options.printSilent == false
 		) {
 			pdfOutput = true;
-			var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+			
 			if (dbgopts.indexOf("pdfoutput") > -1) {
 				console.log("PTNG: PDF Output using      : ", ps.printerName);
 				console.log("PTNG: PDF Output Dir enabled: ", pdfOutputEnabled);
@@ -90,21 +95,22 @@ var printingtools = {
 				}
 			}
 			
-			let messagePaneBrowserx = document.getElementById("messagepane");
-			console.log(messagePaneBrowserx)
+
 		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false && !autoPDFSave) {
 			if (1 &&
 				gMessageDisplay.visible &&
 				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage &&
-				!gFolderDisplay.selectedMessageUris[0].startsWith("convers")
+				!url.startsWith("chrome://conversations")
 			) {
-				console.log("Use existing print hidden pane")
-
+				
 				let messagePaneBrowser = document.getElementById("messagepane");
 
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = gFolderDisplay.selectedMessageUris[0];
-				let messageService = messenger.messageServiceFromURI(uri);
+				if (dbgopts.indexOf("pdfoutput") > -1) {
+					console.log("PTNG: Single message, Use existing print messagePane")
+					console.log("PTNG: Message uri: ", uri);
+				}
 
 				printingtools.previewDoc = messagePaneBrowser.contentDocument
 
@@ -226,10 +232,6 @@ var printingtools = {
 					printingtools.doc.styleSheets[0].deleteRule(printingtools.msgRestoration.ruleIndex);
 
 
-
-					//console.log("after rest")
-					//console.log(printingtools.doc.documentElement.outerHTML);
-
 				}, { once: true });
 
 				if (dbgopts.indexOf("pdfoutput") > -1 && pdfOutput) {
@@ -240,15 +242,18 @@ var printingtools = {
 					//console.log("print sel")
 					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
 				} else {
-					console.log("print no sel")
+					// console.log("print no sel")
 					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: false });
 				}
 
 			} else {
-				console.log("Use created browser")
 				let uri = gFolderDisplay.selectedMessageUris[0];
 
-				//console.log("Msg URI: " + uri)
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("PTNG: Use created browser", );
+					console.log("PTNG: Message uri: ", uri);
+				  }
+
 				if (!uri) {
 					return;
 				}
@@ -314,15 +319,15 @@ var printingtools = {
 		if (gFolderDisplay.selectedCount < 1) {
 			return;
 		}
-		var typeMsg = "";
-
+		
 		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
-		typeMsg = "PTNG: Use existing print hidden pane - multiple messages (" + printingtools.msgUris.length + ")";
+		
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: Use existing print hidden pane - multiple messages (" + printingtools.msgUris.length + ")");
+			console.log("PTNG: msgUris: ", gFolderDisplay.selectedMessageUris);
+		}
 
-
-		console.log(typeMsg)
-		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
-
+		
 		// Multiple messages. Get the printer settings, then load the messages into
 		// a hidden browser and print them one at a time.
 		
@@ -526,12 +531,17 @@ var printingtools = {
 
 
 	cmd_printng: async function (options) {
-
-		console.log("cmd_printng start: silent: " + this.running);
+		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+		
+		
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: cmd_printng start: options : ", options);
+		}
+		
 
 		var allWin = await window.ptngAddon.notifyTools.notifyBackground({ command: "windowsGetAll", options: {populate: true}});
 		var curWin = allWin.find(win => win.focused)
-		console.log(curWin)
+		
 		var curTab = curWin.tabs.find(tab => tab.active);
 		var mailType = false;
 		
@@ -541,45 +551,25 @@ var printingtools = {
 			mailType = true;
 		}
 
-/*
-		// only process mail types else use TB print #119
-		let url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
-		console.log(url)
-		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
-		console.log(msgList)
-		msgList.messages.forEach(msg => {
-			let realMessage = window.printingtoolsng.extension
-			.messageManager.get(msg.id);
-			
-			let uri = realMessage.folder.getUriForMsg(realMessage);
-			console.log(uri)
-		});
-		let suri = gFolderDisplay.selectedMessageUris;
-		console.log(suri)
 
-		let mailType = false;
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: current window: ", curWin);
+			console.log("PTNG: current tab: ", curTab);
+			console.log("PTNG: tab type : ", curTab.type);
+			console.log("PTNG: tab url: ", curTab.url);
+			console.log("PTNG: mailType: ", mailType);
+			if (!mailType) {
+				console.log("PTNG: resorting to TB cmd_print()");
+			}
+		  }
 
-		if ((url == "chrome://messenger/content/multimessageview.xhtml" || url.startsWith("about:blank")) && suri) {
-			mailType = true;
-		} else if ((url.startsWith("imap") ||
-			url.startsWith("mailbox") ||
-			url.startsWith("unknown") ||
-			url.startsWith("file")) &&
-			!url.includes("&type=")) {
-			mailType = true;
-		} else {
-			mailType = false;
-		}
-*/
 		if (!mailType) {
 			goDoCommand("cmd_print");
 			return;
 		}
 
-
 		options = options || {};
 
-		//console.log(options)
 		if (options.printSilent == null) {
 			options.printSilent = printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.silent");
 		}
@@ -587,7 +577,6 @@ var printingtools = {
 		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 
 		this.running = true;
-		//console.log(options)
 
 		await this.PrintSelectedMessages(options);
 		console.log("PTNG: Done")
