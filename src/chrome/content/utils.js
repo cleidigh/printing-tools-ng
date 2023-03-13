@@ -47,6 +47,13 @@ var utils = {
     var maxSubjectLen = printingtools.prefs.getIntPref("extensions.printingtoolsng.pdf.filename.max_subject_len");
     var maxFileNameLen = printingtools.prefs.getIntPref("extensions.printingtoolsng.pdf.filename.max_filename_len");
 
+    if (fileNameFormat == "") {
+      fileNameFormat = "${subject}";
+    }
+
+    if (customDateFormat == "") {
+      customDateFormat = "%y%m%d";
+    }
     // get raw hdr components
     var rawSubject = msgHdr.mime2DecodedSubject;
     var rawAuthor = msgHdr.mime2DecodedAuthor;
@@ -149,14 +156,20 @@ var utils = {
     }
 
     fileName = this.subInvalidFileNameChars(fileName);
-    fileName += ".pdf";
 
+    console.log(fileName)
+    if ((fileName.length + outputDir.length + 9) > maxFileNameLen) {
+      // maxFileNameLen -= (outputDir.length + 4);
+      console.log(fileName)
+      fileName = fileName.substring(0, maxFileNameLen - outputDir.length - 9);
+      console.log(fileName)
+      fileName += ".pdf";
+    } else {
+      fileName += ".pdf";
+    }
     // Add -XXX suffix to make fn unique
     fileName = await this.createUniqueFilename(outputDir, fileName, { fileNameOnly: true });
-    if (maxFileNameLen && 0) {
-      maxFileNameLen -= (outputDir.length + 4);
-      fileName = fileName.substring(maxFileNameLen);
-    }
+    console.log(fileName)
 
     return fileName;
   },
@@ -213,7 +226,7 @@ var utils = {
 
     for (let i = 0; i < 600; i++) {
       if (i === 0 && !(await IOUtils.exists(tmpUniqueName))) {
-        //console.log("no exist", tmpUniqueName)
+
         if (options && options.create) {
           await IOUtils.write(tmpUniqueName, new Uint8Array(), { mode: "create" });
         }

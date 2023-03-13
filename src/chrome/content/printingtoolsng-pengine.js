@@ -172,7 +172,7 @@ var printingtools = {
 
 				var l = w.addEventListener("focus", function (e) {
 
-					//console.log("Message pane focused  ")
+					console.log("Message pane focused  ")
 
 					// Remove headers selection 
 					if (selection.rangeCount) {
@@ -400,7 +400,8 @@ var printingtools = {
 				messagePaneBrowser.browsingContext.print(ps);
 			} else {
 				//console.log("use pb print")
-
+				// This is key to flushing cache else we operate on modified browser
+				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
 
 				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
