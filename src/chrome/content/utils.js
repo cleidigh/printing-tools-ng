@@ -157,19 +157,17 @@ var utils = {
 
     fileName = this.subInvalidFileNameChars(fileName);
 
-    console.log(fileName)
+
     if ((fileName.length + outputDir.length + 9) > maxFileNameLen) {
-      // maxFileNameLen -= (outputDir.length + 4);
-      console.log(fileName)
       fileName = fileName.substring(0, maxFileNameLen - outputDir.length - 9);
-      console.log(fileName)
       fileName += ".pdf";
+      fileName = await this.createUniqueFilename(outputDir, fileName, { fileNameOnly: true });
+      console.log(`PTNG: Truncating Filename to (${maxFileNameLen} chars) :\n  ${fileName}) `);
     } else {
       fileName += ".pdf";
+      fileName = await this.createUniqueFilename(outputDir, fileName, { fileNameOnly: true });
     }
     // Add -XXX suffix to make fn unique
-    fileName = await this.createUniqueFilename(outputDir, fileName, { fileNameOnly: true });
-    console.log(fileName)
 
     return fileName;
   },
@@ -256,50 +254,56 @@ var utils = {
   },
 
   openFileDialog: async function (mode, title, initialDir, filter) {
-		let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
+    let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
     let resultObj = {};
-		fp.init(window, title, mode);
-		fp.appendFilters(filter);
-		if (initialDir) {
-			fp.displayDirectory = nsiFileFromPath(initialDir);
-		}
-		let res = await new Promise(resolve => {
-			fp.open(resolve);
-		});
-		if (res !== Ci.nsIFilePicker.returnOK) {
+    fp.init(window, title, mode);
+    fp.appendFilters(filter);
+    if (initialDir) {
+      fp.displayDirectory = nsiFileFromPath(initialDir);
+    }
+    let res = await new Promise(resolve => {
+      fp.open(resolve);
+    });
+    if (res !== Ci.nsIFilePicker.returnOK) {
       resultObj.result = -1;
-			return resultObj;
-		}
+      return resultObj;
+    }
 
-		var files = fp.files;
-		var paths = [];
-		while (files.hasMoreElements()) {
-			var arg = files.getNext().QueryInterface(Ci.nsIFile);
-			paths.push(arg.path);
-		}
-		
-		resultObj.result = 0;
-		resultObj.filesArray = paths;
-		if (mode === Ci.nsIFilePicker.modeGetFolder) {
-			resultObj.folder = fp.file.path;
-		}
-		return resultObj;
-	},
+    // no fp.files on Linux if not modeOpenMultiple
+    if (mode == Ci.nsIFilePicker.modeOpenMultiple) {
+      var files = fp.files;
+      var paths = [];
+      while (files.hasMoreElements()) {
+        var arg = files.getNext().QueryInterface(Ci.nsIFile);
+        paths.push(arg.path);
+      }
+      resultObj.filesArray = paths;
+    } else {
+      resultObj.file = fp.file;
+    }
 
-  
- loadHelp: async function (bmark) {
-  var opentype = "tab";
-  var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
-		if (dbgopts.indexOf("helpinwin") > -1) {
+    resultObj.result = 0;
+
+    if (mode === Ci.nsIFilePicker.modeGetFolder) {
+      resultObj.folder = fp.file.path;
+    }
+    return resultObj;
+  },
+
+
+  loadHelp: async function (bmark) {
+    var opentype = "tab";
+    var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+    if (dbgopts.indexOf("helpinwin") > -1) {
       opentype = "win";
     }
-  
-	let win = window;
-  if (!win.ptngAddon) {
-    win = window.opener;
-  }
-	t = await win.ptngAddon.notifyTools.notifyBackground({ command: "openHelp", locale: Services.locale.appLocaleAsBCP47, bmark: bmark, opentype: opentype});
-},
+
+    let win = window;
+    if (!win.ptngAddon) {
+      win = window.opener;
+    }
+    t = await win.ptngAddon.notifyTools.notifyBackground({ command: "openHelp", locale: Services.locale.appLocaleAsBCP47, bmark: bmark, opentype: opentype });
+  },
 
 
   PTNG_WriteStatus: function (text, displayDelay) {
