@@ -2,6 +2,16 @@
 
 ## Versions
 
+Version 2.2.0 : PDF and Page Options - March 15, 2023
+
+- Added PDF auto saving with token based names #151
+- Added Page Options for page ranges, margins & headers and footers #118, #139
+- New UI #159
+- Improved Help #168
+- Dark Mode Support #141
+- Fixed not Printing Calendar #176
+- Fixed not Printing with Conversations addon #177
+
 Version 2.1.5 : Maintenance Release  - October 13, 2022
 
 - Fix multiple selection printing #136

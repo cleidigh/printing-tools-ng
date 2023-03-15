@@ -380,7 +380,9 @@ var printingtools = {
 				pdfFileName = await this.utils.constructPDFoutputFilename(msgURI, pdfOutputDir);
 				ps.toFileName = PathUtils.join(pdfOutputDir, pdfFileName);
 				ps.outputFormat = Ci.nsIPrintSettings.kOutputFormatPDF;
-				ps.outputDestination = Ci.nsIPrintSettings.kOutputDestinationFile;
+				if (ps.outputDestination !== undefined) {
+					ps.outputDestination = Ci.nsIPrintSettings.kOutputDestinationFile;
+				}
 				if (dbgopts.indexOf("pdfoutput") > -1 && pdfOutput) {
 					console.log("PTNG: Message URI: ", msgURI);
 					console.log("PTNG: Filename: ", pdfFileName);
@@ -451,7 +453,10 @@ var printingtools = {
 			pdfFileName = await this.utils.constructPDFoutputFilename(msgURI, pdfOutputDir);
 			ps.toFileName = PathUtils.join(pdfOutputDir, pdfFileName);
 			ps.outputFormat = Ci.nsIPrintSettings.kOutputFormatPDF;
-			ps.outputDestination = Ci.nsIPrintSettings.kOutputDestinationFile;
+			if (ps.outputDestination !== undefined) {
+				ps.outputDestination = Ci.nsIPrintSettings.kOutputDestinationFile;
+			}
+
 		}
 		let messageService = messenger.messageServiceFromURI(msgURI);
 		await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
