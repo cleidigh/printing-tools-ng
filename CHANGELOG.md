@@ -2,7 +2,7 @@
 
 ## Versions
 
-Version 2.2.0 : PDF and Page Options - March 15, 2023
+Version 2.2.0 : PDF Output and Page Options - March 15, 2023
 
 - Added PDF auto saving with token based names #151
 - Added Page Options for page ranges, margins & headers and footers #118, #139
