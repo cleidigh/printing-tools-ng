@@ -1,0 +1,12 @@
+ATN Summary
+
+en =====
+
+PrintingTools NG enables many layout and 
+formatting options for printing messages with header borders, sorting,
+ attachment lists etc. PDF output can be auto named and Page options
+ can ease printer settings. It is your printing toolbox.
+
+ja =====
+
+de =====
