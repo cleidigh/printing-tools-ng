@@ -70,3 +70,37 @@
 <!ENTITY debugOptions.label "Fejlfindingsindstillinger">
 <!ENTITY date_custom.label "Brugerdefinerede">
 <!ENTITY messageBody "Meddelelsestekst">
+<!ENTITY body "Legeme">
+<!ENTITY pdf_output "PDF-output">
+<!ENTITY print_and_pageoptions "Udskrifts- og sideindstillinger">
+<!ENTITY headers_order "Overskriftsrækkefølge">
+<!ENTITY attachments "Vedhæftede filer">
+<!ENTITY images "Billeder">
+<!ENTITY pdf_file_naming "Navngivning af PDF-filer">
+<!ENTITY enable_pdfdir "Aktiver PDF Output Directory">
+<!ENTITY output_dir "Output Directory">
+<!ENTITY browse "Gennemse">
+<!ENTITY custom_date_format "Brugerdefineret datoformat">
+<!ENTITY prefix "Præfiks">
+<!ENTITY suffix "Suffiks">
+<!ENTITY latinize "Latinisere Emne og Navne">
+<!ENTITY remove_emojis "Fjern Unicode-emojis og symboler">
+<!ENTITY filter_characters "Filtrer tegn">
+<!ENTITY filename_format "Filnavn format">
+<!ENTITY page_options "Sideindstillinger">
+<!ENTITY copies "Kopier">
+<!ENTITY all "Alle">
+<!ENTITY custom "Brugerdefinerede">
+<!ENTITY page_ranges "Sideintervaller">
+<!ENTITY margins "Marginer">
+<!ENTITY top "Top">
+<!ENTITY bottom "Bund">
+<!ENTITY left "Venstre">
+<!ENTITY right "Ret">
+<!ENTITY center "Centrum">
+<!ENTITY footers "Sidefødder">
+<!ENTITY cancel "Afbestille">
+<!ENTITY page_headers "Overskrifter">
+<!ENTITY Help "Hjælp">
+<!ENTITY Scale "vægt">
+<!ENTITY fitToWidth "Tilpas til bredden">

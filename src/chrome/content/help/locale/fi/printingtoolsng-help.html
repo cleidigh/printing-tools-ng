@@ -7,104 +7,119 @@
     <title>PrintingTools NG Ohje</title>
   </head>
   <body>
-    <h2 id="main_help">PrintingTools NG Ohje</h2>
+    <table style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Ohje</div>
+          <div>v2.2.0</div>
+        </td>
+        <td style="text-align: right; padding-right: 30px;">
+          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
+        </td>
+      </tr>
+    </table>
     <br />
-    <h2 id="main_help">PrintingTools NG Yleiskatsaus</h2>
+    <h2 id="main_help">PrintingTools NG yleiskatsaus</h2>
     <p>
-      PrintingTools NG on jatkolaajennus, joka perustuu Paolo &quot;Kaosmos&quot; alkuperäiseen teokseen.
-      Laajennus mahdollistaa tulostusotsikoiden ja muiden vaihtoehtojen mukauttamisen.<br /><br />
-      Kiitos seuraaville käyttäjille parannusehdotuksista ja testiavustuksesta:<br /><br />
-      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
-      - <code class="notranslate">@KC-T</code><br />
-      - <code class="notranslate">@jobisoft</code><br />
-      - <code class="notranslate">@tidebre67</code><br />
-      - <code class="notranslate">@reinerblock</code><br />
-      - <code class="notranslate">@querixg</code><br />
-      - <code class="notranslate">@RRoenn</code><br />
-      - <code class="notranslate">@madvinegar</code><br />
-      - <code class="notranslate">@ditchfinder</code><br />
-      - <code class="notranslate">@3LaHoonK</code><br />
-      - <code class="notranslate">@realraven</code><br />
-      - <code class="notranslate">@librelegal</code><br />
-      - <code class="notranslate">@Francewhoa</code><br />
-      - <code class="notranslate">@foxfan100</code><br />
-      - <code class="notranslate">@pechh</code><br />
+      PrintingTools NG mahdollistaa monia mukautuksia sähköpostitulostukseen. Laajennuksella on monia
+      vaihtoehtoja sekä otsikoille että viestiosille. Lisäksi voidaan määrittää Sivuasetukset, joita ei voi
+      tehdä normaalissa Thunderbird-tulostuksen esikatselussa. PDF-tulostus voidaan tehdä myös automaattisella
+      nimeämisellä käyttämällä joustavaa merkkipohjaista järjestelmää.
     </p>
-    <h3>Tuki:</h3>
+    <h3 class="indent0">Tulosta NG -painikkeen lisääminen työkalupalkkiin:</h3>
     <p>
-      Lähetä ongelmat tai ominaisuuspyynnöt laajennusten GitHub-tietovarastoon:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
-      ><br /><br />
-      Sisällytä virheongelmiin seuraavat tiedot ongelmien ratkaisemiseksi:<br />
-      - PrintingTools NG -versio<br />
-      - Thunderbird-versio<br />
-      - Käyttöjärjestelmä ja versio<br />
-      - Virheenkorjaustulos (kopioi virheenkorjauskonsolista - pääsy Control-Shift-J)<br />
-      - Kuvaus ongelmaan johtavista vaiheista<br />
+      Tulosta NG -painike tulisi lisätä työkalupalkkiin, jotta tulostuskäyttö ja asetukset ovat käytettävissä.
+      Lisäksi vaihtoehtoja pääsee käsiksi lisäosavälilehden laajennuksen jakoavainpainikkeella.
     </p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
+    <br />
+    <p>Aseta painike työkalupalkkiin seuraavasti:</p>
+    <div class="indent1">
+      <li>Napsauta hiiren kakkospainikkeella tyhjää kohtaa sähköpostityökalurivillä</li>
+      <li>Valitse Mukautettu... Tämä avaa Mukauta työkalupalkki -ikkunan</li>
+      <li>Etsi Tulosta NG -painike</li>
+      <li>Vedä ja pudota painike haluamaasi paikkaan</li>
+      <li>Käytä painiketta Tulosta, Esikatselu, Asetukset ja Ohje</li>
+    </div>
+    <h3 class="indent0">Seuraavassa on esimerkki joistakin otsikon muotoiluominaisuuksista:</h3>
+    <div class="indent1">
+      <li>Räätälöity otsikon reunatyyli CSS:n avulla (ylä ja ala, sininen)</li>
+      <li>Otsikon taustaväri</li>
+      <li>Tasatut otsikot</li>
+      <li>Räätälöity otsikkojärjestys</li>
+      <li>Sivun otsikko ja viestikansio</li>
+      <li>Liiteluettelo, jonka otsikossa on kuvakkeet</li>
+      <li>Täysin muokattavissa oleva päivämäärämuoto kansainvälinen muotoilu</li>
+    </div>
+    <br />
+    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Mukautettu päivämäärämuoto</h2>
     <p>
       Mukautettu päivämäärävaihtoehto mahdollistaa sähköpostin otsikoiden sekä päivämäärän että
-      vastaanottopäivämäärän päivämäärän muotoilun täydellisen hallinnan. Mukautettu päivämäärä tarjoaa useita
+      vastaanottopäivän päivämäärän muotoilun täydellisen hallinnan. Mukautettu päivämäärä tarjoaa useita
       lokalisoituja vaihtoehtoja, jotka mahdollistavat melkein minkä tahansa muodon. Huomaa, että mukautettu
       päivämäärämerkkijono voi sisältää erottimia, literaaleja, mukaan lukien unicode-merkkejä sekoitettuna
       alla lueteltuihin päivämäärä/aika-tunnisteisiin.<br /><br />
       Huomautus: Muokatut päivämäärätulokset alla olevissa esimerkeissä vaihtelevat todellisen päivämäärän,
-      käyttäjien kielen ja aikavyöhykkeen mukaan.<br /><br />
-      Esimerkkejä:<br /><br />
-      <table class="dateformat-table">
-        <thead>
-          <tr>
-            <td>Päivämäärämerkkijono</td>
-            <td>Tulos</td>
-            <td>Huomautus</td>
-          </tr>
-        </thead>
+      käyttäjien kielen ja aikavyöhykkeen mukaan.
+    </p>
+    <br />
+    <h3 class="indent0">Esimerkkejä:</h3>
+    <table class="dateformat-table">
+      <thead>
         <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-          <td>ja locale literaaleilla</td>
+          <td>Päivämäärämerkkijono</td>
+          <td>Tulos</td>
+          <td>Huomautus</td>
         </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-          <td>ko locale literaaleilla</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-          <td>zh-CN alue, lyhyt päivä</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-          <td>zh-TW alue, pitkä päivä</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td class="notranslate">20.04.2022 18:01:42 CET</td>
-          <td>Pisteerottimet</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
-          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-          <td>de locale, lyhyt päivä/kuukausi</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-          <td>fi-USA, pitkä päivä/kuukausi</td>
-        </tr>
-      </table>
-      <br />
+      </thead>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+        <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+        <td>ja locale literaaleilla</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+        <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+        <td>ko locale literaaleilla</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+        <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+        <td>zh-CN kieli, lyhyt päivä</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+        <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+        <td>zh-TW alue, pitkä päivä</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+        <td class="notranslate">20.04.2022 18:01:42 CET</td>
+        <td>Pisteerottimet</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+        <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+        <td>de locale, lyhyt päivä/kuukausi</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+        <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+        <td>fi-USA, pitkä päivä/kuukausi</td>
+      </tr>
+    </table>
+    <br />
+    <p>
       Mukautettu päivämäärämuoto käyttää % sekvenssejä, jotka vastaavat <code>strftime()</code> Unixin
       kaltaista toimintoa. Se perustuu
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       JavaScript-porttiin, funktioon, joka muotoilee päivämäärän ja kellonajan.<br />
       Port of strftime() by TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
-    <h3>Muunnossekvenssin kuvaukset</h3>
+    <br />
+    <h3 style="margin-left: 30px;">Muunnossekvenssien kuvaukset</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -131,7 +146,7 @@
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
-          <td>Ensisijainen päivämäärä ja kellonaika (UTC) nykyiselle maa-alueelle.</td>
+          <td>Ensisijainen päivämäärä ja kellonaika (UTC) nykyiselle maa-asetukselle.</td>
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
@@ -175,7 +190,7 @@
         <tr>
           <td><code class="code1">%I</code></td>
           <td>
-            Tunti desimaalilukuna käyttäen 12 tunnin kelloa (alue 01-12). Katso myös
+            Tunti desimaalilukuna käyttämällä 12 tunnin kelloa (alue 01-12). Katso myös
             <code class="code1">%l</code> .
           </td>
         </tr>
@@ -186,14 +201,14 @@
         <tr>
           <td><code class="code1">%k</code></td>
           <td>
-            Tunti desimaalilukuna 24 tunnin kellon avulla (välillä 0-23). Katso myös
+            Tunti desimaalilukuna käyttäen 24 tunnin kelloa (alue 0-23). Katso myös
             <code class="code1">%H</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            Tunti desimaalilukuna käyttämällä 12 tunnin kelloa (alue 1-12). Katso myös
+            Tunti desimaalilukuna käyttäen 12 tunnin kelloa (välillä 1-12). Katso myös
             <code class="code1">%I</code> .
           </td>
         </tr>
@@ -229,7 +244,7 @@
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
-          <td>Toinen desimaalilukuna (välillä 00-59).</td>
+          <td>Toinen desimaalilukuna (välillä 00 - 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%u</code></td>
@@ -247,13 +262,13 @@
         <tr>
           <td><code class="code1">%w</code></td>
           <td>
-            Viikonpäivä desimaalilukuna (alue 0-6), sunnuntain ollessa 0. Katso myös
+            Viikonpäivä desimaalilukuna (alue 0 - 6), sunnuntain ollessa 0. Katso myös
             <code class="code1">%u</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%x</code></td>
-          <td>Ensisijainen päivämääräesitys nykyiselle maa-asetukselle ilman aikaa.</td>
+          <td>Ensisijainen päivämääräesitys nykyiselle maa-alueelle ilman aikaa.</td>
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
@@ -270,7 +285,7 @@
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            Numeerinen aikavyöhyke <code class="code1">+hhmm</code> tai <code class="code1">-hhmm</code> (eli
+            <code class="code1">+hhmm</code> tai <code class="code1">-hhmm</code> numeerinen aikavyöhyke (eli
             tuntien ja minuuttien poikkeama UTC:stä).
           </td>
         </tr>
@@ -284,19 +299,19 @@
         </tr>
         <tr>
           <td><code class="code1">%0</code></td>
-          <td>Vuosi kirjaimellisesti. Lokalisoitu, pääasiassa Aasian alueille. (zh-CN: 年, ko: 년)</td>
+          <td>Vuosi kirjaimellisesti. Lokalisoitu, pääasiassa Aasian kielille. (zh-CN: 年, ko: 년)</td>
         </tr>
         <tr>
           <td><code class="code1">%1</code></td>
-          <td>Kuukausi kirjaimellisesti. Lokalisoitu, pääasiassa Aasian alueille. (zh-TW: 月, ko: 월)</td>
+          <td>Kuukausi kirjaimellisesti. Lokalisoitu, pääasiassa Aasian kielille. (zh-TW: 月, ko: 월)</td>
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Päivä kirjaimellisesti. Lokalisoitu, pääasiassa Aasian alueille. (ja: 日, ko: 일)</td>
+          <td>Päivä kirjaimellisesti. Lokalisoitu, pääasiassa Aasian kielille. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
-    <h3>Yhteensopivuushuomautuksia:</h3>
+    <h3 class="indent0">Yhteensopivuushuomautuksia:</h3>
     <ul>
       <li><code class="code1">%c</code> - muotoiltu merkkijono on hieman erilainen</li>
       <li>
@@ -313,18 +328,197 @@
       </li>
       <li><code class="code1">%O</code> - ei toteutettu</li>
       <li><code class="code1">%r</code> - ei toteutettu (käytä <code class="code1">%I:%M:%S %p</code> )</li>
-      <tr>
-        <td><code class="code1">${subject}</code></td>
-        <td>Viestin aihe</td>
-      </tr>
       <li><code class="code1">%R</code> - ei käytössä (käytä <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - ei toteutettu (käytä <code class="code1">\t</code> )</li>
       <li><code class="code1">%T</code> - ei käytössä (käytä <code class="code1">%H:%M:%S</code> )</li>
       <li><code class="code1">%U</code> - ei toteutettu</li>
       <li><code class="code1">%W</code> - ei toteutettu</li>
-      <li><code class="code1">%+</code> - ei toteutettu</li>
+      <li><code class="code1">%+</code> - ei otettu käyttöön</li>
       <li><code class="code1">%%</code> - ei käytössä (käytä <code class="code1">%</code> )</li>
     </ul>
-    <br /><br />
+    <br />
+    <h2 id="pdf_output_help">PDF-tulostus ja automaattinen tiedostojen nimeäminen</h2>
+    <p>
+      PDF-tulostus voidaan nyt sekä nimetä automaattisesti token-järjestelmän avulla että tallentaa ennalta
+      määritettyyn PDF-tulostushakemistoon. Tämä on erityisen hyödyllistä tulostettaessa useita valittuja
+      sähköposteja, koska jokaiselle sähköpostille ei tarvitse valita nimeä ja sijaintia.
+    </p>
+    <p />
+    <p>
+      Ota PDF-tulostushakemisto käyttöön ja valitse hakemisto tallennuspaikalle. Tulostustiedoston nimi
+      noudattaa määritettyä tiedostonimimuotoa.
+    </p>
+    <p />
+    <p>
+      Tiedostonimen muoto koostuu tunnuksista ja kaikista staattisista merkeistä, kuten erottimista tai
+      välilyönnistä. Laajennetussa tiedostonimen muotoilussa käytetään tunnuksia. Tarkka tiedostonimi voidaan
+      rakentaa käyttämällä tunnuksia sekä mitä tahansa tekstiä tai kelvollisia tiedostonimen merkkejä.
+      Virheelliset merkit ovat: <code>| * : &lt; &gt; ? \ / &quot;</code>
+    </p>
+    <p />
+    <p>Oletusnimimuoto on: ${subject}, joka on vain sähköpostin aihe.</p>
+    <p />
+    <p>Esimerkkejä</p>
+    <p>
+      <span class="notranslate"><code>${subject}</code></span> – oletusmuoto, sähköpostin aihe<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Käytä mukautettua
+      päivämäärämuotoa oletusmuodon sijaan<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Mukautettu
+      teksti<br />
+    </p>
+    <p>Alla olevassa taulukossa kuvataan kaikki tunnukset, joita voidaan käyttää tiedostonimimuodossa.</p>
+    <table class="token-table">
+      <tr>
+        <td>Token</td>
+        <td>Kuvaus</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${subject}</code></td>
+        <td>Viestin aihe.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender}</code></td>
+        <td>Viestin lähettäjän nimi.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient}</code></td>
+        <td>Viestin vastaanottajan nimi.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender_email}</code></td>
+        <td>Viestin lähettäjän sähköpostiosoite.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient_email}</code></td>
+        <td>Viestin vastaanottajan sähköpostiosoite.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${smart_name}</code></td>
+        <td>Vastaanottajat, jos viesti on Lähetetyt-kansiossa, muuten lähettäjän nimi</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${index}</code></td>
+        <td>Viestin indeksinumero.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${prefix}</code></td>
+        <td>Etuliitteen tekstivaihtoehdon arvo.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${suffix}</code></td>
+        <td>Loppuliitteen tekstivaihtoehdon arvo.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date}</code></td>
+        <td>Vakiopäivämäärän muoto. Oletusmuoto on: VVVVKKDDHHmm</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date_custom}</code></td>
+        <td>Mukautettu päivämäärämuoto. Katso mukautetun päivämäärän muotoilun osa.</td>
+      </tr>
+    </table>
+    <br />
+    <h2 id="print_options_help">Tulostus- ja sivuasetukset</h2>
+    <p>
+      Näiden asetusten avulla voit määrittää oletustulostimen sekä tulostinsivun asetukset. On myös
+      mahdollista asettaa hiljainen tila, jossa esikatseluikkunaa ei näytetä ja tulostus tapahtuu
+      välittömästi.
+    </p>
+    <p>
+      Sivuasetusten avulla voit määrittää kohteita, kun sekä esikatselu että tulostus on valmis. Nämä
+      vaihtoehdot ovat pysyviä koko tulostuksen ajan. Jos PrintingTools NG:ssä asetettuja asetuksia muutetaan
+      tulostuksen esikatselussa, ne eivät vaikuta seuraaviin tulosteisiin. Joitakin kohteita ei voi asettaa
+      esikatseluikkunassa, esimerkiksi ylä- ja alatunnisteet. Muut kohteet eivät säily esikatselussa, ja ne on
+      normaalisti asetettava joka kerta, kun tulostetaan. PrintingTools NG ratkaisee nämä molemmat ongelmat.
+    </p>
+    <p>
+      Yksi kohde, jota esikatselu ei ole tallentanut, ovat sivualueet. Tyypillinen käyttötapaus on, kun
+      halutaan tulostaa vain sähköpostin ensimmäinen sivu oletusarvoisesti. normaalisti sivualueita on
+      muutettava joka kerta. Huomaa, jos PrintingTools NG:ssä asetettu sivualue ei kelpaa, kuten sivumäärä
+      ylittää, alue on korjattava esikatselussa ennen tulostamista. Sivualue, joka on asetettu arvoon
+      &quot;1&quot;, on aina voimassa ja tulostaa viestin ensimmäisen sivun.
+    </p>
+    <p>Huomautuksia:</p>
+    <p>Skaalausvaihtoehdon avulla voidaan asettaa pysyvä asteikko.</p>
+    <p>
+      Sivualueet kuvataan samalla tavalla kuin esikatselussa. Esimerkkejä ovat 1, 1-2, 3-4,5. Huomaa, että jos
+      esiasetettu sivualue ei kelpaa tietylle viestille, esikatselu näyttää virheilmoituksen.
+    </p>
+    <p>
+      Marginaalit voidaan asettaa käyttämällä käyttäjän maa-alueelle sopivia yksiköitä, joko tuumina tai
+      millimetreinä (in tai mm). Huomaa, että pyöristysvirheiden vuoksi jotkin mm-arvot voidaan tallentaa
+      pienin eroin.
+    </p>
+    <p></p>
+    <p>
+      Ylä- ja alatunnisteet voidaan asettaa sisältämään erilaisia alla lueteltuja viestimuuttujia. Lisäksi
+      mielivaltaista tekstiä voidaan sisällyttää. Jos et halua tulostaa ylä- tai alatunnisteita ja säästää
+      tulostustilaa, jätä kaikki kentät tyhjiksi.
+    </p>
+    <div class="indent1">
+      <li>&amp;D = Päivämäärä</li>
+      <li>&amp;P = Sivunumero</li>
+      <li>&amp;PT = sivunumero yhteensä (&quot;3/5&quot;)</li>
+      <li>&amp;T = Sivun otsikko (viestin aihe)</li>
+      <li>&amp;U = URL (viestin URL-osoite)</li>
+    </div>
+    <h2>Tuki</h2>
+    <p>
+      Lähetä ongelmat tai ominaisuuspyynnöt laajennusten GitHub-tietovarastoon:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      Sisällytä virheongelmiin seuraavat tiedot ongelmien ratkaisemiseksi:<br />
+      - PrintingTools NG -versio<br />
+      - Thunderbird-versio<br />
+      - Käyttöjärjestelmä ja versio<br />
+      - Virheenkorjaustulos (kopioi virheenkorjauskonsolista - pääsy Ctrl-Shift-J)<br />
+      - Kuvaus ongelmaan johtavista vaiheista<br />
+    </p>
+    <h2 id="debug_options_help">Virheenkorjausasetukset</h2>
+    <p>
+      Vianetsintävaihtoehdot ovat joukko avainsanoja, jotka syötetään välilyönnillä erotettuna luettelona.
+      Vaihtoehtoja käytetään tyypillisesti konsolin virheenkorjaukseen, mutta niitä voidaan käyttää myös
+      testaukseen tai eri tiloihin.
+    </p>
+    <div class="indent1">
+      <li>
+        <code class="notranslate">initialsource</code> - näytä viestin lähde ennen kuin PTNG tekee mitään
+        muotoilua
+      </li>
+      <li><code class="notranslate">finaloutput</code> - näytä lopullinen viestin tulos</li>
+      <li><code class="notranslate">pdfoutput</code> - virheenkorjaustuloste PDF-viestien ulostulolle</li>
+      <li>
+        <code class="notranslate">printsettings</code> - virheenkorjaus tulostus- ja sivuvaihtoehtoja varten
+      </li>
+      <li>
+        <code class="notranslate">helpinwin</code> - tilan lippu, joka näyttää ohjeen ikkunassa tavallisen
+        välilehden sijaan
+      </li>
+    </div>
+    <h2>Krediitit</h2>
+    <div class="indent1">
+      <li>PrintingTools NG perustuu alkuperäiseen Paolo &quot;Kosmos&quot; -laajennukseen.</li>
+      <li>List.js kirjoittanut Jonny Strömberg https://listjs.com</li>
+      <li>Latinize.js kirjoittanut Jakub Dundalek https://github.com/dundalek/latinize</li>
+    </div>
+    <p>
+      Kiitos seuraaville käyttäjille parannusehdotuksista ja testiavustuksesta:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
   </body>
 </html>

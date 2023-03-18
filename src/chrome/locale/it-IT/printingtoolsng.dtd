@@ -69,3 +69,37 @@
 <!ENTITY debugOptions.label "Opzioni di debug">
 <!ENTITY date_custom.label "Costume">
 <!ENTITY messageBody "corpo del messaggio">
+<!ENTITY body "Corpo">
+<!ENTITY pdf_output "Uscita PDF">
+<!ENTITY print_and_pageoptions "Opzioni di stampa e pagina">
+<!ENTITY headers_order "Ordine delle intestazioni">
+<!ENTITY attachments "Allegati">
+<!ENTITY images "immagini">
+<!ENTITY pdf_file_naming "Denominazione file PDF">
+<!ENTITY enable_pdfdir "Abilita directory di output PDF">
+<!ENTITY output_dir "Cartella di destinazione">
+<!ENTITY browse "Navigare">
+<!ENTITY custom_date_format "Formato data personalizzato">
+<!ENTITY prefix "Prefisso">
+<!ENTITY suffix "Suffisso">
+<!ENTITY latinize "Latinizza soggetto e nomi">
+<!ENTITY remove_emojis "Rimuovi emoji e simboli Unicode">
+<!ENTITY filter_characters "Filtra caratteri">
+<!ENTITY filename_format "Formato nome file">
+<!ENTITY page_options "Opzioni pagina">
+<!ENTITY copies "Copie">
+<!ENTITY all "Tutti">
+<!ENTITY custom "Costume">
+<!ENTITY page_ranges "Intervalli di pagine">
+<!ENTITY margins "Margini">
+<!ENTITY top "Superiore">
+<!ENTITY bottom "Inferiore">
+<!ENTITY left "Sinistra">
+<!ENTITY right "Destra">
+<!ENTITY center "Centro">
+<!ENTITY footers "Piè di pagina">
+<!ENTITY cancel "Annulla">
+<!ENTITY page_headers "Intestazioni">
+<!ENTITY Help "Aiuto">
+<!ENTITY Scale "Scala">
+<!ENTITY fitToWidth "Adatta alla larghezza">

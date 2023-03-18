@@ -1,6 +1,7 @@
 // background.js - this kicks off the WindowListener framework
 // console.debug('background Start');
 
+
 messenger.WindowListener.registerDefaultPrefs("defaults/preferences/prefs.js");
 
 // Register all necessary conIt's6'tent, Resources, and locales
@@ -55,123 +56,114 @@ messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/customizeToolbar.xhtml",
 	"chrome://printingtoolsng/content/customizeToolbarOL.js");
 
-//messenger.WindowListener.registerWindow(
-	//"chrome://messenger/content/addressbook/addressbook.xhtml",
-	//"chrome://printingtoolsng/content/ABprintingtoolsOL.js");
-
 messenger.WindowListener.startListening();
 
-// cleidigh - thanks to John B for the update notification code
-
-// onButtonClicked listener for the notification
-messenger.notificationbar.onButtonClicked.addListener((windowId, notificationId, buttonId) => {
-	if (["btn-moreinfo"].includes(buttonId)) {
-		messenger.windows.openDefaultBrowser("https://thunderbird.topicbox.com/groups/addons/T02a09c034809ca6d/resolving-the-add-on-options-chaos-introduced-by-my-wrapper-apis-windowlistener-and-bootstraploader");
-	}
-});
-
-
-
+// listener for external print requests eg FiltaQuila 
 browser.runtime.onMessageExternal.addListener(handleMessage);
-
-
 
 let l = messenger.i18n.getUILanguage();
 
-
-// show notification when this version is being installed or updated
 browser.runtime.onInstalled.addListener(async (info) => {
-	let version = parseInt((await browser.runtime.getBrowserInfo()).version.split(".").shift(), 10);
-	if (version < 78)
-		return;
-
-	if (!["update", "install"].includes(info.reason))
-		return;
-	var msg = messenger.i18n.getMessage("update_option_info2");
-	let windows = await messenger.mailTabs.query({});
-
-	for (let window of windows) {
-		await messenger.notificationbar.create({
-			windowId: window.windowId,
-			label: msg,
-			priority: messenger.notificationbar.PRIORITY_WARNING_HIGH,
-
-			icon: "chrome/content/icons/printing-tools-ng-icon-32px.png",
-			placement: "bottom",
-			style: {
-				"background-color": "yellow",
-			},
-			buttons: [
-				{
-					id: "btn-moreinfo",
-					label: messenger.i18n.getMessage("moreinfo_button_label"),
-					accesskey: "m",
-				}
-			]
-		});
-	}
+	info.locale = l;
+	await browser.tabs.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, index: 1 })
 });
 
 
 messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
+	let rv;
 	switch (info.command) {
+		case "windowsGetAll":
+			var w = await browser.windows.getAll(info.options);
+			return w;
 		case "getCurrentURL":
-			//console.log("geturl")
 			// method one: via tabs in focused window
 			try {
-				var w = await browser.windows.getAll({populate: true})
+				var w = await browser.windows.getAll({ populate: true });
 			} catch {
 				return "unknown";
 			}
-			
+
 			let cw = w.find(fw => fw.focused)
-			//console.log(cw)
 			let url1 = cw.tabs.find(t => t.active).url;
-			//console.log(url1);
-			
+			if (!url1) {
+				url1 = "undefinedURL";
+			}
 			return url1;
-		case "getAttatchmentList":
-			
-			let rv = await getAttatchmentList(info.messageId);
+		case "getSelectedMessages":
+			var msgList = [];
+			try {
+				msgList = await browser.mailTabs.getSelectedMessages();
+			} catch {
+				msgList = null;
+			}
+			return msgList;
+		case "getFullMessage":
+
+			rv = await getFullMessage(info.messageId);
 			return rv;
-			break;
+
+		case "getAttatchmentList":
+
+			rv = await getAttatchmentList(info.messageId);
+			return rv;
+
 		case "openHelp":
-			//console.log("help")
-			//console.log(info)
 			var locale = info.locale;
 
+			var bm = "";
+			if (info.bmark) {
+				bm = info.bmark;
+			}
 			try {
-				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1100, height: 520})
+				if (info.opentype == "tab") {
+					await browser.tabs.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, index: 1 })
+				} else {
+					browser.windows.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+				}
 			} catch {
 				try {
-				locale = locale.Split('-')[0];
-				browser.windows.create({url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, type: "panel", width: 1100, height: 520})
+					locale = locale.Split('-')[0];
+					if (info.opentype == "tab") {
+						await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
+					} else {
+						browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+					}
 				} catch {
-					browser.windows.create({url: `chrome/content/help/locale/en-US/printingtoolsng-help.html`, type: "panel"})	
+					if (info.opentype == "tab") {
+						await browser.tabs.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1 })
+					} else {
+						browser.windows.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+					}
 				}
 			}
-			//browser.windows.create({url: "test.html", type: "panel"})
 			return "help";
 	}
 });
 
+async function getFullMessage(messageId) {
+
+	var m = await messenger.messages.getFull(messageId);
+	return m;
+}
+
+
 async function getAttatchmentList(messageId) {
-	
+
 	var m = await messenger.messages.get(messageId);
 	//console.log(m)
 	var a = await messenger.messages.listAttachments(m.id);
 	//console.log(a)
-  
+
 	return a;
 }
 
 // External print handler 
 function handleMessage(message, sender) {
-	
+
 	//console.log(message)
-	messenger.NotifyTools.notifyExperiment({command: "handleExternalPrint", messageHeader: message.messageHeader}).then((data) => {
-	//console.log(data)
-			return  true ;
+	messenger.NotifyTools.notifyExperiment({ command: "handleExternalPrint", messageHeader: message.messageHeader }).then((data) => {
+		//console.log(data)
+		return true;
 	});
 
 	return true;

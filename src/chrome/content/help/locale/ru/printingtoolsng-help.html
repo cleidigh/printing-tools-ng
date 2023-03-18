@@ -7,41 +7,53 @@
     <title>Справка PrintingTools NG</title>
   </head>
   <body>
-    <h2 id="main_help">Справка PrintingTools NG</h2>
+    <table style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">Справка PrintingTools NG</div>
+          <div>v2.2.0</div>
+        </td>
+        <td style="text-align: right; padding-right: 30px;">
+          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
+        </td>
+      </tr>
+    </table>
     <br />
     <h2 id="main_help">Обзор PrintingTools NG</h2>
     <p>
-      PrintingTools NG — это расширение, основанное на оригинальной работе Паоло «Kaosmos». Расширение
-      позволяет настраивать заголовки печати, а также другие параметры.<br /><br />
-      Спасибо следующим пользователям за предложения по улучшению и помощь в тестировании:<br /><br />
-      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
-      - <code class="notranslate">@KC-T</code><br />
-      - <code class="notranslate">@jobisoft</code><br />
-      - <code class="notranslate">@tidebre67</code><br />
-      - <code class="notranslate">@reinerblock</code><br />
-      - <code class="notranslate">@querixg</code><br />
-      - <code class="notranslate">@RRoenn</code><br />
-      - <code class="notranslate">@madvinegar</code><br />
-      - <code class="notranslate">@ditchfinder</code><br />
-      - <code class="notranslate">@3LaHoonK</code><br />
-      - <code class="notranslate">@realraven</code><br />
-      - <code class="notranslate">@librelegal</code><br />
-      - <code class="notranslate">@Francewhoa</code><br />
-      - <code class="notranslate">@foxfan100</code><br />
-      - <code class="notranslate">@pechh</code><br />
+      PrintingTools NG позволяет настраивать печать электронной почты по многим параметрам. Расширение имеет
+      множество опций как для заголовков, так и для частей сообщения. Кроме того, можно установить параметры
+      страницы, которые нельзя сделать в обычном предварительном просмотре печати Thunderbird. Вывод PDF также
+      может выполняться с автоматическим присвоением имен с использованием гибкой системы на основе токенов.
     </p>
-    <h3>Поддерживать:</h3>
+    <h3 class="indent0">Добавление кнопки Print NG на панель инструментов:</h3>
     <p>
-      Пожалуйста, публикуйте проблемы или запросы функций в репозитории расширений GitHub:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
-      ><br /><br />
-      В проблемах с ошибками укажите следующую информацию, которая поможет решить проблемы:<br />
-      - Версия PrintingTools NG<br />
-      - версия Тандерберда<br />
-      - Операционная система и версия<br />
-      - Вывод отладки (копировать из консоли отладки - доступ с помощью Control-Shift-J)<br />
-      - Описание шагов, ведущих к проблеме<br />
+      Кнопку Print NG следует добавить на панель инструментов, чтобы обеспечить как доступ к печати, так и
+      параметры. Кроме того, к параметрам можно получить доступ с помощью кнопки гаечного ключа для расширения
+      на вкладке дополнений.
     </p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
+    <br />
+    <p>Выполните следующие действия, чтобы разместить кнопку на панели инструментов:</p>
+    <div class="indent1">
+      <li>Щелкните правой кнопкой мыши пустое место на панели инструментов почты.</li>
+      <li>Выберите Custom... Откроется окно Customize Toolbar.</li>
+      <li>Найдите кнопку «Печать NG».</li>
+      <li>Перетащите кнопку в нужное место</li>
+      <li>Используйте кнопку для печати, предварительного просмотра, параметров и справки.</li>
+    </div>
+    <h3 class="indent0">Ниже приведен пример некоторых функций форматирования заголовка:</h3>
+    <div class="indent1">
+      <li>Индивидуальный стиль границы заголовка с использованием CSS (верхняя и нижняя, синяя)</li>
+      <li>Цвет фона заголовка</li>
+      <li>Выровненные заголовки</li>
+      <li>Индивидуальный порядок заголовков</li>
+      <li>Название страницы и папка сообщений</li>
+      <li>Список вложений с иконками в шапке</li>
+      <li>Полностью настраиваемый международный формат даты</li>
+    </div>
+    <br />
+    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Пользовательский формат даты</h2>
     <p>
@@ -51,60 +63,64 @@
       что настраиваемая строка даты может включать разделители, литералы, включая символы Юникода, смешанные с
       токенами даты и времени, перечисленными ниже.<br /><br />
       Примечание. Пользовательские результаты даты в приведенных ниже примерах будут отличаться в зависимости
-      от фактической даты, языкового стандарта пользователя и часового пояса.<br /><br />
-      Примеры:<br /><br />
-      <table class="dateformat-table">
-        <thead>
-          <tr>
-            <td>Строка даты</td>
-            <td>Результат</td>
-            <td>Примечание</td>
-          </tr>
-        </thead>
+      от фактической даты, языкового стандарта пользователя и часового пояса.
+    </p>
+    <br />
+    <h3 class="indent0">Примеры:</h3>
+    <table class="dateformat-table">
+      <thead>
         <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-          <td>ja locale с литералами</td>
+          <td>Строка даты</td>
+          <td>Результат</td>
+          <td>Примечание</td>
         </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-          <td>ko locale с литералами</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-          <td>регион zh-CN, короткий день</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-          <td>zh-TW регион, длинный день</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td class="notranslate">20.04.2022 18:01:42 CET</td>
-          <td>Разделители точек</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
-          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-          <td>de locale, короткий день/месяц</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-          <td>локаль en-US, длинный день/месяц</td>
-        </tr>
-      </table>
-      <br />
+      </thead>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+        <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+        <td>ja locale с литералами</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+        <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+        <td>ko locale с литералами</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+        <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+        <td>регион zh-CN, короткий день</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+        <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+        <td>zh-TW регион, длинный день</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+        <td class="notranslate">20.04.2022 18:01:42 CET</td>
+        <td>Разделители точек</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+        <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+        <td>de locale, короткий день/месяц</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+        <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+        <td>локаль en-US, длинный день/месяц</td>
+      </tr>
+    </table>
+    <br />
+    <p>
       Пользовательский формат даты использует последовательности %, соответствующие функциональности
       <code>strftime()</code> Unix. Он основан на JavaScript-порте
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , функции для форматирования даты и времени.<br />
       Порт strftime() от TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
-    <h3>Описание последовательности преобразования</h3>
+    <br />
+    <h3 style="margin-left: 30px;">Описание последовательности преобразования</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -237,8 +253,8 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Номер недели текущего года по стандарту ISO 8601 в виде десятичного числа (от 01 до 53), где
-            неделя 1 — это первая неделя, на которой в новом году не менее 4 дней (то есть первый четверг).
+            Номер недели текущего года в соответствии с ISO 8601 в виде десятичного числа (от 01 до 53), где
+            неделя 1 — это первая неделя, в которой не менее 4 дней в новом году (то есть первый четверг).
           </td>
         </tr>
         <tr>
@@ -293,7 +309,7 @@
         </tr>
       </tbody>
     </table>
-    <h3>Примечания по совместимости:</h3>
+    <h3 class="indent0">Примечания по совместимости:</h3>
     <ul>
       <li><code class="code1">%c</code> - отформатированная строка немного отличается</li>
       <li>
@@ -312,10 +328,6 @@
       <li>
         <code class="code1">%r</code> - не реализовано (используйте <code class="code1">%I:%M:%S %p</code> )
       </li>
-      <tr>
-        <td><code class="code1">${subject}</code></td>
-        <td>Тема сообщения</td>
-      </tr>
       <li><code class="code1">%R</code> - не реализовано (используйте <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - не реализовано (используйте <code class="code1">\t</code> )</li>
       <li>
@@ -326,6 +338,192 @@
       <li><code class="code1">%+</code> - не реализовано</li>
       <li><code class="code1">%%</code> - не реализовано (используйте <code class="code1">%</code> )</li>
     </ul>
-    <br /><br />
+    <br />
+    <h2 id="pdf_output_help">Вывод PDF и автоматическое именование файлов</h2>
+    <p>
+      Выходной файл PDF теперь может быть автоматически назван с помощью системы токенов и сохранен в
+      предопределенный выходной каталог PDF. Это особенно полезно при печати нескольких выбранных писем,
+      поскольку нет необходимости выбирать имя и местоположение для каждого письма.
+    </p>
+    <p />
+    <p>
+      Включите выходной каталог PDF и выберите каталог для сохранения. Имя выходного файла будет
+      соответствовать сконфигурированному формату имени файла.
+    </p>
+    <p />
+    <p>
+      Формат имени файла состоит из токенов и любых статических символов, таких как разделители или пробелы.
+      Форматирование расширенного имени файла использует токены. Точное имя файла может быть создано с
+      использованием токенов, а также любого текста или допустимых символов имени файла. Недопустимые символы:
+      <code>| * : &lt; &gt; ? \ / &quot;</code>
+    </p>
+    <p />
+    <p>Формат имени по умолчанию: ${subject}, который является просто темой электронного письма.</p>
+    <p />
+    <p>Примеры</p>
+    <p>
+      <span class="notranslate"><code>${subject}</code></span> - Формат по умолчанию, тема письма<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> — используйте
+      пользовательский формат даты вместо стандартного.<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> – с произвольным
+      текстом<br />
+    </p>
+    <p>В таблице ниже описан полный набор токенов, которые можно использовать в формате имени файла.</p>
+    <table class="token-table">
+      <tr>
+        <td>Токен</td>
+        <td>Описание</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${subject}</code></td>
+        <td>Тема сообщения.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender}</code></td>
+        <td>Имя отправителя сообщения.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient}</code></td>
+        <td>Имя получателя сообщения.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender_email}</code></td>
+        <td>Адрес электронной почты отправителя сообщения.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient_email}</code></td>
+        <td>Адрес электронной почты получателя сообщения.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${smart_name}</code></td>
+        <td>
+          Получатели, если сообщение находится в папке «Отправленные», в противном случае — имя отправителя.
+        </td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${index}</code></td>
+        <td>Индексный номер сообщения.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${prefix}</code></td>
+        <td>Значение опции текста префикса.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${suffix}</code></td>
+        <td>Значение опции текста суффикса.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date}</code></td>
+        <td>Стандартный формат даты. Формат по умолчанию: ГГГГММДДЧЧмм.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date_custom}</code></td>
+        <td>Пользовательский формат даты. См. раздел пользовательского форматирования даты.</td>
+      </tr>
+    </table>
+    <br />
+    <h2 id="print_options_help">Параметры печати и страницы</h2>
+    <p>
+      Эти параметры позволяют вам установить принтер по умолчанию, а также параметры страницы принтера. Также
+      можно установить беззвучный режим, при котором диалоговое окно предварительного просмотра не
+      отображается, а печать выполняется немедленно.
+    </p>
+    <p>
+      Параметры страницы позволяют вам устанавливать элементы, когда выполняется предварительный просмотр или
+      печать. Эти параметры сохраняются при печати. Если параметры, установленные в PrintingTools NG, изменены
+      в предварительном просмотре печати, они не повлияют на последующие печати. Некоторые элементы недоступны
+      для установки в диалоговом окне предварительного просмотра, в том числе верхние и нижние колонтитулы.
+      Другие элементы не сохраняются при предварительном просмотре и обычно должны устанавливаться каждый раз
+      при выполнении печати. PrintingTools NG решает обе эти проблемы.
+    </p>
+    <p>
+      Один элемент, который не сохраняется при предварительном просмотре, — это диапазоны страниц. Типичный
+      случай использования — это когда вы хотите распечатать только первую страницу электронной почты по
+      умолчанию. обычно каждый раз приходится менять диапазоны страниц. Обратите внимание, что если диапазон
+      страниц, установленный в PrintingTools NG, недействителен, например, превышено количество страниц,
+      диапазон необходимо будет исправить в предварительном просмотре перед печатью. Диапазон страниц,
+      установленный на «1», всегда будет действительным и печатает первую страницу сообщения.
+    </p>
+    <p>Примечания:</p>
+    <p>Опция масштабирования позволяет установить постоянный масштаб.</p>
+    <p>
+      Диапазоны страниц описываются так же, как и в предварительном просмотре. Примеры 1, 1-2, 3-4,5. Обратите
+      внимание, что если предустановленные диапазоны страниц недействительны для данного сообщения,
+      предварительный просмотр покажет ошибку.
+    </p>
+    <p>
+      Поля могут быть установлены с использованием единиц, соответствующих языковому стандарту пользователя,
+      либо дюймов, либо миллиметров (дюймы или мм). Обратите внимание, что из-за ошибок округления некоторые
+      значения в миллиметрах могут быть сохранены с небольшими различиями.
+    </p>
+    <p></p>
+    <p>
+      Верхние и нижние колонтитулы можно настроить так, чтобы они включали различные переменные сообщения,
+      перечисленные ниже. Кроме того, может быть включен произвольный текст. Чтобы не печатать верхние и
+      нижние колонтитулы и сэкономить место для печати, просто оставьте все поля пустыми.
+    </p>
+    <div class="indent1">
+      <li>&amp;Д = Дата</li>
+      <li>&amp;P = номер страницы</li>
+      <li>&amp;PT = номер страницы с итоговым значением («3 из 5»)</li>
+      <li>&amp;T = Название страницы (Тема сообщения)</li>
+      <li>&amp;U = URL (URL-адрес сообщения)</li>
+    </div>
+    <h2>Поддерживать</h2>
+    <p>
+      Пожалуйста, публикуйте проблемы или запросы функций в репозитории расширений GitHub:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      В проблемах с ошибками укажите следующую информацию, которая поможет решить проблемы:<br />
+      - Версия PrintingTools NG<br />
+      - версия Тандерберда<br />
+      - Операционная система и версия<br />
+      - Вывод отладки (копировать из консоли отладки - доступ с помощью Control-Shift-J)<br />
+      - Описание шагов, ведущих к проблеме<br />
+    </p>
+    <h2 id="debug_options_help">Параметры отладки</h2>
+    <p>
+      Параметры отладки представляют собой набор ключевых слов, которые вводятся в виде списка, разделенного
+      пробелами. Параметры обычно используются для вывода отладки консоли, но также могут использоваться для
+      тестирования или других режимов.
+    </p>
+    <div class="indent1">
+      <li>
+        <code class="notranslate">initialsource</code> - показать источник сообщения до того, как PTNG
+        выполнит какое-либо форматирование
+      </li>
+      <li><code class="notranslate">finaloutput</code> - показать окончательный вывод сообщения</li>
+      <li><code class="notranslate">pdfoutput</code> - вывод отладки для вывода сообщений в формате PDF</li>
+      <li><code class="notranslate">printsettings</code> - вывод отладки для параметров печати и страницы</li>
+      <li>
+        <code class="notranslate">helpinwin</code> - флаг режима для отображения справки в окне вместо
+        стандартного во вкладке
+      </li>
+    </div>
+    <h2>Кредиты</h2>
+    <div class="indent1">
+      <li>PrintingTools NG основан на оригинальном расширении Паоло «Космос».</li>
+      <li>List.js от Джонни Стрёмберга https://listjs.com</li>
+      <li>Latinize.js от Якуба Дандалека https://github.com/dundalek/latinize</li>
+    </div>
+    <p>
+      Спасибо следующим пользователям за предложения по улучшению и помощь в тестировании:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
   </body>
 </html>

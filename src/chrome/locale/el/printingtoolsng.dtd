@@ -69,3 +69,37 @@
 <!ENTITY debugOptions.label "Επιλογές εντοπισμού σφαλμάτων">
 <!ENTITY date_custom.label "Εθιμο">
 <!ENTITY messageBody "Σώμα μηνύματος">
+<!ENTITY body "Σώμα">
+<!ENTITY pdf_output "Έξοδος PDF">
+<!ENTITY print_and_pageoptions "Επιλογές εκτύπωσης και σελίδας">
+<!ENTITY headers_order "Σειρά κεφαλίδων">
+<!ENTITY attachments "Συνημμένα">
+<!ENTITY images "εικόνες">
+<!ENTITY pdf_file_naming "Ονομασία αρχείων PDF">
+<!ENTITY enable_pdfdir "Ενεργοποιήστε τον κατάλογο εξόδου PDF">
+<!ENTITY output_dir "Κατάλογο εξόδου">
+<!ENTITY browse "Ξεφυλλίζω">
+<!ENTITY custom_date_format "Προσαρμοσμένη μορφή ημερομηνίας">
+<!ENTITY prefix "Πρόθεμα">
+<!ENTITY suffix "Κατάληξη">
+<!ENTITY latinize "Λατινοποίηση θεμάτων και ονομάτων">
+<!ENTITY remove_emojis "Αφαιρέστε Unicode Emojis και σύμβολα">
+<!ENTITY filter_characters "Φιλτράρισμα χαρακτήρων">
+<!ENTITY filename_format "Μορφή ονόματος αρχείου">
+<!ENTITY page_options "Επιλογές σελίδας">
+<!ENTITY copies "Αντίγραφα">
+<!ENTITY all "Ολα">
+<!ENTITY custom "Εθιμο">
+<!ENTITY page_ranges "Εύρος σελίδων">
+<!ENTITY margins "Περιθώρια">
+<!ENTITY top "Μπλουζα">
+<!ENTITY bottom "Κάτω μέρος">
+<!ENTITY left "Αριστερά">
+<!ENTITY right "σωστά">
+<!ENTITY center "Κέντρο">
+<!ENTITY footers "Υποσέλιδα">
+<!ENTITY cancel "Ματαίωση">
+<!ENTITY page_headers "Κεφαλίδες">
+<!ENTITY Help "Βοήθεια">
+<!ENTITY Scale "Κλίμακα">
+<!ENTITY fitToWidth "Προσαρμογή στο πλάτος">

@@ -1,21 +1,26 @@
 /* globals
 List,
 ListController,
-
+printerSettings,
+utils,
 */
 
 var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
-var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js"); 
+var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
+Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
+
+utils.window = window;
+
 var PMDstr = Cc["@mozilla.org/supports-string;1"]
 	.createInstance(Ci.nsISupportsString);
 
 var strBundleService = Services.strings;
+var mainStrBundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 
 var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
-var fullPanel;
-var fromPreview;
 var gheaderList;
-var abook = false;
+var printerSettings;
+var validationIds = [];
 
 
 function getComplexPref(pref) {
@@ -33,59 +38,26 @@ function setComplexPref(pref, value) {
 	}
 }
 
-async function loadHelp(bmark) {
-	//console.log("help load")
-	t = await window.opener.ptngAddon.notifyTools.notifyBackground({ command: "openHelp", locale: Services.locale.appLocaleAsBCP47});
-}
-
-async function  initPMDpanel() {
+async function initPMDpanel() {
 
 	// cleidigh
 	//console.debug('initialize panel');
-	
+
 	var win = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator)
 		.getMostRecentWindow("mail:3pane");
 
-		
 	var PTNGVersion = win.printingtoolsng.extension.addonData.version;
 
 	let title = document.getElementById("ptng-options").getAttribute("title");
 
 	document.getElementById("ptng-options").setAttribute("title", `${title} - v${PTNGVersion}`);
 
-	if (window.arguments) {
-		if (typeof window.arguments[0] === 'object' || window.arguments[0] === false) {
-			fromPreview = false;
-			abook = window.arguments[1] || false;
+	document.getElementById("ptng-options").setAttribute("lang", Services.locale.appLocaleAsBCP47);
 
-		} else {
-			fromPreview = window.arguments[0] || false;
-			abook = window.arguments[1] || false;
-		}
-	} else {
-		fromPreview = false;
-		abook = false;
-	}
-	// console.debug(fromPreview);
-	// console.debug(abook);
-
-	var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
-		.getService(Ci.nsIWindowMediator);
-	var awin = wm.getMostRecentWindow("mail:addressbook");
-	if (awin) {
-		abook = true;
-	}
-
-	if (abook) {
-		document.getElementById("ptng-tbox").selectedIndex = 4;
-	}
-
-	fullPanel = true;
-	initPMDabpanel();
+	printerSettings = win.printerSettings;
 
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
-
 
 	document.getElementById("useCcBccAlways").checked = prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always");
 
@@ -128,7 +100,7 @@ async function  initPMDpanel() {
 	document.getElementById("PMDhideAtt").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments");
 	document.getElementById("InlineAttsListhide").checked = prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list");
 
-	document.getElementById("PMDselection").checked = prefs.getBoolPref("extensions.printingtoolsng.print.just_selection");
+	// document.getElementById("PMDselection").checked = prefs.getBoolPref("extensions.printingtoolsng.print.just_selection");
 	document.getElementById("PMDattachIcon").checked = prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
 	document.getElementById("num_atts_line").value = prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
 
@@ -149,13 +121,13 @@ async function  initPMDpanel() {
 	}
 
 	document.getElementById("PMDsilent").checked = prefs.getBoolPref("extensions.printingtoolsng.print.silent");
-	
+
 	var sID = "s" + prefs.getIntPref("extensions.printingtoolsng.cite.size");
 	document.getElementById("citeSize").selectedItem = document.getElementById(sID);
 	var hID = "h" + prefs.getIntPref("extensions.printingtoolsng.headers.size");
 	document.getElementById("hdrfontsize").selectedItem = document.getElementById(hID);
 
-	
+
 	var xID = "x" + prefs.getIntPref("extensions.printingtoolsng.messages.size");
 	document.getElementById("fontsize").selectedItem = document.getElementById(xID);
 
@@ -232,129 +204,121 @@ async function  initPMDpanel() {
 	for (var i = 0; i < u.length; i++) {
 		var lab = getHeaderLabel(u[i].replace('!', ''));
 		let show = !u[i].startsWith('!');
-		
+
 		gheaderList.add({ headerName: lab, headerToken: u[i], id: i + 1, show: show });
 	}
 	// console.debug(gheaderList.listElement.outerHTML);
 	gheaderList.controller.selectRowByDataId('1');
 
-	// Services.console.logStringMessage("printingtools: call printer setup");
-	setPrinterList();
-
+	// PDF Output Options
+	document.getElementById("enablePDFoutputDir").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
+	document.getElementById("PDFoutputDir").value = prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
+	document.getElementById("customDatePDF").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.custom_date_format");
+	document.getElementById("prefixText").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.prefix");
+	document.getElementById("suffixText").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.suffix");
+	document.getElementById("enableLatinize").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.latinize");
+	document.getElementById("enableEmojiAndSymbolFilter").checked = prefs.getBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols");
+	document.getElementById("characterFilter").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.filter_characters");
+	document.getElementById("PDFcustomFilenameFormat").value = prefs.getStringPref("extensions.printingtoolsng.pdf.custom_filename_format");
 	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
+	var outputPrinter = await setPrinterList();
+	printerSettings.getPrinterSettings(window, outputPrinter);
+	initValidationIds();
+	addValidationListeners();
+	enableOKbuttonOnValidation();
 	document.getElementById("useCcBccAlways").focus;
 }
 
-async function setPrinterList() {
-	var outputPrinter = null;
-	try {
-		outputPrinter = prefs.getCharPref("print_printer");
-	} catch (error) {
+async function pickPDFoutputDir() {
+	let fpMode = Ci.nsIFilePicker.modeGetFolder;
 
+	let fpTitle = this.mainStrBundle.GetStringFromName("select_pdf_dir");
+	let fpDisplayDirectory = null;
+	let resultObj = await utils.openFileDialog(fpMode, fpTitle, fpDisplayDirectory, Ci.nsIFilePicker.filterAll);
+	if (resultObj.result == -1) {
+		return;
 	}
-	var printerListMenu = document.getElementById("OutputPrinter");
-	var selindex = 0;
-	var popup = document.createXULElement("menupopup");
+	let pdfOutputDir = resultObj.folder;
 
+	document.getElementById("PDFoutputDir").value = pdfOutputDir;
+
+}
+
+async function setPrinterList() {
 	// change for 91
 	var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
 		.getService(Ci.nsIPrinterList);
 
 	// Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
 	var printers = await printerList.printers;
-	// var printers = [];
-	var i = 0;
-	// while(pe.hasMore()) {
+	var defaultPrinter = printerList.systemDefaultPrinterName;
+
+	var outputPrinter = null;
+	var type = prefs.getPrefType("print_printer");
+	if (type) {
+		outputPrinter = prefs.getCharPref("print_printer");
+	} else {
+		outputPrinter = defaultPrinter;
+	}
+
+	// console.log(outputPrinter)
+	var printerListMenu = document.getElementById("OutputPrinter");
+	var selindex = 0;
+	var popup = document.createXULElement("menupopup");
+
+	var i = 1;
+	var menuitem0 = document.createXULElement("menuitem");
+	menuitem0.setAttribute("value", "Mozilla Save to PDF");
+	menuitem0.setAttribute("label", this.mainStrBundle.GetStringFromName("save_to_pdf"));
+	popup.appendChild(menuitem0);
+
 	for (let printer of printers) {
 		printer.QueryInterface(Ci.nsIPrinter);
 		let printerName = printer.name;
 		var menuitem = document.createXULElement("menuitem");
 
-		// Services.console.logStringMessage("printingtools: printerName: " + printerName);
-		// printers.push(printerName);
 		menuitem.setAttribute("value", printerName);
 		menuitem.setAttribute("label", printerName);
 		popup.appendChild(menuitem);
 		if (printerName === outputPrinter) {
 			selindex = i;
-			// Services.console.logStringMessage("printingtools: selected: " + outputPrinter);
 		}
 		i++;
 	}
 
-	var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"]
-		.getService(Ci.nsIPrintSettingsService);
-
+	if (outputPrinter === "Mozilla Save to PDF") {
+		selindex = 0;
+	}
 
 	printerListMenu.appendChild(popup);
 	printerListMenu.selectedIndex = selindex;
-	// Services.console.logStringMessage("printingtools: printerName index: " + selindex);
+	// console.log("Selected printer : ", outputPrinter);
+	return outputPrinter;
 }
 
-function initPMDabpanel() {
-
-	document.getElementById("multipleCards").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards");
-	document.getElementById("PMDabmaxcompact").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.max_compact");
-	document.getElementById("PMDabsmallfont").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size");
-	document.getElementById("ABcustomFont").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family");
-	if (String.trim)
-		document.getElementById("PMDabnohead").collapsed = true;
-	else
-		document.getElementById("PMDabnohead").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.hide_header_card");
-	document.getElementById("PMDabjustaddress").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.print_just_addresses");
-	document.getElementById("PMDcutnotes").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.cut_notes");
-	document.getElementById("PMDaddname").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.add_ab_name");
-
-	var fontlist = document.getElementById("ABfontlist");
-	var fonten = Cc["@mozilla.org/gfx/fontenumerator;1"].createInstance(Ci.nsIFontEnumerator);
-	var allfonts = fonten.EnumerateAllFonts({});
-	var selindex = 0;
-	var popup = document.createXULElement("menupopup");
-
-	for (var j = 0; j < allfonts.length; j++) {
-		var menuitem = document.createXULElement("menuitem");
-		menuitem.setAttribute("value", allfonts[j]);
-		menuitem.setAttribute("label", allfonts[j]);
-		if (prefs.getPrefType("extensions.printingtoolsng.addressbook.font_family") > 0 &&
-			allfonts[j] === getComplexPref("extensions.printingtoolsng.addressbook.font_family")) {
-			selindex = j;
-		}
-		popup.appendChild(menuitem);
-	}
-	fontlist.appendChild(popup);
-	fontlist.selectedIndex = selindex;
-
-
-	document.getElementById("ABcustomFont").checked = prefs.getBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family");
-	var fontsize = prefs.getIntPref("extensions.printingtoolsng.addressbook.custom_font_size");
-	if (fontsize > 7 && fontsize < 19)
-		document.getElementById("ABfontsize").selectedIndex = fontsize - 8;
-	else
-		document.getElementById("ABfontsize").selectedIndex = 2;
-
+function printerChange() {
+	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
+	prefs.setCharPref("print_printer", "");
+	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
+	printerSettings.getPrinterSettings(window, document.getElementById("OutputPrinter").value);
 }
 
 function onSelectListRow(event, data_id) {
-	if (event.type === 'onclick') {
-		// miczThunderStatsPrefPanel.onNBDItemClick(event, data_id);
 
-	} else {
-		// miczThunderStatsPrefPanel.updateNBDButtons(window);
-	}
 }
 
 function getHeaderLabel(string) {
-	
+
 	var bundle;
-	//console.log(Services.locale.appLocaleAsBCP47)
+	// console.log(Services.locale.appLocaleAsBCP47)
 	if (Services.locale.appLocaleAsBCP47 === "ja") {
 		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-ja.properties");
 	} else if (Services.locale.appLocaleAsBCP47 === "zh-CN") {
-		
+
 		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh.properties");
-} else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
-		
+	} else if (Services.locale.appLocaleAsBCP47 === "zh-TW") {
+
 		bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/headers-zh-tw.properties");
 	} else {
 		bundle = strBundleService.createBundle("chrome://messenger/locale/mime.properties");
@@ -388,13 +352,11 @@ function getHeaderLabel(string) {
 }
 
 function savePMDprefs() {
-	//console.debug('save options');
-	
+	// console.debug('save options');
+
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
 	prefs.setCharPref("print_printer", "");
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
-	//Services.console.logStringMessage("printingtools: print_printer " + document.getElementById("OutputPrinter").value);
-
 	prefs.setBoolPref("extensions.printingtoolsng.headers.useCcBcc_always", document.getElementById("useCcBccAlways").checked);
 
 	var max_pre_len;
@@ -421,18 +383,15 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.headers.truncate", document.getElementById("PMDtruncate").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments", document.getElementById("PMDhideAtt").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.hide.inline_attachments_list", document.getElementById("InlineAttsListhide").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.print.just_selection", document.getElementById("PMDselection").checked);
+
 	prefs.setBoolPref("extensions.printingtoolsng.headers.addfolder", document.getElementById("addFolder").checked);
 	prefs.setBoolPref("extensions.printingtoolsng.headers.align", document.getElementById("alignHeaders").checked);
-
-	//prefs.setBoolPref("extensions.printingtoolsng.show_options_button", document.getElementById("showButtonPreview").checked);
-
 	prefs.setBoolPref("extensions.printingtoolsng.add_received_date", document.getElementById("addRdate").checked);
 
 
 	prefs.setIntPref("extensions.printingtoolsng.date.long_format_type", document.getElementById("dateLongRG").selectedIndex);
 
-	prefs.setStringPref("extensions.printingtoolsng.date.custom_format", document.getElementById("customDate").value);	
+	prefs.setStringPref("extensions.printingtoolsng.date.custom_format", document.getElementById("customDate").value);
 	var size = document.getElementById("citeSize").selectedItem.id.replace("s", "");
 	prefs.setIntPref("extensions.printingtoolsng.cite.size", size);
 	prefs.setCharPref("extensions.printingtoolsng.cite.color", document.getElementById("citeColor").value);
@@ -443,23 +402,23 @@ function savePMDprefs() {
 
 	var hdrfontlistchild = document.getElementById("hdrfontlist").getElementsByTagName("menuitem");
 	var hdrselfont = hdrfontlistchild[document.getElementById("hdrfontlist").selectedIndex].getAttribute("value");
-	
+
 	setComplexPref("extensions.printingtoolsng.headers.font_family", hdrselfont);
-	
+
 	var fontlistchild = document.getElementById("fontlist").getElementsByTagName("menuitem");
 	var selfont = fontlistchild[document.getElementById("fontlist").selectedIndex].getAttribute("value");
 	setComplexPref("extensions.printingtoolsng.messages.font_family", selfont);
-	
+
 	setComplexPref("extensions.printingtoolsng.headers.custom_name_value", document.getElementById("addNameBox").value);
 
 	prefs.setBoolPref("extensions.printingtoolsng.headers.style", document.getElementById("headersStyle").checked);
 	size = document.getElementById("hdrfontsize").selectedItem.id.replace("h", "");
 	prefs.setIntPref("extensions.printingtoolsng.headers.size", size);
-	
+
 	prefs.setBoolPref("extensions.printingtoolsng.messages.style", document.getElementById("messageStyle").checked);
 	size = document.getElementById("fontsize").selectedItem.id.replace("x", "");
 	prefs.setIntPref("extensions.printingtoolsng.messages.size", size);
-	
+
 
 	let ubkc = document.getElementById("useHeadersBkColor").checked;
 	prefs.setBoolPref("extensions.printingtoolsng.headers.use_background_color", ubkc);
@@ -476,60 +435,21 @@ function savePMDprefs() {
 	val = val + list.rows.item(6).getAttribute("data-headerToken");
 	prefs.setCharPref("extensions.printingtoolsng.headers.order", val);
 	prefs.setBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach", document.getElementById("addP7M").checked);
-	if (fromPreview) {
-		// console.debug('closing from preview');
-		try {
-			opener.close();
-			var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
-				.getService(Ci.nsIWindowMediator);
-			var win;
-			if (abook) {
-				win = wm.getMostRecentWindow("mail:addressbook");
-				win.AbPrintPreviewAddressBook();
-			} else {
-				win = wm.getMostRecentWindow("mail:3pane");
-				win.PrintEnginePrintPreview();
-			}
-		} catch (e) {
-			console.debug(e);
-		}
-	}
-
 	prefs.setCharPref("extensions.printingtoolsng.debug.options", document.getElementById("debug-options").value);
-	
-}
 
-function savePMDabprefs(fullpanel) {
+	// PDF Output Options
+	prefs.setBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir", document.getElementById("enablePDFoutputDir").checked);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.output_dir", document.getElementById("PDFoutputDir").value);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.filename.custom_date_format", document.getElementById("customDatePDF").value);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.filename.prefix", document.getElementById("prefixText").value);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.filename.suffix", document.getElementById("suffixText").value);
+	prefs.setBoolPref("extensions.printingtoolsng.pdf.filename.latinize", document.getElementById("enableLatinize").checked);
+	prefs.setBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols", document.getElementById("enableEmojiAndSymbolFilter").checked);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.filename.filter_characters", document.getElementById("characterFilter").value);
+	prefs.setStringPref("extensions.printingtoolsng.pdf.custom_filename_format", document.getElementById("PDFcustomFilenameFormat").value);
 
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.max_compact", document.getElementById("PMDabmaxcompact").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_size", document.getElementById("PMDabsmallfont").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.hide_header_card", document.getElementById("PMDabnohead").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.print_just_addresses", document.getElementById("PMDabjustaddress").checked);
-	prefs.setIntPref("extensions.printingtoolsng.addressbook.custom_font_size", document.getElementById("ABfontsize").selectedItem.label);
-
-	var fontlistchild = document.getElementById("ABfontlist").getElementsByTagName("menuitem");
-	var selfont = fontlistchild[document.getElementById("ABfontlist").selectedIndex].getAttribute("value");
-	setComplexPref("extensions.printingtoolsng.addressbook.font_family", selfont);
-
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.use_custom_font_family", document.getElementById("ABcustomFont").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.cut_notes", document.getElementById("PMDcutnotes").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.add_ab_name", document.getElementById("PMDaddname").checked);
-	prefs.setBoolPref("extensions.printingtoolsng.addressbook.print_multiple_cards", document.getElementById("multipleCards").checked);
-	if (document.getElementById("PMDabsmallfont") && opener.printingtools) {
-		var isContact = opener.printingtools.isContact;
-		opener.close();
-		var wm = Cc["@mozilla.org/appshell/window-mediator;1"]
-			.getService(Ci.nsIWindowMediator);
-		var win = wm.getMostRecentWindow("mail:addressbook");
-		if (!win)
-			return;
-		if (!isContact) {
-			// console.debug('address.Preview');
-			win.AbPrintPreviewAddressBook();
-		}
-		else
-			win.AbPrintPreviewCard();
-	}
+	printerSettings.savePrintSettings(window);
+	window.close();
 }
 
 
@@ -619,15 +539,8 @@ function toggleHeaderShow() {
 	t = ((s === "true") ? t.replace('!', '') : '!' + t);
 	// Services.console.logStringMessage(`after just ${s} ${t}`); 
 	gheaderList.items[idx].values({ "show": s, "headerToken": t });
-
-	// Services.console.logStringMessage(`${selectedElement.outerHTML}\n${idx} ${s} ${t}`);
-	// Services.console.logStringMessage(gheaderList.list.outerHTML);
 	dumpList();
-	// if (s) {
-
-	// } else {
-
-	// }
+	
 }
 
 function toggleUseBackgroundColor(el) {
@@ -648,15 +561,13 @@ function toggleHeadersStyle(el) {
 function toggleMessageStyle(el, notify) {
 	document.getElementById("fontlist").disabled = !el.checked;
 	document.getElementById("fontsize").disabled = !el.checked;
-	//document.getElementById("radiostyle").disabled = !el.checked;
+
 	var strBundleService = Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService);
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 	if (document.getElementById("messageStyle").checked && notify) {
-		// alert("The system option:\n  Allow messages to use other fonts\nhas been enabled");
 		alert(bundle.GetStringFromName("allowFonts"));
 		prefs.setIntPref("browser.display.use_document_fonts", 1);
 	} else if (notify) {
-		// alert("The system option:\n  Allow messages to use other fonts\nhas been disabled");
 		alert(bundle.GetStringFromName("disallowFonts"));
 		prefs.setIntPref("browser.display.use_document_fonts", 0);
 	}
@@ -672,10 +583,193 @@ function toggleDate() {
 	document.getElementById("dateLongRG").disabled = !document.getElementById("PMDdate").checked;
 }
 
+function scaleToggle(scaleRG) {
+	let se = document.querySelector("#scale");
+	if (scaleRG.selectedIndex == 0) {
+		se.setAttribute("disabled", "true");
+	} else {
+		se.removeAttribute("disabled");
+	}
+}
+
+function pageRangeToggle(pageRangeRG) {
+	let cr = document.querySelector("#pages");
+	if (pageRangeRG.selectedIndex == 0) {
+		cr.setAttribute("disabled", "true");
+		cr.value = "1";
+		console.log(cr)
+	} else {
+		cr.removeAttribute("disabled");
+	}
+}
+
+function addValidationListeners() {
+
+	let cr = document.querySelector("#pages");
+	cr.addEventListener("keypress", handlePageRangesKeypress);
+	cr.addEventListener("input", pageRangesValidation);
+	let se = document.querySelector("#scale");
+	se.addEventListener("keypress", handleScaleKeypress);
+	se.addEventListener("input", scaleValidation);
+
+	let margin = document.querySelector("#margin-top");
+	margin.addEventListener("keypress", handleMarginsKeypress);
+	margin.addEventListener("input", handleMarginsValidation);
+	margin = document.querySelector("#margin-bottom");
+	margin.addEventListener("keypress", handleMarginsKeypress);
+	margin.addEventListener("input", handleMarginsValidation);
+	margin = document.querySelector("#margin-left");
+	margin.addEventListener("keypress", handleMarginsKeypress);
+	margin.addEventListener("input", handleMarginsValidation);
+	margin = document.querySelector("#margin-right");
+	margin.addEventListener("keypress", handleMarginsKeypress);
+	margin.addEventListener("input", handleMarginsValidation);
+
+}
+
+
+function handleScaleKeypress(e) {
+	let char = String.fromCharCode(e.charCode);
+	let acceptedChar = char.match(/^[0-9]$/);
+	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
+		e.preventDefault();
+	}
+}
+
+function initValidationIds() {
+	validationIds.push("scale");
+	validationIds.push("pages");
+	validationIds.push("margin-top");
+	validationIds.push("margin-bottom");
+	validationIds.push("margin-left");
+	validationIds.push("margin-right");
+}
+
+function checkValidationIdsStatus() {
+	var status = true;
+	validationIds.forEach(id => {
+		let item = document.getElementById(id);
+		if (!item.checkValidity()) {
+			status = false;
+		}
+	});
+
+	return status;
+}
+
+function scaleValidation() {
+	let se = document.querySelector("#scale");
+	let se_err = document.querySelector("#scale-error");
+
+	if (se.validity.valueMissing || se.validity.rangeUnderflow || se.validity.rangeOverflow) {
+		se_err.textContent = mainStrBundle.GetStringFromName("err_scale_val_req");
+		se_err.style.width = "170px";
+		se_err.className = "error active";
+	} else {
+		se_err.className = "error";
+	}
+	enableOKbuttonOnValidation();
+}
+
+function handlePageRangesKeypress(e) {
+	let char = String.fromCharCode(e.charCode);
+	let acceptedChar = char.match(/^[0-9,-]$/);
+	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
+		e.preventDefault();
+	}
+}
+
+function pageRangesValidation(e) {
+	let pr = document.querySelector("#pages");
+	let pre = document.querySelector("#page-ranges-error");
+
+	if (pr.validity.valueMissing) {
+		pre.textContent = mainStrBundle.GetStringFromName("err_pageranges_val_req");
+		let l = pre.textContent.length * 0.50 + "em";
+		pre.style.width = l;
+		pre.className = "error active";
+	} else if (pageRangesStringValidation(pr.value)) {
+		if (pageRangesStringValidation(pr.value) == 1) {
+			pre.textContent = mainStrBundle.GetStringFromName("err_pageranges_val_notzero");
+		} else {
+			pre.textContent = mainStrBundle.GetStringFromName("err_pageranges_val_endgrbeg");
+		}
+
+		pre.style.width = "100%";
+		pre.className = "error active";
+	} else {
+		pre.className = "error";
+	}
+	enableOKbuttonOnValidation();
+}
+
+function handleMarginsKeypress(e) {
+	let char = String.fromCharCode(e.charCode);
+	let acceptedChar = char.match(/^[0-9,.]$/);
+	if (!acceptedChar && !char.match("\x00") && !e.ctrlKey && !e.metaKey) {
+		e.preventDefault();
+	}
+	let val = e.target.value;
+	// console.log(val)
+	if (val.includes(".")) {
+		let l = val.split(".")[1].length;
+		// console.log(l)
+		if (l == 2 && char.match(/^[0-9,.]$/)) {
+			e.preventDefault();
+		}
+	}
+}
+
+function handleMarginsValidation(e) {
+	enableOKbuttonOnValidation();
+}
+
+function enableOKbuttonOnValidation() {
+
+	let okButton = document.getElementById("okbutton");
+	if (!checkValidationIdsStatus()) {
+		okButton.disabled = true;
+	} else {
+		okButton.disabled = false;
+	}
+}
+
+function pageRangesStringValidation(pageRangesStr) {
+
+	let ranges = pageRangesStr.split(",");
+
+	for (let range of ranges) {
+		let rangeParts = range.split("-");
+		let startRange = parseInt(rangeParts[0], 10);
+		let endRange = parseInt(
+			rangeParts.length == 2 ? rangeParts[1] : rangeParts[0],
+			10
+		);
+
+		if (startRange == 0 || endRange == 0) {
+			return 1;
+		}
+		// If the startRange was not specified, then we infer this
+		// to be 1.
+		if (isNaN(startRange) && rangeParts[0] == "") {
+			startRange = 1;
+		}
+		// If the end range was not specified, then we infer this
+		// to be the total number of pages.
+		if (isNaN(endRange) && rangeParts[1] == "") {
+			endRange = 1000;
+		}
+
+		if (endRange < startRange) {
+			return 2;
+		}
+	}
+	return 0;
+}
 
 document.addEventListener("dialogaccept", function (event) {
 	savePMDprefs();
-	
+
 });
 
 window.addEventListener("load", function (event) {

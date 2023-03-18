@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <title>PrintingTools NG Súgó</title>
+  </head>
+  <body>
+    <table style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Súgó</div>
+          <div>v2.2.0</div>
+        </td>
+        <td style="text-align: right; padding-right: 30px;">
+          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
+        </td>
+      </tr>
+    </table>
+    <br />
+    <h2 id="main_help">A PrintingTools NG áttekintése</h2>
+    <p>
+      A PrintingTools NG számos testreszabást tesz lehetővé az e-mailes nyomtatáshoz. A kiterjesztés számos
+      lehetőséget kínál mind a fejlécekhez, mind az üzenetrészekhez. Ezenkívül olyan oldalbeállítások is
+      beállíthatók, amelyek a Thunderbird normál nyomtatási előnézetében nem végezhetők el. A PDF kimenet
+      automatikus elnevezéssel is elvégezhető egy rugalmas token alapú rendszer segítségével.
+    </p>
+    <h3 class="indent0">A Print NG gomb hozzáadása az eszköztárhoz:</h3>
+    <p>
+      Az NG nyomtatása gombot hozzá kell adni az eszköztárhoz, hogy lehetővé tegye a nyomtatási hozzáférést és
+      a beállításokat. Az opciók a bővítményhez tartozó csavarkulcs gombbal is elérhetők a kiegészítő lapon.
+    </p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
+    <br />
+    <p>Kövesse az alábbi lépéseket a gomb eszköztárra helyezéséhez:</p>
+    <div class="indent1">
+      <li>Kattintson a jobb gombbal egy üres helyre a levelezési eszköztáron</li>
+      <li>Válassza az Egyéni lehetőséget... Ezzel megnyílik az Eszköztár testreszabása ablak</li>
+      <li>Keresse meg a Print NG gombot</li>
+      <li>Húzza a gombot a kívánt helyre</li>
+      <li>Használja a Nyomtatás, Előnézet, Beállítások és Súgó gombot</li>
+    </div>
+    <h3 class="indent0">Az alábbi példa néhány fejlécformázási funkcióra látható:</h3>
+    <div class="indent1">
+      <li>Testreszabott fejlécszegélystílus CSS használatával (felső és alsó, kék)</li>
+      <li>Fejléc háttérszíne</li>
+      <li>Igazított fejlécek</li>
+      <li>Egyedi fejléc sorrend</li>
+      <li>Az oldal címe és az üzenetmappa</li>
+      <li>Mellékletlista ikonokkal a fejlécben</li>
+      <li>Teljesen testreszabható dátumformátum nemzetközi formázás</li>
+    </div>
+    <br />
+    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
+    <br />
+    <h2 id="customdate_format_help">Egyéni dátumformátum</h2>
+    <p>
+      Az egyéni dátum opció lehetővé teszi az e-mailek fejlécében mind a dátum, mind a beérkezés dátuma esetén
+      használt dátumformátum teljes szabályozását. Az egyéni dátum több honosított lehetőséget kínál, amelyek
+      szinte bármilyen formátumot lehetővé tesznek. Vegye figyelembe, hogy az egyéni dátumkarakterlánc
+      tartalmazhat elválasztókat, literálokat, beleértve az unicode karaktereket, keverve az alább felsorolt
+      dátum/idő tokenekkel.<br /><br />
+      Megjegyzés: Az alábbi példákban szereplő egyéni dátumeredmények a tényleges dátumtól, a felhasználói
+      területtől és időzónától függően eltérőek lesznek.
+    </p>
+    <br />
+    <h3 class="indent0">Példák:</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <td>Dátum karakterlánc</td>
+          <td>Eredmény</td>
+          <td>jegyzet</td>
+        </tr>
+      </thead>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+        <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+        <td>ja locale literálokkal</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+        <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+        <td>ko locale literálokkal</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+        <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+        <td>zh-CN terület, rövid nap</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+        <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+        <td>zh-TW terület, hosszú nap</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+        <td class="notranslate">20.04.2022 18:01:42 CET</td>
+        <td>Pontelválasztók</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+        <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+        <td>de locale, rövid nap/hónap</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+        <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+        <td>hu-USA nyelv, hosszú nap/hónap</td>
+      </tr>
+    </table>
+    <br />
+    <p>
+      Az egyéni dátumformátum % sorozatokat használ, amelyek megfelelnek az <code>strftime()</code> Unix-szerű
+      funkciónak. Az
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      JavaScript-portján alapul, amely a dátum és az idő formázására szolgáló függvény.<br />
+      Az strftime() portja, TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <br />
+    <h3 style="margin-left: 30px;">Konverziós szekvencia leírások</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Sorrend</th>
+          <th>Leírás</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>A hét napjának rövidített neve.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>A hét napjának teljes neve.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>A hónap rövidített neve.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>A hónap teljes neve.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Előnyben részesített dátum és idő (UTC) megjelenítése az aktuális területi beállításhoz.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Századszám (év/100) 2 jegyű egész számként.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>A hónap napja decimális számként (01 és 31 között).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>A hónap napja decimális számként (1 és 31 között).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>ISO 8601 dátumformátum (egyenértékű: <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            ISO 8601 heti alapú évszám század decimális számmal. A 4 számjegyű év az ISO hétszámnak felel meg
+            (lásd <code class="code1">%V</code> ). Ennek ugyanaz a formátuma és értéke, mint
+            <code class="code1">%Y</code> , kivéve, hogy ha az ISO hét száma az előző vagy a következő évhez
+            tartozik, akkor a rendszer azt az évet használja helyette.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>Mint <code class="code1">%G</code> , de század nélkül, azaz 2 számjegyű évszámmal (00-99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Óra decimális számként 24 órás órával (00 és 23 között). Lásd még <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Óra decimális számként 12 órás órával (01 és 12 közötti tartomány). Lásd még
+            <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Az év napja decimális számként (001 és 366 között).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Óra decimális számként 24 órás órával (0 és 23 között). Lásd még <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Óra decimális számként 12 órás óra segítségével (1-12 tartomány). Lásd még
+            <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>A hónap decimális számként (01 és 12 között).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>A hónap decimális számként (1-12 tartomány).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>A perc decimális számként (00 és 59 között).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            Az adott időértéknek megfelelően &quot;AM&quot; vagy &quot;PM&quot; lehet. A délt
+            &quot;PM&quot;-ként, az éjfélt pedig &quot;DE&quot;-ként kezeljük.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>Mint <code class="code1">%p</code> , de kisbetűvel (&quot;am&quot; vagy &quot;pm&quot;).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Az Epocha óta eltelt másodpercek száma, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>A második decimális számként (00 és 59 között).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            A hét napja tizedesjegyként (1-7 tartomány), a hétfő 1. Lásd még <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            Az aktuális év ISO 8601 szerinti hétszáma decimális számként (01-53 tartomány), ahol az 1. hét az
+            első hét, amelyen legalább 4 nap van az új évben (azaz az első csütörtök).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            A hét napja tizedesjegyként (0 és 6 között), a vasárnap pedig 0. Lásd még
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Előnyben részesített dátummegjelenítés az aktuális nyelvi beállításhoz idő nélkül.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Előnyben részesített időmegjelenítés az aktuális területi beállításhoz dátum nélkül.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Az év decimális számként, század nélkül (00 és 99 között).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Az év tizedes számként, beleértve a századot is.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            A <code class="code1">+hhmm</code> vagy <code class="code1">-hhmm</code> numerikus időzóna (vagyis
+            az óra és perc eltolása az UTC-től).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Az időzóna neve vagy rövidítése.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Rövid időzóna rövidítés.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Év Szó szerinti. Lokalizált, főleg ázsiai helyekre. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Szó szerinti hónap. Lokalizált, főleg ázsiai helyekre. (zh-TW: 月, ko: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Szó szerinti nap. Lokalizált, főleg ázsiai helyekre. (ja: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 class="indent0">Kompatibilitási megjegyzések:</h3>
+    <ul>
+      <li><code class="code1">%c</code> – a formázott karakterlánc kissé eltér</li>
+      <li>
+        <code class="code1">%D</code> – nincs implementálva (használd:
+        <code class="code1">%m/%d/%y</code> vagy <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - szóköz nincs hozzáadva</li>
+      <li><code class="code1">%E</code> – nincs implementálva</li>
+      <li><code class="code1">%h</code> – nincs implementálva (használd: <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - szóköz nincs hozzáadva</li>
+      <li>
+        <code class="code1">%n</code> - mint <code class="code1">%m</code> , de nincs kezdő nulla (az újsorhoz
+        használja <code class="code1">\n</code> karaktert)
+      </li>
+      <li><code class="code1">%O</code> – nincs implementálva</li>
+      <li>
+        <code class="code1">%r</code> – nincs implementálva (használd <code class="code1">%I:%M:%S %p</code> )
+      </li>
+      <li>
+        <code class="code1">%R</code> – nincs implementálva (használd <code class="code1">%H:%M</code> )
+      </li>
+      <li><code class="code1">%t</code> – nincs implementálva ( <code class="code1">\t</code> használata)</li>
+      <li>
+        <code class="code1">%T</code> – nincs implementálva (használd <code class="code1">%H:%M:%S</code> )
+      </li>
+      <li><code class="code1">%U</code> – nincs implementálva</li>
+      <li><code class="code1">%W</code> – nincs implementálva</li>
+      <li><code class="code1">%+</code> – nincs implementálva</li>
+      <li><code class="code1">%%</code> – nincs implementálva (használd <code class="code1">%</code> )</li>
+    </ul>
+    <br />
+    <h2 id="pdf_output_help">PDF kimenet és automatikus fájlelnevezés</h2>
+    <p>
+      A PDF kimenet immár automatikusan elnevezhető egy token rendszerrel, és elmenthető egy előre
+      meghatározott PDF kimeneti könyvtárba. Ez különösen akkor hasznos, ha több kiválasztott e-mailt nyomtat,
+      mivel nem szükséges minden egyes e-mailhez nevet és helyet választani.
+    </p>
+    <p />
+    <p>
+      Engedélyezze a PDF kimeneti könyvtárat, és válasszon könyvtárat a mentési helyhez. A kimeneti fájlnév
+      követni fogja a beállított fájlnév-formátumot.
+    </p>
+    <p />
+    <p>
+      A fájlnév-formátum tokenekből és bármilyen statikus karakterből, például elválasztókból vagy szóközökből
+      áll. A kiterjesztett fájlnév formázása tokeneket használ. A pontos fájlnév létrehozható a tokenek,
+      valamint bármilyen szöveg vagy érvényes fájlnév-karakter felhasználásával. Az érvénytelen karakterek:
+      <code>| * : &lt; &gt; ? \ / &quot;</code>
+    </p>
+    <p />
+    <p>Az alapértelmezett névformátum: ${subject}, amely csak az e-mail tárgya.</p>
+    <p />
+    <p>Példák</p>
+    <p>
+      <span class="notranslate"><code>${subject}</code></span> – Az e-mail alapértelmezett formátuma,
+      tárgya<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Használja az egyéni
+      dátumformátumot az alapértelmezett helyett<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Néhány egyéni
+      szöveggel<br />
+    </p>
+    <p>Az alábbi táblázat leírja a fájlnévformátumban használható tokenek teljes készletét.</p>
+    <table class="token-table">
+      <tr>
+        <td>Jelképes</td>
+        <td>Leírás</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${subject}</code></td>
+        <td>Az üzenet tárgya.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender}</code></td>
+        <td>Az üzenet feladójának neve.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient}</code></td>
+        <td>Az üzenet címzettjének neve.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender_email}</code></td>
+        <td>Az üzenet feladójának e-mail címe.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient_email}</code></td>
+        <td>Az üzenet címzettjének e-mail címe.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${smart_name}</code></td>
+        <td>A címzettek, ha az üzenet az Elküldött mappában van, egyébként a feladó neve</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${index}</code></td>
+        <td>Az üzenet indexszáma.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${prefix}</code></td>
+        <td>Az előtag szöveg opció értéke.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${suffix}</code></td>
+        <td>Az utótag szövege beállítás értéke.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date}</code></td>
+        <td>A szabványos dátumformátum. Az alapértelmezett formátum: YYYYMMDDHHmm</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date_custom}</code></td>
+        <td>Az egyéni dátumformátum. Lásd az egyéni dátumformázás című részt.</td>
+      </tr>
+    </table>
+    <br />
+    <h2 id="print_options_help">Nyomtatási és oldalbeállítások</h2>
+    <p>
+      Ezekkel a beállításokkal beállíthatja az alapértelmezett nyomtatót, valamint a nyomtatóoldalak
+      beállításait. Lehetőség van a néma üzemmód beállítására is, ahol az előnézeti párbeszédpanel nem jelenik
+      meg, és a nyomtatás azonnal megtörténik.
+    </p>
+    <p>
+      Az oldalbeállítások lehetővé teszik az elemek beállítását, amikor az előnézet vagy a nyomtatás
+      megtörtént. Ezek a beállítások a nyomtatás során állandóak. Ha a PrintingTools NG beállításai módosulnak
+      a nyomtatási előnézetben, az nem befolyásolja a további nyomatokat. Egyes elemek nem állíthatók be az
+      előnézeti párbeszédpanelen, ilyenek például a fejlécek és láblécek. A többi elemet az előnézet nem
+      tartja meg, és általában minden nyomtatáskor be kell őket állítani. A PrintingTools NG mindkét problémát
+      megoldja.
+    </p>
+    <p>
+      Az előnézet által nem mentett elem az oldaltartományok. Tipikus felhasználási eset az, amikor az
+      e-mailnek csak az első oldalát kívánja kinyomtatni alapértelmezettként. általában minden alkalommal
+      módosítani kell az oldaltartományokat. Megjegyzés: ha a PrintingTools NG-ben beállított oldaltartomány
+      nem érvényes, például túllépi az oldalak számát, a tartományt ki kell javítani az előnézetben a
+      nyomtatás előtt. Az „1”-re beállított oldaltartomány mindig érvényes, és az üzenet első oldalát
+      nyomtatja ki.
+    </p>
+    <p>Megjegyzések:</p>
+    <p>A skálázási opció lehetővé teszi egy állandó skála beállítását.</p>
+    <p>
+      Az oldaltartományok leírása ugyanúgy történik, mint az előnézetben. Példák az 1, 1-2, 3-4,5. Vegye
+      figyelembe, hogy ha egy előre beállított oldaltartomány nem érvényes egy adott üzenetre, az előnézet
+      hibát jelez.
+    </p>
+    <p>
+      A margók a felhasználói területnek megfelelő mértékegységekkel állíthatók be, hüvelykben vagy
+      milliméterben (in vagy mm). Ne feledje, hogy a kerekítési hibák miatt néhány mm érték kis eltérésekkel
+      menthető.
+    </p>
+    <p></p>
+    <p>
+      A fejlécek és láblécek beállíthatók úgy, hogy az alábbiakban felsorolt különféle üzenetváltozókat
+      tartalmazzák. Ezenkívül tetszőleges szöveg is beilleszthető. Ha nem szeretne fejlécet vagy láblécet
+      nyomtatni, és nyomtatási helyet takarít meg, csak hagyjon üresen minden mezőt.
+    </p>
+    <div class="indent1">
+      <li>&amp;D = Dátum</li>
+      <li>&amp;P = Oldalszám</li>
+      <li>&amp;PT = Oldalszám összesen (&quot;3/5&quot;)</li>
+      <li>&amp;T = Oldal címe (az üzenet tárgya)</li>
+      <li>&amp;U = URL (az üzenet URL-je)</li>
+    </div>
+    <h2>Támogatás</h2>
+    <p>
+      Kérjük, tegyen közzé problémákat vagy funkciókra vonatkozó kéréseket a GitHub bővítménytárában:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      Hibaproblémák esetén adja meg a következő információkat a problémák megoldásához:<br />
+      - PrintingTools NG verzió<br />
+      - Thunderbird verzió<br />
+      - Operációs rendszer és verzió<br />
+      - Hibakeresési kimenet (másolás a Debug Console-ról - hozzáférés a Control-Shift-J
+      billentyűkombinációval)<br />
+      - A problémához vezető lépések leírása<br />
+    </p>
+    <h2 id="debug_options_help">Hibakeresési beállítások</h2>
+    <p>
+      A hibakeresési beállítások szóközzel elválasztott listaként beírt kulcsszavak halmaza. Az opciókat
+      általában a konzol hibakereső kimenetére használják, de tesztelésre vagy különböző módokra is
+      használhatók.
+    </p>
+    <div class="indent1">
+      <li>
+        <code class="notranslate">initialsource</code> – az üzenet forrásának megjelenítése, mielőtt a PTNG
+        bármilyen formázást végezne
+      </li>
+      <li><code class="notranslate">finaloutput</code> – a végső üzenet kimenetének megjelenítése</li>
+      <li><code class="notranslate">pdfoutput</code> – hibakereső kimenet a PDF üzenetek kimenetéhez</li>
+      <li>
+        <code class="notranslate">printsettings</code> – hibakeresési kimenet a nyomtatási és
+        oldalbeállításokhoz
+      </li>
+      <li>
+        <code class="notranslate">helpinwin</code> - mód jelző, hogy a súgó ablakban jelenjen meg a lapon lévő
+        szabvány helyett
+      </li>
+    </div>
+    <h2>Kredit</h2>
+    <div class="indent1">
+      <li>A PrintingTools NG a Paolo &quot;Kosmos&quot; eredeti kiterjesztésén alapul.</li>
+      <li>List.js, Jonny Strömberg https://listjs.com</li>
+      <li>Latinize.js, Jakub Dundalek https://github.com/dundalek/latinize</li>
+    </div>
+    <p>
+      Köszönet a következő felhasználóknak a fejlesztési javaslatokért és a tesztelési segítségért:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+  </body>
+</html>

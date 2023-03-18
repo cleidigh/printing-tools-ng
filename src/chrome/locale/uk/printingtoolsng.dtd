@@ -69,3 +69,37 @@
 <!ENTITY debugOptions.label "Параметри налагодження">
 <!ENTITY date_custom.label "На замовлення">
 <!ENTITY messageBody "Тіло повідомлення">
+<!ENTITY body "Тіло">
+<!ENTITY pdf_output "Вихід PDF">
+<!ENTITY print_and_pageoptions "Параметри друку та сторінки">
+<!ENTITY headers_order "Порядок заголовків">
+<!ENTITY attachments "Додатки">
+<!ENTITY images "Зображення">
+<!ENTITY pdf_file_naming "Іменування файлів PDF">
+<!ENTITY enable_pdfdir "Увімкнути каталог виведення PDF">
+<!ENTITY output_dir "Вихідний каталог">
+<!ENTITY browse "переглядати">
+<!ENTITY custom_date_format "Спеціальний формат дати">
+<!ENTITY prefix "Префікс">
+<!ENTITY suffix "Суфікс">
+<!ENTITY latinize "Латинізуйте тему та імена">
+<!ENTITY remove_emojis "Видаліть емодзі та символи Unicode">
+<!ENTITY filter_characters "Фільтр символів">
+<!ENTITY filename_format "Формат імені файлу">
+<!ENTITY page_options "Параметри сторінки">
+<!ENTITY copies "Копії">
+<!ENTITY all "все">
+<!ENTITY custom "Custom">
+<!ENTITY page_ranges "Діапазони сторінок">
+<!ENTITY margins "Поля">
+<!ENTITY top "Топ">
+<!ENTITY bottom "Дно">
+<!ENTITY left "Ліворуч">
+<!ENTITY right "правильно">
+<!ENTITY center "центр">
+<!ENTITY footers "Колонтитули">
+<!ENTITY cancel "Скасувати">
+<!ENTITY page_headers "Заголовки">
+<!ENTITY Help "Довідка">
+<!ENTITY Scale "масштаб">
+<!ENTITY fitToWidth "Підгонка по ширині">

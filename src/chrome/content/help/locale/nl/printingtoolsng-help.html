@@ -4,111 +4,126 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <title>Hulp bij PrintingTools NG</title>
+    <title>PrintingTools NG Help</title>
   </head>
   <body>
-    <h2 id="main_help">Hulp bij PrintingTools NG</h2>
+    <table style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Help</div>
+          <div>v2.2.0</div>
+        </td>
+        <td style="text-align: right; padding-right: 30px;">
+          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
+        </td>
+      </tr>
+    </table>
     <br />
     <h2 id="main_help">PrintingTools NG Overzicht</h2>
     <p>
-      PrintingTools NG is een vervolguitbreiding gebaseerd op het originele werk van Paolo
-      &quot;Kaosmos&quot;. Met de extensie kunnen printkoppen en andere opties worden aangepast.<br /><br />
-      Met dank aan de volgende gebruikers voor suggesties voor verbeteringen en testhulp:<br /><br />
-      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
-      - <code class="notranslate">@KC-T</code><br />
-      - <code class="notranslate">@jobisoft</code><br />
-      - <code class="notranslate">@tidebre67</code><br />
-      - <code class="notranslate">@reinerblock</code><br />
-      - <code class="notranslate">@querixg</code><br />
-      - <code class="notranslate">@RRoenn</code><br />
-      - <code class="notranslate">@madvinegar</code><br />
-      - <code class="notranslate">@ditchfinder</code><br />
-      - <code class="notranslate">@3LaHoonK</code><br />
-      - <code class="notranslate">@realraven</code><br />
-      - <code class="notranslate">@librelegal</code><br />
-      - <code class="notranslate">@Francewhoa</code><br />
-      - <code class="notranslate">@foxfan100</code><br />
-      - <code class="notranslate">@pechh</code><br />
+      PrintingTools NG maakt veel aanpassingen mogelijk voor het afdrukken van e-mail. De extensie heeft veel
+      opties voor zowel de headers als de berichtdelen. Bovendien kunnen pagina-opties worden ingesteld die
+      niet kunnen worden gedaan in het normale Thunderbird-afdrukvoorbeeld. PDF-uitvoer kan ook worden gedaan
+      met automatische naamgeving met behulp van een flexibel op tokens gebaseerd systeem.
     </p>
-    <h3>Steun:</h3>
+    <h3 class="indent0">De Print NG-knop toevoegen aan de werkbalk:</h3>
     <p>
-      Plaats problemen of functieverzoeken in de GitHub-repository met extensies:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
-      ><br /><br />
-      Neem bij bugproblemen de volgende informatie op om de problemen op te lossen:<br />
-      - PrintingTools NG-versie<br />
-      - Thunderbird-versie<br />
-      - Besturingssysteem en versie<br />
-      - Debug-uitvoer (kopiëren van de Debug Console - toegang met Control-Shift-J)<br />
-      - Een beschrijving van de stappen die tot het probleem hebben geleid<br />
+      De knop Print NG moet aan de werkbalk worden toegevoegd om zowel afdruktoegang als opties mogelijk te
+      maken. Extra opties zijn toegankelijk via de moersleutelknop voor de extensie op het add-on-tabblad.
     </p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
+    <br />
+    <p>Volg deze stappen om de knop op de werkbalk te plaatsen:</p>
+    <div class="indent1">
+      <li>Klik met de rechtermuisknop op een lege ruimte op de e-mailwerkbalk</li>
+      <li>Selecteer Aangepast... Hierdoor wordt het venster Werkbalk aanpassen geopend</li>
+      <li>Zoek de Print NG-knop</li>
+      <li>Sleep de knop naar de gewenste locatie</li>
+      <li>Gebruik de knop voor Afdrukken, Voorbeeld, Opties en Help</li>
+    </div>
+    <h3 class="indent0">Het volgende is een voorbeeld van enkele van de opmaakfuncties voor kopteksten:</h3>
+    <div class="indent1">
+      <li>Aangepaste koprandstijl met behulp van CSS (boven en onder, blauw)</li>
+      <li>Achtergrondkleur koptekst</li>
+      <li>Uitgelijnde koppen</li>
+      <li>Aangepaste kopvolgorde</li>
+      <li>Paginatitel en berichtenmap</li>
+      <li>Bijlagelijst met pictogrammen in koptekst</li>
+      <li>Volledig aanpasbare datumnotatie internationale opmaak</li>
+    </div>
+    <br />
+    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Aangepast datumformaat</h2>
     <p>
-      De aangepaste datumoptie zorgt voor de volledige controle over de datumnotatie die wordt gebruikt voor
-      zowel de datum als de ontvangstdatum in de e-mailheaders. De aangepaste datum biedt meerdere
-      gelokaliseerde opties die bijna elk formaat mogelijk maken. Houd er rekening mee dat de aangepaste
-      datumtekenreeks scheidingstekens, letterlijke waarden inclusief unicode-tekens kan bevatten, gemengd met
-      de datum\tijd-tokens die hieronder worden vermeld.<br /><br />
-      Opmerking: de resultaten van de aangepaste datum in de onderstaande voorbeelden zullen verschillen op
-      basis van de werkelijke datum, de landinstelling en de tijdzone van de gebruiker.<br /><br />
-      Voorbeelden:<br /><br />
-      <table class="dateformat-table">
-        <thead>
-          <tr>
-            <td>Datumtekenreeks</td>
-            <td>Resultaat</td>
-            <td>Opmerking</td>
-          </tr>
-        </thead>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-          <td>ja locale met letterlijke woorden</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-          <td>ko locale met letterlijke woorden</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-          <td>zh-CN landinstelling, korte dag</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-          <td>zh-TW landinstelling, lange dag</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td class="notranslate">20.04.2022 18:01:42 CET</td>
-          <td>Puntscheiders</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
-          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-          <td>de locale, korte dag/maand</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-          <td>nl-VS landinstelling, lange dag/maand</td>
-        </tr>
-      </table>
-      <br />
-      De aangepaste datumnotatie gebruikt % reeksen die overeenkomen met de
-      <code>strftime()</code> Unix-achtige functionaliteit. Het is gebaseerd op een JavaScript-poort van
-      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , een functie om de datum en tijd op te maken.<br />
-      Haven van strftime() door TH Doan (https://thdoan.github.io/strftime/)<br />
+      De aangepaste datumoptie biedt volledige controle over de datumnotatie die wordt gebruikt voor zowel de
+      datum als de ontvangstdatum in de e-mailheaders. De aangepaste datum biedt meerdere gelokaliseerde
+      opties die bijna elk formaat mogelijk maken. Houd er rekening mee dat de aangepaste datumtekenreeks
+      scheidingstekens, letterlijke tekens inclusief Unicode-tekens kan bevatten, gemengd met de
+      datum\tijd-tokens die hieronder worden vermeld.<br /><br />
+      Opmerking: de aangepaste datumresultaten in de onderstaande voorbeelden zullen verschillen op basis van
+      de werkelijke datum, de landinstelling van de gebruiker en de tijdzone.
     </p>
-    <h3>Beschrijvingen van conversiereeksen</h3>
+    <br />
+    <h3 class="indent0">Voorbeelden:</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
-          <th>Volgorde</th>
+          <td>Datumreeks</td>
+          <td>Resultaat</td>
+          <td>Opmerking</td>
+        </tr>
+      </thead>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+        <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+        <td>ja locale met letterlijke woorden</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+        <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+        <td>ko locale met letterlijke woorden</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+        <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+        <td>zh-CN locale, korte dag</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+        <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+        <td>zh-TW locatie, lange dag</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+        <td class="notranslate">20.04.2022 18:01:42 CET</td>
+        <td>Puntscheidingstekens</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+        <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+        <td>de locale, korte dag/maand</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+        <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+        <td>landinstelling en-VS, lange dag/maand</td>
+      </tr>
+    </table>
+    <br />
+    <p>
+      Het aangepaste datumformaat gebruikt % reeksen die overeenkomen met de
+      <code>strftime()</code> Unix-achtige functionaliteit. Het is gebaseerd op een JavaScript-poort van
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , een functie om de datum en tijd op te maken.<br />
+      Poort van strftime() door TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <br />
+    <h3 style="margin-left: 30px;">Beschrijvingen van conversiereeksen</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Reeks</th>
           <th>Beschrijving</th>
         </tr>
       </thead>
@@ -123,46 +138,46 @@
         </tr>
         <tr>
           <td><code class="code1">%b</code></td>
-          <td>Afgekorte naam van de maand.</td>
+          <td>Afgekorte maandnaam.</td>
         </tr>
         <tr>
           <td><code class="code1">%B</code></td>
-          <td>Naam van de volledige maand.</td>
+          <td>Volledige naam van de maand.</td>
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
-          <td>Weergave van voorkeursdatum en tijd (UTC) voor de huidige landinstelling.</td>
+          <td>Weergave van voorkeursdatum en -tijd (UTC) voor de huidige locale.</td>
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
-          <td>Eeuwgetal (jaar/100) als een 2-cijferig geheel getal.</td>
+          <td>Eeuwgetal (jaar/100) als een geheel getal van 2 cijfers.</td>
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
-          <td>Dag van de maand als decimaal getal (bereik 01 tot 31).</td>
+          <td>Dag van de maand als een decimaal getal (bereik 01 tot 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%e</code></td>
-          <td>Dag van de maand als decimaal getal (bereik 1 tot 31).</td>
+          <td>Dag van de maand als een decimaal getal (bereik 1 tot 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%F</code></td>
-          <td>Datumnotatie volgens ISO 8601 (gelijk aan <code class="code1">%Y-%m-%d</code> ).</td>
+          <td>Datumnotatie volgens ISO 8601 (equivalent aan <code class="code1">%Y-%m-%d</code> ).</td>
         </tr>
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
             ISO 8601 weekgebaseerd jaar met eeuw als decimaal getal. Het 4-cijferige jaar komt overeen met het
             ISO-weeknummer (zie <code class="code1">%V</code> ). Dit heeft hetzelfde formaat en dezelfde
-            waarde als <code class="code1">%Y</code> , behalve dat als het ISO-weeknummer bij het vorige of
-            volgende jaar hoort, dat jaar in plaats daarvan wordt gebruikt.
+            waarde als <code class="code1">%Y</code> , behalve dat als het ISO-weeknummer tot het vorige of
+            volgende jaar behoort, in plaats daarvan dat jaar wordt gebruikt.
           </td>
         </tr>
         <tr>
           <td><code class="code1">%g</code></td>
           <td>
-            Zoals <code class="code1">%G</code> , maar zonder eeuw, dat wil zeggen met een jaartal van 2
-            cijfers (00-99).
+            Zoals <code class="code1">%G</code> , maar zonder eeuw, dat wil zeggen met een 2-cijferig jaartal
+            (00-99).
           </td>
         </tr>
         <tr>
@@ -181,7 +196,7 @@
         </tr>
         <tr>
           <td><code class="code1">%j</code></td>
-          <td>Dag van het jaar als decimaal getal (bereik 001 tot 366).</td>
+          <td>Dag van het jaar als een decimaal getal (bereik 001 tot 366).</td>
         </tr>
         <tr>
           <td><code class="code1">%k</code></td>
@@ -199,21 +214,21 @@
         </tr>
         <tr>
           <td><code class="code1">%m</code></td>
-          <td>Maand als decimaal getal (bereik 01 tot 12).</td>
+          <td>Maand als een decimaal getal (bereik 01 tot 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%n</code></td>
-          <td>Maand als decimaal getal (bereik 1 tot 12).</td>
+          <td>Maand als een decimaal getal (bereik 1 tot 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%M</code></td>
-          <td>Minuut als decimaal getal (bereik 00 tot 59).</td>
+          <td>Minuut als een decimaal getal (bereik 00 tot 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            Ofwel &quot;AM&quot; of &quot;PM&quot; volgens de opgegeven tijdswaarde. De middag wordt behandeld
-            als &quot;PM&quot; en middernacht als &quot;AM&quot;.
+            Ofwel &quot;AM&quot; of &quot;PM&quot; volgens de gegeven tijdswaarde. Middag wordt behandeld als
+            &quot;PM&quot; en middernacht als &quot;AM&quot;.
           </td>
         </tr>
         <tr>
@@ -224,7 +239,7 @@
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
-          <td>Aantal seconden sinds het tijdperk, 1970-01-01 00:00:00 +0000 (UTC).</td>
+          <td>Aantal seconden sinds de Epoch, 1970-01-01 00:00:00 +0000 (UTC).</td>
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
@@ -233,31 +248,31 @@
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Dag van de week als decimaal (bereik 1 tot 7), maandag is 1. Zie ook
+            Dag van de week als decimaal getal (bereik 1 tot 7), waarbij maandag 1 is. Zie ook
             <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            ISO 8601 weeknummer van het huidige jaar als decimaal getal (bereik 01 tot 53), waarbij week 1 de
-            eerste week is met minimaal 4 dagen in het nieuwe jaar (dat wil zeggen, de eerste donderdag).
+            ISO 8601 weeknummer van het huidige jaar als een decimaal getal (bereik 01 tot 53), waarbij week 1
+            de eerste week is met ten minste 4 dagen in het nieuwe jaar (dat wil zeggen, de eerste donderdag).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%w</code></td>
           <td>
-            Dag van de week als decimaal (bereik 0 tot 6), zondag is 0. Zie ook
+            Dag van de week als een decimaal getal (bereik 0 tot 6), waarbij zondag 0 is. Zie ook
             <code class="code1">%u</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%x</code></td>
-          <td>Voorkeursdatumweergave voor de huidige landinstelling zonder de tijd.</td>
+          <td>Geprefereerde datumweergave voor de huidige landinstelling zonder de tijd.</td>
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
-          <td>Voorkeurstijdweergave voor de huidige landinstelling zonder de datum.</td>
+          <td>Geprefereerde tijdweergave voor de huidige locale zonder de datum.</td>
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
@@ -265,48 +280,48 @@
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>
-          <td>Jaar als decimaal getal inclusief de eeuw.</td>
+          <td>Jaar als een decimaal getal inclusief de eeuw.</td>
         </tr>
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            De <code class="code1">+hhmm</code> uumm of <code class="code1">-hhmm</code> numerieke tijdzone
-            (dat wil zeggen, de uren en minuten afwijking van UTC).
+            De <code class="code1">+hhmm</code> of <code class="code1">-hhmm</code> numerieke tijdzone (dat
+            wil zeggen, het uur en de minuut verschoven ten opzichte van UTC).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%Z</code></td>
-          <td>Tijdzonenaam of afkorting.</td>
+          <td>Tijdzone naam of afkorting.</td>
         </tr>
         <tr>
           <td><code class="code1">%t</code></td>
-          <td>Korte tijdzone afkorting.</td>
+          <td>Afkorting korte tijdzone.</td>
         </tr>
         <tr>
           <td><code class="code1">%0</code></td>
-          <td>Jaar Letterlijk. Gelokaliseerd, voornamelijk voor Aziatische locaties. (zh-CN: 年, ko: )</td>
+          <td>Jaar Letterlijk. Gelokaliseerd, voornamelijk voor Aziatische locaties. (zh-CN: 年, ko: 년)</td>
         </tr>
         <tr>
           <td><code class="code1">%1</code></td>
-          <td>Maand letterlijk. Gelokaliseerd, voornamelijk voor Aziatische locaties. (zh-TW: 月, ko: )</td>
+          <td>Maand Letterlijk. Gelokaliseerd, voornamelijk voor Aziatische locaties. (zh-TW: 月, ko: 월)</td>
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Dag letterlijk. Gelokaliseerd, voornamelijk voor Aziatische locaties. (ja: , ko: )</td>
+          <td>Dag Letterlijk. Gelokaliseerd, voornamelijk voor Aziatische locaties. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
-    <h3>Compatibiliteitsopmerkingen:</h3>
+    <h3 class="indent0">Compatibiliteitsopmerkingen:</h3>
     <ul>
       <li><code class="code1">%c</code> - opgemaakte string is iets anders</li>
       <li>
         <code class="code1">%D</code> - niet geïmplementeerd (gebruik <code class="code1">%m/%d/%y</code> of
         <code class="code1">%d/%m/%y</code> )
       </li>
-      <li><code class="code1">%e</code> - spatie is niet toegevoegd</li>
+      <li><code class="code1">%e</code> - spatie wordt niet toegevoegd</li>
       <li><code class="code1">%E</code> - niet geïmplementeerd</li>
       <li><code class="code1">%h</code> - niet geïmplementeerd (gebruik <code class="code1">%b</code> )</li>
-      <li><code class="code1">%k</code> - spatie is niet toegevoegd</li>
+      <li><code class="code1">%k</code> - spatie wordt niet toegevoegd</li>
       <li>
         <code class="code1">%n</code> - zoals <code class="code1">%m</code> , maar geen voorloopnul (gebruik
         <code class="code1">\n</code> voor nieuwe regel)
@@ -315,10 +330,6 @@
       <li>
         <code class="code1">%r</code> - niet geïmplementeerd (gebruik <code class="code1">%I:%M:%S %p</code> )
       </li>
-      <tr>
-        <td><code class="code1">${subject}</code></td>
-        <td>Het onderwerp van het bericht</td>
-      </tr>
       <li>
         <code class="code1">%R</code> - niet geïmplementeerd (gebruik <code class="code1">%H:%M</code> )
       </li>
@@ -331,6 +342,196 @@
       <li><code class="code1">%+</code> - niet geïmplementeerd</li>
       <li><code class="code1">%%</code> - niet geïmplementeerd (gebruik <code class="code1">%</code> )</li>
     </ul>
-    <br /><br />
+    <br />
+    <h2 id="pdf_output_help">PDF-uitvoer en automatische bestandsnaamgeving</h2>
+    <p>
+      PDF-uitvoer kan nu zowel automatisch worden benoemd met behulp van een tokensysteem als worden
+      opgeslagen in een vooraf gedefinieerde PDF-uitvoermap. Dit is met name handig bij het afdrukken van
+      meerdere geselecteerde e-mails, aangezien het niet nodig is om voor elke e-mail een naam en locatie te
+      kiezen.
+    </p>
+    <p />
+    <p>
+      Schakel de PDF-uitvoermap in en kies een map voor de opslaglocatie. De uitvoerbestandsnaam volgt de
+      geconfigureerde bestandsnaamindeling.
+    </p>
+    <p />
+    <p>
+      Het formaat van de bestandsnaam bestaat uit tokens en eventuele statische tekens zoals scheidingstekens
+      of witruimte. De uitgebreide bestandsnaamopmaak maakt gebruik van tokens. De exacte bestandsnaam kan
+      worden samengesteld met behulp van de tokens, evenals alle tekst- of geldige bestandsnaamtekens.
+      Ongeldige tekens zijn: <code>| * : &lt; &gt; ? \ / &quot;</code>
+    </p>
+    <p />
+    <p>De standaardnaamnotatie is: ${subject}, wat alleen het onderwerp van de e-mail is.</p>
+    <p />
+    <p>Voorbeelden</p>
+    <p>
+      <span class="notranslate"><code>${subject}</code></span> - Het standaardformaat, onderwerp van de
+      e-mail<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Gebruik de aangepaste
+      datumnotatie in plaats van standaard<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Met aangepaste
+      tekst<br />
+    </p>
+    <p>
+      De onderstaande tabel beschrijft de volledige set tokens die kunnen worden gebruikt in de
+      bestandsnaamindeling.
+    </p>
+    <table class="token-table">
+      <tr>
+        <td>Token</td>
+        <td>Beschrijving</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${subject}</code></td>
+        <td>Het onderwerp van het bericht.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender}</code></td>
+        <td>De naam van de afzender van het bericht.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient}</code></td>
+        <td>De naam van de ontvanger van het bericht.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender_email}</code></td>
+        <td>Het e-mailadres van de afzender van het bericht.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient_email}</code></td>
+        <td>Het e-mailadres van de ontvanger van het bericht.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${smart_name}</code></td>
+        <td>
+          De ontvangers als het bericht zich in een map Verzonden bevindt, anders de naam van de afzender
+        </td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${index}</code></td>
+        <td>Het berichtindexnummer.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${prefix}</code></td>
+        <td>De waarde van de voorvoegseltekstoptie.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${suffix}</code></td>
+        <td>De waarde van de achtervoegseltekstoptie.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date}</code></td>
+        <td>Het standaard datumformaat. Het standaard formaat is: JJJJMMDDHHmm</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date_custom}</code></td>
+        <td>Het aangepaste datumformaat. Zie het gedeelte aangepaste datumopmaak.</td>
+      </tr>
+    </table>
+    <br />
+    <h2 id="print_options_help">Afdruk- en pagina-opties</h2>
+    <p>
+      Met deze opties kunt u zowel de standaardprinter als pagina-opties per printer instellen. Het is ook
+      mogelijk om de stille modus in te stellen, waarbij het voorbeelddialoogvenster niet wordt weergegeven en
+      het afdrukken direct wordt uitgevoerd.
+    </p>
+    <p>
+      Met de pagina-opties kunt u items instellen wanneer zowel het voorbeeld als het afdrukken is voltooid.
+      Deze opties zijn permanent tijdens het afdrukken. Als opties die zijn ingesteld in PrintingTools NG
+      worden gewijzigd in het afdrukvoorbeeld, hebben ze geen invloed op volgende afdrukken. Sommige items
+      kunnen niet worden ingesteld in het voorbeelddialoogvenster, waaronder de kop- en voetteksten. Andere
+      items worden niet vastgehouden door het voorbeeld en moeten normaal gesproken elke keer dat er een
+      afdruk wordt gemaakt, worden ingesteld. PrintingTools NG lost beide problemen op.
+    </p>
+    <p>
+      Een item dat niet is opgeslagen door het voorbeeld, zijn de paginabereiken. Een typische use-case is
+      waar men standaard alleen de eerste pagina van een e-mail wil afdrukken. normaal gesproken zou men de
+      paginabereiken elke keer moeten laten veranderen. Let op: als een in PrintingTools NG ingesteld
+      paginabereik niet geldig is, bijvoorbeeld als het aantal pagina&#39;s wordt overschreden, moet het
+      bereik in het voorbeeld worden gecorrigeerd voordat het wordt afgedrukt. Een paginabereik ingesteld op
+      &quot;1&quot; is altijd geldig en drukt de eerste pagina van het bericht af.
+    </p>
+    <p>Opmerkingen:</p>
+    <p>Met de schaaloptie kan een blijvende schaal worden ingesteld.</p>
+    <p>
+      Paginabereiken worden op dezelfde manier beschreven als in het voorbeeld. Voorbeelden zijn 1, 1-2,
+      3-4,5. Merk op dat als een vooraf ingesteld paginabereik niet geldig is voor een bepaald bericht, het
+      voorbeeld een fout zal tonen.
+    </p>
+    <p>
+      De marges kunnen worden ingesteld met eenheden die geschikt zijn voor de landinstelling van de
+      gebruiker, inches of millimeters (in of mm). Let op, vanwege afrondingsfouten kunnen sommige mm-waarden
+      met kleine verschillen worden opgeslagen.
+    </p>
+    <p></p>
+    <p>
+      De kop- en voetteksten kunnen zo worden ingesteld dat ze verschillende onderstaande berichtvariabelen
+      bevatten. Daarnaast kan ook willekeurige tekst worden opgenomen. Om geen kop- of voetteksten af te
+      drukken en afdrukruimte te besparen, maakt u alle velden leeg.
+    </p>
+    <div class="indent1">
+      <li>&amp;D = Datum</li>
+      <li>&amp;P = Paginanummer</li>
+      <li>&amp;PT = Paginanummer met Totaal (“3 van 5”)</li>
+      <li>&amp;T = Paginatitel (Onderwerp van het bericht)</li>
+      <li>&amp;U = URL (de URL van het bericht)</li>
+    </div>
+    <h2>Steun</h2>
+    <p>
+      Plaats problemen of functieverzoeken in de extensies GitHub-repository:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      Neem bij bugproblemen de volgende informatie op om de problemen op te lossen:<br />
+      - PrintingTools NG-versie<br />
+      - Thunderbird-versie<br />
+      - Besturingssysteem en versie<br />
+      - Debug uitvoer (kopiëren van de Debug Console - toegang met Control-Shift-J)<br />
+      - Een beschrijving van de stappen die tot het probleem hebben geleid<br />
+    </p>
+    <h2 id="debug_options_help">Foutopsporingsopties</h2>
+    <p>
+      De foutopsporingsopties zijn een reeks trefwoorden die worden ingevoerd als een door spaties gescheiden
+      lijst. De opties worden meestal gebruikt voor foutopsporingsuitvoer van de console, maar kunnen ook
+      worden gebruikt voor testen of andere modi.
+    </p>
+    <div class="indent1">
+      <li><code class="notranslate">initialsource</code> - toon berichtbron voordat PTNG formatteert</li>
+      <li><code class="notranslate">finaloutput</code> - toon de uiteindelijke berichtuitvoer</li>
+      <li><code class="notranslate">pdfoutput</code> - uitvoer debuggen voor uitvoer van PDF-berichten</li>
+      <li>
+        <code class="notranslate">printsettings</code> - foutopsporingsuitvoer voor afdruk- en pagina-opties
+      </li>
+      <li>
+        <code class="notranslate">helpinwin</code> - mode vlag om help in een venster te tonen in plaats van
+        de standaard in een tabblad
+      </li>
+    </div>
+    <h2>Credits</h2>
+    <div class="indent1">
+      <li>PrintingTools NG is gebaseerd op de originele extensie van Paolo &quot;Kosmos&quot;</li>
+      <li>List.js door Jonny Strömberg https://listjs.com</li>
+      <li>Latinize.js door Jakub Dundalek https://github.com/dundalek/latinize</li>
+    </div>
+    <p>
+      Dank aan de volgende gebruikers voor verbeteringenuggesties en testhulp:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
   </body>
 </html>

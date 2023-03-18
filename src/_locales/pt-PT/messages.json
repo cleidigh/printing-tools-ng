@@ -1,17 +1,9 @@
 {
 	"extensionName": {
-		"message": "PrintingTools NG"
+		"message": "Ferramentas de impressão NG"
 	},
+
 	"extensionDescription": {
-		"message": "Ferramentas de impressão de mensagens e endereços (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Observação: as opções do PrintingTools NG foram movidas para o menu de reticências do gerenciador de complementos."
-	},
-	"moreinfo_button_label": {
-		"message": "Mais informações"
-	},
-	"update_option_info2": {
-		"message": "Nota: Experimente o novo botão da barra de ferramentas do PrintingTools NG, use o menu Exibir/Barras de ferramentas/Personalizar para adicioná-lo à sua barra de ferramentas. Você também pode adicioná-lo à barra de ferramentas do cabeçalho do painel de mensagens."
+		"message": "Ferramentas de impressão de mensagens, cabeçalhos e saída de PDF (próxima geração)"
 	}
 }

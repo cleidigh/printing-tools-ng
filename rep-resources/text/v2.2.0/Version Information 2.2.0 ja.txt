@@ -1,0 +1,30 @@
+
+[ Version Information ]
+
+Version 2.2.0 : PDF Output and Page Options - March 15, 2023
+
+- Added PDF auto saving with token based names #151
+- Added Page Options for page ranges, margins & headers and footers #118, #139
+- New UI #159
+- Improved Help #168
+- Dark Mode Support #141
+- Fixed not Printing Calendar #176
+- Fixed not Printing with Conversations addon #177
+
+-----------------------
+
+バージョン2.2.0 : PDF 出力とページ設定 - 2023年3月15日
+
+    トークンベースの命名による PDF の自動保存を追加 #151
+    ページ指定、余白、ヘッダーとフッターに関するページ設定を追加 #118, #139
+    新しい UI #159
+    ヘルプの改善 #168
+    ダークモードへの対応 #141
+    カレンダーが印刷できない問題の修正 #176
+    Thunderbird Conversations アドオンで印刷できない問題の修正 #177
+
+-----------------------
+
+
+
+

@@ -1,0 +1,9 @@
+{
+	"extensionName": {
+		"message": "PrintingTools NG"
+	},
+
+	"extensionDescription": {
+		"message": "メッセージとヘッダーの印刷、PDF 出力ツール (Nextgen)"
+	}
+}

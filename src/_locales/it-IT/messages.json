@@ -1,17 +1,9 @@
 {
 	"extensionName": {
-		"message": "PrintingTools NG"
+		"message": "Strumenti di stampa NG"
 	},
+
 	"extensionDescription": {
-		"message": "Strumenti per la stampa di messaggi e indirizzi (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Nota: le opzioni di PrintingTools NG sono state spostate nel menu con i puntini di sospensione del gestore dei componenti aggiuntivi."
-	},
-	"moreinfo_button_label": {
-		"message": "Ulteriori informazioni"
-	},
-	"update_option_info2": {
-		"message": "Nota: prova il nuovo pulsante della barra degli strumenti di PrintingTools NG, usa il menu Visualizza/Barre degli strumenti/Personalizza per aggiungerlo alla barra degli strumenti. Puoi aggiungerlo anche alla barra degli strumenti dell&#39;intestazione del riquadro dei messaggi."
+		"message": "Stampa di messaggi, intestazioni e strumenti di output PDF (Nextgen)"
 	}
 }

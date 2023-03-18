@@ -69,3 +69,37 @@
 <!ENTITY debugOptions.label "Felsökningsalternativ">
 <!ENTITY date_custom.label "Beställnings">
 <!ENTITY messageBody "Meddelandetext">
+<!ENTITY body "Kropp">
+<!ENTITY pdf_output "PDF-utdata">
+<!ENTITY print_and_pageoptions "Utskrifts- och sidalternativ">
+<!ENTITY headers_order "Beställning av rubriker">
+<!ENTITY attachments "Bilagor">
+<!ENTITY images "Bilder">
+<!ENTITY pdf_file_naming "Namngivning av PDF-filer">
+<!ENTITY enable_pdfdir "Aktivera PDF Output Directory">
+<!ENTITY output_dir "Utdatakatalog">
+<!ENTITY browse "Bläddra">
+<!ENTITY custom_date_format "Anpassat datumformat">
+<!ENTITY prefix "Prefix">
+<!ENTITY suffix "Ändelse">
+<!ENTITY latinize "Latinisera ämne och namn">
+<!ENTITY remove_emojis "Ta bort Unicode-emojis och symboler">
+<!ENTITY filter_characters "Filtrera tecken">
+<!ENTITY filename_format "Filnamnsformat">
+<!ENTITY page_options "Sidalternativ">
+<!ENTITY copies "Kopior">
+<!ENTITY all "Allt">
+<!ENTITY custom "Beställnings">
+<!ENTITY page_ranges "Sidintervall">
+<!ENTITY margins "Marginaler">
+<!ENTITY top "Topp">
+<!ENTITY bottom "Botten">
+<!ENTITY left "Vänster">
+<!ENTITY right "Höger">
+<!ENTITY center "Centrum">
+<!ENTITY footers "Sidfötter">
+<!ENTITY cancel "Annullera">
+<!ENTITY page_headers "Rubriker">
+<!ENTITY Help "Hjälp">
+<!ENTITY Scale "Skala">
+<!ENTITY fitToWidth "Anpassa till bredd">

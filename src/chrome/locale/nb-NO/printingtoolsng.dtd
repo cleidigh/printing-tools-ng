@@ -70,3 +70,37 @@
 <!ENTITY debugOptions.label "Feilsøkingsalternativer">
 <!ENTITY date_custom.label "Tilpasset">
 <!ENTITY messageBody "Meldingstekst">
+<!ENTITY body "Kropp">
+<!ENTITY pdf_output "PDF-utgang">
+<!ENTITY print_and_pageoptions "Utskrifts- og sidealternativer">
+<!ENTITY headers_order "Overskrifter rekkefølge">
+<!ENTITY attachments "Vedlegg">
+<!ENTITY images "Bilder">
+<!ENTITY pdf_file_naming "Navngivning av PDF-filer">
+<!ENTITY enable_pdfdir "Aktiver PDF-utdatakatalog">
+<!ENTITY output_dir "Utdatakatalog">
+<!ENTITY browse "Bla gjennom">
+<!ENTITY custom_date_format "Egendefinert datoformat">
+<!ENTITY prefix "Prefiks">
+<!ENTITY suffix "Suffiks">
+<!ENTITY latinize "Latiniser emne og navn">
+<!ENTITY remove_emojis "Fjern Unicode-emojier og symboler">
+<!ENTITY filter_characters "Filtrer tegn">
+<!ENTITY filename_format "Filnavnformat">
+<!ENTITY page_options "Sidealternativer">
+<!ENTITY copies "Kopier">
+<!ENTITY all "Alle">
+<!ENTITY custom "Tilpasset">
+<!ENTITY page_ranges "Sideområder">
+<!ENTITY margins "Marginer">
+<!ENTITY top "Topp">
+<!ENTITY bottom "Bunn">
+<!ENTITY left "Venstre">
+<!ENTITY right "Ikke sant">
+<!ENTITY center "Senter">
+<!ENTITY footers "Bunntekster">
+<!ENTITY cancel "Avbryt">
+<!ENTITY page_headers "Overskrifter">
+<!ENTITY Help "Hjelp">
+<!ENTITY Scale "Skala">
+<!ENTITY fitToWidth "Tilpass til bredde">

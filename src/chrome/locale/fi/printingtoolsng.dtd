@@ -69,3 +69,37 @@
 <!ENTITY debugOptions.label "Virheenkorjausasetukset">
 <!ENTITY date_custom.label "Mukautettu">
 <!ENTITY messageBody "Viestin runko">
+<!ENTITY body "Runko">
+<!ENTITY pdf_output "PDF-tulostus">
+<!ENTITY print_and_pageoptions "Tulostus- ja sivuasetukset">
+<!ENTITY headers_order "Otsikoiden järjestys">
+<!ENTITY attachments "Liitteet">
+<!ENTITY images "Kuvat">
+<!ENTITY pdf_file_naming "PDF-tiedoston nimeäminen">
+<!ENTITY enable_pdfdir "Ota PDF-tulostushakemisto käyttöön">
+<!ENTITY output_dir "Tulostushakemisto">
+<!ENTITY browse "Selaa">
+<!ENTITY custom_date_format "Mukautettu päivämäärämuoto">
+<!ENTITY prefix "Etuliite">
+<!ENTITY suffix "Suffiksi">
+<!ENTITY latinize "Latinoi aihe ja nimet">
+<!ENTITY remove_emojis "Poista Unicode-emojit ja symbolit">
+<!ENTITY filter_characters "Suodata merkit">
+<!ENTITY filename_format "Tiedostonimen muoto">
+<!ENTITY page_options "Sivun asetukset">
+<!ENTITY copies "Kopioita">
+<!ENTITY all "Kaikki">
+<!ENTITY custom "Mukautettu">
+<!ENTITY page_ranges "Sivualueet">
+<!ENTITY margins "Marginaalit">
+<!ENTITY top "Ylös">
+<!ENTITY bottom "Pohja">
+<!ENTITY left "Vasen">
+<!ENTITY right "Oikein">
+<!ENTITY center "Keskusta">
+<!ENTITY footers "Alatunnisteet">
+<!ENTITY cancel "Peruuttaa">
+<!ENTITY page_headers "Otsikot">
+<!ENTITY Help "auta">
+<!ENTITY Scale "Mittakaava">
+<!ENTITY fitToWidth "Sovita leveyteen">

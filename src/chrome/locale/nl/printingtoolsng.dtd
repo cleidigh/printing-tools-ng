@@ -70,3 +70,37 @@
 <!ENTITY debugOptions.label "Foutopsporingsopties">
 <!ENTITY date_custom.label "Aangepast">
 <!ENTITY messageBody "bericht lichaam">
+<!ENTITY body "Lichaam">
+<!ENTITY pdf_output "PDF-uitvoer">
+<!ENTITY print_and_pageoptions "Afdruk- en pagina-opties">
+<!ENTITY headers_order "Bestelling van kopteksten">
+<!ENTITY attachments "Bijlagen">
+<!ENTITY images "Afbeeldingen">
+<!ENTITY pdf_file_naming "Naamgeving van PDF-bestanden">
+<!ENTITY enable_pdfdir "PDF-uitvoerdirectory inschakelen">
+<!ENTITY output_dir "Uitvoermap">
+<!ENTITY browse "Bladeren">
+<!ENTITY custom_date_format "Aangepast datumformaat">
+<!ENTITY prefix "Voorvoegsel">
+<!ENTITY suffix "Achtervoegsel">
+<!ENTITY latinize "Onderwerp en namen latiniseren">
+<!ENTITY remove_emojis "Verwijder Unicode-emoji&#39;s en -symbolen">
+<!ENTITY filter_characters "Filter karakters">
+<!ENTITY filename_format "Bestandsnaam Formaat">
+<!ENTITY page_options "Pagina-opties">
+<!ENTITY copies "Kopieën">
+<!ENTITY all "Allemaal">
+<!ENTITY custom "Aangepast">
+<!ENTITY page_ranges "Paginabereiken">
+<!ENTITY margins "Marges">
+<!ENTITY top "Bovenkant">
+<!ENTITY bottom "Onderkant">
+<!ENTITY left "Links">
+<!ENTITY right "Rechts">
+<!ENTITY center "Centrum">
+<!ENTITY footers "Voetteksten">
+<!ENTITY cancel "Annuleren">
+<!ENTITY page_headers "Kopteksten">
+<!ENTITY Help "Hulp">
+<!ENTITY Scale "Schaal">
+<!ENTITY fitToWidth "Aanpassen aan breedte">

@@ -69,3 +69,37 @@
 <!ENTITY debugOptions.label "调试选项">
 <!ENTITY date_custom.label "自設">
 <!ENTITY messageBody "邮件正文">
+<!ENTITY body "身体">
+<!ENTITY pdf_output "PDF 输出">
+<!ENTITY print_and_pageoptions "打印和页面选项">
+<!ENTITY headers_order "标题顺序">
+<!ENTITY attachments "附件">
+<!ENTITY images "图片">
+<!ENTITY pdf_file_naming "PDF文件命名">
+<!ENTITY enable_pdfdir "启用 PDF 输出目录">
+<!ENTITY output_dir "输出目录">
+<!ENTITY browse "浏览">
+<!ENTITY custom_date_format "自定义日期格式">
+<!ENTITY prefix "字首">
+<!ENTITY suffix "后缀">
+<!ENTITY latinize "拉丁化主题和名称">
+<!ENTITY remove_emojis "删除 Unicode 表情符号和符号">
+<!ENTITY filter_characters "过滤字符">
+<!ENTITY filename_format "文件名格式">
+<!ENTITY page_options "页面选项">
+<!ENTITY copies "份数">
+<!ENTITY all "全部">
+<!ENTITY custom "风俗">
+<!ENTITY page_ranges "页面范围">
+<!ENTITY margins "边距">
+<!ENTITY top "最佳">
+<!ENTITY bottom "底部">
+<!ENTITY left "剩下">
+<!ENTITY right "正确的">
+<!ENTITY center "中心">
+<!ENTITY footers "页脚">
+<!ENTITY cancel "取消">
+<!ENTITY page_headers "标头">
+<!ENTITY Help "帮助">
+<!ENTITY Scale "规模">
+<!ENTITY fitToWidth "适合宽度">

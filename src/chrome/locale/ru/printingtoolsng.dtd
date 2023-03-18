@@ -69,3 +69,37 @@
 <!ENTITY debugOptions.label "Параметры отладки">
 <!ENTITY date_custom.label "Обычай">
 <!ENTITY messageBody "Тело сообщения">
+<!ENTITY body "Тело">
+<!ENTITY pdf_output "Вывод в формате PDF">
+<!ENTITY print_and_pageoptions "Параметры печати и страницы">
+<!ENTITY headers_order "Порядок заголовков">
+<!ENTITY attachments "Вложения">
+<!ENTITY images "Картинки">
+<!ENTITY pdf_file_naming "Именование PDF-файлов">
+<!ENTITY enable_pdfdir "Включить выходной каталог PDF">
+<!ENTITY output_dir "Выходной каталог">
+<!ENTITY browse "Просматривать">
+<!ENTITY custom_date_format "Пользовательский формат даты">
+<!ENTITY prefix "Приставка">
+<!ENTITY suffix "Суффикс">
+<!ENTITY latinize "Латинизировать тему и имена">
+<!ENTITY remove_emojis "Удалить смайлики и символы Unicode">
+<!ENTITY filter_characters "Символы фильтра">
+<!ENTITY filename_format "Формат имени файла">
+<!ENTITY page_options "Параметры страницы">
+<!ENTITY copies "Копии">
+<!ENTITY all "Все">
+<!ENTITY custom "Обычай">
+<!ENTITY page_ranges "Диапазоны страниц">
+<!ENTITY margins "Поля">
+<!ENTITY top "Верхняя">
+<!ENTITY bottom "Низ">
+<!ENTITY left "Левый">
+<!ENTITY right "Верно">
+<!ENTITY center "Центр">
+<!ENTITY footers "Нижние колонтитулы">
+<!ENTITY cancel "Отмена">
+<!ENTITY page_headers "Заголовки">
+<!ENTITY Help "Помощь">
+<!ENTITY Scale "Шкала">
+<!ENTITY fitToWidth "По ширине">

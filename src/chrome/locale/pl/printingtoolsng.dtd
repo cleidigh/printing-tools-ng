@@ -70,3 +70,37 @@
 <!ENTITY debugOptions.label "Opcje debugowania">
 <!ENTITY date_custom.label "Zwyczaj">
 <!ENTITY messageBody "Treść wiadomości">
+<!ENTITY body "Ciało">
+<!ENTITY pdf_output "Wyjście PDF">
+<!ENTITY print_and_pageoptions "Opcje drukowania i strony">
+<!ENTITY headers_order "Kolejność nagłówków">
+<!ENTITY attachments "Załączniki">
+<!ENTITY images "Zdjęcia">
+<!ENTITY pdf_file_naming "Nazewnictwo plików PDF">
+<!ENTITY enable_pdfdir "Włącz katalog wyjściowy PDF">
+<!ENTITY output_dir "Katalog wyjściowy">
+<!ENTITY browse "Przeglądaj">
+<!ENTITY custom_date_format "Niestandardowy format daty">
+<!ENTITY prefix "Prefiks">
+<!ENTITY suffix "Przyrostek">
+<!ENTITY latinize "Zlatynizuj temat i imiona">
+<!ENTITY remove_emojis "Usuń emotikony i symbole Unicode">
+<!ENTITY filter_characters "Filtruj znaki">
+<!ENTITY filename_format "Format nazwy pliku">
+<!ENTITY page_options "Opcje strony">
+<!ENTITY copies "Kopie">
+<!ENTITY all "Wszystko">
+<!ENTITY custom "Zwyczaj">
+<!ENTITY page_ranges "Zakresy stron">
+<!ENTITY margins "Marginesy">
+<!ENTITY top "Szczyt">
+<!ENTITY bottom "Dno">
+<!ENTITY left "Lewy">
+<!ENTITY right "Prawidłowy">
+<!ENTITY center "Centrum">
+<!ENTITY footers "Stopki">
+<!ENTITY cancel "Anuluj">
+<!ENTITY page_headers "Nagłówki">
+<!ENTITY Help "Pomoc">
+<!ENTITY Scale "Skala">
+<!ENTITY fitToWidth "Dopasuj do szerokości">

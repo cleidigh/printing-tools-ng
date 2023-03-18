@@ -2,16 +2,8 @@
 	"extensionName": {
 		"message": "PrintingTools NG"
 	},
+
 	"extensionDescription": {
-		"message": "Üzenet- és címnyomtató eszköz (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Megjegyzés: A PrintingTools NG beállításai áthelyezésre kerültek a kiegészítőkezelőbe a kiegészítőhöz."
-	},
-	"moreinfo_button_label": {
-		"message": "További információk"
-	},
-	"update_option_info2": {
-		"message": "Megjegyzés: Próbálja ki a PrintingTools NG új eszköztár gombját, használja a Nézet/Eszköztárak/Testreszabás menüt a hozzáadáshoz. Hozzáadhatja az üzenetablak fejléc eszköztárához is."
+		"message": "Üzenetnyomtatás, fejlécek és PDF-kimeneti eszközök (Nextgen)"
 	}
 }

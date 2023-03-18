@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <title>Guida di PrintingToolsNG</title>
+  </head>
+  <body>
+    <table style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">Guida di PrintingToolsNG</div>
+          <div>v2.2.0</div>
+        </td>
+        <td style="text-align: right; padding-right: 30px;">
+          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
+        </td>
+      </tr>
+    </table>
+    <br />
+    <h2 id="main_help">Panoramica di PrintingToolsNG</h2>
+    <p>
+      PrintingTools NG consente molte personalizzazioni alla stampa e-mail. L&#39;estensione ha molte opzioni
+      sia per le intestazioni che per le parti del messaggio. Inoltre, è possibile impostare opzioni di pagina
+      che non possono essere eseguite nella normale anteprima di stampa di Thunderbird. L&#39;output PDF può
+      essere eseguito anche con denominazione automatica utilizzando un sistema basato su token flessibile.
+    </p>
+    <h3 class="indent0">Aggiunta del pulsante Print NG alla barra degli strumenti:</h3>
+    <p>
+      Il pulsante Print NG dovrebbe essere aggiunto alla barra degli strumenti per abilitare sia l&#39;accesso
+      alla stampa che le opzioni. È possibile accedere a ulteriori opzioni tramite il pulsante della chiave
+      inglese per l&#39;estensione nella scheda del componente aggiuntivo.
+    </p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
+    <br />
+    <p>Segui questi passaggi per posizionare il pulsante sulla barra degli strumenti:</p>
+    <div class="indent1">
+      <li>Fare clic con il tasto destro su uno spazio vuoto nella barra degli strumenti della posta</li>
+      <li>Seleziona Personalizzato... Si aprirà la finestra Personalizza barra degli strumenti</li>
+      <li>Individua il pulsante Stampa NG</li>
+      <li>Trascina e rilascia il pulsante nella posizione desiderata</li>
+      <li>Utilizzare il pulsante per Stampa, Anteprima, Opzioni e Guida</li>
+    </div>
+    <h3 class="indent0">
+      Di seguito è riportato un esempio di alcune delle funzionalità di formattazione dell&#39;intestazione:
+    </h3>
+    <div class="indent1">
+      <li>
+        Stile del bordo dell&#39;intestazione personalizzato utilizzando CSS (superiore e inferiore, blu)
+      </li>
+      <li>Colore di sfondo dell&#39;intestazione</li>
+      <li>Intestazioni allineate</li>
+      <li>Ordine di intestazione personalizzato</li>
+      <li>Titolo della pagina e cartella dei messaggi</li>
+      <li>Elenco degli allegati con icone nell&#39;intestazione</li>
+      <li>Formattazione internazionale del formato della data completamente personalizzabile</li>
+    </div>
+    <br />
+    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
+    <br />
+    <h2 id="customdate_format_help">Formato data personalizzato</h2>
+    <p>
+      L&#39;opzione della data personalizzata consente il controllo completo sulla formattazione della data
+      utilizzata sia per la data che per la data di ricezione nelle intestazioni delle e-mail. La data
+      personalizzata fornisce più opzioni localizzate che consentono quasi tutti i formati. Tieni presente che
+      la stringa della data personalizzata può includere separatori, valori letterali inclusi caratteri
+      Unicode mescolati con i token data\ora elencati di seguito.<br /><br />
+      Nota: i risultati della data personalizzata negli esempi seguenti saranno diversi in base alla data
+      effettiva, alle impostazioni locali e al fuso orario degli utenti.
+    </p>
+    <br />
+    <h3 class="indent0">Esempi:</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <td>Stringa di data</td>
+          <td>Risultato</td>
+          <td>Nota</td>
+        </tr>
+      </thead>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+        <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+        <td>ja locale con letterali</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+        <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+        <td>ko locale con letterali</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+        <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+        <td>locale zh-CN, giorno breve</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+        <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+        <td>zh-TW locale, giornata lunga</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+        <td class="notranslate">20.04.2022 18:01:42 CET</td>
+        <td>Separatori di punti</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+        <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+        <td>de locale, giorno/mese breve</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+        <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+        <td>Localizzazione en-US, giorno lungo/mese</td>
+      </tr>
+    </table>
+    <br />
+    <p>
+      Il formato della data personalizzato utilizza sequenze % che corrispondono alla funzionalità simile a
+      Unix <code>strftime()</code> . Si basa su un port JavaScript di
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , una funzione per formattare la data e l&#39;ora.<br />
+      Porto di strftime() di TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <br />
+    <h3 style="margin-left: 30px;">Descrizioni della sequenza di conversione</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Sequenza</th>
+          <th>Descrizione</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Nome abbreviato del giorno della settimana.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Nome completo del giorno della settimana.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Nome del mese abbreviato.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Nome completo del mese.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Rappresentazione preferita di data e ora (UTC) per la locale corrente.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Numero del secolo (anno/100) come numero intero a 2 cifre.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>Giorno del mese come numero decimale (intervallo da 01 a 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>Giorno del mese come numero decimale (intervallo da 1 a 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>Formato data ISO 8601 (equivalente a <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            Anno ISO 8601 basato sulla settimana con il secolo come numero decimale. L&#39;anno a 4 cifre
+            corrisponde al numero della settimana ISO (vedi <code class="code1">%V</code> ). Ha lo stesso
+            formato e valore di <code class="code1">%Y</code> , tranne per il fatto che se il numero della
+            settimana ISO appartiene all&#39;anno precedente o successivo, viene utilizzato quell&#39;anno.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>Come <code class="code1">%G</code> , ma senza secolo, cioè con anno a 2 cifre (00-99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Ora come numero decimale utilizzando un orologio a 24 ore (intervallo da 00 a 23). Vedi anche
+            <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Ora come numero decimale utilizzando un orologio a 12 ore (intervallo da 01 a 12). Vedi anche
+            <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Giorno dell&#39;anno come numero decimale (intervallo da 001 a 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Ora come numero decimale utilizzando un orologio a 24 ore (intervallo da 0 a 23). Vedi anche
+            <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Ora come numero decimale utilizzando un orologio a 12 ore (intervallo da 1 a 12). Vedi anche
+            <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Mese come numero decimale (intervallo da 01 a 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Mese come numero decimale (intervallo da 1 a 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>Minuto come numero decimale (intervallo da 00 a 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            O &quot;AM&quot; o &quot;PM&quot; in base al valore dell&#39;ora specificato. Mezzogiorno viene
+            trattato come &quot;PM&quot; e mezzanotte come &quot;AM&quot;.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>Come <code class="code1">%p</code> ma in minuscolo (&quot;am&quot; o &quot;pm&quot;).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Numero di secondi dall&#39;epoca, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Secondo come numero decimale (intervallo da 00 a 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            Giorno della settimana come decimale (intervallo da 1 a 7), lunedì essendo 1. Vedi anche
+            <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            Numero della settimana ISO 8601 dell&#39;anno in corso come numero decimale (intervallo da 01 a
+            53), dove la settimana 1 è la prima settimana che ha almeno 4 giorni nel nuovo anno (ovvero il
+            primo giovedì).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            Giorno della settimana come decimale (intervallo da 0 a 6), domenica essendo 0. Vedi anche
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Rappresentazione della data preferita per la locale corrente senza l&#39;ora.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Rappresentazione dell&#39;ora preferita per la locale corrente senza la data.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Anno come numero decimale senza secolo (intervallo da 00 a 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Anno come numero decimale compreso il secolo.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            Il fuso orario numerico <code class="code1">+hhmm</code> o
+            <code class="code1">-hhmm</code> (ovvero la differenza di ore e minuti rispetto all&#39;UTC).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Nome o abbreviazione del fuso orario.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Abbreviazione breve del fuso orario.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Anno letterale. Localizzato, principalmente per le località asiatiche. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Mese letterale. Localizzato, principalmente per le località asiatiche. (zh-TW: 月, ko: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Giorno letterale. Localizzato, principalmente per le località asiatiche. (ja: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 class="indent0">Note di compatibilità:</h3>
+    <ul>
+      <li><code class="code1">%c</code> - la stringa formattata è leggermente diversa</li>
+      <li>
+        <code class="code1">%D</code> - non implementato (usa <code class="code1">%m/%d/%y</code> o
+        <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> - lo spazio non viene aggiunto</li>
+      <li><code class="code1">%E</code> - non implementato</li>
+      <li><code class="code1">%h</code> - non implementato (usa <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - lo spazio non viene aggiunto</li>
+      <li>
+        <code class="code1">%n</code> - come <code class="code1">%m</code> , ma senza zero iniziale (usa
+        <code class="code1">\n</code> per la nuova riga)
+      </li>
+      <li><code class="code1">%O</code> - non implementato</li>
+      <li><code class="code1">%r</code> - non implementato (usa <code class="code1">%I:%M:%S %p</code> )</li>
+      <li><code class="code1">%R</code> - non implementato (usa <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%t</code> - non implementato (usa <code class="code1">\t</code> )</li>
+      <li><code class="code1">%T</code> - non implementato (usa <code class="code1">%H:%M:%S</code> )</li>
+      <li><code class="code1">%U</code> - non implementato</li>
+      <li><code class="code1">%W</code> - non implementato</li>
+      <li><code class="code1">%+</code> - non implementato</li>
+      <li><code class="code1">%%</code> - non implementato (usa <code class="code1">%</code> )</li>
+    </ul>
+    <br />
+    <h2 id="pdf_output_help">Output PDF e denominazione automatica dei file</h2>
+    <p>
+      L&#39;output PDF può ora essere denominato automaticamente utilizzando un sistema di token e salvato in
+      una directory di output PDF predefinita. Ciò è particolarmente utile quando si stampano più e-mail
+      selezionate in quanto non è necessario scegliere un nome e una posizione per ogni e-mail.
+    </p>
+    <p />
+    <p>
+      Abilita la directory di output PDF e scegli una directory per il percorso di salvataggio. Il nome file
+      di output seguirà il formato del nome file configurato.
+    </p>
+    <p />
+    <p>
+      Il formato del nome file è costituito da token e qualsiasi carattere statico come separatori o spazi
+      bianchi. La formattazione del nome file esteso utilizza i token. Il nome file esatto può essere
+      costruito utilizzando i token così come qualsiasi testo o carattere di nome file valido. I caratteri non
+      validi sono: <code>| * : &lt; &gt; ? \ / &quot;</code>
+    </p>
+    <p />
+    <p>Il formato del nome predefinito è: ${subject} che è solo l&#39;oggetto dell&#39;e-mail.</p>
+    <p />
+    <p>Esempi</p>
+    <p>
+      <span class="notranslate"><code>${subject}</code></span> - Il formato predefinito, l&#39;oggetto
+      dell&#39;e-mail<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Utilizza il formato
+      della data personalizzato invece di quello predefinito<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Con del testo
+      personalizzato<br />
+    </p>
+    <p>
+      La tabella seguente descrive il set completo di token che possono essere utilizzati nel formato del nome
+      file.
+    </p>
+    <table class="token-table">
+      <tr>
+        <td>Gettone</td>
+        <td>Descrizione</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${subject}</code></td>
+        <td>L&#39;oggetto del messaggio.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender}</code></td>
+        <td>Il nome del mittente del messaggio.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient}</code></td>
+        <td>Il nome del destinatario del messaggio.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender_email}</code></td>
+        <td>L&#39;indirizzo e-mail del mittente del messaggio.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient_email}</code></td>
+        <td>L&#39;indirizzo di posta elettronica del destinatario del messaggio.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${smart_name}</code></td>
+        <td>
+          I destinatari se il messaggio si trova in una cartella Posta inviata, altrimenti il nome del
+          mittente
+        </td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${index}</code></td>
+        <td>Il numero di indice del messaggio.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${prefix}</code></td>
+        <td>Il valore dell&#39;opzione di testo del prefisso.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${suffix}</code></td>
+        <td>Il valore dell&#39;opzione del testo del suffisso.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date}</code></td>
+        <td>Il formato data standard. Il formato predefinito è: AAAAMMGGHHmm</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date_custom}</code></td>
+        <td>
+          Il formato della data personalizzato. Consulta la sezione relativa alla formattazione della data
+          personalizzata.
+        </td>
+      </tr>
+    </table>
+    <br />
+    <h2 id="print_options_help">Opzioni di stampa e pagina</h2>
+    <p>
+      Queste opzioni consentono di impostare la stampante predefinita e le opzioni per la pagina della
+      stampante. È anche possibile impostare la modalità silenziosa in cui la finestra di dialogo di anteprima
+      non viene visualizzata e la stampa viene eseguita immediatamente.
+    </p>
+    <p>
+      Le opzioni della pagina consentono di impostare gli elementi al termine dell&#39;anteprima o della
+      stampa. Queste opzioni sono persistenti durante la stampa. Se le opzioni impostate in PrintingTools NG
+      vengono modificate nell&#39;anteprima di stampa, non influiranno sulle stampe successive. Alcuni
+      elementi non sono disponibili per essere impostati nella finestra di dialogo di anteprima, questi
+      includono intestazioni e piè di pagina. Altri elementi non vengono mantenuti dall&#39;anteprima e
+      normalmente dovrebbero essere impostati ogni volta che viene eseguita una stampa. PrintingTools NG
+      risolve entrambi questi problemi.
+    </p>
+    <p>
+      Un elemento non salvato dall&#39;anteprima sono gli intervalli di pagine. Un caso d&#39;uso tipico è
+      quando si desidera stampare solo la prima pagina di un&#39;e-mail come impostazione predefinita.
+      normalmente si dovrebbe far cambiare ogni volta gli intervalli di pagine. Nota se un intervallo di
+      pagine impostato in PrintingTools NG non è valido, ad esempio superando il numero di pagine,
+      l&#39;intervallo dovrà essere corretto nell&#39;anteprima prima della stampa. Un intervallo di pagine
+      impostato su &quot;1&quot; sarà sempre valido e stamperà la prima pagina del messaggio.
+    </p>
+    <p>Appunti:</p>
+    <p>L&#39;opzione di ridimensionamento consente di impostare una scala persistente.</p>
+    <p>
+      Gli intervalli di pagine sono descritti allo stesso modo dell&#39;anteprima. Gli esempi sono 1, 1-2,
+      3-4,5. Si noti che se un intervallo di pagine preimpostato non è valido per un dato messaggio,
+      l&#39;anteprima mostrerà un errore.
+    </p>
+    <p>
+      I margini possono essere impostati utilizzando le unità appropriate per le impostazioni locali
+      dell&#39;utente, pollici o millimetri (in o mm). Nota, a causa di errori di arrotondamento, alcuni
+      valori in mm potrebbero essere salvati con piccole differenze.
+    </p>
+    <p></p>
+    <p>
+      Le intestazioni ei piè di pagina possono essere impostati in modo da includere varie variabili di
+      messaggio elencate di seguito. Inoltre, è possibile includere anche testo arbitrario. Per non stampare
+      intestazioni o piè di pagina e risparmiare spazio di stampa, è sufficiente rendere vuoti tutti i campi.
+    </p>
+    <div class="indent1">
+      <li>&amp;D = Data</li>
+      <li>&amp;P = Numero pagina</li>
+      <li>&amp;PT = Numero di pagina con totale (&quot;3 di 5&quot;)</li>
+      <li>&amp;T = Titolo pagina (oggetto del messaggio)</li>
+      <li>&amp;U = URL (L&#39;URL del messaggio)</li>
+    </div>
+    <h2>Supporto</h2>
+    <p>
+      Si prega di pubblicare problemi o richieste di funzionalità nel repository GitHub delle estensioni:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      Nei problemi di bug, includi le seguenti informazioni per aiutare a risolvere i problemi:<br />
+      - Versione di PrintingTools NG<br />
+      - Versione Thunderbird<br />
+      - Sistema operativo e versione<br />
+      - Output di debug (copia dalla console di debug - accesso con Control-Shift-J)<br />
+      - Una descrizione dei passaggi che hanno portato al problema<br />
+    </p>
+    <h2 id="debug_options_help">Opzioni di debug</h2>
+    <p>
+      Le opzioni di debug sono un insieme di parole chiave immesse come elenco separato da spazi. Le opzioni
+      vengono in genere utilizzate per l&#39;output di debug della console, ma possono anche essere utilizzate
+      per test o modalità diverse.
+    </p>
+    <div class="indent1">
+      <li>
+        <code class="notranslate">initialsource</code> - mostra l&#39;origine del messaggio prima che PTNG
+        esegua qualsiasi formattazione
+      </li>
+      <li><code class="notranslate">finaloutput</code> - mostra l&#39;output del messaggio finale</li>
+      <li><code class="notranslate">pdfoutput</code> - output di debug per l&#39;output del messaggio PDF</li>
+      <li>
+        <code class="notranslate">printsettings</code> - output di debug per le opzioni di stampa e pagina
+      </li>
+      <li>
+        <code class="notranslate">helpinwin</code> - flag di modalità per mostrare la guida in una finestra
+        invece dello standard in una scheda
+      </li>
+    </div>
+    <h2>Crediti</h2>
+    <div class="indent1">
+      <li>PrintingTools NG è basato sull&#39;estensione originale di Paolo &quot;Kosmos&quot;</li>
+      <li>List.js di Jonny Strömberg https://listjs.com</li>
+      <li>Latinize.js di Jakub Dundalek https://github.com/dundalek/latinize</li>
+    </div>
+    <p>
+      Grazie ai seguenti utenti per i suggerimenti di miglioramento e l&#39;aiuto per i test:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+  </body>
+</html>

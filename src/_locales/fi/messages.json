@@ -2,16 +2,8 @@
 	"extensionName": {
 		"message": "PrintingTools NG"
 	},
+
 	"extensionDescription": {
-		"message": "Viestin ja osoitteen tulostustyökalut (NextGen)"
-	},
-	"update_option_info": {
-		"message": "Huomautus: PrintingTools NG: n asetukset on siirretty lisäosien hallinnan ellipsin valikkoon."
-	},
-	"moreinfo_button_label": {
-		"message": "Lisätietoja"
-	},
-	"update_option_info2": {
-		"message": "Huomautus: Kokeile uutta PrintingTools NG -työkalupalkin painiketta ja lisää se työkalupalkkiin View/Toolbars/Customize-valikosta. Voit lisätä sen myös viestiruudun otsikkotyökalupalkkiin."
+		"message": "Viestien tulostus, otsikot ja PDF-tulostustyökalut (Nextgen)"
 	}
 }

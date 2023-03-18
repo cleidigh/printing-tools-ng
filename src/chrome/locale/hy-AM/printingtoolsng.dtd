@@ -69,3 +69,37 @@
 <!ENTITY debugOptions.label "Վրիպազերծման ընտրանքներ">
 <!ENTITY date_custom.label "Պատվերով">
 <!ENTITY messageBody "Հաղորդագրության մարմին">
+<!ENTITY body "Մարմին">
+<!ENTITY pdf_output "PDF ելք">
+<!ENTITY print_and_pageoptions "Տպման և էջի ընտրանքներ">
+<!ENTITY headers_order "Վերնագրերի կարգը">
+<!ENTITY attachments "Կցորդներ">
+<!ENTITY images "Պատկերներ">
+<!ENTITY pdf_file_naming "PDF ֆայլի անվանում">
+<!ENTITY enable_pdfdir "Միացնել PDF ելքային գրացուցակը">
+<!ENTITY output_dir "Արդյունքների տեղեկատու">
+<!ENTITY browse "Թերթիր">
+<!ENTITY custom_date_format "Անհատականացված ամսաթվի ձևաչափ">
+<!ENTITY prefix "Նախածանց">
+<!ENTITY suffix "վերջածանց">
+<!ENTITY latinize "Լատինականացնել առարկաները և անունները">
+<!ENTITY remove_emojis "Հեռացրեք Unicode Emojis-ն ու խորհրդանիշները">
+<!ENTITY filter_characters "Զտիչ կերպարներ">
+<!ENTITY filename_format "Ֆայլի անվան ձևաչափ">
+<!ENTITY page_options "Էջի ընտրանքներ">
+<!ENTITY copies "Պատճեններ">
+<!ENTITY all "Բոլորը">
+<!ENTITY custom "Պատվերով">
+<!ENTITY page_ranges "Էջերի միջակայքերը">
+<!ENTITY margins "Լուսանցքներ">
+<!ENTITY top "Գագաթ">
+<!ENTITY bottom "Ստորին">
+<!ENTITY left "Ձախ">
+<!ENTITY right "Ճիշտ">
+<!ENTITY center "Կենտրոն">
+<!ENTITY footers "Ստորին էջատակեր">
+<!ENTITY cancel "Չեղարկել">
+<!ENTITY page_headers "Վերնագրեր">
+<!ENTITY Help "Օգնություն">
+<!ENTITY Scale "Սանդղակ">
+<!ENTITY fitToWidth "Համապատասխանում է լայնությանը">

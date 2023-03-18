@@ -31,9 +31,9 @@
 <!ENTITY messageBody "本文">
 <!ENTITY forHeaders "ヘッダー用">
 <!ENTITY useHeadersBkColor "ヘッダーの背景色指定：">
-<!ENTITY misc "全般">
+<!ENTITY misc "全般設定">
 <!ENTITY order "ヘッダー">
-<!ENTITY headers "ヘッダー">
+<!ENTITY headers "ヘッダー設定">
 <!ENTITY up "上へ">
 <!ENTITY down "下へ">
 <!ENTITY otherHeaders "他のヘッダーがある場合は下段に印刷されます">
@@ -69,3 +69,42 @@
 <!ENTITY ptngOptions.label "PrintingTools NG 設定">
 <!ENTITY debugOptions.label "デバッグ設定">
 <!ENTITY date_custom.label "カスタム形式">
+
+<!ENTITY body "本文設定">
+<!ENTITY pdf_output "PDF 出力設定">
+<!ENTITY print_and_pageoptions "プリンターとページ設定">
+
+<!ENTITY headers_order "ヘッダーの並び替え">
+
+<!ENTITY attachments "添付ファイル">
+<!ENTITY images "画像">
+
+<!ENTITY pdf_file_naming "PDF ファイルの命名">
+<!ENTITY enable_pdfdir "PDF の出力先フォルダーを有効にする">
+<!ENTITY output_dir "出力先フォルダー指定">
+<!ENTITY browse "選択">
+<!ENTITY custom_date_format "カスタム日時形式">
+<!ENTITY prefix "接頭語">
+<!ENTITY suffix "接尾語">
+<!ENTITY latinize "件名と命名のラテン語化">
+<!ENTITY remove_emojis "Unicode 絵文字と記号を削除する">
+<!ENTITY filter_characters "フィルター文字列">
+<!ENTITY filename_format "ファイル名形式">
+
+<!ENTITY page_options "ページ設定">
+<!ENTITY copies "部数">
+<!ENTITY all "すべて">
+<!ENTITY custom "カスタム">
+<!ENTITY page_ranges "ページ指定">
+<!ENTITY margins "余白">
+<!ENTITY top "上">
+<!ENTITY bottom "下">
+<!ENTITY left "左">
+<!ENTITY right "右">
+<!ENTITY center "中央">
+<!ENTITY page_headers "ヘッダー">
+<!ENTITY footers "フッター">
+<!ENTITY cancel "キャンセル">
+<!ENTITY Help "ヘルプ">
+<!ENTITY Scale "倍率">
+<!ENTITY fitToWidth "用紙幅に合わせる">

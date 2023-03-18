@@ -7,93 +7,113 @@
     <title>PrintingTools NG 帮助</title>
   </head>
   <body>
-    <h2 id="main_help">PrintingTools NG 帮助</h2>
+    <table style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG 帮助</div>
+          <div>v2.2.0</div>
+        </td>
+        <td style="text-align: right; padding-right: 30px;">
+          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
+        </td>
+      </tr>
+    </table>
     <br />
     <h2 id="main_help">PrintingTools NG 概述</h2>
     <p>
-      PrintingTools NG 是基于 Paolo “Kaosmos” 原作的后续扩展。该扩展允许自定义打印标题以及其他选项。<br /><br />感谢以下用户的增强建议和测试帮助：<br /><br />
-      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
-      - <code class="notranslate">@KC-T</code><br />
-      - <code class="notranslate">@jobisoft</code><br />
-      - <code class="notranslate">@tidebre67</code><br />
-      - <code class="notranslate">@reinerblock</code><br />
-      - <code class="notranslate">@querixg</code><br />
-      - <code class="notranslate">@RRoenn</code><br />
-      - <code class="notranslate">@madvinegar</code><br />
-      - <code class="notranslate">@ditchfinder</code><br />
-      - <code class="notranslate">@3LaHoonK</code><br />
-      - <code class="notranslate">@realraven</code><br />
-      - <code class="notranslate">@librelegal</code><br />
-      - <code class="notranslate">@Francewhoa</code><br />
-      - <code class="notranslate">@foxfan100</code><br />
-      - <code class="notranslate">@pechh</code><br />
+      PrintingTools NG
+      允许对电子邮件打印进行许多自定义。该扩展有许多用于标头和消息部分的选项。此外，可以设置页面选项，这在正常的
+      Thunderbird 打印预览中无法完成。 PDF 输出也可以使用灵活的基于令牌的系统通过自动命名来完成。
     </p>
-    <h3>支持：</h3>
+    <h3 class="indent0">将 Print NG 按钮添加到工具栏：</h3>
     <p>
-      请在扩展 GitHub 存储库中发布问题或功能请求：
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG 问题</a
-      ><br /><br />在错误问题中，包括以下信息以帮助解决问题：<br />
-      - PrintingTools NG 版本<br />- 雷鸟版<br />- 操作系统和版本<br />- 调试输出（从调试控制台复制 - 使用
-      Control-Shift-J 访问）<br />
-      - 导致问题的步骤的描述<br />
+      打印 NG 按钮应添加到工具栏以启用打印访问和选项。此外，可以通过插件选项卡上扩展的扳手按钮访问其他选项。
     </p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
+    <br />
+    <p>按照以下步骤将按钮放置在工具栏上：</p>
+    <div class="indent1">
+      <li>右键单击邮件工具栏上的空白区域</li>
+      <li>选择自定义...这将打开自定义工具栏窗口</li>
+      <li>找到打印 NG 按钮</li>
+      <li>将按钮拖放到您想要的位置</li>
+      <li>使用按钮进行打印、预览、选项和帮助</li>
+    </div>
+    <h3 class="indent0">以下是一些标题格式功能的示例：</h3>
+    <div class="indent1">
+      <li>使用 CSS 自定义页眉边框样式（顶部和底部，蓝色）</li>
+      <li>标题背景颜色</li>
+      <li>对齐标题</li>
+      <li>自定义标题顺序</li>
+      <li>页面标题和消息文件夹</li>
+      <li>标题中带有图标的附件列表</li>
+      <li>完全可定制的日期格式国际格式</li>
+    </div>
+    <br />
+    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">自定义日期格式</h2>
     <p>
-      自定义日期选项允许完全控制用于电子邮件标题中日期和接收日期的日期格式。自定义日期提供了多个允许几乎任何格式的本地化选项。请注意，自定义日期字符串可以包含分隔符、文字，包括与下面列出的日期\时间标记混合的
-      unicode 字符。<br /><br />注意：以下示例中的自定义日期结果将根据实际日期、用户区域设置和时区而有所不同。<br /><br />例子：<br /><br />
-      <table class="dateformat-table">
-        <thead>
-          <tr>
-            <td>日期字符串</td>
-            <td>结果</td>
-            <td>笔记</td>
-          </tr>
-        </thead>
+      自定义日期选项允许完全控制用于电子邮件标题中的日期和接收日期的日期格式。自定义日期提供了多个本地化选项，几乎可以使用任何格式。请注意，自定义日期字符串可以包括分隔符、文字（包括
+      Unicode 字符）以及混合在下面列出的日期\时间标记。<br /><br />注意：以下示例中的自定义日期结果将根据实际日期、用户区域设置和时区而有所不同。
+    </p>
+    <br />
+    <h3 class="indent0">例子：</h3>
+    <table class="dateformat-table">
+      <thead>
         <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
-          <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-          <td>带有文字的 ja 语言环境</td>
+          <td>日期字符串</td>
+          <td>结果</td>
+          <td>笔记</td>
         </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
-          <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-          <td>带有文字的 ko 语言环境</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
-          <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-          <td>zh-CN 语言环境，短日</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
-          <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-          <td>zh-TW 语言环境，漫长的一天</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
-          <td class="notranslate">20.04.2022 18:01:42 CET</td>
-          <td>点分隔符</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
-          <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-          <td>本地化，短日/月</td>
-        </tr>
-        <tr>
-          <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
-          <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-          <td>en-US 语言环境，长日/月</td>
-        </tr>
-      </table>
-      <br />自定义日期格式使用与<code>strftime()</code>类 Unix 功能匹配的 % 序列。它基于<a
+      </thead>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+        <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+        <td>带有文字的 ja 语言环境</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+        <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+        <td>带文字的语言环境</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+        <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+        <td>zh-CN locale, short day</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+        <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+        <td>zh-TW 语言环境，漫长的一天</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+        <td class="notranslate">20.04.2022 18:01:42 CET</td>
+        <td>点分隔符</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+        <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+        <td>de locale，短日/月</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+        <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+        <td>en-US 语言环境，长日/月</td>
+      </tr>
+    </table>
+    <br />
+    <p>
+      自定义日期格式使用与<code>strftime()</code>类 Unix 功能相匹配的 % 序列。它基于<a
         class="link1"
         href="http://man7.org/linux/man-pages/man3/strftime.3.html"
         ><code>strftime()</code></a
-      >的 JavaScript 端口，这是一个格式化日期和时间的函数。<br />
+      >的 JavaScript 端口，用于格式化日期和时间的函数。<br />
       TH Doan 的 strftime() 端口 (https://thdoan.github.io/strftime/)<br />
     </p>
-    <h3>转换序列说明</h3>
+    <br />
+    <h3 style="margin-left: 30px;">转换顺序说明</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -108,11 +128,11 @@
         </tr>
         <tr>
           <td><code class="code1">%A</code></td>
-          <td>星期几的全名。</td>
+          <td>星期几的全称。</td>
         </tr>
         <tr>
           <td><code class="code1">%b</code></td>
-          <td>缩写月份名称。</td>
+          <td>缩写的月份名称。</td>
         </tr>
         <tr>
           <td><code class="code1">%B</code></td>
@@ -124,15 +144,15 @@
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
-          <td>世纪编号（年/100）为 2 位整数。</td>
+          <td>世纪数（年/100）作为 2 位整数。</td>
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
-          <td>以十进制数表示的月份中的日期（范围 01 到 31）。</td>
+          <td>以十进制数表示的月份中的第几天（范围从 01 到 31）。</td>
         </tr>
         <tr>
           <td><code class="code1">%e</code></td>
-          <td>以十进制数表示的月份中的日期（范围为 1 到 31）。</td>
+          <td>以十进制数表示的月份中的第几天（范围从 1 到 31）。</td>
         </tr>
         <tr>
           <td><code class="code1">%F</code></td>
@@ -141,87 +161,79 @@
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
-            ISO 8601 基于周的年份，世纪为十进制数。 4 位数的年份对应于 ISO 周数（请参阅<code class="code1"
+            ISO 8601 基于周的年份，世纪作为十进制数。 4 位年份对应于 ISO 周数（请参阅<code class="code1"
               >%V</code
             >
             ）。这与<code class="code1">%Y</code>具有相同的格式和值，除了如果 ISO
-            周数属于上一年或下一年，则使用该年份。
+            周数属于上一年或下一年，则使用那一年。
           </td>
         </tr>
         <tr>
           <td><code class="code1">%g</code></td>
-          <td>与<code class="code1">%G</code>类似，但没有世纪，即带有 2 位数年份 (00-99)。</td>
+          <td>类似于<code class="code1">%G</code> ，但没有世纪，即具有两位数的年份 (00-99)。</td>
         </tr>
         <tr>
           <td><code class="code1">%H</code></td>
-          <td>
-            使用 24 小时制的十进制数字形式的小时（范围 00 到 23）。另请参阅<code class="code1">%k</code> 。
-          </td>
+          <td>使用 24 小时制（范围为 00 到 23）的十进制数形式的小时。另见<code class="code1">%k</code> 。</td>
         </tr>
         <tr>
           <td><code class="code1">%I</code></td>
-          <td>
-            使用 12 小时制的十进制数字形式的小时（范围 01 到 12）。另请参阅<code class="code1">%l</code> 。
-          </td>
+          <td>使用 12 小时制（范围为 01 到 12）的十进制数形式的小时。另见<code class="code1">%l</code> 。</td>
         </tr>
         <tr>
           <td><code class="code1">%j</code></td>
-          <td>以十进制数表示的一年中的日期（范围 001 到 366）。</td>
+          <td>以十进制数表示的一年中的第几天（范围从 001 到 366）。</td>
         </tr>
         <tr>
           <td><code class="code1">%k</code></td>
-          <td>
-            使用 24 小时制的十进制数字形式的小时（范围 0 到 23）。另请参阅<code class="code1">%H</code> 。
-          </td>
+          <td>使用 24 小时制（范围为 0 到 23）的十进制数形式的小时。另见<code class="code1">%H</code> 。</td>
         </tr>
         <tr>
           <td><code class="code1">%l</code></td>
-          <td>
-            使用 12 小时制的十进制数字形式的小时（范围 1 到 12）。另请参阅<code class="code1">%I</code> 。
-          </td>
+          <td>使用 12 小时制（范围为 1 到 12）的十进制数形式的小时。另见<code class="code1">%I</code> 。</td>
         </tr>
         <tr>
           <td><code class="code1">%m</code></td>
-          <td>十进制数形式的月份（范围 01 到 12）。</td>
+          <td>十进制数形式的月份（范围为 01 到 12）。</td>
         </tr>
         <tr>
           <td><code class="code1">%n</code></td>
-          <td>十进制数形式的月份（范围 1 到 12）。</td>
+          <td>十进制数形式的月份（范围为 1 到 12）。</td>
         </tr>
         <tr>
           <td><code class="code1">%M</code></td>
-          <td>十进制数形式的分钟（范围 00 到 59）。</td>
+          <td>十进制数形式的分钟（范围为 00 到 59）。</td>
         </tr>
         <tr>
           <td><code class="code1">%p</code></td>
-          <td>根据给定的时间值选择“AM”或“PM”。中午被视为“PM”，午夜被视为“AM”。</td>
+          <td>根据给定的时间值，可以是“AM”或“PM”。中午被视为“PM”，午夜被视为“AM”。</td>
         </tr>
         <tr>
           <td><code class="code1">%P</code></td>
-          <td>与<code class="code1">%p</code>类似，但使用小写字母（“am”或“pm”）。</td>
+          <td>像<code class="code1">%p</code>但小写（“am”或“pm”）。</td>
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
-          <td>自纪元以来的秒数，1970-01-01 00:00:00 +0000 (UTC)。</td>
+          <td>自纪元 1970-01-01 00:00:00 +0000 (UTC) 以来的秒数。</td>
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
-          <td>秒为十进制数（范围 00 到 59）。</td>
+          <td>秒为十进制数（范围为 00 到 59）。</td>
         </tr>
         <tr>
           <td><code class="code1">%u</code></td>
-          <td>以小数表示的星期几（范围为 1 到 7），星期一为 1。另请参见<code class="code1">%w</code> 。</td>
+          <td>小数形式的星期几（范围 1 到 7），星期一为 1。另请参见<code class="code1">%w</code> 。</td>
         </tr>
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            以十进制数表示的当年 ISO 8601 周数（范围 01 到 53），其中第 1 周是新年中至少有 4
+            ISO 8601 当前年份的周数，以十进制数表示（范围从 01 到 53），其中第 1 周是新年中至少有 4
             天的第一周（即第一个星期四）。
           </td>
         </tr>
         <tr>
           <td><code class="code1">%w</code></td>
-          <td>星期几为小数（范围 0 到 6），星期日为 0。另见<code class="code1">%u</code> 。</td>
+          <td>小数形式的星期几（范围 0 到 6），星期日为 0。另请参见<code class="code1">%u</code> 。</td>
         </tr>
         <tr>
           <td><code class="code1">%x</code></td>
@@ -233,11 +245,11 @@
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
-          <td>年作为没有世纪的十进制数（范围 00 到 99）。</td>
+          <td>不带世纪的十进制数字形式的年份（范围从 00 到 99）。</td>
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>
-          <td>年为十进制数，包括世纪。</td>
+          <td>以十进制数字表示的年份，包括世纪。</td>
         </tr>
         <tr>
           <td><code class="code1">%z</code></td>
@@ -256,19 +268,19 @@
         </tr>
         <tr>
           <td><code class="code1">%0</code></td>
-          <td>年字面。本地化，主要针对亚洲语言环境。 (zh-CN: 年, ko: 년)</td>
+          <td>年字面量。本地化，主要针对亚洲地区。 (zh-CN: 年, ko: 년)</td>
         </tr>
         <tr>
           <td><code class="code1">%1</code></td>
-          <td>月字面量。本地化，主要针对亚洲语言环境。 (zh-TW: 月, ko: 월)</td>
+          <td>月字面量。本地化，主要针对亚洲地区。 (zh-TW: 月, ko: 월)</td>
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>日字。本地化，主要针对亚洲语言环境。 (ja: 日, ko: 일)</td>
+          <td>日文。本地化，主要针对亚洲地区。 (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
-    <h3>兼容性说明：</h3>
+    <h3 class="indent0">兼容性说明：</h3>
     <ul>
       <li><code class="code1">%c</code> - 格式化字符串略有不同</li>
       <li>
@@ -277,30 +289,185 @@
         >
         ）
       </li>
-      <li><code class="code1">%e</code> - 不添加空格</li>
-      <li><code class="code1">%E</code> - 未实现</li>
+      <li><code class="code1">%e</code> - 不添加空间</li>
+      <li><code class="code1">%E</code> - 未实施</li>
       <li><code class="code1">%h</code> - 未实现（使用<code class="code1">%b</code> ）</li>
-      <li><code class="code1">%k</code> - 不添加空格</li>
+      <li><code class="code1">%k</code> - 未添加空间</li>
       <li>
         <code class="code1">%n</code> - 类似<code class="code1">%m</code> ，但没有前导零（使用<code
           class="code1"
           >\n</code
         >换行）
       </li>
-      <li><code class="code1">%O</code> - 未实现</li>
+      <li><code class="code1">%O</code> - 未实施</li>
       <li><code class="code1">%r</code> - 未实现（使用<code class="code1">%I:%M:%S %p</code> ）</li>
-      <tr>
-        <td><code class="code1">${subject}</code></td>
-        <td>邮件主题</td>
-      </tr>
       <li><code class="code1">%R</code> - 未实现（使用<code class="code1">%H:%M</code> ）</li>
       <li><code class="code1">%t</code> - 未实现（使用<code class="code1">\t</code> ）</li>
       <li><code class="code1">%T</code> - 未实现（使用<code class="code1">%H:%M:%S</code> ）</li>
-      <li><code class="code1">%U</code> - 未实现</li>
-      <li><code class="code1">%W</code> - 未实施</li>
-      <li><code class="code1">%+</code> - 未实现</li>
+      <li><code class="code1">%U</code> - 未实施</li>
+      <li><code class="code1">%W</code> - 未实现</li>
+      <li><code class="code1">%+</code> - 未实施</li>
       <li><code class="code1">%%</code> - 未实现（使用<code class="code1">%</code> ）</li>
     </ul>
-    <br /><br />
+    <br />
+    <h2 id="pdf_output_help">PDF 输出和自动文件命名</h2>
+    <p>
+      PDF 输出现在可以使用令牌系统自动命名并保存到预定义的 PDF
+      输出目录。这在打印多封选定的电子邮件时特别有用，因为不必为每封电子邮件选择名称和位置。
+    </p>
+    <p />
+    <p>启用 PDF 输出目录并选择一个目录作为保存位置。输出文件名将遵循配置的文件名格式。</p>
+    <p />
+    <p>
+      文件名格式由标记和任何静态字符（如分隔符或空格）组成。扩展文件名格式使用标记。可以使用标记以及任何文本或有效的文件名字符来构造确切的文件名。无效字符是：
+      <code>| * : &lt; &gt; ? \ / &quot;</code>
+    </p>
+    <p />
+    <p>默认名称格式为：${subject} 这只是电子邮件的主题。</p>
+    <p />
+    <p>例子</p>
+    <p>
+      <span class="notranslate"><code>${subject}</code></span> - 默认格式，邮件主题<br /><span
+        class="notranslate"
+        ><code>${prefix}_${date_custom}_${sender}</code></span
+      >
+      - 使用自定义日期格式而不是默认格式<br /><span class="notranslate"
+        ><code>${subject}-GmailMsg-${date}-${index}</code></span
+      >
+      - 带有一些自定义文本<br />
+    </p>
+    <p>下表描述了可在文件名格式中使用的全套标记。</p>
+    <table class="token-table">
+      <tr>
+        <td>代币</td>
+        <td>描述</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${subject}</code></td>
+        <td>消息的主题。</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender}</code></td>
+        <td>消息发件人的姓名。</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient}</code></td>
+        <td>消息收件人的姓名。</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender_email}</code></td>
+        <td>邮件发件人的电子邮件地址。</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient_email}</code></td>
+        <td>邮件收件人的电子邮件地址。</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${smart_name}</code></td>
+        <td>如果邮件在已发送文件夹中，则为收件人，否则为发件人姓名</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${index}</code></td>
+        <td>消息索引号。</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${prefix}</code></td>
+        <td>前缀文本选项值。</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${suffix}</code></td>
+        <td>后缀文本选项值。</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date}</code></td>
+        <td>标准日期格式。默认格式为：YYYYMMDDHHmm</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date_custom}</code></td>
+        <td>自定义日期格式。请参阅自定义日期格式部分。</td>
+      </tr>
+    </table>
+    <br />
+    <h2 id="print_options_help">打印和页面选项</h2>
+    <p>
+      这些选项允许您设置默认打印机以及每个打印机页面选项。也可以设置不显示预览对话框并立即完成打印的静音模式。
+    </p>
+    <p>
+      页面选项允许您在预览或打印完成时设置项目。这些选项在打印过程中是持久的。如果在打印预览中更改
+      PrintingTools NG
+      中设置的选项，它们不会影响后续打印。有些项目无法在预览对话框中设置，包括页眉和页脚。其他项目不会被预览保留，通常必须在每次打印完成时进行设置。
+      PrintingTools NG 解决了这两个问题。
+    </p>
+    <p>
+      预览未保存的一项是页面范围。一个典型的用例是，人们希望默认只打印电子邮件的第一页。通常，每次都必须更改页面范围。请注意，如果在
+      PrintingTools NG
+      中设置的页面范围无效，例如超过页数，则需要在打印前的预览中更正该范围。设置为“1”的页面范围将始终有效并打印消息的第一页。
+    </p>
+    <p>笔记：</p>
+    <p>缩放选项允许一个人设置一个持久的比例。</p>
+    <p>
+      页面范围的描述方式与预览中的相同。例如
+      1、1-2、3-4,5。请注意，如果预设页面范围对给定消息无效，则预览将显示错误。
+    </p>
+    <p>
+      可以使用适合用户区域设置的单位设置边距，英寸或毫米（in 或 mm）。请注意，由于舍入误差，某些 mm
+      值可能会存在细微差异。
+    </p>
+    <p></p>
+    <p>
+      页眉和页脚可以设置为包括下面列出的各种消息变量。此外，还可以包含任意文本。要不打印页眉或页脚并节省打印空间，只需将所有字段设为空白即可。
+    </p>
+    <div class="indent1">
+      <li>&amp;D = 日期</li>
+      <li>&amp;P = 页码</li>
+      <li>&amp;PT = 总页数（“3 of 5”）</li>
+      <li>&amp;T = 页面标题（消息的主题）</li>
+      <li>&amp;U = URL（消息的URL）</li>
+    </div>
+    <h2>支持</h2>
+    <p>
+      请在扩展 GitHub 存储库中发布问题或功能请求：
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />在错误问题中，包括以下信息以帮助解决问题：<br />
+      - 打印工具 NG 版本<br />- 雷鸟版本<br />- 操作系统和版本<br />- 调试输出（从调试控制台复制 - 使用
+      Control-Shift-J 访问）<br />
+      - 导致问题的步骤的描述<br />
+    </p>
+    <h2 id="debug_options_help">调试选项</h2>
+    <p>
+      调试选项是一组以空格分隔的列表形式输入的关键字。这些选项通常用于控制台调试输出，但也可用于测试或不同模式。
+    </p>
+    <div class="indent1">
+      <li><code class="notranslate">initialsource</code> - 在 PTNG 进行任何格式化之前显示消息源</li>
+      <li><code class="notranslate">finaloutput</code> - 显示最终消息输出</li>
+      <li><code class="notranslate">pdfoutput</code> - PDF 消息输出的调试输出</li>
+      <li><code class="notranslate">printsettings</code> - 打印和页面选项的调试输出</li>
+      <li><code class="notranslate">helpinwin</code> - 在窗口中显示帮助而不是在选项卡中显示标准的模式标志</li>
+    </div>
+    <h2>学分</h2>
+    <div class="indent1">
+      <li>PrintingTools NG 基于 Paolo &quot;Kosmos&quot; 的原始扩展</li>
+      <li>Jonny Strömberg 的 List.js https://listjs.com</li>
+      <li>Jakub Dundalek 的 Latinize.js https://github.com/dundalek/latinize</li>
+    </div>
+    <p>
+      感谢以下用户的增强建议和测试帮助：<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
   </body>
 </html>
