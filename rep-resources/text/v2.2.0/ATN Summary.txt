@@ -9,4 +9,9 @@ formatting options for printing messages with header borders, sorting,
 
 ja =====
 
+PrintingTools NG はヘッダーの枠線付けや並び替え、添付ファイルリスト
+などメッセージ印刷で多くのレイアウトとフォーマット設定を可能にします。
+PDF 出力は自動的に名前を付けることができ、ページ設定は印刷設定をより
+使いやすいものにします。あなたの印刷の道具箱です。
+
 de =====
