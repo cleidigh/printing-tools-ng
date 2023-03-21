@@ -2,6 +2,10 @@
 
 ## Versions
 
+Version 2.2.1 : Maintenance Release - March 21, 2023
+
+- Fix print failure after single ext FiltaQuila print, non PDF #179
+
 Version 2.2.0 : PDF Output and Page Options - March 15, 2023
 
 - Added PDF auto saving with token based names #151
