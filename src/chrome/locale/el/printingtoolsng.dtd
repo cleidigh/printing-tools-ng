@@ -3,78 +3,78 @@
 <!ENTITY PMDlabel3 "Ορίστε ένα περίγραμμα γύρω από τις κεφαλίδες">
 <!ENTITY PMDlabel4 "Απόκρυψη των κεφαλίδων">
 <!ENTITY PMDlabel5 "Περικοπή των γραμμών των κεφαλίδων περισσότερο από περίπου">
-<!ENTITY PMDlabel6 "οστεοφυλάκιο.">
+<!ENTITY PMDlabel6 "χαρακτήρες">
 <!ENTITY PMDlabel7 "Απόκρυψη των εικόνων">
 <!ENTITY PMDlabel8 "Εκτύπωση χωρίς το παράθυρο διαλόγου">
 <!ENTITY PMDlabel9 "Απόκρυψη της γραμμής προόδου εκτύπωσης">
 <!ENTITY PMDlabel10 "Απόκρυψη ενσωματωμένων συνημμένων">
-<!ENTITY PMDlabel11 "Προσθέστε το όνομα χρήστη στις κεφαλίδες">
+<!ENTITY PMDlabel11 "Προσθήκη του ονόματος χρήστη στις κεφαλίδες">
 <!ENTITY PMDmenuitem "Επιλογές εκτύπωσης">
 <!ENTITY PMDcaptionlabel "Επιλογές για εκτύπωση μηνυμάτων">
 <!ENTITY PMDcaptionlabel2 "Καθολικές επιλογές εκτύπωσης">
-<!ENTITY PMDlabel12 "Χρησιμοποιήστε γραμματοσειρές με μέγεθος pixel">
+<!ENTITY PMDlabel12 "Χρήση γραμματοσειρών με μέγεθος σε pixel">
 <!ENTITY PMDlabel13 "Απόκρυψη της κεφαλίδας επαφής («Κάρτα για»)">
-<!ENTITY PMDlabel14 "Εισαγάγετε απλώς όνομα και διευθύνσεις email">
+<!ENTITY PMDlabel14 "Εισαγωγή απλώς ονόματος και διεύθυνσης email">
 <!ENTITY PMDcaptionlabel3 "Επιλογές για εκτύπωση βιβλίου διευθύνσεων">
-<!ENTITY PMDlabel15 "Χρησιμοποιήστε συμπαγή διάταξη">
+<!ENTITY PMDlabel15 "Χρήση συμπαγούς διάταξης">
 <!ENTITY PMDlabel16 "Εκτύπωση μόνο επιλογής, όταν υπάρχει">
-<!ENTITY cite.checkbox "Χρησιμοποιήστε ένα στυλ για αναφερόμενο κείμενο">
+<!ENTITY cite.checkbox "Χρήση ενός στυλ για κείμενο σε εισαγωγικά">
 <!ENTITY cite.color "Χρώμα:">
 <!ENTITY cite.size "Μέγεθος:">
-<!ENTITY PMDlabel17 "Προσθέστε ένα εικονίδιο τύπου αρχείου">
+<!ENTITY PMDlabel17 "Προσθήκη εικονιδίου τύπου αρχείου">
 <!ENTITY PMDlabel18 "Χρήση γραμματοσειράς:">
-<!ENTITY PMDlabel19 "Κόψτε το πεδίο «Σημειώσεις» με 100 χαρακτήρες">
-<!ENTITY PMDlabel20 "Προσθέστε το όνομα και την ημερομηνία του βιβλίου διευθύνσεων">
+<!ENTITY PMDlabel19 "Κοπή του πεδίου «Σημειώσεις» στους 100 χαρακτήρες">
+<!ENTITY PMDlabel20 "Προσθήκη ονόματος και ημερομηνίας του βιβλίου διευθύνσεων">
 <!ENTITY style "Στυλ">
 <!ENTITY PMDlabel21 "Απόκρυψη πάντα εκτεταμένων κεφαλίδων">
 <!ENTITY withSize "με μέγεθος">
-<!ENTITY forBody "για μήνυμα σώματος">
+<!ENTITY forBody "Σώμα Μηνύματος">
 <!ENTITY forHeaders "μόνο για κεφαλίδες">
 <!ENTITY misc "Διάφορα">
-<!ENTITY order "Παραγγελία κεφαλίδων">
+<!ENTITY order "Σειρά κεφαλίδων">
 <!ENTITY headers "Κεφαλίδες">
 <!ENTITY up "Πάνω">
 <!ENTITY down "Κάτω">
-<!ENTITY otherHeaders "Ακολουθούν και άλλες κεφαλίδες">
-<!ENTITY PMDlabel22 "Προσθέστε συνημμένα p7m και vCard">
+<!ENTITY otherHeaders "Ακολουθούν άλλες επικεφαλίδες, εάν υπάρχουν">
+<!ENTITY PMDlabel22 "Προσθήκη συνημμένων p7m και vCard">
 <!ENTITY PMDlabel23 "Προσθήκη ονόματος φακέλου">
-<!ENTITY PMDlabel25 "Χρησιμοποιήστε το μαύρο ως βασικό χρώμα για κείμενο">
-<!ENTITY long.label "μεγάλο UTC">
+<!ENTITY PMDlabel25 "Χρήση του μαύρου ως βασικού χρώματος για το κείμενο">
+<!ENTITY long.label "μεγάλη UTC">
 <!ENTITY longLoc.label "μακρά και εντοπισμένη">
-<!ENTITY short.label "μικρός">
+<!ENTITY short.label "σύντομη">
 <!ENTITY date.label "Μορφή ημερομηνίας:">
 <!ENTITY addNameRG.label "Προσθήκη πριν από τις κεφαλίδες:">
 <!ENTITY RG1.label "Τίποτα">
 <!ENTITY RG2.label "Ονομα χρήστη">
-<!ENTITY alignHeaders.label "Ευθυγραμμίστε τις κεφαλίδες">
-<!ENTITY multipleCards.label "Εκτυπώστε όλες τις επιλεγμένες επαφές">
+<!ENTITY alignHeaders.label "Ευθυγράμμιση των επικεφαλίδων">
+<!ENTITY multipleCards.label "Εκτύπωση όλων των επιλεγμένων επαφών">
 <!ENTITY maxPreLen "Μέγιστο πλάτος για κείμενο:">
 <!ENTITY showButton.label "Εμφάνιση του κουμπιού επιλογών στο παράθυρο προεπισκόπησης">
-<!ENTITY resizeImgs.label "Το μέγεθος του μεγέθους των εικόνων είναι πολύ μεγάλο">
+<!ENTITY resizeImgs.label "Αλλαγή του μεγέθους των πολύ μεγάλων εικόνων">
 <!ENTITY addRdate.label "Προσθήκη ημερομηνίας λήψης">
 <!ENTITY defaultPrinter "Προεπιλεγμένος εκτυπωτής">
 <!ENTITY attachmentsPerLine "Συνημμένα ανά γραμμή:">
-<!ENTITY wrap "Κάλυμμα">
-<!ENTITY showhide "Εμφάνιση ή απόκρυψη">
+<!ENTITY wrap "Αναδίπλωση">
+<!ENTITY showhide "Εμφάνιση / Απόκρυψη">
 <!ENTITY useHeadersBkColor "Χρήση χρώματος φόντου κεφαλίδας:">
 <!ENTITY borderStyle "Στυλ περιγράμματος:">
 <!ENTITY colorsNote "Σημείωση: Το &quot;Εικόνες και χρώματα&quot; πρέπει να είναι ενεργοποιημένο στο παράθυρο διαλόγου Εκτύπωση σελίδας">
 <!ENTITY showSignatureVCFfiles "Εμφάνιση αρχείων υπογραφής και vcf">
-<!ENTITY useCcBccAlways "Χρησιμοποιήστε τις συντομογραφίες &quot;Cc&quot; και &quot;Bcc&quot; για όλες τις τοπικές ρυθμίσεις">
+<!ENTITY useCcBccAlways "Χρήση των συντομογραφιών &quot;Cc&quot; και &quot;Bcc&quot; για όλες τις τοπικές ρυθμίσεις">
 <!ENTITY HideInlineAttList "Απόκρυψη ενσωματωμένης λίστας συνημμένων">
-<!ENTITY print.label "Τυπώνω">
+<!ENTITY print.label "Εκτύπωση">
 <!ENTITY printPreview.label "Προεπισκόπηση εκτύπωσης">
 <!ENTITY ptng.label "Εργαλεία εκτύπωσης NG">
-<!ENTITY ptngOptions.label "ΕΡΓΑΛΕΙΑ ΕΚΤΥΠΩΣΗΣ ΕΠΙΛΟΓΩΝ">
+<!ENTITY ptngOptions.label "Επιλογές εργαλείων εκτύπωσης NG">
 <!ENTITY debugOptions.label "Επιλογές εντοπισμού σφαλμάτων">
-<!ENTITY date_custom.label "Εθιμο">
+<!ENTITY date_custom.label "Προσαρμοσμένη">
 <!ENTITY messageBody "Σώμα μηνύματος">
 <!ENTITY body "Σώμα">
 <!ENTITY pdf_output "Έξοδος PDF">
 <!ENTITY print_and_pageoptions "Επιλογές εκτύπωσης και σελίδας">
 <!ENTITY headers_order "Σειρά κεφαλίδων">
 <!ENTITY attachments "Συνημμένα">
-<!ENTITY images "εικόνες">
+<!ENTITY images "Εικόνες">
 <!ENTITY pdf_file_naming "Ονομασία αρχείων PDF">
 <!ENTITY enable_pdfdir "Ενεργοποιήστε τον κατάλογο εξόδου PDF">
 <!ENTITY output_dir "Κατάλογο εξόδου">
@@ -83,22 +83,22 @@
 <!ENTITY prefix "Πρόθεμα">
 <!ENTITY suffix "Κατάληξη">
 <!ENTITY latinize "Λατινοποίηση θεμάτων και ονομάτων">
-<!ENTITY remove_emojis "Αφαιρέστε Unicode Emojis και σύμβολα">
+<!ENTITY remove_emojis "Αφαίρεση Unicode Emojis και συμβόλων">
 <!ENTITY filter_characters "Φιλτράρισμα χαρακτήρων">
 <!ENTITY filename_format "Μορφή ονόματος αρχείου">
 <!ENTITY page_options "Επιλογές σελίδας">
 <!ENTITY copies "Αντίγραφα">
-<!ENTITY all "Ολα">
-<!ENTITY custom "Εθιμο">
+<!ENTITY all "Όλες">
+<!ENTITY custom "Προσαρμοσμένο">
 <!ENTITY page_ranges "Εύρος σελίδων">
 <!ENTITY margins "Περιθώρια">
-<!ENTITY top "Μπλουζα">
-<!ENTITY bottom "Κάτω μέρος">
+<!ENTITY top "Επάνω">
+<!ENTITY bottom "Κάτω">
 <!ENTITY left "Αριστερά">
-<!ENTITY right "σωστά">
+<!ENTITY right "Δεξιά">
 <!ENTITY center "Κέντρο">
 <!ENTITY footers "Υποσέλιδα">
-<!ENTITY cancel "Ματαίωση">
+<!ENTITY cancel "Άκυρο">
 <!ENTITY page_headers "Κεφαλίδες">
 <!ENTITY Help "Βοήθεια">
 <!ENTITY Scale "Κλίμακα">
