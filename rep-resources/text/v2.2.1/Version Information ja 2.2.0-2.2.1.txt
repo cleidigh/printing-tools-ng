@@ -1,0 +1,37 @@
+
+Version 2.2.1 : Maintenance Release - March 21, 2023
+
+- Fix print failure after single ext FiltaQuila print, non PDF #179
+
+------------------------
+
+Version 2.2.0 : PDF Output and Page Options - March 15, 2023
+
+- Added PDF auto saving with token based names #151
+- Added Page Options for page ranges, margins & headers and footers #118, #139
+- New UI #159
+- Improved Help #168
+- Dark Mode Support #141
+- Fixed not Printing Calendar #176
+- Fixed not Printing with Conversations addon #177
+
+-----------------------
+
+バージョン 2.2.1 : メンテナンスリリース - 2023年3月21日
+
+- FiltaQuila アドオンで印刷した後、PDF 以外の印刷に失敗する問題を修正しました。 #179
+
+-----------------------
+
+バージョン2.2.0 : PDF 出力とページ設定 - 2023年3月15日
+
+- トークンベースの命名による PDF の自動保存を追加しました。 #151
+- ページ指定、余白、ヘッダーとフッターに関するページ設定を追加しました。 #118, #139
+- 新しい UI にしました。 #159
+- ヘルプを刷新しました。 #168
+- ダークモードに対応しました。 #141
+- カレンダーが印刷できない問題を修正しました。 #176
+- Thunderbird Conversations アドオンで印刷できない問題を修正しました。 #177
+
+------------------------
+
