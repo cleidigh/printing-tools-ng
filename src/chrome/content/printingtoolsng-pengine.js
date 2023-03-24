@@ -459,6 +459,11 @@ var printingtools = {
 
 		}
 		let messageService = messenger.messageServiceFromURI(msgURI);
+		let msgHdr = messenger.msgHdrFromURI(msgURI);
+		let msgSubject = msgHdr.mime2DecodedSubject;
+
+		console.log("PTNG: Print Ext: " , msgSubject);
+
 		await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 		await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
 
@@ -473,6 +478,7 @@ var printingtools = {
 			this.utils.PTNG_WriteStatus(this.mainStrBundle.GetStringFromName("printing") + " (Ext): " + msgSubject);
 		}
 
+		console.log("PTNG: Print Ext Done: " , msgSubject);
 		
 	},
 
