@@ -75,6 +75,10 @@ This release could not have happened without the great support
 and help from the PTNG community.
 Thank you so much
 
+<b>Version 2.2.1 : Maintenance Release - March 21, 2023</b>
+
+- Fix print failure after single ext FiltaQuila print, non PDF #179
+
 <b>Version 2.2.0 : PDF Output and Page Options - March 15, 2023</b>
 
 - Added PDF auto saving with token based names #151
