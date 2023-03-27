@@ -65,6 +65,7 @@ var printerSettings = {
     footerStrLeft: "&PT",
     footerStrCenter: "",
     footerStrRight: "&D",
+    printBGColors: false,
   },
 
   getPrinterSettings: function (window, outputPrinter) {
@@ -384,7 +385,7 @@ var printerSettings = {
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
       Ci.nsIPrintSettings.kInitSaveFooterRight |
       Ci.nsIPrintSettings.kInitSaveShrinkToFit |
-      Ci.nsIPrintSettings.kInitSaveScaling;
+      Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors;
     PSSVC.savePrintSettingsToPrefs(printSettings, true, savePrefs);
   },
 
@@ -453,13 +454,20 @@ var printerSettings = {
     el = document.querySelector("#footerright");
     printSettings.footerStrRight = el.value;
 
+    // Make printBGColors follow Use Headers Background Color #187
+    el = document.querySelector("#useHeadersBkColor");
+    if (el.getAttribute("checked") === "true") {
+      printSettings.printBGColors = true;
+    } else {
+      printSettings.printBGColors = false;
+    }
 
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
       Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
       Ci.nsIPrintSettings.kInitSaveFooterRight |
       Ci.nsIPrintSettings.kInitSaveShrinkToFit |
-      Ci.nsIPrintSettings.kInitSaveScaling;
+      Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors;
 
     if (dbgopts.indexOf("printsettings") > -1) {
       console.log("\nPTNG: Saving prefs on options exit");

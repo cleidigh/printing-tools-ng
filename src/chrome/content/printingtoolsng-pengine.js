@@ -629,10 +629,11 @@ var printingtools = {
 			bundle = printingtools.strBundleService.createBundle("chrome://messenger/locale/mime.properties");
 		}
 
+		// Add trimEnd to remove some odd endings like nbsp in fr mime.properties #190
 		var dateEnUS = "Date";
 		var toEnUS = "To";
-		var dateLocalized = bundle.GetStringFromID(1007);
-		var toLocalized = bundle.GetStringFromID(1012);
+		var dateLocalized = bundle.GetStringFromID(1007).trimEnd();
+		var toLocalized = bundle.GetStringFromID(1012).trimEnd();
 
 		var regExp = new RegExp("(\\p{L}*)\\s*:", 'u');
 		var table0 = printingtools.getTable(0);
