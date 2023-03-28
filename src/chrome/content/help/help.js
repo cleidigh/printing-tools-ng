@@ -1,5 +1,8 @@
 // help.js
-console.log("help")
-function onLoad() {
-	console.log("help")
-}
+
+/* globals
+browser,
+*/
+
+// set version for banner
+document.getElementById("extVersion").innerText = "v" + browser.runtime.getManifest().version;

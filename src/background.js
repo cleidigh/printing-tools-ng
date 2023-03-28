@@ -61,6 +61,17 @@ messenger.WindowListener.startListening();
 // listener for external print requests eg FiltaQuila 
 browser.runtime.onMessageExternal.addListener(handleMessage);
 
+// tab listener styles
+/*
+browser.tabs.onCreated.addListener(async (tab) => {
+	console.log(tab)
+});
+
+browser.tabs.onUpdated.addListener(async (tabId, u, tab) => {
+	console.log(tabId, tab)
+});
+*/
+
 let l = messenger.i18n.getUILanguage();
 
 browser.runtime.onInstalled.addListener(async (info) => {
