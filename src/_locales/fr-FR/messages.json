@@ -1,9 +1,8 @@
 {
 	"extensionName": {
-		"message": "Outils d&#39;impression NG"
+		"message": "PrintingTools NG"
 	},
-
 	"extensionDescription": {
-		"message": "Impression de messages, en-têtes et outils de sortie PDF (Nextgen)"
+		"message": "Outils pour l’impression des messages et l’enregistrement en PDF."
 	}
 }
