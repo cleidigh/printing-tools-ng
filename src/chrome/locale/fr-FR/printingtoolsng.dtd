@@ -1,106 +1,104 @@
-<!ENTITY PMDlabel1 "Activer la localisation des dates">
-<!ENTITY PMDlabel2 "Activer la vue personnalisée pour la liste des pièces jointes">
-<!ENTITY PMDlabel3 "Ajouter un cadre autour des entêtes.">
-<!ENTITY PMDlabel4 "Masquer les entêtes">
-<!ENTITY PMDlabel5 "Tronquer les lignes d'entêtes plus longues que">
-<!ENTITY PMDlabel6 "caractères.">
+<!ENTITY PMDlabel1 "Activer la localisation de la date">
+<!ENTITY PMDlabel2 "Afficher une vue personnalisée de la liste des pièces jointes">
+<!ENTITY PMDlabel3 "Entourer le bloc d’en-têtes d’une bordure">
+<!ENTITY PMDlabel4 "Masquer les en-têtes">
+<!ENTITY PMDlabel5 "Tronquer les lignes d’en-têtes de plus de">
+<!ENTITY PMDlabel6 "caractères">
 <!ENTITY PMDlabel7 "Masquer les images">
-<!ENTITY PMDlabel8 "Imprimer sans la boîte de dialogue">
-<!ENTITY PMDlabel9 "Masque la barre de progression de l'impression">
-<!ENTITY PMDlabel10 "Masquer les pièces-jointes en-ligne">
-<!ENTITY PMDlabel11 "Ajouter le nom de l'usager aux entêtes">
-<!ENTITY PMDmenuitem "Options d'impression">
-<!ENTITY PMDcaptionlabel "Options pour l'impression des messages">
-<!ENTITY PMDcaptionlabel2 "Options globales d'impression">
-<!ENTITY PMDlabel12 "Utiliser des polices avec une taille en pixels de ">
-<!ENTITY PMDlabel13 "Masque l'entête de contact ('Card for')">
-<!ENTITY PMDlabel14 "Insérer seulement le nom et l'adresse courriel">
-<!ENTITY PMDcaptionlabel3 "Options pour l'impression du carnet d'adresses">
-<!ENTITY PMDlabel15 "Utiliser la mise en forme compacte">
-<!ENTITY PMDlabel16 "Imprimer seulement la sélection, s'il y a lieu">
-<!ENTITY cite.checkbox "Utiliser un style pour le texte cité">
-<!ENTITY cite.color "Couleur:">
-<!ENTITY cite.size "Taille:">
-<!ENTITY PMDlabel17 "Ajouter l'icône du type de fichier">
-<!ENTITY PMDlabel18 "Utiliser la police:">
-<!ENTITY PMDlabel19 "Couper le champ 'Notes' à 100 caractères">
-<!ENTITY PMDlabel20 "Ajouter le nom et la date du carnet d'adresses">
+<!ENTITY PMDlabel8 "Imprimer ou enregistrer sans fenêtre de dialogue">
+<!ENTITY PMDlabel9 "Masquer la barre de progression de l’impression">
+<!ENTITY PMDlabel10 "Masquer les pièces jointes en ligne">
+<!ENTITY PMDlabel11 "Ajouter le nom de l’utilisateur aux en-têtes">
+<!ENTITY PMDmenuitem "Options d’impression">
+<!ENTITY PMDcaptionlabel "Impression des messages">
+<!ENTITY PMDcaptionlabel2 "Options globales">
+<!ENTITY PMDlabel12 "Utiliser la police">
+<!ENTITY PMDlabel13 "Masquer l'en-tête de contact (« Fiche de »)">
+<!ENTITY PMDlabel14 "N’insérer que le nom et les adresses électroniques">
+<!ENTITY PMDcaptionlabel3 "Impression du carnet d’adresses">
+<!ENTITY PMDlabel15 "Utiliser la disposition compacte">
+<!ENTITY PMDlabel16 "N’imprimer que la sélection quand elle existe">
+<!ENTITY cite.checkbox "Utiliser pour les citations">
+<!ENTITY cite.color " la couleur">
+<!ENTITY cite.size "et la taille">
+<!ENTITY PMDlabel17 "Ajouter l’icône du type de fichier">
+<!ENTITY PMDlabel18 "Utiliser la police">
+<!ENTITY PMDlabel19 "Limiter le champ « Notes » à 100 caractères">
+<!ENTITY PMDlabel20 "Ajouter le nom et la date du carnet d’adresses">
 <!ENTITY style "Style">
-<!ENTITY PMDlabel21 "Toujours masquer les entêtes étendus">
-<!ENTITY withSize "avec taille ">
-<!ENTITY forBody "pour le corps du message">
-<!ENTITY forHeaders "seulement pour entêtes">
+<!ENTITY PMDlabel21 "Toujours masquer les en-têtes étendus">
+<!ENTITY withSize "de taille">
+<!ENTITY messageBody "Corps">
+<!ENTITY forHeaders "uniquement pour les en-têtes">
+<!ENTITY useHeadersBkColor "Colorer l’arrière-plan des en-têtes en">
 <!ENTITY misc "Divers">
-<!ENTITY order "Ordre des entêtes">
-<!ENTITY headers "Entêtes">
-<!ENTITY up "Haut">
-<!ENTITY down "Bas">
-<!ENTITY otherHeaders "Les autres entêtent suivent, si elles sont présentes">
-<!ENTITY PMDlabel22 "Ajouter les pièces-jointes p7m et vCard">
+<!ENTITY order "Ordre des en-têtes">
+<!ENTITY headers "En-têtes">
+<!ENTITY up "Déplacer vers le haut">
+<!ENTITY down "Déplacer vers le bas">
+<!ENTITY otherHeaders "Les autres en-têtes, s’ils existent, viennent à la suite.">
+<!ENTITY PMDlabel22 "Ajouter des pièces jointes p7m et vCard">
 <!ENTITY PMDlabel23 "Ajouter le nom du dossier">
-<!ENTITY PMDlabel24 "Date avec format long">
 <!ENTITY PMDlabel25 "Utiliser le noir comme couleur de base pour le texte">
-<!ENTITY long.label "UTC long">
-<!ENTITY longLoc.label "long and localisé">
-<!ENTITY short.label "bref">
-<!ENTITY date.label "Format de date:">
-<!ENTITY addNameRG.label "Ajouter aux entêtes">
+<!ENTITY long.label "Long UTC">
+<!ENTITY longLoc.label "Long localisé">
+<!ENTITY short.label "Court">
+<!ENTITY date.label "Format de la date">
+<!ENTITY addNameRG.label "Titre avant les en-têtes">
 <!ENTITY RG1.label "Rien">
-<!ENTITY RG2.label "Le nom de l'usager">
-<!ENTITY alignHeaders.label "Aligner les entêtes">
+<!ENTITY RG2.label "Nom de l’utilisateur">
+<!ENTITY alignHeaders.label "Aligner les en-têtes">
 <!ENTITY multipleCards.label "Imprimer tous les contacts sélectionnés">
-<!ENTITY maxPreLen "Largeur maximale pour le texte:">
-<!ENTITY resizeImgs.label "Redimensionner de grandes images">
-<!ENTITY showButton.label "Afficher le bouton d&#39;options dans la fenêtre d&#39;aperçu">
+<!ENTITY maxPreLen "Limiter la largeur du texte à">
+<!ENTITY showButton.label "Afficher le bouton des optionsdans la fenêtre d’aperçu">
+<!ENTITY resizeImgs.label "Redimensionner les images trop grandes">
 <!ENTITY addRdate.label "Ajouter la date de réception">
-<!ENTITY defaultPrinter "Imprimante par défaut">
-<!ENTITY attachmentsPerLine "Pièces jointes par ligne:">
-<!ENTITY wrap "Emballage">
+<!ENTITY defaultPrinter "Destination">
+<!ENTITY attachmentsPerLine "Nombre de pièces jointes par ligne :">
+<!ENTITY wrap "auto">
 <!ENTITY showhide "Afficher ou masquer">
-<!ENTITY useHeadersBkColor "Utiliser la couleur d&#39;arrière-plan de l&#39;en-tête:">
-<!ENTITY borderStyle "Style de bordure:">
-<!ENTITY colorsNote "Remarque: &#39;Images et couleurs&#39; doit être activé dans la boîte de dialogue Configuration de la page d&#39;impression">
+<!ENTITY borderStyle "Style de la bordure :">
+<!ENTITY colorsNote "L’option « Imprimer les arrière-plans » doit être cochée dans le dialogue d’impression.">
 <!ENTITY showSignatureVCFfiles "Afficher les fichiers de signature et vcf">
-<!ENTITY useCcBccAlways "Utilisez les abréviations &#39;Cc&#39; et &#39;Bcc&#39; pour tous les paramètres régionaux">
-<!ENTITY HideInlineAttList "Masquer la liste des pièces jointes en ligne">
-<!ENTITY print.label "Impression">
+<!ENTITY useCcBccAlways "Utiliser les abréviations « Cc » et « Bcc » quelle que soit la langue">
+<!ENTITY HideInlineAttList "Ne pas afficher la liste des pièces jointes">
+<!ENTITY print.label "Imprimer">
 <!ENTITY printPreview.label "Aperçu avant impression">
-<!ENTITY ptng.label "Outils d&#39;impression NG">
-<!ENTITY ptngOptions.label "OUTILS D&#39;IMPRESSION DES OPTIONS">
-<!ENTITY debugOptions.label "Options de débogage">
-<!ENTITY date_custom.label "Coutume">
-<!ENTITY messageBody "Corps du message">
-<!ENTITY body "Corps">
-<!ENTITY pdf_output "Sortie PDF">
-<!ENTITY print_and_pageoptions "Options d&#39;impression et de mise en page">
-<!ENTITY headers_order "Ordre des en-têtes">
+<!ENTITY ptng.label "PrintingTools NG">
+<!ENTITY ptngOptions.label "Options d’impression">
+<!ENTITY debugOptions.label "Options de débogage ">
+<!ENTITY date_custom.label "Personnalisé :">
+<!ENTITY body "Message">
+<!ENTITY pdf_output "Enregistrement PDF">
+<!ENTITY print_and_pageoptions "Impression">
+<!ENTITY headers_order "Organisation">
 <!ENTITY attachments "Pièces jointes">
 <!ENTITY images "Images">
-<!ENTITY pdf_file_naming "Dénomination des fichiers PDF">
-<!ENTITY enable_pdfdir "Activer le répertoire de sortie PDF">
-<!ENTITY output_dir "Répertoire de sortie">
-<!ENTITY browse "Parcourir">
-<!ENTITY custom_date_format "Format de date personnalisé">
-<!ENTITY prefix "Préfixe">
-<!ENTITY suffix "Suffixe">
+<!ENTITY pdf_file_naming "Désignation automatique des fichiers PDF">
+<!ENTITY enable_pdfdir "Enregistrer automatiquement les fichiers dans un dossier prédéfini">
+<!ENTITY output_dir "Dossier de destination :">
+<!ENTITY browse "Parcourir…">
+<!ENTITY custom_date_format "Format personnalisé de la date :">
+<!ENTITY prefix "Préfixe :">
+<!ENTITY suffix "Suffixe :">
 <!ENTITY latinize "Latiniser le sujet et les noms">
 <!ENTITY remove_emojis "Supprimer les émoticônes et symboles Unicode">
-<!ENTITY filter_characters "Filtrer les caractères">
-<!ENTITY filename_format "Format du nom de fichier">
-<!ENTITY page_options "Options de page">
+<!ENTITY filter_characters "Filtrer les caractères :">
+<!ENTITY filename_format "Format du nom des fichiers :">
+<!ENTITY page_options "Mise en page">
 <!ENTITY copies "Copies">
-<!ENTITY all "Tous">
-<!ENTITY custom "Personnalisé">
-<!ENTITY page_ranges "Plages de pages">
+<!ENTITY all "Toutes">
+<!ENTITY page_ranges "Pages">
 <!ENTITY margins "Marges">
-<!ENTITY top "Haut">
-<!ENTITY bottom "Bas">
-<!ENTITY left "La gauche">
-<!ENTITY right "Droite">
-<!ENTITY center "Centre">
+<!ENTITY custom "Personnalisé :">
+<!ENTITY top "Haut de page :">
+<!ENTITY bottom "Bas de page :">
+<!ENTITY left "Gauche :">
+<!ENTITY right "Droite :">
+<!ENTITY page_headers "En-têtes">
+<!ENTITY center "Centre :">
 <!ENTITY footers "Pieds de page">
 <!ENTITY cancel "Annuler">
-<!ENTITY page_headers "En-têtes">
-<!ENTITY Help "Aider">
-<!ENTITY Scale "Escalader">
-<!ENTITY fitToWidth "Ajuster à la largeur">
+<!ENTITY Help "Aide">
+<!ENTITY Scale "Échelle">
+<!ENTITY fitToWidth "Ajuster à la largeur de la page">
