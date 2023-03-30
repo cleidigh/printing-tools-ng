@@ -39,9 +39,9 @@
 <!ENTITY PMDlabel22 "Προσθήκη συνημμένων p7m και vCard">
 <!ENTITY PMDlabel23 "Προσθήκη ονόματος φακέλου">
 <!ENTITY PMDlabel25 "Χρήση του μαύρου ως βασικού χρώματος για το κείμενο">
-<!ENTITY long.label "μεγάλη UTC">
-<!ENTITY longLoc.label "μακρά και εντοπισμένη">
-<!ENTITY short.label "σύντομη">
+<!ENTITY long.label "Μεγάλη UTC">
+<!ENTITY longLoc.label "Μακρά και εντοπισμένη">
+<!ENTITY short.label "Σύντομη">
 <!ENTITY date.label "Μορφή ημερομηνίας:">
 <!ENTITY addNameRG.label "Προσθήκη πριν από τις κεφαλίδες:">
 <!ENTITY RG1.label "Τίποτα">
