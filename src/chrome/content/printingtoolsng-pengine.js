@@ -71,6 +71,9 @@ var printingtools = {
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 
 		var ps = PrintUtils.getPrintSettings();
+		// overlay ptng ps like pageRanges not saved in prefs, fixes #195
+		ps = printerSettings.setPrinterSettingsFromPTNGsettings(ps);
+
 		var pdfOutput = false;
 		var pdfOutputEnabled = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
 		var pdfOutputDir = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
@@ -368,6 +371,7 @@ var printingtools = {
 
 		ps.printSilent = false;
 
+		console.log("ps start ", ps)
 		var msgSubject;
 		var pdfFileName;
 
@@ -386,6 +390,8 @@ var printingtools = {
 				if (dbgopts.indexOf("pdfoutput") > -1 && pdfOutput) {
 					console.log("PTNG: Message URI: ", msgURI);
 					console.log("PTNG: Filename: ", pdfFileName);
+					console.log("PTNG: toFilename: ", ps.toFileName);
+					console.log("PTNG: pageRanges: ", ps.pageRanges);
 				  }
 			}
 			if (!PrintUtils.printBrowser) {
@@ -400,6 +406,7 @@ var printingtools = {
 				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
 				await printingtools.reformatLayout();
 
+				console.log("ps  ", ps)
 				await PrintUtils.printBrowser.browsingContext.print(ps);
 				
 			}
@@ -421,6 +428,8 @@ var printingtools = {
 
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 		let ps = PrintUtils.getPrintSettings();
+		// overlay ptng ps like pageRanges not saved in prefs, fixes #195
+		ps = printerSettings.setPrinterSettingsFromPTNGsettings(ps);
 
 		var pdfOutput = false;
 		var pdfOutputEnabled;
