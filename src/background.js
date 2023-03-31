@@ -54,7 +54,7 @@ messenger.WindowListener.registerWindow(
 
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/customizeToolbar.xhtml",
-	"chrome://printingtoolsng/content/customizeToolbarOL.js");
+	"chrome://printingtoolsng/content/customizeToolbar.js");
 
 messenger.WindowListener.startListening();
 

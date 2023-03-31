@@ -45,7 +45,7 @@ var printingtools = {
 	strBundleService: Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService),
 	mainStrBundle: null,
 	previewDoc: null,
-	msgUris: null,
+	msgUris: [],
 	attList: null,
 	running: false,
 	extRunning: false,
@@ -56,11 +56,24 @@ var printingtools = {
 	PrintSelectedMessages: async function (options) {
 		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		printingtools.current = 0;
-		printingtools.num = gFolderDisplay.selectedCount;
+		
 
+		console.log(url)
+		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
+		console.log(msgList)
+		msgList.messages.forEach(msg => {
+			let realMessage = window.printingtoolsng.extension
+			.messageManager.get(msg.id);
+			
+			let uri = realMessage.folder.getUriForMsg(realMessage);
+			console.log(uri)
+			printingtools.msgUris.push(uri)
+		});
+
+		printingtools.num = printingtools.msgUris.length;
 		
 		if (dbgopts.indexOf("trace1") > -1) {
-			console.log("PTNG: selectedMessageUris", gFolderDisplay.selectedMessageUris);
+			console.log("PTNG: selectedMessageUris", printingtools.msgUris);
 		  }
 		//console.log(gMessageDisplay.visible)
 		//console.log(gFolderDisplay.selectedMessage)
@@ -100,17 +113,13 @@ var printingtools = {
 				}
 			}
 
-		if (gFolderDisplay.selectedCount == 1 && options.printSilent == false && !autoPDFSave) {
-			if (1 &&
-				gMessageDisplay.visible &&
-				gFolderDisplay.selectedMessage == gMessageDisplay.displayedMessage &&
-				!url.startsWith("chrome://conversations")
-			) {
-				
+		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave) {
+			
+			if (1) {		
 				let messagePaneBrowser = document.getElementById("messagepane");
 
 				// Load the only message in a hidden browser, then use the print preview UI.
-				let uri = gFolderDisplay.selectedMessageUris[0];
+				let uri = printingtools.msgUris[0];
 				if (dbgopts.indexOf("pdfoutput") > -1) {
 					console.log("PTNG: Single message, Use existing print messagePane")
 					console.log("PTNG: Message uri: ", uri);
@@ -587,7 +596,7 @@ var printingtools = {
 			options.printSilent = printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.silent");
 		}
 
-		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+		
 
 		this.running = true;
 
