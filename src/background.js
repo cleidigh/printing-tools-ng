@@ -181,3 +181,13 @@ function handleMessage(message, sender) {
 
 }
 
+// 115 exp
+
+function cmd_print() {
+	console.log("print")
+	messenger.NotifyTools.notifyExperiment({command: "WEXT_cmd_print"}).then((data) => {
+		console.log(data)
+	  });
+}
+
+browser.browserAction.onClicked.addListener(cmd_print);

@@ -386,7 +386,7 @@ var printerSettings = {
       Ci.nsIPrintSettings.kInitSaveFooterRight |
       Ci.nsIPrintSettings.kInitSaveShrinkToFit |
       Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors;
-    PSSVC.savePrintSettingsToPrefs(printSettings, true, savePrefs);
+    PSSVC.maybeSavePrintSettingsToPrefs(printSettings, true, savePrefs);
   },
 
   savePrintSettings: function (window) {
@@ -486,7 +486,7 @@ var printerSettings = {
       console.log("  margin right   ", printSettings.marginRight);
     }
 
-    PSSVC.savePrintSettingsToPrefs(printSettings, true, savePrefs);
+    PSSVC.maybeSavePrintSettingsToPrefs(printSettings, true, savePrefs);
 
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');

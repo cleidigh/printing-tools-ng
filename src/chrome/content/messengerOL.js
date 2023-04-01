@@ -126,6 +126,10 @@ function onLoad() {
 
 async function handleExternalPrint(data) {
 	console.log(" incoming ext msg" + data);
+	console.log(data)
+	if (!data.messageHeader) {
+		return;
+	}
 	await window.printingtools.cmd_printng_external({ messageHeader: data.messageHeader || "error" })
 	console.log("PTNG: External print handler done")
 	return true;

@@ -52,6 +52,13 @@ var printingtools = {
 	externalQ: [],
 	msgRestoration: {},
 
+	WEXT_cmd_print: async function (data) {
+		console.log(data);
+		await printingtools.cmd_printng();
+		return true;
+	  },
+
+
 	/** Prints the messages selected in the thread pane. */
 	PrintSelectedMessages: async function (options) {
 		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
@@ -93,7 +100,7 @@ var printingtools = {
 		var sel = document.commandDispatcher.focusedWindow.getSelection();
 
 		if (ps.printerName.toLowerCase().includes("pdf") &&
-			gFolderDisplay.selectedCount == 1 && options.printSilent == false
+			printingtools.num == 1 && options.printSilent == false
 		) {
 			pdfOutput = true;
 			
@@ -332,11 +339,11 @@ var printingtools = {
 			return;
 		}
 
-		if (gFolderDisplay.selectedCount < 1) {
+		if (printingtools.num < 1) {
 			return;
 		}
 		
-		printingtools.msgUris = gFolderDisplay.selectedMessageUris;
+		// printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 		
 		if (dbgopts.indexOf("trace1") > -1) {
 			console.log("PTNG: Use existing print hidden pane - multiple messages (" + printingtools.msgUris.length + ")");
@@ -501,7 +508,7 @@ var printingtools = {
 	},
 
 	cmd_printng_external: async function (extMsgReq) {
-		console.log("PrintingTools NG Received a message from external add-on", extMsgReq.messageHeader);
+		console.log("PrintingTools NG Received a message from external add-on", extMsgReq);
 
 		//console.log(this.current)
 		//console.log(this.msgUris)
@@ -510,7 +517,7 @@ var printingtools = {
 
 		if (!msgHeader.id) {
 			console.log("PTNG: No useful id for message");
-			return;
+			return null;
 		}
 
 		let realMessage = window.printingtoolsng.extension
@@ -2403,8 +2410,13 @@ var printingtools = {
 			document.getElementById("fp").remove();
 		}
 		printerSettings.removePrintPreviewObserver();
+		// 115 exp
+		window.ptngAddon.notifyTools.removeListener(listener_id);
 	}
 }
 
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js", printingtools);
 printingtools.mainStrBundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
+
+// 115 exp
+var listener_id = window.ptngAddon.notifyTools.addListener(printingtools.WEXT_cmd_print);

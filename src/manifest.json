@@ -11,6 +11,10 @@
             "strict_max_version": "115.0"
         }
     },
+    "browser_action": {
+      "default_area": "maintoolbar",
+      "default_icon": "./chrome/content/icons/printing-tools-ng-icon-32px.png"
+    },
     "experiment_apis": {
         "WindowListener": {
           "schema": "api/WindowListener/schema.json",
