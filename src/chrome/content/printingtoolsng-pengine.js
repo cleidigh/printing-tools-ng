@@ -63,9 +63,9 @@ var printingtools = {
 	PrintSelectedMessages: async function (options) {
 		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		printingtools.current = 0;
-		
+		printingtools.msgUris = [];
 
-		console.log(url)
+
 		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
 		console.log(msgList)
 		msgList.messages.forEach(msg => {
@@ -87,6 +87,8 @@ var printingtools = {
 		//console.log(gMessageDisplay.displayedMessage)
 
 		var url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
+		console.log(url)
+
 		// loadptng settings 
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 
@@ -122,9 +124,14 @@ var printingtools = {
 
 		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave) {
 			
-			if (1) {		
-				let messagePaneBrowser = document.getElementById("messagepane");
+			if ( url !== "undefinedURL") {
+				//let messagePaneBrowser = document.getElementById("messagepane");
 
+				
+				let mail3PaneTabBrowser1 = window.document.getElementById("mail3PaneTabBrowser1").contentDocument
+				let messagePane = mail3PaneTabBrowser1.getElementById("messagePane")
+				let messagePaneBrowser = messagePane.firstChild.nextElementSibling.nextElementSibling.contentDocument.getElementById("messagepane");
+				console.log(messagePaneBrowser.contentDocument)
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = printingtools.msgUris[0];
 				if (dbgopts.indexOf("pdfoutput") > -1) {
@@ -132,7 +139,7 @@ var printingtools = {
 					console.log("PTNG: Message uri: ", uri);
 				}
 
-				printingtools.previewDoc = messagePaneBrowser.contentDocument
+				printingtools.previewDoc = messagePaneBrowser.contentDocument;
 
 				var ht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
 				var ht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
@@ -270,7 +277,7 @@ var printingtools = {
 				}
 
 			} else {
-				let uri = gFolderDisplay.selectedMessageUris[0];
+				let uri = printingtools.msgUris[0];
 
 				if (dbgopts.indexOf("trace1") > -1) {
 					console.log("PTNG: Use created browser", );
@@ -280,6 +287,8 @@ var printingtools = {
 				if (!uri) {
 					return;
 				}
+
+
 				let messageService = messenger.messageServiceFromURI(uri);
 
 				var fakeMsgPane;
@@ -347,7 +356,7 @@ var printingtools = {
 		
 		if (dbgopts.indexOf("trace1") > -1) {
 			console.log("PTNG: Use existing print hidden pane - multiple messages (" + printingtools.msgUris.length + ")");
-			console.log("PTNG: msgUris: ", gFolderDisplay.selectedMessageUris);
+			console.log("PTNG: msgUris: ", printingtools.msgUris);
 		}
 
 		
