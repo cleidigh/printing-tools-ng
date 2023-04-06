@@ -288,8 +288,8 @@ var printingtools = {
 					return;
 				}
 
-
-				let messageService = messenger.messageServiceFromURI(uri);
+				var MailService = MailServices.messageServiceFromURI(uri);
+				//let messageService = MessageService.messageServiceFromURI(uri);
 
 				var fakeMsgPane;
 				if (!document.getElementById("fp")) {
@@ -320,7 +320,7 @@ var printingtools = {
 
 				//console.log(fakeMsgPane);
 
-				messageService.DisplayMessage(
+				MailService.DisplayMessage(
 					uri + "&markRead=false",
 					docShell,
 					undefined, //win.msgWindow,
@@ -401,7 +401,7 @@ var printingtools = {
 		var pdfFileName;
 
 		for (let msgURI of printingtools.msgUris) {
-			//let messageService = messenger.messageServiceFromURI(msgURI);
+			var MailService = MailServices.messageServiceFromURI(msgURI);
 			let msgHdr = messenger.msgHdrFromURI(msgURI);
 			msgSubject = msgHdr.mime2DecodedSubject;
 
@@ -427,14 +427,15 @@ var printingtools = {
 				// This is key to flushing cache else we operate on modified browser
 				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 				//await PrintUtils.loadPrintBrowser("imap://test1%40kokkini%2Enet@imap.kokkini.net:143/fetch%3EUID%3E.INBOX%3E3135");
-				await PrintUtils.loadPrintBrowser(msgURI)
+				await PrintUtils.loadPrintBrowser(MailService.getUrlForUri(msgURI).spec);
+
 				// getUrlForUri
 				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
 				await printingtools.reformatLayout();
 
 				console.log("ps  ", ps)
-				//await PrintUtils.printBrowser.browsingContext.print(ps);
-				PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext)
+				await PrintUtils.printBrowser.browsingContext.print(ps);
+				//PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext)
 			}
 			
 			if (pdfOutput) {
