@@ -357,6 +357,7 @@ var printerSettings = {
       outputPrinter = defaultPrinter;
     }
 
+    console.log(outputPrinter)
     var printSettings;
     if (PSSVC.newPrintSettings) {
       printSettings = PSSVC.newPrintSettings;
