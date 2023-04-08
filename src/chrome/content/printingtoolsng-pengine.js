@@ -67,7 +67,11 @@ var printingtools = {
 		//console.log(gMessageDisplay.displayedMessage)
 
 		var url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
-		// loadptng settings 
+		// loadptng settings
+		if (this.prefs.getBoolPref("extensions.printingtoolsng.printer.persistent")) {
+			printerSettings.forcePrinterToPTNGPrinter();
+		}
+
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 
 		var ps = PrintUtils.getPrintSettings();
@@ -425,7 +429,9 @@ var printingtools = {
 		printingtools.num = 1;
 		printingtools.msgUris = [msgURI];
 		
-
+		if (this.prefs.getBoolPref("extensions.printingtoolsng.printer.persistent")) {
+			printerSettings.forcePrinterToPTNGPrinter();
+		}
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 		let ps = PrintUtils.getPrintSettings();
 		// overlay ptng ps like pageRanges not saved in prefs, fixes #195
