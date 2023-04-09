@@ -78,6 +78,7 @@ var printerSettings = {
     }
 
     printSettings.printerName = outputPrinter;
+    prefs.setStringPref("extensions.printingtoolsng.print_printer", outputPrinter);
     PSSVC.initPrintSettingsFromPrefs(printSettings, true, printSettings.kInitSaveAll);
     printSettings.isInitializedFromPrinter = true;
 
@@ -356,6 +357,7 @@ var printerSettings = {
       outputPrinter = defaultPrinter;
     }
 
+    console.log(outputPrinter)
     var printSettings;
     if (PSSVC.newPrintSettings) {
       printSettings = PSSVC.newPrintSettings;
@@ -505,6 +507,7 @@ var printerSettings = {
     }
 
     prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, js);
+    prefs.setStringPref("extensions.printingtoolsng.print_printer", printerName);
   },
 
   initCustomPrinterOptions: function (printerName, units) {
@@ -535,6 +538,14 @@ var printerSettings = {
     }
 
     return printSettings;
+  },
+
+  // For persistent printer #188
+  forcePrinterToPTNGPrinter: function () {
+    if (prefs.getPrefType("extensions.printingtoolsng.print_printer")) {
+      let ptngPrinter = prefs.getStringPref("extensions.printingtoolsng.print_printer");
+      prefs.setStringPref("print_printer", ptngPrinter);
+    }
   },
 
   // We setup an observer for the preview subdialog so we can set
