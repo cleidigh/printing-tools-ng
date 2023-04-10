@@ -16,7 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "persistent", text: "PrintingTools Persistent" },
+	{ key: "persistent", text: "Persistent" },
 	
 
 
@@ -459,25 +459,13 @@ var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi',
 //var localeFolders = ['ja', 'ca', 'da-DK', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
 //	'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
-<<<<<<< HEAD
-localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'gl-ES', 'hu',
-'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
+//localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'gl-ES', 'hu',
+//'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 // these locales are manualy managed
 // de, ja, fr
 
-translateHelpPage();
-=======
-//localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'fr', 'gl-ES', 'hu',
-//'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
-// localeFolders = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
-// 'el', 'pl', 'da', 'pt-PT', 'ca', 'gl-ES', 'sk-SK', 'sl-SI', 'sv-SE'];
-
-
-//localeFile = "settings.json";
-// t();
 //translateHelpPage();
->>>>>>> 8c19b5ea0f933381f580dd8fc8d92ecdb0ff6086
 //translatePage();
 // translateAll("printingtoolsng.properties", translationArray, options);
 translateAll(inputFiles, translationArray, options);
