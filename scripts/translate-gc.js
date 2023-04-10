@@ -432,7 +432,7 @@ var options = {
 	outputLocaleDir: "./src/chrome/locale",
 	outputLocaleDirSuffix: "",
 	append: false,
-	outputFormat: 0,
+	outputFormat: 2,
 };
 
 
