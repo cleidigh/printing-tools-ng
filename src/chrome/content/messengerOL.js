@@ -76,7 +76,7 @@ function onLoad() {
 		  <menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"  />
 		  <menuseparator />
 		  <menuitem id="ptng-button-options" accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();"/>
-		  <menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
+		  <menuitem id="ptng-button-help" accesskey="&contextHelp.accesskey;" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
 		  </menupopup>
 	  </toolbarbutton>
 </toolbarpalette>
@@ -100,7 +100,7 @@ function onLoad() {
 		  <menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"  />
 		  <menuseparator />
 		  <menuitem id="ptng-button-options" accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();"/>
-		  <menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
+		  <menuitem id="ptng-button-help" accesskey="&contextHelp.accesskey;" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
 		  </menupopup>
 	  </toolbarbutton>
 </toolbarpalette>

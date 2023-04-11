@@ -16,7 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "persistent", text: "Persistent" },
+	{ key: "contextHelp.accesskey", text: "h" },
 	
 
 
