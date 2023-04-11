@@ -104,3 +104,4 @@
 <!ENTITY Scale "Escala">
 <!ENTITY fitToWidth "Ajustar al ancho">
 <!ENTITY persistent "Persistente">
+<!ENTITY contextHelp.accesskey "a">
