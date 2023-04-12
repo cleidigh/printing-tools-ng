@@ -542,9 +542,14 @@ var printerSettings = {
 
   // For persistent printer #188
   forcePrinterToPTNGPrinter: function () {
+    console.log("forcePrinterToPTNGPrinter: start");
+    console.log("current system printer (bef force):", prefs.getStringPref("print_printer"));
     if (prefs.getPrefType("extensions.printingtoolsng.print_printer")) {
       let ptngPrinter = prefs.getStringPref("extensions.printingtoolsng.print_printer");
       prefs.setStringPref("print_printer", ptngPrinter);
+      console.log("force printer to :", ptngPrinter);
+      console.log("current system printer :", prefs.getStringPref("print_printer"));
+
     }
   },
 

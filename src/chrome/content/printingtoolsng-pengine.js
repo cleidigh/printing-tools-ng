@@ -248,6 +248,8 @@ var printingtools = {
 					console.log("PTNG: Message URI: ", uri);
 				}
 
+				console.log("Current printer before print: ", this.prefs.getStringPref("print_printer"));
+
 				if (selection.rangeCount > 1) {
 					//console.log("print sel")
 					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
