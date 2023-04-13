@@ -224,6 +224,13 @@ async function initPMDpanel() {
 
 	document.getElementById("printer_persistent").checked = prefs.getBoolPref("extensions.printingtoolsng.printer.persistent");
 	
+	if (prefs.getBoolPref("extensions.printingtoolsng.printer.persistent") &&
+		prefs.getPrefType("extensions.printingtoolsng.print_printer") &&
+		prefs.getStringPref("extensions.printingtoolsng.print_printer") !== ""
+	) {
+		printerSettings.forcePrinterToPTNGPrinter();
+	}
+
 	var outputPrinter = await setPrinterList();
 	printerSettings.getPrinterSettings(window, outputPrinter);
 	initValidationIds();
