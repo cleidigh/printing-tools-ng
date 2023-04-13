@@ -13,8 +13,9 @@
     },
     "browser_action": {
       "default_area": "maintoolbar",
-      "default_title":"Print NG",
-      "default_icon": "./chrome/content/icons/printing-tools-ng-icon-32px.png"
+      "default_label":"Print NG",
+      "default_icon": "./chrome/content/icons/printing-tools-ng-icon-32px.png",
+      "default_popup": "./chrome/content/test.html"
     },
     "experiment_apis": {
         "WindowListener": {
