@@ -183,8 +183,8 @@ function handleMessage(message, sender) {
 
 // 115 exp
 
-function cmd_print() {
-	console.log("print")
+function cmd_print(e) {
+	console.log("print",e)
 	messenger.NotifyTools.notifyExperiment({command: "WEXT_cmd_print"}).then((data) => {
 		console.log(data)
 	  });

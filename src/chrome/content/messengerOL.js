@@ -120,8 +120,46 @@ function onLoad() {
 
 	extMsgHandler = window.ptngAddon.notifyTools.addListener(handleExternalPrint);
 
+	var b = document.querySelector("button[extension='PrintingToolsNG@cleidigh.kokkini.net']");
+	console.log(b.getBoundingClientRect())
+	console.log(b.parentElement)
+
+	b.parentElement.setAttribute("id","ptngbutdiv")
+
+	WL.injectElements(`
+	<div id="ptngbutdiv">
+<menupopup id="ptngPopup">
+<menuitem id="ptng-button-printpreview"  label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"/>
+<menuseparator />
+	<menuitem   accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false)" style=""/>
+	<menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
+</menupopup>
+</div>
+`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
+
+
+	//b.parentElement.addEventListener("onclick",btest)
+	var mp = document.getElementById("ptngPopup")
+	var br = b.getBoundingClientRect();
+	var win = br.x + br.width - 20;
+	b.parentElement.addEventListener('click', (e) => {
+		console.log(e)	
+		if (e.clientX > win) {
+			console.log( " dropdown ")
+			mp.openPopup(b, "after_start", 0, 0, false, false);
+
+		} else {
+			console.log( " print ")
+		}
+		e.stopImmediatePropagation();
+		e.stopPropagation();
+	  }, true);
+	  
 }
 
+function btest(e) {
+	console.log(e)	
+}
 // -- Define listeners for messages from the background script.
 
 async function handleExternalPrint(data) {
