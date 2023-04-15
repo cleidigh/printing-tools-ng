@@ -69,6 +69,7 @@ var printerSettings = {
   },
 
   getPrinterSettings: function (window, outputPrinter) {
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
     var document = window.document;
     var printSettings;
     if (PSSVC.newPrintSettings) {
@@ -342,7 +343,7 @@ var printerSettings = {
   },
 
   savePrinterSettingsFromPTNGsettings: async function () {
-
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
     var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
       .getService(Ci.nsIPrinterList);
 
@@ -357,7 +358,6 @@ var printerSettings = {
       outputPrinter = defaultPrinter;
     }
 
-    console.log(outputPrinter)
     var printSettings;
     if (PSSVC.newPrintSettings) {
       printSettings = PSSVC.newPrintSettings;
@@ -392,6 +392,7 @@ var printerSettings = {
   },
 
   savePrintSettings: function (window) {
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
     var document = window.document;
     let localeUnits = (locale == "en-US") ? 0 : 1;
     var printSettings;
@@ -542,14 +543,16 @@ var printerSettings = {
 
   // For persistent printer #188
   forcePrinterToPTNGPrinter: function () {
-    console.log("forcePrinterToPTNGPrinter: start");
-    console.log("current system printer (bef force):", prefs.getStringPref("print_printer"));
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
+    if (dbgopts.indexOf("printsettings") > -1) {
+      console.log("PTNG: Current system printer (bef force):", prefs.getStringPref("print_printer"));
+    }
     if (prefs.getPrefType("extensions.printingtoolsng.print_printer")) {
       let ptngPrinter = prefs.getStringPref("extensions.printingtoolsng.print_printer");
       prefs.setStringPref("print_printer", ptngPrinter);
-      console.log("force printer to :", ptngPrinter);
-      console.log("current system printer :", prefs.getStringPref("print_printer"));
-
+      if (dbgopts.indexOf("printsettings") > -1) {
+        console.log("PTNG: New system printer :", prefs.getStringPref("print_printer"));
+      }
     }
   },
 

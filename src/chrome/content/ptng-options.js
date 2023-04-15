@@ -223,7 +223,7 @@ async function initPMDpanel() {
 	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
 	document.getElementById("printer_persistent").checked = prefs.getBoolPref("extensions.printingtoolsng.printer.persistent");
-	
+
 	if (prefs.getBoolPref("extensions.printingtoolsng.printer.persistent") &&
 		prefs.getPrefType("extensions.printingtoolsng.print_printer") &&
 		prefs.getStringPref("extensions.printingtoolsng.print_printer") !== ""

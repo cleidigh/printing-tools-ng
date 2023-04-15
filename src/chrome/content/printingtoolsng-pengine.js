@@ -68,10 +68,13 @@ var printingtools = {
 
 		var url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 		// loadptng settings
-		if (this.prefs.getBoolPref("extensions.printingtoolsng.printer.persistent")) {
+
+		if (this.prefs.getBoolPref("extensions.printingtoolsng.printer.persistent") &&
+			this.prefs.getPrefType("extensions.printingtoolsng.print_printer") &&
+			this.prefs.getStringPref("extensions.printingtoolsng.print_printer") !== ""
+		) {
 			printerSettings.forcePrinterToPTNGPrinter();
 		}
-
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 
 		var ps = PrintUtils.getPrintSettings();
@@ -179,13 +182,10 @@ var printingtools = {
 
 				var l = w.addEventListener("focus", function (e) {
 
-					console.log("Message pane focused  ")
-
 					// Remove headers selection 
 					if (selection.rangeCount) {
 						selection.removeRange(range)
 					}
-
 
 					var mht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
 					var mht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
@@ -247,8 +247,6 @@ var printingtools = {
 				if (dbgopts.indexOf("pdfoutput") > -1 && pdfOutput) {
 					console.log("PTNG: Message URI: ", uri);
 				}
-
-				console.log("Current printer before print: ", this.prefs.getStringPref("print_printer"));
 
 				if (selection.rangeCount > 1) {
 					//console.log("print sel")
@@ -343,6 +341,23 @@ var printingtools = {
 		// Multiple messages. Get the printer settings, then load the messages into
 		// a hidden browser and print them one at a time.
 
+		if (dbgopts.indexOf("msprompt") > -1) {
+			try {
+				await Cc["@mozilla.org/widget/printdialog-service;1"]
+					.getService(Ci.nsIPrintDialogService)
+					.showPrintDialog(browsingContext.topChromeWindow, false, ps);
+			} catch (e) {
+				if (e.return == Cr.NS_ERROR_ABORT) {
+					return;
+				}
+			}
+			this.prefs.setCharPref("print_printer", ps.printerName);
+			await printerSettings.savePrinterSettingsFromPTNGsettings();
+			ps = PrintUtils.getPrintSettings();
+			// overlay ptng ps like pageRanges not saved in prefs, fixes #195
+			ps = printerSettings.setPrinterSettingsFromPTNGsettings(ps);
+		}
+
 		if (ps.printerName.toLowerCase().includes("pdf")) {
 			pdfOutput = true;
 
@@ -391,22 +406,6 @@ var printingtools = {
 				messagePaneBrowser.browsingContext.print(ps);
 			} else {
 
-				if (dbgopts.indexOf("msprompt") > -1) {
-					try {
-						await Cc["@mozilla.org/widget/printdialog-service;1"]
-							.getService(Ci.nsIPrintDialogService)
-							.showPrintDialog(browsingContext.topChromeWindow, false, ps);
-					} catch (e) {
-						if (e.return == Cr.NS_ERROR_ABORT) {
-							return;
-						}
-					}
-					this.prefs.setCharPref("print_printer", ps.printerName);
-					await printerSettings.savePrinterSettingsFromPTNGsettings();
-					ps = PrintUtils.getPrintSettings();
-					// overlay ptng ps like pageRanges not saved in prefs, fixes #195
-					ps = printerSettings.setPrinterSettingsFromPTNGsettings(ps);
-				}
 
 				if (pdfOutput) {
 					pdfFileName = await this.utils.constructPDFoutputFilename(msgURI, pdfOutputDir);
@@ -431,9 +430,10 @@ var printingtools = {
 				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
 				await printingtools.reformatLayout();
 
-				console.log("ps  ", ps)
-				await PrintUtils.printBrowser.browsingContext.print(ps);
-
+				try {
+					await PrintUtils.printBrowser.browsingContext.print(ps);
+				} catch (e) {
+				}
 			}
 
 			if (pdfOutput) {
@@ -451,9 +451,13 @@ var printingtools = {
 		printingtools.num = 1;
 		printingtools.msgUris = [msgURI];
 
-		if (this.prefs.getBoolPref("extensions.printingtoolsng.printer.persistent")) {
+		if (this.prefs.getBoolPref("extensions.printingtoolsng.printer.persistent") &&
+			this.prefs.getPrefType("extensions.printingtoolsng.print_printer") &&
+			this.prefs.getStringPref("extensions.printingtoolsng.print_printer") !== ""
+		) {
 			printerSettings.forcePrinterToPTNGPrinter();
 		}
+
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 		let ps = PrintUtils.getPrintSettings();
 		// overlay ptng ps like pageRanges not saved in prefs, fixes #195
@@ -479,8 +483,9 @@ var printingtools = {
 				}
 				pdfOutputDir = resultObj.folder;
 			} else {
-				console.log("PTNG: PDF output to: ", pdfOutputDir);
-
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("PTNG: PDF output to: ", pdfOutputDir);
+				}
 			}
 		}
 
@@ -498,8 +503,9 @@ var printingtools = {
 		let msgHdr = messenger.msgHdrFromURI(msgURI);
 		let msgSubject = msgHdr.mime2DecodedSubject;
 
-		console.log("PTNG: Print Ext: ", msgSubject);
-
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: Print Ext: ", msgSubject);
+		}
 		await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 		await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
 
@@ -513,21 +519,22 @@ var printingtools = {
 		} else {
 			this.utils.PTNG_WriteStatus(this.mainStrBundle.GetStringFromName("printing") + " (Ext): " + msgSubject);
 		}
-
-		console.log("PTNG: Print Ext Done: ", msgSubject);
-
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: Print Ext Done: ", msgSubject);
+		}
 	},
 
 	cmd_printng_external: async function (extMsgReq) {
-		console.log("PrintingTools NG Received a message from external add-on", extMsgReq.messageHeader);
-
-		//console.log(this.current)
-		//console.log(this.msgUris)
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PrintingTools NG Received a message from external add-on", extMsgReq.messageHeader);
+		}
 
 		let msgHeader = extMsgReq.messageHeader;
 
 		if (!msgHeader.id) {
-			console.log("PTNG: No useful id for message");
+			if (dbgopts.indexOf("trace1") > -1) {
+				console.log("PTNG: No useful id for message");
+			}
 			return;
 		}
 
@@ -619,8 +626,9 @@ var printingtools = {
 		this.running = true;
 
 		await this.PrintSelectedMessages(options);
-		console.log("PTNG: Done")
-
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: Done")
+		}
 
 		this.running = false;
 
