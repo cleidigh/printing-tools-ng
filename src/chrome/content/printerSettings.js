@@ -595,8 +595,11 @@ var printerSettings = {
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
 
-      let printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
-
+      try {
+        let printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
+      } catch (e) {
+        return;
+      }
       let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
       var customProps = JSON.parse(props);
 
