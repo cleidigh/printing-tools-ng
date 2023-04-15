@@ -347,7 +347,7 @@ var printingtools = {
 					.getService(Ci.nsIPrintDialogService)
 					.showPrintDialog(browsingContext.topChromeWindow, false, ps);
 			} catch (e) {
-				if (e.return == Cr.NS_ERROR_ABORT) {
+				if (e.result == Cr.NS_ERROR_ABORT) {
 					return;
 				}
 			}
