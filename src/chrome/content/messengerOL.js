@@ -129,6 +129,7 @@ function onLoad() {
 	WL.injectElements(`
 	<div id="ptngbutdiv">
 <menupopup id="ptngPopup">
+<menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
 <menuitem id="ptng-button-printpreview"  label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"/>
 <menuseparator />
 	<menuitem   accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false)" style=""/>
