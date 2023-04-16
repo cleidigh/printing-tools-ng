@@ -120,7 +120,7 @@ function onLoad() {
 
 	extMsgHandler = window.ptngAddon.notifyTools.addListener(handleExternalPrint);
 
-	var b = document.querySelector("button[extension='PrintingToolsNG@cleidigh.kokkini.net']");
+	var b = document.querySelector("button.unified-toolbar-button[extension='PrintingToolsNG@cleidigh.kokkini.net']");
 	console.log(b.getBoundingClientRect())
 	console.log(b.parentElement)
 
@@ -130,7 +130,7 @@ function onLoad() {
 	<div id="ptngbutdiv">
 <menupopup id="ptngPopup">
 <menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
-<menuitem id="ptng-button-printpreview"  label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"/>
+<menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"/>
 <menuseparator />
 	<menuitem   accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false)" style=""/>
 	<menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
@@ -151,6 +151,7 @@ function onLoad() {
 
 		} else {
 			console.log( " print ")
+			window.printingtools.cmd_printng({printSilent2: false});
 		}
 		e.stopImmediatePropagation();
 		e.stopPropagation();
@@ -158,9 +159,9 @@ function onLoad() {
 	  
 }
 
-function btest(e) {
-	console.log(e)	
-}
+function addTBbuttonMainFuncOrCtxMenu()
+
+
 // -- Define listeners for messages from the background script.
 
 async function handleExternalPrint(data) {
