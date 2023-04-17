@@ -589,14 +589,14 @@ var printerSettings = {
       );
 
       // console.log("subDialog print-settings loaded");
-      // console.log(subDialogWindow.document.documentElement.innerHTML)
+      console.log(subDialogWindow.document.documentElement.innerHTML)
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
 
       try {
-        let printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
+        var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
       } catch (e) {
         return;
       }
@@ -622,7 +622,7 @@ var printerSettings = {
       // Set pageRanges - NOTE: This has a timing dependency, a delay
       // will cause odd preview page errors
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
-
+      console.log(cr.value)
     },
   },
 };

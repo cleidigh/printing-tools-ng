@@ -447,6 +447,7 @@ var printingtools = {
 
 
 	PrintExternalMsg: async function (msgURI) {
+		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		printingtools.current = 0;
 		printingtools.num = 1;
 		printingtools.msgUris = [msgURI];
@@ -525,6 +526,7 @@ var printingtools = {
 	},
 
 	cmd_printng_external: async function (extMsgReq) {
+		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		if (dbgopts.indexOf("trace1") > -1) {
 			console.log("PrintingTools NG Received a message from external add-on", extMsgReq.messageHeader);
 		}
