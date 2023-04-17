@@ -82,6 +82,10 @@ var printingtools = {
 		if (dbgopts.indexOf("trace1") > -1) {
 			console.log("PTNG: selectedMessageUris", printingtools.msgUris);
 		  }
+		  
+		if (!printingtools.num) {
+			return;
+		}
 		//console.log(gMessageDisplay.visible)
 		//console.log(gFolderDisplay.selectedMessage)
 		//console.log(gMessageDisplay.displayedMessage)
@@ -571,7 +575,7 @@ var printingtools = {
 
 
 	cmd_printng: async function (options) {
-		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+		var dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		
 		
 		if (dbgopts.indexOf("trace1") > -1) {
@@ -618,7 +622,7 @@ var printingtools = {
 
 		this.running = true;
 
-		await this.PrintSelectedMessages(options);
+		await printingtools.PrintSelectedMessages(options);
 		console.log("PTNG: Done")
 
 

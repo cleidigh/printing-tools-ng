@@ -8,6 +8,7 @@ var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 // Import any needed modules.
 var ADDON_ID = "PrintingToolsNG@cleidigh.kokkini.net";
 var extMsgHandler;
+var btListener;
 
 var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
 
@@ -19,7 +20,7 @@ window.ptngAddon = {};
 Services.scriptloader.loadSubScript(extension2.rootURI.resolve("chrome/content/notifyTools.js"), window.ptngAddon, "UTF-8");
 
 
-function onLoad() {
+async function onLoad() {
 
 	//console.debug('messenger ol');
 
@@ -120,46 +121,111 @@ function onLoad() {
 
 	extMsgHandler = window.ptngAddon.notifyTools.addListener(handleExternalPrint);
 
-	var b = document.querySelector("button.unified-toolbar-button[extension='PrintingToolsNG@cleidigh.kokkini.net']");
-	console.log(b.getBoundingClientRect())
-	console.log(b.parentElement)
-
-	b.parentElement.setAttribute("id","ptngbutdiv")
-
-	WL.injectElements(`
-	<div id="ptngbutdiv">
-<menupopup id="ptngPopup">
-<menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
-<menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"/>
-<menuseparator />
-	<menuitem   accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false)" style=""/>
-	<menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
-</menupopup>
-</div>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
-
-
-	//b.parentElement.addEventListener("onclick",btest)
-	var mp = document.getElementById("ptngPopup")
-	var br = b.getBoundingClientRect();
-	var win = br.x + br.width - 20;
-	b.parentElement.addEventListener('click', (e) => {
-		console.log(e)	
-		if (e.clientX > win) {
-			console.log( " dropdown ")
-			mp.openPopup(b, "after_start", 0, 0, false, false);
-
-		} else {
-			console.log( " print ")
-			window.printingtools.cmd_printng({printSilent2: false});
+	var tabMonitor = {
+		monitorName: "ptngMonitor",
+	
+		onTabTitleChanged() {},
+		onTabOpened() {},
+		onTabPersist() {},
+		onTabRestored() {},
+		onTabClosing() {},
+	
+		onTabSwitched(newTabInfo, oldTabInfo) {
+			console.log(newTabInfo)
 		}
-		e.stopImmediatePropagation();
-		e.stopPropagation();
-	  }, true);
-	  
+	}	
+	
+	let tabmail = document.getElementById("tabmail");
+
+
+	
+	tabmail.registerTabMonitor(tabMonitor);
+
+	let ctxMenu =
+		`<menupopup>
+			<menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
+			<menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"/>
+			<menuseparator />
+			<menuitem   accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();" style=""/>
+			<menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
+		</menupopup>`;
+
+	let dtdFiles = ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"];
+
+	var b;
+	for (let index = 0; index < 320; index++) {
+		b = document.querySelector("button.unified-toolbar-button[extension='PrintingToolsNG@cleidigh.kokkini.net']");
+		console.log(index, b)
+		await new Promise(resolve => window.setTimeout(resolve, 1000));
+		if (b) {
+			break;
+		}
+	}
+	console.log("aft")
+	btListener = addTBbuttonMainFuncOrCtxMenu(ADDON_ID, "unified-toolbar-button", window.printingtools.cmd_printng, ctxMenu, dtdFiles)
 }
 
-function addTBbuttonMainFuncOrCtxMenu()
+function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttCtxMenu, ctxMenuDTDs) {
+	// width of ucarret dropdown area in px
+	const dropdownTargetWidth = 21;
+
+	if (!mainButtFunc && !buttCtxMenu) {
+		// can't operate on ziltch
+		return false;
+	}
+
+	let tbExtButton = document.querySelector(`button.${toolbarClass}[extension="${addOnId}"]`);
+	console.log(tbExtButton)
+	if (!tbExtButton) {
+		return false;
+	}
+	// get parent div for listener
+	let listenerTarget = tbExtButton.parentElement;
+	let listenerTargetId = `tbButtonParentListenerDiv_${addOnId}`;
+	listenerTarget.setAttribute("id", listenerTargetId);
+
+	// setup for context menu if requested
+	if (buttCtxMenu) {
+		let ctxMenuXML = `<div id="${listenerTargetId}"> ${buttCtxMenu} </div>`;
+		try {
+			WL.injectElements(ctxMenuXML, ctxMenuDTDs);
+		} catch (e) {
+			console.log("Exception adding context menu:", e);
+			return false;
+		}
+	}
+
+	// we setup our listener on the button container parent div
+	// key is to use the capture phase mode, this follows the propagation from the
+	// top of the DOM down and proceeds the bubbling phase where our listener would 
+	// be blocked by the normal button listener 
+	listenerTarget.addEventListener('click', listenerFunc, true);
+
+	function listenerFunc(e) {
+		e.stopImmediatePropagation();
+		e.stopPropagation();
+		console.log(e)
+		if (e.target.nodeName == "menuitem") {
+			return;
+		}
+		if (mainButtFunc && !buttCtxMenu) {
+			// only a main click action
+			mainButtFunc();
+			return;
+		}
+
+		// get click location and determine if in dropdown window if split button
+		let targetDivBRect = tbExtButton.getBoundingClientRect();
+		let inTargetWindow = e.clientX > (targetDivBRect.x + targetDivBRect.width - dropdownTargetWidth);
+		// setup for context menu
+		if ((buttCtxMenu && !mainButtFunc) || (buttCtxMenu && inTargetWindow)) {
+			tbExtButton.nextElementSibling.openPopup(tbExtButton, "after_start", 0, 0, false, false);
+		} else {
+			mainButtFunc();
+		}
+	};
+	return this.listenerFunc;
+}
 
 
 // -- Define listeners for messages from the background script.
@@ -180,7 +246,7 @@ async function handleExternalPrint(data) {
 
 function onUnload(shutdown) {
 	// console.debug('PT unloading');
-
+	document.removeEventListener('click', btListener);
 	window.ptngAddon.notifyTools.removeListener(extMsgHandler);
 	window.getUI_status.shutdown();
 	window.printingtools.shutdown();
