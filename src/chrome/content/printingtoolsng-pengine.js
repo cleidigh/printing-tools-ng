@@ -65,6 +65,8 @@ var printingtools = {
 		printingtools.current = 0;
 		printingtools.msgUris = [];
 
+		let url2= await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
+		console.log(url2)
 
 		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
 		console.log(msgList)
@@ -77,6 +79,7 @@ var printingtools = {
 			printingtools.msgUris.push(uri)
 		});
 
+		
 		printingtools.num = printingtools.msgUris.length;
 		
 		if (dbgopts.indexOf("trace1") > -1) {

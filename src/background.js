@@ -101,6 +101,8 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			}
 			return url1;
 		case "getSelectedMessages":
+			console.log(await browser.mailTabs.getCurrent())
+			console.log(await browser.tabs.getCurrent())
 			var msgList = [];
 			try {
 				msgList = await browser.mailTabs.getSelectedMessages();

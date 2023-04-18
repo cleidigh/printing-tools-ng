@@ -121,25 +121,11 @@ async function onLoad() {
 
 	extMsgHandler = window.ptngAddon.notifyTools.addListener(handleExternalPrint);
 
-	var tabMonitor = {
-		monitorName: "ptngMonitor",
-	
-		onTabTitleChanged() {},
-		onTabOpened() {},
-		onTabPersist() {},
-		onTabRestored() {},
-		onTabClosing() {},
-	
-		onTabSwitched(newTabInfo, oldTabInfo) {
-			console.log(newTabInfo)
-		}
-	}	
-	
-	let tabmail = document.getElementById("tabmail");
 
 
-	
-	tabmail.registerTabMonitor(tabMonitor);
+
+
+
 
 	let ctxMenu =
 		`<menupopup>
@@ -153,7 +139,7 @@ async function onLoad() {
 	let dtdFiles = ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"];
 
 	var b;
-	for (let index = 0; index < 320; index++) {
+	for (let index = 0; index < 1; index++) {
 		b = document.querySelector("button.unified-toolbar-button[extension='PrintingToolsNG@cleidigh.kokkini.net']");
 		console.log(index, b)
 		await new Promise(resolve => window.setTimeout(resolve, 1000));
@@ -168,43 +154,72 @@ async function onLoad() {
 function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttCtxMenu, ctxMenuDTDs) {
 	// width of ucarret dropdown area in px
 	const dropdownTargetWidth = 21;
+	
+	var tabmail = document.getElementById("tabmail");
 
 	if (!mainButtFunc && !buttCtxMenu) {
 		// can't operate on ziltch
 		return false;
 	}
 
-	let tbExtButton = document.querySelector(`button.${toolbarClass}[extension="${addOnId}"]`);
-	console.log(tbExtButton)
-	if (!tbExtButton) {
-		return false;
-	}
-	// get parent div for listener
-	let listenerTarget = tbExtButton.parentElement;
-	let listenerTargetId = `tbButtonParentListenerDiv_${addOnId}`;
-	listenerTarget.setAttribute("id", listenerTargetId);
+	var tabMonitor = {
+		monitorName: "ptngMonitor",
 
-	// setup for context menu if requested
-	if (buttCtxMenu) {
-		let ctxMenuXML = `<div id="${listenerTargetId}"> ${buttCtxMenu} </div>`;
-		try {
-			WL.injectElements(ctxMenuXML, ctxMenuDTDs);
-		} catch (e) {
-			console.log("Exception adding context menu:", e);
-			return false;
+		onTabTitleChanged() { },
+		onTabOpened() { },
+		onTabPersist() { },
+		onTabRestored() { },
+		onTabClosing() { },
+
+		async onTabSwitched(newTabInfo, oldTabInfo) {
+			//console.log(newTabInfo)
+			//console.log(newTabInfo.browser?.contentDocument?.URL)
+			console.log(newTabInfo.mode?.name)
+			if (newTabInfo.mode?.name == "mail3PaneTab" || newTabInfo.mode?.name == "mailMessageTab") {
+				await setup();
+			}
 		}
 	}
 
-	// we setup our listener on the button container parent div
-	// key is to use the capture phase mode, this follows the propagation from the
-	// top of the DOM down and proceeds the bubbling phase where our listener would 
-	// be blocked by the normal button listener 
-	listenerTarget.addEventListener('click', listenerFunc, true);
+	tabmail.registerTabMonitor(tabMonitor);
 
+
+
+	async function setup() {
+		await new Promise(resolve => window.setTimeout(resolve, 100));
+		let tbExtButton = document.querySelector(`button.${toolbarClass}[extension="${addOnId}"]`);
+		console.log(tbExtButton)
+		if (!tbExtButton) {
+			return false;
+		}
+		// get parent div for listener
+		let listenerTarget = tbExtButton.parentElement;
+		let listenerTargetId = `tbButtonParentListenerDiv_${addOnId}`;
+		listenerTarget.setAttribute("id", listenerTargetId);
+
+		// setup for context menu if requested
+		if (buttCtxMenu) {
+			let ctxMenuXML = `<div id="${listenerTargetId}"> ${buttCtxMenu} </div>`;
+			try {
+				WL.injectElements(ctxMenuXML, ctxMenuDTDs);
+			} catch (e) {
+				console.log("Exception adding context menu:", e);
+				return false;
+			}
+		}
+
+		// we setup our listener on the button container parent div
+		// key is to use the capture phase mode, this follows the propagation from the
+		// top of the DOM down and proceeds the bubbling phase where our listener would 
+		// be blocked by the normal button listener 
+		listenerTarget.addEventListener('click', listenerFunc, true);
+		tabmail.unregisterTabMonitor(tabMonitor);
+	}
 	function listenerFunc(e) {
 		e.stopImmediatePropagation();
 		e.stopPropagation();
 		console.log(e)
+
 		if (e.target.nodeName == "menuitem") {
 			return;
 		}
@@ -214,6 +229,7 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 			return;
 		}
 
+		let tbExtButton = document.querySelector(`button.${toolbarClass}[extension="${addOnId}"]`);
 		// get click location and determine if in dropdown window if split button
 		let targetDivBRect = tbExtButton.getBoundingClientRect();
 		let inTargetWindow = e.clientX > (targetDivBRect.x + targetDivBRect.width - dropdownTargetWidth);
@@ -224,7 +240,7 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 			mainButtFunc();
 		}
 	};
-	return this.listenerFunc;
+	return;
 }
 
 
