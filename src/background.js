@@ -101,15 +101,29 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			}
 			return url1;
 		case "getSelectedMessages":
-			console.log(await browser.mailTabs.getCurrent())
-			console.log(await browser.tabs.getCurrent())
+			var windows = await browser.windows.getAll({ populate: true });
+			let currentWin = windows.find(fw => fw.focused)
+			let currentTab = currentWin.tabs.find(t => t.active);
+
+			console.log(currentTab)
+			
+
 			var msgList = [];
+			if (currentTab.mailTab) {
+			
 			try {
 				msgList = await browser.mailTabs.getSelectedMessages();
+				console.log(msgList)
 			} catch {
 				msgList = null;
 			}
 			return msgList;
+		} else if (currentTab.type == "messageDisplay") {
+			let msgDisplayed = await browser.messageDisplay.getDisplayedMessage(currentTab.id);
+			console.log(msgDisplayed)
+			msgList = {id: null, messages: [msgDisplayed]};
+			return msgList;
+		}
 		case "getFullMessage":
 
 			rv = await getFullMessage(info.messageId);

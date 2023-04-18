@@ -132,29 +132,20 @@ async function onLoad() {
 			<menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
 			<menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"/>
 			<menuseparator />
-			<menuitem   accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();" style=""/>
+			<menuitem accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();" style=""/>
 			<menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
 		</menupopup>`;
 
 	let dtdFiles = ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"];
 
-	var b;
-	for (let index = 0; index < 1; index++) {
-		b = document.querySelector("button.unified-toolbar-button[extension='PrintingToolsNG@cleidigh.kokkini.net']");
-		console.log(index, b)
-		await new Promise(resolve => window.setTimeout(resolve, 1000));
-		if (b) {
-			break;
-		}
-	}
-	console.log("aft")
-	btListener = addTBbuttonMainFuncOrCtxMenu(ADDON_ID, "unified-toolbar-button", window.printingtools.cmd_printng, ctxMenu, dtdFiles)
+	
+	addTBbuttonMainFuncOrCtxMenu(ADDON_ID, "unified-toolbar-button", window.printingtools.cmd_printng, ctxMenu, dtdFiles)
 }
 
 function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttCtxMenu, ctxMenuDTDs) {
 	// width of ucarret dropdown area in px
 	const dropdownTargetWidth = 21;
-	
+	// we need tabmail for its tabMonitor
 	var tabmail = document.getElementById("tabmail");
 
 	if (!mainButtFunc && !buttCtxMenu) {
@@ -163,7 +154,7 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 	}
 
 	var tabMonitor = {
-		monitorName: "ptngMonitor",
+		monitorName: "tbButtonListenerMonitor",
 
 		onTabTitleChanged() { },
 		onTabOpened() { },
@@ -172,8 +163,6 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 		onTabClosing() { },
 
 		async onTabSwitched(newTabInfo, oldTabInfo) {
-			//console.log(newTabInfo)
-			//console.log(newTabInfo.browser?.contentDocument?.URL)
 			console.log(newTabInfo.mode?.name)
 			if (newTabInfo.mode?.name == "mail3PaneTab" || newTabInfo.mode?.name == "mailMessageTab") {
 				await setup();
@@ -181,16 +170,17 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 		}
 	}
 
+	// register tabmonitor for setting up listener
 	tabmail.registerTabMonitor(tabMonitor);
-
-
+	return true;
 
 	async function setup() {
-		await new Promise(resolve => window.setTimeout(resolve, 100));
+		await new Promise(resolve => window.setTimeout(resolve, 10));
 		let tbExtButton = document.querySelector(`button.${toolbarClass}[extension="${addOnId}"]`);
 		console.log(tbExtButton)
 		if (!tbExtButton) {
-			return false;
+			console("Exception: Extension button not found on toolbar")
+			return;
 		}
 		// get parent div for listener
 		let listenerTarget = tbExtButton.parentElement;
@@ -204,7 +194,7 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 				WL.injectElements(ctxMenuXML, ctxMenuDTDs);
 			} catch (e) {
 				console.log("Exception adding context menu:", e);
-				return false;
+				return;
 			}
 		}
 
@@ -215,6 +205,8 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 		listenerTarget.addEventListener('click', listenerFunc, true);
 		tabmail.unregisterTabMonitor(tabMonitor);
 	}
+
+
 	function listenerFunc(e) {
 		e.stopImmediatePropagation();
 		e.stopPropagation();
@@ -240,7 +232,6 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 			mainButtFunc();
 		}
 	};
-	return;
 }
 
 
