@@ -31,7 +31,7 @@ Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js")
 var { printerSettings } = ChromeUtils.import("chrome://printingtoolsng/content/printerSettings.js");
 
 
-console.log("PTNG: Engine loaded ")
+console.log("PTNG: v" + window.printingtoolsng.extension.addonData.version + " PrintingTools NG Engine loaded ")
 
 printerSettings.addPrintPreviewObserver();
 

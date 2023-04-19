@@ -23,6 +23,10 @@ function onLoad() {
 
 	//console.debug('messenger ol');
 
+	// inject extension object into private context
+	window.printingtoolsng = {};
+	window.printingtoolsng.extension = WL.extension;
+	
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/UIlisteners.js", window);
@@ -106,17 +110,9 @@ function onLoad() {
 </toolbarpalette>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
-
-
-
 	WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
 
 	window.getUI_status.startup();
-
-	// inject extension object into private context
-	window.printingtoolsng = {};
-	window.printingtoolsng.extension = WL.extension;
-
 
 	extMsgHandler = window.ptngAddon.notifyTools.addListener(handleExternalPrint);
 
@@ -125,9 +121,9 @@ function onLoad() {
 // -- Define listeners for messages from the background script.
 
 async function handleExternalPrint(data) {
-	console.log(" incoming ext msg" + data);
+	// console.log(" incoming ext msg" + data);
 	await window.printingtools.cmd_printng_external({ messageHeader: data.messageHeader || "error" })
-	console.log("PTNG: External print handler done")
+	// console.log("PTNG: External print handler done")
 	return true;
 }
 
