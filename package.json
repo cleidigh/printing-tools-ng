@@ -1,7 +1,7 @@
 {
   "title": "PrintingTools NG",
   "name": "printing-tools-ng",
-  "version": "2.2.2-b8",
+  "version": "2.2.2",
   "description": "Message Printing Tools NG",
   "author": "Christopher Leidigh",
   "engines": {

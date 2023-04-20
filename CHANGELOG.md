@@ -8,6 +8,7 @@ Version 2.2.2 : Maintenance Release - April 20, 2023
 - Add persistent printer option #188
 - Add "msprompt" debug option to prompt for multiple selection printing 
 - Fix header ordering issue in 'fr' locale
+- Fix pageRanges not working with multiple selection printing #195
 - Rewrite of UI for 'fr' locale
 - Rewrite of UI for 'el' locale
 - Update WL, fix wrench in addon manager
