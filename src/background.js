@@ -72,11 +72,10 @@ browser.tabs.onUpdated.addListener(async (tabId, u, tab) => {
 });
 */
 
-let l = messenger.i18n.getUILanguage();
+var currentLocale = messenger.i18n.getUILanguage();
 
 browser.runtime.onInstalled.addListener(async (info) => {
-	info.locale = l;
-	await browser.tabs.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, index: 1 })
+	await openHelp({opentype: "tab"});
 });
 
 
@@ -119,37 +118,47 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			return rv;
 
 		case "openHelp":
-			var locale = info.locale;
-
-			var bm = "";
-			if (info.bmark) {
-				bm = info.bmark;
-			}
-			try {
-				if (info.opentype == "tab") {
-					await browser.tabs.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, index: 1 })
-				} else {
-					browser.windows.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
-				}
-			} catch {
-				try {
-					locale = locale.Split('-')[0];
-					if (info.opentype == "tab") {
-						await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
-					} else {
-						browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
-					}
-				} catch {
-					if (info.opentype == "tab") {
-						await browser.tabs.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1 })
-					} else {
-						browser.windows.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
-					}
-				}
-			}
-			return "help";
+			rv = await openHelp(info);
+			return rv;
 	}
 });
+
+async function openHelp(info) {
+	var locale = currentLocale;
+
+	var bm = "";
+	if (info.bmark) {
+		bm = info.bmark;
+	}
+	try {
+		if (info.opentype == "tab") {
+			// use fetch to see if help file exists, throws if not, fix #212
+			await fetch(`chrome/content/help/locale/${locale}/printingtoolsng-help.html`);
+			await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
+		} else {
+			await fetch(`chrome/content/help/locale/${locale}/printingtoolsng-help.html`);
+			await browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+		}
+	} catch {
+		try {
+			locale = locale.Split('-')[0];
+			if (info.opentype == "tab") {
+				await fetch(`chrome/content/help/locale/${locale}/printingtoolsng-help.html`);
+				await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
+			} else {
+				await fetch(`chrome/content/help/locale/${locale}/printingtoolsng-help.html`);
+				await browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+			}
+		} catch {
+			if (info.opentype == "tab") {
+				await browser.tabs.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1 })
+			} else {
+				await browser.windows.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+			}
+		}
+	}
+	return "help";
+}
 
 async function getFullMessage(messageId) {
 
