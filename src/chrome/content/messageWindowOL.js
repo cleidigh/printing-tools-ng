@@ -19,7 +19,8 @@ function onLoad() {
 
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
-	var PTNGVersion = win.printingtoolsng.extension.addonData.version;
+	// fix wrong win ref, button not installed in msg window  #211
+	var PTNGVersion = window.printingtoolsng.extension.addonData.version;
 	console.log(PTNGVersion)
 	
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
