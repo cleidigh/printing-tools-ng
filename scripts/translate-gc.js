@@ -16,8 +16,8 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "extensionName", text: "PrintingTools NG" },
-	{ key: "extensionDescription", text: "Message Printing, Headers and PDF Output Tools (Nextgen)" },
+	{ key: "contextHelp.accesskey", text: "h" },
+	
 
 
 	
@@ -423,7 +423,7 @@ var options = {
  	outputLocaleDir: "./src/chrome/locale",
  	outputLocaleDirSuffix: "",
  	append: true,
- 	outputFormat: 1,
+ 	outputFormat: 2,
  };
 
 //  files from base locale 
@@ -432,7 +432,7 @@ var options = {
 	outputLocaleDir: "./src/chrome/locale",
 	outputLocaleDirSuffix: "",
 	append: false,
-	outputFormat: 0,
+	outputFormat: 2,
 };
 
 
@@ -443,40 +443,32 @@ var options = {
 // let inputFiles = ["settings.dtd", "overlay.dtd", "overlay.properties"];
 
 //let inputFiles = ["printingtoolsng.properties"];
-//let inputFiles = ["printingtoolsng.dtd"];
+let inputFiles = ["printingtoolsng.dtd"];
 
-let inputFiles = ["messages.json"];
+//let inputFiles = ["messages.json"];
 // let inputFiles = ["autobackup.dtd", "autobackup.properties", "mboximport.dtd", "mboximport.properties", "profilewizard.dtd", "profilewizard.properties"];
 //let inputFiles = ["mboximport.properties"];
 // var supportedLocales = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
 // 						'el', 'pl', 'da', 'pt-PT'];
 
 // printingtools
-//var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-//'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
-
-// help
-var localeFolders = ['ja', 'ca', 'da-DK', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
 'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
-localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'fr', 'gl-ES', 'hu',
+// help
+//var localeFolders = ['ja', 'ca', 'da-DK', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+//	'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
+
+localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'gl-ES', 'hu',
 'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
-// localeFolders = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
-// 'el', 'pl', 'da', 'pt-PT', 'ca', 'gl-ES', 'sk-SK', 'sl-SI', 'sv-SE'];
 
-// var localeFolders = ['ca', 'gl-ES', 'hu-HU', 'hy-AM',
-// 	'sk-SK', 'sl-SI', 'sv-SE'];
+// these locales are manualy managed
+// de, ja, fr
 
-//localeFolders = ['ja'];
-
-
-// localeFolders = ['ru', 'hu-HU', 'hy-AM', 'ko-KR', 'pl', 'da', 'pt-PT'];
-//localeFile = "settings.json";
-// t();
 translateHelpPage();
 //translatePage();
 // translateAll("printingtoolsng.properties", translationArray, options);
-//translateAll(inputFiles, translationArray, optionsM);
+//translateAll(inputFiles, translationArray, options);
 //translateAll("mboximport.dtd", translationArray, options);
 //loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];

@@ -104,3 +104,5 @@
 <!ENTITY Help "Segítség">
 <!ENTITY Scale "Skála">
 <!ENTITY fitToWidth "Fit to Width">
+<!ENTITY persistent "Kitartó">
+<!ENTITY contextHelp.accesskey "h">

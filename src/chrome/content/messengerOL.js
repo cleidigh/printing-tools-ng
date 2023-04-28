@@ -23,6 +23,10 @@ function onLoad() {
 
 	//console.debug('messenger ol');
 
+	// inject extension object into private context
+	window.printingtoolsng = {};
+	window.printingtoolsng.extension = WL.extension;
+	
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/UIlisteners.js", window);
@@ -57,7 +61,7 @@ function onLoad() {
 
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false)"/>
+	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="&ptngOptions.label;" oncommand="openPTdialog(false)"/>
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
@@ -76,7 +80,7 @@ function onLoad() {
 		  <menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"  />
 		  <menuseparator />
 		  <menuitem id="ptng-button-options" accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();"/>
-		  <menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
+		  <menuitem id="ptng-button-help" accesskey="&contextHelp.accesskey;" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
 		  </menupopup>
 	  </toolbarbutton>
 </toolbarpalette>
@@ -100,23 +104,15 @@ function onLoad() {
 		  <menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"  />
 		  <menuseparator />
 		  <menuitem id="ptng-button-options" accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();"/>
-		  <menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
+		  <menuitem id="ptng-button-help" accesskey="&contextHelp.accesskey;" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
 		  </menupopup>
 	  </toolbarbutton>
 </toolbarpalette>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
-
-
-
 	WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
 
 	window.getUI_status.startup();
-
-	// inject extension object into private context
-	window.printingtoolsng = {};
-	window.printingtoolsng.extension = WL.extension;
-
 
 	extMsgHandler = window.ptngAddon.notifyTools.addListener(handleExternalPrint);
 
@@ -125,9 +121,9 @@ function onLoad() {
 // -- Define listeners for messages from the background script.
 
 async function handleExternalPrint(data) {
-	console.log(" incoming ext msg" + data);
+	// console.log(" incoming ext msg" + data);
 	await window.printingtools.cmd_printng_external({ messageHeader: data.messageHeader || "error" })
-	console.log("PTNG: External print handler done")
+	// console.log("PTNG: External print handler done")
 	return true;
 }
 

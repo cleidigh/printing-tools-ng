@@ -65,9 +65,11 @@ var printerSettings = {
     footerStrLeft: "&PT",
     footerStrCenter: "",
     footerStrRight: "&D",
+    printBGColors: false,
   },
 
   getPrinterSettings: function (window, outputPrinter) {
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
     var document = window.document;
     var printSettings;
     if (PSSVC.newPrintSettings) {
@@ -77,6 +79,7 @@ var printerSettings = {
     }
 
     printSettings.printerName = outputPrinter;
+    prefs.setStringPref("extensions.printingtoolsng.print_printer", outputPrinter);
     PSSVC.initPrintSettingsFromPrefs(printSettings, true, printSettings.kInitSaveAll);
     printSettings.isInitializedFromPrinter = true;
 
@@ -340,7 +343,7 @@ var printerSettings = {
   },
 
   savePrinterSettingsFromPTNGsettings: async function () {
-
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
     var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
       .getService(Ci.nsIPrinterList);
 
@@ -384,11 +387,12 @@ var printerSettings = {
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
       Ci.nsIPrintSettings.kInitSaveFooterRight |
       Ci.nsIPrintSettings.kInitSaveShrinkToFit |
-      Ci.nsIPrintSettings.kInitSaveScaling;
+      Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors;
     PSSVC.savePrintSettingsToPrefs(printSettings, true, savePrefs);
   },
 
   savePrintSettings: function (window) {
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
     var document = window.document;
     let localeUnits = (locale == "en-US") ? 0 : 1;
     var printSettings;
@@ -453,13 +457,20 @@ var printerSettings = {
     el = document.querySelector("#footerright");
     printSettings.footerStrRight = el.value;
 
+    // Make printBGColors follow Use Headers Background Color #187
+    el = document.querySelector("#useHeadersBkColor");
+    if (el.getAttribute("checked") === "true") {
+      printSettings.printBGColors = true;
+    } else {
+      printSettings.printBGColors = false;
+    }
 
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
       Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
       Ci.nsIPrintSettings.kInitSaveFooterRight |
       Ci.nsIPrintSettings.kInitSaveShrinkToFit |
-      Ci.nsIPrintSettings.kInitSaveScaling;
+      Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors;
 
     if (dbgopts.indexOf("printsettings") > -1) {
       console.log("\nPTNG: Saving prefs on options exit");
@@ -497,6 +508,7 @@ var printerSettings = {
     }
 
     prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, js);
+    prefs.setStringPref("extensions.printingtoolsng.print_printer", printerName);
   },
 
   initCustomPrinterOptions: function (printerName, units) {
@@ -527,6 +539,21 @@ var printerSettings = {
     }
 
     return printSettings;
+  },
+
+  // For persistent printer #188
+  forcePrinterToPTNGPrinter: function () {
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
+    if (dbgopts.indexOf("printsettings") > -1) {
+      console.log("PTNG: Current system printer (bef force):", prefs.getStringPref("print_printer"));
+    }
+    if (prefs.getPrefType("extensions.printingtoolsng.print_printer")) {
+      let ptngPrinter = prefs.getStringPref("extensions.printingtoolsng.print_printer");
+      prefs.setStringPref("print_printer", ptngPrinter);
+      if (dbgopts.indexOf("printsettings") > -1) {
+        console.log("PTNG: New system printer :", prefs.getStringPref("print_printer"));
+      }
+    }
   },
 
   // We setup an observer for the preview subdialog so we can set
@@ -568,8 +595,11 @@ var printerSettings = {
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
 
-      let printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
-
+      try {
+        var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
+      } catch (e) {
+        return;
+      }
       let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
       var customProps = JSON.parse(props);
 
@@ -592,7 +622,6 @@ var printerSettings = {
       // Set pageRanges - NOTE: This has a timing dependency, a delay
       // will cause odd preview page errors
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
-
     },
   },
 };

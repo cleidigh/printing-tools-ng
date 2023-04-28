@@ -103,3 +103,5 @@
 <!ENTITY Help "Aiuto">
 <!ENTITY Scale "Scala">
 <!ENTITY fitToWidth "Adatta alla larghezza">
+<!ENTITY persistent "Persistente">
+<!ENTITY contextHelp.accesskey "H">

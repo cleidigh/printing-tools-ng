@@ -103,3 +103,5 @@
 <!ENTITY Help "Довідка">
 <!ENTITY Scale "масштаб">
 <!ENTITY fitToWidth "Підгонка по ширині">
+<!ENTITY persistent "Наполегливий">
+<!ENTITY contextHelp.accesskey "ч">

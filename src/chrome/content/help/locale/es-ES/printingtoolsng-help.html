@@ -11,7 +11,7 @@
       <tr>
         <td style="vertical-align: top;">
           <div style="font-size: 1.8em; font-weight: bold;">Ayuda de PrintingTools NG</div>
-          <div>v2.2.0</div>
+          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
         </td>
         <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
@@ -109,7 +109,7 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>configuración regional en-US, día/mes largo</td>
+        <td>configuración regional en-US, día/mes largos</td>
       </tr>
     </table>
     <br />
@@ -254,8 +254,8 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Número de semana ISO 8601 del año actual como un número decimal (rango 01 a 53), donde la semana 1
-            es la primera semana que tiene al menos 4 días en el nuevo año (es decir, el primer jueves).
+            Número de semana ISO 8601 del año actual como número decimal (rango 01 a 53), donde la semana 1 es
+            la primera semana que tiene al menos 4 días en el nuevo año (es decir, el primer jueves).
           </td>
         </tr>
         <tr>
@@ -428,8 +428,10 @@
     <h2 id="print_options_help">Opciones de impresión y página</h2>
     <p>
       Estas opciones le permiten configurar la impresora predeterminada, así como las opciones por página de
-      la impresora. También es posible establecer el modo silencioso en el que no se muestra el cuadro de
-      diálogo de vista previa y la impresión se realiza de inmediato.
+      la impresora. Si el modo persistente está configurado para la impresora predeterminada, un cambio de
+      impresora en la vista previa se restablecerá a la impresora PrintingTools NG para cada impresión
+      posterior. También es posible establecer el modo silencioso en el que no se muestra el cuadro de diálogo
+      de vista previa y la impresión se realiza de inmediato.
     </p>
     <p>
       Las opciones de página le permiten configurar elementos cuando se realiza la vista previa o la
@@ -443,9 +445,9 @@
       Un elemento que no guarda la vista previa son los rangos de página. Un caso de uso típico es cuando uno
       desea imprimir solo la primera página de un correo electrónico como predeterminado. normalmente uno
       tendría que hacer que los rangos de página cambien cada vez. Tenga en cuenta que si un rango de páginas
-      establecido en PrintingTools NG no es válido, como exceder el número de páginas, el rango deberá
-      corregirse en la vista previa antes de imprimir. Un intervalo de páginas establecido en &quot;1&quot;
-      siempre será válido e imprime la primera página del mensaje.
+      establecido en PrintingTools NG no es válido, por ejemplo, si excede el número de páginas, el rango
+      deberá corregirse en la vista previa antes de imprimir. Un intervalo de páginas establecido en
+      &quot;1&quot; siempre será válido e imprime la primera página del mensaje.
     </p>
     <p>Notas:</p>
     <p>La opción de escalado permite establecer una escala persistente.</p>
@@ -524,6 +526,9 @@
       - <code class="notranslate">@querixg</code><br />
       - <code class="notranslate">@jobisoft</code><br />
       - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@DenB10</code><br />
+      - <code class="notranslate">@ichnilatis-gr</code><br />
+      - <code class="notranslate">@Thefaroah</code><br />
       - <code class="notranslate">@KC-T</code><br />
       - <code class="notranslate">@madvinegar</code><br />
       - <code class="notranslate">@ditchfinder</code><br />
@@ -534,5 +539,6 @@
       - <code class="notranslate">@foxfan100</code><br />
       - <code class="notranslate">@pechh</code><br />
     </p>
+    <script type="text/javascript" src="../../help.js"></script>
   </body>
 </html>

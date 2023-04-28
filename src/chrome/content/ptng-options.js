@@ -222,6 +222,15 @@ async function initPMDpanel() {
 	document.getElementById("PDFcustomFilenameFormat").value = prefs.getStringPref("extensions.printingtoolsng.pdf.custom_filename_format");
 	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
+	document.getElementById("printer_persistent").checked = prefs.getBoolPref("extensions.printingtoolsng.printer.persistent");
+
+	if (prefs.getBoolPref("extensions.printingtoolsng.printer.persistent") &&
+		prefs.getPrefType("extensions.printingtoolsng.print_printer") &&
+		prefs.getStringPref("extensions.printingtoolsng.print_printer") !== ""
+	) {
+		printerSettings.forcePrinterToPTNGPrinter();
+	}
+
 	var outputPrinter = await setPrinterList();
 	printerSettings.getPrinterSettings(window, outputPrinter);
 	initValidationIds();
@@ -250,7 +259,6 @@ async function setPrinterList() {
 	var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
 		.getService(Ci.nsIPrinterList);
 
-	// Services.console.logStringMessage("printingtools: print_printer " + outputPrinter);
 	var printers = await printerList.printers;
 	var defaultPrinter = printerList.systemDefaultPrinterName;
 
@@ -447,6 +455,8 @@ function savePMDprefs() {
 	prefs.setBoolPref("extensions.printingtoolsng.pdf.filename.filter_emojis_and_symbols", document.getElementById("enableEmojiAndSymbolFilter").checked);
 	prefs.setStringPref("extensions.printingtoolsng.pdf.filename.filter_characters", document.getElementById("characterFilter").value);
 	prefs.setStringPref("extensions.printingtoolsng.pdf.custom_filename_format", document.getElementById("PDFcustomFilenameFormat").value);
+	
+	prefs.setBoolPref("extensions.printingtoolsng.printer.persistent", document.getElementById("printer_persistent").checked);
 
 	printerSettings.savePrintSettings(window);
 	window.close();
