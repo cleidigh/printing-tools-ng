@@ -1,0 +1,29 @@
+
+----------------- en-US ----------------
+
+Version 2.2.2 : Maintenance Release - April 20, 2023
+
+- Make Preview "Print Backgrounds" toggle with Use Background Color #187
+- Add persistent printer option #188
+- Add "msprompt" debug option to prompt for multiple selection printing
+- Fix header ordering issue in 'fr' locale
+- Fix pageRanges not working with multiple selection printing #195
+- Rewrite of UI for 'fr' locale
+- Rewrite of UI for 'el' locale
+- Update WL, fix wrench in addon manager
+
+
+----------------- ja ---------------------
+
+バージョン 2.2.2 : メンテナンスリリース - 2023年4月20日
+
+- 印刷プレビューの「背景画像を印刷する」を「ヘッダーの背景色指定」で切り替えられるようにしました。 #187
+- デフォルトプリンターを保持するオプションを追加しました。 #188
+- 複数メッセージ選択印刷用のデバッグオプション "msprompt" を追加しました。
+- fr （フランス語）ロケールのヘッダーの並び替えに関する問題を修正しました。
+- 複数メッセージ選択印刷でページ指定が動作しない問題を修正しました。 #195
+- fr （フランス語）ロケールの UI を書き換えました。
+- el （ギリシャ語）ロケールの UI を書き換えました。
+- WindowListener をアップデートし、アドオンマネージャーのレンチアイコンボタンを修正しました。
+
+
