@@ -287,7 +287,7 @@ var printingtools = {
 				let uri = printingtools.msgUris[0];
 
 				if (dbgopts.indexOf("trace1") > -1) {
-					console.log("PTNG: Use created browser", );
+					console.log("PTNG: Use PrintUtils browser", );
 					console.log("PTNG: Message uri: ", uri);
 				  }
 
@@ -326,8 +326,8 @@ var printingtools = {
 				docShell.appType = Ci.nsIDocShell.APP_TYPE_MAIL;
 
 				//console.log(fakeMsgPane);
-
-				MailService.DisplayMessage(
+/*
+				MailServices.DisplayMessage(
 					uri + "&markRead=false",
 					docShell,
 					undefined, //win.msgWindow,
@@ -341,12 +341,18 @@ var printingtools = {
 					if (fakeMsgPane.contentDocument && fakeMsgPane.contentDocument.readyState == "complete")
 						break;
 				}
-
-				printingtools.previewDoc = fakeMsgPane.contentDocument;
+*/
+				// 115 get rid of fake browser 
+				// This is key to flushing cache else we operate on modified browser
+				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+				
+				await PrintUtils.loadPrintBrowser(MailService.getUrlForUri(uri).spec);
+				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+				//printingtools.previewDoc = fakeMsgPane.contentDocument;
 
 				await printingtools.reformatLayout();
 
-				PrintUtils.startPrintWindow(fakeMsgPane.browsingContext);
+				PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext);
 			}
 
 			await new Promise(resolve => window.setTimeout(resolve, 400));
