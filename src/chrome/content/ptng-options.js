@@ -63,8 +63,8 @@ async function initPMDpanel() {
 
 	if (Array.isArray) {
 		document.getElementById("dateLoc").collapsed = true;
-		document.getElementById("dateSpacer").collapsed = true;
-		document.getElementById("dateShortRadio").label += (" " + bundle.GetStringFromName("dateformatTB5"));
+		//document.getElementById("dateSpacer").collapsed = true;
+		//document.getElementById("dateShortRadio").label += (" " + bundle.GetStringFromName("dateformatTB5"));
 	}
 
 	if (prefs.getPrefType("extensions.printingtoolsng.headers.addname") > 0) {
