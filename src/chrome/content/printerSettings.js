@@ -555,7 +555,7 @@ var printerSettings = {
 
     async observe(subDialogWindow) {
       // A subDialog has been opened.
-      // console.log("subDialog opened: " + subDialogWindow.location.href);
+      console.log("subDialog opened: " + subDialogWindow.location.href);
 
       // We only want to deal with the print subDialog.
       if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html?")) {
@@ -569,18 +569,24 @@ var printerSettings = {
         subDialogWindow.document.addEventListener("print-settings", resolve, { once: true })
       );
 
-      // console.log("subDialog print-settings loaded");
-      // console.log(subDialogWindow.document.documentElement.innerHTML)
+      console.log("subDialog print-settings loaded");
+      console.log(subDialogWindow.document.documentElement.innerHTML)
+
+      console.log("get preview elements")
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
 
       try {
+        console.log("check printer")
       var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
+      console.log(printerName)
       var props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
+      console.log(props)
 
       } catch(e) {
+        console.log(e)
         return;
       }
       
@@ -606,7 +612,7 @@ var printerSettings = {
       // Set pageRanges - NOTE: This has a timing dependency, a delay
       // will cause odd preview page errors
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
-
+      console.log("all values set")
     },
   },
 };
