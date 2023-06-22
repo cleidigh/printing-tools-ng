@@ -462,14 +462,18 @@ var printerSettings = {
       printSettings.printBGColors = false;
     }
 
-    let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
-      Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
-      Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
-      Ci.nsIPrintSettings.kInitSaveFooterRight |
-      Ci.nsIPrintSettings.kInitSaveShrinkToFit |
-      Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors;
+    console.log(printSettings)
+    PSSVC.maybeSaveLastUsedPrinterNameToPrefs(printSettings.printerName)
+    let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins ;
+    //| Ci.nsIPrintSettings.kInitSaveHeaderLeft |
+      //Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
+      //Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
+      //Ci.nsIPrintSettings.kInitSaveFooterRight |
+      //Ci.nsIPrintSettings.kInitSaveShrinkToFit |
+      //Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors;
 
-    if (dbgopts.indexOf("printsettings") > -1) {
+    //if (dbgopts.indexOf("printsettings") > -1) {
+      if (1) {
       console.log("\nPTNG: Saving prefs on options exit");
       console.log("PTNG: merged printSettings : ", printSettings);
       console.log("PTNG: key prefs:");
@@ -486,7 +490,7 @@ var printerSettings = {
       console.log("  margin right   ", printSettings.marginRight);
     }
 
-    PSSVC.maybeSavePrintSettingsToPrefs(printSettings, true, savePrefs);
+    PSSVC.maybeSavePrintSettingsToPrefs(printSettings, savePrefs);
 
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
