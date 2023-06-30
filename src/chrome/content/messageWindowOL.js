@@ -1,4 +1,6 @@
-var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+var Services = globalThis.Services || ChromeUtils.import(
+  'resource://gre/modules/Services.jsm'
+).Services;
 
 // Import any needed modules.
 var ADDON_ID = "PrintingToolsNG@cleidigh.kokkini.net";
