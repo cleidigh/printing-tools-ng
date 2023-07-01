@@ -27,13 +27,13 @@
 <!ENTITY PMDlabel20 "Címjegyzék szerinti név és a dátum hozzáadása">
 <!ENTITY style "Stílus">
 <!ENTITY PMDlabel21 "Mindig kiterjesztett fejlécek elrejtése">
-<!ENTITY withSize "mérettel">
+<!ENTITY withSize "méret">
 <!ENTITY forBody "üzenettörzs">
 <!ENTITY forHeaders "csak a fejlécek">
 <!ENTITY useHeadersBkColor "Fejléchez használandó háttérszín:">
 <!ENTITY misc "Egyéb">
 <!ENTITY order "Fejlécelemek sorrendje">
-<!ENTITY headers "fejlécelemek">
+<!ENTITY headers "Fejlécelemek">
 <!ENTITY up "Fel">
 <!ENTITY down "Le">
 <!ENTITY otherHeaders "További fejlécelemek ezek után (ha vannak)">
@@ -70,7 +70,7 @@
 <!ENTITY date_custom.label "Egyéni">
 <!ENTITY messageBody "Üzenettörzs">
 
-<!ENTITY body "Test">
+<!ENTITY body "Szöveg">
 <!ENTITY pdf_output "PDF kimenet">
 <!ENTITY print_and_pageoptions "Nyomtatási és oldalbeállítások">
 <!ENTITY headers_order "Fejlécek sorrendje">
@@ -90,19 +90,19 @@
 <!ENTITY page_options "Oldalbeállítások">
 <!ENTITY copies "Másolatok">
 <!ENTITY all "Összes">
-<!ENTITY custom "Egyedi">
-<!ENTITY page_ranges "Oldaltartományok">
+<!ENTITY custom "Egyéni">
+<!ENTITY page_ranges "Oldalak">
 <!ENTITY margins "Margók">
-<!ENTITY top "Top">
+<!ENTITY top "Felső">
 <!ENTITY bottom "Alsó">
 <!ENTITY left "Bal">
 <!ENTITY right "Jobb">
-<!ENTITY center "Központ">
+<!ENTITY center "Középen">
 <!ENTITY footers "Láblécek">
-<!ENTITY cancel "Megszünteti">
+<!ENTITY cancel "Mégse">
 <!ENTITY page_headers "Fejlécek">
 <!ENTITY Help "Segítség">
-<!ENTITY Scale "Skála">
-<!ENTITY fitToWidth "Fit to Width">
+<!ENTITY Scale "Méret">
+<!ENTITY fitToWidth "Szélességhez igazít">
 <!ENTITY persistent "Kitartó">
 <!ENTITY contextHelp.accesskey "h">
