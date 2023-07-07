@@ -2,6 +2,12 @@
 
 ## Versions
 
+Version 2.2.3 : Maintenance Release - June 30, 2023
+
+- Fix non supported sub-locale for help #212
+- Fix button in message window #211
+- Improve hu locale - @efi99
+
 Version 2.2.2 : Maintenance Release - April 20, 2023
 
 - Make Preview "Print Backgrounds" toggle with Use Background Color #187
