@@ -36,7 +36,7 @@
 				</hbox>
 				<html:div style="height: 5px;"></html:div>
 				<hbox>
-					<spacer width="24"/>
+					<html:div style="width: 24px;"></html:div>
 					<radiogroup id="addNameRG">
 						<radio label="&RG1.label;" />
 						<radio label="&RG2.label;" />
@@ -47,9 +47,8 @@
 					</radiogroup>
 				</hbox>
 				<html:div style="height: 2px;"></html:div>
-
 				<hbox align="center">
-					<spacer width="10px" />
+					<html:div style="width: 10px;"></html:div>
 					<checkbox id="addFolder" label="&PMDlabel23;" />
 				</hbox>
 				<html:div style="height: 8px;"></html:div>
@@ -64,8 +63,7 @@
 					</hbox>
 					<html:div style="height: 8px;"></html:div>
 					<hbox>
-						<spacer id="dateSpacer" />
-						<spacer width="24"/>
+						<html:div id="dateSpacer" style="width: 24px;"></html:div>
 						<radiogroup id="dateLongRG">
 							<radio label="&short.label;" id="dateShortRadio" />
 							<radio label="&longLoc.label;" />
@@ -83,16 +81,16 @@
 					</hbox>
 				<html:div style="height: 2px;"></html:div>
 					<hbox align="center">
-						<spacer width="10px" />
+						<html:div style="width: 10px;"></html:div>
 						<checkbox id="addRdate" label="&addRdate.label;" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="10px" />
+						<html:div style="width: 10px;"></html:div>
 						<checkbox id="useCcBccAlways" label="&useCcBccAlways;" />
 					</hbox>
 				<html:div style="height: 22px;"></html:div>
 					<hbox align="center">
-						<spacer width="15px"/>
+						<html:div style="width: 15px;"></html:div>
 						<label value="&debugOptions.label;: " />
 						<html:input type="text" id="debug-options" />
 						<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
@@ -116,7 +114,7 @@
 				<vbox align="start" style="padding-left: 10px">
 					<hbox align="center">
 						<checkbox id="PMDhide" label="&PMDlabel4;" />
-						<spacer width="5px" />
+						<html:div style="width: 5px;"></html:div>
 						<checkbox id="PMDextHide" label="&PMDlabel21;" />
 					</hbox>
 					<checkbox id="alignHeaders" label="&alignHeaders.label;"  />
@@ -129,7 +127,7 @@
 						<checkbox id="PMDborders" label="&PMDlabel3;" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="24"/>
+						<html:div style="width: 24px;"></html:div>
 						<label value="&borderStyle; (CSS)" style="margin-bottom: 0px; margin-top: 0px;" />
 						<html:input type="text" id="border_style" value="" />
 					</hbox>
@@ -141,7 +139,7 @@
 						<checkbox id="headersStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleHeadersStyle,300,this)" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="26"/>
+						<html:div style="width: 26px;"></html:div>
 						<menulist id="hdrfontlist" style="width: 300px"/>
 						<label value="&withSize;" />
 						<menulist id="hdrfontsize">
@@ -172,7 +170,7 @@
 					<label style="font-weight: 700" value="&headers_order;" />
 				</hbox>
 				<hbox>
-					<spacer width="20px"/>
+						<html:div style="width: 20px;"></html:div>
 					<vbox>
 						<html:div style="height: 8px;"></html:div>
 						<html:div id="headersListContainer" tabindex="0" class="table-list-hboxcontainer">
@@ -184,9 +182,7 @@
 						</html:div>
 					</vbox>
 					<vbox style="padding-left: 30px;">
-						<spacer height="4px" width="30px"/>
 						<html:div style="height: 4px;"></html:div>
-
 						<button label="&up;" onclick="move(1)" />
 						<html:div style="height: 5px;"></html:div>
 						<button label="&down;" onclick="move(-1)" />
@@ -215,7 +211,7 @@
 							<checkbox id="messageStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleMessageStyle,300,this,true)" />
 						</hbox>
 						<hbox align="center">
-							<spacer width="26"/>
+						<html:div style="width: 26px;"></html:div>
 							<menulist id="fontlist" style="width: 300px"/>
 							<label value="&withSize;"/>
 							<menulist id="fontsize">
@@ -272,19 +268,19 @@
 					<label value="&attachments;" style="font-weight: 700; width: 100px"/>
 					<html:div style="height: 8px;"></html:div>
 					<hbox align="center">
-						<spacer width="10px"/>
+						<html:div style="width: 10px;"></html:div>
 						<checkbox id="PMDattach" label="&PMDlabel2;" oncommand="setTimeout(toggleAtt,200)" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="30px"/>
+						<html:div style="width: 30px;"></html:div>
 						<checkbox id="PMDattachIcon" label="&PMDlabel17;" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="30px"/>
+						<html:div style="width: 30px;"></html:div>
 						<checkbox id="addP7M" label="&showSignatureVCFfiles;" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="35px"/>
+						<html:div style="width: 35px;"></html:div>
 						<label value="&attachmentsPerLine;"/>
 						<menulist id="num_atts_line" style="width: 100%" width="100%">
 							<menupopup>
@@ -297,18 +293,18 @@
 						</menulist>
 					</hbox>
 					<hbox align="center">
-						<spacer width="10px"/>
+						<html:div style="width: 10px;"></html:div>
 						<checkbox id="InlineAttsListhide" label="&HideInlineAttList;" />
-						<spacer width="5px" />
+						<html:div style="width: 5px;"></html:div>
 						<checkbox id="PMDhideAtt" label="&PMDlabel10;" />
 					</hbox>
 					<html:div style="height: 15px;"></html:div>
 					<label value="&images;" style="font-weight: 700; width: 100px"/>
 					<html:div style="height: 8px;"></html:div>
 					<hbox align="center">
-						<spacer width="10px" />
+						<html:div style="width: 10px;"></html:div>
 						<checkbox id="PMDhideImgs" label="&PMDlabel7;" />
-						<spacer width="5px" />
+						<html:div style="width: 5px;"></html:div>
 						<checkbox id="resizeImgs" label="&resizeImgs.label;" />
 					</hbox>
 				</vbox>
@@ -329,11 +325,11 @@
 					</hbox>
 					<html:div style="height: 3px;"></html:div>
 					<hbox align="center">
-						<spacer width="25px"/>
+						<html:div style="width: 25px;"></html:div>
 						<label value="&output_dir;" />
 					</hbox>
 					<hbox align="center">
-						<spacer width="25px"/>
+						<html:div style="width: 25px;"></html:div>
 						<html:input id="PDFoutputDir" type="text" />
 						<button id="PDFoutputDirBrowse" label="&browse;" oncommand="pickPDFoutputDir()" />
 					</hbox>
@@ -403,18 +399,16 @@
 							</html:tr>
 							</html:table>
 							</div>
-							
-
 							<html:div style="height: 8px;"></html:div>
 							<hbox>
-							<spacer width="15px"/>
+						<html:div style="width: 15px;"></html:div>
 							<menulist id="OutputPrinter" oncommand="printerChange();" style="padding-left: 24px"/>
 							<checkbox id="printer_persistent" label="persistent" style="padding-left: 20px" />
 							</hbox>
 
 							<html:div style="height: 4px;"></html:div>
 							<hbox align="center">
-							<spacer width="14px"/>
+						<html:div style="width: 14px;"></html:div>
 							<checkbox id="PMDsilent" label="&PMDlabel8;" />
 							</hbox>
 							<html:div style="height: 15px;"></html:div>
@@ -591,8 +585,7 @@
 	</tabbox>
 
 	<vbox height="8px"></vbox>
-	<hbox align="right">
-		<spacer flex="1"/>
+	<hbox align="right" pack="end">
 		<button id="okbutton" label="OK" oncommand="savePMDprefs();"/>
 		<button id="cancelbutton" label="&cancel;" oncommand="window.close();"/>
 	</hbox>
