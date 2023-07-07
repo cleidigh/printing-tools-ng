@@ -30,11 +30,11 @@
 			<!-- TAB1 Miscellaneous -->
 			<tabpanel orient="vertical">
 			<html:div style="padding-left: 5px">
-				<spacer height="8px"/>
+				<html:div style="height: 8px;"></html:div>
 				<hbox>
 					<label style="font-weight: 700" value="&addNameRG.label;" />
 				</hbox>
-				<spacer height="5px"/>
+				<html:div style="height: 5px;"></html:div>
 				<hbox>
 					<spacer width="24"/>
 					<radiogroup id="addNameRG">
@@ -46,22 +46,23 @@
 						</hbox>
 					</radiogroup>
 				</hbox>
-				<spacer height="2px" />
+				<html:div style="height: 2px;"></html:div>
 
 				<hbox align="center">
 					<spacer width="10px" />
 					<checkbox id="addFolder" label="&PMDlabel23;" />
 				</hbox>
-				<spacer height="8px" />
+				<html:div style="height: 8px;"></html:div>
+
 				<hbox align="center" id="dateLoc">
 					<checkbox id="PMDdate" label="&PMDlabel1;"  oncommand="setTimeout(toggleDate,200)" />
 				</hbox>
 				<groupbox flex="1">
-				<spacer height="15px"/>
+				<html:div style="height: 15px;"></html:div>
 					<hbox>
 						<label style="font-weight: 700" value="&date.label;" />
 					</hbox>
-					<spacer height="8px"/>
+					<html:div style="height: 8px;"></html:div>
 					<hbox>
 						<spacer id="dateSpacer" />
 						<spacer width="24"/>
@@ -80,7 +81,7 @@
 							</hbox>
 						</radiogroup>
 					</hbox>
-					<spacer height="2px" />
+				<html:div style="height: 2px;"></html:div>
 					<hbox align="center">
 						<spacer width="10px" />
 						<checkbox id="addRdate" label="&addRdate.label;" />
@@ -89,7 +90,7 @@
 						<spacer width="10px" />
 						<checkbox id="useCcBccAlways" label="&useCcBccAlways;" />
 					</hbox>
-					<spacer height="22px" />
+				<html:div style="height: 22px;"></html:div>
 					<hbox align="center">
 						<spacer width="15px"/>
 						<label value="&debugOptions.label;: " />
@@ -107,11 +108,11 @@
 			<!-- TAB2 Headers -->
 			<tabpanel orient="vertical">
 			<html:div style="padding-left: 5px">
-				<spacer height="8px"/>
+				<html:div style="height: 8px;"></html:div>
 				<hbox>
 					<label style="font-weight: 700" value="&headers;" />
 				</hbox>
-				<spacer height="8px"/>
+				<html:div style="height: 8px;"></html:div>
 				<vbox align="start" style="padding-left: 10px">
 					<hbox align="center">
 						<checkbox id="PMDhide" label="&PMDlabel4;" />
@@ -166,14 +167,14 @@
 						</menulist>
 					</hbox>
 				</vbox>
-				<spacer height="15px"/>
+				<html:div style="height: 15px;"></html:div>
 				<hbox>
 					<label style="font-weight: 700" value="&headers_order;" />
 				</hbox>
 				<hbox>
 					<spacer width="20px"/>
 					<vbox>
-						<spacer height="8px"/>
+						<html:div style="height: 8px;"></html:div>
 						<html:div id="headersListContainer" tabindex="0" class="table-list-hboxcontainer">
 							<html:table id="headersList" class="list table-list" style="widthx: 120%">
 								<html:thead>
@@ -184,10 +185,12 @@
 					</vbox>
 					<vbox style="padding-left: 30px;">
 						<spacer height="4px" width="30px"/>
+						<html:div style="height: 4px;"></html:div>
+
 						<button label="&up;" onclick="move(1)" />
-						<spacer height="5px"/>
+						<html:div style="height: 5px;"></html:div>
 						<button label="&down;" onclick="move(-1)" />
-						<spacer height="5px"/>
+						<html:div style="height: 5px;"></html:div>
 						<button label="&showhide;" onclick="toggleHeaderShow()" />
 					</vbox>
 				</hbox>
@@ -198,11 +201,11 @@
 			<tabpanel>
 			<html:div style="padding-left: 5px">
 				<vbox>
-					<spacer height="8px"/>
+					<html:div style="height: 8px;"></html:div>
 					<hbox>
 						<label style="font-weight: 700" value="&messageBody;" />
 					</hbox>
-					<spacer height="7px"/>
+					<html:div style="height: 7px;"></html:div>
 					<vbox align="start" style="padding-left: 10px">
 						<hbox align="center">
 							<checkbox id="PREtruncate" label="&maxPreLen;" />
@@ -265,9 +268,9 @@
 							</menulist>
 						</hbox>
 					</vbox>
-					<spacer height="15px"/>
+					<html:div style="height: 15px;"></html:div>
 					<label value="&attachments;" style="font-weight: 700; width: 100px"/>
-					<spacer height="8px"/>
+					<html:div style="height: 8px;"></html:div>
 					<hbox align="center">
 						<spacer width="10px"/>
 						<checkbox id="PMDattach" label="&PMDlabel2;" oncommand="setTimeout(toggleAtt,200)" />
@@ -299,9 +302,9 @@
 						<spacer width="5px" />
 						<checkbox id="PMDhideAtt" label="&PMDlabel10;" />
 					</hbox>
-					<spacer height="15px"/>
+					<html:div style="height: 15px;"></html:div>
 					<label value="&images;" style="font-weight: 700; width: 100px"/>
-					<spacer height="8px"/>
+					<html:div style="height: 8px;"></html:div>
 					<hbox align="center">
 						<spacer width="10px" />
 						<checkbox id="PMDhideImgs" label="&PMDlabel7;" />
@@ -315,16 +318,16 @@
 			<!-- TAB4 PDF options -->
 			<tabpanel orient="vertical">
 			<html:div style="padding-left: 5px">
-				<spacer height="8px"/>
+				<html:div style="height: 8px;"></html:div>
 				<hbox>
 					<label style="font-weight: 700" value="&pdf_file_naming;" />
 				</hbox>
-				<spacer height="8px" />
+				<html:div style="height: 8px;"></html:div>
 				<vbox align="start" style="padding-left: 10px">
 					<hbox align="center">
 						<checkbox id="enablePDFoutputDir" label="&enable_pdfdir;" />
 					</hbox>
-					<spacer height="3px"/>
+					<html:div style="height: 3px;"></html:div>
 					<hbox align="center">
 						<spacer width="25px"/>
 						<label value="&output_dir;" />
@@ -334,7 +337,7 @@
 						<html:input id="PDFoutputDir" type="text" />
 						<button id="PDFoutputDirBrowse" label="&browse;" oncommand="pickPDFoutputDir()" />
 					</hbox>
-					<spacer height="12px"/>
+					<html:div style="height: 12px;"></html:div>
 					<hbox align="center" >
 						<label id="PDFcustomDateLabel" style="padding-top: 3px;" >&custom_date_format;</label>
 						<html:input type="text" id="customDatePDF" />
@@ -344,29 +347,29 @@
 							margin-bottom: 0px; background-color: ;" onclick="utils.loadHelp('#customdate_format_help')" title="Help" />
 						</hbox>
 					</hbox>
-					<spacer height="15px"/>
+					<html:div style="height: 15px;"></html:div>
 					<hbox align="center">
 						<label value="&prefix;" />
 						<html:input id="prefixText"/>
 					</hbox>
-					<spacer height="4px"/>
+					<html:div style="height: 4px;"></html:div>
 					<hbox align="center" >
 						<label value="&suffix;" />
 						<html:input id="suffixText"/>
 					</hbox>
-					<spacer height="12px"/>
+					<html:div style="height: 12px;"></html:div>
 					<hbox align="center">
 						<checkbox id="enableLatinize" label="&latinize;" />
 					</hbox>
 					<hbox align="center">
 						<checkbox id="enableEmojiAndSymbolFilter" label="&remove_emojis;" />
 					</hbox>
-					<spacer height="12px"/>
+					<html:div style="height: 12px;"></html:div>
 					<hbox align="center">
 						<label value="&filter_characters;" />
 						<html:input id="characterFilter" type="text"  />
 					</hbox>
-					<spacer height="26px"/>
+					<html:div style="height: 26px;"></html:div>
 					<hbox style="height: ;" >
 						<label style="padding-top: 3px;" >&filename_format;</label>
 						<html:input type="text" id="PDFcustomFilenameFormat" />
@@ -402,18 +405,19 @@
 							</div>
 							
 
-							<spacer height="8px"/>
+							<html:div style="height: 8px;"></html:div>
 							<hbox>
 							<spacer width="15px"/>
 							<menulist id="OutputPrinter" oncommand="printerChange();" style="padding-left: 24px"/>
+							<checkbox id="printer_persistent" label="persistent" style="padding-left: 20px" />
 							</hbox>
 
-							<spacer height="4px"/>
+							<html:div style="height: 4px;"></html:div>
 							<hbox align="center">
 							<spacer width="14px"/>
 							<checkbox id="PMDsilent" label="&PMDlabel8;" />
 							</hbox>
-							<spacer height="15px"/>
+							<html:div style="height: 15px;"></html:div>
 
 							<div>
 							<html:table style= "">
@@ -431,7 +435,7 @@
 							</html:table>
 							</div>
 
-							<spacer height="8px"/>
+							<html:div style="height: 8px;"></html:div>
 
 							<html:div>
 							<html:table id="margins-hdrftr-table" class="margins-hdrftr-tbl" style="border-collapse: collapse;">
