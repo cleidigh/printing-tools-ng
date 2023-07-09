@@ -19,7 +19,7 @@ function onLoad() {
 
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
-	var PTNGVersion = win.printingtoolsng.extension.addonData.version;
+	var PTNGVersion = window.printingtoolsng.extension.addonData.version;
 	console.log(PTNGVersion)
 	
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
