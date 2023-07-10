@@ -742,7 +742,7 @@ var WindowListener_102 = class extends ExtensionCommon.ExtensionAPI {
         window[this.uniqueRandomID].WL.injectElements = function (
           xulString,
           dtdFiles = [],
-          debug = false
+          debug = true
         ) {
           let toolbarsToResolve = [];
 
@@ -1757,7 +1757,7 @@ var WindowListener_115 = class extends ExtensionCommon.ExtensionAPI {
         window[this.uniqueRandomID].WL.injectElements = function (
           xulString,
           dtdFiles = [],
-          debug = false
+          debug = true
         ) {
           let toolbarsToResolve = [];
 

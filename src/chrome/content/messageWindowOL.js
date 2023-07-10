@@ -81,6 +81,7 @@ function onLoad() {
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
+console.log("button")
 WL.injectElements(`
 <toolbarpalette id="header-view-toolbar">
 	<toolbarbutton id="ptng-button-hdr"
