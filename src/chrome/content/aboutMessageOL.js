@@ -20,6 +20,7 @@ function onLoad() {
   window.printingtoolsng.extension = WL.extension;
   var PTNGVersion = window.printingtoolsng.extension.addonData.version;
   console.log(PTNGVersion)
+  console.log(window)
 
 
   Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
@@ -33,7 +34,7 @@ function onLoad() {
 	<toolbarbutton id="ptng-button-hdr"
 	label="&print.label; NG"
 	tooltiptext="&ptng.label;"  
-	  oncommand="console.log('butt')"
+	  oncommand="printingtools.cmd_printng(null, {})"
 	  class="ptng-button-hdr toolbarbutton-1 message-header-view-button"
 	  type="menu-button"
 	  insertafter="hdrJunkButton"

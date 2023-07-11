@@ -33,7 +33,8 @@ var { printerSettings } = ChromeUtils.import("chrome://printingtoolsng/content/p
 
 console.log("PTNG: Engine loaded ")
 
-printerSettings.addPrintPreviewObserver();
+//printerSettings.addPrintPreviewObserver();
+var mail3paneWin =  Services.wm.getMostRecentWindow("mail:3pane");
 
 
 var printingtools = {
@@ -61,6 +62,7 @@ var printingtools = {
 
 	/** Prints the messages selected in the thread pane. */
 	PrintSelectedMessages: async function (options) {
+		
 		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		printingtools.current = 0;
 		printingtools.msgUris = [];
@@ -99,7 +101,7 @@ var printingtools = {
 		// loadptng settings 
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 
-		var ps = PrintUtils.getPrintSettings();
+		var ps = mail3paneWin.PrintUtils.getPrintSettings();
 		// overlay ptng ps like pageRanges not saved in prefs, fixes #195
 		ps = printerSettings.setPrinterSettingsFromPTNGsettings(ps);
 
@@ -132,13 +134,17 @@ var printingtools = {
 		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave) {
 			
 			if ( url !== "undefinedURL") {
-				//let messagePaneBrowser = document.getElementById("messagepane");
+				let messagePaneBrowser = document.getElementById("messagepane");
 
-				
+				/*
 				let mail3PaneTabBrowser1 = window.document.getElementById("mail3PaneTabBrowser1").contentDocument
 				let messagePane = mail3PaneTabBrowser1.getElementById("messagePane")
 				let messagePaneBrowser = messagePane.firstChild.nextElementSibling.nextElementSibling.contentDocument.getElementById("messagepane");
 				console.log(messagePaneBrowser.contentDocument)
+*/
+
+				//messagePaneBrowser = gTabmail.currentTabInfo.chromeBrowser.contentDocument.getElementById("messagepane");
+				
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = printingtools.msgUris[0];
 				if (dbgopts.indexOf("pdfoutput") > -1) {
@@ -276,11 +282,15 @@ var printingtools = {
 				  }
 
 				if (selection.rangeCount > 1) {
-					//console.log("print sel")
-					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
+					console.log("print sel")
+					//mail3paneWin.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
+					goDoCommand('cmd_print')
+
 				} else {
-					// console.log("print no sel")
-					PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: false });
+					console.log("print no sel")
+					//mail3paneWin.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
+					//mail3paneWin.PrintUtils.startPrintWindow(mail3paneWin.PrintUtils.printBrowser.browsingContext, { printSelectionOnly: false });
+					goDoCommand('cmd_print')
 				}
 
 			} else {
@@ -2172,7 +2182,7 @@ var printingtools = {
 			return printingtoolsng.attList;
 		} else {
 
-			printingtools.hdr = messenger.msgHdrFromURI(currentUri);
+			printingtools.hdr = mail3paneWin.messenger.msgHdrFromURI(currentUri);
 
 			var mHdr = window.printingtoolsng.extension.messageManager.convert(printingtools.hdr);
 			//console.log(mHdr)
