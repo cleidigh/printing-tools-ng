@@ -134,7 +134,26 @@ var printingtools = {
 		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave) {
 			
 			if ( url !== "undefinedURL") {
-				let messagePaneBrowser = document.getElementById("messagepane");
+
+				console.log(window)
+				var messagePaneBrowser;
+
+				if (window.document.URL.endsWith("messenger.xhtml")) {
+					var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
+					if (mail3PaneTabBrowser1Doc.getElementById("messagepane")) {
+						messagePaneBrowser = mail3PaneTabBrowser1Doc.getElementById("messagepane")
+					} else {
+					let messageBrowserDoc = mail3PaneTabBrowser1Doc.getElementById("messageBrowser").contentDocument;
+					messagePaneBrowser = messageBrowserDoc.getElementById("messagepane")
+					}
+					
+					console.log("m win", messagePaneBrowser)
+
+				} else {
+					messagePaneBrowser = document.getElementById("messagepane");
+					console.log("msg win", messagePaneBrowser)
+
+				}
 
 				/*
 				let mail3PaneTabBrowser1 = window.document.getElementById("mail3PaneTabBrowser1").contentDocument
