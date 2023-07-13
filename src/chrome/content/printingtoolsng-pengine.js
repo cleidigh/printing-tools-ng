@@ -33,7 +33,7 @@ var { printerSettings } = ChromeUtils.import("chrome://printingtoolsng/content/p
 
 console.log("PTNG: Engine loaded ")
 
-//printerSettings.addPrintPreviewObserver();
+printerSettings.addPrintPreviewObserver();
 var mail3paneWin =  Services.wm.getMostRecentWindow("mail:3pane");
 
 
