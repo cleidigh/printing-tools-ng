@@ -52,10 +52,10 @@ messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/messageWindow.xhtml",
 	"chrome://printingtoolsng/content/messageWindowOL.js");
 
-	messenger.WindowListener.registerWindow(
-		"about:message",
-		"chrome://printingtoolsng/content/aboutMessageOL.js");
-		
+messenger.WindowListener.registerWindow(
+	"about:message",
+	"chrome://printingtoolsng/content/aboutMessageOL.js");
+
 messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/customizeToolbar.xhtml",
 	"chrome://printingtoolsng/content/customizeToolbar.js");
@@ -110,24 +110,24 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			let currentTab = currentWin.tabs.find(t => t.active);
 
 			console.log(currentTab)
-			
+
 
 			var msgList = [];
 			if (currentTab.mailTab) {
-			
-			try {
-				msgList = await browser.mailTabs.getSelectedMessages();
-				console.log(msgList)
-			} catch {
-				msgList = null;
+
+				try {
+					msgList = await browser.mailTabs.getSelectedMessages();
+					console.log(msgList)
+				} catch {
+					msgList = null;
+				}
+				return msgList;
+			} else if (currentTab.type == "messageDisplay") {
+				let msgDisplayed = await browser.messageDisplay.getDisplayedMessage(currentTab.id);
+				console.log(msgDisplayed)
+				msgList = { id: null, messages: [msgDisplayed] };
+				return msgList;
 			}
-			return msgList;
-		} else if (currentTab.type == "messageDisplay") {
-			let msgDisplayed = await browser.messageDisplay.getDisplayedMessage(currentTab.id);
-			console.log(msgDisplayed)
-			msgList = {id: null, messages: [msgDisplayed]};
-			return msgList;
-		}
 		case "getFullMessage":
 
 			rv = await getFullMessage(info.messageId);
@@ -201,13 +201,26 @@ function handleMessage(message, sender) {
 
 }
 
-// 115 exp
+const msgCtxMenu_TopId = "msgCtxMenu_TopId";
+
+let ptngMenuDef = {
+	contexts: ["message_list","frame"],
+	id: msgCtxMenu_TopId,
+	title: "Print NG…",
+	onclick: cmd_print
+
+}
+
 
 function cmd_print(e) {
-	console.log("print",e)
-	messenger.NotifyTools.notifyExperiment({command: "WEXT_cmd_print"}).then((data) => {
+	console.log("print", e)
+	messenger.NotifyTools.notifyExperiment({ command: "WEXT_cmd_print" }).then((data) => {
 		console.log(data)
-	  });
+	});
 }
+
+await ((async () => {
+	await messenger.menus.create(ptngMenuDef);
+})());
 
 browser.browserAction.onClicked.addListener(cmd_print);

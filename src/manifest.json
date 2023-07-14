@@ -48,10 +48,11 @@
     "permissions" : [
       "activeTab",
       "messagesRead",
-      "tabs"
+      "tabs",
+      "menus"
     ],
     "background": {
-        "scripts": ["background.js"]
+      "page": "background.html"
     },
 
     "icons": {
