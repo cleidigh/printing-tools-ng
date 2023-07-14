@@ -651,7 +651,7 @@ var printingtools = {
 
 
 	cmd_printng: async function (options) {
-		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+		var dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
 
 		if (dbgopts.indexOf("trace1") > -1) {
@@ -698,7 +698,7 @@ var printingtools = {
 
 		this.running = true;
 
-		await this.PrintSelectedMessages(options);
+		await printingtools.PrintSelectedMessages(options);
 		if (dbgopts.indexOf("trace1") > -1) {
 			console.log("PTNG: Done")
 		}
