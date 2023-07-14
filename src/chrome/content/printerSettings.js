@@ -69,6 +69,7 @@ var printerSettings = {
   },
 
   getPrinterSettings: function (window, outputPrinter) {
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
     var document = window.document;
     var printSettings;
     if (PSSVC.newPrintSettings) {
@@ -78,6 +79,7 @@ var printerSettings = {
     }
 
     printSettings.printerName = outputPrinter;
+    prefs.setStringPref("extensions.printingtoolsng.print_printer", outputPrinter);
     PSSVC.initPrintSettingsFromPrefs(printSettings, true, printSettings.kInitSaveAll);
     printSettings.isInitializedFromPrinter = true;
 
@@ -341,7 +343,7 @@ var printerSettings = {
   },
 
   savePrinterSettingsFromPTNGsettings: async function () {
-
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
     var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
       .getService(Ci.nsIPrinterList);
 
@@ -387,9 +389,11 @@ var printerSettings = {
       Ci.nsIPrintSettings.kInitSaveShrinkToFit |
       Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors;
     PSSVC.maybeSavePrintSettingsToPrefs(printSettings, savePrefs);
+
   },
 
   savePrintSettings: function (window) {
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
     var document = window.document;
     let localeUnits = (locale == "en-US") ? 0 : 1;
     var printSettings;
@@ -463,8 +467,8 @@ var printerSettings = {
     }
 
     PSSVC.maybeSaveLastUsedPrinterNameToPrefs(printSettings.printerName)
-    let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins |
-      Ci.nsIPrintSettings.kInitSaveHeaderLeft |
+
+    let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
       Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
       Ci.nsIPrintSettings.kInitSaveFooterRight |
@@ -507,6 +511,7 @@ var printerSettings = {
     }
 
     prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, js);
+    prefs.setStringPref("extensions.printingtoolsng.print_printer", printerName);
   },
 
   initCustomPrinterOptions: function (printerName, units) {
@@ -539,6 +544,21 @@ var printerSettings = {
     return printSettings;
   },
 
+  // For persistent printer #188
+  forcePrinterToPTNGPrinter: function () {
+    dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
+    if (dbgopts.indexOf("printsettings") > -1) {
+      console.log("PTNG: Current system printer (bef force):", prefs.getStringPref("print_printer"));
+    }
+    if (prefs.getPrefType("extensions.printingtoolsng.print_printer")) {
+      let ptngPrinter = prefs.getStringPref("extensions.printingtoolsng.print_printer");
+      prefs.setStringPref("print_printer", ptngPrinter);
+      if (dbgopts.indexOf("printsettings") > -1) {
+        console.log("PTNG: New system printer :", prefs.getStringPref("print_printer"));
+      }
+    }
+  },
+
   // We setup an observer for the preview subdialog so we can set
   // PTNG preferences which are not set in printsettings
   // pageRanges is set from PTNG settings. Other prefs can be
@@ -557,7 +577,7 @@ var printerSettings = {
 
     async observe(subDialogWindow) {
       // A subDialog has been opened.
-      console.log("subDialog opened: " + subDialogWindow.location.href);
+      // console.log("subDialog opened: " + subDialogWindow.location.href);
 
       // We only want to deal with the print subDialog.
       if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html?")) {
@@ -571,28 +591,19 @@ var printerSettings = {
         subDialogWindow.document.addEventListener("print-settings", resolve, { once: true })
       );
 
-      console.log("subDialog print-settings loaded");
-      console.log(subDialogWindow.document.documentElement.innerHTML)
-
-      console.log("get preview elements")
+      // console.log("subDialog print-settings loaded");
+      // console.log(subDialogWindow.document.documentElement.innerHTML)
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
 
       try {
-        console.log("check printer")
-      var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
-      console.log(printerName)
-      var props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
-      console.log(props)
-
-      } catch(e) {
-        console.log(e)
+        var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
+      } catch (e) {
         return;
       }
-      
-
+      let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
       var customProps = JSON.parse(props);
 
       // Unhide the custom range Input if custom page ranges
@@ -614,7 +625,6 @@ var printerSettings = {
       // Set pageRanges - NOTE: This has a timing dependency, a delay
       // will cause odd preview page errors
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
-      console.log("all values set")
     },
   },
 };
