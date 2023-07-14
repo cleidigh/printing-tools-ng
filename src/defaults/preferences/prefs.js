@@ -11,6 +11,8 @@ pref("extensions.printingtoolsng.headers.size", 10);
 pref("extensions.printingtoolsng.hide.inline_attachments", false);
 pref("extensions.printingtoolsng.hide.inline_attachments_list", false);
 pref("extensions.printingtoolsng.images.hide", false);
+pref("extensions.printingtoolsng.printer_printer", "");
+pref("extensions.printingtoolsng.printer.persistent", false);
 pref("extensions.printingtoolsng.print.silent", false);
 pref("extensions.printingtoolsng.print.showprogress", true );
 pref("extensions.printingtoolsng.print.just_selection", false);
