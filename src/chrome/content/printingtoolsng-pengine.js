@@ -99,6 +99,13 @@ var printingtools = {
 		console.log(url)
 
 		// loadptng settings 
+		
+		if (this.prefs.getBoolPref("extensions.printingtoolsng.printer.persistent") &&
+			this.prefs.getPrefType("extensions.printingtoolsng.print_printer") &&
+			this.prefs.getStringPref("extensions.printingtoolsng.print_printer") !== ""
+		) {
+			printerSettings.forcePrinterToPTNGPrinter();
+		}
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 
 		var ps = mail3paneWin.PrintUtils.getPrintSettings();
@@ -405,6 +412,23 @@ var printingtools = {
 		// Multiple messages. Get the printer settings, then load the messages into
 		// a hidden browser and print them one at a time.
 		
+		if (dbgopts.indexOf("msprompt") > -1) {
+			try {
+				await Cc["@mozilla.org/widget/printdialog-service;1"]
+					.getService(Ci.nsIPrintDialogService)
+					.showPrintDialog(browsingContext.topChromeWindow, false, ps);
+			} catch (e) {
+				if (e.result == Cr.NS_ERROR_ABORT) {
+					return;
+				}
+			}
+			this.prefs.setCharPref("print_printer", ps.printerName);
+			await printerSettings.savePrinterSettingsFromPTNGsettings();
+			ps = PrintUtils.getPrintSettings();
+			// overlay ptng ps like pageRanges not saved in prefs, fixes #195
+			ps = printerSettings.setPrinterSettingsFromPTNGsettings(ps);
+		}
+
 		if (ps.printerName.toLowerCase().includes("pdf")) {
 			pdfOutput = true;
 			
@@ -441,6 +465,8 @@ var printingtools = {
 		console.log("ps start ", ps)
 		var msgSubject;
 		var pdfFileName;
+
+		var currentPrinterName = this.prefs.getCharPref("print_printer");
 
 		for (let msgURI of printingtools.msgUris) {
 			var MailService = MailServices.messageServiceFromURI(msgURI);
@@ -486,14 +512,22 @@ var printingtools = {
 				this.utils.PTNG_WriteStatus(this.mainStrBundle.GetStringFromName("printing") + ": " + msgSubject);
 			}
 		}
+		this.prefs.setCharPref("print_printer", currentPrinterName);
 	},
 
 
 	PrintExternalMsg: async function (msgURI) {
+		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		printingtools.current = 0;
 		printingtools.num = 1;
 		printingtools.msgUris = [msgURI];
-		
+
+		if (this.prefs.getBoolPref("extensions.printingtoolsng.printer.persistent") &&
+			this.prefs.getPrefType("extensions.printingtoolsng.print_printer") &&
+			this.prefs.getStringPref("extensions.printingtoolsng.print_printer") !== ""
+		) {
+			printerSettings.forcePrinterToPTNGPrinter();
+		}
 
 		await printerSettings.savePrinterSettingsFromPTNGsettings();
 		let ps = PrintUtils.getPrintSettings();
@@ -521,8 +555,9 @@ var printingtools = {
 					}
 					pdfOutputDir = resultObj.folder;
 			} else {
-				console.log("PTNG: PDF output to: ", pdfOutputDir);
-				
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("PTNG: PDF output to: ", pdfOutputDir);
+				}
 			}
 		}
 
@@ -540,8 +575,9 @@ var printingtools = {
 		let msgHdr = messenger.msgHdrFromURI(msgURI);
 		let msgSubject = msgHdr.mime2DecodedSubject;
 
-		console.log("PTNG: Print Ext: " , msgSubject);
-
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: Print Ext: ", msgSubject);
+		}
 		await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 		await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
 
@@ -555,22 +591,24 @@ var printingtools = {
 		} else {
 			this.utils.PTNG_WriteStatus(this.mainStrBundle.GetStringFromName("printing") + " (Ext): " + msgSubject);
 		}
-
-		console.log("PTNG: Print Ext Done: " , msgSubject);
-		
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: Print Ext Done: ", msgSubject);
+		}
 	},
 
 	cmd_printng_external: async function (extMsgReq) {
-		console.log("PrintingTools NG Received a message from external add-on", extMsgReq);
-
-		//console.log(this.current)
-		//console.log(this.msgUris)
+		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PrintingTools NG Received a message from external add-on", extMsgReq.messageHeader);
+		}
 
 		let msgHeader = extMsgReq.messageHeader;
 
 		if (!msgHeader.id) {
-			console.log("PTNG: No useful id for message");
-			return null;
+			if (dbgopts.indexOf("trace1") > -1) {
+				console.log("PTNG: No useful id for message");
+			}
+			return;
 		}
 
 		let realMessage = window.printingtoolsng.extension
@@ -613,9 +651,9 @@ var printingtools = {
 
 
 	cmd_printng: async function (options) {
-		var dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
-		
-		
+		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+
+
 		if (dbgopts.indexOf("trace1") > -1) {
 			console.log("PTNG: cmd_printng start: options : ", options);
 		}
@@ -660,9 +698,10 @@ var printingtools = {
 
 		this.running = true;
 
-		await printingtools.PrintSelectedMessages(options);
-		console.log("PTNG: Done")
-
+		await this.PrintSelectedMessages(options);
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: Done")
+		}
 
 		this.running = false;
 
