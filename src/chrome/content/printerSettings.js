@@ -47,6 +47,7 @@ var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch
 var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"].getService(Ci.nsIPrintSettingsService);
 var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
+var gprinterSettings = printerSettings;
 var EXPORTED_SYMBOLS = ["printerSettings"];
 
 // These are our default settings for those we control separate from main prefs
@@ -591,7 +592,7 @@ var printerSettings = {
         subDialogWindow.document.addEventListener("print-settings", resolve, { once: true })
       );
 
-      // console.log("subDialog print-settings loaded");
+      console.log("subDialog print-settings loaded", printerSettings);
       // console.log(subDialogWindow.document.documentElement.innerHTML)
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
@@ -622,6 +623,7 @@ var printerSettings = {
       cmg.removeAttribute("hidden");
       mp.selectedIndex = 3;
 
+      console.log(printerSettings)
       // Set pageRanges - NOTE: This has a timing dependency, a delay
       // will cause odd preview page errors
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
