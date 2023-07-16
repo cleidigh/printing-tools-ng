@@ -70,17 +70,25 @@ var printingtools = {
 		let url2= await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 		console.log(url2)
 
+		let m = mail3paneWin.gTabmail.currentTabInfo.chromeBrowser.contentWindow.gDBView.getSelectedMsgHdrs();
+		console.log(m)
 		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
 		console.log(msgList)
 		msgList.messages.forEach(msg => {
 			let realMessage = window.printingtoolsng.extension
 			.messageManager.get(msg.id);
-			
+			console.log(realMessage)
+			try {
 			let uri = realMessage.folder.getUriForMsg(realMessage);
 			console.log(uri)
 			printingtools.msgUris.push(uri)
+		} catch {	}
 		});
 
+		if (url2 && printingtools.msgUris.length == 0) {
+			printingtools.msgUris.push(url2)
+
+		}
 		
 		printingtools.num = printingtools.msgUris.length;
 		
@@ -1192,7 +1200,8 @@ var printingtools = {
 		var m = Cc["@mozilla.org/messenger;1"]
 			.createInstance(Ci.nsIMessenger);
 		if (uris && uris[printingtools.current]) {
-			if (uris[printingtools.current].indexOf("file") == 0) {
+			// 115 file spec diff
+			if (uris[printingtools.current].includes(".eml?")) {
 				// If we're printing a eml file, there is no nsIMsgHdr object, so we create an object just with properties
 				// used by the extension ("folder" and "dateInSeconds"), reading directly the file (needing just 1000 bytes)
 				//console.log(uris[printingtools.current].split("?")[0])
@@ -1204,9 +1213,9 @@ var printingtools = {
 
 
 				if (os.indexOf("win") > -1) {
-					f = decodeURI(uris[printingtools.current].split("file:///")[1].split("?")[0]).replace(/\//g, "\\");
+					f = decodeURI(uris[printingtools.current].split("mailbox:///")[1].split("?")[0]).replace(/\//g, "\\");
 				} else {
-					f = decodeURI(uris[printingtools.current].split("file://")[1].split("?")[0]);
+					f = decodeURI(uris[printingtools.current].split("mailbox://")[1].split("?")[0]);
 				}
 
 				let str_message = await IOUtils.readUTF8(f, { bytes: 3000 })
@@ -2227,7 +2236,8 @@ var printingtools = {
 
 		let currentUri = printingtools.msgUris[printingtools.current];
 
-		if (currentUri.startsWith("file")) {
+		// 115 eml exp
+		if (currentUri.includes(".eml?")) {
 
 			let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
 			let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
@@ -2254,7 +2264,7 @@ var printingtools = {
 	addAttTable: async function () {
 
 		let attList = await printingtools.getAttatchmentList();
-
+		//let attList = [];
 		//console.log(printingtools.attList);
 
 		if (!attList || !attList.length) {
