@@ -566,6 +566,7 @@ var printerSettings = {
   // saved and read through the printer prefs.
 
   addPrintPreviewObserver: function () {
+    console.log("add obs")
     Services.obs.addObserver(this.printPreviewSetPrinterPrefs, "subdialog-loaded");
   },
 

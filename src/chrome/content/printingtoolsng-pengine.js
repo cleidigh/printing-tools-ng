@@ -30,12 +30,12 @@ Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js")
 
 var { printerSettings } = ChromeUtils.import("chrome://printingtoolsng/content/printerSettings.js");
 
-
-console.log("PTNG: Engine loaded ")
-
-printerSettings.addPrintPreviewObserver();
 var mail3paneWin =  Services.wm.getMostRecentWindow("mail:3pane");
 
+if (window == mail3paneWin) {
+console.log("PTNG: Engine loaded ")
+printerSettings.addPrintPreviewObserver();
+}
 
 var printingtools = {
 
