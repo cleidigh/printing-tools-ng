@@ -70,7 +70,7 @@ var printingtools = {
 		let url2= await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 		console.log(url2)
 
-		let m = mail3paneWin.gTabmail.currentTabInfo.chromeBrowser.contentWindow.gDBView.getSelectedMsgHdrs();
+		let m = mail3paneWin.gTabmail.currentTabInfo.browser.contentWindow.gDBView.getSelectedMsgHdrs();
 		console.log(m)
 		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
 		console.log(msgList)
@@ -153,8 +153,11 @@ var printingtools = {
 				console.log(window)
 				var messagePaneBrowser;
 
-				if (window.document.URL.endsWith("messenger.xhtml")) {
-					var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
+				if(1) {
+				//if (window.document.URL.endsWith("messenger.xhtml")) {
+					//var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
+					var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.browser.contentDocument;
+
 					if (mail3PaneTabBrowser1Doc.getElementById("messagepane")) {
 						messagePaneBrowser = mail3PaneTabBrowser1Doc.getElementById("messagepane")
 					} else {
