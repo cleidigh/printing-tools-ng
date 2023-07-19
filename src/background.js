@@ -204,7 +204,7 @@ function handleMessage(message, sender) {
 const msgCtxMenu_TopId = "msgCtxMenu_TopId";
 
 let ptngMenuDef = {
-	contexts: ["message_list","page","tools_menu"],
+	contexts: ["message_list", "page", "tools_menu"],
 	id: msgCtxMenu_TopId,
 	title: "Print NG…",
 	onclick: cmd_print
@@ -212,14 +212,22 @@ let ptngMenuDef = {
 }
 
 
-function cmd_print(e) {
+async function cmd_print(e) {
 	console.log("print", e)
+	var windows = await browser.windows.getAll({ populate: true });
+	let currentWin = windows.find(fw => fw.focused)
+	let currentTab = currentWin.tabs.find(t => t.active);
+
+
+	console.log(currentWin)
+	console.log(currentTab)
+
 	messenger.NotifyTools.notifyExperiment({ command: "WEXT_cmd_print" }).then((data) => {
 		console.log(data)
 	});
 }
 
-await ((async () => {
+await((async () => {
 	await messenger.menus.create(ptngMenuDef);
 })());
 

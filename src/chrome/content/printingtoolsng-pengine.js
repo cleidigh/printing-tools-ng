@@ -54,7 +54,37 @@ var printingtools = {
 	msgRestoration: {},
 
 	WEXT_cmd_print: async function (data) {
-		console.log(data);
+		
+		if (0 && window != "about:message") {
+			//console.log("skip")
+			//return;
+		}
+		console.log("start")
+		//console.log(data);
+		console.log(window);
+		console.log(window.gMessageURI);
+		console.log(window.tabOrWindow);
+		console.log(window.tabOrWindow.tabId);
+
+		console.log(mail3paneWin.gTabmail.currentTabInfo.tabId);
+		//console.log()
+
+		if (window.tabOrWindow.tabId != mail3paneWin.gTabmail.currentTabInfo.tabId) {
+			return;
+		}
+		var messagePaneBrowser;
+		try {
+			messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
+			} catch {
+			//alert(messagePaneBrowser)
+			messagePaneBrowser = document.getElementById("messagepane");
+			console.log("msg win", messagePaneBrowser);
+			}
+
+			console.log(messagePaneBrowser.contentDocument)
+		console.log(mail3paneWin.gTabmail);
+		console.log("stop")
+		//return true;
 		await printingtools.cmd_printng();
 		return true;
 	  },
@@ -70,8 +100,8 @@ var printingtools = {
 		let url2= await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 		console.log(url2)
 
-		let m = mail3paneWin.gTabmail.currentTabInfo.browser.contentWindow.gDBView.getSelectedMsgHdrs();
-		console.log(m)
+		let m = mail3paneWin.gTabmail.currentTabInfo.chromeBrowser.contentWindow.gDBView.getSelectedMsgHdrs();
+		mail3paneWin.console.log(m)
 		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
 		console.log(msgList)
 		msgList.messages.forEach(msg => {
@@ -153,10 +183,10 @@ var printingtools = {
 				console.log(window)
 				var messagePaneBrowser;
 
-				if(1) {
-				//if (window.document.URL.endsWith("messenger.xhtml")) {
-					//var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
-					var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.browser.contentDocument;
+				//if(1) {
+				if (window.document.URL.endsWith("messenger.xhtml")) {
+					var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
+					//var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.browser.contentDocument;
 
 					if (mail3PaneTabBrowser1Doc.getElementById("messagepane")) {
 						messagePaneBrowser = mail3PaneTabBrowser1Doc.getElementById("messagepane")
@@ -168,9 +198,13 @@ var printingtools = {
 					console.log("m win", messagePaneBrowser)
 
 				} else {
+					try {
+					messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
+					} catch {
+					//alert(messagePaneBrowser)
 					messagePaneBrowser = document.getElementById("messagepane");
-					console.log("msg win", messagePaneBrowser)
-
+					console.log("msg win", messagePaneBrowser);
+					}
 				}
 
 				/*
