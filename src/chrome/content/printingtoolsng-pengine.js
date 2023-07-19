@@ -452,6 +452,8 @@ var printingtools = {
 		printingtools.num = 1;
 		printingtools.msgUris = [msgURI];
 
+		console.log("dbgOpts: ", dbgopts);
+
 		if (this.prefs.getBoolPref("extensions.printingtoolsng.printer.persistent") &&
 			this.prefs.getPrefType("extensions.printingtoolsng.print_printer") &&
 			this.prefs.getStringPref("extensions.printingtoolsng.print_printer") !== ""
@@ -504,7 +506,12 @@ var printingtools = {
 		let msgHdr = messenger.msgHdrFromURI(msgURI);
 		let msgSubject = msgHdr.mime2DecodedSubject;
 
-		if (dbgopts.indexOf("trace1") > -1) {
+		console.log(dbgopts.indexOf("trace1"));
+		console.log(dbgopts.includes("trace1"));
+
+		console.log("PTNG: Print Ext: ", msgSubject);
+
+		if (dbgopts.includes("trace1")) {
 			console.log("PTNG: Print Ext: ", msgSubject);
 		}
 		await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
@@ -523,6 +530,8 @@ var printingtools = {
 		if (dbgopts.indexOf("trace1") > -1) {
 			console.log("PTNG: Print Ext Done: ", msgSubject);
 		}
+		console.log("PTNG: Print Ext Done: ", msgSubject);
+
 	},
 
 	cmd_printng_external: async function (extMsgReq) {
@@ -531,12 +540,16 @@ var printingtools = {
 			console.log("PrintingTools NG Received a message from external add-on", extMsgReq.messageHeader);
 		}
 
+		console.log("PrintingTools NG Received a message from external add-on", extMsgReq.messageHeader);
+
 		let msgHeader = extMsgReq.messageHeader;
 
 		if (!msgHeader.id) {
 			if (dbgopts.indexOf("trace1") > -1) {
 				console.log("PTNG: No useful id for message");
 			}
+			console.log("PTNG: No useful id for message");
+
 			return;
 		}
 
@@ -545,27 +558,27 @@ var printingtools = {
 		let uri = realMessage.folder.getUriForMsg(realMessage);
 
 		if (this.extRunning) {
-			//console.log("Q dont run")
-			//console.log(this.externalQ)
+			console.log("Q dont run")
+			console.log(this.externalQ)
 			this.externalQ.push(uri);
-			//console.log(this.externalQ)
+			console.log(this.externalQ)
 
 			return;
 		} else {
-			//console.log("Q and run")
-			//console.log(this.externalQ)
+			console.log("Q and run")
+			console.log(this.externalQ)
 			this.externalQ.push(uri);
-			//console.log(this.externalQ)
+			console.log(this.externalQ)
 		}
 
 		this.extRunning = true;
 		var extMsgURI;
 
 		while (this.externalQ.length) {
-			//console.log("grab next ");
-			//console.log(this.externalQ)
+			console.log("grab next ");
+			console.log(this.externalQ)
 			extMsgURI = this.externalQ.shift()
-			//console.log(this.externalQ)
+			console.log(this.externalQ)
 
 			//console.log(extMsgURI)
 
