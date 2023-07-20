@@ -204,7 +204,7 @@ function handleMessage(message, sender) {
 const msgCtxMenu_TopId = "msgCtxMenu_TopId";
 
 let ptngMenuDef = {
-	contexts: ["message_list", "page", "tools_menu"],
+	contexts: ["message_list", "page"],
 	id: msgCtxMenu_TopId,
 	title: "Print NG…",
 	onclick: cmd_print
