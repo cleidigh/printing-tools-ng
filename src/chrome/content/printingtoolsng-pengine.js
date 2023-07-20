@@ -65,6 +65,7 @@ var printingtools = {
 		console.log(window.gMessageURI);
 		console.log(window.tabOrWindow);
 		console.log(window.tabOrWindow.tabId);
+		console.log(mail3paneWin.gTabmail);
 
 		console.log(mail3paneWin.gTabmail.currentTabInfo.tabId);
 		//console.log()
