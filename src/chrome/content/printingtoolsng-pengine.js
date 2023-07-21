@@ -54,58 +54,17 @@ var printingtools = {
 	msgRestoration: {},
 
 	WEXT_cmd_print: async function (data) {
-		console.log(data)
-		let tabId = data.tabId;
+		//console.log(data)
 		let windowId = data.windowId;
-
-		let tabObject = window.printingtoolsng.extension.tabManager.get(tabId);
-		let realTab = tabObject.nativeTab;
-		let realTabWindow = tabObject.window;
-
 		let windowObject = window.printingtoolsng.extension.windowManager.get(windowId);
 		let realWindow = windowObject.window;
 
-
-		//let targetWindow = printingtools.getMessageWindow(tabId)
-		console.log(realWindow);
-		console.log(window);
-
-		if (realWindow == window) {
-			console.log("we are target")
-		} else {
+		// check if we are the target window 
+		if (realWindow !== window) {
 			return;
 		}
 
-		/*
-		console.log("start")
-		//console.log(data);
-		console.log(window);
-		console.log(window.gMessageURI);
-		console.log(window.tabOrWindow);
-		console.log(window.tabOrWindow.tabId);
-		console.log(mail3paneWin.gTabmail);
-
-		console.log(mail3paneWin.gTabmail.currentTabInfo.tabId);
-		//console.log()
-
-		if (window.tabOrWindow.tabId != mail3paneWin.gTabmail.currentTabInfo.tabId) {
-			//return;
-		}
-		var messagePaneBrowser;
-		try {
-			messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
-			} catch {
-			//alert(messagePaneBrowser)
-			messagePaneBrowser = document.getElementById("messagepane");
-			console.log("msg win", messagePaneBrowser);
-			}
-
-			console.log(messagePaneBrowser.contentDocument)
-		console.log(mail3paneWin.gTabmail);
-		console.log("stop")
-		//return true;
-		*/
-
+		// we are the target so invoke print
 		await printingtools.cmd_printng();
 		return true;
 	},
@@ -274,7 +233,9 @@ var printingtools = {
 
 				await printingtools.reformatLayout();
 
-				var sel = window.getSelection();
+				var sel = window[3][0].getSelection();
+				console.log(sel)
+				console.log(messagePaneBrowser)
 
 				var topSelection;
 
@@ -298,16 +259,32 @@ var printingtools = {
 				// End range at the br spacer
 				range.setEndAfter(br);
 
-				var selection = document.commandDispatcher.focusedWindow.getSelection();
+				//var selection = document.commandDispatcher.focusedWindow.getSelection();
+				var index = 0;
+				var w;
+				for (index = 0; index < 10; index++) {
+					 w = window[index];
+					console.log(w)
+					if (w == "about:3pane") {
+						break;
+					}
+				}
 
+				console.log(w[index])
+				console.log(w[index][0])
+
+				var selection = window[index][0].getSelection();
+				console.log(selection)
 				// Carret selection not valid
 				if (selection.type == "Caret") {
-					selection.removeAllRanges();
+					//selection.removeAllRanges();
 				}
 
 				if (selection.rangeCount) {
 					selection.addRange(range);
 				}
+
+				console.log(selection)
 
 				var w = document.commandDispatcher.focusedWindow
 
@@ -384,10 +361,12 @@ var printingtools = {
 					console.log("PTNG: Message URI: ", uri);
 				}
 
+				console.log(selection)
+
 				if (selection.rangeCount > 1) {
 					console.log("print sel")
-					//mail3paneWin.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
-					goDoCommand('cmd_print')
+					mail3paneWin.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
+					//goDoCommand('cmd_print')
 
 				} else {
 					console.log("print no sel")
