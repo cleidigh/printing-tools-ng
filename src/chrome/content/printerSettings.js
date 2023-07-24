@@ -635,12 +635,12 @@ var printerSettings = {
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
 
       // Set output to source or selection
-      await new Promise(resolve => window.setTimeout(resolve, 100));
+      //await new Promise(resolve => window.setTimeout(resolve, 100));
 
-      sel_selection.setAttribute("checked", "");
-      sel_source.removeAttribute("checked");
+//      sel_selection.setAttribute("checked", "");
+      //sel_source.removeAttribute("checked");
 
-      console.log(subDialogWindow.document.documentElement.innerHTML)
+      //console.log(subDialogWindow.document.documentElement.innerHTML)
 
     },
   },

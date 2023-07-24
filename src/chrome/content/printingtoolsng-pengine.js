@@ -395,8 +395,11 @@ var printingtools = {
 
 				if (selection.rangeCount > 1) {
 					console.log("print selection")
-					//mail3paneWin.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
-					goDoCommand('cmd_print')
+					console.log(messagePaneBrowser.contentWindow.document)
+					//mail3paneWin.PrintUtils.startPrintWindow(messagePaneBrowser.contentDocument.getElementById("messagepane").browsingContext, { printSelectionOnly: true });
+
+					mail3paneWin.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
+					//goDoCommand('cmd_print')
 
 				} else {
 					console.log("print no sel")
@@ -600,6 +603,9 @@ var printingtools = {
 		this.prefs.setCharPref("print_printer", currentPrinterName);
 	},
 
+	getMessagePaneBrowser: function (b) {
+		return document.getElementById("messagepane");
+	},
 
 	PrintExternalMsg: async function (msgURI) {
 		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
