@@ -274,6 +274,7 @@ var printingtools = {
 
 				await printingtools.reformatLayout();
 
+				console.log(printingtools.document.body.outerHTML)
 				var sel = window.getSelection();
 
 				var topSelection;
