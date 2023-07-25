@@ -593,8 +593,8 @@ var printerSettings = {
         subDialogWindow.document.addEventListener("print-settings", resolve, { once: true })
       );
 
-      console.log("subDialog print-settings loaded", printerSettings);
-      console.log(subDialogWindow.document.documentElement.innerHTML)
+      //console.log("subDialog print-settings loaded", printerSettings);
+      //console.log(subDialogWindow.document.documentElement.innerHTML)
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");

@@ -274,7 +274,7 @@ var printingtools = {
 
 				await printingtools.reformatLayout();
 
-				console.log(printingtools.document.body.outerHTML)
+				console.log(printingtools.doc.body.outerHTML)
 				var sel = window.getSelection();
 
 				var topSelection;
@@ -1354,9 +1354,9 @@ var printingtools = {
 		}
 
 		printingtools.sanitizeHeaders();
-		//console.log(printingtools.doc.documentElement.outerHTML);
 
 		await printingtools.addAttTable(printingtools.attList);
+		console.log(printingtools.doc.documentElement.outerHTML);
 
 
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
@@ -1717,6 +1717,12 @@ var printingtools = {
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list")) {
 			//console.log("remove att list")
 			printingtools.hideAttatchmentBodyTable();
+		}
+
+		// Always remove our temp table
+		let ptngAttTable = printingtools.doc.getElementById("ptng-att-table");
+		if (ptngAttTable) {
+			ptngAttTable.remove();
 		}
 
 		dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
@@ -2378,6 +2384,7 @@ var printingtools = {
 
 		}
 
+		attTable.setAttribute("id","ptng-att-table");
 		attTable.classList.add("mimeAttachmentTable");
 		var t;
 
