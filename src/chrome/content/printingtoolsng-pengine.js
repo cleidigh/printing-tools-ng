@@ -239,15 +239,6 @@ var printingtools = {
 					}
 				}
 
-				/*
-				let mail3PaneTabBrowser1 = window.document.getElementById("mail3PaneTabBrowser1").contentDocument
-				let messagePane = mail3PaneTabBrowser1.getElementById("messagePane")
-				let messagePaneBrowser = messagePane.firstChild.nextElementSibling.nextElementSibling.contentDocument.getElementById("messagepane");
-				console.log(messagePaneBrowser.contentDocument)
-*/
-
-				//messagePaneBrowser = gTabmail.currentTabInfo.chromeBrowser.contentDocument.getElementById("messagepane");
-
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = printingtools.msgUris[0];
 				if (dbgopts.indexOf("pdfoutput") > -1) {
@@ -274,7 +265,6 @@ var printingtools = {
 
 				await printingtools.reformatLayout();
 
-				console.log(printingtools.doc.body.outerHTML)
 				var sel = window.getSelection();
 
 				var topSelection;
@@ -298,13 +288,6 @@ var printingtools = {
 
 				// End range at the br spacer
 				range.setEndAfter(br);
-
-				console.log(messagePaneBrowser.contentWindow)
-				console.log(messagePaneBrowser.contentWindow.getSelection())
-
-
-				console.log(window)
-				console.log(document.commandDispatcher.focusedWindow)
 
 				//var selection = document.commandDispatcher.focusedWindow.getSelection();
 				var selection = messagePaneBrowser.contentWindow.getSelection()
@@ -396,17 +379,10 @@ var printingtools = {
 
 				if (selection.rangeCount > 1) {
 					console.log("print selection")
-					console.log(messagePaneBrowser.contentWindow.document)
-					//mail3paneWin.PrintUtils.startPrintWindow(messagePaneBrowser.contentDocument.getElementById("messagepane").browsingContext, { printSelectionOnly: true });
-
-					mail3paneWin.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
-					//goDoCommand('cmd_print')
-
+					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
 				} else {
-					console.log("print no sel")
-					//mail3paneWin.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
-					//mail3paneWin.PrintUtils.startPrintWindow(mail3paneWin.PrintUtils.printBrowser.browsingContext, { printSelectionOnly: false });
-					goDoCommand('cmd_print')
+					console.log("print no selection")
+					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
 				}
 
 			} else {
@@ -1356,8 +1332,6 @@ var printingtools = {
 		printingtools.sanitizeHeaders();
 
 		await printingtools.addAttTable(printingtools.attList);
-		console.log(printingtools.doc.documentElement.outerHTML);
-
 
 		var gennames = printingtools.doc.getElementsByTagName("GeneratedName");
 		printingtools.maxChars = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.maxchars");

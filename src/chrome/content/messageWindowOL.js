@@ -16,7 +16,6 @@ Services.scriptloader.loadSubScript(extension2.rootURI.resolve("chrome/content/n
 function onLoad() {
 
 	//console.debug('messageWindow ol');
-
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
 	var PTNGVersion = window.printingtoolsng.extension.addonData.version;
