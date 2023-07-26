@@ -122,9 +122,10 @@ async function onLoad() {
 	extMsgHandler = window.ptngAddon.notifyTools.addListener(handleExternalPrint);
 
 
-
-
-
+	// Capture Control-P print shortcut
+	let mk = document.getElementById("key_print");
+	mk.removeAttribute("oncommand")
+	mk.setAttribute("oncommand", "printingtools.cmd_printng()")
 
 
 	let ctxMenu =
@@ -279,5 +280,11 @@ function onUnload(shutdown) {
 	document.removeEventListener('click', btListener);
 	window.ptngAddon.notifyTools.removeListener(extMsgHandler);
 	window.getUI_status.shutdown();
+
+	// Restore Control-P print shortcut
+	let mk = document.getElementById("key_print");
+	mk.removeAttribute("oncommand")
+	mk.setAttribute("oncommand", "goDoCommand('cmd_print')");
+
 	window.printingtools.shutdown();
 }

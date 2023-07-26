@@ -20,11 +20,11 @@ function onLoad() {
 	window.printingtoolsng.extension = WL.extension;
 	var PTNGVersion = window.printingtoolsng.extension.addonData.version;
 	console.log(PTNGVersion)
-	
+
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/UIlisteners.js", window);
-		
+
 	WL.injectElements(`
 <keyset id="mailKeys">
 	<key replaceattributes="key_print" command="" oncommand="printingtools.cmd_printng();"/>
@@ -32,33 +32,33 @@ function onLoad() {
 </keyset>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
-	
-		WL.injectElements(`
+
+	WL.injectElements(`
 <menupopup id="menu_FilePopup">
 	<menuitem replaceattributes="printMenuItem" label= "&printCmd.label; (NG)"  oncommand="printingtools.cmd_printng()" command="" disabled="" />
 </menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
 
-		WL.injectElements(`
+	WL.injectElements(`
 <panelview id="appMenu-mainView">
 	<toolbarbutton replaceattributes="appmenu_print" label="&printCmd.label; (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
 </panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
-		WL.injectElements(`
+	WL.injectElements(`
 <menupopup id="mailContext">
 	<menuitem replaceattributes="mailContext-print" label="&printCmd.label; (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
-		WL.injectElements(`
+	WL.injectElements(`
 <menupopup id="menu_FilePopup">
 	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="o" label="&PMDmenuitem;" oncommand="openPTdialog(false)"/>
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
-		WL.injectElements(`
+	WL.injectElements(`
 <toolbarpalette id="MailToolbarPalette">
 	<toolbarbutton id="ptng-button"
 	  label="&print.label; NG"
@@ -80,8 +80,7 @@ function onLoad() {
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
-console.log("button")
-WL.injectElements(`
+	WL.injectElements(`
 <toolbarpalette id="header-view-toolbar">
 	<toolbarbutton id="ptng-button-hdr"
 	label="&print.label; NG"
@@ -103,9 +102,21 @@ WL.injectElements(`
 </toolbarpalette>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
-		WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
-
-		
-	}
+	WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
 
 
+}
+
+// Capture Control-P print shortcut
+let mk = document.getElementById("key_print");
+mk.removeAttribute("oncommand")
+mk.setAttribute("oncommand", "printingtools.cmd_printng()")
+
+
+function onUnload(shutdown) {
+	// Restore Control-P print shortcut
+	let mk = document.getElementById("key_print");
+	mk.removeAttribute("oncommand")
+	mk.setAttribute("oncommand", "goDoCommand('cmd_print')");
+
+}
