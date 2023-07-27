@@ -7,7 +7,7 @@
 		"message": "消息打印、标题和 PDF 输出工具 (Nextgen)"
 	},
 
-	"print.label": {
+	"printLabel": {
 		"message": "打印"
 	}
 

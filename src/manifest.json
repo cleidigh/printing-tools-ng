@@ -13,7 +13,7 @@
     },
     "browser_action": {
       "default_area": "maintoolbar",
-      "default_label":"Print NG | ",
+      "default_label":"__MSG_printLabel__ NG |",
       "default_icon": "./chrome/content/icons/printing-tools-ng-icon-32px.png",
       "default_popup": "./chrome/content/test.html"
       

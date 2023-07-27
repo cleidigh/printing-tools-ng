@@ -6,7 +6,7 @@
 		"message": "Outils pour l’impression des messages et l’enregistrement en PDF."
 	},
 
-	"print.label": {
+	"printLabel": {
 		"message": "Imprimer"
 	}
 

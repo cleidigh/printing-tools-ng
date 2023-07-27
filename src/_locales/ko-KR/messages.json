@@ -7,7 +7,7 @@
 		"message": "메시지 인쇄, 헤더 및 PDF 출력 도구(Nextgen)"
 	},
 
-	"print.label": {
+	"printLabel": {
 		"message": "인쇄"
 	}
 

@@ -7,7 +7,7 @@
 		"message": "Печать сообщений, заголовки и инструменты вывода PDF (Nextgen)"
 	},
 
-	"print.label": {
+	"printLabel": {
 		"message": "Распечатать"
 	}
 

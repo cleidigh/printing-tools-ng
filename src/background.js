@@ -190,7 +190,7 @@ const msgCtxMenu_TopId = "msgCtxMenu_TopId";
 let ptngMenuDef = {
 	contexts: ["message_list", "page"],
 	id: msgCtxMenu_TopId,
-	title: browser.i18n.getMessage("print.label") + " NG…",
+	title: browser.i18n.getMessage("printLabel") + " NG…",
 	onclick: cmd_print
 
 }

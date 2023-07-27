@@ -6,7 +6,7 @@
 	"extensionDescription": {
 		"message": "Message Printing, Headers and PDF Output Tools (Nextgen)"
 	},
-	"print.label": {
+	"printLabel": {
 		"message": "Print"
 	}
 

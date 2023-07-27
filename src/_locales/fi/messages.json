@@ -7,7 +7,7 @@
 		"message": "Viestien tulostus, otsikot ja PDF-tulostustyökalut (Nextgen)"
 	},
 
-	"print.label": {
+	"printLabel": {
 		"message": "Tulosta"
 	}
 
