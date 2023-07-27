@@ -16,7 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "persistent", text: "Persistent" },
+	{ key: "print.label", text: "Print" },
 
 
 	
@@ -156,7 +156,7 @@ async function translateAllLocales(iFile, sourceArray, locales, format, options)
 		lt = lt.join('\n');
 
 		if (options.outputFormat === 3) {
-			lt = `{\n${lt}\n}`;
+			lt = `\n${lt}\n`;
 		}
 
 		lt = lt.replace(/<nl>/g, "\\n");
@@ -408,16 +408,16 @@ function loadTranslationArray(inputFiles, options) {
 }
 
 // manifest files
-var optionsM = {
+var options = {
 	inputLocaleDir: `./src/_locales/en-US`,
 	outputLocaleDir: "./src/_locales",
 	outputLocaleDirSuffix: "",
-	append: false,
+	append: true,
 	outputFormat: 3,
 };
 
 //  files from array
-var options = {
+var optionsD = {
  	inputLocaleDir: `./src/chrome/locale/en-US/`,
  	outputLocaleDir: "./src/chrome/locale",
  	outputLocaleDirSuffix: "",
@@ -442,9 +442,9 @@ var options = {
 // let inputFiles = ["settings.dtd", "overlay.dtd", "overlay.properties"];
 
 //let inputFiles = ["printingtoolsng.properties"];
-let inputFiles = ["printingtoolsng.dtd"];
+//let inputFiles = ["printingtoolsng.dtd"];
 
-//let inputFiles = ["messages.json"];
+let inputFiles = ["messages.json"];
 // let inputFiles = ["autobackup.dtd", "autobackup.properties", "mboximport.dtd", "mboximport.properties", "profilewizard.dtd", "profilewizard.properties"];
 //let inputFiles = ["mboximport.properties"];
 // var supportedLocales = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',

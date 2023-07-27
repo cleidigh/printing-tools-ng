@@ -5,5 +5,10 @@
 
 	"extensionDescription": {
 		"message": "Печать сообщений, заголовки и инструменты вывода PDF (Nextgen)"
+	},
+
+	"print.label": {
+		"message": "Распечатать"
 	}
+
 }

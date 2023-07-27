@@ -5,5 +5,10 @@
 
 	"extensionDescription": {
 		"message": "Impressió de missatges, capçaleres i eines de sortida de PDF (Nextgen)"
+	},
+
+	"print.label": {
+		"message": "Imprimir"
 	}
+
 }

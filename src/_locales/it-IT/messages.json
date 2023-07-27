@@ -5,5 +5,10 @@
 
 	"extensionDescription": {
 		"message": "Stampa di messaggi, intestazioni e strumenti di output PDF (Nextgen)"
+	},
+
+	"print.label": {
+		"message": "Stampa"
 	}
+
 }
