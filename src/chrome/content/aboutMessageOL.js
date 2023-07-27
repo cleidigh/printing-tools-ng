@@ -1,4 +1,3 @@
-console.log("message")
 
 var Services = globalThis.Services ||
   ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
@@ -19,8 +18,6 @@ function onLoad() {
   window.printingtoolsng = {};
   window.printingtoolsng.extension = WL.extension;
   var PTNGVersion = window.printingtoolsng.extension.addonData.version;
-  console.log(PTNGVersion)
-  console.log(window)
 
 
   Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
@@ -28,7 +25,6 @@ function onLoad() {
   Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/UIlisteners.js", window);
 
 
-  console.log("button")
   WL.injectElements(`
 <toolbarpalette id="header-view-toolbar">
 	<toolbarbutton id="ptng-button-hdr"

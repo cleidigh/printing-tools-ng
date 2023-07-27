@@ -3,7 +3,8 @@
 // Load all scripts from original overlay file - creates common scope
 // onLoad() installs each overlay xul fragment
 
-var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+var Services = globalThis.Services ||
+  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
 
 // Import any needed modules.
 var ADDON_ID = "PrintingToolsNG@cleidigh.kokkini.net";
@@ -45,16 +46,8 @@ async function onLoad() {
 
 	WL.injectElements(`
 <panelview id="appMenu-mainView">
-	<toolbarbutton replaceattributes="appmenu_print" label="&printCmd.label; (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
+	<toolbarbutton replaceattributes="appmenu_print" label="&printCmd.label; NG…" oncommand="printingtools.cmd_printng()" command="" disabled="" />
 </panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
-
-
-	WL.injectElements(`
-<menupopup id="mailContext">
-	<menuitem replaceattributes="mailContext-print" label="&printCmd.label; (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
-</menupopup>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
-
 
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
@@ -108,8 +101,6 @@ async function onLoad() {
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
-
-
 	WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
 
 	window.getUI_status.startup();
@@ -118,9 +109,7 @@ async function onLoad() {
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
 
-
 	extMsgHandler = window.ptngAddon.notifyTools.addListener(handleExternalPrint);
-
 
 	// Capture Control-P print shortcut
 	let mk = document.getElementById("key_print");

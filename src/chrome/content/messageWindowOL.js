@@ -1,4 +1,5 @@
-var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+var Services = globalThis.Services ||
+  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
 
 // Import any needed modules.
 var ADDON_ID = "PrintingToolsNG@cleidigh.kokkini.net";
@@ -19,7 +20,6 @@ function onLoad() {
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
 	var PTNGVersion = window.printingtoolsng.extension.addonData.version;
-	console.log(PTNGVersion)
 
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
@@ -42,7 +42,7 @@ function onLoad() {
 
 	WL.injectElements(`
 <panelview id="appMenu-mainView">
-	<toolbarbutton replaceattributes="appmenu_print" label="&printCmd.label; (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
+	<toolbarbutton replaceattributes="appmenu_print" label="&printCmd.label; NG…" oncommand="printingtools.cmd_printng()" command="" disabled="" />
 </panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
@@ -109,14 +109,14 @@ function onLoad() {
 
 // Capture Control-P print shortcut
 let mk = document.getElementById("key_print");
-mk.removeAttribute("oncommand")
-mk.setAttribute("oncommand", "printingtools.cmd_printng()")
+mk.removeAttribute("oncommand");
+mk.setAttribute("oncommand", "printingtools.cmd_printng()");
 
 
 function onUnload(shutdown) {
 	// Restore Control-P print shortcut
 	let mk = document.getElementById("key_print");
-	mk.removeAttribute("oncommand")
+	mk.removeAttribute("oncommand");
 	mk.setAttribute("oncommand", "goDoCommand('cmd_print')");
 
 }
