@@ -54,57 +54,15 @@ var printingtools = {
 	msgRestoration: {},
 
 	WEXT_cmd_print: async function (data) {
-		console.log(data)
 		let tabId = data.tabId;
 		let windowId = data.windowId;
-
-		let tabObject = window.printingtoolsng.extension.tabManager.get(tabId);
-		let realTab = tabObject.nativeTab;
-		let realTabWindow = tabObject.window;
 
 		let windowObject = window.printingtoolsng.extension.windowManager.get(windowId);
 		let realWindow = windowObject.window;
 
-
-		//let targetWindow = printingtools.getMessageWindow(tabId)
-		console.log(realWindow);
-		console.log(window);
-
-		if (realWindow == window) {
-			console.log("we are target")
-		} else {
+		if (realWindow !== window) {
 			return;
 		}
-
-		/*
-		console.log("start")
-		//console.log(data);
-		console.log(window);
-		console.log(window.gMessageURI);
-		console.log(window.tabOrWindow);
-		console.log(window.tabOrWindow.tabId);
-		console.log(mail3paneWin.gTabmail);
-
-		console.log(mail3paneWin.gTabmail.currentTabInfo.tabId);
-		//console.log()
-
-		if (window.tabOrWindow.tabId != mail3paneWin.gTabmail.currentTabInfo.tabId) {
-			//return;
-		}
-		var messagePaneBrowser;
-		try {
-			messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
-			} catch {
-			//alert(messagePaneBrowser)
-			messagePaneBrowser = document.getElementById("messagepane");
-			console.log("msg win", messagePaneBrowser);
-			}
-
-			console.log(messagePaneBrowser.contentDocument)
-		console.log(mail3paneWin.gTabmail);
-		console.log("stop")
-		//return true;
-		*/
 
 		await printingtools.cmd_printng();
 		return true;
@@ -131,19 +89,13 @@ var printingtools = {
 		printingtools.msgUris = [];
 
 		let url2 = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
-		console.log(url2)
 
-		//let m = mail3paneWin.gTabmail.currentTabInfo.chromeBrowser.contentWindow.gDBView.getSelectedMsgHdrs();
-		//mail3paneWin.console.log(m)
 		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
-		console.log(msgList)
 		msgList.messages.forEach(msg => {
 			let realMessage = window.printingtoolsng.extension
 				.messageManager.get(msg.id);
-			console.log(realMessage)
 			try {
 				let uri = realMessage.folder.getUriForMsg(realMessage);
-				console.log(uri)
 				printingtools.msgUris.push(uri)
 			} catch { }
 		});
@@ -162,12 +114,8 @@ var printingtools = {
 		if (!printingtools.num) {
 			return;
 		}
-		//console.log(gMessageDisplay.visible)
-		//console.log(gFolderDisplay.selectedMessage)
-		//console.log(gMessageDisplay.displayedMessage)
 
 		var url = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
-		console.log(url)
 
 		// loadptng settings 
 
@@ -212,13 +160,10 @@ var printingtools = {
 
 			if (url !== "undefinedURL") {
 
-				console.log(window)
 				var messagePaneBrowser;
 
-				//if(1) {
 				if (window.document.URL.endsWith("messenger.xhtml")) {
 					var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
-					//var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.browser.contentDocument;
 
 					if (mail3PaneTabBrowser1Doc.getElementById("messagepane")) {
 						messagePaneBrowser = mail3PaneTabBrowser1Doc.getElementById("messagepane")
@@ -227,15 +172,11 @@ var printingtools = {
 						messagePaneBrowser = messageBrowserDoc.getElementById("messagepane")
 					}
 
-					console.log("m win", messagePaneBrowser)
-
 				} else {
 					try {
 						messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
 					} catch {
-						//alert(messagePaneBrowser)
 						messagePaneBrowser = document.getElementById("messagepane");
-						console.log("msg win", messagePaneBrowser);
 					}
 				}
 
@@ -291,7 +232,6 @@ var printingtools = {
 
 				//var selection = document.commandDispatcher.focusedWindow.getSelection();
 				var selection = messagePaneBrowser.contentWindow.getSelection()
-				console.log(selection)
 
 				// Carret selection not valid
 				if (selection.type == "Caret") {
@@ -308,7 +248,7 @@ var printingtools = {
 
 				var l = w.addEventListener("focus", function (e) {
 
-					console.log("Message pane focused  ")
+					//console.log("Message pane focused  ")
 
 					// Remove headers selection 
 					if (selection.rangeCount) {
@@ -341,8 +281,6 @@ var printingtools = {
 					if (hr) {
 						hr.remove();
 					}
-					//console.log("after remove ")
-					//console.log(printingtools.doc.documentElement.outerHTML);
 
 					if (ht3c) {
 						body_elem.prepend(ht3c);
@@ -378,10 +316,10 @@ var printingtools = {
 				}
 
 				if (selection.rangeCount > 1) {
-					console.log("print selection")
+					//console.log("print selection")
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
 				} else {
-					console.log("print no selection")
+					//console.log("print no selection")
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
 				}
 
@@ -398,76 +336,24 @@ var printingtools = {
 				}
 
 				var MailService = MailServices.messageServiceFromURI(uri);
-				//let messageService = MessageService.messageServiceFromURI(uri);
 
-				var fakeMsgPane;
-				if (!document.getElementById("fp")) {
-					//console.log("create browser")
-
-					fakeMsgPane = document.createXULElement("browser");
-					fakeMsgPane.setAttribute("id", "fp")
-				} else {
-					fakeMsgPane = document.getElementById("fp")
-				}
-
-				// from jb print pdf in IETNG
-
-				fakeMsgPane.setAttribute("context", "mailContext");
-				fakeMsgPane.setAttribute("type", "content");
-				fakeMsgPane.setAttribute("disablesecurity", "true");
-				fakeMsgPane.setAttribute("messagemanagergroup", "single-page");
-				fakeMsgPane.setAttribute("remote", "false");
-				fakeMsgPane.setAttribute("primary", "true");
-				fakeMsgPane.hidden = true;
-
-
-				// cannot use non existing messagebox in messageWindow
-				fakeMsgPane = window.document.getElementById("status-bar").parentNode.appendChild(fakeMsgPane);
-
-				let docShell = fakeMsgPane.docShell;
-				docShell.appType = Ci.nsIDocShell.APP_TYPE_MAIL;
-
-				//console.log(fakeMsgPane);
-				/*
-								MailServices.DisplayMessage(
-									uri + "&markRead=false",
-									docShell,
-									undefined, //win.msgWindow,
-									undefined,
-									undefined,
-									{}
-								)
-				
-								for (let i = 1; i < 4500; i++) {
-									await new Promise(resolve => window.setTimeout(resolve, 20));
-									if (fakeMsgPane.contentDocument && fakeMsgPane.contentDocument.readyState == "complete")
-										break;
-								}
-				*/
-				// 115 get rid of fake browser 
 				// This is key to flushing cache else we operate on modified browser
 				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 
 				await PrintUtils.loadPrintBrowser(MailService.getUrlForUri(uri).spec);
 				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
-				//printingtools.previewDoc = fakeMsgPane.contentDocument;
 
 				await printingtools.reformatLayout();
 
 				PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext);
 			}
 
-			await new Promise(resolve => window.setTimeout(resolve, 400));
-			//selection.removeAllRanges()
-			//document.commandDispatcher.focusedWindow.reload()
 			return;
 		}
 
 		if (printingtools.num < 1) {
 			return;
 		}
-
-		// printingtools.msgUris = gFolderDisplay.selectedMessageUris;
 
 		if (dbgopts.indexOf("trace1") > -1) {
 			console.log("PTNG: Use existing print hidden pane - multiple messages (" + printingtools.msgUris.length + ")");
@@ -527,7 +413,6 @@ var printingtools = {
 
 		ps.printSilent = false;
 
-		console.log("ps start ", ps)
 		var msgSubject;
 		var pdfFileName;
 
@@ -558,17 +443,14 @@ var printingtools = {
 			} else {
 				//console.log("use pb print")
 				// This is key to flushing cache else we operate on modified browser
-				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
-				//await PrintUtils.loadPrintBrowser("imap://test1%40kokkini%2Enet@imap.kokkini.net:143/fetch%3EUID%3E.INBOX%3E3135");
-				await PrintUtils.loadPrintBrowser(MailService.getUrlForUri(msgURI).spec);
+				await top.PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+				await top.PrintUtils.loadPrintBrowser(MailService.getUrlForUri(msgURI).spec);
 
 				// getUrlForUri
 				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
 				await printingtools.reformatLayout();
 
-				console.log("ps  ", ps)
-				await PrintUtils.printBrowser.browsingContext.print(ps);
-				//PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext)
+				await top.PrintUtils.printBrowser.browsingContext.print(ps);
 			}
 
 			if (pdfOutput) {
@@ -760,8 +642,6 @@ var printingtools = {
 		if (options.printSilent == null) {
 			options.printSilent = printingtools.prefs.getBoolPref("extensions.printingtoolsng.print.silent");
 		}
-
-
 
 		this.running = true;
 
@@ -1263,7 +1143,6 @@ var printingtools = {
 			if (uris[printingtools.current].includes(".eml?")) {
 				// If we're printing a eml file, there is no nsIMsgHdr object, so we create an object just with properties
 				// used by the extension ("folder" and "dateInSeconds"), reading directly the file (needing just 1000 bytes)
-				//console.log(uris[printingtools.current].split("?")[0])
 				var dummy = {};
 				dummy.folder = null;
 
@@ -1610,7 +1489,6 @@ var printingtools = {
 				} else {
 					printingtools.insertAfter(tw, table3);
 					var maxHdrWidth = tw.getBoundingClientRect().width + 12;
-					//console.log(maxHdrWidth)
 				}
 				//console.log(printingtools.doc.documentElement.outerHTML);
 				tw.remove()
@@ -1630,13 +1508,14 @@ var printingtools = {
 							maxHdrWidth = 130 + 6 * (fsn - 14);
 
 						} else {
-							maxHdrWidth = 110 + 6 * (fsn - 14);
+							maxHdrWidth = 120 + 6 * (fsn - 14);
 						}
 						break;
 
 					default:
 
-						maxHdrWidth = 110 + 6 * (fsn - 14);
+						maxHdrWidth = 120 + 6 * Math.max((fsn - 14), 0);
+
 						break;
 				}
 
@@ -2584,5 +2463,4 @@ var printingtools = {
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js", printingtools);
 printingtools.mainStrBundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 
-// 115 exp
 var listener_id = window.ptngAddon.notifyTools.addListener(printingtools.WEXT_cmd_print);

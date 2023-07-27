@@ -65,17 +65,6 @@ messenger.WindowListener.startListening();
 // listener for external print requests eg FiltaQuila 
 browser.runtime.onMessageExternal.addListener(handleMessage);
 
-// tab listener styles
-/*
-browser.tabs.onCreated.addListener(async (tab) => {
-	console.log(tab)
-});
-
-browser.tabs.onUpdated.addListener(async (tabId, u, tab) => {
-	console.log(tabId, tab)
-});
-*/
-
 let l = messenger.i18n.getUILanguage();
 
 browser.runtime.onInstalled.addListener(async (info) => {
@@ -109,22 +98,17 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			let currentWin = windows.find(fw => fw.focused)
 			let currentTab = currentWin.tabs.find(t => t.active);
 
-			console.log(currentTab)
-
-
 			var msgList = [];
 			if (currentTab.mailTab) {
 
 				try {
 					msgList = await browser.mailTabs.getSelectedMessages();
-					console.log(msgList)
 				} catch {
 					msgList = null;
 				}
 				return msgList;
 			} else if (currentTab.type == "messageDisplay") {
 				let msgDisplayed = await browser.messageDisplay.getDisplayedMessage(currentTab.id);
-				console.log(msgDisplayed)
 				msgList = { id: null, messages: [msgDisplayed] };
 				return msgList;
 			}

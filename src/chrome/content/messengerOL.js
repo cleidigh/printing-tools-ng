@@ -251,8 +251,6 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 // -- Define listeners for messages from the background script.
 
 async function handleExternalPrint(data) {
-	console.log(" incoming ext msg" + data);
-	console.log(data)
 	if (!data.messageHeader) {
 		return;
 	}

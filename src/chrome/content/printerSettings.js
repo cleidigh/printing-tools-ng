@@ -566,7 +566,6 @@ var printerSettings = {
   // saved and read through the printer prefs.
 
   addPrintPreviewObserver: function () {
-    console.log("add obs")
     Services.obs.addObserver(this.printPreviewSetPrinterPrefs, "subdialog-loaded");
   },
 
@@ -599,10 +598,6 @@ var printerSettings = {
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
-      let sel_section_sec = subDialogWindow.document.querySelector("#custom-range");
-      let sel_source = subDialogWindow.document.querySelector("#source-version-source-radio");
-      let sel_selection = subDialogWindow.document.querySelector("#source-version-selection-radio");
-
 
       
       try {
@@ -629,18 +624,9 @@ var printerSettings = {
       cmg.removeAttribute("hidden");
       mp.selectedIndex = 3;
 
-      //console.log(printerSettings)
       // Set pageRanges - NOTE: This has a timing dependency, a delay
       // will cause odd preview page errors
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
-
-      // Set output to source or selection
-      //await new Promise(resolve => window.setTimeout(resolve, 100));
-
-//      sel_selection.setAttribute("checked", "");
-      //sel_source.removeAttribute("checked");
-
-      //console.log(subDialogWindow.document.documentElement.innerHTML)
 
     },
   },
