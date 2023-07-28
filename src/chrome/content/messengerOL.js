@@ -39,9 +39,11 @@ async function onLoad() {
 
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem replaceattributes="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()" command="" disabled="" />
+	<menuitem replaceattributes="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()" command="" disabled="" acceltext="Ctrl+P"/>
 </menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
+let fm = document.getElementById("menu_FilePopup");
+//fm.setAttribute("onpopupshown", "printingtools.updateFileMenu()")
 
 
 	WL.injectElements(`
@@ -263,7 +265,8 @@ async function handleExternalPrint(data) {
 
 
 function onUnload(shutdown) {
-	// console.debug('PT unloading');
+	console.debug('PT unloading');
+	window.printingtools.inShutdown = true;
 	document.removeEventListener('click', btListener);
 	window.ptngAddon.notifyTools.removeListener(extMsgHandler);
 	window.getUI_status.shutdown();
@@ -272,6 +275,14 @@ function onUnload(shutdown) {
 	let mk = document.getElementById("key_print");
 	mk.removeAttribute("oncommand")
 	mk.setAttribute("oncommand", "goDoCommand('cmd_print')");
+
+	let fm = document.getElementById("menu_FilePopup");
+	fm.removeAttribute("onpopupshown");
+	let pi = document.getElementById("printMenuItem");
+
+	pi.setAttribute("key", "key_print")
+	console.log(pi)
+	console.log("shutdown")
 
 	window.printingtools.shutdown();
 }
