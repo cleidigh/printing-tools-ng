@@ -21,7 +21,7 @@
 		You should have received a copy of the GNU General Public License
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-// var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+
 var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
 
 var st = {};
@@ -52,7 +52,6 @@ var printingtools = {
 	extRunning: false,
 	externalQ: [],
 	msgRestoration: {},
-	inShutdown: false,
 
 	WEXT_cmd_print: async function (data) {
 		let tabId = data.tabId;
@@ -80,25 +79,6 @@ var printingtools = {
 			return nativeTab.chromeBrowser.contentWindow;
 		}
 		return null;
-	},
-
-	updateFileMenu: async function () {
-		//await new Promise(resolve => window.setTimeout(resolve, 100));
-		if (printingtools.inShutdown) {
-			console.log("abort")
-			return;
-		}
-		let pi = document.getElementById("printMenuItem");
-		console.log(pi)
-
-		//pi.setAttribute("label", "test")
-		//pi.setAttribute("hidden", "")
-		pi.removeAttribute("key")
-		//pi.removeAttribute("command")
-
-		pi.setAttribute("acceltext", "")
-		console.log(pi)
-		
 	},
 
 	/** Prints the messages selected in the thread pane. */
@@ -2257,7 +2237,7 @@ var printingtools = {
 
 		}
 
-		attTable.setAttribute("id","ptng-att-table");
+		attTable.setAttribute("id", "ptng-att-table");
 		attTable.classList.add("mimeAttachmentTable");
 		var t;
 
