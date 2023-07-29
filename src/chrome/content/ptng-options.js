@@ -5,7 +5,9 @@ printerSettings,
 utils,
 */
 
-var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+var Services = globalThis.Services ||
+  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
+
 var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
 
