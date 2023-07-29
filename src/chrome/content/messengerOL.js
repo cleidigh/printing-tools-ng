@@ -42,9 +42,6 @@ async function onLoad() {
 	<menuitem replaceattributes="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()" command="" disabled="" acceltext="Ctrl+P"/>
 </menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
-let fm = document.getElementById("menu_FilePopup");
-//fm.setAttribute("onpopupshown", "printingtools.updateFileMenu()")
-
 
 	WL.injectElements(`
 <panelview id="appMenu-mainView">
@@ -265,7 +262,7 @@ async function handleExternalPrint(data) {
 
 
 function onUnload(shutdown) {
-	console.debug('PT unloading');
+	//console.debug('PT unloading');
 	window.printingtools.inShutdown = true;
 	document.removeEventListener('click', btListener);
 	window.ptngAddon.notifyTools.removeListener(extMsgHandler);
@@ -275,14 +272,6 @@ function onUnload(shutdown) {
 	let mk = document.getElementById("key_print");
 	mk.removeAttribute("oncommand")
 	mk.setAttribute("oncommand", "goDoCommand('cmd_print')");
-
-	let fm = document.getElementById("menu_FilePopup");
-	fm.removeAttribute("onpopupshown");
-	let pi = document.getElementById("printMenuItem");
-
-	pi.setAttribute("key", "key_print")
-	console.log(pi)
-	console.log("shutdown")
 
 	window.printingtools.shutdown();
 }
