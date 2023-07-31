@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "PrintingTools NG",
-    "version": "3.0.0-b12",
+    "version": "3.0.0-b12p1",
     "description": "__MSG_extensionDescription__",
     "author": "Christopher Leidigh",
     "applications": {
