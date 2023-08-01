@@ -94,6 +94,7 @@ var printingtools = {
 		msgList.messages.forEach(msg => {
 			let realMessage = window.printingtoolsng.extension
 				.messageManager.get(msg.id);
+				console.log(realMessage)
 			try {
 				let uri = realMessage.folder.getUriForMsg(realMessage);
 				printingtools.msgUris.push(uri)
@@ -472,6 +473,7 @@ var printingtools = {
 		printingtools.num = 1;
 		printingtools.msgUris = [msgURI];
 
+
 		if (this.prefs.getBoolPref("extensions.printingtoolsng.printer.persistent") &&
 			this.prefs.getPrefType("extensions.printingtoolsng.print_printer") &&
 			this.prefs.getStringPref("extensions.printingtoolsng.print_printer") !== ""
@@ -510,6 +512,7 @@ var printingtools = {
 			}
 		}
 
+		
 		if (pdfOutput) {
 
 			pdfFileName = await this.utils.constructPDFoutputFilename(msgURI, pdfOutputDir);
@@ -520,7 +523,7 @@ var printingtools = {
 			}
 
 		}
-		let messageService = messenger.messageServiceFromURI(msgURI);
+		let messageService = MailServices.messageServiceFromURI(msgURI);
 		let msgHdr = messenger.msgHdrFromURI(msgURI);
 		let msgSubject = msgHdr.mime2DecodedSubject;
 
@@ -560,9 +563,16 @@ var printingtools = {
 			return;
 		}
 
+		console.log(window)
+		console.log(window.printingtoolsng)
+		console.log("after3")
+
 		let realMessage = window.printingtoolsng.extension
 			.messageManager.get(msgHeader.id);
+
 		let uri = realMessage.folder.getUriForMsg(realMessage);
+
+		console.log(uri)
 
 		if (this.extRunning) {
 			//console.log("Q dont run")
