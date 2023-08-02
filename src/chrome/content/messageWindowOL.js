@@ -54,7 +54,7 @@ function onLoad() {
 
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="o" label="&PMDmenuitem;" oncommand="openPTdialog(false)"/>
+	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="&PMDmenuitem;" oncommand="openPTdialog(false)"/>
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
