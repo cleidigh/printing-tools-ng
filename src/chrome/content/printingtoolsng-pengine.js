@@ -563,16 +563,10 @@ var printingtools = {
 			return;
 		}
 
-		console.log(window)
-		console.log(window.printingtoolsng)
-		console.log("after3")
-
 		let realMessage = window.printingtoolsng.extension
 			.messageManager.get(msgHeader.id);
 
 		let uri = realMessage.folder.getUriForMsg(realMessage);
-
-		console.log(uri)
 
 		if (this.extRunning) {
 			//console.log("Q dont run")

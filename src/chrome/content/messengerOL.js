@@ -254,7 +254,7 @@ async function handleExternalPrint(data) {
 		return;
 	}
 	await window.printingtools.cmd_printng_external({ messageHeader: data.messageHeader || "error" })
-	console.log("PTNG: External print handler done")
+	//console.log("PTNG: External print handler done")
 	return true;
 }
 
