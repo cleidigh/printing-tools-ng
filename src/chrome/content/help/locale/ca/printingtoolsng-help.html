@@ -26,22 +26,29 @@
       opcions de pàgina que no es poden fer a la vista prèvia d&#39;impressió normal del Thunderbird. La
       sortida de PDF també es pot fer amb un nom automàtic mitjançant un sistema flexible basat en testimonis.
     </p>
-    <h3 class="indent0">Afegint el botó Print NG a la barra d&#39;eines:</h3>
+    <h3 class="indent0">Afegeix el botó Imprimeix NG a la barra d&#39;eines de la capçalera del correu:</h3>
     <p>
-      El botó Imprimeix NG s&#39;ha d&#39;afegir a la barra d&#39;eines per habilitar tant l&#39;accés a la
-      impressió com les opcions. A més, es pot accedir a les opcions mitjançant el botó de clau anglesa de
-      l&#39;extensió a la pestanya del complement.
+      El botó Print NG s&#39;afegeix automàticament a la barra d&#39;eines unificada a partir del Thunderbird
+      v115. El botó també es pot afegir a la barra d&#39;eines de la capçalera del correu per habilitar tant
+      l&#39;accés a la impressió com les opcions del panell de correu. A més, es pot accedir a les opcions
+      mitjançant el botó de clau anglesa de l&#39;extensió a la pestanya del complement.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Seguiu aquests passos per col·locar el botó a la barra d&#39;eines:</p>
+    <p>Seguiu aquests passos per col·locar el botó a la barra d&#39;eines de la capçalera del correu:</p>
     <div class="indent1">
-      <li>Feu clic amb el botó dret a un espai buit de la barra d&#39;eines de correu</li>
+      <li>Feu clic al botó Més a la barra d&#39;eines de la capçalera del correu</li>
       <li>Seleccioneu Personalitzat... Això obrirà la finestra Personalitza la barra d&#39;eines</li>
       <li>Localitzeu el botó Print NG</li>
       <li>Arrossegueu i deixeu anar el botó a la ubicació desitjada</li>
       <li>Utilitzeu el botó d&#39;impressió, previsualització, opcions i ajuda</li>
     </div>
+    <h3 class="indent0">Dreceres de teclat PrintingTools NG</h3>
+    <p>
+      PrintingTools torna a mapejar la drecera estàndard del Thunderbird Print per invocar-se en lloc de la
+      drecera estàndard. A Windows i Linux, utilitzeu Control-P i Command-P a Mac. També és possible obrir el
+      diàleg Opcions amb Control-Maj-P.
+    </p>
     <h3 class="indent0">El següent és un exemple d&#39;algunes de les funcions de format de capçalera:</h3>
     <div class="indent1">
       <li>Estil de vora de capçalera personalitzat mitjançant CSS (superior i inferior, blau)</li>
@@ -317,7 +324,7 @@
         <code class="code1">%D</code> - no implementat (utilitza <code class="code1">%m/%d/%y</code> o
         <code class="code1">%d/%m/%y</code> )
       </li>
-      <li><code class="code1">%e</code> - l&#39;espai no s&#39;ha afegit</li>
+      <li><code class="code1">%e</code> - l&#39;espai no s&#39;afegeix</li>
       <li><code class="code1">%E</code> - no implementat</li>
       <li><code class="code1">%h</code> - no implementat (utilitza <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - l&#39;espai no s&#39;afegeix</li>
@@ -441,8 +448,8 @@
       problemes.
     </p>
     <p>
-      Un element que no desa la previsualització són els intervals de pàgines. Un cas d&#39;ús típic és quan
-      es vol imprimir només la primera pàgina d&#39;un correu electrònic com a predeterminada. normalment
+      Un element que no es desa a la previsualització són els intervals de pàgines. Un cas d&#39;ús típic és
+      quan es vol imprimir només la primera pàgina d&#39;un correu electrònic com a predeterminada. normalment
       s&#39;hauria de fer canviar els intervals de pàgines cada vegada. Tingueu en compte que si un interval
       de pàgines establert a PrintingTools NG no és vàlid, com ara superar el nombre de pàgines, caldrà
       corregir l&#39;interval a la vista prèvia abans d&#39;imprimir. Un interval de pàgines establert en

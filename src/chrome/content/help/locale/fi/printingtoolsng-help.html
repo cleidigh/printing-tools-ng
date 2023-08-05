@@ -26,21 +26,29 @@
       tehdä normaalissa Thunderbird-tulostuksen esikatselussa. PDF-tulostus voidaan tehdä myös automaattisella
       nimeämisellä käyttämällä joustavaa merkkipohjaista järjestelmää.
     </p>
-    <h3 class="indent0">Tulosta NG -painikkeen lisääminen työkalupalkkiin:</h3>
+    <h3 class="indent0">Tulosta NG -painikkeen lisääminen sähköpostin otsikkopalkkiin:</h3>
     <p>
-      Tulosta NG -painike tulisi lisätä työkalupalkkiin, jotta tulostuskäyttö ja asetukset ovat käytettävissä.
-      Lisäksi vaihtoehtoja pääsee käsiksi lisäosavälilehden laajennuksen jakoavainpainikkeella.
+      Tulosta NG -painike lisätään automaattisesti yhdistettyyn työkalupalkkiin Thunderbird v115:stä lähtien.
+      Painike voidaan myös lisätä sähköpostin otsikkotyökalupalkkiin, jotta voidaan käyttää sekä tulostusta
+      että vaihtoehtoja postiruudusta. Lisäksi vaihtoehtoja pääsee käsiksi lisäosavälilehden laajennuksen
+      jakoavainpainikkeella.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Aseta painike työkalupalkkiin seuraavasti:</p>
+    <p>Sijoita painike sähköpostin otsikkopalkkiin seuraavasti:</p>
     <div class="indent1">
-      <li>Napsauta hiiren kakkospainikkeella tyhjää kohtaa sähköpostityökalurivillä</li>
+      <li>Napsauta Lisää-painiketta sähköpostin otsikkopalkissa</li>
       <li>Valitse Mukautettu... Tämä avaa Mukauta työkalupalkki -ikkunan</li>
       <li>Etsi Tulosta NG -painike</li>
       <li>Vedä ja pudota painike haluamaasi paikkaan</li>
       <li>Käytä painiketta Tulosta, Esikatselu, Asetukset ja Ohje</li>
     </div>
+    <h3 class="indent0">PrintingTools NG -pikanäppäimet</h3>
+    <p>
+      PrintingTools yhdistää normaalin Thunderbird Print -pikakuvakkeen uudelleen kutsuakseen itsensä
+      tavallisen Printin sijaan. Käytä Windowsissa ja Linuxissa Ctrl-P ja Komento-P Macissa. On myös
+      mahdollista avata Asetukset-valintaikkuna painamalla Control-Shift-P.
+    </p>
     <h3 class="indent0">Seuraavassa on esimerkki joistakin otsikon muotoiluominaisuuksista:</h3>
     <div class="indent1">
       <li>Räätälöity otsikon reunatyyli CSS:n avulla (ylä ja ala, sininen)</li>
@@ -363,8 +371,7 @@
       <span class="notranslate"><code>${subject}</code></span> – oletusmuoto, sähköpostin aihe<br />
       <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Käytä mukautettua
       päivämäärämuotoa oletusmuodon sijaan<br />
-      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Mukautettu
-      teksti<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Muokattu teksti<br />
     </p>
     <p>Alla olevassa taulukossa kuvataan kaikki tunnukset, joita voidaan käyttää tiedostonimimuodossa.</p>
     <table class="token-table">

@@ -26,21 +26,29 @@
       Thunderbird-förhandsgranskningen. PDF-utdata kan också göras med automatisk namngivning med ett
       flexibelt tokenbaserat system.
     </p>
-    <h3 class="indent0">Lägga till knappen Print NG i verktygsfältet:</h3>
+    <h3 class="indent0">Lägga till knappen Skriv ut NG i verktygsfältet för e-posthuvudet:</h3>
     <p>
-      Knappen Skriv ut NG bör läggas till i verktygsfältet för att möjliggöra både utskriftsåtkomst och
-      alternativ. Ytterligare alternativ kan nås med skiftnyckelknappen för tillägget på tilläggsfliken.
+      Knappen Skriv ut NG läggs automatiskt till i det enhetliga verktygsfältet från och med Thunderbird v115.
+      Knappen kan också läggas till i e-posthuvudets verktygsfält för att möjliggöra både utskriftsåtkomst och
+      alternativ från e-postfönstret. Ytterligare alternativ kan nås med skiftnyckelknappen för tillägget på
+      tilläggsfliken.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Följ dessa steg för att placera knappen i verktygsfältet:</p>
+    <p>Följ dessa steg för att placera knappen i e-posthuvudets verktygsfält:</p>
     <div class="indent1">
-      <li>Högerklicka på ett tomt utrymme i e-postverktygsfältet</li>
+      <li>Klicka på knappen Mer i e-posthuvudets verktygsfält</li>
       <li>Välj Anpassad... Detta öppnar fönstret Anpassa verktygsfält</li>
       <li>Leta upp knappen Skriv ut NG</li>
       <li>Dra och släpp knappen till önskad plats</li>
       <li>Använd knappen för Skriv ut, Förhandsgranska, Alternativ och Hjälp</li>
     </div>
+    <h3 class="indent0">PrintingTools NG kortkommandon</h3>
+    <p>
+      PrintingTools mappar om standardgenvägen för Thunderbird Print för att anropa sig själv istället för
+      standardutskriften. På Windows och Linux använd Ctrl-P och Command-P på Mac. Det är också möjligt att
+      öppna dialogrutan Alternativ med Control-Shift-P.
+    </p>
     <h3 class="indent0">Följande är ett exempel på några av headerformateringsfunktionerna:</h3>
     <div class="indent1">
       <li>Anpassad rubrikkantsstil med CSS (överst och nederst, blå)</li>
@@ -489,9 +497,7 @@
       </li>
       <li><code class="notranslate">finaloutput</code> - visa det slutliga meddelandet</li>
       <li><code class="notranslate">pdfoutput</code> - debug output för PDF-meddelandeutdata</li>
-      <li>
-        <code class="notranslate">printsettings</code> - felsöka utdata för utskrifts- och sidalternativ
-      </li>
+      <li><code class="notranslate">printsettings</code> - felsök utdata för utskrifts- och sidalternativ</li>
       <li>
         <code class="notranslate">helpinwin</code> - lägesflagga för att visa hjälp i ett fönster istället för
         standarden i en flik

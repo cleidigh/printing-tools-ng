@@ -27,22 +27,32 @@
       Thunderbird. La salida de PDF también se puede hacer con nombres automáticos utilizando un sistema
       flexible basado en tokens.
     </p>
-    <h3 class="indent0">Agregar el botón Imprimir NG a la barra de herramientas:</h3>
+    <h3 class="indent0">
+      Agregar el botón Imprimir NG a la barra de herramientas del encabezado del correo:
+    </h3>
     <p>
-      El botón Imprimir NG debe agregarse a la barra de herramientas para habilitar tanto el acceso de
-      impresión como las opciones. Se puede acceder a las opciones adicionales mediante el botón de llave
-      inglesa para la extensión en la pestaña del complemento.
+      El botón Imprimir NG se agrega automáticamente a la barra de herramientas unificada a partir de
+      Thunderbird v115. El botón también se puede agregar a la barra de herramientas del encabezado del correo
+      para habilitar tanto el acceso de impresión como las opciones del panel de correo. Se puede acceder a
+      las opciones adicionales mediante el botón de llave inglesa para la extensión en la pestaña del
+      complemento.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Siga estos pasos para colocar el botón en la barra de herramientas:</p>
+    <p>Siga estos pasos para colocar el botón en la barra de herramientas del encabezado del correo:</p>
     <div class="indent1">
-      <li>Haga clic derecho en un espacio vacío en la barra de herramientas de correo</li>
+      <li>Haga clic en el botón Más en la barra de herramientas del encabezado del correo</li>
       <li>Seleccione Personalizado... Esto abrirá la ventana Personalizar barra de herramientas</li>
       <li>Localice el botón Imprimir NG</li>
       <li>Arrastre y suelte el botón en la ubicación deseada</li>
       <li>Use el botón para Imprimir, Vista previa, Opciones y Ayuda</li>
     </div>
+    <h3 class="indent0">Métodos abreviados de teclado de PrintingTools NG</h3>
+    <p>
+      PrintingTools reasigna el acceso directo de impresión estándar de Thunderbird para que se invoque a sí
+      mismo en lugar de la impresión estándar. En Windows y Linux, use Control-P y Command-P en Mac. También
+      es posible abrir el cuadro de diálogo Opciones con Control-Shift-P.
+    </p>
     <h3 class="indent0">El siguiente es un ejemplo de algunas de las funciones de formato de encabezado:</h3>
     <div class="indent1">
       <li>Estilo de borde de encabezado personalizado usando CSS (superior e inferior, azul)</li>
@@ -62,7 +72,7 @@
       para la Fecha como para la Fecha de recepción en los encabezados de correo electrónico. La fecha
       personalizada proporciona múltiples opciones localizadas que permiten casi cualquier formato. Tenga en
       cuenta que la cadena de fecha personalizada puede incluir separadores, literales que incluyen caracteres
-      Unicode mezclados con los tokens de fecha/hora que se enumeran a continuación.<br /><br />
+      Unicode combinados con los tokens de fecha/hora que se enumeran a continuación.<br /><br />
       Nota: Los resultados de la fecha personalizada en los ejemplos a continuación serán diferentes según la
       fecha real, la configuración regional de los usuarios y la zona horaria.
     </p>
@@ -109,13 +119,13 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>configuración regional en-US, día/mes largo</td>
+        <td>configuración regional en-US, día/mes largos</td>
       </tr>
     </table>
     <br />
     <p>
-      El formato de fecha personalizado utiliza secuencias % que coinciden con la funcionalidad similar a
-      <code>strftime()</code> Unix. Se basa en un puerto JavaScript de
+      El formato de fecha personalizado utiliza secuencias % que coinciden con la funcionalidad
+      <code>strftime()</code> similar a Unix. Se basa en un puerto JavaScript de
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , una función para formatear la fecha y la hora.<br />
       Puerto de strftime() por TH Doan (https://thdoan.github.io/strftime/)<br />
@@ -254,8 +264,8 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Número de semana ISO 8601 del año actual como un número decimal (rango 01 a 53), donde la semana 1
-            es la primera semana que tiene al menos 4 días en el nuevo año (es decir, el primer jueves).
+            Número de semana ISO 8601 del año actual como número decimal (rango 01 a 53), donde la semana 1 es
+            la primera semana que tiene al menos 4 días en el nuevo año (es decir, el primer jueves).
           </td>
         </tr>
         <tr>

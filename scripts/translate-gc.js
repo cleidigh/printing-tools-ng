@@ -464,12 +464,14 @@ var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi',
 // these locales are manualy managed
 // de, ja, fr
 
-//translateHelpPage();
+translateHelpPage();
 //translatePage();
 // translateAll("printingtoolsng.properties", translationArray, options);
-translateAll(inputFiles, translationArray, options);
+//translateAll(inputFiles, translationArray, options);
 //translateAll("mboximport.dtd", translationArray, options);
 //loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];
 
-// node .\scripts\translate-gc.js
+/*
+node .\scripts\translate-gc.js
+*/

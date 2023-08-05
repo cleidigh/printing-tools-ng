@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
+    <title>PrintingTools NG-Hilfe</title>
+  </head>
+  <body>
+    <table style="width: 100%;">
+      <tr>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG-Hilfe</div>
+          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
+        </td>
+        <td style="text-align: right; padding-right: 30px;">
+          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
+        </td>
+      </tr>
+    </table>
+    <br />
+    <h2 id="main_help">Übersicht über PrintingTools NG</h2>
+    <p>
+      PrintingTools NG ermöglicht viele Anpassungen beim E-Mail-Druck. Die Erweiterung bietet viele Optionen
+      sowohl für die Header als auch für die Nachrichtenteile. Zusätzlich können Seitenoptionen eingestellt
+      werden, die in der normalen Thunderbird-Druckvorschau nicht möglich sind. Die PDF-Ausgabe kann auch mit
+      automatischer Benennung mithilfe eines flexiblen, tokenbasierten Systems erfolgen.
+    </p>
+    <h3 class="indent0">Hinzufügen der Schaltfläche „NG drucken“ zur E-Mail-Header-Symbolleiste:</h3>
+    <p>
+      Die Schaltfläche „NG drucken“ wird ab Thunderbird v115 automatisch zur einheitlichen Symbolleiste
+      hinzugefügt. Die Schaltfläche kann auch zur E-Mail-Header-Symbolleiste hinzugefügt werden, um sowohl den
+      Druckzugriff als auch Optionen im E-Mail-Fenster zu ermöglichen. Auf zusätzliche Optionen kann über die
+      Schraubenschlüssel-Schaltfläche für die Erweiterung auf der Add-on-Registerkarte zugegriffen werden.
+    </p>
+    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
+    <br />
+    <p>Befolgen Sie diese Schritte, um die Schaltfläche in der E-Mail-Header-Symbolleiste zu platzieren:</p>
+    <div class="indent1">
+      <li>Klicken Sie in der E-Mail-Header-Symbolleiste auf die Schaltfläche „Mehr“.</li>
+      <li>Wählen Sie Benutzerdefiniert... Dadurch wird das Fenster „Symbolleiste anpassen“ geöffnet</li>
+      <li>Suchen Sie die Schaltfläche „NG drucken“.</li>
+      <li>Ziehen Sie die Schaltfläche per Drag &amp; Drop an die gewünschte Stelle</li>
+      <li>Verwenden Sie die Schaltfläche für Drucken, Vorschau, Optionen und Hilfe</li>
+    </div>
+    <h3 class="indent0">Tastenkombinationen für PrintingTools NG</h3>
+    <p>
+      PrintingTools ordnet die standardmäßige Thunderbird-Druckverknüpfung neu zu, um sich selbst anstelle der
+      standardmäßigen Druckverknüpfung aufzurufen. Verwenden Sie unter Windows und Linux Control-P und
+      Command-P auf dem Mac. Es ist auch möglich, den Optionendialog mit Strg-Umschalt-P zu öffnen.
+    </p>
+    <h3 class="indent0">Das Folgende ist ein Beispiel für einige der Header-Formatierungsfunktionen:</h3>
+    <div class="indent1">
+      <li>Angepasster Header-Rahmenstil mit CSS (oben und unten, blau)</li>
+      <li>Hintergrundfarbe der Kopfzeile</li>
+      <li>Ausgerichtete Kopfzeilen</li>
+      <li>Angepasste Header-Reihenfolge</li>
+      <li>Seitentitel und Nachrichtenordner</li>
+      <li>Anhangsliste mit Symbolen in der Kopfzeile</li>
+      <li>Vollständig anpassbare internationale Formatierung des Datumsformats</li>
+    </div>
+    <br />
+    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
+    <br />
+    <h2 id="customdate_format_help">Benutzerdefiniertes Datumsformat</h2>
+    <p>
+      Die Option „Benutzerdefiniertes Datum“ ermöglicht die vollständige Kontrolle über die
+      Datumsformatierung, die sowohl für das Datum als auch für das Empfangsdatum in den E-Mail-Headern
+      verwendet wird. Das benutzerdefinierte Datum bietet mehrere lokalisierte Optionen, die nahezu jedes
+      Format ermöglichen. Beachten Sie, dass die benutzerdefinierte Datumszeichenfolge Trennzeichen, Literale
+      einschließlich Unicode-Zeichen gemischt mit den unten aufgeführten Datums-/Uhrzeit-Tokens enthalten
+      kann.<br /><br />
+      Hinweis: Die benutzerdefinierten Datumsergebnisse in den folgenden Beispielen unterscheiden sich je nach
+      tatsächlichem Datum, Gebietsschema und Zeitzone des Benutzers.
+    </p>
+    <br />
+    <h3 class="indent0">Beispiele:</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <td>Datumszeichenfolge</td>
+          <td>Ergebnis</td>
+          <td>Notiz</td>
+        </tr>
+      </thead>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
+        <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
+        <td>ja Gebietsschema mit Literalen</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
+        <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
+        <td>ko-Gebietsschema mit Literalen</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
+        <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
+        <td>zh-CN-Gebietsschema, kurzer Tag</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
+        <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
+        <td>zh-TW-Gebietsschema, langer Tag</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
+        <td class="notranslate">20.04.2022 18:01:42 CET</td>
+        <td>Punkttrennzeichen</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
+        <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
+        <td>de locale, kurzer Tag/Monat</td>
+      </tr>
+      <tr>
+        <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
+        <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
+        <td>en-US-Gebietsschema, langer Tag/Monat</td>
+      </tr>
+    </table>
+    <br />
+    <p>
+      Das benutzerdefinierte Datumsformat verwendet %-Sequenzen, die der Unix-ähnlichen Funktionalität
+      <code>strftime()</code> entsprechen. Es basiert auf einer JavaScript-Portierung von
+      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
+      , einer Funktion zum Formatieren von Datum und Uhrzeit.<br />
+      Portierung von strftime() von TH Doan (https://thdoan.github.io/strftime/)<br />
+    </p>
+    <br />
+    <h3 style="margin-left: 30px;">Beschreibungen der Konvertierungssequenzen</h3>
+    <table class="dateformat-table">
+      <thead>
+        <tr>
+          <th>Reihenfolge</th>
+          <th>Beschreibung</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code1">%a</code></td>
+          <td>Kurzname des Wochentags.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%A</code></td>
+          <td>Vollständiger Name des Wochentags.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%b</code></td>
+          <td>Abgekürzter Monatsname.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%B</code></td>
+          <td>Vollständiger Monatsname.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%c</code></td>
+          <td>Bevorzugte Datums- und Uhrzeitdarstellung (UTC) für das aktuelle Gebietsschema.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%C</code></td>
+          <td>Jahrhundertzahl (Jahr/100) als zweistellige Ganzzahl.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%d</code></td>
+          <td>Tag des Monats als Dezimalzahl (Bereich 01 bis 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%e</code></td>
+          <td>Tag des Monats als Dezimalzahl (Bereich 1 bis 31).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%F</code></td>
+          <td>ISO 8601-Datumsformat (entspricht <code class="code1">%Y-%m-%d</code> ).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%G</code></td>
+          <td>
+            Wochenbasiertes Jahr nach ISO 8601 mit Jahrhundert als Dezimalzahl. Die 4-stellige Jahreszahl
+            entspricht der ISO-Wochennummer (siehe <code class="code1">%V</code> ). Dies hat das gleiche
+            Format und den gleichen Wert wie <code class="code1">%Y</code> , mit der Ausnahme, dass
+            stattdessen dieses Jahr verwendet wird, wenn die ISO-Wochennummer zum vorherigen oder nächsten
+            Jahr gehört.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%g</code></td>
+          <td>
+            Wie <code class="code1">%G</code> , jedoch ohne Jahrhundert, also mit zweistelliger Jahreszahl
+            (00-99).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%H</code></td>
+          <td>
+            Stunde als Dezimalzahl im 24-Stunden-Format (Bereich 00 bis 23). Siehe auch
+            <code class="code1">%k</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%I</code></td>
+          <td>
+            Stunde als Dezimalzahl im 12-Stunden-Format (Bereich 01 bis 12). Siehe auch
+            <code class="code1">%l</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%j</code></td>
+          <td>Tag des Jahres als Dezimalzahl (Bereich 001 bis 366).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%k</code></td>
+          <td>
+            Stunde als Dezimalzahl im 24-Stunden-Format (Bereich 0 bis 23). Siehe auch
+            <code class="code1">%H</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%l</code></td>
+          <td>
+            Stunde als Dezimalzahl im 12-Stunden-Format (Bereich 1 bis 12). Siehe auch
+            <code class="code1">%I</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%m</code></td>
+          <td>Monat als Dezimalzahl (Bereich 01 bis 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%n</code></td>
+          <td>Monat als Dezimalzahl (Bereich 1 bis 12).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%M</code></td>
+          <td>Minute als Dezimalzahl (Bereich 00 bis 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%p</code></td>
+          <td>
+            Entweder „AM“ oder „PM“, entsprechend dem angegebenen Zeitwert. Mittag wird als „PM“ und
+            Mitternacht als „AM“ behandelt.
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%P</code></td>
+          <td>Wie <code class="code1">%p</code> , aber in Kleinbuchstaben („am“ oder „pm“).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%s</code></td>
+          <td>Anzahl der Sekunden seit der Epoche, 1970-01-01 00:00:00 +0000 (UTC).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%S</code></td>
+          <td>Sekunde als Dezimalzahl (Bereich 00 bis 59).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%u</code></td>
+          <td>
+            Wochentag als Dezimalzahl (Bereich 1 bis 7), Montag ist 1. Siehe auch
+            <code class="code1">%w</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%V</code></td>
+          <td>
+            ISO 8601-Wochennummer des aktuellen Jahres als Dezimalzahl (Bereich 01 bis 53), wobei Woche 1 die
+            erste Woche ist, die mindestens 4 Tage im neuen Jahr hat (d. h. der erste Donnerstag).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%w</code></td>
+          <td>
+            Wochentag als Dezimalzahl (Bereich 0 bis 6), Sonntag ist 0. Siehe auch
+            <code class="code1">%u</code> .
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%x</code></td>
+          <td>Bevorzugte Datumsdarstellung für das aktuelle Gebietsschema ohne Uhrzeit.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%X</code></td>
+          <td>Bevorzugte Zeitdarstellung für das aktuelle Gebietsschema ohne Datum.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%y</code></td>
+          <td>Jahr als Dezimalzahl ohne Jahrhundertangabe (Bereich 00 bis 99).</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Y</code></td>
+          <td>Jahr als Dezimalzahl inklusive Jahrhundert.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%z</code></td>
+          <td>
+            Die numerische Zeitzone <code class="code1">+hhmm</code> oder <code class="code1">-hhmm</code> (d.
+            h. der Stunden- und Minutenversatz von UTC).
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code1">%Z</code></td>
+          <td>Name oder Abkürzung der Zeitzone.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%t</code></td>
+          <td>Abkürzung für kurze Zeitzone.</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%0</code></td>
+          <td>Jahresbuchstabe. Lokalisiert, hauptsächlich für asiatische Gebiete. (zh-CN: 年, ko: 년)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%1</code></td>
+          <td>Monatsliteral. Lokalisiert, hauptsächlich für asiatische Gebiete. (zh-TW: 月, ko: 월)</td>
+        </tr>
+        <tr>
+          <td><code class="code1">%2</code></td>
+          <td>Tagesliteral. Lokalisiert, hauptsächlich für asiatische Gebiete. (ja: 日, ko: 일)</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 class="indent0">Kompatibilitätshinweise:</h3>
+    <ul>
+      <li><code class="code1">%c</code> – formatierte Zeichenfolge ist etwas anders</li>
+      <li>
+        <code class="code1">%D</code> – nicht implementiert (verwenden Sie
+        <code class="code1">%m/%d/%y</code> oder <code class="code1">%d/%m/%y</code> )
+      </li>
+      <li><code class="code1">%e</code> – Leerzeichen wurde nicht hinzugefügt</li>
+      <li><code class="code1">%E</code> – nicht implementiert</li>
+      <li><code class="code1">%h</code> – nicht implementiert ( <code class="code1">%b</code> verwenden)</li>
+      <li><code class="code1">%k</code> – Leerzeichen wurde nicht hinzugefügt</li>
+      <li>
+        <code class="code1">%n</code> – wie <code class="code1">%m</code> , aber keine führende Null
+        (verwenden Sie <code class="code1">\n</code> für Newline)
+      </li>
+      <li><code class="code1">%O</code> – nicht implementiert</li>
+      <li>
+        <code class="code1">%r</code> – nicht implementiert (verwenden Sie
+        <code class="code1">%I:%M:%S %p</code> )
+      </li>
+      <li>
+        <code class="code1">%R</code> – nicht implementiert (verwenden Sie <code class="code1">%H:%M</code> )
+      </li>
+      <li>
+        <code class="code1">%t</code> – nicht implementiert (verwenden Sie <code class="code1">\t</code> )
+      </li>
+      <li>
+        <code class="code1">%T</code> – nicht implementiert (verwenden Sie
+        <code class="code1">%H:%M:%S</code> )
+      </li>
+      <li><code class="code1">%U</code> – nicht implementiert</li>
+      <li><code class="code1">%W</code> – nicht implementiert</li>
+      <li><code class="code1">%+</code> – nicht implementiert</li>
+      <li><code class="code1">%%</code> – nicht implementiert ( <code class="code1">%</code> verwenden)</li>
+    </ul>
+    <br />
+    <h2 id="pdf_output_help">PDF-Ausgabe und automatische Dateibenennung</h2>
+    <p>
+      Die PDF-Ausgabe kann jetzt mithilfe eines Token-Systems automatisch benannt und in einem vordefinierten
+      PDF-Ausgabeverzeichnis gespeichert werden. Dies ist besonders nützlich, wenn Sie mehrere ausgewählte
+      E-Mails drucken, da nicht für jede E-Mail ein Name und ein Speicherort ausgewählt werden müssen.
+    </p>
+    <p />
+    <p>
+      Aktivieren Sie das PDF-Ausgabeverzeichnis und wählen Sie ein Verzeichnis als Speicherort. Der
+      Ausgabedateiname folgt dem konfigurierten Dateinamenformat.
+    </p>
+    <p />
+    <p>
+      Das Dateinamenformat besteht aus Token und allen statischen Zeichen wie Trennzeichen oder Leerzeichen.
+      Die Formatierung erweiterter Dateinamen verwendet Token. Der genaue Dateiname kann mithilfe der Token
+      sowie beliebigem Text oder gültigen Dateinamenszeichen erstellt werden. Ungültige Zeichen sind:
+      <code>| * : &lt; &gt; ? \ / &quot;</code>
+    </p>
+    <p />
+    <p>Das Standardnamenformat ist: ${subject}, was nur der Betreff der E-Mail ist.</p>
+    <p />
+    <p>Beispiele</p>
+    <p>
+      <span class="notranslate"><code>${subject}</code></span> – Das Standardformat und der Betreff der
+      E-Mail<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Verwenden Sie das
+      benutzerdefinierte Datumsformat anstelle des Standardformats<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> – Mit
+      benutzerdefiniertem Text<br />
+    </p>
+    <p>
+      Die folgende Tabelle beschreibt den vollständigen Satz von Token, die im Dateinamenformat verwendet
+      werden können.
+    </p>
+    <table class="token-table">
+      <tr>
+        <td>Zeichen</td>
+        <td>Beschreibung</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${subject}</code></td>
+        <td>Der Betreff der Nachricht.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender}</code></td>
+        <td>Der Name des Absenders der Nachricht.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient}</code></td>
+        <td>Der Name des Nachrichtenempfängers.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${sender_email}</code></td>
+        <td>Die E-Mail-Adresse des Absenders der Nachricht.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${recipient_email}</code></td>
+        <td>Die E-Mail-Adresse des Nachrichtenempfängers.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${smart_name}</code></td>
+        <td>
+          Die Empfänger, wenn sich die Nachricht in einem Ordner „Gesendet“ befindet, andernfalls der Name des
+          Absenders
+        </td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${index}</code></td>
+        <td>Die Nachrichtenindexnummer.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${prefix}</code></td>
+        <td>Der Wert der Präfixtextoption.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${suffix}</code></td>
+        <td>Der Wert der Suffixtextoption.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date}</code></td>
+        <td>Das Standarddatumsformat. Das Standardformat ist: JJJJMMTDHHmm</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${date_custom}</code></td>
+        <td>
+          Das benutzerdefinierte Datumsformat. Weitere Informationen finden Sie im Abschnitt zur
+          benutzerdefinierten Datumsformatierung.
+        </td>
+      </tr>
+    </table>
+    <br />
+    <h2 id="print_options_help">Druck- und Seitenoptionen</h2>
+    <p>
+      Mit diesen Optionen können Sie den Standarddrucker sowie Optionen pro Druckerseite festlegen. Es ist
+      auch möglich, den stillen Modus einzustellen, bei dem der Vorschaudialog nicht angezeigt wird und der
+      Druck sofort erfolgt.
+    </p>
+    <p>
+      Mit den Seitenoptionen können Sie Elemente festlegen, wenn sowohl die Vorschau als auch der Druck
+      abgeschlossen ist. Diese Optionen bleiben während des gesamten Druckvorgangs bestehen. Wenn in
+      PrintingTools NG festgelegte Optionen in der Druckvorschau geändert werden, haben sie keine Auswirkungen
+      auf nachfolgende Ausdrucke. Einige Elemente können im Vorschaudialog nicht eingestellt werden, dazu
+      gehören die Kopf- und Fußzeilen. Andere Elemente bleiben in der Vorschau nicht erhalten und müssten
+      normalerweise bei jedem Druckvorgang neu eingestellt werden. PrintingTools NG löst diese beiden
+      Probleme.
+    </p>
+    <p>
+      Ein Element, das von der Vorschau nicht gespeichert wird, sind die Seitenbereiche. Ein typischer
+      Anwendungsfall besteht darin, dass standardmäßig nur die erste Seite einer E-Mail gedruckt werden soll.
+      Normalerweise müsste man die Seitenbereiche jedes Mal ändern. Beachten Sie, dass der Bereich vor dem
+      Drucken in der Vorschau korrigiert werden muss, wenn ein in PrintingTools NG festgelegter Seitenbereich
+      ungültig ist, z. B. wenn die Anzahl der Seiten überschritten wird. Ein auf „1“ eingestellter
+      Seitenbereich ist immer gültig und druckt die erste Seite der Nachricht.
+    </p>
+    <p>Anmerkungen:</p>
+    <p>Mit der Skalierungsoption kann eine dauerhafte Skalierung festgelegt werden.</p>
+    <p>
+      Seitenbereiche werden auf die gleiche Weise beschrieben wie in der Vorschau. Beispiele sind 1, 1-2,
+      3-4,5. Beachten Sie, dass in der Vorschau ein Fehler angezeigt wird, wenn ein voreingestellter
+      Seitenbereich für eine bestimmte Nachricht nicht gültig ist.
+    </p>
+    <p>
+      Die Ränder können mit den für das Gebietsschema des Benutzers geeigneten Einheiten festgelegt werden,
+      entweder Zoll oder Millimeter (in oder mm). Beachten Sie, dass aufgrund von Rundungsfehlern einige
+      mm-Werte möglicherweise mit kleinen Unterschieden gespeichert werden.
+    </p>
+    <p></p>
+    <p>
+      Die Kopf- und Fußzeilen können so eingestellt werden, dass sie verschiedene unten aufgeführte
+      Nachrichtenvariablen enthalten. Zusätzlich kann auch beliebiger Text eingefügt werden. Um keine Kopf-
+      oder Fußzeilen zu drucken und Platz beim Drucken zu sparen, lassen Sie einfach alle Felder leer.
+    </p>
+    <div class="indent1">
+      <li>&amp;D = Datum</li>
+      <li>&amp;P = Seitenzahl</li>
+      <li>&amp;PT = Seitenzahl mit Gesamtsumme („3 von 5“)</li>
+      <li>&amp;T = Seitentitel (Betreff der Nachricht)</li>
+      <li>&amp;U = URL (Die URL der Nachricht)</li>
+    </div>
+    <h2>Unterstützung</h2>
+    <p>
+      Bitte posten Sie Probleme oder Funktionswünsche im Erweiterungs-GitHub-Repository:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      ><br /><br />
+      Geben Sie bei Fehlerproblemen die folgenden Informationen an, um die Probleme zu lösen:<br />
+      - PrintingTools NG-Version<br />
+      - Thunderbird-Version<br />
+      - Betriebssystem und Version<br />
+      - Debug-Ausgabe (Kopie aus der Debug-Konsole – Zugriff mit Control-Shift-J)<br />
+      – Eine Beschreibung der Schritte, die zu dem Problem führten<br />
+    </p>
+    <h2 id="debug_options_help">Debug-Optionen</h2>
+    <p>
+      Bei den Debug-Optionen handelt es sich um eine Reihe von Schlüsselwörtern, die als durch Leerzeichen
+      getrennte Liste eingegeben werden. Die Optionen werden normalerweise für die Konsolen-Debugging-Ausgabe
+      verwendet, können aber auch zum Testen oder in anderen Modi verwendet werden.
+    </p>
+    <div class="indent1">
+      <li>
+        <code class="notranslate">initialsource</code> – Nachrichtenquelle anzeigen, bevor PTNG Formatierungen
+        durchführt
+      </li>
+      <li><code class="notranslate">finaloutput</code> – zeigt die endgültige Nachrichtenausgabe an</li>
+      <li><code class="notranslate">pdfoutput</code> – Debug-Ausgabe für die Ausgabe von PDF-Nachrichten</li>
+      <li><code class="notranslate">printsettings</code> – Debug-Ausgabe für Druck- und Seitenoptionen</li>
+      <li>
+        <code class="notranslate">helpinwin</code> – Modus-Flag, um die Hilfe in einem Fenster statt wie
+        standardmäßig in einer Registerkarte anzuzeigen
+      </li>
+    </div>
+    <h2>Credits</h2>
+    <div class="indent1">
+      <li>PrintingTools NG basiert auf der Originalerweiterung von Paolo „Kosmos“</li>
+      <li>List.js von Jonny Strömberg https://listjs.com</li>
+      <li>Latinize.js von Jakub Dundalek https://github.com/dundalek/latinize</li>
+    </div>
+    <p>
+      Vielen Dank an folgende Benutzer für Verbesserungsvorschläge und Testhilfe:<br /><br />
+      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
+      - <code class="notranslate">@RRoenn</code><br />
+      - <code class="notranslate">@tidebre67</code><br />
+      - <code class="notranslate">@reinerblock</code><br />
+      - <code class="notranslate">@querixg</code><br />
+      - <code class="notranslate">@jobisoft</code><br />
+      - <code class="notranslate">@JF1313</code><br />
+      - <code class="notranslate">@DenB10</code><br />
+      - <code class="notranslate">@ichnilatis-gr</code><br />
+      - <code class="notranslate">@KC-T</code><br />
+      - <code class="notranslate">@madvinegar</code><br />
+      - <code class="notranslate">@ditchfinder</code><br />
+      - <code class="notranslate">@3LaHoonK</code><br />
+      - <code class="notranslate">@realraven</code><br />
+      - <code class="notranslate">@librelegal</code><br />
+      - <code class="notranslate">@Francewhoa</code><br />
+      - <code class="notranslate">@foxfan100</code><br />
+      - <code class="notranslate">@pechh</code><br />
+    </p>
+    <script type="text/javascript" src="../../help.js"></script>
+  </body>
+</html>
