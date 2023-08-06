@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "PrintingTools NG",
-    "version": "3.0.0-b12p3",
+    "version": "3.0.0",
     "description": "__MSG_extensionDescription__",
     "author": "Christopher Leidigh",
     "applications": {
@@ -12,7 +12,6 @@
         }
     },
     "browser_action": {
-      "default_area": "maintoolbar",
       "default_label":"__MSG_printLabel__ NG |",
       "default_icon": "./chrome/content/icons/printing-tools-ng-icon-32px.png",
       "default_popup": "./chrome/content/test.html"
