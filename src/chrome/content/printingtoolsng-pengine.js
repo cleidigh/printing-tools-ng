@@ -1284,13 +1284,13 @@ var printingtools = {
 				printingtools.msgRestoration.msgFontFamilyOrig = mozPlainTextDiv.style.fontFamily;
 				printingtools.msgRestoration.msgFontSizeOrig = mozPlainTextDiv.style.fontSize;
 				mozPlainTextDiv.style.fontFamily = mFamily;
-				mozPlainTextDiv.style.fontSize = mSize;
+				mozPlainTextDiv.style.fontSize = mSize + "px";
 			} else if (mozTextFlowedDiv) {
 				printingtools.msgRestoration.msgDiv = mozTextFlowedDiv;
 				printingtools.msgRestoration.msgFontFamilyOrig = mozTextFlowedDiv.style.fontFamily;
 				printingtools.msgRestoration.msgFontSizeOrig = mozTextFlowedDiv.style.fontSize;
 				mozTextFlowedDiv.style.fontFamily = mFamily;
-				mozTextFlowedDiv.style.fontSize = mSize;
+				mozTextFlowedDiv.style.fontSize = mSize + "px";
 			} else {
 				printingtools.msgRestoration.msgDiv = mozTextHtmlDiv;
 				printingtools.msgRestoration.msgFontFamilyOrig = null;
@@ -1307,17 +1307,16 @@ var printingtools = {
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.style")) {
 			var hFamily = printingtools.getComplexPref("extensions.printingtoolsng.headers.font_family");
 			if (table1) {
-				// table1.style.width = "75%";
 				table1.style.fontFamily = hFamily;
-				table1.style.fontSize = hSize;
+				table1.style.fontSize = hSize + "px";
 			}
 			if (table2) {
 				table2.style.fontFamily = hFamily;
-				table2.style.fontSize = hSize;
+				table2.style.fontSize = hSize + "px";
 			}
 			if (!noExtHeaders && hpref == 2 && table3) {
 				table3.style.fontFamily = hFamily;
-				table3.style.fontSize = hSize;
+				table3.style.fontSize = hSize + "px";
 			}
 		}
 
@@ -1483,7 +1482,7 @@ var printingtools = {
 					var hSize = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.size");
 					var hFamily = printingtools.getComplexPref("extensions.printingtoolsng.headers.font_family");
 					tw.style.fontFamily = hFamily;
-					tw.style.fontSize = hSize;
+					tw.style.fontSize = hSize + "px";
 				}
 
 				if (!table3) {
