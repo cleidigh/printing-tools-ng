@@ -26,21 +26,29 @@
       tehdä normaalissa Thunderbird-tulostuksen esikatselussa. PDF-tulostus voidaan tehdä myös automaattisella
       nimeämisellä käyttämällä joustavaa merkkipohjaista järjestelmää.
     </p>
-    <h3 class="indent0">Tulosta NG -painikkeen lisääminen työkalupalkkiin:</h3>
+    <h3 class="indent0">Tulosta NG -painikkeen lisääminen sähköpostin otsikkopalkkiin:</h3>
     <p>
-      Tulosta NG -painike tulisi lisätä työkalupalkkiin, jotta tulostuskäyttö ja asetukset ovat käytettävissä.
-      Lisäksi vaihtoehtoja pääsee käsiksi lisäosavälilehden laajennuksen jakoavainpainikkeella.
+      Tulosta NG -painike lisätään automaattisesti yhdistettyyn työkalupalkkiin Thunderbird v115:stä lähtien.
+      Painike voidaan myös lisätä sähköpostin otsikkotyökalupalkkiin, jotta voidaan käyttää sekä tulostusta
+      että vaihtoehtoja postiruudusta. Lisäksi vaihtoehtoja pääsee käsiksi lisäosavälilehden laajennuksen
+      jakoavainpainikkeella.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Aseta painike työkalupalkkiin seuraavasti:</p>
+    <p>Sijoita painike sähköpostin otsikkopalkkiin seuraavasti:</p>
     <div class="indent1">
-      <li>Napsauta hiiren kakkospainikkeella tyhjää kohtaa sähköpostityökalurivillä</li>
+      <li>Napsauta Lisää-painiketta sähköpostin otsikkopalkissa</li>
       <li>Valitse Mukautettu... Tämä avaa Mukauta työkalupalkki -ikkunan</li>
       <li>Etsi Tulosta NG -painike</li>
       <li>Vedä ja pudota painike haluamaasi paikkaan</li>
       <li>Käytä painiketta Tulosta, Esikatselu, Asetukset ja Ohje</li>
     </div>
+    <h3 class="indent0">PrintingTools NG -pikanäppäimet</h3>
+    <p>
+      PrintingTools yhdistää normaalin Thunderbird Print -pikakuvakkeen uudelleen kutsuakseen itsensä
+      tavallisen Printin sijaan. Käytä Windowsissa ja Linuxissa Ctrl-P ja Komento-P Macissa. On myös
+      mahdollista avata Asetukset-valintaikkuna painamalla Control-Shift-P.
+    </p>
     <h3 class="indent0">Seuraavassa on esimerkki joistakin otsikon muotoiluominaisuuksista:</h3>
     <div class="indent1">
       <li>Räätälöity otsikon reunatyyli CSS:n avulla (ylä ja ala, sininen)</li>
@@ -363,8 +371,7 @@
       <span class="notranslate"><code>${subject}</code></span> – oletusmuoto, sähköpostin aihe<br />
       <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Käytä mukautettua
       päivämäärämuotoa oletusmuodon sijaan<br />
-      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Mukautettu
-      teksti<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Muokattu teksti<br />
     </p>
     <p>Alla olevassa taulukossa kuvataan kaikki tunnukset, joita voidaan käyttää tiedostonimimuodossa.</p>
     <table class="token-table">
@@ -420,10 +427,9 @@
     <br />
     <h2 id="print_options_help">Tulostus- ja sivuasetukset</h2>
     <p>
-      Näiden asetusten avulla voit määrittää oletustulostimen sekä tulostinsivun asetukset. Jos pysyvä tila on
-      asetettu oletustulostimelle, tulostimen esikatselun muutos palautetaan PrintingTools NG -tulostimeen
-      jokaista seuraavaa tulostusta varten. On myös mahdollista asettaa hiljainen tila, jossa
-      esikatseluikkunaa ei näytetä ja tulostus tapahtuu välittömästi.
+      Näiden asetusten avulla voit määrittää oletustulostimen sekä tulostinsivun asetukset. On myös
+      mahdollista asettaa hiljainen tila, jossa esikatseluikkunaa ei näytetä ja tulostus tapahtuu
+      välittömästi.
     </p>
     <p>
       Sivuasetusten avulla voit määrittää kohteita, kun sekä esikatselu että tulostus on valmis. Nämä
@@ -486,7 +492,7 @@
         <code class="notranslate">initialsource</code> - näytä viestin lähde ennen kuin PTNG tekee mitään
         muotoilua
       </li>
-      <li><code class="notranslate">finaloutput</code> - näyttää lopullisen viestin ulostulon</li>
+      <li><code class="notranslate">finaloutput</code> - näytä lopullinen viestin tulos</li>
       <li><code class="notranslate">pdfoutput</code> - virheenkorjaustuloste PDF-viestien ulostulolle</li>
       <li>
         <code class="notranslate">printsettings</code> - virheenkorjaus tulostus- ja sivuvaihtoehtoja varten
@@ -513,7 +519,6 @@
       - <code class="notranslate">@JF1313</code><br />
       - <code class="notranslate">@DenB10</code><br />
       - <code class="notranslate">@ichnilatis-gr</code><br />
-      - <code class="notranslate">@Thefaroah</code><br />
       - <code class="notranslate">@KC-T</code><br />
       - <code class="notranslate">@madvinegar</code><br />
       - <code class="notranslate">@ditchfinder</code><br />

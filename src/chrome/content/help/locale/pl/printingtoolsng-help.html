@@ -26,22 +26,29 @@
       można zrobić w normalnym podglądzie wydruku Thunderbirda. Wyjście PDF można również wykonać z
       automatycznym nazewnictwem przy użyciu elastycznego systemu opartego na tokenach.
     </p>
-    <h3 class="indent0">Dodanie przycisku Drukuj NG do paska narzędzi:</h3>
+    <h3 class="indent0">Dodanie przycisku Drukuj NG do paska narzędzi nagłówka poczty:</h3>
     <p>
-      Do paska narzędzi należy dodać przycisk Drukuj NG, aby umożliwić zarówno dostęp do drukowania, jak i
-      opcje. Dostęp do dodatkowych opcji można uzyskać za pomocą przycisku klucza dla rozszerzenia na karcie
-      dodatków.
+      Przycisk Drukuj NG jest automatycznie dodawany do ujednoliconego paska narzędzi od wersji Thunderbirda
+      v115. Przycisk można również dodać do paska narzędzi nagłówka poczty, aby umożliwić zarówno dostęp do
+      drukowania, jak i opcje z panelu poczty. Dostęp do dodatkowych opcji można uzyskać za pomocą przycisku
+      klucza dla rozszerzenia na karcie dodatków.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Wykonaj następujące kroki, aby umieścić przycisk na pasku narzędzi:</p>
+    <p>Wykonaj następujące kroki, aby umieścić przycisk na pasku narzędzi nagłówka poczty:</p>
     <div class="indent1">
-      <li>Kliknij prawym przyciskiem myszy puste miejsce na pasku narzędzi poczty</li>
+      <li>Kliknij przycisk Więcej na pasku narzędzi nagłówka wiadomości</li>
       <li>Wybierz Niestandardowy... Spowoduje to otwarcie okna Dostosuj pasek narzędzi</li>
       <li>Znajdź przycisk Drukuj NG</li>
       <li>Przeciągnij i upuść przycisk w wybrane miejsce</li>
       <li>Użyj przycisku Drukuj, Podgląd, Opcje i Pomoc</li>
     </div>
+    <h3 class="indent0">Skróty klawiaturowe PrintingTools NG</h3>
+    <p>
+      PrintingTools ponownie mapuje standardowy skrót Thunderbird Print, aby wywoływał się zamiast
+      standardowego Print. W systemach Windows i Linux użyj klawiszy Control-P i Command-P na komputerze Mac.
+      Możliwe jest również otwarcie okna dialogowego Opcje za pomocą klawiszy Control-Shift-P.
+    </p>
     <h3 class="indent0">Poniżej przedstawiono przykład niektórych funkcji formatowania nagłówka:</h3>
     <div class="indent1">
       <li>Dostosowany styl obramowania nagłówka za pomocą CSS (góra i dół, niebieski)</li>
@@ -115,7 +122,7 @@
       Niestandardowy format daty wykorzystuje sekwencje % pasujące do funkcjonalności podobnej do uniksowej
       <code>strftime()</code> . Opiera się na javascriptowym porcie
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , funkcji formatującej datę i czas.<br />
+      , funkcji formatującej datę i godzinę.<br />
       Port strftime() autorstwa TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
@@ -420,10 +427,9 @@
     <br />
     <h2 id="print_options_help">Opcje drukowania i strony</h2>
     <p>
-      Opcje te umożliwiają ustawienie drukarki domyślnej oraz opcji poszczególnych stron drukarki. Jeśli tryb
-      trwały jest ustawiony dla drukarki domyślnej, zmiana drukarki w podglądzie zostanie zresetowana do
-      drukarki PrintingTools NG dla każdego kolejnego wydruku. Możliwe jest również ustawienie trybu cichego,
-      w którym okno dialogowe podglądu nie jest wyświetlane, a drukowanie jest wykonywane natychmiast.
+      Opcje te umożliwiają ustawienie drukarki domyślnej oraz opcji poszczególnych stron drukarki. Możliwe
+      jest również ustawienie trybu cichego, w którym okno dialogowe podglądu nie jest wyświetlane, a
+      drukowanie jest wykonywane natychmiast.
     </p>
     <p>
       Opcje strony umożliwiają ustawianie pozycji, gdy zarówno podgląd, jak i drukowanie są zakończone. Te
@@ -516,7 +522,6 @@
       - <code class="notranslate">@JF1313</code><br />
       - <code class="notranslate">@DenB10</code><br />
       - <code class="notranslate">@ichnilatis-gr</code><br />
-      - <code class="notranslate">@Thefaroah</code><br />
       - <code class="notranslate">@KC-T</code><br />
       - <code class="notranslate">@madvinegar</code><br />
       - <code class="notranslate">@ditchfinder</code><br />

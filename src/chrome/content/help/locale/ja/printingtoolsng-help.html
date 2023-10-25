@@ -11,7 +11,7 @@
       <tr>
         <td style="vertical-align: top;">
           <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG ヘルプ</div>
-          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
+          <div id="extVersion" style="padding-left: 4px;">v3.0.0</div>
         </td>
         <td style="text-align: right; padding-right: 35px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
@@ -19,6 +19,7 @@
       </tr>
     </table>
     <br>
+
     <h2 id="main_help">PrintingTools NG 概要</h2>
     <p>
       PrintingTools NG はメッセージ印刷で多くのカスタマイズを提供します。
@@ -26,22 +27,31 @@
       さらに通常の Thunderbird の印刷プレビューダイアログではできないページ設定も可能になります。
       PDF 出力は柔軟なトークンベースのシステムを使用して自動命名を可能にします。
     </p>
-    <h3 class="indent0">ツールバーに印刷 NG ボタンを追加：</h3>
+    <h3 class="indent0">メールヘッダーツールバーへの印刷 NG ボタンを追加：</h3>
     <p>
-      印刷と設定の両方を利用したいときは [印刷 NG] ボタンをツールバーに追加する
-      必要があります。またアドオンマネージャータブの拡張機能のレンチボタンからも設定に
-      アクセスできます。
+      印刷 NG ボタンは Thunderbird 115 以降、統合ツールバーに自動的に追加されました。
+      このボタンはメールヘッダーツールバーにも追加することができ、メッセージペインから設定と印刷の両方へのアクセスも可能になります。
+      さらにアドオンタブの拡張機能のレンチボタンからも設定にアクセスできます。
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br>
-    <p>次の手順に従ってツールバーにボタンを配置します:</p>
+    <p>次の手順に従ってメールヘッダーツールバーにボタンを配置します:</p>
     <div class="indent1">
-      <li>メールツールバーの空きスペースを右クリックします。</li>
+      <li>メールヘッダーツールバーの追加ボタンをクリックします。</li>
       <li>[カスタマイズ...] を選択すると [ツールバーのカスタマイズ] ウィンドウが開きます。</li>
       <li>[印刷 NG] ボタンを見つけます。</li>
       <li>ボタンを目的の場所にドラッグアンドドロップします。</li>
-      <li>ボタンを使用して印刷、プレビュー、オプション、およびヘルプを表示します。</li>
+      <li>ボタンを使用して印刷、プレビュー、設定、およびヘルプを表示します。</li>
     </div>
+
+    <h3 class="indent0">PrintingTools NG のキーボードショートカット</h3>
+    <p>
+      PrintingTools NG は標準の Thunderbird 印刷ショートカットを再マップし、標準の印刷の代わりに
+      自分自身を呼び出します。
+      Windows と Linux では Ctrl+P、Mac では command+P を使用します。
+      同様に Ctrl+Shift+P、command+shift+P で設定を開くことも可能です。
+    </p>
+
     <h3 class="indent0">以下はヘッダーの書式設定機能の一部の例です:</h3>
     <div class="indent1">
       <li>CSS を使用してカスタマイズしたヘッダーの枠線 (上下の青線)</li>
@@ -55,14 +65,17 @@
     <br>
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br>
+
     <h2 id="customdate_format_help">カスタム日時形式</h2>
     <p>
-      カスタム日時オプションを使用するとメッセージヘッダーの日時と受信日時の両方に使用される書式を完全に制御できます。
-      カスタム日時にはほぼすべての形式を可能にする複数のローカライズされたオプションを提供します。
-      カスタムの日時文字列には区切り記号、Unicode 文字を含む文字列、および以下にリストされている日付・時刻トークンを混在して含めることができます。<br><br>注意:
-      以下の例のカスタム日時の結果は実際の日時、ユーザーのロケールおよびタイムゾーンによって異なります。
+      カスタム日時設定を使用するとメッセージヘッダーの日時と受信日時の両方に使用される書式を完全に制御できます。
+      カスタム日時にはほぼすべての形式を可能にする複数のローカライズされた設定を提供します。
+      カスタムの日時文字列には区切り記号、Unicode 文字を含む文字列、および以下にリストされている日付・時刻トークンを混在して含めることができます。
+      <br><br>
+      注意: 以下の例のカスタム日時の結果は実際の日時、ユーザーのロケールおよびタイムゾーンによって異なります。
     </p>
     <!-- <br> delete by @kiki-ja -->
+
     <h3 class="indent0">例:</h3>
     <table class="dateformat-table">
       <thead>
@@ -118,7 +131,7 @@
       > を JavaScript に移植したものです。<br>
       TH Doan による strftime() の移植版 (https://thdoan.github.io/strftime/)<br>
     </p>
-    
+
     <h3 style="margin-left: 30px;">変換シーケンスの説明</h3>
     <table class="dateformat-table">
       <thead>
@@ -309,6 +322,7 @@
         </tr>
       </tbody>
     </table>
+
     <h3 class="indent0">互換性に関する注意事項:</h3>
     <ul>
       <li><code class="code1">%c</code> - フォーマットされた文字列が少し異なります</li>
@@ -339,6 +353,7 @@
       <li><code class="code1">%%</code> - 実装されていません (<code class="code1">%</code> を使用)</li>
     </ul>
     <br>
+
     <h2 id="pdf_output_help">PDF 出力とファイルの自動命名</h2>
     <p>
       PDF 出力はトークンシステムを使用して自動で名前を付けることができ、あらかじめ設定された PDF 出力フォルダーに保存します。
@@ -349,7 +364,8 @@
       出力フォルダーを有効にして保存場所のフォルダーを選択します。出力ファイル名は設定されたファイル名形式に従います。
     </p>
     <p>
-      ファイル名形式はトークンと区切り記号や空白文字などの静的な文字列から構成されます。拡張ファイル名形式はトークンを使用します。トークンおよび任意のテキストや有効なファイル名文字列を使用して正確なファイル名を作成することができます。無効な文字は次のとおりです: 
+      ファイル名形式はトークンと区切り記号や空白文字などの静的な文字列から構成されます。拡張ファイル名形式はトークンを使用します。
+      トークンおよび任意のテキストや有効なファイル名文字列を使用して正確なファイル名を作成することができます。無効な文字は次のとおりです: 
       <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p>デフォルトの名前形式は ${subject} で、これはメッセージの件名です。</p>
@@ -400,11 +416,11 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${prefix}</code></td>
-        <td>接頭語のテキストオプション値。</td>
+        <td>接頭語のテキスト設定値。</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
-        <td>接尾語のテキストオプション値。</td>
+        <td>接尾語のテキスト設定値。</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
@@ -416,27 +432,23 @@
       </tr>
     </table>
     <br><br><!-- add by @kiki-ja -->
+
     <h2 id="print_options_help">プリンターとページ設定</h2>
     <p>
       この機能を使用するとデフォルトで使うプリンターと印刷ページ毎の設定ができます。
-      デフォルトプリンターに保持モードが設定されている場合、印刷プレビューダイアログで
-      変更されたプリンターはその印刷後には毎回 PrintingTools NG のデフォルトプリン
-      ターにリセットされます。
-      また印刷プレビューダイアログを表示せずに印刷するサイレントモードを設定することも
-      可能です。
+      印刷プレビューダイアログを表示せずに印刷するサイレントモードも設定できます。
     </p>
     <p>
-      ページ
-      設定では印刷プレビューダイアログ、または印刷時の両方の項目を設定することができます。これらの設定は印刷全体で保持します。
-      PrintingTools NG
-      で設定された内容は印刷プレビューダイアログで変更しても、その後の印刷には影響しません。印刷プレビュー
-      ダイアログで設定できない項目にヘッダーとフッターがあります。他の項目も印刷プレビューダイアログでは保持されず、通常は印刷をおこなう度に設定する必要があります。
-      PrintingTools NG はこれらの問題を両方とも解決します。
+      ページ設定では印刷プレビューダイアログ、または印刷時の両方の項目を設定することができます。これらの設定は印刷全体で保持します。
+      PrintingTools NG で設定された内容は印刷プレビューダイアログで変更しても、その後の印刷には影響しません。
+      印刷プレビューダイアログで設定できない項目にヘッダーとフッターがあります。他の項目も印刷プレビューダイアログでは保持されず、通常は
+      印刷をおこなう度に設定する必要があります。PrintingTools NG はこれらの問題を両方とも解決します。
     </p>
     <p>
       印刷プレビューダイアログで保存されない項目のひとつは
-      ページ指定です。典型的な使用例はメッセージの最初のページだけを毎回印刷したい場合です。通常は毎回ページ指定を変更する必要があります。もし PrintingTools NG 
-      で設定したページ指定が総ページ数を超えるなどで適用できない場合は印刷前に印刷プレビューダイアログでページ指定を修正する必要があります。
+      ページ指定です。典型的な使用例はメッセージの最初のページだけを毎回印刷したい場合です。通常は毎回ページ指定を変更する必要があります。
+      もし PrintingTools NG で設定したページ指定が総ページ数を超えるなどで適用できない場合は印刷前に印刷プレビューダイアログでページ指定を
+      修正する必要があります。
       ページ指定を "1" に設定すると常に有効になり、メッセージの最初のページを印刷します。
     </p>
     <p>注意事項：</p>
@@ -452,7 +464,8 @@
     </p>
     <p></p>
     <p>
-      ヘッダーとフッターは以下に示す様々なメッセージ変数を設定することができます。さらに任意のテキストを含めることも可能です。ヘッダーやフッターを印刷せずに印刷スペースを節約するときはすべてのフィールドを空白にします。
+      ヘッダーとフッターは以下に示す様々なメッセージ変数を設定することができます。さらに任意のテキストを含めることも可能です。
+      ヘッダーやフッターを印刷せずに印刷スペースを節約するときはすべてのフィールドを空白にします。
     </p>
     <div class="indent1">
       <li>&amp;D = 日時</li>
@@ -462,23 +475,24 @@
       <li>&amp;U = URL (メッセージの URL)</li>
     </div>
     <br><br><!-- add by @kiki-ja -->
+
     <h2>サポート</h2>
     <p>
       拡張機能の GitHub リポジトリに問題や機能のリクエストを投稿してください:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
-      ><br><br>バグについては問題の解決に役立つ次の情報を含めてください。<br>
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a><br><br>
+      バグについては問題の解決に役立つ次の情報を含めてください。<br>
       - PrintingTools NG のバージョン<br>
       - Thunderbird のバージョン<br>
       - OS とそのバージョン<br>
-      - デバッグ出力 (デバッグ
-      - コンソールからのコピー - Ctrl+Shift+J  でアクセス)<br>
+      - デバッグ出力 (デバッグコンソールからのコピー - Ctrl+Shift+J (Windows & Linux), command+shift+J (macOS) でアクセス)<br>
       - 問題の再現手順の説明<br>
     </p>
     <br> <!-- add by @kiki-ja -->
-    <h2 id="debug_options_help">デバッグオプション</h2>
+
+    <h2 id="debug_options_help">デバッグ設定</h2>
     <p>
-      デバッグ
-      オプションはスペースで区切ったリストとして入力する一連のキーワードです。このオプションは通常はコンソールのデバッグ出力に使用されますがテストや別のモードにも使用できます。
+      デバッグ設定はスペースで区切ったリストとして入力する一連のキーワードです。この設定は通常はコンソールの
+      デバッグ出力に使用されますがテストや別のモードにも使用できます。
     </p>
     <div class="indent1">
       <li><code class="notranslate">initialsource</code> - PrintingTools NG がフォーマットを行う前にメッセージのソースを表示します</li>
@@ -488,6 +502,7 @@
       <li><code class="notranslate">helpinwin</code> - ヘルプを標準のタブではなくウィンドウで表示するモードフラグです</li>
     </div>
     <br>
+
     <h2>クレジット</h2>
     <div class="indent1">
       <li>PrintingTools NG は Paolo &quot;Kosmos&quot; によるオリジナルの拡張機能に基づいています。</li>
@@ -505,7 +520,6 @@
       - <code class="notranslate">@JF1313</code><br>
       - <code class="notranslate">@DenB10</code><br />
 		  - <code class="notranslate">@ichnilatis-gr</code><br />
-      - <code class="notranslate">@Thefaroah</code><br />
       - <code class="notranslate">@KC-T</code><br>
       - <code class="notranslate">@madvinegar</code><br>
       - <code class="notranslate">@ditchfinder</code><br>
@@ -517,6 +531,7 @@
       - <code class="notranslate">@pechh</code><br>
     </p>
     <br><br><!-- add by @kiki-ja -->
+
     <script type="text/javascript" src="../../help.js" ></script>
   </body>
 </html>

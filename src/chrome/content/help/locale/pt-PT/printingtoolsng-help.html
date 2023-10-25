@@ -26,22 +26,29 @@
       ser definidas, o que não pode ser feito na visualização de impressão normal do Thunderbird. A saída de
       PDF também pode ser feita com nomeação automática usando um sistema baseado em token flexível.
     </p>
-    <h3 class="indent0">Adicionando o botão Imprimir NG à barra de ferramentas:</h3>
+    <h3 class="indent0">Adicionando o botão Imprimir NG à barra de ferramentas do cabeçalho do e-mail:</h3>
     <p>
-      O botão Imprimir NG deve ser adicionado à barra de ferramentas para habilitar tanto o acesso à impressão
-      quanto as opções. Além disso, as opções podem ser acessadas pelo botão de chave inglesa da extensão na
-      guia do complemento.
+      O botão Imprimir NG é adicionado automaticamente à barra de ferramentas unificada a partir do
+      Thunderbird v115. O botão também pode ser adicionado à barra de ferramentas do cabeçalho do e-mail para
+      habilitar o acesso à impressão e as opções do painel de e-mail. Além disso, as opções podem ser
+      acessadas pelo botão de chave inglesa da extensão na guia do complemento.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Siga estas etapas para colocar o botão na barra de ferramentas:</p>
+    <p>Siga estas etapas para colocar o botão na barra de ferramentas do cabeçalho do email:</p>
     <div class="indent1">
-      <li>Clique com o botão direito do mouse em um espaço vazio na barra de ferramentas do correio</li>
+      <li>Clique no botão Mais na barra de ferramentas do cabeçalho do email</li>
       <li>Selecione Personalizar... Isso abrirá a janela Personalizar barra de ferramentas</li>
       <li>Localize o botão Imprimir NG</li>
       <li>Arraste e solte o botão no local desejado</li>
       <li>Use o botão para Imprimir, Visualizar, Opções e Ajuda</li>
     </div>
+    <h3 class="indent0">Atalhos de teclado do PrintingTools NG</h3>
+    <p>
+      PrintingTools remapeia o atalho padrão do Thunderbird Print para invocar a si mesmo em vez do Print
+      padrão. No Windows e Linux, use Control-P e Command-P no Mac. Também é possível abrir a caixa de diálogo
+      Opções com Control-Shift-P.
+    </p>
     <h3 class="indent0">Veja a seguir um exemplo de alguns dos recursos de formatação de cabeçalho:</h3>
     <div class="indent1">
       <li>Estilo de borda de cabeçalho personalizado usando CSS (superior e inferior, azul)</li>
@@ -98,7 +105,7 @@
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
         <td class="notranslate">20.04.2022 18:01:42 CET</td>
-        <td>Separadores de ponto</td>
+        <td>Separadores de pontos</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
@@ -424,10 +431,8 @@
     <h2 id="print_options_help">Opções de impressão e página</h2>
     <p>
       Essas opções permitem que você defina a impressora padrão, bem como as opções de página da impressora.
-      Se o modo persistente for definido para a impressora padrão, uma alteração de impressora na visualização
-      será redefinida para a impressora PrintingTools NG para cada impressão subsequente. Também é possível
-      definir o modo silencioso em que a caixa de diálogo de visualização não é exibida e a impressão é feita
-      imediatamente.
+      Também é possível definir o modo silencioso em que a caixa de diálogo de visualização não é exibida e a
+      impressão é feita imediatamente.
     </p>
     <p>
       As opções de página permitem que você defina itens quando a visualização ou a impressão estiverem
@@ -472,7 +477,7 @@
     </div>
     <h2>Apoiar</h2>
     <p>
-      Publique problemas ou solicitações de recursos no repositório do GitHub de extensões:
+      Publique problemas ou solicitações de recursos no repositório GitHub de extensões:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
       ><br /><br />
       Em problemas de bug, inclua as seguintes informações para ajudar a resolver os problemas:<br />
@@ -520,7 +525,6 @@
       - <code class="notranslate">@JF1313</code><br />
       - <code class="notranslate">@DenB10</code><br />
       - <code class="notranslate">@ichnilatis-gr</code><br />
-      - <code class="notranslate">@Thefaroah</code><br />
       - <code class="notranslate">@KC-T</code><br />
       - <code class="notranslate">@madvinegar</code><br />
       - <code class="notranslate">@ditchfinder</code><br />
