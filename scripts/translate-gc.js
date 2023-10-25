@@ -16,8 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "contextHelp.accesskey", text: "h" },
-	
+	{ key: "print.label", text: "Print" },
 
 
 	
@@ -157,7 +156,7 @@ async function translateAllLocales(iFile, sourceArray, locales, format, options)
 		lt = lt.join('\n');
 
 		if (options.outputFormat === 3) {
-			lt = `{\n${lt}\n}`;
+			lt = `\n${lt}\n`;
 		}
 
 		lt = lt.replace(/<nl>/g, "\\n");
@@ -409,16 +408,16 @@ function loadTranslationArray(inputFiles, options) {
 }
 
 // manifest files
-var optionsM = {
+var options = {
 	inputLocaleDir: `./src/_locales/en-US`,
 	outputLocaleDir: "./src/_locales",
 	outputLocaleDirSuffix: "",
-	append: false,
+	append: true,
 	outputFormat: 3,
 };
 
 //  files from array
-var options = {
+var optionsD = {
  	inputLocaleDir: `./src/chrome/locale/en-US/`,
  	outputLocaleDir: "./src/chrome/locale",
  	outputLocaleDirSuffix: "",
@@ -432,7 +431,7 @@ var options = {
 	outputLocaleDir: "./src/chrome/locale",
 	outputLocaleDirSuffix: "",
 	append: false,
-	outputFormat: 2,
+	outputFormat: 0,
 };
 
 
@@ -443,24 +442,24 @@ var options = {
 // let inputFiles = ["settings.dtd", "overlay.dtd", "overlay.properties"];
 
 //let inputFiles = ["printingtoolsng.properties"];
-let inputFiles = ["printingtoolsng.dtd"];
+//let inputFiles = ["printingtoolsng.dtd"];
 
-//let inputFiles = ["messages.json"];
+let inputFiles = ["messages.json"];
 // let inputFiles = ["autobackup.dtd", "autobackup.properties", "mboximport.dtd", "mboximport.properties", "profilewizard.dtd", "profilewizard.properties"];
 //let inputFiles = ["mboximport.properties"];
 // var supportedLocales = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
 // 						'el', 'pl', 'da', 'pt-PT'];
 
 // printingtools
-var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
+//var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+//'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 // help
-//var localeFolders = ['ja', 'ca', 'da-DK', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-//	'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
-
-localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'gl-ES', 'hu',
+var localeFolders = ['ja', 'ca', 'da', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr', 'gl-ES', 'hu',
 'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
+
+//localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'gl-ES', 'hu',
+//'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 // these locales are manualy managed
 // de, ja, fr
@@ -473,4 +472,6 @@ translateHelpPage();
 //loadTranslationArray(inputFiles, options);
 // let inputFiles = ["settings.dtd"];
 
-// node .\scripts\translate-gc.js
+/*
+node .\scripts\translate-gc.js
+*/
