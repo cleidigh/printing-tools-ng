@@ -2,6 +2,8 @@
 
 ## Versions
 
+Version 3.0.0
+
 Version 2.2.3 : Maintenance Release - June 30, 2023
 
 - Fix non supported sub-locale for help #212
