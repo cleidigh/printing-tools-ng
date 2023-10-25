@@ -1,15 +1,21 @@
 {
     "manifest_version": 2,
     "name": "PrintingTools NG",
-    "version": "2.2.3",
+    "version": "3.0.0",
     "description": "__MSG_extensionDescription__",
     "author": "Christopher Leidigh",
     "applications": {
         "gecko": {
             "id": "PrintingToolsNG@cleidigh.kokkini.net",
-            "strict_min_version": "91.0",
-            "strict_max_version": "103.0"
+            "strict_min_version": "115.0",
+            "strict_max_version": "115.*"
         }
+    },
+    "browser_action": {
+      "default_label":"__MSG_printLabel__ NG |",
+      "default_icon": "./chrome/content/icons/printing-tools-ng-icon-32px.png",
+      "default_popup": "./chrome/content/test.html"
+      
     },
     "experiment_apis": {
         "WindowListener": {
@@ -41,10 +47,11 @@
     "permissions" : [
       "activeTab",
       "messagesRead",
-      "tabs"
+      "tabs",
+      "menus"
     ],
     "background": {
-        "scripts": ["background.js"]
+      "page": "background.html"
     },
 
     "icons": {
