@@ -32,7 +32,8 @@ st,
 
 */
 
-var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+var Services = globalThis.Services ||
+  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
 
 var window3Pane = Cc["@mozilla.org/appshell/window-mediator;1"]
   .getService(Ci.nsIWindowMediator)
@@ -47,6 +48,7 @@ var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch
 var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"].getService(Ci.nsIPrintSettingsService);
 var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
+var gprinterSettings = printerSettings;
 var EXPORTED_SYMBOLS = ["printerSettings"];
 
 // These are our default settings for those we control separate from main prefs
@@ -388,7 +390,8 @@ var printerSettings = {
       Ci.nsIPrintSettings.kInitSaveFooterRight |
       Ci.nsIPrintSettings.kInitSaveShrinkToFit |
       Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors;
-    PSSVC.savePrintSettingsToPrefs(printSettings, true, savePrefs);
+    PSSVC.maybeSavePrintSettingsToPrefs(printSettings, savePrefs);
+
   },
 
   savePrintSettings: function (window) {
@@ -465,6 +468,8 @@ var printerSettings = {
       printSettings.printBGColors = false;
     }
 
+    PSSVC.maybeSaveLastUsedPrinterNameToPrefs(printSettings.printerName)
+
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
       Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
@@ -489,7 +494,7 @@ var printerSettings = {
       console.log("  margin right   ", printSettings.marginRight);
     }
 
-    PSSVC.savePrintSettingsToPrefs(printSettings, true, savePrefs);
+    PSSVC.maybeSavePrintSettingsToPrefs(printSettings, savePrefs);
 
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
@@ -588,13 +593,14 @@ var printerSettings = {
         subDialogWindow.document.addEventListener("print-settings", resolve, { once: true })
       );
 
-      // console.log("subDialog print-settings loaded");
-      // console.log(subDialogWindow.document.documentElement.innerHTML)
+      //console.log("subDialog print-settings loaded", printerSettings);
+      //console.log(subDialogWindow.document.documentElement.innerHTML)
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
 
+      
       try {
         var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
       } catch (e) {
@@ -622,6 +628,7 @@ var printerSettings = {
       // Set pageRanges - NOTE: This has a timing dependency, a delay
       // will cause odd preview page errors
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
+
     },
   },
 };
