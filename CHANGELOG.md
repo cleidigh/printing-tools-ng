@@ -2,7 +2,11 @@
 
 ## Versions
 
-Version 3.0.0
+Version 3.0.0 : Thunderbird v115 SuperNova Support - August 6, 2023
+
+- Support Thunderbird v115
+- Fix eml file printing
+- New unified toolbar button
 
 Version 2.2.3 : Maintenance Release - June 30, 2023
 
