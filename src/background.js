@@ -53,29 +53,23 @@ messenger.WindowListener.registerWindow(
 	"chrome://printingtoolsng/content/messageWindowOL.js");
 
 messenger.WindowListener.registerWindow(
+	"about:message",
+	"chrome://printingtoolsng/content/aboutMessageOL.js");
+
+messenger.WindowListener.registerWindow(
 	"chrome://messenger/content/customizeToolbar.xhtml",
-	"chrome://printingtoolsng/content/customizeToolbarOL.js");
+	"chrome://printingtoolsng/content/customizeToolbar.js");
 
 messenger.WindowListener.startListening();
 
 // listener for external print requests eg FiltaQuila 
 browser.runtime.onMessageExternal.addListener(handleMessage);
 
-// tab listener styles
-/*
-browser.tabs.onCreated.addListener(async (tab) => {
-	console.log(tab)
-});
-
-browser.tabs.onUpdated.addListener(async (tabId, u, tab) => {
-	console.log(tabId, tab)
-});
-*/
-
-var currentLocale = messenger.i18n.getUILanguage();
+let l = messenger.i18n.getUILanguage();
 
 browser.runtime.onInstalled.addListener(async (info) => {
-	await openHelp({opentype: "tab"});
+	info.locale = l;
+	await browser.tabs.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, index: 1 })
 });
 
 
@@ -100,13 +94,24 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			}
 			return url1;
 		case "getSelectedMessages":
+			var windows = await browser.windows.getAll({ populate: true });
+			let currentWin = windows.find(fw => fw.focused)
+			let currentTab = currentWin.tabs.find(t => t.active);
+
 			var msgList = [];
-			try {
-				msgList = await browser.mailTabs.getSelectedMessages();
-			} catch {
-				msgList = null;
+			if (currentTab.mailTab) {
+
+				try {
+					msgList = await browser.mailTabs.getSelectedMessages();
+				} catch {
+					msgList = null;
+				}
+				return msgList;
+			} else if (currentTab.type == "messageDisplay") {
+				let msgDisplayed = await browser.messageDisplay.getDisplayedMessage(currentTab.id);
+				msgList = { id: null, messages: [msgDisplayed] };
+				return msgList;
 			}
-			return msgList;
 		case "getFullMessage":
 
 			rv = await getFullMessage(info.messageId);
@@ -118,47 +123,37 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			return rv;
 
 		case "openHelp":
-			rv = await openHelp(info);
-			return rv;
+			var locale = info.locale;
+
+			var bm = "";
+			if (info.bmark) {
+				bm = info.bmark;
+			}
+			try {
+				if (info.opentype == "tab") {
+					await browser.tabs.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, index: 1 })
+				} else {
+					browser.windows.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+				}
+			} catch {
+				try {
+					locale = locale.Split('-')[0];
+					if (info.opentype == "tab") {
+						await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
+					} else {
+						browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+					}
+				} catch {
+					if (info.opentype == "tab") {
+						await browser.tabs.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1 })
+					} else {
+						browser.windows.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+					}
+				}
+			}
+			return "help";
 	}
 });
-
-async function openHelp(info) {
-	var locale = currentLocale;
-
-	var bm = "";
-	if (info.bmark) {
-		bm = info.bmark;
-	}
-	try {
-		if (info.opentype == "tab") {
-			// use fetch to see if help file exists, throws if not, fix #212
-			await fetch(`chrome/content/help/locale/${locale}/printingtoolsng-help.html`);
-			await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
-		} else {
-			await fetch(`chrome/content/help/locale/${locale}/printingtoolsng-help.html`);
-			await browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
-		}
-	} catch {
-		try {
-			locale = locale.Split('-')[0];
-			if (info.opentype == "tab") {
-				await fetch(`chrome/content/help/locale/${locale}/printingtoolsng-help.html`);
-				await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
-			} else {
-				await fetch(`chrome/content/help/locale/${locale}/printingtoolsng-help.html`);
-				await browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
-			}
-		} catch {
-			if (info.opentype == "tab") {
-				await browser.tabs.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1 })
-			} else {
-				await browser.windows.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
-			}
-		}
-	}
-	return "help";
-}
 
 async function getFullMessage(messageId) {
 
@@ -190,3 +185,28 @@ function handleMessage(message, sender) {
 
 }
 
+const msgCtxMenu_TopId = "msgCtxMenu_TopId";
+
+let ptngMenuDef = {
+	contexts: ["message_list", "page"],
+	id: msgCtxMenu_TopId,
+	title: browser.i18n.getMessage("printLabel") + " NG…",
+	onclick: cmd_print
+
+}
+
+
+async function cmd_print(ctxInfo) {
+	var windows = await browser.windows.getAll({ populate: true });
+	let currentWin = windows.find(fw => fw.focused)
+	let currentTab = currentWin.tabs.find(t => t.active);
+	messenger.NotifyTools.notifyExperiment({ command: "WEXT_cmd_print", tabId: currentTab.id, windowId: currentWin.id}).then((data) => {
+		//console.log(data)
+	});
+}
+
+await((async () => {
+	await messenger.menus.create(ptngMenuDef);
+})());
+
+browser.browserAction.onClicked.addListener(cmd_print);
