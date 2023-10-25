@@ -5,5 +5,10 @@
 
 	"extensionDescription": {
 		"message": "Meddelandeutskrift, rubriker och PDF-utmatningsverktyg (Nextgen)"
+	},
+
+	"printLabel": {
+		"message": "Skriva ut"
 	}
+
 }

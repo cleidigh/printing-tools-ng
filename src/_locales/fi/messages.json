@@ -5,5 +5,10 @@
 
 	"extensionDescription": {
 		"message": "Viestien tulostus, otsikot ja PDF-tulostustyökalut (Nextgen)"
+	},
+
+	"printLabel": {
+		"message": "Tulosta"
 	}
+
 }

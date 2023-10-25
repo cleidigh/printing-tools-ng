@@ -4,5 +4,10 @@
 	},
 	"extensionDescription": {
 		"message": "Outils pour l’impression des messages et l’enregistrement en PDF."
+	},
+
+	"printLabel": {
+		"message": "Imprimer"
 	}
+
 }

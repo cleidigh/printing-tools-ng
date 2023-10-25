@@ -10,9 +10,8 @@ latinizeString,
 
 */
 
-if (!Services) {
-  var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
-}
+var Services = globalThis.Services ||
+  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
 
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/modules/latinize.js");
 
@@ -292,6 +291,7 @@ var utils = {
 
 
   loadHelp: async function (bmark) {
+    console.log("load help ")
     var opentype = "tab";
     var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
     if (dbgopts.indexOf("helpinwin") > -1) {

@@ -6,4 +6,9 @@
 	"extensionDescription": {
 		"message": "メッセージとヘッダーの印刷、PDF 出力ツール (Nextgen)"
 	}
+,
+	"printLabel": {
+		"message": "印刷"
+	}
+
 }

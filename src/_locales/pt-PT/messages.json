@@ -5,5 +5,10 @@
 
 	"extensionDescription": {
 		"message": "Ferramentas de impressão de mensagens, cabeçalhos e saída de PDF (próxima geração)"
+	},
+
+	"printLabel": {
+		"message": "Imprimir"
 	}
+
 }

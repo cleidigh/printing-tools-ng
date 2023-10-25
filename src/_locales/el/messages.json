@@ -5,5 +5,10 @@
 
 	"extensionDescription": {
 		"message": "Εργαλεία εκτύπωσης μηνυμάτων, κεφαλίδων και εξόδου PDF (Nextgen)"
+	},
+
+	"printLabel": {
+		"message": "Τυπώνω"
 	}
+
 }

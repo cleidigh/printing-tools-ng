@@ -5,5 +5,10 @@
 
 	"extensionDescription": {
 		"message": "Impresión de mensaxes, encabezados e ferramentas de saída de PDF (Nextgen)"
+	},
+
+	"printLabel": {
+		"message": "Imprimir"
 	}
+
 }
