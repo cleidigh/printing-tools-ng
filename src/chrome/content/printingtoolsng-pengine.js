@@ -421,7 +421,7 @@
 		
 				for (let msgURI of printingtools.msgUris) {
 					var MailService = MailServices.messageServiceFromURI(msgURI);
-					let msgHdr = messenger.msgHdrFromURI(msgURI);
+					let msgHdr = top.messenger.msgHdrFromURI(msgURI);
 					msgSubject = msgHdr.mime2DecodedSubject;
 		
 					if (pdfOutput) {
@@ -438,7 +438,7 @@
 							console.log("PTNG: pageRanges: ", ps.pageRanges);
 						}
 					}
-					if (!PrintUtils.printBrowser) {
+					if (!top.PrintUtils.printBrowser) {
 						let messagePaneBrowser = document.getElementById("messagepane");
 						messagePaneBrowser.browsingContext.print(ps);
 					} else {
