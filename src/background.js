@@ -65,11 +65,13 @@ messenger.WindowListener.startListening();
 // listener for external print requests eg FiltaQuila 
 browser.runtime.onMessageExternal.addListener(handleMessage);
 
-let l = messenger.i18n.getUILanguage();
 
 browser.runtime.onInstalled.addListener(async (info) => {
-	info.locale = l;
-	await browser.tabs.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html`, index: 1 })
+	if (info.reason != "install" && info.reason != "update") {
+		return;
+	}
+	console.log("open help")
+	await openHelp({ opentype: "tab" });
 });
 
 
@@ -123,37 +125,46 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			return rv;
 
 		case "openHelp":
-			var locale = info.locale;
-
-			var bm = "";
-			if (info.bmark) {
-				bm = info.bmark;
-			}
-			try {
-				if (info.opentype == "tab") {
-					await browser.tabs.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, index: 1 })
-				} else {
-					browser.windows.create({ url: `chrome/content/help/locale/${info.locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
-				}
-			} catch {
-				try {
-					locale = locale.Split('-')[0];
-					if (info.opentype == "tab") {
-						await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
-					} else {
-						browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
-					}
-				} catch {
-					if (info.opentype == "tab") {
-						await browser.tabs.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1 })
-					} else {
-						browser.windows.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
-					}
-				}
-			}
+			rv = await openHelp(info);
 			return "help";
 	}
 });
+
+var helpLocales = ['ja', 'ca', 'da', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr', 'gl-ES', 'hu',
+	'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
+
+async function openHelp(info) {
+	var locale = messenger.i18n.getUILanguage();
+
+	if (!helpLocales.includes(locale)) {
+		var baseLocale = locale.split("-")[0];
+
+		locale = helpLocales.find(l => l.split("-")[0] == baseLocale)
+		console.log("loc  ", locale)
+		if (!locale) {
+			locale = "en-US";
+		}
+	}
+	var bm = "";
+	if (info.bmark) {
+		bm = info.bmark;
+	}
+	try {
+		if (info.opentype == "tab") {
+			rv = await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
+
+		} else {
+			await browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+		}
+	} catch {
+			console.log("catch")
+			if (info.opentype == "tab") {
+				await browser.tabs.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1 })
+			} else {
+				await browser.windows.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
+			}
+		}
+}
 
 async function getFullMessage(messageId) {
 
@@ -200,7 +211,7 @@ async function cmd_print(ctxInfo) {
 	var windows = await browser.windows.getAll({ populate: true });
 	let currentWin = windows.find(fw => fw.focused)
 	let currentTab = currentWin.tabs.find(t => t.active);
-	messenger.NotifyTools.notifyExperiment({ command: "WEXT_cmd_print", tabId: currentTab.id, windowId: currentWin.id}).then((data) => {
+	messenger.NotifyTools.notifyExperiment({ command: "WEXT_cmd_print", tabId: currentTab.id, windowId: currentWin.id }).then((data) => {
 		//console.log(data)
 	});
 }
