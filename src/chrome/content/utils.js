@@ -307,9 +307,10 @@ var utils = {
 
 
   PTNG_WriteStatus: function (text, displayDelay) {
-    if (document.getElementById("statusText")) {
-      document.getElementById("statusText").setAttribute("label", text);
-      document.getElementById("statusText").setAttribute("value", text);
+
+    if (top.document.getElementById("statusText")) {
+      top.document.getElementById("statusText").setAttribute("label", text);
+      top.document.getElementById("statusText").setAttribute("value", text);
 
       var delay = 5000;
       if (displayDelay) {
@@ -322,9 +323,9 @@ var utils = {
   },
 
   PTNG_DeleteStatus: function (text) {
-    if (document.getElementById("statusText").getAttribute("label") === text) {
-      document.getElementById("statusText").setAttribute("label", "");
-      document.getElementById("statusText").setAttribute("value", "");
+    if (top.document.getElementById("statusText").getAttribute("label") === text) {
+      top.document.getElementById("statusText").setAttribute("label", "");
+      top.document.getElementById("statusText").setAttribute("value", "");
     }
   },
 };
