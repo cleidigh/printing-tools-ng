@@ -339,14 +339,14 @@
 						var MailService = MailServices.messageServiceFromURI(uri);
 		
 						// This is key to flushing cache else we operate on modified browser
-						await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+						await top.PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
 		
-						await PrintUtils.loadPrintBrowser(MailService.getUrlForUri(uri).spec);
-						printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+						await top.PrintUtils.loadPrintBrowser(MailService.getUrlForUri(uri).spec);
+						printingtools.previewDoc = top.PrintUtils.printBrowser.contentDocument
 		
 						await printingtools.reformatLayout();
 		
-						PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext);
+						top.PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext);
 					}
 		
 					return;
@@ -377,7 +377,7 @@
 					}
 					this.prefs.setCharPref("print_printer", ps.printerName);
 					await printerSettings.savePrinterSettingsFromPTNGsettings();
-					ps = PrintUtils.getPrintSettings();
+					ps = top.PrintUtils.getPrintSettings();
 					// overlay ptng ps like pageRanges not saved in prefs, fixes #195
 					ps = printerSettings.setPrinterSettingsFromPTNGsettings(ps);
 				}
@@ -439,7 +439,18 @@
 						}
 					}
 					if (!top.PrintUtils.printBrowser) {
-						let messagePaneBrowser = document.getElementById("messagepane");
+						console.log(window)
+						console.log(top)
+
+						let messagePaneBrowser;
+						if (window.document.URL.endsWith("messenger.xhtml") || window.document.URL.endsWith("messageWindow.xhtml")) {
+							messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
+						} else {
+						   messagePaneBrowser = document.getElementById("messagepane");
+
+						}
+						console.log(messagePaneBrowser)
+
 						messagePaneBrowser.browsingContext.print(ps);
 					} else {
 						//console.log("use pb print")
@@ -448,7 +459,7 @@
 						await top.PrintUtils.loadPrintBrowser(MailService.getUrlForUri(msgURI).spec);
 		
 						// getUrlForUri
-						printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+						printingtools.previewDoc = top.PrintUtils.printBrowser.contentDocument
 						await printingtools.reformatLayout();
 		
 						await top.PrintUtils.printBrowser.browsingContext.print(ps);
@@ -482,7 +493,7 @@
 				}
 		
 				await printerSettings.savePrinterSettingsFromPTNGsettings();
-				let ps = PrintUtils.getPrintSettings();
+				let ps = top.PrintUtils.getPrintSettings();
 				// overlay ptng ps like pageRanges not saved in prefs, fixes #195
 				ps = printerSettings.setPrinterSettingsFromPTNGsettings(ps);
 		
@@ -524,19 +535,19 @@
 		
 				}
 				let messageService = MailServices.messageServiceFromURI(msgURI);
-				let msgHdr = messenger.msgHdrFromURI(msgURI);
+				let msgHdr = top.messenger.msgHdrFromURI(msgURI);
 				let msgSubject = msgHdr.mime2DecodedSubject;
 		
 				if (dbgopts.indexOf("trace1") > -1) {
 					console.log("PTNG: Print Ext: ", msgSubject);
 				}
-				await PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
-				await PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
+				await top.PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+				await top.PrintUtils.loadPrintBrowser(messageService.getUrlForUri(msgURI).spec);
 		
-				printingtools.previewDoc = PrintUtils.printBrowser.contentDocument
+				printingtools.previewDoc = top.PrintUtils.printBrowser.contentDocument
 				await printingtools.reformatLayout();
 		
-				await PrintUtils.printBrowser.browsingContext.print(ps);
+				await top.PrintUtils.printBrowser.browsingContext.print(ps);
 		
 				if (pdfOutput) {
 					this.utils.PTNG_WriteStatus(this.mainStrBundle.GetStringFromName("writing") + " (Ext): " + pdfFileName);

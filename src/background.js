@@ -70,7 +70,6 @@ browser.runtime.onInstalled.addListener(async (info) => {
 	if (info.reason != "install" && info.reason != "update") {
 		return;
 	}
-	console.log("open help")
 	await openHelp({ opentype: "tab" });
 });
 
@@ -140,7 +139,6 @@ async function openHelp(info) {
 		var baseLocale = locale.split("-")[0];
 
 		locale = helpLocales.find(l => l.split("-")[0] == baseLocale)
-		console.log("loc  ", locale)
 		if (!locale) {
 			locale = "en-US";
 		}
@@ -151,13 +149,11 @@ async function openHelp(info) {
 	}
 	try {
 		if (info.opentype == "tab") {
-			rv = await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
-
+			await browser.tabs.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, index: 1 })
 		} else {
 			await browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
 		}
-	} catch {
-			console.log("catch")
+	} catch (ex) {
 			if (info.opentype == "tab") {
 				await browser.tabs.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1 })
 			} else {
