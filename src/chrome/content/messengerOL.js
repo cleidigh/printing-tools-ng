@@ -49,13 +49,6 @@ WL.injectElements(`
 	<menuitem insertafter="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()" command="" disabled="" acceltext="Ctrl+P"/>
 </menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
-
-	WL.injectElements(`
-<panelview id="appMenu-mainView">
-	<toolbarbutton replaceattributes="appmenu_print" label="&printCmd.label; NG" oncommand="printingtools.cmd_printng()" command="" disabled="" />
-</panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
-
-
 	WL.injectElements(`
 <toolbarpalette id="MailToolbarPalette">
 	<toolbarbutton id="ptng-button"
