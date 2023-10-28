@@ -35,14 +35,14 @@ function onLoad() {
 
 WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="&PMDmenuitem;" oncommand="openPTdialog(false)"/>
+	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="&PMDmenuitem;" oncommand="openPTdialog(false)" acceltext="Ctrl+Shift+P"/>
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem insertafter="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()" command="" disabled="" />
+	<menuitem insertafter="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()" command="" disabled="" acceltext="Ctrl+P"/>
 </menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
@@ -103,9 +103,12 @@ WL.injectElements(`
 
 // Capture Control-P print shortcut
 let mk = document.getElementById("key_print");
-mk.removeAttribute("oncommand");
-mk.setAttribute("oncommand", "printingtools.cmd_printng()");
+mk.removeAttribute("oncommand")
+mk.setAttribute("oncommand", "printingtools.cmd_printng()")
 
+let printEntry = document.getElementById("printMenuItem");
+printEntry.removeAttribute("key");
+printEntry.removeAttribute("acceltext");
 
 function onUnload(shutdown) {
 	// Restore Control-P print shortcut
