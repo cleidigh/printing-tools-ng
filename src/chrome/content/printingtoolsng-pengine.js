@@ -94,7 +94,6 @@
 				msgList.messages.forEach(msg => {
 					let realMessage = window.printingtoolsng.extension
 						.messageManager.get(msg.id);
-						console.log(realMessage)
 					try {
 						let uri = realMessage.folder.getUriForMsg(realMessage);
 						printingtools.msgUris.push(uri)
