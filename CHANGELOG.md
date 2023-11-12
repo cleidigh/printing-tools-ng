@@ -2,6 +2,14 @@
 
 ## Versions
 
+Version 3.0.1 : Maintenance Release - November 2, 2023
+
+- Fix fontSize control for headers and body #235
+- Make help load only for extension update/install #233
+- Fix help for sublocales and unsupported locales #212
+- Remove PTNG menu from Hamburger menu #230
+- Fix menu position in File menu
+
 Version 3.0.0 : Thunderbird v115 SuperNova Support - August 6, 2023
 
 - Support Thunderbird v115
