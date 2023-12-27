@@ -500,6 +500,7 @@
 				var pdfOutputEnabled;
 				var pdfOutputDir;
 		
+				console.log(ps)
 				if (ps.printerName.toLowerCase().includes("pdf")) {
 					pdfOutput = true;
 					pdfOutputEnabled = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
@@ -573,20 +574,36 @@
 					return;
 				}
 		
-				let realMessage = window.printingtoolsng.extension
+				console.log(window.document.URL)
+				var w = window;
+
+				if (dbgopts.indexOf("exfix1") > -1) {
+          w = Services.wm.getMostRecentWindow("mail:3pane");
+					console.log("set win to 3p")
+				}
+
+				if (dbgopts.indexOf("exfix2") > -1) {
+          w = Services.wm.getMostRecentWindow("mail:3pane");
+					w.focusOnMail(0)
+					console.log(window.document.URL)
+					console.log("set focus to 3p")
+				}
+				let realMessage = w.printingtoolsng.extension
 					.messageManager.get(msgHeader.id);
 		
 				let uri = realMessage.folder.getUriForMsg(realMessage);
 		
+				console.log(uri)
+
 				if (this.extRunning) {
-					//console.log("Q dont run")
+					console.log("Q dont run")
 					//console.log(this.externalQ)
 					this.externalQ.push(uri);
 					//console.log(this.externalQ)
 		
 					return;
 				} else {
-					//console.log("Q and run")
+					console.log("Q and run")
 					//console.log(this.externalQ)
 					this.externalQ.push(uri);
 					//console.log(this.externalQ)
@@ -601,10 +618,10 @@
 					extMsgURI = this.externalQ.shift()
 					//console.log(this.externalQ)
 		
-					//console.log(extMsgURI)
+					console.log(extMsgURI)
 		
 					await this.PrintExternalMsg(extMsgURI);
-					//console.log("after q ");
+					console.log("after q ");
 				}
 				this.extRunning = false;
 		
