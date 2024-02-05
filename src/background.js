@@ -172,9 +172,9 @@ async function getFullMessage(messageId) {
 async function getAttatchmentList(messageId) {
 
 	var m = await messenger.messages.get(messageId);
-	//console.log(m)
+	console.log(m)
 	var a = await messenger.messages.listAttachments(m.id);
-	//console.log(a)
+	console.log(a)
 
 	return a;
 }

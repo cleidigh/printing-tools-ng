@@ -1208,7 +1208,7 @@
 		
 				printingtools.doc = printingtools.previewDoc;
 		
-				//console.log(printingtools.doc.body.outerHTML)
+				console.log(printingtools.doc.body.outerHTML)
 		
 				var dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 				if (dbgopts.indexOf("initialsource") > -1) {
@@ -2192,24 +2192,30 @@
 				let currentUri = printingtools.msgUris[printingtools.current];
 		
 				// 115 eml exp
-				if (currentUri.includes(".eml?")) {
+				if (currentUri.includes(".eml?") || 1) {
 		
 					let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
 					let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
 		
+					console.log(fileNames)
 					printingtoolsng.attList = fileNames.map((fn, i) => {
 						return { name: fn, size: fileSizes[i] };
 					});
+					console.log(printingtools.attList)
 		
-					//console.log(attList)
 					return printingtoolsng.attList;
 				} else {
 		
 					printingtools.hdr = mail3paneWin.messenger.msgHdrFromURI(currentUri);
 		
+					console.log(printingtools.hdr.subject)
+
 					var mHdr = window.printingtoolsng.extension.messageManager.convert(printingtools.hdr);
-					//console.log(mHdr)
+					console.log(mHdr)
+
 					printingtools.attList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: mHdr.id });
+					console.log(printingtools.attList)
+
 					return printingtools.attList;
 				}
 		
