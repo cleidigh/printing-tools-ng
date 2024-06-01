@@ -1,14 +1,14 @@
 {
     "manifest_version": 2,
     "name": "PrintingTools NG",
-    "version": "3.0.1",
+    "version": "3.1.0-b1",
     "description": "__MSG_extensionDescription__",
     "author": "Christopher Leidigh",
     "applications": {
         "gecko": {
             "id": "PrintingToolsNG@cleidigh.kokkini.net",
             "strict_min_version": "115.0",
-            "strict_max_version": "115.*"
+            "strict_max_version": "128.*"
         }
     },
     "browser_action": {
