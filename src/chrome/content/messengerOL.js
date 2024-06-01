@@ -29,6 +29,7 @@ async function onLoad() {
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/UIlisteners.js", window);
 
+
 	WL.injectElements(`
 <keyset id="mailKeys">
 	<key replaceattributes="key_print" command="" oncommand="printingtools.cmd_printng();"/>
@@ -37,23 +38,16 @@ async function onLoad() {
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 
-	WL.injectElements(`
+WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem replaceattributes="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()" command="" disabled="" acceltext="Ctrl+P"/>
-</menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
-
-
-	WL.injectElements(`
-<panelview id="appMenu-mainView">
-	<toolbarbutton replaceattributes="appmenu_print" label="&printCmd.label; NG" oncommand="printingtools.cmd_printng()" command="" disabled="" />
-</panelview>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
-
-	WL.injectElements(`
-<menupopup id="menu_FilePopup">
-	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="&ptngOptions.label;" oncommand="openPTdialog(false)"/>
+	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="&ptngOptions.label;" oncommand="openPTdialog(false)" acceltext="Ctrl+Shift+P"/>
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
+	WL.injectElements(`
+<menupopup id="menu_FilePopup">
+	<menuitem insertafter="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()" command="" disabled="" acceltext="Ctrl+P"/>
+</menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 	WL.injectElements(`
 <toolbarpalette id="MailToolbarPalette">
@@ -115,6 +109,9 @@ async function onLoad() {
 	mk.removeAttribute("oncommand")
 	mk.setAttribute("oncommand", "printingtools.cmd_printng()")
 
+	let printEntry = document.getElementById("printMenuItem");
+	printEntry.removeAttribute("key");
+	printEntry.removeAttribute("acceltext");
 
 	let ctxMenu =
 		`<menupopup>
@@ -273,5 +270,8 @@ function onUnload(shutdown) {
 	mk.removeAttribute("oncommand")
 	mk.setAttribute("oncommand", "goDoCommand('cmd_print')");
 
+	let printEntry = document.getElementById("printMenuItem");
+	printEntry.setAttribute("key", "key_print");
+	
 	window.printingtools.shutdown();
 }
