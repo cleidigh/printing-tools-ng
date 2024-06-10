@@ -257,7 +257,6 @@ var utils = {
     let resultObj = {};
     let winCtx = window;
 		const tbVersion = this.getThunderbirdVersion();
-    console.log("fpick")
 		if (tbVersion.major >= 120) {
 			winCtx = window.browsingContext;
 		}
@@ -292,7 +291,6 @@ var utils = {
     if (mode === Ci.nsIFilePicker.modeGetFolder) {
       resultObj.folder = fp.file.path;
     }
-    console.log("fpick", resultObj)
 
     return resultObj;
   },
