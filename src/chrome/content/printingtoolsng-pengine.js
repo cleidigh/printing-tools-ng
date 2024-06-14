@@ -1581,7 +1581,7 @@
 				// Remove attachments  table from  end of message 
 		
 				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list")) {
-					//console.log("remove att list")
+					console.log("remove att list")
 					printingtools.hideAttatchmentBodyTable();
 				}
 		
@@ -1605,6 +1605,7 @@
 				for (let index = 0; index < attTableHdrs.length; index++) {
 					let element = attTableHdrs[index];
 					element.style.display = "none";
+					element.classList.remove("moz-print-only");
 				}
 		
 				//console.log(attTableHdrs.outerHTML)
@@ -1612,6 +1613,7 @@
 				for (let index = 0; index < attTableEntries.length; index++) {
 					let element = attTableEntries[index];
 					element.style.display = "none";
+					element.classList.remove("moz-print-only");
 				}
 			},
 		
