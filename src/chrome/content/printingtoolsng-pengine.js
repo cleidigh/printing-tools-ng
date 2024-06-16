@@ -319,7 +319,17 @@ var printingtools = {
 						element.style.display = "none";
 						element.classList.remove("moz-print-only");
 					}
+					
+					console.log("borders")
+					var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header")
+					for (let index = 0; index < attTableHdrs.length; index++) {
+						let element = attTableHdrs[index];
+						//element.style.borderStyle = "none";
+						//element.style.borderTop = "1px solid red"
 
+					}
+					
+					
 					console.log("after restore")
 					console.log(printingtools.previewDoc)
 					Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
