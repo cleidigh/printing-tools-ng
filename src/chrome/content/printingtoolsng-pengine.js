@@ -89,7 +89,7 @@ var printingtools = {
 		// since it alters the DOM
 		printingtools.saveCurrentInlinePref();
 
-		if (printingtools.prefs.getBoolPref("mail.inline_attachments") &&
+		if (0 && printingtools.prefs.getBoolPref("mail.inline_attachments") &&
 			printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments")) {
 			printingtools.setInlinePrefOff();
 			await new Promise(resolve => window.setTimeout(resolve, 200));
