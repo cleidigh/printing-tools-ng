@@ -366,6 +366,8 @@ var printingtools = {
 				top.PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext);
 			}
 
+			printingtools.restoreInlinePref();
+
 			return;
 		}
 
@@ -489,6 +491,9 @@ var printingtools = {
 			}
 		}
 		this.prefs.setCharPref("print_printer", currentPrinterName);
+
+		printingtools.restoreInlinePref();
+
 	},
 
 	getMessagePaneBrowser: function (b) {
@@ -1263,7 +1268,7 @@ var printingtools = {
 		// If there is no "Table" tag, so we can't do nothing... It can happen, because the printEngine window
 		// is loaded twice, but the first time the content is not loaded
 
-		
+
 		if (tablesNum == 0)
 			return;
 
