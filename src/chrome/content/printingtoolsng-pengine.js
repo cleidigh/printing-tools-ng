@@ -1624,25 +1624,24 @@ var printingtools = {
 		}
 	},
 
-
-
-
 	hideAttatchmentBodyTable: function () {
 
-		var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header")
+		var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header.moz-print-only")
 		for (let index = 0; index < attTableHdrs.length; index++) {
 			let element = attTableHdrs[index];
 			element.style.display = "none";
+			element.classList.add("ptng-no-print");
 			element.classList.remove("moz-print-only");
 		}
 
-		var attTableWrap = printingtools.previewDoc.querySelector(".moz-mime-attachment-wrap")
+		var attTableWrap = printingtools.previewDoc.querySelector(".moz-mime-attachment-wrap.moz-print-only")
 		if (attTableWrap) {
+			attTableWrap.classList.add("ptng-no-print");
 			attTableWrap.classList.remove("moz-print-only");
 			attTableWrap.style.display = "none";
-
 		}
 
+		/*
 		//console.log(attTableHdrs.outerHTML)
 		var attTableEntries = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table")
 		for (let index = 0; index < attTableEntries.length; index++) {
@@ -1650,23 +1649,27 @@ var printingtools = {
 			element.style.display = "none";
 			element.classList.remove("moz-print-only");
 		}
-
+*/
 
 	},
 
 	showAttatchmentBodyTable: function () {
 
-		var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header")
+		var attTableHdrs = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-header.ptng-no-print")
 		for (let index = 0; index < attTableHdrs.length; index++) {
 			let element = attTableHdrs[index];
+			element.classList.remove("ptng-no-print");
+			element.classList.add("moz-print-only");
 			element.style.display = null;
 		}
-		//console.log(attTableHdrs.outerHTML)
-		var attTableEntries = printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table")
-		for (let index = 0; index < attTableEntries.length; index++) {
-			let element = attTableEntries[index];
-			element.style.display = null;
+
+		var attTableWrap = printingtools.previewDoc.querySelector(".moz-mime-attachment-wrap.moz-print-only")
+		if (attTableWrap) {
+			attTableWrap.classList.remove("ptng-no-print");
+			attTableWrap.classList.add("moz-print-only");
+			attTableWrap.style.display = null;
 		}
+
 	},
 
 	insertAfter: function (newNode, existingNode) {
