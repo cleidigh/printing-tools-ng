@@ -316,8 +316,6 @@ var printingtools = {
 						printingtools.msgRestoration.msgDiv.style.fontSize = printingtools.msgRestoration.msgFontSizeOrig;
 					}
 
-					console.log([...printingtools.doc.styleSheets[1].cssRules])
-
 					try {
 						if (printingtools.msgRestoration.ptngStyleSheet) {
 							printingtools.removePTNGStyleSheet();
@@ -326,12 +324,7 @@ var printingtools = {
 						console.log(ex)
 					}
 
-					// In 128 the header table shows after print, force hide with display=none
-					//var sep1 = printingtools.previewDoc.getElementById("sep1");
-					//sep1.style.display = "none";
-
 					console.log("after restore")
-					console.log(printingtools.previewDoc)
 					Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 				}, { once: true });
@@ -1841,8 +1834,6 @@ var printingtools = {
 	},
 
 	setIMGstyle: function (hide) {
-		console.log("setImageStyle", hide)
-		return
 		var imgs = printingtools.doc.getElementsByTagName("img");
 		for (i = 0; i < imgs.length; i++) {
 			if (imgs[i].getAttribute("class") != "attIcon") {
