@@ -52,6 +52,7 @@ var printingtools = {
 	extRunning: false,
 	externalQ: [],
 	msgRestoration: {},
+	currentShowInlineAttsPref: null,
 
 	WEXT_cmd_print: async function (data) {
 		let tabId = data.tabId;
@@ -83,6 +84,16 @@ var printingtools = {
 
 	/** Prints the messages selected in the thread pane. */
 	PrintSelectedMessages: async function (options) {
+
+		// We have to deal with the inline attachments pref up front
+		// since it alters the DOM
+		printingtools.saveCurrentInlinePref();
+
+		if (printingtools.prefs.getBoolPref("mail.inline_attachments") &&
+			printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments")) {
+			printingtools.setInlinePrefOff();
+			await new Promise(resolve => window.setTimeout(resolve, 200));
+		}
 
 		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		printingtools.current = 0;
@@ -249,6 +260,9 @@ var printingtools = {
 				var l = w.addEventListener("focus", function (e) {
 
 					console.log("Message pane focused  ")
+
+					printingtools.restoreInlinePref();
+
 					// Remove headers selection 
 					if (selection.rangeCount) {
 						selection.removeRange(range)
@@ -1256,10 +1270,7 @@ var printingtools = {
 		// If there is no "Table" tag, so we can't do nothing... It can happen, because the printEngine window
 		// is loaded twice, but the first time the content is not loaded
 
-		if (printingtools.prefs.getBoolPref("mail.inline_attachments") &&
-			printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments"))
-			printingtools.toggleInlinePref();
-
+		
 		if (tablesNum == 0)
 			return;
 
@@ -1410,8 +1421,10 @@ var printingtools = {
 
 		}
 		else {
-			if (printingtools.prefs.getBoolPref("mail.inline_attachments"))
-				printingtools.attCheck();
+			if (printingtools.prefs.getBoolPref("mail.inline_attachments")) {
+				//printingtools.attCheck();
+			}
+
 			var hideImg = printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.hide");
 			if (hideImg || printingtools.prefs.getBoolPref("extensions.printingtoolsng.images.resize"))
 				printingtools.setIMGstyle(hideImg);
@@ -1725,9 +1738,18 @@ var printingtools = {
 		}
 	},
 
-	toggleInlinePref: function () {
+	saveCurrentInlinePref: function () {
+		printingtools.currentShowInlineAttsPref = printingtools.prefs.getBoolPref("mail.inline_attachments");
+	},
+
+	setInlinePrefOff: function () {
+		printingtools.currentShowInlineAttsPref = printingtools.prefs.getBoolPref("mail.inline_attachments");
+		console.log("set atts off")
 		printingtools.prefs.setBoolPref("mail.inline_attachments", false);
-		setTimeout(function () { printingtools.prefs.setBoolPref("mail.inline_attachments", true); }, 2000);
+	},
+
+	restoreInlinePref: function () {
+		printingtools.prefs.setBoolPref("mail.inline_attachments", printingtools.currentShowInlineAttsPref);
 	},
 
 	attCheck: function () {
@@ -1819,6 +1841,8 @@ var printingtools = {
 	},
 
 	setIMGstyle: function (hide) {
+		console.log("setImageStyle", hide)
+		return
 		var imgs = printingtools.doc.getElementsByTagName("img");
 		for (i = 0; i < imgs.length; i++) {
 			if (imgs[i].getAttribute("class") != "attIcon") {
