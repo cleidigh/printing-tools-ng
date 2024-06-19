@@ -261,7 +261,7 @@ var printingtools = {
 
 					console.log("Message pane focused  ")
 
-					printingtools.restoreInlinePref();
+					//printingtools.restoreInlinePref();
 
 					// Remove headers selection 
 					if (selection.rangeCount) {
