@@ -53,6 +53,7 @@ var printingtools = {
 	externalQ: [],
 	msgRestoration: {},
 	currentShowInlineAttsPref: null,
+	restoreWithInlineAttsPref: false,
 
 	WEXT_cmd_print: async function (data) {
 		let tabId = data.tabId;
@@ -84,16 +85,6 @@ var printingtools = {
 
 	/** Prints the messages selected in the thread pane. */
 	PrintSelectedMessages: async function (options) {
-
-		// We have to deal with the inline attachments pref up front
-		// since it alters the DOM
-		printingtools.saveCurrentInlinePref();
-
-		if (0 && printingtools.prefs.getBoolPref("mail.inline_attachments") &&
-			printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments")) {
-			printingtools.setInlinePrefOff();
-			await new Promise(resolve => window.setTimeout(resolve, 200));
-		}
 
 		var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		printingtools.current = 0;
@@ -167,6 +158,25 @@ var printingtools = {
 			}
 		}
 
+		
+				// Decide if we change inline attachments pref 
+				//var sel1 = messagePaneBrowser.contentWindow.getSelection()
+				//console.log(sel1)
+
+				// We have to deal with the inline attachments pref up front
+				// since it alters the DOM
+				printingtools.saveCurrentInlinePref();
+				console.log(sel)
+				if (!sel.rangeCount && printingtools.prefs.getBoolPref("mail.inline_attachments") &&
+					printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments")) {
+					console.log("no inline attachments ")
+
+					printingtools.setInlinePrefOff();
+					await new Promise(resolve => window.setTimeout(resolve, 400));
+				}
+
+
+
 		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave) {
 
 			if (url !== "undefinedURL") {
@@ -197,6 +207,7 @@ var printingtools = {
 					console.log("PTNG: Single message, Use existing print messagePane")
 					console.log("PTNG: Message uri: ", uri);
 				}
+
 
 				printingtools.previewDoc = messagePaneBrowser.contentDocument;
 
@@ -261,7 +272,18 @@ var printingtools = {
 
 					console.log("Message pane focused  ")
 
-					//printingtools.restoreInlinePref();
+					printingtools.restoreInlinePref();
+					if (selection.rangeCount > 1) {
+						console.log("selection ")
+
+					}
+
+					if (printingtools.restoreWithInlineAttsPref && (selection.rangeCount == 1)) {
+						printingtools.restoreWithInlineAttsPref = false;
+						console.log("no restore")
+
+						return
+					}
 
 					// Remove headers selection 
 					if (selection.rangeCount) {
@@ -337,7 +359,7 @@ var printingtools = {
 					//console.log("print selection")
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
 				} else {
-					//console.log("print no selection")
+					console.log("print no selection")
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
 				}
 
@@ -366,7 +388,7 @@ var printingtools = {
 				top.PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext);
 			}
 
-			printingtools.restoreInlinePref();
+			//printingtools.restoreInlinePref();
 
 			return;
 		}
@@ -1742,6 +1764,7 @@ var printingtools = {
 
 	setInlinePrefOff: function () {
 		printingtools.currentShowInlineAttsPref = printingtools.prefs.getBoolPref("mail.inline_attachments");
+		printingtools.restoreWithInlineAttsPref = true;
 		console.log("set atts off")
 		printingtools.prefs.setBoolPref("mail.inline_attachments", false);
 	},
