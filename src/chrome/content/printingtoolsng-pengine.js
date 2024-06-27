@@ -132,6 +132,10 @@ var printingtools = {
 		var ps = mail3paneWin.PrintUtils.getPrintSettings();
 		// overlay ptng ps like pageRanges not saved in prefs, fixes #195
 		ps = printerSettings.setPrinterSettingsFromPTNGsettings(ps);
+		
+		console.log(ps.edgeTop)
+    ps.edgeTop = 0.50;
+		console.log(ps.edgeTop)
 
 		var pdfOutput = false;
 		var pdfOutputEnabled = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");

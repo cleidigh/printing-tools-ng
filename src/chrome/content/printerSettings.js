@@ -87,10 +87,18 @@ var printerSettings = {
 
     document = window.document;
 
+  console.log("77")
+  console.log(printSettings.edgeTop)
+    
     if (dbgopts.indexOf("printsettings") > -1) {
       console.log("PTNG: getPrinterSettings");
       console.log("PTNG: printSettings on entry: ", printSettings);
+      //let keys = Object.keys(printSettings);
+      console.log(printSettings.edgeTop)
+
     }
+
+  console.log("666")
 
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
@@ -542,7 +550,6 @@ var printerSettings = {
     for (const printProperty in customProps) {
       printSettings[printProperty] = customProps[printProperty];
     }
-
     return printSettings;
   },
 
