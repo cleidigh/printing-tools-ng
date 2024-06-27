@@ -550,7 +550,10 @@ var printerSettings = {
     for (const printProperty in customProps) {
       printSettings[printProperty] = customProps[printProperty];
     }
-    return printSettings;
+    //ps.edgeTop = 0.2;
+//printSettings.edgeTop = 0.4;
+
+   return printSettings;
   },
 
   // For persistent printer #188

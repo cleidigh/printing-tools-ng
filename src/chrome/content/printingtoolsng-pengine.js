@@ -134,7 +134,7 @@ var printingtools = {
 		ps = printerSettings.setPrinterSettingsFromPTNGsettings(ps);
 		
 		console.log(ps.edgeTop)
-    ps.edgeTop = 0.50;
+    //ps.edgeTop = 0.2;
 		console.log(ps.edgeTop)
 
 		var pdfOutput = false;
