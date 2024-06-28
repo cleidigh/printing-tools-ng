@@ -361,7 +361,7 @@ function getHeaderLabel(string) {
 	}
 }
 
-function savePMDprefs() {
+async function savePMDprefs() {
 	// console.debug('save options');
 
 	prefs.setCharPref("print_printer", document.getElementById("OutputPrinter").value);
@@ -460,7 +460,9 @@ function savePMDprefs() {
 	
 	prefs.setBoolPref("extensions.printingtoolsng.printer.persistent", document.getElementById("printer_persistent").checked);
 
-	printerSettings.savePrintSettings(window);
+	if (!(await printerSettings.savePrintSettings(window))) {
+		return;
+	}
 	window.close();
 }
 
@@ -779,8 +781,8 @@ function pageRangesStringValidation(pageRangesStr) {
 	return 0;
 }
 
-document.addEventListener("dialogaccept", function (event) {
-	savePMDprefs();
+document.addEventListener("dialogaccept", async function (event) {
+	await savePMDprefs();
 
 });
 

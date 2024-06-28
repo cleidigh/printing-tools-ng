@@ -87,9 +87,9 @@ var printerSettings = {
 
     document = window.document;
 
-  console.log("77")
-  console.log(printSettings.edgeTop)
-    
+    console.log("77")
+    console.log(printSettings.edgeTop)
+
     if (dbgopts.indexOf("printsettings") > -1) {
       console.log("PTNG: getPrinterSettings");
       console.log("PTNG: printSettings on entry: ", printSettings);
@@ -98,7 +98,7 @@ var printerSettings = {
 
     }
 
-  console.log("666")
+    console.log("666")
 
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
@@ -402,7 +402,7 @@ var printerSettings = {
 
   },
 
-  savePrintSettings: function (window) {
+  savePrintSettings: async function (window) {
     dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
     var document = window.document;
     let localeUnits = (locale == "en-US") ? 0 : 1;
@@ -476,14 +476,22 @@ var printerSettings = {
       printSettings.printBGColors = false;
     }
 
-    PSSVC.maybeSaveLastUsedPrinterNameToPrefs(printSettings.printerName)
+    let kAdvSaveSettings = 0;
+    let rv = await this.setPrintSettingsFromAdvOptions(printSettings, dbgopts);
+    if (!rv.status) {
+      return 0;
+    }
+    printSettings = rv.printSettings;
+    kAdvSaveSettings = rv.kAdvSaveSettings;
+
+    PSSVC.maybeSaveLastUsedPrinterNameToPrefs(printSettings.printerName);
 
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
       Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
       Ci.nsIPrintSettings.kInitSaveFooterRight |
       Ci.nsIPrintSettings.kInitSaveShrinkToFit |
-      Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors;
+      Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors | kAdvSaveSettings;
 
     if (dbgopts.indexOf("printsettings") > -1) {
       console.log("\nPTNG: Saving prefs on options exit");
@@ -522,6 +530,73 @@ var printerSettings = {
 
     prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, js);
     prefs.setStringPref("extensions.printingtoolsng.print_printer", printerName);
+    return 1;
+  },
+
+  setPrintSettingsFromAdvOptions: async function (printSettings, options) {
+    const kValidAdvPrinterOptions = ["edges", "edgeTop", "edgeBottom", "edgeLeft", "edgeRight"];
+    var status = 1;
+    // Parse for printer specific settings
+    let printerOptions = options.split(" ").filter(i => i.startsWith("P:"));
+    console.log(printerOptions)
+    for (const popt of printerOptions) {
+      console.log(popt)
+      let printerName = popt.split("::")[0].slice(2);
+      console.log(printerName)
+      var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
+      .getService(Ci.nsIPrinterList);
+
+    var printers = [...await printerList.printers].map(p => p.name);
+
+    console.log(printers)
+
+      let nameValue = popt.split("::")[1];
+      console.log(nameValue)
+
+      if (!nameValue.startsWith("S:")) {
+        console.log("Printer setting must be prifixed with S:");
+        status = 0;
+        break;
+      }
+      console.log(printerName, printSettings.printerName)
+      let printerNameEsc = printerName.replace(/ /g, '_');
+
+      // We only set options for current printer
+      if (printerName == printerNameEsc) {
+
+        let name = nameValue.slice(2).split("=")[0];
+        console.log(name)
+
+        if (!kValidAdvPrinterOptions.includes(name)) {
+          console.log("Invalid printer option. Must be one of:\n");
+          console.log(kValidAdvPrinterOptions);
+          status = 0;
+        break;
+        }
+        let value = nameValue.slice(2).split("=")[1];
+        console.log(value)
+        if (isNaN(value) || value == "") {
+          console.log(Services)
+          Services.prompt.alert(window, "Printer options", "Error parsing printer option: value not a number");
+          console.log("Value not a number");
+          status = 0;
+          break;
+        }
+        if (name == "edges") {
+          printSettings.edgeTop = Number(value);
+          printSettings.edgeBottom = Number(value);
+          printSettings.edgeLeft = Number(value);
+          printSettings.edgeRight = Number(value);
+        } else {
+          printSettings[name] = Number(value);
+        }
+
+      }
+    }
+
+    let kAdvSaveSettings = Ci.nsIPrintSettings.kInitSaveEdges;
+
+    return { status: status, printSettings: printSettings, kAdvSaveSettings: kAdvSaveSettings };
   },
 
   initCustomPrinterOptions: function (printerName, units) {
@@ -550,10 +625,11 @@ var printerSettings = {
     for (const printProperty in customProps) {
       printSettings[printProperty] = customProps[printProperty];
     }
-    //ps.edgeTop = 0.2;
-//printSettings.edgeTop = 0.4;
 
-   return printSettings;
+    console.log(printSettings.edgeTop)
+    printSettings.edgeTop = 0.4;
+
+    return printSettings;
   },
 
   // For persistent printer #188
@@ -610,7 +686,7 @@ var printerSettings = {
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
 
-      
+
       try {
         var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
       } catch (e) {
