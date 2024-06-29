@@ -544,17 +544,27 @@ var printerSettings = {
       let printerName = popt.split("::")[0].slice(2);
       console.log(printerName)
       var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
-      .getService(Ci.nsIPrinterList);
+        .getService(Ci.nsIPrinterList);
+      var printers = await printerList.printers;
+      printers = ["Mozilla_Save_to_PDF", ...printers.map(p => {
+        p.QueryInterface(Ci.nsIPrinter);
+        return p.name.replace(/ /g, '_');
+      })];
 
-    var printers = [...await printerList.printers].map(p => p.name);
-
-    console.log(printers)
-
+      console.log(printers)
+      if (!printers.includes(printerName)) {
+        Services.prompt.alert(window, "Printer options", 
+          `Error parsing printer option: Invalid printer name: ${printerName}\n\nMust be one of:\n\n ${printers.map(p => `   ${p}\n`).join(' ')}`);
+        console.log("Value not a number");
+        status = 0;
+        break;
+      }
       let nameValue = popt.split("::")[1];
       console.log(nameValue)
 
       if (!nameValue.startsWith("S:")) {
         console.log("Printer setting must be prifixed with S:");
+        Services.prompt.alert(window, "Printer options",`Options setting must be prifixed with S:`);
         status = 0;
         break;
       }
@@ -568,15 +578,14 @@ var printerSettings = {
         console.log(name)
 
         if (!kValidAdvPrinterOptions.includes(name)) {
-          console.log("Invalid printer option. Must be one of:\n");
+          Services.prompt.alert(window, "Printer options",`Invalid printer option. Must be one of:\n\n  ${kValidAdvPrinterOptions.join("\n  ")}`);
           console.log(kValidAdvPrinterOptions);
           status = 0;
-        break;
+          break;
         }
         let value = nameValue.slice(2).split("=")[1];
         console.log(value)
         if (isNaN(value) || value == "") {
-          console.log(Services)
           Services.prompt.alert(window, "Printer options", "Error parsing printer option: value not a number");
           console.log("Value not a number");
           status = 0;
