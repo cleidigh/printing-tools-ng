@@ -331,6 +331,16 @@ input[type="radio"]:disabled+span>label {
 	margin-left: 20px;
 }
 
+#margins-adv-table {
+	margin-left: 20px;
+}
+
+.margins-adv-tbl td:nth-child(2) {
+	padding-left: 20px;
+	padding-right: 36px;
+	background-color: azure;
+}
+
 .margins-hdrftr-tbl table,
 td,
 tr {
@@ -379,6 +389,11 @@ tr {
 }
 
 .margins-hdrftr-tbl td:nth-child(4) {
+	padding-left: 25px;
+	padding-right: 0px;
+}
+
+.margins-hdrftr-tbl td:nth-child(5) {
 	padding-left: 25px;
 	padding-right: 0px;
 }
