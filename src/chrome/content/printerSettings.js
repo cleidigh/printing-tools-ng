@@ -674,22 +674,30 @@ var printerSettings = {
 
     async observe(subDialogWindow) {
       // A subDialog has been opened.
-      // console.log("subDialog opened: " + subDialogWindow.location.href);
+      var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
+
+      dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
       // We only want to deal with the print subDialog.
       if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html?")) {
         return;
       }
 
-      var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
+      if (dbgopts.indexOf("printsettings") > -1) {
+        console.log("subDialog opened: " + subDialogWindow.location.href);
+     }
 
       // Wait until print-settings in the subDialog have been loaded/rendered.
       await new Promise(resolve =>
         subDialogWindow.document.addEventListener("print-settings", resolve, { once: true })
       );
 
-      //console.log("subDialog print-settings loaded", printerSettings);
-      //console.log(subDialogWindow.document.documentElement.innerHTML)
+      if (dbgopts.indexOf("printsettings") > -1) {
+        console.log("subDialog print-settings loaded: Initial state:", printerSettings);
+        console.log(subDialogWindow.document.documentElement.innerHTML)
+      }
+      
+
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
@@ -724,6 +732,10 @@ var printerSettings = {
       // will cause odd preview page errors
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
 
+      if (dbgopts.indexOf("printsettings") > -1) {
+        console.log("subDialog print-settings: Post adjustments  state:");
+        console.log(subDialogWindow.document.documentElement.innerHTML)
+      }
     },
   },
 };
