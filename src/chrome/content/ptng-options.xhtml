@@ -88,6 +88,16 @@
 						<html:div style="height: 22px;"></html:div>
 						<hbox align="center">
 							<html:div style="width: 15px;"></html:div>
+							<label value="&advancedOptions.label;: " />
+							<html:input type="text" id="advanced-options" />
+							<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
+								<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
+							width="20px" height="20px" style="margin-left: 2px; margin-top: 0px; 
+							margin-bottom: 0px; background-color: ;" onclick="utils.loadHelp('#debug_options_help')" title="Help" />
+							</hbox>
+						</hbox>
+						<hbox align="center">
+							<html:div style="width: 15px;"></html:div>
 							<label value="&debugOptions.label;: " />
 							<html:input type="text" id="debug-options" />
 							<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
@@ -508,7 +518,6 @@
 										<html:input type="text" id="headerleft" class="hdrftr" />
 									</html:td>
 								</html:tr>
-								
 								<html:tr>
 									<html:td>
 								</html:td>
@@ -554,10 +563,7 @@
 										<html:input type="text" id="footerright" class="hdrftr"  />
 									</html:td>
 								</html:tr>
-
-								
 							</html:table>
-							
 							<!--
 							<html:table id="margins-adv-table" class="margins-hdrftr-tbl" style="border-collapse: collapse;">
 								<html:tr>
@@ -569,7 +575,6 @@
 								</html:tr>
 							</html:table>
 							-->
-
 						</html:div>
 					</vbox>
 				</html:div>
