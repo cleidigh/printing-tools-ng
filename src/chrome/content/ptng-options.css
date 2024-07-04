@@ -310,6 +310,10 @@ input[type="radio"]:disabled+span>label {
 	width: 390px;
 }
 
+#advanced-options:not(:lang(ja)) {
+	width: 285px;
+}
+
 #debug-options:not(:lang(ja)) {
 	width: 300px;
 }
