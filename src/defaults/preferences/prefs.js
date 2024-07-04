@@ -42,6 +42,7 @@ pref("extensions.printingtoolsng.images.resize", true);
 pref("extensions.printingtoolsng.show_options_button", true);
 pref("extensions.printingtoolsng.add_received_date", false);
 pref("extensions.printingtoolsng.headers.attachments_per_line", 100);
+pref("extensions.printingtoolsng.advanced.options", "");
 pref("extensions.printingtoolsng.debug.options", "");
 pref("extensions.printingtoolsng.pdf.enable_pdf_output_dir", false);
 pref("extensions.printingtoolsng.pdf.output_dir", "");

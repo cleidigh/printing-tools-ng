@@ -476,14 +476,16 @@ var printerSettings = {
       printSettings.printBGColors = false;
     }
 
+    let advopts = prefs.getCharPref("extensions.printingtoolsng.advanced.options");
     let kAdvSaveSettings = 0;
-    let rv = await this.setPrintSettingsFromAdvOptions(printSettings, dbgopts);
+    let rv = await this.setPrintSettingsFromAdvOptions(printSettings, advopts);
     if (!rv.status) {
       return 0;
     }
     printSettings = rv.printSettings;
     kAdvSaveSettings = rv.kAdvSaveSettings;
 
+    console.log(printSettings.edgeTop)
     PSSVC.maybeSaveLastUsedPrinterNameToPrefs(printSettings.printerName);
 
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |

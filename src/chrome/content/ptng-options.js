@@ -223,6 +223,7 @@ async function initPMDpanel() {
 	document.getElementById("characterFilter").value = prefs.getStringPref("extensions.printingtoolsng.pdf.filename.filter_characters");
 	document.getElementById("PDFcustomFilenameFormat").value = prefs.getStringPref("extensions.printingtoolsng.pdf.custom_filename_format");
 	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
+	document.getElementById("advanced-options").value = prefs.getCharPref("extensions.printingtoolsng.advanced.options");
 
 	document.getElementById("printer_persistent").checked = prefs.getBoolPref("extensions.printingtoolsng.printer.persistent");
 
@@ -446,6 +447,7 @@ async function savePMDprefs() {
 	prefs.setCharPref("extensions.printingtoolsng.headers.order", val);
 	prefs.setBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach", document.getElementById("addP7M").checked);
 	prefs.setCharPref("extensions.printingtoolsng.debug.options", document.getElementById("debug-options").value);
+	prefs.setCharPref("extensions.printingtoolsng.advanced.options", document.getElementById("advanced-options").value);
 
 	// PDF Output Options
 	prefs.setBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir", document.getElementById("enablePDFoutputDir").checked);
