@@ -104,3 +104,4 @@
 <!ENTITY Scale "규모">
 <!ENTITY fitToWidth "너비에 맞추기">
 <!ENTITY persistent "지속성 있는">
+<!ENTITY advancedOptions.label "고급 옵션">

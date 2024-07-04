@@ -109,3 +109,4 @@
 <!ENTITY Scale "Scale">
 <!ENTITY fitToWidth "Fit to Width">
 <!ENTITY persistent "Persistent">
+<!ENTITY advancedOptions.label "Advanced Options">
