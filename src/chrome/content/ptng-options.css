@@ -307,11 +307,15 @@ input[type="radio"]:disabled+span>label {
 }
 
 #customDate:lang(ja) {
-	width: 390px;
+	width: 314px;
 }
 
 #advanced-options:not(:lang(ja)) {
 	width: 285px;
+}
+
+#advanced-options:lang(ja) {
+	width: 327px;
 }
 
 #debug-options:not(:lang(ja)) {
