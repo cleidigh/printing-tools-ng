@@ -536,6 +536,8 @@ var printerSettings = {
   },
 
   setPrintSettingsFromAdvOptions: async function (printSettings, options) {
+    var kAdvSaveSettings = 0;
+    
     const kValidAdvPrinterOptions = ["edges", "edgeTop", "edgeBottom", "edgeLeft", "edgeRight"];
     var status = 1;
     // Parse for printer specific settings
@@ -574,7 +576,7 @@ var printerSettings = {
       let printerNameEsc = printerName.replace(/ /g, '_');
 
       // We only set options for current printer
-      if (printerName == printerNameEsc) {
+      if (printSettings.printerName == printerNameEsc) {
 
         let name = nameValue.slice(2).split("=")[0];
         console.log(name)
@@ -601,11 +603,11 @@ var printerSettings = {
         } else {
           printSettings[name] = Number(value);
         }
+        kAdvSaveSettings = Ci.nsIPrintSettings.kInitSaveEdges;
 
       }
     }
 
-    let kAdvSaveSettings = Ci.nsIPrintSettings.kInitSaveEdges;
 
     return { status: status, printSettings: printSettings, kAdvSaveSettings: kAdvSaveSettings };
   },
