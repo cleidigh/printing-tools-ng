@@ -414,7 +414,15 @@ var printerSettings = {
     }
 
     printSettings.printerName = document.getElementById("OutputPrinter").value;
+    console.log(printSettings.printerName)
     PSSVC.initPrintSettingsFromPrefs(printSettings, true, printSettings.kInitSaveAll);
+
+    console.log("initial edges")
+    
+    console.log(printSettings.edgeTop)
+    console.log(printSettings.edgeBottom)
+    console.log(printSettings.edgeLeft)
+    console.log(printSettings.edgeRight)
 
     let scale = Number(document.querySelector("#scale").value);
     let scaleRG = document.querySelector("#scaleRG");
@@ -477,7 +485,7 @@ var printerSettings = {
     }
 
     let advopts = prefs.getCharPref("extensions.printingtoolsng.advanced.options");
-    let kAdvSaveSettings = 0;
+    var kAdvSaveSettings = 0;
     let rv = await this.setPrintSettingsFromAdvOptions(printSettings, advopts);
     if (!rv.status) {
       return 0;
@@ -486,6 +494,10 @@ var printerSettings = {
     kAdvSaveSettings = rv.kAdvSaveSettings;
 
     console.log(printSettings.edgeTop)
+    console.log(printSettings.edgeBottom)
+    console.log(printSettings.edgeLeft)
+    console.log(printSettings.edgeRight)
+
     PSSVC.maybeSaveLastUsedPrinterNameToPrefs(printSettings.printerName);
 
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
@@ -537,16 +549,17 @@ var printerSettings = {
 
   setPrintSettingsFromAdvOptions: async function (printSettings, options) {
     var kAdvSaveSettings = 0;
-    
+
     const kValidAdvPrinterOptions = ["edges", "edgeTop", "edgeBottom", "edgeLeft", "edgeRight"];
     var status = 1;
     // Parse for printer specific settings
     let printerOptions = options.split(" ").filter(i => i.startsWith("P:"));
     console.log(printerOptions)
+    var printerNameEsc;
     for (const popt of printerOptions) {
       console.log(popt)
-      let printerName = popt.split("::")[0].slice(2);
-      console.log(printerName)
+      printerNameEsc = popt.split("::")[0].slice(2);
+      console.log("adv opt printerEsc", printerNameEsc)
       var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
         .getService(Ci.nsIPrinterList);
       var printers = await printerList.printers;
@@ -556,7 +569,7 @@ var printerSettings = {
       })];
 
       console.log(printers)
-      if (!printers.includes(printerName)) {
+      if (!printers.includes(printerNameEsc)) {
         Services.prompt.alert(window, "Printer options", 
           `Error parsing printer option: Invalid printer name: ${printerName}\n\nMust be one of:\n\n ${printers.map(p => `   ${p}\n`).join(' ')}`);
         console.log("Value not a number");
@@ -572,12 +585,12 @@ var printerSettings = {
         status = 0;
         break;
       }
+      let printerName = printerNameEsc.replace(/_/g, ' ');
       console.log(printerName, printSettings.printerName)
-      let printerNameEsc = printerName.replace(/ /g, '_');
 
       // We only set options for current printer
-      if (printSettings.printerName == printerNameEsc) {
-
+      if (printSettings.printerName == printerName) {
+        console.log("Setting options for ", printerName)
         let name = nameValue.slice(2).split("=")[0];
         console.log(name)
 
