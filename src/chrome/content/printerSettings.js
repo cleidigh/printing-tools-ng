@@ -652,9 +652,6 @@ var printerSettings = {
       printSettings[printProperty] = customProps[printProperty];
     }
 
-    console.log(printSettings.edgeTop)
-    printSettings.edgeTop = 0.4;
-
     return printSettings;
   },
 

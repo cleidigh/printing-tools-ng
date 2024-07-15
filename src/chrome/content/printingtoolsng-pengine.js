@@ -132,10 +132,6 @@ var printingtools = {
 		var ps = mail3paneWin.PrintUtils.getPrintSettings();
 		// overlay ptng ps like pageRanges not saved in prefs, fixes #195
 		ps = printerSettings.setPrinterSettingsFromPTNGsettings(ps);
-		
-		console.log(ps.edgeTop)
-    //ps.edgeTop = 0.2;
-		console.log(ps.edgeTop)
 
 		var pdfOutput = false;
 		var pdfOutputEnabled = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
@@ -162,26 +158,29 @@ var printingtools = {
 			}
 		}
 
-		
-				// Decide if we change inline attachments pref 
-				//var sel1 = messagePaneBrowser.contentWindow.getSelection()
-				//console.log(sel1)
 
-				// We have to deal with the inline attachments pref up front
-				// since it alters the DOM
-				printingtools.saveCurrentInlinePref();
-				console.log(sel)
-				if (!sel.rangeCount && printingtools.prefs.getBoolPref("mail.inline_attachments") &&
-					printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments")) {
-					console.log("no inline attachments ")
+		// Decide if we change inline attachments pref 
+		//var sel1 = messagePaneBrowser.contentWindow.getSelection()
+		//console.log(sel1)
 
-					printingtools.setInlinePrefOff();
-					await new Promise(resolve => window.setTimeout(resolve, 400));
-				}
+		// We have to deal with the inline attachments pref up front
+		// since it alters the DOM
+		printingtools.saveCurrentInlinePref();
+		console.log(sel)
+		if (!sel.rangeCount && printingtools.prefs.getBoolPref("mail.inline_attachments") &&
+			printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments")) {
+			console.log("no inline attachments ")
+
+			printingtools.setInlinePrefOff();
+			await new Promise(resolve => window.setTimeout(resolve, 400));
+		}
 
 
 
 		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave) {
+			if (dbgopts.indexOf("trace1") > -1) {
+
+			}
 
 			if (url !== "undefinedURL") {
 
@@ -189,22 +188,40 @@ var printingtools = {
 
 				if (window.document.URL.endsWith("messenger.xhtml")) {
 					var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
-
+					if (dbgopts.indexOf("trace1") > -1) {
+						console.log("messenger window, mail3PaneTabBrowser1Doc:", mail3PaneTabBrowser1Doc);
+					}
 					if (mail3PaneTabBrowser1Doc.getElementById("messagepane")) {
 						messagePaneBrowser = mail3PaneTabBrowser1Doc.getElementById("messagepane")
+						if (dbgopts.indexOf("trace1") > -1) {
+							console.log("messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
+						}
 					} else {
 						let messageBrowserDoc = mail3PaneTabBrowser1Doc.getElementById("messageBrowser").contentDocument;
 						messagePaneBrowser = messageBrowserDoc.getElementById("messagepane")
+						if (dbgopts.indexOf("trace1") > -1) {
+							console.log("messenger window, messagePaneBrowser from under messageBrowser", messagePaneBrowser);
+						}
 					}
 
 				} else {
 					try {
 						messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
+						if (dbgopts.indexOf("trace1") > -1) {
+							console.log("non messenger window, messageBrowser from mpane", messagePaneBrowser);
+						}
 					} catch {
 						messagePaneBrowser = document.getElementById("messagepane");
+						if (dbgopts.indexOf("trace1") > -1) {
+							console.log("non messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
+						}
 					}
 				}
 
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("messagePaneBrowser final", messagePaneBrowser);
+					console.log("document",document.body.outerHTML)
+				}
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = printingtools.msgUris[0];
 				if (dbgopts.indexOf("pdfoutput") > -1) {
