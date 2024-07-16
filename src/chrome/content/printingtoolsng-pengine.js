@@ -220,7 +220,11 @@ var printingtools = {
 
 				if (dbgopts.indexOf("trace1") > -1) {
 					console.log("messagePaneBrowser final", messagePaneBrowser);
-					console.log("document",document.body.outerHTML)
+					console.log("messagePaneBrowser contentDoc", messagePaneBrowser.contentDocument);
+					console.log("messagePaneBrowser contentWin", messagePaneBrowser.contentDocument);
+
+
+					//console.log("document",document.body.outerHTML)
 				}
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = printingtools.msgUris[0];
@@ -367,8 +371,8 @@ var printingtools = {
 						console.log(ex)
 					}
 
-					console.log("after restore")
-					Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+					//console.log("after restore")
+					//Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 
 				}, { once: true });
 
