@@ -167,6 +167,7 @@ var printingtools = {
 		// since it alters the DOM
 		printingtools.saveCurrentInlinePref();
 		console.log(sel)
+
 		if (!sel.rangeCount && printingtools.prefs.getBoolPref("mail.inline_attachments") &&
 			printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments")) {
 			console.log("no inline attachments ")
@@ -296,7 +297,6 @@ var printingtools = {
 				var l = w.addEventListener("focus", function (e) {
 
 					console.log("Message pane focused  ")
-
 					printingtools.restoreInlinePref();
 					if (selection.rangeCount > 1) {
 						console.log("selection ")
@@ -2302,24 +2302,23 @@ var printingtools = {
 		let currentUri = printingtools.msgUris[printingtools.current];
 
 		// 115 eml exp
-		if (currentUri.includes(".eml?")) {
-
-			let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
-			let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
-
-			printingtoolsng.attList = fileNames.map((fn, i) => {
-				return { name: fn, size: fileSizes[i] };
-			});
-
-			//console.log(attList)
-			return printingtoolsng.attList;
-		} else {
+		if (currentUri.includes(".eml?") || 1) {
 
 			printingtools.hdr = mail3paneWin.messenger.msgHdrFromURI(currentUri);
 
 			var mHdr = window.printingtoolsng.extension.messageManager.convert(printingtools.hdr);
 			//console.log(mHdr)
 			printingtools.attList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: mHdr.id });
+
+			if (!printingtools.attList.length) {
+				let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
+				let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
+
+				printingtools.attList = fileNames.map((fn, i) => {
+					return { name: fn, size: fileSizes[i] };
+				});
+
+			}
 			return printingtools.attList;
 		}
 
@@ -2329,8 +2328,6 @@ var printingtools = {
 	addAttTable: async function () {
 
 		let attList = await printingtools.getAttatchmentList();
-		//let attList = [];
-		//console.log(printingtools.attList);
 
 		if (!attList || !attList.length) {
 			return;
@@ -2353,7 +2350,6 @@ var printingtools = {
 			} else {
 				attTD.textContent = printingtools.formatBytes(attEntry.size);
 			}
-
 			attRowTR.appendChild(attTD);
 
 			attTable.appendChild(attRowTR);
@@ -2372,8 +2368,8 @@ var printingtools = {
 			t = this.getTable(0);
 			t.after(attTable);
 		}
-		//console.log("after att")
-		//console.log(printingtools.doc.body.outerHTML)
+		console.log("after att")
+		console.log(printingtools.doc.body.outerHTML)
 	},
 
 
