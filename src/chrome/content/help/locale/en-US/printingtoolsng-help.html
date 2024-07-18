@@ -494,6 +494,38 @@
 		<li>&U = URL (The URL of the message)</li>
 	</div>
 
+	<h2 id="advanced_options_help">Advanced Options</h2>
+<p>
+	These are options that allow one to set printing items beyond the
+	basic UI settings. Currently the one advanced option is for controlling 
+	the edge margins for headers and footers.	The options are set in the Advanced options in the Misc tab
+	and are space separated.<br>
+	The format is :<br><br>
+	
+	P:<i>printer-name</i>::S:<i>option-name</i>=<i>value</i><br><br>
+	
+	The printer name has the spaces replaced with underscores and 
+	the built in Save to PDF is Mozilla_Save_to_PDF<br><br>
+	
+	Another example: Microsoft_Print_to_PDF<br><br>
+	
+	The current option-name possibilities are:<br>
+	edges, edgeTop, edgeBottom, edgeLeft, edgeRight<br><br>
+	
+	edges is a pseudo option that sets all the edge margins to the same value.
+	The edge margins are in inches.<br><br>
+	
+	Examples:<br><br>
+	
+	P:Mozilla_Save_to_PDF::S:edges=0.25<br>
+	P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br><br>
+	
+	If one wanted to set all the edge margins to 0.10 inches except the
+	edgeTop to 0.25 inches, enter the following :<br><br>
+	
+	P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+</p>
+
 	<h2>Support</h2>
 	<p>
 		Please post issues or feature requests in the extensions GitHub repository: <a class="link1"
