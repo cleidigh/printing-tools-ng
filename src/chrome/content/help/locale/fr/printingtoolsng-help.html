@@ -494,6 +494,37 @@
       <li>&amp;T = Titre de la page (Objet du message)</li>
       <li>&amp;U = URL (L&#39;URL du message)</li>
     </div>
+	<h2 id="advanced_options_help">Options avancées</h2>
+  <p>
+    Ce sont des options qui permettent de définir des éléments d'impression au-delà de la
+    paramètres de base de l’interface utilisateur. Actuellement, la seule option avancée consiste à contrôler 
+    les marges des en-têtes et des pieds de page.	Les options sont définies dans les options avancées de l'onglet Divers.
+    et sont séparés par des espaces.<br>
+    Le format est :<br><br>
+    
+    P:<i>nom-imprimante</i>::S:<i>nom-option</i>=<i>valeur</i><br><br>
+    
+    Le nom de l'imprimante a les espaces remplacés par des traits de soulignement et 
+    l'enregistrement au format PDF intégré est Mozilla_Save_to_PDF<br><br>
+    
+    Autre exemple : Microsoft_Print_to_PDF<br><br>
+    
+    Les possibilités actuelles de nom d'option sont :<br>
+    <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br><br>
+    
+    <span class="notranslate">edges</span> est une pseudo-option qui définit toutes les marges des bords à la même valeur.
+    Les marges des bords sont en pouces.<br><br>
+    
+    Exemples :<br><br>
+    
+    P:Mozilla_Save_to_PDF::S:edges=0.25<br>
+    P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br><br>
+    
+    Si l'on voulait définir toutes les marges des bords à 0,10 pouces, à l'exception de la
+    edgeTop à 0,25 pouces, entrez ce qui suit :<br><br>
+    
+    P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+  </p>
     <h2>Soutien</h2>
     <p>
       Veuillez publier des problèmes ou des demandes de fonctionnalités dans le référentiel GitHub des
