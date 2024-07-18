@@ -115,7 +115,7 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>gl-US Localización, día/mes longo</td>
+        <td>Localización en-US, día/mes longo</td>
       </tr>
     </table>
     <br />
@@ -234,7 +234,7 @@
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            &quot;AM&quot; ou &quot;PM&quot; segundo o valor de hora indicado. O mediodía trátase como
+            Ou &quot;AM&quot; ou &quot;PM&quot; segundo o valor de hora indicado. O mediodía trátase como
             &quot;PM&quot; e a medianoite como &quot;AM&quot;.
           </td>
         </tr>
@@ -436,7 +436,7 @@
     </p>
     <p>
       As opcións de páxina permítenche configurar elementos cando se faga a vista previa ou a impresión. Estas
-      opcións son persistentes durante a impresión. Se se modifican as opcións definidas en PrintingTools NG
+      opcións son persistentes durante a impresión. Se as opcións definidas en PrintingTools NG se modifican
       na vista previa de impresión, non afectarán ás impresións posteriores. Algúns elementos non están
       dispoñibles para seren configurados no diálogo de vista previa, incluídos os encabezados e os pés de
       páxina. Outros elementos non se conservan na vista previa e normalmente deberían configurarse cada vez
@@ -446,8 +446,8 @@
       Un elemento que non se gardou na vista previa son os intervalos de páxinas. Un caso de uso típico é
       cando se desexa imprimir só a primeira páxina dun correo electrónico como opción predeterminada.
       normalmente habería que facer que os intervalos de páxinas cambien cada vez. Teña en conta que se un
-      intervalo de páxinas definido en PrintingTools NG non é válido, como exceder o número de páxinas, o
-      intervalo deberá ser corrixido na vista previa antes de imprimir. Un intervalo de páxinas definido en
+      intervalo de páxinas definido en PrintingTools NG non é válido, como exceder o número de páxinas, deberá
+      corrixirse o intervalo na vista previa antes de imprimir. Un intervalo de páxinas definido en
       &quot;1&quot; sempre será válido e imprime a primeira páxina da mensaxe.
     </p>
     <p>Notas:</p>
@@ -475,6 +475,27 @@
       <li>&amp;T = Título da páxina (Asunto da mensaxe)</li>
       <li>&amp;U = URL (URL da mensaxe)</li>
     </div>
+    <h2 id="advanced_options_help">Opcións avanzadas</h2>
+    <p>
+      Estas son opcións que permiten establecer elementos de impresión máis aló da configuración básica da IU.
+      Actualmente, a única opción avanzada é para controlar as marxes dos encabezados e pés de páxina. As
+      opcións están definidas nas Opcións avanzadas da pestana Varios e están separadas por espazos.<br />
+      O formato é:<br /><br />
+      P: <i>nome-impresora</i> ::S: <i>nome-opción</i> = <i>valor</i><br /><br />
+      O nome da impresora ten os espazos substituídos por guións baixos e o elemento Gardar en PDF integrado é
+      Mozilla_Save_to_PDF<br /><br />
+      Outro exemplo: Microsoft_Print_to_PDF<br /><br />
+      As posibilidades actuais de nome de opción son:<br />
+      <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
+      <span class="notranslate">edges</span> é unha pseudo opción que establece todas as marxes dos bordos co
+      mesmo valor. As marxes dos bordos están en polgadas.<br /><br />
+      Exemplos:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0.25<br />
+      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
+      Se quere establecer todas as marxes dos bordos en 0,10 polgadas, excepto o edgeTop en 0,25 polgadas,
+      introduza o seguinte:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+    </p>
     <h2>Apoiar</h2>
     <p>
       Publica problemas ou solicitudes de funcións no repositorio de extensións de GitHub:

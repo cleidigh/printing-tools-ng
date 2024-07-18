@@ -36,7 +36,7 @@
     <br />
     <p>Følg disse trin for at placere knappen på værktøjslinjen for posthoved:</p>
     <div class="indent1">
-      <li>Klik på knappen Mere på værktøjslinjen for posthoved</li>
+      <li>Klik på knappen Mere på værktøjslinjen i e-mailoverskriften</li>
       <li>Vælg Brugerdefineret... Dette åbner vinduet Tilpas værktøjslinje</li>
       <li>Find knappen Udskriv NG</li>
       <li>Træk og slip knappen til den ønskede placering</li>
@@ -287,8 +287,8 @@
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            Den <code class="code1">+hhmm</code> eller <code class="code1">-hhmm</code> numeriske tidszone
-            (det vil sige time- og minutforskydningen fra UTC).
+            Den numeriske tidszone <code class="code1">+hhmm</code> eller
+            <code class="code1">-hhmm</code> (det vil sige time- og minutforskydningen fra UTC).
           </td>
         </tr>
         <tr>
@@ -313,7 +313,7 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Dag bogstaveligt. Lokaliseret, hovedsageligt til asiatiske lokaliteter. (ja: 日, ko: 일)</td>
+          <td>Dag bogstaveligt. Lokaliseret, primært til asiatiske steder. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
@@ -358,7 +358,7 @@
     </p>
     <p />
     <p>
-      Filnavneformatet består af tokens og eventuelle statiske tegn såsom separatorer eller blanktegn. Den
+      Filnavnsformatet består af tokens og eventuelle statiske tegn såsom separatorer eller mellemrum. Den
       udvidede filnavnsformatering bruger tokens. Det nøjagtige filnavn kan konstrueres ved hjælp af tokens
       såvel som enhver tekst eller gyldige filnavnstegn. Ugyldige tegn er:
       <code>| * : &lt; &gt; ? \ / &quot;</code>
@@ -473,6 +473,28 @@
       <li>&amp;T = Sidetitel (emne for meddelelsen)</li>
       <li>&amp;U = URL (beskedens URL)</li>
     </div>
+    <h2 id="advanced_options_help">Avancerede indstillinger</h2>
+    <p>
+      Disse er muligheder, der gør det muligt at indstille udskrivningselementer ud over de grundlæggende
+      UI-indstillinger. I øjeblikket er den ene avancerede mulighed for at kontrollere kantmargener for
+      sidehoveder og sidefødder. Indstillingerne er angivet i Avancerede indstillinger på fanen Diverse og er
+      mellemrumsadskilt.<br />
+      Formatet er:<br /><br />
+      P: <i>printernavn</i> ::S: <i>valgmulighedsnavn</i> = <i>værdi</i><br /><br />
+      Printernavnet har mellemrummene erstattet med understregninger, og den indbyggede Gem til PDF er
+      Mozilla_Save_to_PDF<br /><br />
+      Et andet eksempel: Microsoft_Print_to_PDF<br /><br />
+      De nuværende muligheder-navne-muligheder er:<br />
+      <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
+      <span class="notranslate">edges</span> er en pseudo-indstilling, der sætter alle kantmargener til samme
+      værdi. Kantmarginerne er i tommer.<br /><br />
+      Eksempler:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0.25<br />
+      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
+      Hvis man ønskede at indstille alle kantmargener til 0,10 tommer undtagen edgeTop til 0,25 tommer, skal
+      du indtaste følgende:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+    </p>
     <h2>Support</h2>
     <p>
       Send venligst problemer eller funktionsanmodninger i udvidelserne GitHub-lageret:
