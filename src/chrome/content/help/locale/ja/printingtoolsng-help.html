@@ -476,6 +476,37 @@
     </div>
     <br><br><!-- add by @kiki-ja -->
 
+	<h2 id="advanced_options_help">高度なオプション</h2>
+  <p>
+    これらは、印刷項目を超えて設定できるオプションです。
+    基本的なUI設定。現在、高度なオプションの 1 つは制御用です。 
+    ヘッダーとフッターの端の余白。	オプションは、「その他」タブの「詳細オプション」で設定します。
+    と はスペースで区切られています。<br>
+    形式は次のとおりです:<br><br>
+    
+    P:<i>プリンタ名</i>::S:<i>オプション名</i>=<i>値</i><br><br>
+    
+    プリンター名のスペースはアンダースコアに置き換えられ、 
+    組み込みの「PDF に保存」は Mozilla_Save_to_PDF です<br><br>
+    
+    別の例: Microsoft_Print_to_PDF<br><br>
+    
+    現在考えられるオプション名は次のとおりです。<br>
+    <span class="notranslate">エッジ、edgeTop、edgeBottom、edgeLeft、edgeRight</span><br><br>
+    
+    <span class="notranslate">edges</span> は、すべてのエッジのマージンを同じ値に設定する疑似オプションです。
+    端の余白はインチ単位です。<br><br>
+    
+    例:<br><br>
+    
+    P:Mozilla_Save_to_PDF::S:edges=0.25<br>
+    P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br><br>
+    
+    エッジ マージンをすべて 0.10 インチに設定したい場合は、
+    edgeTop を 0.25 インチにするには、次のように入力します:<br><br>
+    
+    P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+  </p>
     <h2>サポート</h2>
     <p>
       拡張機能の GitHub リポジトリに問題や機能のリクエストを投稿してください:
