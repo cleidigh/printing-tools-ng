@@ -56,14 +56,11 @@ var printingtools = {
 	restoreWithInlineAttsPref: false,
 
 	WEXT_cmd_print: async function (data) {
-		console.log("cmd",data)
 
 		if (data.command != "WEXT_cmd_print")  {
-			console.log("oo")
 			return ;
 		}
 
-		let tabId = data.tabId;
 		let windowId = data.windowId;
 
 		let windowObject = window.printingtoolsng.extension.windowManager.get(windowId);
