@@ -494,6 +494,39 @@
       <li>&amp;T = Seitentitel (Betreff der Nachricht)</li>
       <li>&amp;U = URL (Die URL der Nachricht)</li>
     </div>
+
+    <h2 id="advanced_options_help">Erweiterte Optionen</h2>
+    <p>
+      Dabei handelt es sich um Optionen, mit denen man Druckelemente festlegen kann, die über das hinausgehen
+      grundlegende UI-Einstellungen. Derzeit gibt es nur eine erweiterte Option für die Steuerung 
+      die Randränder für Kopf- und Fußzeilen.	Die Optionen werden in den erweiterten Optionen auf der Registerkarte „Verschiedenes“ festgelegt
+      und sind durch Leerzeichen getrennt.<br>
+      Das Format ist:<br><br>
+      
+      P:<i>Druckername</i>::S:<i>Optionsname</i>=<i>Wert</i><br><br>
+      
+      Im Druckernamen werden die Leerzeichen durch Unterstriche und ersetzt 
+      Die integrierte Funktion „Als PDF speichern“ ist Mozilla_Save_to_PDF<br><br>
+      
+      Ein weiteres Beispiel: Microsoft_Print_to_PDF<br><br>
+      
+      Die aktuellen Möglichkeiten für Optionsnamen sind:<br>
+      <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br><br>
+      
+      <span class="notranslate">edges</span> ist eine Pseudooption, die alle Kantenränder auf den gleichen Wert setzt.
+      Die Randränder sind in Zoll angegeben.<br><br>
+      
+      Beispiele:<br><br>
+      
+      P:Mozilla_Save_to_PDF::S:edges=0.25<br>
+      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br><br>
+      
+      Wenn man alle Randränder außer dem auf 0,10 Zoll einstellen wollte
+      Wenn Sie „edgeTop“ auf 0,25 Zoll festlegen, geben Sie Folgendes ein:<br><br>
+      
+      P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+    </p>
+    
     <h2>Unterstützung</h2>
     <p>
       Bitte posten Sie Probleme oder Funktionswünsche im Erweiterungs-GitHub-Repository:
