@@ -1592,7 +1592,7 @@ var printingtools = {
 							maxHdrWidth = 130 + 6 * (fsn - 14);
 
 						} else {
-							maxHdrWidth = 120 + 6 * (fsn - 14);
+							maxHdrWidth = 90 + 6 * (fsn - 14);
 						}
 						break;
 
