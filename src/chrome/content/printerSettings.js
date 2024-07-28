@@ -87,18 +87,11 @@ var printerSettings = {
 
     document = window.document;
 
-    console.log("77")
-    console.log(printSettings.edgeTop)
-
     if (dbgopts.indexOf("printsettings") > -1) {
       console.log("PTNG: getPrinterSettings");
       console.log("PTNG: printSettings on entry: ", printSettings);
-      //let keys = Object.keys(printSettings);
-      console.log(printSettings.edgeTop)
-
+      console.log(printSettings.edgeTop);
     }
-
-    console.log("666")
 
     let printerName = printSettings.printerName;
     let printerNameEsc = printerName.replace(/ /g, '_');
@@ -414,15 +407,7 @@ var printerSettings = {
     }
 
     printSettings.printerName = document.getElementById("OutputPrinter").value;
-    console.log(printSettings.printerName)
     PSSVC.initPrintSettingsFromPrefs(printSettings, true, printSettings.kInitSaveAll);
-
-    console.log("initial edges")
-    
-    console.log(printSettings.edgeTop)
-    console.log(printSettings.edgeBottom)
-    console.log(printSettings.edgeLeft)
-    console.log(printSettings.edgeRight)
 
     let scale = Number(document.querySelector("#scale").value);
     let scaleRG = document.querySelector("#scaleRG");
@@ -493,11 +478,6 @@ var printerSettings = {
     printSettings = rv.printSettings;
     kAdvSaveSettings = rv.kAdvSaveSettings;
 
-    console.log(printSettings.edgeTop)
-    console.log(printSettings.edgeBottom)
-    console.log(printSettings.edgeLeft)
-    console.log(printSettings.edgeRight)
-
     PSSVC.maybeSaveLastUsedPrinterNameToPrefs(printSettings.printerName);
 
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
@@ -554,12 +534,9 @@ var printerSettings = {
     var status = 1;
     // Parse for printer specific settings
     let printerOptions = options.split(" ").filter(i => i.startsWith("P:"));
-    console.log(printerOptions)
     var printerNameEsc;
     for (const popt of printerOptions) {
-      console.log(popt)
       printerNameEsc = popt.split("::")[0].slice(2);
-      console.log("adv opt printerEsc", printerNameEsc)
       var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
         .getService(Ci.nsIPrinterList);
       var printers = await printerList.printers;
@@ -568,43 +545,34 @@ var printerSettings = {
         return p.name.replace(/ /g, '_');
       })];
 
-      console.log(printers)
       if (!printers.includes(printerNameEsc)) {
-        Services.prompt.alert(window, "Printer options", 
+        Services.prompt.alert(window, "Printer options",
           `Error parsing printer option: Invalid printer name: ${printerName}\n\nMust be one of:\n\n ${printers.map(p => `   ${p}\n`).join(' ')}`);
-        console.log("Value not a number");
         status = 0;
         break;
       }
       let nameValue = popt.split("::")[1];
-      console.log(nameValue)
 
       if (!nameValue.startsWith("S:")) {
         console.log("Printer setting must be prifixed with S:");
-        Services.prompt.alert(window, "Printer options",`Options setting must be prifixed with S:`);
+        Services.prompt.alert(window, "Printer options", `Options setting must be prifixed with S:`);
         status = 0;
         break;
       }
       let printerName = printerNameEsc.replace(/_/g, ' ');
-      console.log(printerName, printSettings.printerName)
 
       // We only set options for current printer
       if (printSettings.printerName == printerName) {
-        console.log("Setting options for ", printerName)
         let name = nameValue.slice(2).split("=")[0];
-        console.log(name)
 
         if (!kValidAdvPrinterOptions.includes(name)) {
-          Services.prompt.alert(window, "Printer options",`Invalid printer option. Must be one of:\n\n  ${kValidAdvPrinterOptions.join("\n  ")}`);
-          console.log(kValidAdvPrinterOptions);
+          Services.prompt.alert(window, "Printer options", `Invalid printer option. Must be one of:\n\n  ${kValidAdvPrinterOptions.join("\n  ")}`);
           status = 0;
           break;
         }
         let value = nameValue.slice(2).split("=")[1];
-        console.log(value)
         if (isNaN(value) || value == "") {
           Services.prompt.alert(window, "Printer options", "Error parsing printer option: value not a number");
-          console.log("Value not a number");
           status = 0;
           break;
         }
@@ -708,9 +676,9 @@ var printerSettings = {
 
       if (dbgopts.indexOf("printsettings") > -1) {
         console.log("subDialog print-settings loaded: Initial state:", printerSettings);
-        console.log(subDialogWindow.document.documentElement.innerHTML)
+        console.log(subDialogWindow.document.documentElement.innerHTML);
       }
-      
+
 
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
@@ -748,7 +716,7 @@ var printerSettings = {
 
       if (dbgopts.indexOf("printsettings") > -1) {
         console.log("subDialog print-settings: Post adjustments  state:");
-        console.log(subDialogWindow.document.documentElement.innerHTML)
+        console.log(subDialogWindow.document.documentElement.innerHTML);
       }
     },
   },

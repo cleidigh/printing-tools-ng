@@ -170,12 +170,9 @@ var printingtools = {
 		// We have to deal with the inline attachments pref up front
 		// since it alters the DOM
 		printingtools.saveCurrentInlinePref();
-		console.log(sel)
 
 		if (!sel.rangeCount && printingtools.prefs.getBoolPref("mail.inline_attachments") &&
 			printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments")) {
-			console.log("no inline attachments ")
-
 			printingtools.setInlinePrefOff();
 			await new Promise(resolve => window.setTimeout(resolve, 400));
 		}
@@ -300,17 +297,11 @@ var printingtools = {
 
 				var l = w.addEventListener("focus", function (e) {
 
-					console.log("Message pane focused  ")
+					//console.log("Message pane focused  ")
 					printingtools.restoreInlinePref();
-					if (selection.rangeCount > 1) {
-						console.log("selection ")
-
-					}
 
 					if (printingtools.restoreWithInlineAttsPref && (selection.rangeCount == 1)) {
 						printingtools.restoreWithInlineAttsPref = false;
-						console.log("no restore")
-
 						return
 					}
 
@@ -318,7 +309,6 @@ var printingtools = {
 					if (selection.rangeCount) {
 						selection.removeRange(range)
 					}
-
 
 					var mht1 = printingtools.previewDoc.querySelector('.moz-header-part1');
 					var mht2 = printingtools.previewDoc.querySelector('.moz-header-part2');
@@ -388,7 +378,6 @@ var printingtools = {
 					//console.log("print selection")
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
 				} else {
-					console.log("print no selection")
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
 				}
 
@@ -1652,7 +1641,6 @@ var printingtools = {
 		// Remove attachments  table from  end of message 
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list")) {
-			console.log("remove att list")
 			printingtools.hideAttatchmentBodyTable();
 		}
 
@@ -1794,7 +1782,6 @@ var printingtools = {
 	setInlinePrefOff: function () {
 		printingtools.currentShowInlineAttsPref = printingtools.prefs.getBoolPref("mail.inline_attachments");
 		printingtools.restoreWithInlineAttsPref = true;
-		console.log("set atts off")
 		printingtools.prefs.setBoolPref("mail.inline_attachments", false);
 	},
 
@@ -2372,8 +2359,6 @@ var printingtools = {
 			t = this.getTable(0);
 			t.after(attTable);
 		}
-		console.log("after att")
-		console.log(printingtools.doc.body.outerHTML)
 	},
 
 

@@ -43,7 +43,7 @@ function setComplexPref(pref, value) {
 async function initPMDpanel() {
 
 	// cleidigh
-	console.debug('initialize panel');
+	//console.debug('initialize panel');
 
 	var win = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator)
@@ -224,7 +224,6 @@ async function initPMDpanel() {
 	document.getElementById("PDFcustomFilenameFormat").value = prefs.getStringPref("extensions.printingtoolsng.pdf.custom_filename_format");
 	document.getElementById("debug-options").value = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 	document.getElementById("advanced-options").value = prefs.getCharPref("extensions.printingtoolsng.advanced.options");
-	console.log("after adv")
 
 	document.getElementById("printer_persistent").checked = prefs.getBoolPref("extensions.printingtoolsng.printer.persistent");
 
@@ -236,15 +235,12 @@ async function initPMDpanel() {
 	}
 
 	var outputPrinter = await setPrinterList();
-	console.log("after set printer list")
 
 	printerSettings.getPrinterSettings(window, outputPrinter);
 	initValidationIds();
 	addValidationListeners();
 	enableOKbuttonOnValidation();
 	document.getElementById("useCcBccAlways").focus;
-
-	console.log("end init options")
 }
 
 async function pickPDFoutputDir() {
