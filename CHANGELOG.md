@@ -2,6 +2,13 @@
 
 ## Versions
 
+Version 3.1.0 : Thunderbird v128 Release - July 28, 2024
+
+- New: Thunderbird v128 support
+- New: Advanced options - set headers and footers margins 
+  See Advanced options in help
+- Fix: Hide inline attachments
+
 Version 3.0.1 : Maintenance Release - November 2, 2023
 
 - Fix fontSize control for headers and body #235
