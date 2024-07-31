@@ -1,592 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <title>Aide de PrintingTools NG</title>
-  </head>
-  <body>
-    <table style="width: 100%;">
-      <tr>
-        <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">Aide de PrintingTools NG</div>
-          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
-        </td>
-        <td style="text-align: right; padding-right: 30px;">
-          <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
-        </td>
-      </tr>
-    </table>
-    <br />
-    <h2 id="main_help">Présentation de PrintingTools NG</h2>
-    <p>
-      PrintingTools NG permet de nombreuses personnalisations pour l&#39;impression par e-mail.
-      L&#39;extension a de nombreuses options pour les en-têtes ainsi que les parties de message. De plus, des
-      options de page peuvent être définies, ce qui ne peut pas être fait dans l&#39;aperçu avant impression
-      normal de Thunderbird. La sortie PDF peut également être effectuée avec une dénomination automatique à
-      l&#39;aide d&#39;un système flexible basé sur des jetons.
-    </p>
-    <h3 class="indent0">Ajout du bouton Print NG à la barre d&#39;outils de l&#39;en-tête du courrier :</h3>
-    <p>
-      Le bouton Print NG est automatiquement ajouté à la barre d&#39;outils unifiée à partir de Thunderbird
-      v115. Le bouton peut également être ajouté à la barre d&#39;outils de l&#39;en-tête du courrier pour
-      activer à la fois l&#39;accès à l&#39;impression et les options du volet de courrier. De plus, les
-      options sont accessibles par le bouton de la clé pour l&#39;extension sur l&#39;onglet addon.
-    </p>
-    <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
-    <br />
-    <p>Suivez ces étapes pour placer le bouton sur la barre d&#39;outils de l&#39;en-tête du message :</p>
-    <div class="indent1">
-      <li>Cliquez sur le bouton Plus dans la barre d&#39;outils de l&#39;en-tête du courrier</li>
-      <li>Sélectionnez Personnalisé... Cela ouvrira la fenêtre Personnaliser la barre d&#39;outils</li>
-      <li>Localisez le bouton Imprimer NG</li>
-      <li>Faites glisser et déposez le bouton à l&#39;emplacement souhaité</li>
-      <li>Utilisez le bouton pour Imprimer, Aperçu, Options et Aide</li>
-    </div>
-    <h3 class="indent0">Raccourcis clavier de PrintingTools NG</h3>
-    <p>
-      PrintingTools remappe le raccourci d&#39;impression standard de Thunderbird pour qu&#39;il s&#39;invoque
-      lui-même au lieu de l&#39;impression standard. Sous Windows et Linux, utilisez Control-P et Command-P
-      sur Mac. Il est également possible d&#39;ouvrir la boîte de dialogue Options avec Control-Shift-P.
-    </p>
-    <h3 class="indent0">Voici un exemple de certaines des fonctionnalités de formatage d&#39;en-tête :</h3>
-    <div class="indent1">
-      <li>Style de bordure d&#39;en-tête personnalisé à l&#39;aide de CSS (haut et bas, bleu)</li>
-      <li>Couleur d&#39;arrière-plan de l&#39;en-tête</li>
-      <li>En-têtes alignés</li>
-      <li>Ordre d&#39;en-tête personnalisé</li>
-      <li>Titre de la page et dossier de messages</li>
-      <li>Liste des pièces jointes avec icônes dans l&#39;en-tête</li>
-      <li>Format international de format de date entièrement personnalisable</li>
-    </div>
-    <br />
-    <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
-    <br />
-    <h2 id="customdate_format_help">Format de date personnalisé</h2>
-    <p>
-      L&#39;option de date personnalisée permet un contrôle complet sur le formatage de la date utilisé à la
-      fois pour la date et la date de réception dans les en-têtes d&#39;e-mail. La date personnalisée fournit
-      plusieurs options localisées permettant presque tous les formats. Notez que la chaîne de date
-      personnalisée peut inclure des séparateurs, des littéraux comprenant des caractères Unicode mélangés aux
-      jetons date\heure répertoriés ci-dessous.<br /><br />
-      Remarque : Les résultats de la date personnalisée dans les exemples ci-dessous seront différents en
-      fonction de la date réelle, des paramètres régionaux et du fuseau horaire de l&#39;utilisateur.
-    </p>
-    <br />
-    <h3 class="indent0">Exemples:</h3>
-    <table class="dateformat-table">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css"/>
+  <title>PrintingTools NG · Aide</title>
+</head>
+<body>
+  <table style="width: 100%;">
+		<tr>
+			<td style="vertical-align: top;">
+				<div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG</div>
+				<div id="extVersion" style="padding-left: 4px;"></div>
+			</td>
+			<td style="text-align: right; padding-right: 30px;"><img
+					src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" /> </td>
+		</tr>
+	</table>
+  <h2 id="main_help">Présentation</h2>
+  <p><i>PrintingTools NG</i> est une extension permettant de personnaliser l’impression des courriels. Elle offre de multiples options pour les en-têtes et pour les différentes parties du message. En outre, il est possible de configurer certaines options de mise en page absentes dans l’aperçu avant impression de Thunderbird. L’enregistrement en PDF peut également être effectué avec un nommage automatique utilisant un système flexible basé sur des motifs.</p>
+  <h3 class="indent0">Ajout du bouton [Imprimer NG] à la barre d’en-tête des messages</h3>
+  <img class="indent0" src="data:image/png;base64,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"/>
+  <p>Depuis Thunderbird v115, le bouton [Imprimer NG] est automatiquement ajouté à la barre d’outils unifiée. Il peut également être ajouté à la barre d’en-tête des messages, permettant ainsi d’accéder à l’impression et aux options depuis le panneau des messages. À noter qu’il est par ailleurs possible d’accéder aux options en utilisant le bouton en forme de clé associé à l’extension dans le gestionnaire de modules complémentaires.</p>
+  <p>Pour ce faire, suivez les étapes suivantes :</p>
+  <div class="indent1">
+    <li>cliquez sur le bouton [Autres] dans la barre d’en-tête des messages ;</li>
+    <li>sélectionnez « Personnaliser… » pour ouvrir la fenêtre de personnalisation de la barre d’outils ;</li>
+    <li>localisez le bouton [Imprimer NG] ;</li>
+    <li>glissez et déposez le bouton à l’emplacement souhaité ;</li>
+    <li>utilisez ce bouton pour imprimer ou accéder à l’aperçu avant impression, aux options d’impression et à l’aide.</li>
+  </div>
+  <h3 class="indent0">Raccourcis clavier de <i>PrintingTools NG</i></h3>
+	<p><i>PrintingTools NG</i> reprend le raccourci standard d’impression de Thunderbird pour se lancer, soit Ctrl+P sous Windows et Linux et Cmd+P sous Mac. La boîte de dialogue des options s’ouvre avec Ctrl+Maj+P.</p>
+  <h3 class="indent0">Exemple de formatage des en-têtes</h3>
+  <img class="indent0" src="data:image/png;base64,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"/>
+  <div class="indent1">
+    <li>Bordure d’en-tête personnalisée par CSS (bords supérieur et inférieur bleus)</li>
+    <li>Arrière-plan des en-têtes coloré</li>
+    <li>Alignement des en-têtes</li>
+    <li>Organisation des en-têtes personnalisée</li>
+    <li>Titre de la page avec le dossier du message</li>
+    <li>Liste des pièces jointes avec leur icône</li>
+    <li>Format de date personnalisé</li>
+  </div>
+  <h2 id="customdate_format_help">Format personnalisé de la date</h2>
+  <p>L’option de personnalisation de la date permet de contrôler entièrement le formatage utilisé pour la date et la date de réception dans les en-têtes des messages. Elle offre de multiples possibilités localisées permettant presque tous les formats.	Notez que la chaîne peut inclure des séparateurs et des caractères y compris unicode parmi les substituants de date énumérés ci-dessous.</p>
+  <h3 class="indent0">Exemples</h3>
+  <p>Remarque : les résultats présentés dépendent de la date réelle, de la langue et du fuseau horaire de l’utilisateur.</p>
+	<table class="dateformat-table">
       <thead>
         <tr>
-          <td>Chaîne de date</td>
+          <td>Chaîne</td>
           <td>Résultat</td>
-          <td>Note</td>
+          <td>Remarque</td>
         </tr>
       </thead>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
         <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-        <td>ja locale avec des littéraux</td>
+        <td>Langue ja (japonais) avec des caractères littéraux</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
         <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-        <td>ko locale avec des littéraux</td>
+        <td>Langue ko (coréen) avec des caractères littéraux</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
         <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-        <td>zh-CN locale, jour court</td>
+        <td>Langue zh-CN (chinois), jour abrégé</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
         <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-        <td>Paramètres régionaux zh-TW, journée longue</td>
+        <td>Langue zh-TW (taïwanais), jour entier</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
         <td class="notranslate">20.04.2022 18:01:42 CET</td>
-        <td>Séparateurs de points</td>
+        <td>Séparation par points</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
         <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-        <td>de locale, jour court/mois</td>
+        <td>Langue de (allemand), jour et mois abrégés</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>paramètres régionaux en-US, jour long/mois</td>
+        <td>Langue en-US (anglais américain), jour et mois entiers</td>
       </tr>
-    </table>
-    <br />
-    <p>
-      Le format de date personnalisé utilise des séquences % correspondant à la fonctionnalité de type Unix
-      <code>strftime()</code> . Il est basé sur un port JavaScript de
-      <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , une fonction pour formater la date et l&#39;heure.<br />
-      Portage de strftime() par TH Doan (https://thdoan.github.io/strftime/)<br />
-    </p>
-    <br />
-    <h3 style="margin-left: 30px;">Descriptions des séquences de conversion</h3>
-    <table class="dateformat-table">
-      <thead>
-        <tr>
-          <th>Séquence</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code class="code1">%a</code></td>
-          <td>Nom abrégé du jour de la semaine.</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%A</code></td>
-          <td>Nom complet du jour de la semaine.</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%b</code></td>
-          <td>Nom abrégé du mois.</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%B</code></td>
-          <td>Nom complet du mois.</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%c</code></td>
-          <td>
-            Représentation préférée de la date et de l&#39;heure (UTC) pour les paramètres régionaux actuels.
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%C</code></td>
-          <td>Numéro du siècle (année/100) sous forme d&#39;entier à 2 chiffres.</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%d</code></td>
-          <td>Jour du mois sous forme de nombre décimal (plage de 01 à 31).</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%e</code></td>
-          <td>Jour du mois sous forme de nombre décimal (plage de 1 à 31).</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%F</code></td>
-          <td>Format de date ISO 8601 (équivalent à <code class="code1">%Y-%m-%d</code> ).</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%G</code></td>
-          <td>
-            Année basée sur la semaine ISO 8601 avec le siècle comme nombre décimal. L&#39;année à 4 chiffres
-            correspond au numéro de semaine ISO (voir <code class="code1">%V</code> ). Il a le même format et
-            la même valeur que <code class="code1">%Y</code> , sauf que si le numéro de semaine ISO appartient
-            à l&#39;année précédente ou suivante, cette année est utilisée à la place.
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%g</code></td>
-          <td>
-            Comme <code class="code1">%G</code> , mais sans siècle, c&#39;est-à-dire avec une année à 2
-            chiffres (00-99).
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%H</code></td>
-          <td>
-            Heure sous forme de nombre décimal utilisant une horloge de 24 heures (plage de 00 à 23). Voir
-            aussi <code class="code1">%k</code> .
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%I</code></td>
-          <td>
-            Heure sous forme de nombre décimal utilisant une horloge de 12 heures (plage de 01 à 12). Voir
-            aussi <code class="code1">%l</code> .
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%j</code></td>
-          <td>Jour de l&#39;année sous forme de nombre décimal (plage de 001 à 366).</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%k</code></td>
-          <td>
-            Heure sous forme de nombre décimal utilisant une horloge de 24 heures (plage de 0 à 23). Voir
-            aussi <code class="code1">%H</code> .
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%l</code></td>
-          <td>
-            Heure sous forme de nombre décimal utilisant une horloge de 12 heures (plage de 1 à 12). Voir
-            aussi <code class="code1">%I</code> .
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%m</code></td>
-          <td>Mois sous forme de nombre décimal (plage de 01 à 12).</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%n</code></td>
-          <td>Mois sous forme de nombre décimal (plage de 1 à 12).</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%M</code></td>
-          <td>Minute sous forme de nombre décimal (plage de 00 à 59).</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%p</code></td>
-          <td>
-            Soit &quot;AM&quot; ou &quot;PM&quot; selon la valeur de temps donnée. Midi est traité comme
-            &quot;PM&quot; et minuit comme &quot;AM&quot;.
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%P</code></td>
-          <td>Comme <code class="code1">%p</code> mais en minuscule (&quot;am&quot; ou &quot;pm&quot;).</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%s</code></td>
-          <td>Nombre de secondes depuis l&#39;époque, 1970-01-01 00:00:00 +0000 (UTC).</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%S</code></td>
-          <td>Seconde sous forme de nombre décimal (plage de 00 à 59).</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%u</code></td>
-          <td>
-            Jour de la semaine sous forme décimale (plage de 1 à 7), lundi étant 1. Voir aussi
-            <code class="code1">%w</code> .
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%V</code></td>
-          <td>
-            Numéro de semaine ISO 8601 de l&#39;année en cours sous forme de nombre décimal (plage de 01 à
-            53), où la semaine 1 est la première semaine qui compte au moins 4 jours dans la nouvelle année
-            (c&#39;est-à-dire le premier jeudi).
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%w</code></td>
-          <td>
-            Jour de la semaine sous forme décimale (plage de 0 à 6), dimanche étant 0. Voir aussi
-            <code class="code1">%u</code> .
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%x</code></td>
-          <td>Représentation de la date préférée pour les paramètres régionaux actuels sans l&#39;heure.</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%X</code></td>
-          <td>Représentation temporelle préférée pour les paramètres régionaux actuels sans la date.</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%y</code></td>
-          <td>Année sous forme de nombre décimal sans siècle (plage de 00 à 99).</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%Y</code></td>
-          <td>Année sous forme de nombre décimal incluant le siècle.</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%z</code></td>
-          <td>
-            Le fuseau horaire numérique <code class="code1">+hhmm</code> ou
-            <code class="code1">-hhmm</code> (c&#39;est-à-dire le décalage d&#39;heure et de minute par
-            rapport à UTC).
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%Z</code></td>
-          <td>Nom ou abréviation du fuseau horaire.</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%t</code></td>
-          <td>Abréviation courte du fuseau horaire.</td>
-        </tr>
-        <tr>
-          <td><code class="code1">%0</code></td>
-          <td>
-            Littéral de l&#39;année. Localisé, principalement pour les paramètres régionaux asiatiques. (zh-CN
-            : 年, ko : 년)
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%1</code></td>
-          <td>
-            Littéral du mois. Localisé, principalement pour les paramètres régionaux asiatiques. (zh-TW : 月,
-            ko : 월)
-          </td>
-        </tr>
-        <tr>
-          <td><code class="code1">%2</code></td>
-          <td>
-            Littéral du jour. Localisé, principalement pour les paramètres régionaux asiatiques. (ja : 日, ko
-            : 일)
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <h3 class="indent0">Remarques sur la compatibilité :</h3>
-    <ul>
-      <li><code class="code1">%c</code> - la chaîne formatée est légèrement différente</li>
-      <li>
-        <code class="code1">%D</code> - non implémenté (utilisez <code class="code1">%m/%d/%y</code> ou
-        <code class="code1">%d/%m/%y</code> )
-      </li>
-      <li><code class="code1">%e</code> - l&#39;espace n&#39;est pas ajouté</li>
-      <li><code class="code1">%E</code> - non implémenté</li>
-      <li><code class="code1">%h</code> - non implémenté (utilisez <code class="code1">%b</code> )</li>
-      <li><code class="code1">%k</code> - l&#39;espace n&#39;est pas ajouté</li>
-      <li>
-        <code class="code1">%n</code> - comme <code class="code1">%m</code> , mais pas de zéro non
-        significatif (utilisez <code class="code1">\n</code> pour la nouvelle ligne)
-      </li>
-      <li><code class="code1">%O</code> - non implémenté</li>
-      <li>
-        <code class="code1">%r</code> - non implémenté (utilisez <code class="code1">%I:%M:%S %p</code> )
-      </li>
-      <li><code class="code1">%R</code> - non implémenté (utilisez <code class="code1">%H:%M</code> )</li>
-      <li><code class="code1">%t</code> - non implémenté (utilisez <code class="code1">\t</code> )</li>
-      <li><code class="code1">%T</code> - non implémenté (utilisez <code class="code1">%H:%M:%S</code> )</li>
-      <li><code class="code1">%U</code> - non implémenté</li>
-      <li><code class="code1">%W</code> - non implémenté</li>
-      <li><code class="code1">%+</code> - non implémenté</li>
-      <li><code class="code1">%%</code> - non implémenté (utilisez <code class="code1">%</code> )</li>
-    </ul>
-    <br />
-    <h2 id="pdf_output_help">Sortie PDF et dénomination automatique des fichiers</h2>
-    <p>
-      La sortie PDF peut désormais être nommée automatiquement à l&#39;aide d&#39;un système de jeton et
-      enregistrée dans un répertoire de sortie PDF prédéfini. Ceci est particulièrement utile lors de
-      l&#39;impression de plusieurs e-mails sélectionnés car il n&#39;est pas nécessaire de choisir un nom et
-      un emplacement pour chaque e-mail.
-    </p>
-    <p />
-    <p>
-      Activez le répertoire de sortie PDF et choisissez un répertoire pour l&#39;emplacement
-      d&#39;enregistrement. Le nom du fichier de sortie suivra le format de nom de fichier configuré.
-    </p>
-    <p />
-    <p>
-      Le format de nom de fichier se compose de jetons et de caractères statiques tels que des séparateurs ou
-      des espaces. Le formatage de nom de fichier étendu utilise des jetons. Le nom de fichier exact peut être
-      construit en utilisant les jetons ainsi que tout texte ou caractère de nom de fichier valide. Les
-      caractères invalides sont : <code>| * : &lt; &gt; ? \ / &quot;</code>
-    </p>
-    <p />
-    <p>Le format de nom par défaut est : ${sujet} qui n&#39;est que le sujet de l&#39;e-mail.</p>
-    <p />
-    <p>Exemples</p>
-    <p>
-      <span class="notranslate"><code>${subject}</code></span> - Le format par défaut, sujet de
-      l&#39;e-mail<br />
-      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Utilise le format de
-      date personnalisé au lieu du format par défaut<br />
-      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Avec du texte
-      personnalisé<br />
-    </p>
-    <p>
-      Le tableau ci-dessous décrit l&#39;ensemble complet de jetons pouvant être utilisés dans le format de
-      nom de fichier.
-    </p>
-    <table class="token-table">
+  </table>
+  <p>Les séquences % utilisées sont celles de la fonction de type Unix <a href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a> portée en JavaScript par <a href="https://thdoan.github.io/strftime/">T. H. Doan</a>.</p>
+  <h3 style="margin-left: 30px;">Séquences de conversion</h3>
+  <table class="dateformat-table">
+    <thead>
       <tr>
-        <td>Jeton</td>
+        <td>Séquence</td>
         <td>Description</td>
       </tr>
+    </thead>
+    <tbody>
       <tr>
+        <td><code class="code1">%a</code></td>
+        <td>Nom abrégé du jour de la semaine.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%A</code></td>
+        <td>Nom entier du jour de la semaine.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%b</code></td>
+        <td>Nom abrégé du mois.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%B</code></td>
+        <td>Nom entier du mois.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%c</code></td>
+        <td>Date et heure (UTC) selon les paramètres régionaux actuels.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%C</code></td>
+        <td>Entier à 2 chiffres correspondant au siècle.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%d</code></td>
+        <td>Jour du mois décimal (de 01 à 31).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%e</code></td>
+        <td>Jour du mois décimal (de 1 à 31).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%F</code></td>
+        <td>Date ISO 8601 (équivalent à <code class="code1">%Y-%m-%d</code> ).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%G</code></td>
+        <td>Année ISO 8601 basée sur la semaine avec le siècle sous forme de nombre décimal. L’année à 4 chiffres correspond au numéro de semaine ISO (voir <code class="code1">%V</code>). Même format et même valeur que <code class="code1">%Y</code>, sauf que si le numéro de semaine ISO appartient à l’année précédente ou suivante, cette année est utilisée à la place.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%g</code></td>
+        <td>Comme <code class="code1">%G</code> mais sans siècle, c’est-à-dire avec une année à 2 chiffres (00-99).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%H</code></td>
+        <td>Heure sous forme de nombre décimal utilisant une horloge de 24 heures (de 00 à 23).<br>Voir aussi <code class="code1">%k</code>.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%I</code></td>
+        <td>Heure sous forme de nombre décimal utilisant une horloge de 12 heures (de 01 à 12).<br>Voir aussi <code class="code1">%l</code>.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%j</code></td>
+        <td>Jour de l’année sous forme de nombre décimal (de 001 à 366).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%k</code></td>
+        <td>Heures sous forme de nombre décimal utilisant une horloge de 24 heures (de 0 à 23).<br>Voir aussi <code class="code1">%H</code>.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%l</code></td>
+        <td>Heures sous forme de nombre décimal utilisant une horloge de 12 heures (de 1 à 12).<br>Voir aussi <code class="code1">%I</code>.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%m</code></td>
+        <td>Mois sous forme de nombre décimal (de 01 à 12).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%n</code></td>
+        <td>Mois sous forme de nombre décimal (de 1 à 12).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%M</code></td>
+        <td>Minutes sous forme de nombre décimal (de 00 à 59).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%p</code></td>
+        <td>« AM » ou « PM » selon le temps donné.<br>Midi est considéré comme « PM » et minuit comme « AM ».</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%P</code></td>
+        <td>Comme <code class="code1">%p</code> mais en minuscules (« am » ou « pm »).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%s</code></td>
+        <td>Nombre de secondes depuis l’« Epoch » : 1970-01-01 00:00:00 +0000 (UTC).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%S</code></td>
+        <td>Secondes sous forme de nombre décimal (de 00 à 59).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%u</code></td>
+        <td>Jour de la semaine sous forme décimale (de 1 à 7), lundi étant 1.<br>Voir aussi <code class="code1">%w</code>.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%V</code></td>
+        <td>Numéro de semaine ISO 8601 de l’année en cours sous forme de nombre décimal (de 01 à 53), où la semaine 1 est la première semaine qui compte au moins 4 jours dans la nouvelle année (c’est-à-dire le premier jeudi).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%w</code></td>
+        <td>Jour de la semaine sous forme décimale (de 0 à 6), dimanche étant 0.<br>Voir aussi <code class="code1">%u</code>.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%x</code></td>
+        <td>Date sans l’heure selon les paramètres régionaux actuels.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%X</code></td>
+        <td>Heure sans la date selon les paramètres régionaux actuels.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%y</code></td>
+        <td>Année sans le siècle sous forme de nombre décimal (de 00 à 99).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%Y</code></td>
+        <td>Année avec le siècle sous forme de nombre décimal.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%z</code></td>
+        <td>Fuseau horaire numérique <code class="code1">+hhmm</code> ou <code class="code1">-hhmm</code> (c’est-à-dire le décalage des heures et minutes par rapport à UTC).</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%Z</code></td>
+        <td>Nom ou abréviation du fuseau horaire.</td>
+      </tr>
+      <tr>
+        <td><code class="code1">%t</code></td>
+        <td>Abréviation courte du fuseau horaire.</td>
+      </tr>
+      <tr>
+				<td><code class="code1">%0</code></td>
+				<td>Année littérale. Localisé, principalement pour les langues asiatiques. (zh-CN : 年, ko : 년)</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%1</code></td>
+				<td>Mois littéral. Localisé, principalement pour les langues asiatiques. (zh-TW: 月, ko: 월)</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%2</code></td>
+				<td>Jour littéral. Localisé, principalement pour les langues asiatiques. (ja: 日, ko: 일)</td>
+			</tr>
+    </tbody>
+  </table>
+  <h3 class="indent0">Notes de compatibilité</h3>
+  <ul>
+    <li><code class="code1">%c</code> - chaîne formatée légèrement différente</li>
+    <li><code class="code1">%D</code> - non implémenté (utiliser <code class="code1">%m/%d/%y</code> ou <code class="code1">%d/%m/%y</code>)</li>
+    <li><code class="code1">%e</code> - espace non ajouté</li>
+    <li><code class="code1">%E</code> - non implémenté</li>
+    <li><code class="code1">%h</code> - non implémenté (utiliser <code class="code1">%b</code>)</li>
+    <li><code class="code1">%k</code> - espace non ajouté</li>
+    <li><code class="code1">%n</code> - comme <code class="code1">%m</code> mais sans zéro au début (utiliser <code class="code1">\n</code> pour une nouvelle ligne)</li>
+    <li><code class="code1">%O</code> - non implémenté</li>
+    <li><code class="code1">%r</code> - non implémenté (utiliser <code class="code1">%I:%M:%S %p</code>)</li>
+    <li><code class="code1">%R</code> - non implémenté (utiliser <code class="code1">%H:%M</code>)</li>
+    <li><code class="code1">%t</code> - non implémenté (utiliser <code class="code1">\t</code>)</li>
+    <li><code class="code1">%T</code> - non implémenté (utiliser <code class="code1">%H:%M:%S</code>)</li>
+    <li><code class="code1">%U</code> - non implémenté</li>
+    <li><code class="code1">%W</code> - non implémenté</li>
+    <li><code class="code1">%+</code> - non implémenté</li>
+    <li><code class="code1">%%</code> - non implémenté (utiliser <code class="code1">%</code>)</li>
+  </ul>
+  <h2 id="pdf_output_help">Désignation automatique des fichiers PDF</h2>
+  <p>Les fichiers PDF peuvent désormais être automatiquement nommés à l’aide d’un jeu de motifs et enregistrés dans un dossier prédéfini. Cette fonction est particulièrement utile quand on traite plusieurs messages car il n’y a pas besoin de choisir un nom et un emplacement pour chaque fichier.</p>
+  <p>Cochez d’abord l’option d’enregistrement automatique et indiquez l’emplacement du dossier de destination des fichiers.</p>
+  <p>Configurez ensuite le format du nom des fichiers en vous servant de motifs, de textes et de caractères à l’exclusion de :<br><code>| * : < > ? \ / "</code></p>
+  <p>Le format par défaut est <code>${subject}</code> qui n’est autre que le sujet du message.</p>
+  <div class="indent0">
+    Exemples :<br>
+    <span class="notranslate"><code>${subject}</code></span> - Format par défaut (sujet du message).<br>
+    <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Utilise le format personnalisé de la date à la place du format par défaut.<br>
+    <span class="notranslate"><code>${subject}-Urgent-${date}-${index}</code></span> - Avec du texte personnel.
+  </div>
+  <p>Le tableau ci-dessous récapitule l’ensemble complet des motifs pouvant être utilisés.</p>
+  <table class="token-table">
+    <tr>
+      <td>Motif</td>
+      <td>Description</td>
+    </tr>
+    <tr>
         <td class="notranslate"><code>${subject}</code></td>
-        <td>L&#39;objet du message.</td>
+        <td>Sujet du message.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${sender}</code></td>
-        <td>Le nom de l&#39;expéditeur du message.</td>
+        <td>Expéditeur du message.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${recipient}</code></td>
-        <td>Le nom du destinataire du message.</td>
+        <td>Destinataire du message.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${sender_email}</code></td>
-        <td>L&#39;adresse e-mail de l&#39;expéditeur du message.</td>
+        <td>Adresse électronique de l’expéditeur.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${recipient_email}</code></td>
-        <td>L&#39;adresse e-mail du destinataire du message.</td>
+        <td>Adresse électronique du destinataire.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${smart_name}</code></td>
-        <td>Les destinataires si le message est dans un dossier Envoyé, sinon le nom de l&#39;expéditeur</td>
+        <td>Destinataires si le message se trouve dans un dossier « Envoyés », expéditeur sinon.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${index}</code></td>
-        <td>Le numéro d&#39;index du message.</td>
+        <td>Index du message.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${prefix}</code></td>
-        <td>La valeur de l&#39;option de texte de préfixe.</td>
+        <td>Texte indiqué à l’option « Préfixe ».</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
-        <td>La valeur de l&#39;option de texte de suffixe.</td>
+        <td>Texte indiqué à l’option « Suffixe ».</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
-        <td>Le format de date standard. Le format par défaut est : AAAAMMJJHHmm</td>
+        <td>Format standard de la date (AAAAMMJJ par défaut).</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
-        <td>Le format de date personnalisé. Voir la section sur le formatage de date personnalisé.</td>
+        <td>Format personnalisé de la date (voir la rubrique dédiée).</td>
       </tr>
-    </table>
-    <br />
-    <h2 id="print_options_help">Options d&#39;impression et de mise en page</h2>
-    <p>
-      Ces options vous permettent de définir l&#39;imprimante par défaut ainsi que les options de page de
-      l&#39;imprimante. Il est également possible de définir le mode silencieux où la boîte de dialogue
-      d&#39;aperçu n&#39;est pas affichée et l&#39;impression est effectuée immédiatement.
-    </p>
-    <p>
-      Les options de page vous permettent de définir des éléments lorsque l&#39;aperçu ou l&#39;impression est
-      terminée. Ces options sont persistantes à travers l&#39;impression. Si les options définies dans
-      PrintingTools NG sont modifiées dans l&#39;aperçu avant impression, elles n&#39;affecteront pas les
-      impressions suivantes. Certains éléments ne peuvent pas être définis dans la boîte de dialogue
-      d&#39;aperçu, notamment les en-têtes et les pieds de page. Les autres éléments ne sont pas retenus par
-      l&#39;aperçu et devraient normalement être définis à chaque fois qu&#39;une impression est effectuée.
-      PrintingTools NG résout ces deux problèmes.
-    </p>
-    <p>
-      Un élément non enregistré par l&#39;aperçu est les plages de pages. Un cas d&#39;utilisation typique est
-      celui où l&#39;on souhaite n&#39;imprimer que la première page d&#39;un e-mail par défaut. normalement,
-      il faudrait faire en sorte que les plages de pages changent à chaque fois. Notez que si une plage de
-      pages définie dans PrintingTools NG n&#39;est pas valide, par exemple en dépassant le nombre de pages,
-      la plage devra être corrigée dans l&#39;aperçu avant l&#39;impression. Une plage de pages définie sur
-      &quot;1&quot; sera toujours valide et imprime la première page du message.
-    </p>
-    <p>Remarques:</p>
-    <p>L&#39;option de mise à l&#39;échelle permet de définir une échelle persistante.</p>
-    <p>
-      Les plages de pages sont décrites de la même manière que dans l&#39;aperçu. Les exemples sont 1, 1-2,
-      3-4,5. Notez que si une plage de pages prédéfinie n&#39;est pas valide pour un message donné,
-      l&#39;aperçu affichera une erreur.
-    </p>
-    <p>
-      Les marges peuvent être définies à l&#39;aide d&#39;unités adaptées aux paramètres régionaux de
-      l&#39;utilisateur, en pouces ou en millimètres (in ou mm). Notez qu&#39;en raison d&#39;erreurs
-      d&#39;arrondi, certaines valeurs en mm peuvent être enregistrées avec de petites différences.
-    </p>
-    <p></p>
-    <p>
-      Les en-têtes et pieds de page peuvent être définis pour inclure diverses variables de message
-      répertoriées ci-dessous. De plus, du texte arbitraire peut également être inclus. Pour n&#39;imprimer
-      aucun en-tête ni pied de page et économiser de l&#39;espace d&#39;impression, il vous suffit de vider
-      tous les champs.
-    </p>
-    <div class="indent1">
-      <li>&amp;J = Date</li>
-      <li>&amp;P = numéro de page</li>
-      <li>&amp;PT = Numéro de page avec total (&quot;3 sur 5&quot;)</li>
-      <li>&amp;T = Titre de la page (Objet du message)</li>
-      <li>&amp;U = URL (L&#39;URL du message)</li>
-    </div>
-	<h2 id="advanced_options_help">Options avancées</h2>
-  <p>
-    Ce sont des options qui permettent de définir des éléments d'impression au-delà de la
-    paramètres de base de l’interface utilisateur. Actuellement, la seule option avancée consiste à contrôler 
-    les marges des en-têtes et des pieds de page.	Les options sont définies dans les options avancées de l'onglet Divers.
-    et sont séparés par des espaces.<br>
-    Le format est :<br><br>
-    
-    P:<i>nom-imprimante</i>::S:<i>nom-option</i>=<i>valeur</i><br><br>
-    
-    Le nom de l'imprimante a les espaces remplacés par des traits de soulignement et 
-    l'enregistrement au format PDF intégré est Mozilla_Save_to_PDF<br><br>
-    
-    Autre exemple : Microsoft_Print_to_PDF<br><br>
-    
-    Les possibilités actuelles de nom d'option sont :<br>
-    <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br><br>
-    
-    <span class="notranslate">edges</span> est une pseudo-option qui définit toutes les marges des bords à la même valeur.
-    Les marges des bords sont en pouces.<br><br>
-    
-    Exemples :<br><br>
-    
-    P:Mozilla_Save_to_PDF::S:edges=0.25<br>
-    P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br><br>
-    
-    Si l'on voulait définir toutes les marges des bords à 0,10 pouces, à l'exception de la
-    edgeTop à 0,25 pouces, entrez ce qui suit :<br><br>
-    
-    P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
-  </p>
-    <h2>Soutien</h2>
-    <p>
-      Veuillez publier des problèmes ou des demandes de fonctionnalités dans le référentiel GitHub des
-      extensions :
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
-      ><br /><br />
-      Dans les problèmes de bogue, incluez les informations suivantes pour aider à résoudre les problèmes :<br />
-      - Version PrintingTools NG<br />
-      -Version Thunderbird<br />
-      - Système d&#39;exploitation et version<br />
-      - Sortie de débogage (copie depuis la console de débogage - accès avec Control-Shift-J)<br />
-      - Une description des étapes menant au problème<br />
-    </p>
-    <h2 id="debug_options_help">Options de débogage</h2>
-    <p>
-      Les options de débogage sont un ensemble de mots clés entrés sous forme de liste séparée par des
-      espaces. Les options sont généralement utilisées pour la sortie de débogage de la console, mais peuvent
-      également être utilisées pour les tests ou différents modes.
-    </p>
-    <div class="indent1">
-      <li>
-        <code class="notranslate">initialsource</code> - affiche la source du message avant que PTNG ne fasse
-        de formatage
-      </li>
-      <li><code class="notranslate">finaloutput</code> - affiche la sortie finale du message</li>
-      <li><code class="notranslate">pdfoutput</code> - sortie de débogage pour la sortie de message PDF</li>
-      <li>
-        <code class="notranslate">printsettings</code> - sortie de débogage pour les options d&#39;impression
-        et de page
-      </li>
-      <li>
-        <code class="notranslate">helpinwin</code> - indicateur de mode pour afficher l&#39;aide dans une
-        fenêtre au lieu de la norme dans un onglet
-      </li>
-    </div>
-    <h2>Crédits</h2>
-    <div class="indent1">
-      <li>PrintingTools NG est basé sur l&#39;extension originale de Paolo &quot;Kosmos&quot;</li>
-      <li>List.js par Jonny Strömberg https://listjs.com</li>
-      <li>Latinize.js par Jakub Dundalek https://github.com/dundalek/latinize</li>
-    </div>
-    <p>
-      Merci aux utilisateurs suivants pour leurs suggestions d&#39;amélioration et leur aide au test :<br /><br />
-      - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
-      - <code class="notranslate">@RRoenn</code><br />
-      - <code class="notranslate">@tidebre67</code><br />
-      - <code class="notranslate">@reinerblock</code><br />
-      - <code class="notranslate">@querixg</code><br />
-      - <code class="notranslate">@jobisoft</code><br />
-      - <code class="notranslate">@JF1313</code><br />
-      - <code class="notranslate">@DenB10</code><br />
-      - <code class="notranslate">@ichnilatis-gr</code><br />
-      - <code class="notranslate">@KC-T</code><br />
-      - <code class="notranslate">@madvinegar</code><br />
-      - <code class="notranslate">@ditchfinder</code><br />
-      - <code class="notranslate">@3LaHoonK</code><br />
-      - <code class="notranslate">@realraven</code><br />
-      - <code class="notranslate">@librelegal</code><br />
-      - <code class="notranslate">@Francewhoa</code><br />
-      - <code class="notranslate">@foxfan100</code><br />
-      - <code class="notranslate">@pechh</code><br />
-    </p>
-    <script type="text/javascript" src="../../help.js"></script>
-  </body>
+  </table>
+  <h2 id="print_options_help">Destination et mise en page</h2>
+  <p>Ces options permettent de définir l’imprimante par défaut ainsi que la mise en page pour cette imprimante. Il est également possible d’activer le mode silencieux, c’est-à-dire d’imprimer immédiatement sans afficher la fenêtre d’aperçu.</p>
+  <p>Les réglages de mise en page définis dans les options de <i>PrintingTools NG</i> sont répercutés sur l’aperçu avant impression et persistent d’une impression à l’autre. Par contre, toute modification effectuée dans l’aperçu n’affecte pas les impressions suivantes. Par ailleurs, certains éléments ne peuvent pas être définis dans l’aperçu, uniquement dans <i>PrintingTools NG</i>, notamment les en-têtes et les pieds de page.</p>
+  <p>Un réglage mémorisé par <i>PrintingTools NG</i> mais pas par l’aperçu avant impression : les pages à imprimer. Un cas typique est celui où l’on souhaite n’imprimer par défaut que la première page d’un courrier électronique. Normalement, il faudrait préciser ce réglage à chaque fois. Si la valeur indiquée dans <i>PrintingTools NG</i> n’est pas correcte, par exemple si elle est supérieure au nombre réel de pages, elle devra être corrigée dans l’aperçu. La valeur « 1 » sera toujours valable pour imprimer la première page du message.</p>
+  <p>Remarques</p>
+  <p>L’échelle est définie de façon pérenne dans les options.</p>
+  <p>Les pages à imprimer sont désignées comme dans l’aperçu avant impression (exemples : 1, 1-2, 3-4,5). Notez que si la plage prédéfinie n’est pas valable pour un message donné, l’aperçu affichera une erreur.</p>
+  <p>L’unité utilisée pour les marges est en accord avec les paramètres régionaux de l’utilisateur, pouce (in) ou millimètre (mm). Notez qu’en raison d’erreurs d’arrondi, certaines valeurs en mm peuvent être enregistrées avec de petites différences.</p>
+  <p>Les en-têtes et les pieds de page peuvent contenir les variables listées ci-dessous et un texte quelconque. Pour ne pas en imprimer et économiser de l’espace d’impression, il suffit de laisser tous les champs vides.</p>
+  <div class="indent1">
+    <li>&D - date</li>
+    <li>&P - numéro de page</li>
+    <li>&PT - numéro de page sur nombre total de pages (ex. : « 3 sur 5 »)</li>
+    <li>&T - titre de la page (sujet du message)</li>
+    <li>&U - URL (URL du message)</li>
+  </div>
+  <h2 id="advanced_options_help">Options avancées</h2>
+  <p>Ces options sont définies dans le champ Options avancées à l’onglet Divers. Elles permettent de configurer des éléments d’impression au-delà des paramètres de base de l’interface utilisateur. La seule option avancée actuellement disponible permet de contrôler les marges d’en-tête et de pied de page.</p>
+	<p>Format :<br><code>P:<i>nom-imprimante</i>::S:<i>nom-option</i>=<i>valeur</i></code></p>
+	<p>Les espaces sont remplacés par des traits de soulignement dans le nom de l’imprimante. L’enregistrement au format PDF intégré est <code>Mozilla_Save_to_PDF</code>. Autre exemple : <code>Microsoft_Print_to_PDF</code>.<br>
+	Les noms d’option actuellement possibles sont <code>edges</code>, <code>edgeTop</code>, <code>edgeBottom</code>, <code>edgeLeft</code> et <code>edgeRight</code>, <code>edges</code> étant une pseudo-option qui attribue la même valeur à toutes les marges. L’unité est le pouce.</p>
+	<div class="indent0">
+    Exemples :<br>
+    <code>P:Mozilla_Save_to_PDF::S:edges=0.25</code><br>
+    <code>P:Microsoft_Print_to_PDF::S:edgeTop=0.1</code><br>
+    <code>P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25</code> - Fixe toutes les marges à 0,10 pouce, sauf <code>edgeTop</code> à 0,25 pouce.
+  </div>	
+	<h2>Assistance</h2>
+  <p>Postez vos problèmes ou demandes de fonctionnalités sur <a href="https://github.com/cleidigh/printing-tools-ng/issues">GitHub</a>.</p>
+  <p>Lors du signalement d’un bogue, précisez les informations suivantes pour aider à résoudre le problème :</p>
+  <div class="indent1">
+    – version de <i>PrintingTools NG</i> ;<br>
+    – version de Thunderbird ;<br>
+    – système d’exploitation et sa version ;<br>
+    – sortie de débogage (copie de la console d’erreurs accessible par Ctrl+Maj+J) ;<br>
+    – description des étapes menant au problème.
+  </div>
+  <h2 id="debug_options_help">Options de débogage</h2>
+  <p>Les options de débogage sont une liste de mots-clés séparés par des espaces. Elles sont généralement utilisées pour la sortie de débogage de la console mais peuvent également être utilisées pour tester ou changer de mode.</p>
+  <div class="indent1">
+    <li><code class="notranslate">initialsource</code> - affichage de la source du message avant un quelconque formatage.</li>
+    <li><code class="notranslate">finaloutput</code> - affichage du message final.</li>
+    <li><code class="notranslate">pdfoutput</code> - sortie de débogage pour l’enregistrement en PDF.</li>
+    <li><code class="notranslate">printsettings</code> - sortie de débogage pour les options d’impression et de mise en page.</li>
+    <li><code class="notranslate">helpinwin</code> - mode ouverture de l’aide dans une fenêtre et non dans un onglet.</li>
+  </div>
+  <h2>Crédits</h2>
+  <div class="indent1">
+    <li>Extension originale <a href="https://addons.thunderbird.net/thunderbird/addon/printingtools/"><code>PrintingTools</code></a> de Paolo "Kaosmos"</li>
+    <li><a href="https://listjs.com"><code>List.js</code></a> de Jonny Strömberg</li>
+    <li><a href="https://github.com/dundalek/latinize"><code>Latinize.js</code></a> de Jakub Dundalek</li>
+    <li>Merci aux utilisateurs suivants pour leurs suggestions d’amélioration et leur aide pour tester :</li>
+      - <code class="notranslate">@kiki-ja</code> (aide pour la gestion des versions majeures et des fonctionnalités)<br>
+      - <code class="notranslate">@RRoenn</code><br>
+      - <code class="notranslate">@tidebre67</code><br>
+      - <code class="notranslate">@reinerblock</code><br>
+      - <code class="notranslate">@querixg</code><br>
+      - <code class="notranslate">@jobisoft</code><br>
+      - <code class="notranslate">@JF1313</code><br>
+      - <code class="notranslate">@DenB10</code><br>
+      - <code class="notranslate">@ichnilatis-gr</code><br>
+      - <code class="notranslate">@KC-T</code><br>
+      - <code class="notranslate">@madvinegar</code><br>
+      - <code class="notranslate">@ditchfinder</code><br>
+      - <code class="notranslate">@3LaHoonK</code><br>
+      - <code class="notranslate">@realraven</code><br>
+      - <code class="notranslate">@librelegal</code><br>
+      - <code class="notranslate">@Francewhoa</code><br>
+      - <code class="notranslate">@foxfan100</code><br>
+      - <code class="notranslate">@pechh</code>
+  </div>
+<script type="text/javascript" src="../../help.js" ></script>
+</body>
 </html>
