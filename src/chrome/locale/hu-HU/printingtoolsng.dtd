@@ -70,7 +70,7 @@
 <!ENTITY date_custom.label "Egyéni">
 <!ENTITY messageBody "Üzenettörzs">
 
-<!ENTITY body "Test">
+<!ENTITY body "törzs">
 <!ENTITY pdf_output "PDF kimenet">
 <!ENTITY print_and_pageoptions "Nyomtatási és oldalbeállítások">
 <!ENTITY headers_order "Fejlécek sorrendje">
@@ -86,7 +86,7 @@
 <!ENTITY latinize "A tárgy és a nevek latinosítása">
 <!ENTITY remove_emojis "Távolítsa el az Unicode hangulatjeleket és szimbólumokat">
 <!ENTITY filter_characters "Karakterek szűrése">
-<!ENTITY filename_format "Fájlnév formátum">
+<!ENTITY filename_format "Fájlnév formátuma">
 <!ENTITY page_options "Oldalbeállítások">
 <!ENTITY copies "Másolatok">
 <!ENTITY all "Összes">
@@ -97,11 +97,11 @@
 <!ENTITY bottom "Alsó">
 <!ENTITY left "Bal">
 <!ENTITY right "Jobb">
-<!ENTITY center "Központ">
+<!ENTITY center "Közép">
 <!ENTITY footers "Láblécek">
-<!ENTITY cancel "Megszünteti">
+<!ENTITY cancel "Mégse">
 <!ENTITY page_headers "Fejlécek">
 <!ENTITY Help "Segítség">
 <!ENTITY Scale "Skála">
-<!ENTITY fitToWidth "Fit to Width">
+<!ENTITY fitToWidth "Szélességhez igazít">
 <!ENTITY persistent "Kitartó">
