@@ -57,8 +57,8 @@ var printingtools = {
 
 	WEXT_cmd_print: async function (data) {
 
-		if (data.command != "WEXT_cmd_print")  {
-			return ;
+		if (data.command != "WEXT_cmd_print") {
+			return;
 		}
 
 		let windowId = data.windowId;
@@ -2298,8 +2298,19 @@ var printingtools = {
 			printingtools.hdr = mail3paneWin.messenger.msgHdrFromURI(currentUri);
 
 			var mHdr = window.printingtoolsng.extension.messageManager.convert(printingtools.hdr);
-			//console.log(mHdr)
 			printingtools.attList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: mHdr.id });
+
+			console.log(printingtools.attList)
+			const tbVersion = this.utils.getThunderbirdVersion();
+
+			// v128+ returns inline images in the attachment list
+			// use contentId property to filter, fixes #275
+			if (tbVersion.major >= 128) {
+				printingtools.attList = printingtools.attList.filter(att => att.contentId == null);
+
+			}
+
+			console.log(printingtools.attList)
 
 			if (!printingtools.attList.length) {
 				let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
