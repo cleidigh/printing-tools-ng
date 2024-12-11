@@ -2290,39 +2290,24 @@ var printingtools = {
 
 	getAttatchmentList: async function () {
 
-		let currentUri = printingtools.msgUris[printingtools.current];
+		// we go back to scraping attachments since we can't
+		// use messages.getAttachmentsList with no id for eml
+		// messages.
+		// For unknown reason we need an async call or things fail
+		// Can't find reason.
 
-		// 115 eml exp
-		if (currentUri.includes(".eml?") || 1) {
+		await new Promise(r => window.setTimeout(r, 0));
 
-			printingtools.hdr = mail3paneWin.messenger.msgHdrFromURI(currentUri);
+		printingtools.attList = [];
 
-			var mHdr = window.printingtoolsng.extension.messageManager.convert(printingtools.hdr);
-			printingtools.attList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: mHdr.id });
+		let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
+		let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
 
-			console.log(printingtools.attList)
-			const tbVersion = this.utils.getThunderbirdVersion();
+		printingtools.attList = fileNames.map((fn, i) => {
+			return { name: fn, size: fileSizes[i] };
+		});
 
-			// v128+ returns inline images in the attachment list
-			// use contentId property to filter, fixes #275
-			if (tbVersion.major >= 128) {
-				printingtools.attList = printingtools.attList.filter(att => att.contentId == null);
-
-			}
-
-			console.log(printingtools.attList)
-
-			if (!printingtools.attList.length) {
-				let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
-				let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
-
-				printingtools.attList = fileNames.map((fn, i) => {
-					return { name: fn, size: fileSizes[i] };
-				});
-
-			}
-			return printingtools.attList;
-		}
+		return printingtools.attList;
 
 	},
 
