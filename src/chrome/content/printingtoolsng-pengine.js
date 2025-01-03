@@ -374,6 +374,16 @@ var printingtools = {
 					console.log("PTNG: Message URI: ", uri);
 				}
 
+				// set custom dr ftr tokens before preview
+				var msgHdr;
+				try {
+					msgHdr = top.messenger.msgHdrFromURI(uri);
+				} catch (ex) {
+					printingtools.getHdr();
+					msgHdr = printingtools.hdr;
+				}
+				printerSettings.setHdrFtrTokens(null, msgHdr);
+				
 				if (selection.rangeCount > 1) {
 					//console.log("print selection")
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
@@ -402,6 +412,10 @@ var printingtools = {
 				printingtools.previewDoc = top.PrintUtils.printBrowser.contentDocument
 
 				await printingtools.reformatLayout();
+
+				// set custom dr ftr tokens before preview
+				let msgHdr = top.messenger.msgHdrFromURI(uri);
+				printerSettings.setHdrFtrTokens(null, msgHdr);
 
 				top.PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext);
 			}
@@ -482,6 +496,9 @@ var printingtools = {
 			var MailService = MailServices.messageServiceFromURI(msgURI);
 			let msgHdr = top.messenger.msgHdrFromURI(msgURI);
 			msgSubject = msgHdr.mime2DecodedSubject;
+
+			// update headers and footers for custom tokens
+			ps = printerSettings.setHdrFtrTokens(ps, msgHdr);
 
 			if (pdfOutput) {
 				pdfFileName = await this.utils.constructPDFoutputFilename(msgURI, pdfOutputDir);
@@ -1250,16 +1267,21 @@ var printingtools = {
 				dateOrig = dateOrig.replace(/ +$/, "");
 				dateOrig = dateOrig.replace(/^ +/, "");
 				var secs = Date.parse(dateOrig) / 1000;
+				
+				dummy.date = secs * 1000 * 1000;
 				dummy.dateInSeconds = secs;
 				dummy.dateReceived = secs;
 				printingtools.hdr = dummy;
 
-				//console.log(str_message)
-				//console.log(dummy)
+				console.log(str_message)
+				console.log(dummy)
 
 			}
 			else {
 				printingtools.hdr = m.msgHdrFromURI(uris[printingtools.current]);
+				printingtools.date = printingtools.hdr.date;
+				console.log(printingtools.hdr.date)
+
 			}
 		}
 	},

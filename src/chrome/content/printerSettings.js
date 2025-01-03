@@ -2,7 +2,7 @@
   PrintingTools NG is a derivative extension for Thunderbird 68+
   providing printing tools for messages.
   The derivative extension authors:
-    Copyright (C) 2023 : Christopher Leidigh
+    Copyright (C) 2025 : Christopher Leidigh
 
   The original extension & derivatives, PrintingTools, by Paolo "Kaosmos",
   is covered by the GPLv3 open-source license (see LICENSE file).
@@ -638,6 +638,64 @@ var printerSettings = {
     }
   },
 
+  setHdrFtrTokens: function (ps, msgHdr) {
+    // replace custom tokens (only received date &RD for now)
+    var w = Cc["@mozilla.org/appshell/window-mediator;1"]
+      .getService(Ci.nsIWindowMediator)
+      .getMostRecentWindow("mail:3pane");
+
+    // check if we have any custom tokens to replace
+    // only &MD now
+
+    try {
+      var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
+    } catch (e) {
+      return null;
+    }
+    let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
+    let customProps = JSON.parse(props);
+
+    let allHdrsAndFtrs =
+      customProps.headerStrCenter +
+      customProps.headerStrCenter +
+      customProps.headerStrRight +
+      customProps.footerStrLeft +
+      customProps.footerStrCenter +
+      customProps.footerStrRight;
+
+    if (!allHdrsAndFtrs.includes("&MD")) {
+      return ps;
+    }
+
+    let psValid = !!ps;
+
+    // if ps not valid we have to read/save from prefs
+    if (!psValid) {
+      ps = w.PrintUtils.getPrintSettings();
+    }
+
+    let formatted_date = w.printingtools.formatDate(msgHdr.date / 1000, null);
+
+    ps.headerStrLeft = customProps.headerStrLeft.replace("&MD", formatted_date);
+    ps.headerStrCenter = customProps.headerStrCenter.replace("&MD", formatted_date);
+    ps.headerStrRight = customProps.headerStrRight.replace("&MD", formatted_date);
+    ps.footerStrLeft = customProps.footerStrLeft.replace("&MD", formatted_date);
+    ps.footerStrCenter = customProps.footerStrCenter.replace("&MD", formatted_date);
+    ps.footerStrRight = customProps.footerStrRight.replace("&MD", formatted_date);
+
+    // if we are operating on prefs we must save them
+    if (!psValid) {
+      let savePrefs = Ci.nsIPrintSettings.kInitSaveHeaderLeft |
+      Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
+      Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
+      Ci.nsIPrintSettings.kInitSaveFooterRight |
+      Ci.kAdvSaveSettings;
+
+      PSSVC.maybeSavePrintSettingsToPrefs(ps, savePrefs);
+    }
+    return ps;
+  },
+
   // We setup an observer for the preview subdialog so we can set
   // PTNG preferences which are not set in printsettings
   // pageRanges is set from PTNG settings. Other prefs can be
@@ -667,7 +725,7 @@ var printerSettings = {
 
       if (dbgopts.indexOf("printsettings") > -1) {
         console.log("subDialog opened: " + subDialogWindow.location.href);
-     }
+      }
 
       // Wait until print-settings in the subDialog have been loaded/rendered.
       await new Promise(resolve =>
