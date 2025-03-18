@@ -34,15 +34,7 @@
               "script": "api/NotifyTools/implementation.js",
               "events": ["startup"]
             }
-          },
-        "notificationbar": {
-          "schema": "api/notificationbar/schema.json",
-          "parent": {
-            "scopes": ["addon_parent"],
-            "paths": [["notificationbar"]],
-            "script": "api/notificationbar/implementation.js"
           }
-      }
     },
     "permissions" : [
       "activeTab",
