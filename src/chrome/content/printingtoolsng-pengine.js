@@ -39,11 +39,11 @@ var ietngExtension = ExtensionParent.GlobalManager.getExtension(
 
 var { MailE10SUtils } = ChromeUtils.importESModule("resource:///modules/MailE10SUtils.sys.mjs");
 
-var st = {};
-Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/strftime.js", st);
+var { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs");
+
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
 
-var { printerSettings } = ChromeUtils.importESModule("chrome://printingtoolsng/content/printerSettings.mjs");
+var { printerSettings } = ChromeUtils.importESModule("chrome://printingtoolsng/content/printerSettings.mjs?" + new Date());
 
 var mail3paneWin = Services.wm.getMostRecentWindow("mail:3pane");
 
@@ -1295,8 +1295,6 @@ var printingtools = {
 			else {
 				printingtools.hdr = m.msgHdrFromURI(uris[printingtools.current]);
 				printingtools.date = printingtools.hdr.date;
-				console.log(printingtools.hdr.date)
-
 			}
 		}
 	},
@@ -2225,7 +2223,7 @@ var printingtools = {
 			} else if (longFormat === 3) {
 				let customDateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
 				let locale = Services.locale.appLocaleAsBCP47;
-				var formatted_date = st.strftime.strftime(customDateFormat, date_obj, locale);
+				var formatted_date = strftime.strftime(customDateFormat, date_obj, locale);
 
 			} else {
 				var formatted_date = date_obj.toUTCString();

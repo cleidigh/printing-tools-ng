@@ -43,7 +43,7 @@ var locale = Services.locale.appLocaleAsBCP47;
 
 var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
 var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"].getService(Ci.nsIPrintSettingsService);
-var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+var dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
 var gprinterSettings = printerSettings;
 

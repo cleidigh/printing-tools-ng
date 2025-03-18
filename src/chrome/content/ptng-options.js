@@ -5,11 +5,10 @@ printerSettings,
 utils,
 */
 
-var Services = globalThis.Services ||
-  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
 
-var { strftime } = ChromeUtils.import("chrome://printingtoolsng/content/strftime.js");
+var { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs");
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
+var { printerSettings } = ChromeUtils.importESModule("chrome://printingtoolsng/content/printerSettings.mjs?" + new Date());
 
 utils.window = window;
 
@@ -21,7 +20,6 @@ var mainStrBundle = strBundleService.createBundle("chrome://printingtoolsng/loca
 
 var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
 var gheaderList;
-var printerSettings;
 var validationIds = [];
 
 
@@ -56,8 +54,6 @@ async function initPMDpanel() {
 	document.getElementById("ptng-options").setAttribute("title", `${title} - v${PTNGVersion}`);
 
 	document.getElementById("ptng-options").setAttribute("lang", Services.locale.appLocaleAsBCP47);
-
-	printerSettings = win.printerSettings;
 
 	var bundle = strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 
