@@ -90,6 +90,7 @@ var printerSettings = {
     if (dbgopts.indexOf("printsettings") > -1) {
       console.log("PTNG: getPrinterSettings");
       console.log("PTNG: printSettings on entry: ", printSettings);
+      console.log(printSettings.edgeTop);
     }
 
     let printerName = printSettings.printerName;
@@ -394,7 +395,7 @@ var printerSettings = {
 
   },
 
-  savePrintSettings: function (window) {
+  savePrintSettings: async function (window) {
     dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
     var document = window.document;
     let localeUnits = (locale == "en-US") ? 0 : 1;
@@ -468,14 +469,23 @@ var printerSettings = {
       printSettings.printBGColors = false;
     }
 
-    PSSVC.maybeSaveLastUsedPrinterNameToPrefs(printSettings.printerName)
+    let advopts = prefs.getCharPref("extensions.printingtoolsng.advanced.options");
+    var kAdvSaveSettings = 0;
+    let rv = await this.setPrintSettingsFromAdvOptions(printSettings, advopts);
+    if (!rv.status) {
+      return 0;
+    }
+    printSettings = rv.printSettings;
+    kAdvSaveSettings = rv.kAdvSaveSettings;
+
+    PSSVC.maybeSaveLastUsedPrinterNameToPrefs(printSettings.printerName);
 
     let savePrefs = Ci.nsIPrintSettings.kInitSaveMargins | Ci.nsIPrintSettings.kInitSaveHeaderLeft |
       Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
       Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
       Ci.nsIPrintSettings.kInitSaveFooterRight |
       Ci.nsIPrintSettings.kInitSaveShrinkToFit |
-      Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors;
+      Ci.nsIPrintSettings.kInitSaveScaling | Ci.nsIPrintSettings.kInitSaveBGColors | kAdvSaveSettings;
 
     if (dbgopts.indexOf("printsettings") > -1) {
       console.log("\nPTNG: Saving prefs on options exit");
@@ -514,6 +524,73 @@ var printerSettings = {
 
     prefs.setStringPref(`extensions.printingtoolsng.printer.${printerNameEsc}`, js);
     prefs.setStringPref("extensions.printingtoolsng.print_printer", printerName);
+    return 1;
+  },
+
+  setPrintSettingsFromAdvOptions: async function (printSettings, options) {
+    var kAdvSaveSettings = 0;
+
+    const kValidAdvPrinterOptions = ["edges", "edgeTop", "edgeBottom", "edgeLeft", "edgeRight"];
+    var status = 1;
+    // Parse for printer specific settings
+    let printerOptions = options.split(" ").filter(i => i.startsWith("P:"));
+    var printerNameEsc;
+    for (const popt of printerOptions) {
+      printerNameEsc = popt.split("::")[0].slice(2);
+      var printerList = Cc["@mozilla.org/gfx/printerlist;1"]
+        .getService(Ci.nsIPrinterList);
+      var printers = await printerList.printers;
+      printers = ["Mozilla_Save_to_PDF", ...printers.map(p => {
+        p.QueryInterface(Ci.nsIPrinter);
+        return p.name.replace(/ /g, '_');
+      })];
+
+      if (!printers.includes(printerNameEsc)) {
+        Services.prompt.alert(window, "Printer options",
+          `Error parsing printer option: Invalid printer name: ${printerName}\n\nMust be one of:\n\n ${printers.map(p => `   ${p}\n`).join(' ')}`);
+        status = 0;
+        break;
+      }
+      let nameValue = popt.split("::")[1];
+
+      if (!nameValue.startsWith("S:")) {
+        console.log("Printer setting must be prifixed with S:");
+        Services.prompt.alert(window, "Printer options", `Options setting must be prifixed with S:`);
+        status = 0;
+        break;
+      }
+      let printerName = printerNameEsc.replace(/_/g, ' ');
+
+      // We only set options for current printer
+      if (printSettings.printerName == printerName) {
+        let name = nameValue.slice(2).split("=")[0];
+
+        if (!kValidAdvPrinterOptions.includes(name)) {
+          Services.prompt.alert(window, "Printer options", `Invalid printer option. Must be one of:\n\n  ${kValidAdvPrinterOptions.join("\n  ")}`);
+          status = 0;
+          break;
+        }
+        let value = nameValue.slice(2).split("=")[1];
+        if (isNaN(value) || value == "") {
+          Services.prompt.alert(window, "Printer options", "Error parsing printer option: value not a number");
+          status = 0;
+          break;
+        }
+        if (name == "edges") {
+          printSettings.edgeTop = Number(value);
+          printSettings.edgeBottom = Number(value);
+          printSettings.edgeLeft = Number(value);
+          printSettings.edgeRight = Number(value);
+        } else {
+          printSettings[name] = Number(value);
+        }
+        kAdvSaveSettings = Ci.nsIPrintSettings.kInitSaveEdges;
+
+      }
+    }
+
+
+    return { status: status, printSettings: printSettings, kAdvSaveSettings: kAdvSaveSettings };
   },
 
   initCustomPrinterOptions: function (printerName, units) {
@@ -579,28 +656,36 @@ var printerSettings = {
 
     async observe(subDialogWindow) {
       // A subDialog has been opened.
-      // console.log("subDialog opened: " + subDialogWindow.location.href);
+      var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
+
+      dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
       // We only want to deal with the print subDialog.
       if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html?")) {
         return;
       }
 
-      var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
+      if (dbgopts.indexOf("printsettings") > -1) {
+        console.log("subDialog opened: " + subDialogWindow.location.href);
+     }
 
       // Wait until print-settings in the subDialog have been loaded/rendered.
       await new Promise(resolve =>
         subDialogWindow.document.addEventListener("print-settings", resolve, { once: true })
       );
 
-      //console.log("subDialog print-settings loaded", printerSettings);
-      //console.log(subDialogWindow.document.documentElement.innerHTML)
+      if (dbgopts.indexOf("printsettings") > -1) {
+        console.log("subDialog print-settings loaded: Initial state:", printerSettings);
+        console.log(subDialogWindow.document.documentElement.innerHTML);
+      }
+
+
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
 
-      
+
       try {
         var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
       } catch (e) {
@@ -629,6 +714,10 @@ var printerSettings = {
       // will cause odd preview page errors
       cr.value = printerSettings.pageRangesToString(customProps.pageRanges);
 
+      if (dbgopts.indexOf("printsettings") > -1) {
+        console.log("subDialog print-settings: Post adjustments  state:");
+        console.log(subDialogWindow.document.documentElement.innerHTML);
+      }
     },
   },
 };

@@ -46,12 +46,12 @@
     <h3 class="indent0">PrintingTools NG kortkommandon</h3>
     <p>
       PrintingTools mappar om standardgenvägen för Thunderbird Print för att anropa sig själv istället för
-      standardutskriften. På Windows och Linux använd Ctrl-P och Command-P på Mac. Det är också möjligt att
-      öppna dialogrutan Alternativ med Control-Shift-P.
+      standardutskriften. På Windows och Linux använder du Control-P och Command-P på Mac. Det är också
+      möjligt att öppna dialogrutan Alternativ med Control-Shift-P.
     </p>
     <h3 class="indent0">Följande är ett exempel på några av headerformateringsfunktionerna:</h3>
     <div class="indent1">
-      <li>Anpassad rubrikkantsstil med CSS (överst och nederst, blå)</li>
+      <li>Anpassad rubrikkantsstil med CSS (överst och nedre, blå)</li>
       <li>Rubrik bakgrundsfärg</li>
       <li>Justerade rubriker</li>
       <li>Anpassad rubrikordning</li>
@@ -94,7 +94,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
         <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-        <td>zh-CN-lokal, kortdag</td>
+        <td>zh-CN-lokal, kort dag</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
@@ -114,13 +114,13 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>en-US språk, lång dag/månad</td>
+        <td>sv-USA språk, lång dag/månad</td>
       </tr>
     </table>
     <br />
     <p>
       Det anpassade datumformatet använder %-sekvenser som matchar den <code>strftime()</code> Unix-liknande
-      funktionen. Den är baserad på JavaScript-porten
+      funktionen. Den är baserad på en JavaScript-port av
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , en funktion för att formatera datum och tid.<br />
       Port of strftime() av TH Doan (https://thdoan.github.io/strftime/)<br />
@@ -157,7 +157,7 @@
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
-          <td>Århundradetal (år/100) som ett tvåsiffrigt heltal.</td>
+          <td>Århundrade (år/100) som ett tvåsiffrigt heltal.</td>
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
@@ -301,15 +301,15 @@
         </tr>
         <tr>
           <td><code class="code1">%0</code></td>
-          <td>Bokstavligt år. Lokaliserad, främst för asiatiska platser. (zh-CN: 年, ko: 년)</td>
+          <td>Bokstavligt år. Lokaliserat, främst för asiatiska platser. (zh-CN: 年, ko: 년)</td>
         </tr>
         <tr>
           <td><code class="code1">%1</code></td>
-          <td>Månad bokstavlig. Lokaliserad, främst för asiatiska platser. (zh-TW: 月, ko: 월)</td>
+          <td>Månad bokstavlig. Lokaliserat, främst för asiatiska platser. (zh-TW: 月, ko: 월)</td>
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Dag bokstavlig. Lokaliserad, främst för asiatiska platser. (ja: 日, ko: 일)</td>
+          <td>Dag bokstavlig. Lokaliserat, främst för asiatiska platser. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
@@ -334,7 +334,9 @@
       </li>
       <li><code class="code1">%R</code> - inte implementerad (använd <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - inte implementerad (använd <code class="code1">\t</code> )</li>
-      <li><code class="code1">%T</code> - inte implementerad (använd <code class="code1">%H:%M:%S</code></li>
+      <li>
+        <code class="code1">%T</code> - inte implementerat (använd <code class="code1">%H:%M:%S</code> )
+      </li>
       <li><code class="code1">%U</code> - inte implementerat</li>
       <li><code class="code1">%W</code> - inte implementerat</li>
       <li><code class="code1">%+</code> - inte implementerat</li>
@@ -364,7 +366,7 @@
     <p />
     <p>Exempel</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> – Standardformatet, ämnet för
+      <span class="notranslate"><code>${subject}</code></span> - Standardformatet, ämnet för
       e-postmeddelandet<br />
       <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Använd det anpassade
       datumformatet istället för standard<br />
@@ -442,10 +444,10 @@
     <p>
       Ett objekt som inte sparas av förhandsgranskningen är sidintervallen. Ett typiskt användningsfall är när
       man vill skriva ut bara den första sidan i ett e-postmeddelande som standard. normalt skulle man behöva
-      ändra sidintervallen varje gång. Observera att om ett sidintervall som ställts in i PrintingTools NG
-      inte är giltigt, till exempel att överskrida antalet sidor, måste intervallet korrigeras i
-      förhandsgranskningen innan utskrift. Ett sidintervall inställt på &quot;1&quot; kommer alltid att vara
-      giltigt och skriver ut första sidan i meddelandet.
+      ändra sidintervallen varje gång. Observera att om ett sidintervall som anges i PrintingTools NG inte är
+      giltigt, t.ex. att överskrida antalet sidor, måste intervallet korrigeras i förhandsgranskningen innan
+      utskrift. Ett sidintervall inställt på &quot;1&quot; kommer alltid att vara giltigt och skriver ut
+      första sidan i meddelandet.
     </p>
     <p>Anmärkningar:</p>
     <p>Skalningsalternativet låter en ställa in en beständig skala.</p>
@@ -461,7 +463,7 @@
     </p>
     <p></p>
     <p>
-      Sidhuvuden och sidfötter kan ställas in så att de inkluderar olika meddelandevariabler som anges nedan.
+      Sidhuvuden och sidfötter kan ställas in så att de inkluderar olika meddelandevariabler listade nedan.
       Dessutom kan godtycklig text inkluderas. För att inte skriva ut sidhuvuden eller sidfötter och spara
       utskriftsutrymme, gör bara alla fält tomma.
     </p>
@@ -472,6 +474,28 @@
       <li>&amp;T = Sidrubrik (Ämne för meddelandet)</li>
       <li>&amp;U = URL (webbadressen till meddelandet)</li>
     </div>
+    <h2 id="advanced_options_help">Avancerade alternativ</h2>
+    <p>
+      Dessa är alternativ som gör att man kan ställa in utskriftsobjekt utöver de grundläggande
+      användargränssnittsinställningarna. För närvarande är det ena avancerade alternativet för att styra
+      kantmarginalerna för sidhuvuden och sidfötter. Alternativen ställs in i Avancerade alternativ på fliken
+      Övrigt och är utrymmesseparerade.<br />
+      Formatet är:<br /><br />
+      P: <i>skrivarnamn</i> ::S: <i>alternativnamn</i> = <i>värde</i><br /><br />
+      Skrivarnamnet har mellanslagen ersatta med understreck och den inbyggda Spara till PDF är
+      Mozilla_Save_to_PDF<br /><br />
+      Ett annat exempel: Microsoft_Print_to_PDF<br /><br />
+      De nuvarande alternativ-namn-möjligheterna är:<br />
+      <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
+      <span class="notranslate">edges</span> är ett pseudoalternativ som sätter alla kantmarginaler till samma
+      värde. Kantmarginalerna är i tum.<br /><br />
+      Exempel:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0.25<br />
+      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
+      Om man vill ställa in alla kantmarginaler till 0,10 tum utom edgeTop till 0,25 tum, skriv in
+      följande:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+    </p>
     <h2>Stöd</h2>
     <p>
       Vänligen posta problem eller funktionsförfrågningar i tilläggsförrådet GitHub:
@@ -486,7 +510,7 @@
     </p>
     <h2 id="debug_options_help">Felsökningsalternativ</h2>
     <p>
-      Felsökningsalternativen är en uppsättning nyckelord som anges som en blankstegsseparerad lista.
+      Felsökningsalternativen är en uppsättning nyckelord som skrivs in som en blankstegsseparerad lista.
       Alternativen används vanligtvis för konsolfelsökning, men kan också användas för testning eller olika
       lägen.
     </p>
@@ -496,8 +520,10 @@
         formatering
       </li>
       <li><code class="notranslate">finaloutput</code> - visa det slutliga meddelandet</li>
-      <li><code class="notranslate">pdfoutput</code> - debug output för PDF-meddelandeutdata</li>
-      <li><code class="notranslate">printsettings</code> - felsök utdata för utskrifts- och sidalternativ</li>
+      <li><code class="notranslate">pdfoutput</code> - felsök utdata för PDF-meddelandeutdata</li>
+      <li>
+        <code class="notranslate">printsettings</code> - felsöka utdata för utskrifts- och sidalternativ
+      </li>
       <li>
         <code class="notranslate">helpinwin</code> - lägesflagga för att visa hjälp i ett fönster istället för
         standarden i en flik

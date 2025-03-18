@@ -16,7 +16,7 @@ const translate = new Translate({ projectId, key });
 // console.debug( translate );
 var translationArray = [
 	// { key: "", text: "" },
-	{ key: "print.label", text: "Print" },
+	{ key: "advancedOptions.label", text: "Advanced Options" },
 
 
 	
@@ -283,8 +283,8 @@ async function translateAll(iFile, strings, options) {
 	console.debug('Stop ' + (st - s) / 1000);
 }
 
-var localeFolders = _getAllFilesOrFolders(localeDir, true);
-console.debug(localeFolders);
+//var localeFolders = _getAllFilesOrFolders(localeDir, true);
+//console.debug(localeFolders);
 
 function t() {
 	let tb_locale = 'hu';
@@ -408,7 +408,7 @@ function loadTranslationArray(inputFiles, options) {
 }
 
 // manifest files
-var options = {
+var optionsM = {
 	inputLocaleDir: `./src/_locales/en-US`,
 	outputLocaleDir: "./src/_locales",
 	outputLocaleDirSuffix: "",
@@ -417,7 +417,7 @@ var options = {
 };
 
 //  files from array
-var optionsD = {
+var options = {
  	inputLocaleDir: `./src/chrome/locale/en-US/`,
  	outputLocaleDir: "./src/chrome/locale",
  	outputLocaleDirSuffix: "",
@@ -442,24 +442,25 @@ var optionsD = {
 // let inputFiles = ["settings.dtd", "overlay.dtd", "overlay.properties"];
 
 //let inputFiles = ["printingtoolsng.properties"];
-//let inputFiles = ["printingtoolsng.dtd"];
+let inputFiles = ["printingtoolsng.dtd"];
 
-let inputFiles = ["messages.json"];
+//let inputFiles = ["messages.json"];
 // let inputFiles = ["autobackup.dtd", "autobackup.properties", "mboximport.dtd", "mboximport.properties", "profilewizard.dtd", "profilewizard.properties"];
 //let inputFiles = ["mboximport.properties"];
 // var supportedLocales = ['de', 'en-US', 'nl', 'fr', 'it', 'zh-CN', 'ja', 'es-ES', 'ru', 'hu-HU', 'hy-AM', 'ko-KR',
 // 						'el', 'pl', 'da', 'pt-PT'];
 
 // printingtools
-//var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
-//'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
+var localeFolders = ['ja', 'ca', 'da-DK', 'de-DE', 'el', 'en-US', 'es-ES', 'fi', 'fr-FR', 'gl-ES', 'hu-HU',
+'hy-AM', 'it-IT', 'ko-KR', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk-SK', 'sl-SI', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 // help
-var localeFolders = ['ja', 'ca', 'da', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr', 'gl-ES', 'hu',
-'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
-
-//localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'gl-ES', 'hu',
+//var localeFolders = ['ja', 'ca', 'da', 'de', 'el', 'en-US', 'es-ES', 'fi', 'fr', 'gl-ES', 'hu',
 //'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
+
+// unmanaged help 
+localeFolders = ['ca', 'da', 'el', 'en-US', 'es-ES', 'fi', 'gl-ES', 'hu',
+'hy-AM', 'it', 'ko', 'nl', 'nb-NO', 'pl', 'pt-PT', 'ru', 'sk', 'sl', 'sv-SE', 'uk', 'zh-CN', 'zh-TW'];
 
 // these locales are manualy managed
 // de, ja, fr

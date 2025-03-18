@@ -333,7 +333,7 @@
       <li>
         <code class="code1">%r</code> - ni implementirano (uporabi <code class="code1">%I:%M:%S %p</code> )
       </li>
-      <li><code class="code1">%R</code> - ni implementirano (uporabite <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%R</code> - ni implementirano (uporabi <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - ni implementirano (uporabite <code class="code1">\t</code> )</li>
       <li>
         <code class="code1">%T</code> - ni implementirano (uporabite <code class="code1">%H:%M:%S</code> )
@@ -346,7 +346,7 @@
     <br />
     <h2 id="pdf_output_help">Izpis PDF in samodejno poimenovanje datotek</h2>
     <p>
-      Izpis PDF je zdaj mogoče samodejno poimenovati s sistemom žetonov in shraniti v vnaprej določen izhodni
+      Izhod PDF je zdaj mogoče samodejno poimenovati s sistemom žetonov in shraniti v vnaprej določen izhodni
       imenik PDF. To je še posebej uporabno pri tiskanju več izbranih e-poštnih sporočil, saj ni treba izbrati
       imena in lokacije za vsako e-poštno sporočilo.
     </p>
@@ -471,6 +471,26 @@
       <li>&amp;T = Naslov strani (Zadeva sporočila)</li>
       <li>&amp;U = URL (URL sporočila)</li>
     </div>
+    <h2 id="advanced_options_help">Napredne možnosti</h2>
+    <p>
+      To so možnosti, ki omogočajo nastavitev elementov za tiskanje zunaj osnovnih nastavitev uporabniškega
+      vmesnika. Trenutno je ena napredna možnost za nadzor robov za glave in noge. Možnosti so nastavljene v
+      Naprednih možnostih na zavihku Razno in so ločene s presledkom.<br />
+      Format je:<br /><br />
+      P: <i>ime-tiskalnika</i> ::S: <i>ime-možnosti</i> = <i>vrednost</i><br /><br />
+      V imenu tiskalnika so presledki zamenjani s podčrtaji, vgrajena funkcija za shranjevanje v PDF pa je
+      Mozilla_Save_to_PDF<br /><br />
+      Drug primer: Microsoft_Print_to_PDF<br /><br />
+      Trenutne možnosti imena možnosti so:<br />
+      <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
+      <span class="notranslate">edges</span> je psevdo možnost, ki nastavi vse robove robov na isto vrednost.
+      Robovi robov so v palcih.<br /><br />
+      Primeri:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0,25<br />
+      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
+      Če želite vse robove nastaviti na 0,10 palca, razen edgeTop na 0,25 palca, vnesite naslednje:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+    </p>
     <h2>Podpora</h2>
     <p>
       Objavite težave ali zahteve po funkcijah v repozitoriju razširitev GitHub:

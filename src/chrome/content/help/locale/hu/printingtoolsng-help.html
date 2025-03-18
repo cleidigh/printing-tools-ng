@@ -37,13 +37,13 @@
     <br />
     <p>Kövesse az alábbi lépéseket a gomb levélfejléc eszköztárra helyezéséhez:</p>
     <div class="indent1">
-      <li>Kattintson a Továbbiak gombra a levélfejléc eszköztárán</li>
+      <li>Kattintson a Tovább gombra a levélfejléc eszköztárán</li>
       <li>Válassza az Egyéni lehetőséget... Ezzel megnyílik az Eszköztár testreszabása ablak</li>
       <li>Keresse meg a Print NG gombot</li>
       <li>Húzza a gombot a kívánt helyre</li>
       <li>Használja a Nyomtatás, Előnézet, Beállítások és Súgó gombot</li>
     </div>
-    <h3 class="indent0">PrintingTools NG billentyűparancsok</h3>
+    <h3 class="indent0">PrintingTools NG billentyűparancsai</h3>
     <p>
       A PrintingTools átszerkeszti a szabványos Thunderbird Print parancsikont, hogy saját magát hívja meg a
       szabványos Print helyett. Windows és Linux rendszeren használja a Control-P és a Command-P billentyűket
@@ -248,7 +248,7 @@
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            A hét napja tizedesjegyként (1-7 tartomány), a hétfő 1. Lásd még <code class="code1">%w</code> .
+            A hét napja tizedesjegyként (1-7 tartomány), a hétfő 1. Lásd még: <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>
@@ -314,8 +314,8 @@
     <ul>
       <li><code class="code1">%c</code> – a formázott karakterlánc kissé eltér</li>
       <li>
-        <code class="code1">%D</code> – nincs implementálva (használd:
-        <code class="code1">%m/%d/%y</code> vagy <code class="code1">%d/%m/%y</code> )
+        <code class="code1">%D</code> – nincs implementálva (használd <code class="code1">%m/%d/%y</code> vagy
+        <code class="code1">%d/%m/%y</code> )
       </li>
       <li><code class="code1">%e</code> - szóköz nincs hozzáadva</li>
       <li><code class="code1">%E</code> – nincs implementálva</li>
@@ -339,7 +339,7 @@
       <li><code class="code1">%U</code> – nincs implementálva</li>
       <li><code class="code1">%W</code> – nincs implementálva</li>
       <li><code class="code1">%+</code> – nincs implementálva</li>
-      <li><code class="code1">%%</code> – nincs implementálva (használd <code class="code1">%</code> )</li>
+      <li><code class="code1">%%</code> – nincs implementálva (használd: <code class="code1">%</code> )</li>
     </ul>
     <br />
     <h2 id="pdf_output_help">PDF kimenet és automatikus fájlelnevezés</h2>
@@ -372,7 +372,7 @@
       <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Néhány egyéni
       szöveggel<br />
     </p>
-    <p>Az alábbi táblázat leírja a fájlnévformátumban használható tokenek teljes készletét.</p>
+    <p>Az alábbi táblázat a fájlnévformátumban használható tokenek teljes készletét írja le.</p>
     <table class="token-table">
       <tr>
         <td>Jelképes</td>
@@ -443,13 +443,13 @@
       e-mailnek csak az első oldalát kívánja kinyomtatni alapértelmezettként. általában minden alkalommal
       módosítani kell az oldaltartományokat. Megjegyzés: ha a PrintingTools NG programban beállított
       oldaltartomány nem érvényes, például túllépi az oldalak számát, a tartományt ki kell javítani az
-      előnézetben a nyomtatás előtt. Az „1”-re beállított oldaltartomány mindig érvényes, és az üzenet első
-      oldalát nyomtatja ki.
+      előnézetben a nyomtatás előtt. Az „1”-re beállított oldaltartomány mindig érvényes, és kinyomtatja az
+      üzenet első oldalát.
     </p>
     <p>Megjegyzések:</p>
     <p>A skálázási opció lehetővé teszi egy állandó skála beállítását.</p>
     <p>
-      Az oldaltartományok leírása ugyanúgy történik, mint az előnézetben. Példák az 1, 1-2, 3-4,5. Vegye
+      Az oldaltartományok leírása ugyanúgy történik, mint az előnézetben. Példák: 1, 1-2, 3-4,5. Vegye
       figyelembe, hogy ha egy előre beállított oldaltartomány nem érvényes egy adott üzenetre, az előnézet
       hibát jelez.
     </p>
@@ -471,6 +471,28 @@
       <li>&amp;T = Oldal címe (az üzenet tárgya)</li>
       <li>&amp;U = URL (az üzenet URL-je)</li>
     </div>
+    <h2 id="advanced_options_help">Haladó beállítások</h2>
+    <p>
+      Ezek az opciók lehetővé teszik az alapvető felhasználói felület beállításain túlmenő nyomtatási elemek
+      beállítását. Jelenleg az egyik speciális opció a fejlécek és láblécek élmargóinak szabályozására
+      szolgál. A beállítások az Egyéb lap Speciális beállításaiban vannak megadva, és szóközzel vannak
+      elválasztva.<br />
+      A formátum a következő:<br /><br />
+      P: <i>nyomtatónév</i> ::S: <i>opciónév</i> = <i>érték</i><br /><br />
+      A nyomtató nevében a szóközöket aláhúzásjelek helyettesítik, a beépített Mentés PDF-be pedig
+      Mozilla_Save_to_PDF<br /><br />
+      Egy másik példa: Microsoft_Print_to_PDF<br /><br />
+      A jelenlegi opció-név lehetőségek a következők:<br />
+      <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
+      <span class="notranslate">edges</span> egy pszeudo beállítás, amely az összes élmargót azonos értékre
+      állítja be. A szélek margói hüvelykben vannak megadva.<br /><br />
+      Példák:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0,25<br />
+      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
+      Ha az összes szélmargót 0,10 hüvelykre szeretné beállítani, kivéve az edgeTop 0,25 hüvelyket, írja be a
+      következőket:<br /><br />
+      P:Mozilla_Mentés_PDF-be::S:edges=0.10 P:Mozilla_Mentés_PDF-be::S:edgeTop=0.25
+    </p>
     <h2>Támogatás</h2>
     <p>
       Kérjük, tegyen közzé problémákat vagy funkciókra vonatkozó kéréseket a GitHub bővítménytárában:

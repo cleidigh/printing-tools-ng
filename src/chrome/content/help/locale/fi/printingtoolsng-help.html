@@ -45,7 +45,7 @@
     </div>
     <h3 class="indent0">PrintingTools NG -pikanäppäimet</h3>
     <p>
-      PrintingTools yhdistää normaalin Thunderbird Print -pikakuvakkeen uudelleen kutsuakseen itsensä
+      PrintingTools yhdistää tavallisen Thunderbird Print -pikakuvakkeen uudelleen kutsuakseen itsensä
       tavallisen Printin sijaan. Käytä Windowsissa ja Linuxissa Ctrl-P ja Komento-P Macissa. On myös
       mahdollista avata Asetukset-valintaikkuna painamalla Control-Shift-P.
     </p>
@@ -53,22 +53,22 @@
     <div class="indent1">
       <li>Räätälöity otsikon reunatyyli CSS:n avulla (ylä ja ala, sininen)</li>
       <li>Otsikon taustaväri</li>
-      <li>Tasatut otsikot</li>
+      <li>Tasaiset otsikot</li>
       <li>Räätälöity otsikkojärjestys</li>
       <li>Sivun otsikko ja viestikansio</li>
       <li>Liiteluettelo, jonka otsikossa on kuvakkeet</li>
-      <li>Täysin muokattavissa oleva päivämäärämuoto kansainvälinen muotoilu</li>
+      <li>Täysin muokattavissa päivämäärämuodossa kansainvälinen muotoilu</li>
     </div>
     <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Mukautettu päivämäärämuoto</h2>
     <p>
-      Mukautettu päivämäärävaihtoehto mahdollistaa sähköpostin otsikoiden sekä päivämäärän että
-      vastaanottopäivän päivämäärän muotoilun täydellisen hallinnan. Mukautettu päivämäärä tarjoaa useita
+      Mukautetun päivämäärävaihtoehdon avulla voit hallita täydellisesti sekä päivämäärän että
+      vastaanottopäivän päivämäärän muotoilua sähköpostin otsikoissa. Mukautettu päivämäärä tarjoaa useita
       lokalisoituja vaihtoehtoja, jotka mahdollistavat melkein minkä tahansa muodon. Huomaa, että mukautettu
       päivämäärämerkkijono voi sisältää erottimia, literaaleja, mukaan lukien unicode-merkkejä sekoitettuna
-      alla lueteltuihin päivämäärä/aika-tunnisteisiin.<br /><br />
+      alla lueteltujen päivämäärä/aika-merkkien kanssa.<br /><br />
       Huomautus: Muokatut päivämäärätulokset alla olevissa esimerkeissä vaihtelevat todellisen päivämäärän,
       käyttäjien kielen ja aikavyöhykkeen mukaan.
     </p>
@@ -127,7 +127,7 @@
       Port of strftime() by TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Muunnossekvenssien kuvaukset</h3>
+    <h3 style="margin-left: 30px;">Muunnossekvenssin kuvaukset</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -154,7 +154,7 @@
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
-          <td>Ensisijainen päivämäärä ja kellonaika (UTC) nykyiselle maa-asetukselle.</td>
+          <td>Ensisijainen päivämäärä ja kellonaika (UTC) nykyiselle maa-alueelle.</td>
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
@@ -216,7 +216,7 @@
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            Tunti desimaalilukuna käyttäen 12 tunnin kelloa (välillä 1-12). Katso myös
+            Tunti desimaalilukuna käyttämällä 12 tunnin kelloa (välillä 1-12). Katso myös
             <code class="code1">%I</code> .
           </td>
         </tr>
@@ -248,7 +248,7 @@
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
-          <td>Sekuntien lukumäärä Epochista, 1970-01-01 00:00:00 +0000 (UTC).</td>
+          <td>Sekuntien määrä Epochista, 1970-01-01 00:00:00 +0000 (UTC).</td>
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
@@ -293,7 +293,7 @@
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            <code class="code1">+hhmm</code> tai <code class="code1">-hhmm</code> numeerinen aikavyöhyke (eli
+            Numeerinen aikavyöhyke <code class="code1">+hhmm</code> tai <code class="code1">-hhmm</code> (eli
             tuntien ja minuuttien poikkeama UTC:stä).
           </td>
         </tr>
@@ -335,7 +335,7 @@
         <code class="code1">\n</code> rivinvaihdossa)
       </li>
       <li><code class="code1">%O</code> - ei toteutettu</li>
-      <li><code class="code1">%r</code> - ei toteutettu (käytä <code class="code1">%I:%M:%S %p</code> )</li>
+      <li><code class="code1">%r</code> - ei käytössä (käytä <code class="code1">%I:%M:%S %p</code> )</li>
       <li><code class="code1">%R</code> - ei käytössä (käytä <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - ei toteutettu (käytä <code class="code1">\t</code> )</li>
       <li><code class="code1">%T</code> - ei käytössä (käytä <code class="code1">%H:%M:%S</code> )</li>
@@ -353,7 +353,7 @@
     </p>
     <p />
     <p>
-      Ota PDF-tulostushakemisto käyttöön ja valitse hakemisto tallennuspaikalle. Tulostustiedoston nimi
+      Ota PDF-tulostushakemisto käyttöön ja valitse hakemisto tallennuspaikalle. Tulostettava tiedostonimi
       noudattaa määritettyä tiedostonimimuotoa.
     </p>
     <p />
@@ -371,7 +371,8 @@
       <span class="notranslate"><code>${subject}</code></span> – oletusmuoto, sähköpostin aihe<br />
       <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Käytä mukautettua
       päivämäärämuotoa oletusmuodon sijaan<br />
-      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Muokattu teksti<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Mukautettu
+      teksti<br />
     </p>
     <p>Alla olevassa taulukossa kuvataan kaikki tunnukset, joita voidaan käyttää tiedostonimimuodossa.</p>
     <table class="token-table">
@@ -417,7 +418,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
-        <td>Vakiopäivämäärän muoto. Oletusmuoto on: VVVVKKDDHHmm</td>
+        <td>Vakiopäivämäärän muoto. Oletusmuoto on: VVVVKKPPHmm</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
@@ -435,15 +436,16 @@
       Sivuasetusten avulla voit määrittää kohteita, kun sekä esikatselu että tulostus on valmis. Nämä
       vaihtoehdot ovat pysyviä koko tulostuksen ajan. Jos PrintingTools NG:ssä asetettuja asetuksia muutetaan
       tulostuksen esikatselussa, ne eivät vaikuta seuraaviin tulosteisiin. Joitakin kohteita ei voi asettaa
-      esikatseluikkunassa, esimerkiksi ylä- ja alatunnisteet. Muut kohteet eivät säily esikatselussa, ja ne on
-      normaalisti asetettava joka kerta, kun tulostetaan. PrintingTools NG ratkaisee nämä molemmat ongelmat.
+      esikatseluikkunassa. Näitä ovat esimerkiksi ylä- ja alatunnisteet. Muut kohteet eivät säily
+      esikatselussa, ja ne on normaalisti asetettava joka kerta, kun tulostetaan. PrintingTools NG ratkaisee
+      nämä molemmat ongelmat.
     </p>
     <p>
-      Yksi kohde, jota esikatselu ei ole tallentanut, ovat sivualueet. Tyypillinen käyttötapaus on, kun
-      halutaan tulostaa vain sähköpostin ensimmäinen sivu oletusarvoisesti. normaalisti sivualueita on
-      muutettava joka kerta. Huomaa, jos PrintingTools NG:ssä asetettu sivualue ei kelpaa, kuten sivumäärä
-      ylittää, alue on korjattava esikatselussa ennen tulostamista. Sivualue, joka on asetettu arvoon
-      &quot;1&quot;, on aina voimassa ja tulostaa viestin ensimmäisen sivun.
+      Yksi kohde, jota esikatselu ei tallentanut, ovat sivualueet. Tyypillinen käyttötapaus on, kun halutaan
+      tulostaa vain sähköpostin ensimmäinen sivu oletusarvoisesti. normaalisti sivualueita on muutettava joka
+      kerta. Huomaa, jos PrintingTools NG:ssä asetettu sivualue ei kelpaa, kuten sivumäärä ylittää, alue on
+      korjattava esikatselussa ennen tulostamista. Sivualue, joka on asetettu arvoon &quot;1&quot;, on aina
+      voimassa ja tulostaa viestin ensimmäisen sivun.
     </p>
     <p>Huomautuksia:</p>
     <p>Skaalausvaihtoehdon avulla voidaan asettaa pysyvä asteikko.</p>
@@ -469,6 +471,27 @@
       <li>&amp;T = Sivun otsikko (viestin aihe)</li>
       <li>&amp;U = URL (viestin URL-osoite)</li>
     </div>
+    <h2 id="advanced_options_help">Edistyneet asetukset</h2>
+    <p>
+      Nämä ovat vaihtoehtoja, joiden avulla voidaan asettaa tulostuskohteita käyttöliittymän perusasetusten
+      ulkopuolelle. Tällä hetkellä yksi lisäasetus on ylä- ja alatunnisteiden reunamarginaalien hallinta.
+      Vaihtoehdot on määritetty Muut-välilehden Lisäasetukset-kohdassa, ja ne on erotettu välilyönnistä.<br />
+      Muoto on:<br /><br />
+      P: <i>tulostimen nimi</i> ::S: <i>valinnan nimi</i> = <i>arvo</i><br /><br />
+      Tulostimen nimessä välilyönnit on korvattu alaviivoilla ja sisäänrakennettu Tallenna PDF-muotoon on
+      Mozilla_Save_to_PDF<br /><br />
+      Toinen esimerkki: Microsoft_Print_to_PDF<br /><br />
+      Nykyiset vaihtoehdon nimimahdollisuudet ovat:<br />
+      <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
+      <span class="notranslate">edges</span> on pseudo-vaihtoehto, joka asettaa kaikki reunan marginaalit
+      samaan arvoon. Reunojen marginaalit ovat tuumina.<br /><br />
+      Esimerkkejä:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0,25<br />
+      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
+      Jos haluat asettaa kaikki reunamarginaalit 0,10 tuumaksi paitsi edgeTop 0,25 tuumaksi, kirjoita
+      seuraava:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+    </p>
     <h2>Tuki</h2>
     <p>
       Lähetä ongelmat tai ominaisuuspyynnöt laajennusten GitHub-tietovarastoon:
@@ -478,7 +501,7 @@
       - PrintingTools NG -versio<br />
       - Thunderbird-versio<br />
       - Käyttöjärjestelmä ja versio<br />
-      - Virheenkorjaustulos (kopioi virheenkorjauskonsolista - pääsy Ctrl-Shift-J)<br />
+      - Virheenkorjaustulos (kopioi virheenkorjauskonsolista - pääsy Control-Shift-J)<br />
       - Kuvaus ongelmaan johtavista vaiheista<br />
     </p>
     <h2 id="debug_options_help">Virheenkorjausasetukset</h2>
@@ -492,7 +515,7 @@
         <code class="notranslate">initialsource</code> - näytä viestin lähde ennen kuin PTNG tekee mitään
         muotoilua
       </li>
-      <li><code class="notranslate">finaloutput</code> - näytä lopullinen viestin tulos</li>
+      <li><code class="notranslate">finaloutput</code> - näyttää lopullisen viestin ulostulon</li>
       <li><code class="notranslate">pdfoutput</code> - virheenkorjaustuloste PDF-viestien ulostulolle</li>
       <li>
         <code class="notranslate">printsettings</code> - virheenkorjaus tulostus- ja sivuvaihtoehtoja varten

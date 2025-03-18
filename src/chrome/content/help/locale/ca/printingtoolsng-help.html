@@ -190,8 +190,8 @@
         <tr>
           <td><code class="code1">%H</code></td>
           <td>
-            L&#39;hora com a nombre decimal utilitzant un rellotge de 24 hores (interval de 00 a 23). Vegeu
-            també <code class="code1">%k</code> .
+            Hora com a nombre decimal utilitzant un rellotge de 24 hores (interval de 00 a 23). Vegeu també
+            <code class="code1">%k</code> .
           </td>
         </tr>
         <tr>
@@ -480,9 +480,31 @@
       <li>&amp;T = Títol de la pàgina (Assumpte del missatge)</li>
       <li>&amp;U = URL (l&#39;URL del missatge)</li>
     </div>
+    <h2 id="advanced_options_help">Opcions avançades</h2>
+    <p>
+      Aquestes són opcions que permeten establir elements d&#39;impressió més enllà de la configuració bàsica
+      de la interfície d&#39;usuari. Actualment, l&#39;única opció avançada és per controlar els marges de les
+      vores de les capçaleres i peus de pàgina. Les opcions s&#39;estableixen a les Opcions avançades de la
+      pestanya Diversos i estan separades per espais.<br />
+      El format és:<br /><br />
+      P: <i>nom-impressora</i> ::S: <i>nom-opció</i> = <i>valor</i><br /><br />
+      El nom de la impressora té els espais substituïts per guions baixos i l&#39;element Desa a PDF integrat
+      és Mozilla_Save_to_PDF<br /><br />
+      Un altre exemple: Microsoft_Print_to_PDF<br /><br />
+      Les possibilitats actuals de nom d&#39;opció són:<br />
+      <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
+      <span class="notranslate">edges</span> és una pseudo-opció que estableix tots els marges de les vores al
+      mateix valor. Els marges de les vores són en polzades.<br /><br />
+      Exemples:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0,25<br />
+      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
+      Si voleu establir tots els marges de les vores a 0,10 polzades excepte l&#39;edgeTop a 0,25 polzades,
+      introduïu el següent:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0,10 P:Mozilla_Save_to_PDF::S:edgeTop=0,25
+    </p>
     <h2>Suport</h2>
     <p>
-      Si us plau, publiqueu problemes o sol·licituds de funcions al repositori de GitHub d&#39;extensions:
+      Si us plau, publiqueu problemes o sol·licituds de funcions al repositori d&#39;extensions de GitHub:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
       ><br /><br />
       En problemes d&#39;error, incloeu la informació següent per ajudar a resoldre els problemes:<br />

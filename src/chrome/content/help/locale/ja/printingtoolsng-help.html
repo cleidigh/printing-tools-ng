@@ -476,6 +476,36 @@
     </div>
     <br><br><!-- add by @kiki-ja -->
 
+	<h2 id="advanced_options_help">高度なオプション</h2>
+  <p>
+    これらは基本的なUI印刷設定を超えて設定できるオプションです。
+    現在、ヘッダーとフッターの端からの余白を制御するための１つの高度なオプションがあります。
+    これは「全般設定」タブの「高度なオプション」で設定でき、スペースで区切ります。<br>
+    形式は次のとおりです:<br><br>
+    
+    P:<i>プリンター名</i>::S:<i>オプション名</i>=<i>値</i><br><br>
+    
+    プリンター名のスペースはアンダースコアに置き換えられ、
+    標準内蔵の「PDF に保存」は Mozilla_Save_to_PDF です。<br><br>
+    
+    別の例: Microsoft_Print_to_PDF<br><br>
+    
+    現在のオプション名は次のとおりです。<br>
+    <span class="notranslate">edges, edgeTop、edgeBottom、edgeLeft、edgeRight</span><br><br>
+    
+    <span class="notranslate">edges</span> は、すべての端からの余白を同じ値に設定する疑似オプションです。
+    余白はインチ単位です。<br><br>
+    
+    例:<br><br>
+    
+    P:Mozilla_Save_to_PDF::S:edges=0.25<br>
+    P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br><br>
+    
+    edgeTop の余白を 0.25 インチにして、その他のすべての
+    余白を 0.10 インチにしたい場合は、次のように入力します:<br><br>
+    
+    P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+  </p>
     <h2>サポート</h2>
     <p>
       拡張機能の GitHub リポジトリに問題や機能のリクエストを投稿してください:

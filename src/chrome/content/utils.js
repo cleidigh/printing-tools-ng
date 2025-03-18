@@ -255,7 +255,12 @@ var utils = {
   openFileDialog: async function (mode, title, initialDir, filter) {
     let fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
     let resultObj = {};
-    fp.init(window, title, mode);
+    let winCtx = window;
+		const tbVersion = this.getThunderbirdVersion();
+		if (tbVersion.major >= 120) {
+			winCtx = window.browsingContext;
+		}
+    fp.init(winCtx, title, mode);
     fp.appendFilters(filter);
     if (initialDir) {
       fp.displayDirectory = nsiFileFromPath(initialDir);
@@ -286,6 +291,7 @@ var utils = {
     if (mode === Ci.nsIFilePicker.modeGetFolder) {
       resultObj.folder = fp.file.path;
     }
+
     return resultObj;
   },
 
@@ -328,5 +334,15 @@ var utils = {
       top.document.getElementById("statusText").setAttribute("value", "");
     }
   },
+
+  getThunderbirdVersion: function () {
+    let parts = Services.appinfo.version.split(".");
+    return {
+      major: parseInt(parts[0]),
+      minor: parseInt(parts[1]),
+      revision: parts.length > 2 ? parseInt(parts[2]) : 0,
+    };
+  },
+
 };
 

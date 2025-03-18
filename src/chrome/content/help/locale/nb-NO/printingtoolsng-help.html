@@ -207,14 +207,14 @@
         <tr>
           <td><code class="code1">%k</code></td>
           <td>
-            Time som et desimaltall ved bruk av en 24-timers klokke (område 0 til 23). Se også
+            Time som et desimaltall ved hjelp av en 24-timers klokke (område 0 til 23). Se også
             <code class="code1">%H</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            Time som et desimaltall ved bruk av en 12-timers klokke (område 1 til 12). Se også
+            Time som et desimaltall med en 12-timers klokke (område 1 til 12). Se også
             <code class="code1">%I</code> .
           </td>
         </tr>
@@ -452,9 +452,9 @@
     </p>
     <p></p>
     <p>
-      Topp- og bunntekstene kan settes til å inkludere ulike meldingsvariabler som er oppført nedenfor. I
-      tillegg kan vilkårlig tekst også inkluderes. For å ikke skrive ut topp- eller bunntekst og spare
-      utskriftsplass, gjør du bare alle felt tomme.
+      Topp- og bunntekstene kan settes til å inkludere ulike meldingsvariabler oppført nedenfor. I tillegg kan
+      vilkårlig tekst også inkluderes. For å ikke skrive ut topp- eller bunntekst og spare utskriftsplass,
+      gjør du bare alle felt tomme.
     </p>
     <div class="indent1">
       <li>&amp;D = Dato</li>
@@ -463,6 +463,27 @@
       <li>&amp;T = Sidetittel (emne for meldingen)</li>
       <li>&amp;U = URL (URLen til meldingen)</li>
     </div>
+    <h2 id="advanced_options_help">Avanserte alternativer</h2>
+    <p>
+      Dette er alternativer som lar en angi utskriftselementer utover de grunnleggende UI-innstillingene.
+      Foreløpig er det ene avanserte alternativet for å kontrollere kantmargene for topp- og bunntekst.
+      Alternativene angis i Avanserte alternativer i kategorien Diverse og er mellomromseparert.<br />
+      Formatet er:<br /><br />
+      P: <i>skrivernavn</i> ::S: <i>alternativnavn</i> = <i>verdi</i><br /><br />
+      Skrivernavnet har mellomrommene erstattet med understrekinger, og den innebygde Lagre til PDF er
+      Mozilla_Save_to_PDF<br /><br />
+      Et annet eksempel: Microsoft_Print_to_PDF<br /><br />
+      De nåværende alternativ-navn-mulighetene er:<br />
+      <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
+      <span class="notranslate">edges</span> er et pseudoalternativ som setter alle kantmargene til samme
+      verdi. Kantmarginene er i tommer.<br /><br />
+      Eksempler:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0.25<br />
+      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
+      Hvis man ønsket å sette alle kantmargene til 0,10 tommer bortsett fra edgeTop til 0,25 tommer, skriv inn
+      følgende:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+    </p>
     <h2>Brukerstøtte</h2>
     <p>
       Vennligst legg ut problemer eller funksjonsforespørsler i GitHub-depotet for utvidelser:
@@ -472,13 +493,13 @@
       - PrintingTools NG versjon<br />
       - Thunderbird-versjon<br />
       - Operativsystem og versjon<br />
-      - Feilsøkingsutgang (kopi fra feilsøkingskonsollen - tilgang med Control-Shift-J)<br />
+      - Feilsøkingsutgang (kopier fra feilsøkingskonsollen - tilgang med Control-Shift-J)<br />
       - En beskrivelse av trinnene som fører til problemet<br />
     </p>
     <h2 id="debug_options_help">Feilsøkingsalternativer</h2>
     <p>
       Feilsøkingsalternativene er et sett med nøkkelord som legges inn som en mellomromseparert liste.
-      Alternativene brukes vanligvis for utdata for konsollfeilsøking, men kan også brukes til testing eller
+      Alternativene brukes vanligvis til utdata for konsollfeilsøking, men kan også brukes til testing eller
       forskjellige moduser.
     </p>
     <div class="indent1">

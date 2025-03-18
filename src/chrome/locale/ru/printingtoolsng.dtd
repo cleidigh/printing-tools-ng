@@ -104,3 +104,4 @@
 <!ENTITY Scale "Шкала">
 <!ENTITY fitToWidth "По ширине">
 <!ENTITY persistent "Настойчивый">
+<!ENTITY advancedOptions.label "Расширенные настройки">
