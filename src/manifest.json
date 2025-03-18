@@ -8,7 +8,7 @@
         "gecko": {
             "id": "PrintingToolsNG@cleidigh.kokkini.net",
             "strict_min_version": "115.0",
-            "strict_max_version": "128.*"
+            "strict_max_version": "136.*"
         }
     },
     "browser_action": {

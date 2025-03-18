@@ -2,7 +2,7 @@
 	PrintingTools NG is a derivative extension for Thunderbird 68+
 	providing printing tools for messages.
 	The derivative extension authors:
-		Copyright (C) 2023 : Christopher Leidigh
+		Copyright (C) 2025 : Christopher Leidigh
 
 	The original extension & derivatives, PrintingTools, by Paolo "Kaosmos",
 	is covered by the GPLv3 open-source license (see LICENSE file).
@@ -22,7 +22,22 @@
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
+// update to use es6 modules for 128+, 136+ required - thx Axel
+
+var messengerWindow = Services.wm.getMostRecentWindow("mail:3pane");
+
+var { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
+var ptng_ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
+
+var { ExtensionParent } = ChromeUtils.importESModule(
+	"resource://gre/modules/ExtensionParent.sys.mjs"
+);
+
+var ietngExtension = ExtensionParent.GlobalManager.getExtension(
+	"ImportExportToolsNG@cleidigh.kokkini.net"
+);
+
+var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.sys.mjs");
 
 var st = {};
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/strftime.js", st);
