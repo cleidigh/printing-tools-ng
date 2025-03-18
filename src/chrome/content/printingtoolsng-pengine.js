@@ -37,7 +37,7 @@ var ietngExtension = ExtensionParent.GlobalManager.getExtension(
 	"ImportExportToolsNG@cleidigh.kokkini.net"
 );
 
-var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.sys.mjs");
+var { MailE10SUtils } = ChromeUtils.importESModule("resource:///modules/MailE10SUtils.sys.mjs");
 
 var st = {};
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/strftime.js", st);
