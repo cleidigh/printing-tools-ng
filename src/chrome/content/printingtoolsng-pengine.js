@@ -27,7 +27,7 @@
 var messengerWindow = Services.wm.getMostRecentWindow("mail:3pane");
 
 var { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
-var ptng_ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
+var Ptng_ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
 
 var { ExtensionParent } = ChromeUtils.importESModule(
 	"resource://gre/modules/ExtensionParent.sys.mjs"
