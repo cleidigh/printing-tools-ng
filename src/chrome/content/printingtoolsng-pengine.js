@@ -39,7 +39,7 @@ var ietngExtension = ExtensionParent.GlobalManager.getExtension(
 
 var { MailE10SUtils } = Ptng_ESM
 	? ChromeUtils.importESModule("resource:///modules/MailE10SUtils.sys.mjs")
-	: ChromeUtils.import("resource:///modules/MailE10SUtils.js");
+	: ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
 
 var { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs");
 
