@@ -43,7 +43,7 @@ var st = {};
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/strftime.js", st);
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
 
-var { printerSettings } = ChromeUtils.import("chrome://printingtoolsng/content/printerSettings.js");
+var { printerSettings } = ChromeUtils.importESModule("chrome://printingtoolsng/content/printerSettings.mjs");
 
 var mail3paneWin = Services.wm.getMostRecentWindow("mail:3pane");
 

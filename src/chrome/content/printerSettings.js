@@ -32,9 +32,6 @@ st,
 
 */
 
-var Services = globalThis.Services ||
-  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
-
 var window3Pane = Cc["@mozilla.org/appshell/window-mediator;1"]
   .getService(Ci.nsIWindowMediator)
   .getMostRecentWindow("mail:3pane");
@@ -49,10 +46,9 @@ var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"].getService(Ci.nsIPrin
 var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
 var gprinterSettings = printerSettings;
-var EXPORTED_SYMBOLS = ["printerSettings"];
 
 // These are our default settings for those we control separate from main prefs
-var printerSettings = {
+export var printerSettings = {
   defaultPTNGprinterSettings: {
     shrinkToFit: 1,
     scaling: 1,
