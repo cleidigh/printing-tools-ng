@@ -114,17 +114,17 @@ var printingtools = {
 		let url2 = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 
 		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
-		msgList.messages.forEach(msg => {
+		msgList.forEach(msgId => {
 			let realMessage = window.printingtoolsng.extension
-				.messageManager.get(msg.id);
+				.messageManager.get(msgId);
 			try {
 				let uri = realMessage.folder.getUriForMsg(realMessage);
-				printingtools.msgUris.push(uri)
+				printingtools.msgUris.push(uri);
 			} catch { }
 		});
 
 		if (url2 && printingtools.msgUris.length == 0) {
-			printingtools.msgUris.push(url2)
+			printingtools.msgUris.push(url2);
 
 		}
 
