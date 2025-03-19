@@ -10,8 +10,7 @@ latinizeString,
 
 */
 
-var Services = globalThis.Services ||
-  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
+var { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs");
 
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/modules/latinize.js");
 
@@ -119,8 +118,8 @@ var utils = {
     }
 
     // Dates
-    var std8601Date = st.strftime.strftime("%y%m%d", new Date(rawDateInSeconds * 1000));
-    var customDate = st.strftime.strftime(customDateFormat, new Date(rawDateInSeconds * 1000));
+    var std8601Date = strftime.strftime("%y%m%d", new Date(rawDateInSeconds * 1000));
+    var customDate = strftime.strftime(customDateFormat, new Date(rawDateInSeconds * 1000));
 
     // SmartName for Sent or Drafts folder
     var isSentFolder = rawFolderFlags & 0x0200 || rawFolderFlags & 0x0400;
