@@ -309,12 +309,17 @@ var printingtools = {
 				}
 
 				var w = document.commandDispatcher.focusedWindow
-
+				console.log(w)
 				// Use message pane focus event to restore message 
 
-				var l = w.addEventListener("focus", function (e) {
+				//var l = w.addEventListener("focus", function (e) {
+				//setTimeout(setDocListener, 100)
+				function setDocListener() {
+					var l = w.addEventListener("focus", restoreDoc, { once: true });
+				}
 
-					//console.log("Message pane focused  ")
+				function restoreDoc() {
+					console.log("Message pane focused  ")
 					printingtools.restoreInlinePref();
 
 					if (printingtools.restoreWithInlineAttsPref && (selection.rangeCount == 1)) {
@@ -384,8 +389,9 @@ var printingtools = {
 
 					//console.log("after restore")
 					//Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+				}
 
-				}, { once: true });
+				//}, { once: true });
 
 				if (dbgopts.indexOf("pdfoutput") > -1 && pdfOutput) {
 					console.log("PTNG: Message URI: ", uri);
@@ -400,12 +406,17 @@ var printingtools = {
 					msgHdr = printingtools.hdr;
 				}
 				printerSettings.setHdrFtrTokens(null, msgHdr);
-				
+
 				if (selection.rangeCount > 1) {
 					//console.log("print selection")
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
+					setTimeout(restoreDoc, 100)
 				} else {
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
+					console.log("restoration ")
+
+					setTimeout(restoreDoc, 100)
+
 				}
 
 			} else {
@@ -435,6 +446,9 @@ var printingtools = {
 				printerSettings.setHdrFtrTokens(null, msgHdr);
 
 				top.PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext);
+				console.log("restoration 2")
+
+				setTimeout(restoreDoc, 100);
 			}
 
 			//printingtools.restoreInlinePref();
@@ -1284,7 +1298,7 @@ var printingtools = {
 				dateOrig = dateOrig.replace(/ +$/, "");
 				dateOrig = dateOrig.replace(/^ +/, "");
 				var secs = Date.parse(dateOrig) / 1000;
-				
+
 				dummy.date = secs * 1000 * 1000;
 				dummy.dateInSeconds = secs;
 				dummy.dateReceived = secs;
@@ -1606,12 +1620,15 @@ var printingtools = {
 
 			if (this.getTable(2) && !noExtHeaders) {
 				//maxHdrWidth = 160;
+				console.log("tab2")
 			} else {
 				let locale = Services.locale.appLocaleAsBCP47.split("-")[0];
 				let alwaysCcBcc = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always");
 				var fs = window.getComputedStyle(table1).getPropertyValue('font-size');
 				var fsn = Number(fs.split("px")[0])
 
+				console.log("loc", locale)
+				
 				switch (locale) {
 					case "de":
 						if (!alwaysCcBcc) {
