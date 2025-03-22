@@ -33,8 +33,8 @@ var { ExtensionParent } = ChromeUtils.importESModule(
 	"resource://gre/modules/ExtensionParent.sys.mjs"
 );
 
-var ietngExtension = ExtensionParent.GlobalManager.getExtension(
-	"ImportExportToolsNG@cleidigh.kokkini.net"
+var ptngExtension = ExtensionParent.GlobalManager.getExtension(
+	"PrintingToolsNG@cleidigh.kokkini.net"
 );
 
 var { MailE10SUtils } = Ptng_ESM
@@ -45,7 +45,8 @@ var { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/
 
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
 
-var { printerSettings } = ChromeUtils.importESModule("chrome://printingtoolsng/content/printerSettings.mjs?" + new Date());
+var { printerSettings } = ChromeUtils.importESModule("chrome://printingtoolsng/content/printerSettings.mjs?"
+	+ ptngExtension.manifest.version + new Date());
 
 var mail3paneWin = Services.wm.getMostRecentWindow("mail:3pane");
 
@@ -312,14 +313,33 @@ var printingtools = {
 				console.log(w)
 				// Use message pane focus event to restore message 
 
-				//var l = w.addEventListener("focus", function (e) {
-				//setTimeout(setDocListener, 100)
-				function setDocListener() {
-					var l = w.addEventListener("focus", restoreDoc, { once: true });
+
+				var printSubdialogObs = {
+					async observe(subDialogWindow) {
+						// A subDialog has been opened.
+
+						//dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
+
+						// We only want to deal with the print subDialog.
+						if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html")) {
+							return;
+						}
+						console.log("sd open  ")
+
+						subDialogWindow.addEventListener("dialogclosing", () => {
+							console.log("closing Preview ")
+							restoreDoc();
+							Services.obs.removeObserver(printSubdialogObs, "subdialog-loaded");
+
+						});
+
+					}
 				}
 
+				Services.obs.addObserver(printSubdialogObs, "subdialog-loaded");
+
 				function restoreDoc() {
-					console.log("Message pane focused  ")
+					console.log("Restore document")
 					printingtools.restoreInlinePref();
 
 					if (printingtools.restoreWithInlineAttsPref && (selection.rangeCount == 1)) {
@@ -410,13 +430,8 @@ var printingtools = {
 				if (selection.rangeCount > 1) {
 					//console.log("print selection")
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
-					setTimeout(restoreDoc, 100)
 				} else {
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
-					console.log("restoration ")
-
-					setTimeout(restoreDoc, 500)
-
 				}
 
 			} else {
@@ -446,13 +461,7 @@ var printingtools = {
 				printerSettings.setHdrFtrTokens(null, msgHdr);
 
 				top.PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext);
-				console.log("restoration 2")
-
-				setTimeout(restoreDoc, 100);
 			}
-
-			//printingtools.restoreInlinePref();
-
 			return;
 		}
 
@@ -1628,7 +1637,7 @@ var printingtools = {
 				var fsn = Number(fs.split("px")[0])
 
 				console.log("loc", locale)
-				
+
 				switch (locale) {
 					case "de":
 						if (!alwaysCcBcc) {

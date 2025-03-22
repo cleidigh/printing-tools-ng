@@ -5,10 +5,18 @@ printerSettings,
 utils,
 */
 
+var { ExtensionParent } = ChromeUtils.importESModule(
+	"resource://gre/modules/ExtensionParent.sys.mjs"
+);
+
+var ptngExtension = ExtensionParent.GlobalManager.getExtension(
+	"PrintingToolsNG@cleidigh.kokkini.net"
+);
 
 var { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs");
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
-var { printerSettings } = ChromeUtils.importESModule("chrome://printingtoolsng/content/printerSettings.mjs?" + new Date());
+var { printerSettings } = ChromeUtils.importESModule("chrome://printingtoolsng/content/printerSettings.mjs?"
+	+ ptngExtension.manifest.version + new Date());
 
 utils.window = window;
 

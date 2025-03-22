@@ -717,14 +717,12 @@ export var printerSettings = {
       dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
       // We only want to deal with the print subDialog.
-      if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html?")) {
+      if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html")) {
         return;
       }
 
       if (dbgopts.indexOf("printsettings") > -1) {
         console.log("subDialog opened: " + subDialogWindow.location.href);
-      console.log(subDialogWindow)
-
       }
 
       // Wait until print-settings in the subDialog have been loaded/rendered.
@@ -737,12 +735,10 @@ export var printerSettings = {
         console.log(subDialogWindow.document.documentElement.innerHTML);
       }
 
-
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
-
 
       try {
         var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
@@ -776,12 +772,6 @@ export var printerSettings = {
         console.log("subDialog print-settings: Post adjustments  state:");
         console.log(subDialogWindow.document.documentElement.innerHTML);
       }
-
-      console.log(subDialogWindow)
-
-      subDialogWindow.addEventListener("dialogclosing", () => {
-        console.log("closing")
-      });
     },
   },
 };
