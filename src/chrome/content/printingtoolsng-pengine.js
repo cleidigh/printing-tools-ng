@@ -1650,6 +1650,13 @@ var printingtools = {
 
 			}
 
+			let advopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
+			if (advopts.includes("hdrColWidth")) {
+				let hdrColWidth = advopts.match(/hdrColWidth:(\d{1,3})/);
+				if (hdrColWidth[1]) {
+					maxHdrWidth = hdrColWidth[1];
+				}
+			}
 			console.log("using  width", maxHdrWidth)
 
 
