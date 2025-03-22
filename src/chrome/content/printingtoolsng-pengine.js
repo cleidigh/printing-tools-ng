@@ -309,30 +309,22 @@ var printingtools = {
 					selection.addRange(range);
 				}
 
-				var w = document.commandDispatcher.focusedWindow
-				console.log(w)
-				// Use message pane focus event to restore message 
-
+				// The window focus event is not consistent or reliable 
+				// use an observer to listen for preview closing then restore doc
 
 				var printSubdialogObs = {
 					async observe(subDialogWindow) {
 						// A subDialog has been opened.
 
-						//dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
-
 						// We only want to deal with the print subDialog.
 						if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html")) {
 							return;
 						}
-						console.log("sd open  ")
 
 						subDialogWindow.addEventListener("dialogclosing", () => {
-							console.log("closing Preview ")
 							restoreDoc();
 							Services.obs.removeObserver(printSubdialogObs, "subdialog-loaded");
-
 						});
-
 					}
 				}
 
@@ -425,6 +417,7 @@ var printingtools = {
 					printingtools.getHdr();
 					msgHdr = printingtools.hdr;
 				}
+
 				printerSettings.setHdrFtrTokens(null, msgHdr);
 
 				if (selection.rangeCount > 1) {
@@ -1636,7 +1629,7 @@ var printingtools = {
 				var fs = window.getComputedStyle(table1).getPropertyValue('font-size');
 				var fsn = Number(fs.split("px")[0])
 
-				console.log("loc", locale)
+				console.log("locale for width", locale)
 
 				switch (locale) {
 					case "de":
@@ -1657,6 +1650,7 @@ var printingtools = {
 
 			}
 
+			console.log("using  width", maxHdrWidth)
 
 
 			for (var i = 0; i < trs.length; i++) {

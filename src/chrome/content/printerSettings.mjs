@@ -45,9 +45,6 @@ var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch
 var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"].getService(Ci.nsIPrintSettingsService);
 var dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
-var gprinterSettings = printerSettings;
-
-console.log("ps 2")
 
 // These are our default settings for those we control separate from main prefs
 export var printerSettings = {
@@ -654,7 +651,7 @@ export var printerSettings = {
     let customProps = JSON.parse(props);
 
     let allHdrsAndFtrs =
-      customProps.headerStrCenter +
+      customProps.headerStrLeft +
       customProps.headerStrCenter +
       customProps.headerStrRight +
       customProps.footerStrLeft +
