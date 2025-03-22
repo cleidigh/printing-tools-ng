@@ -1650,7 +1650,7 @@ var printingtools = {
 
 			}
 
-			let advopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
+			var advopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
 			if (advopts.includes("hdrColWidth")) {
 				let hdrColWidth = advopts.match(/hdrColWidth:(\d{1,3})/);
 				if (hdrColWidth[1]) {
@@ -1701,6 +1701,19 @@ var printingtools = {
 			//Services.console.logStringMessage("finish table layout");
 		}
 		printingtools.setTableLayout();
+
+		// check if we want to include the Message-ID
+		if (advopts.includes("addMessageIdToHdr")) {
+			let mainHdrTable = this.getTable(0)
+			let firstHdrRowClone = mainHdrTable.rows[0].cloneNode(true)
+			let rowHdrDiv = firstHdrRowClone.firstChild.firstChild
+			rowHdrDiv.innerText = "Message-ID"
+			let hdrVal = firstHdrRowClone.children[1]
+			let msgHdr = top.messenger.msgHdrFromURI(this.msgUris[this.current - 1]);
+	
+			hdrVal.innerText = msgHdr.messageId
+			mainHdrTable.appendChild(firstHdrRowClone)
+		}
 
 		// Remove attachments  table from  end of message 
 
