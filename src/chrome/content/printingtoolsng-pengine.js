@@ -1704,15 +1704,15 @@ var printingtools = {
 
 		// check if we want to include the Message-ID
 		if (advopts.includes("addMessageIdToHdr")) {
-			let mainHdrTable = this.getTable(0)
-			let firstHdrRowClone = mainHdrTable.rows[0].cloneNode(true)
-			let rowHdrDiv = firstHdrRowClone.firstChild.firstChild
-			rowHdrDiv.innerText = "Message-ID"
-			let hdrVal = firstHdrRowClone.children[1]
+			let mainHdrTable = this.getTable(0);
+			let firstHdrRowClone = mainHdrTable.rows[0].cloneNode(true);
+			let rowHdrDiv = firstHdrRowClone.firstChild.firstChild;
+			rowHdrDiv.innerText = "Message-ID";
+			let hdrVal = firstHdrRowClone.children[1];
 			let msgHdr = top.messenger.msgHdrFromURI(this.msgUris[this.current - 1]);
-	
-			hdrVal.innerText = msgHdr.messageId
-			mainHdrTable.appendChild(firstHdrRowClone)
+
+			hdrVal.innerText = msgHdr.messageId;
+			mainHdrTable.appendChild(firstHdrRowClone);
 		}
 
 		// Remove attachments  table from  end of message 
