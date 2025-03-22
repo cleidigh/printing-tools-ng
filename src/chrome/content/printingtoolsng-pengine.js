@@ -415,7 +415,7 @@ var printingtools = {
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
 					console.log("restoration ")
 
-					setTimeout(restoreDoc, 100)
+					setTimeout(restoreDoc, 500)
 
 				}
 

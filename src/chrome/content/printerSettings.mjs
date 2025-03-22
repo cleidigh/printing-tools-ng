@@ -47,6 +47,8 @@ var dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
 var gprinterSettings = printerSettings;
 
+console.log("ps 2")
+
 // These are our default settings for those we control separate from main prefs
 export var printerSettings = {
   defaultPTNGprinterSettings: {
@@ -721,6 +723,8 @@ export var printerSettings = {
 
       if (dbgopts.indexOf("printsettings") > -1) {
         console.log("subDialog opened: " + subDialogWindow.location.href);
+      console.log(subDialogWindow)
+
       }
 
       // Wait until print-settings in the subDialog have been loaded/rendered.
@@ -772,6 +776,12 @@ export var printerSettings = {
         console.log("subDialog print-settings: Post adjustments  state:");
         console.log(subDialogWindow.document.documentElement.innerHTML);
       }
+
+      console.log(subDialogWindow)
+
+      subDialogWindow.addEventListener("dialogclosing", () => {
+        console.log("closing")
+      });
     },
   },
 };
