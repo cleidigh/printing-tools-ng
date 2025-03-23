@@ -61,7 +61,7 @@ var utils = {
     var rawMsgFlags = msgHdr.Flags;
     var rawFolder = msgHdr.folder;
     var rawFolderFlags = msgHdr.folder.flags;
-
+    var rawMessageID = msgHdr.messageId;
     var fileName;
 
     // set processed components
@@ -146,6 +146,7 @@ var utils = {
     fileName = fileName.replace("${suffix}", suffix);
     fileName = fileName.replace("${date_custom}", customDate);
     fileName = fileName.replace("${date}", std8601Date);
+    fileName = fileName.replace("${messageID}", rawMessageID);
 
     // User defined character filter
     if (filterCharacters !== "") {
