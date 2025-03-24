@@ -1707,7 +1707,7 @@ var printingtools = {
 			let mainHdrTable = this.getTable(0);
 			let firstHdrRowClone = mainHdrTable.rows[0].cloneNode(true);
 			let rowHdrDiv = firstHdrRowClone.firstChild.firstChild;
-			rowHdrDiv.innerText = "Message-ID";
+			rowHdrDiv.innerText = "Message-ID:";
 			let hdrVal = firstHdrRowClone.children[1];
 			let msgHdr = top.messenger.msgHdrFromURI(this.msgUris[this.current - 1]);
 
