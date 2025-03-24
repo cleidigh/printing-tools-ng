@@ -18,6 +18,24 @@
         </td>
       </tr>
     </table>
+    <h3 id="release_notes" style="padding-left: 4px;">Utgivelsesnotater:</h3>
+    <p>
+      <b>Viktig merknad:</b> Fra og med utgivelsen av Thunderbird v136 vil Mozilla gjøre månedlige utgivelser.
+      Jeg kan kanskje ikke gi ut PrintingTools NG hver måned. Vennligst sjekk før du oppdaterer Thunderbird
+      for å se om det er en kompatibel PrintingTools NG-oppdatering tilgjengelig.<br /><br />
+      Christopher<br /><br />
+      - Ny: Legg til meldingsdatoen i hvilken som helst sidetopp eller bunntekst med den nye variabelen:
+      <b>&amp;MD</b> #277<br />
+      - Ny: Legg til meldings-ID på slutten av overskriftene. #268, #283 Bruk:<br />
+      <b>addMessageIdToHdr</b><br />
+      i feltet Avanserte alternativer<br />
+      - Nytt: Filnavntoken <b>${messageID}</b> for meldings-ID-overskriften #285<br />
+      - Ny: Still inn overskriftskolonnebredden. Bruk:<br />
+      <b>hdrColWidth: <i>nnn</i></b
+      ><br />
+      i feltet Avanserte alternativer, der <i>nnn</i> er i px<br />
+      - Fiks den 100 valgte meldingsgrensen #272, #280<br />
+    </p>
     <br />
     <h2 id="main_help">PrintingTools NG Oversikt</h2>
     <p>
@@ -78,7 +96,7 @@
         <tr>
           <td>Datostreng</td>
           <td>Resultat</td>
-          <td>Merk</td>
+          <td>Note</td>
         </tr>
       </thead>
       <tr>
@@ -175,7 +193,7 @@
           <td><code class="code1">%G</code></td>
           <td>
             ISO 8601 ukebasert årstall med århundre som desimaltall. Det 4-sifrede året tilsvarer
-            ISO-ukenummeret (se <code class="code1">%V</code> ). Dette har samme format og verdi som
+            ISO-ukenummeret (se <code class="code1">%V</code> ). Denne har samme format og verdi som
             <code class="code1">%Y</code> , bortsett fra at hvis ISO-ukenummeret tilhører forrige eller neste
             år, brukes det året i stedet.
           </td>
@@ -207,14 +225,14 @@
         <tr>
           <td><code class="code1">%k</code></td>
           <td>
-            Time som et desimaltall ved hjelp av en 24-timers klokke (område 0 til 23). Se også
+            Time som et desimaltall ved bruk av en 24-timers klokke (område 0 til 23). Se også
             <code class="code1">%H</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            Time som et desimaltall med en 12-timers klokke (område 1 til 12). Se også
+            Time som et desimaltall ved bruk av en 12-timers klokke (område 1 til 12). Se også
             <code class="code1">%I</code> .
           </td>
         </tr>
@@ -417,6 +435,10 @@
         <td class="notranslate"><code>${date_custom}</code></td>
         <td>Det egendefinerte datoformatet. Se delen for tilpasset datoformatering.</td>
       </tr>
+      <tr>
+        <td class="notranslate"><code>${messageID}</code></td>
+        <td>E-postens unike meldings-ID.</td>
+      </tr>
     </table>
     <br />
     <h2 id="print_options_help">Utskrifts- og sidealternativer</h2>
@@ -452,12 +474,13 @@
     </p>
     <p></p>
     <p>
-      Topp- og bunntekstene kan settes til å inkludere ulike meldingsvariabler oppført nedenfor. I tillegg kan
-      vilkårlig tekst også inkluderes. For å ikke skrive ut topp- eller bunntekst og spare utskriftsplass,
-      gjør du bare alle felt tomme.
+      Topp- og bunntekstene kan settes til å inkludere ulike meldingsvariabler som er oppført nedenfor. I
+      tillegg kan vilkårlig tekst også inkluderes. For å ikke skrive ut topp- eller bunntekst og spare
+      utskriftsplass, gjør du bare alle felt tomme.
     </p>
     <div class="indent1">
-      <li>&amp;D = Dato</li>
+      <li>&amp;D = Utskriftsdato</li>
+      <li>&amp;MD = Meldingsdato</li>
       <li>&amp;P = Sidetall</li>
       <li>&amp;PT = Sidetall med totalt (&quot;3 av 5&quot;)</li>
       <li>&amp;T = Sidetittel (emne for meldingen)</li>
@@ -466,9 +489,13 @@
     <h2 id="advanced_options_help">Avanserte alternativer</h2>
     <p>
       Dette er alternativer som lar en angi utskriftselementer utover de grunnleggende UI-innstillingene.
-      Foreløpig er det ene avanserte alternativet for å kontrollere kantmargene for topp- og bunntekst.
-      Alternativene angis i Avanserte alternativer i kategorien Diverse og er mellomromseparert.<br />
-      Formatet er:<br /><br />
+      Alternativene angis i Avanserte alternativer i kategorien Diverse og er mellomromseparerte tagger.<br />
+      Alternativtaggene og formatene er gitt nedenfor:<br /><br />
+      <b>Legg til meldings-ID-en på slutten av overskriftene:</b><br /><br />
+      <b>addMessageIdToHdr</b><br /><br />
+      <b>Angi kolonnebredden for header-taggen:</b><br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> Hvor <i>nnn</i> er antall piksler<br /><br />
+      <b>Topp- og bunntekstkantmarger:</b><br /><br />
       P: <i>skrivernavn</i> ::S: <i>alternativnavn</i> = <i>verdi</i><br /><br />
       Skrivernavnet har mellomrommene erstattet med understrekinger, og den innebygde Lagre til PDF er
       Mozilla_Save_to_PDF<br /><br />
@@ -480,11 +507,11 @@
       Eksempler:<br /><br />
       P:Mozilla_Save_to_PDF::S:edges=0.25<br />
       P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
-      Hvis man ønsket å sette alle kantmargene til 0,10 tommer bortsett fra edgeTop til 0,25 tommer, skriv inn
+      Hvis man ønsker å sette alle kantmargene til 0,10 tommer bortsett fra edgeTop til 0,25 tommer, skriv inn
       følgende:<br /><br />
       P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
     </p>
-    <h2>Brukerstøtte</h2>
+    <h2>Støtte</h2>
     <p>
       Vennligst legg ut problemer eller funksjonsforespørsler i GitHub-depotet for utvidelser:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
@@ -493,13 +520,13 @@
       - PrintingTools NG versjon<br />
       - Thunderbird-versjon<br />
       - Operativsystem og versjon<br />
-      - Feilsøkingsutgang (kopier fra feilsøkingskonsollen - tilgang med Control-Shift-J)<br />
+      - Feilsøkingsutgang (kopi fra feilsøkingskonsollen - tilgang med Control-Shift-J)<br />
       - En beskrivelse av trinnene som fører til problemet<br />
     </p>
     <h2 id="debug_options_help">Feilsøkingsalternativer</h2>
     <p>
       Feilsøkingsalternativene er et sett med nøkkelord som legges inn som en mellomromseparert liste.
-      Alternativene brukes vanligvis til utdata for konsollfeilsøking, men kan også brukes til testing eller
+      Alternativene brukes vanligvis for utdata for konsollfeilsøking, men kan også brukes til testing eller
       forskjellige moduser.
     </p>
     <div class="indent1">

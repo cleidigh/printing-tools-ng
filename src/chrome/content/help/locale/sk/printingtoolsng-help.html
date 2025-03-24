@@ -18,6 +18,24 @@
         </td>
       </tr>
     </table>
+    <h3 id="release_notes" style="padding-left: 4px;">Poznámky k vydaniu:</h3>
+    <p>
+      <b>Dôležitá poznámka:</b> Od vydania Thunderbirdu v136 bude Mozilla vydávať mesačné verzie. Možno
+      nebudem môcť vydať PrintingTools NG každý mesiac. Pred aktualizáciou Thunderbirdu skontrolujte, či nie
+      je k dispozícii kompatibilná aktualizácia PrintingTools NG.<br /><br />
+      Christopher<br /><br />
+      - Nové: Pridajte dátum správy do hlavičky alebo päty stránky s novou premennou:
+      <b>&amp;MD</b> #277<br />
+      - Nové: Pridajte ID správy na koniec hlavičiek. #268, #283 Použitie:<br />
+      <b>addMessageIdToHdr</b><br />
+      v poli Rozšírené možnosti<br />
+      - Novinka: Token názvu súboru <b>${messageID}</b> pre hlavičku ID správy #285<br />
+      - Nové: Nastavte šírku stĺpca hlavičky. Použitie:<br />
+      <b>hdrColWidth: <i>nnn</i></b
+      ><br />
+      v poli Rozšírené možnosti, kde <i>nnn</i> je v px<br />
+      - Opravte limit 100 vybratých správ #272, #280<br />
+    </p>
     <br />
     <h2 id="main_help">Prehľad PrintingTools NG</h2>
     <p>
@@ -28,8 +46,8 @@
     </p>
     <h3 class="indent0">Pridanie tlačidla Tlačiť NG na panel s nástrojmi hlavičky pošty:</h3>
     <p>
-      Tlačidlo Print NG sa automaticky pridá na zjednotený panel nástrojov od Thunderbirdu v115. Tlačidlo môže
-      byť pridané aj na panel s nástrojmi hlavičky pošty, aby sa umožnil prístup k tlači, ako aj možnosti z
+      Tlačidlo Print NG sa automaticky pridá na zjednotený panel nástrojov od Thunderbirdu v115. Tlačidlo
+      možno pridať aj na panel s nástrojmi hlavičky pošty, aby ste umožnili prístup k tlači, ako aj možnosti z
       panela pošty. Ďalšie možnosti sú dostupné pomocou tlačidla kľúča pre rozšírenie na karte doplnku.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
@@ -46,7 +64,8 @@
     <p>
       PrintingTools premapuje štandardnú skratku Thunderbird Print tak, aby sa sama vyvolala namiesto
       štandardnej tlače. V systémoch Windows a Linux použite kombináciu klávesov Control-P a Command-P na
-      Macu. Dialógové okno Možnosti je tiež možné otvoriť pomocou kombinácie klávesov Control-Shift-P.
+      počítačoch Mac. Dialógové okno Možnosti je tiež možné otvoriť pomocou kombinácie klávesov
+      Control-Shift-P.
     </p>
     <h3 class="indent0">Nasleduje príklad niektorých funkcií formátovania hlavičky:</h3>
     <div class="indent1">
@@ -118,8 +137,8 @@
     </table>
     <br />
     <p>
-      Vlastný formát dátumu využíva % sekvencie zodpovedajúce funkcii <code>strftime()</code> podobnej Unixu.
-      Je založený na JavaScriptovom porte
+      Vlastný formát dátumu využíva % sekvencie zodpovedajúce funkcii <code>strftime()</code> typu Unix. Je
+      založený na JavaScriptovom porte
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , funkcii na formátovanie dátumu a času.<br />
       Port of strftime() od TH Doana (https://thdoan.github.io/strftime/)<br />
@@ -241,7 +260,7 @@
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
-          <td>Počet sekúnd od epochy, 1970-01-01 00:00:00 +0000 (UTC).</td>
+          <td>Počet sekúnd od epochy, 1970-01-01 00:00:00 + 0000 (UTC).</td>
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
@@ -325,8 +344,8 @@
       <li><code class="code1">%h</code> – neimplementované (použite <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - medzera sa nepridáva</li>
       <li>
-        <code class="code1">%n</code> – ako <code class="code1">%m</code> , ale bez úvodnej nuly (na nový
-        riadok použite <code class="code1">\n</code> )
+        <code class="code1">%n</code> – ako <code class="code1">%m</code> , ale bez úvodnej nuly (použite
+        <code class="code1">\n</code> pre nový riadok)
       </li>
       <li><code class="code1">%O</code> – neimplementované</li>
       <li>
@@ -355,8 +374,8 @@
     <p />
     <p>
       Formát súboru pozostáva z tokenov a akýchkoľvek statických znakov, ako sú oddeľovače alebo medzery.
-      Rozšírené formátovanie názvu súboru využíva tokeny. Presný názov súboru je možné vytvoriť pomocou
-      tokenov, ako aj ľubovoľného textu alebo platných znakov názvu súboru. Neplatné znaky sú:
+      Rozšírené formátovanie názvu súboru využíva tokeny. Presný názov súboru možno vytvoriť pomocou tokenov,
+      ako aj ľubovoľného textu alebo platných znakov názvu súboru. Neplatné znaky sú:
       <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
@@ -364,7 +383,7 @@
     <p />
     <p>Príklady</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> – predvolený formát, predmet e-mailu<br />
+      <span class="notranslate"><code>${subject}</code></span> – Predvolený formát, predmet e-mailu<br />
       <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – použite vlastný
       formát dátumu namiesto predvoleného<br />
       <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> – S nejakým vlastným
@@ -420,6 +439,10 @@
         <td class="notranslate"><code>${date_custom}</code></td>
         <td>Vlastný formát dátumu. Pozrite si sekciu vlastného formátovania dátumu.</td>
       </tr>
+      <tr>
+        <td class="notranslate"><code>${messageID}</code></td>
+        <td>Jedinečné ID správy e-mailu.</td>
+      </tr>
     </table>
     <br />
     <h2 id="print_options_help">Možnosti tlače a strany</h2>
@@ -446,7 +469,7 @@
     <p>Možnosť zmeny mierky umožňuje nastaviť trvalú mierku.</p>
     <p>
       Rozsahy strán sú opísané rovnakým spôsobom ako v náhľade. Príklady sú 1, 1-2, 3-4,5. Upozorňujeme, že ak
-      prednastavené rozsahy strán nie sú platné pre danú správu, v náhľade sa zobrazí chyba.
+      prednastavené rozsahy strán nie sú platné pre danú správu, ukážka zobrazí chybu.
     </p>
     <p>
       Okraje je možné nastaviť pomocou jednotiek vhodných pre miestne nastavenie používateľa, či už ide o
@@ -460,23 +483,29 @@
       tlači, jednoducho nechajte všetky polia prázdne.
     </p>
     <div class="indent1">
-      <li>&amp;D = Dátum</li>
+      <li>&amp;D = Dátum tlače</li>
+      <li>&amp;MD = Dátum správy</li>
       <li>&amp;P = Číslo strany</li>
       <li>&amp;PT = Číslo stránky s celkovým súčtom („3 z 5“)</li>
       <li>&amp;T = Názov stránky (predmet správy)</li>
       <li>&amp;U = URL (URL správy)</li>
     </div>
-    <h2 id="advanced_options_help">Pokročilé nastavenia</h2>
+    <h2 id="advanced_options_help">Rozšírené možnosti</h2>
     <p>
       Toto sú možnosti, ktoré umožňujú nastaviť položky tlače nad rámec základných nastavení používateľského
-      rozhrania. V súčasnosti je jednou z pokročilých možností ovládanie okrajov pre hlavičky a päty. Možnosti
-      sa nastavujú v rozšírených možnostiach na karte Rôzne a sú oddelené medzerou.<br />
-      Formát je:<br /><br />
+      rozhrania. Možnosti sa nastavujú v rozšírených možnostiach na karte Rôzne a sú to značky oddelené
+      medzerou.<br />
+      Značky a formáty možností sú uvedené nižšie:<br /><br />
+      <b>Pridajte Message-ID na koniec značky hlavičiek:</b><br /><br />
+      <b>addMessageIdToHdr</b><br /><br />
+      <b>Nastavte šírku stĺpca pre značku hlavičky:</b><br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> Kde <i>nnn</i> je počet pixelov<br /><br />
+      <b>Okraje hlavičky a päty:</b><br /><br />
       P: <i>názov-tlačiarne</i> ::S: <i>názov-volby</i> = <i>hodnota</i><br /><br />
       Názov tlačiarne má medzery nahradené podčiarkovníkom a vstavaná funkcia Uložiť do PDF je
       Mozilla_Save_to_PDF<br /><br />
       Ďalší príklad: Microsoft_Print_to_PDF<br /><br />
-      Aktuálne možnosti názvu možnosti sú:<br />
+      Aktuálne možnosti názvu voľby sú:<br />
       <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
       <span class="notranslate">edges</span> je pseudo voľba, ktorá nastavuje všetky okraje okrajov na rovnakú
       hodnotu. Okraje okrajov sú v palcoch.<br /><br />
@@ -487,11 +516,11 @@
       nasledovné:<br /><br />
       P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
     </p>
-    <h2>podpora</h2>
+    <h2>Podpora</h2>
     <p>
-      Uverejnite problémy alebo požiadavky na funkcie v úložisku rozšírení GitHub:
+      Uverejnite problémy alebo požiadavky na funkcie v úložisku GitHub rozšírení:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues"
-        >Problémy s tlačou nástrojov NG</a
+        >Problémy s nástrojmi PrintingTools NG</a
       ><br /><br />
       Pri problémoch s chybami uveďte nasledujúce informácie, ktoré vám pomôžu vyriešiť problémy:<br />
       - Verzia PrintingTools NG<br />

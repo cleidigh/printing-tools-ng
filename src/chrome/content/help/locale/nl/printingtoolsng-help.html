@@ -4,73 +4,91 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <title>PrintingTools NG Help</title>
+    <title>Hulp bij PrintingTools NG</title>
   </head>
   <body>
     <table style="width: 100%;">
       <tr>
         <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Help</div>
-          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
+          <div style="font-size: 1.8em; font-weight: bold;">Hulp bij PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px;">versie 2.2.1</div>
         </td>
         <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <br />
-    <h2 id="main_help">PrintingTools NG-overzicht</h2>
+    <h3 id="release_notes" style="padding-left: 4px;">Release-opmerkingen:</h3>
     <p>
-      PrintingTools NG maakt veel aanpassingen mogelijk voor het afdrukken van e-mails. De extensie heeft veel
-      opties voor zowel de headers als de berichtdelen. Bovendien kunnen pagina-opties worden ingesteld die
-      niet kunnen worden gedaan in het normale Thunderbird-afdrukvoorbeeld. PDF-uitvoer kan ook worden
-      uitgevoerd met automatische naamgeving met behulp van een flexibel op tokens gebaseerd systeem.
+      <b>Belangrijke opmerking:</b> Vanaf de release van Thunderbird v136 zal Mozilla maandelijkse releases
+      doen. Ik kan PrintingTools NG mogelijk niet elke maand uitbrengen. Controleer voordat u Thunderbird
+      bijwerkt of er een compatibele PrintingTools NG-update beschikbaar is.<br /><br />
+      Christoffel<br /><br />
+      - Nieuw: Voeg de berichtdatum toe aan elke paginakoptekst of -voettekst met de nieuwe variabele:
+      <b>&amp;MD</b> #277<br />
+      - Nieuw: Voeg de Message-ID toe aan het einde van de headers. #268, #283 Gebruik:<br />
+      <b>voegBerichtIdToHdr toe</b><br />
+      in het veld Geavanceerde opties<br />
+      - Nieuw: Bestandsnaamtoken <b>${messageID}</b> voor de Message-ID-header #285<br />
+      - Nieuw: Stel de breedte van de headerkolom in. Gebruik:<br />
+      <b>hdrColBreedte: <i>nnn</i></b
+      ><br />
+      in het veld Geavanceerde opties, waarbij <i>nnn</i> in px staat<br />
+      - Herstel de limiet van 100 geselecteerde berichten #272, #280<br />
     </p>
-    <h3 class="indent0">De Print NG-knop toevoegen aan de werkbalk van de e-mailkop:</h3>
+    <br />
+    <h2 id="main_help">Overzicht van PrintingTools NG</h2>
     <p>
-      De Print NG-knop wordt vanaf Thunderbird v115 automatisch toegevoegd aan de uniforme werkbalk. De knop
-      kan ook worden toegevoegd aan de werkbalk van de e-mailkop om zowel afdruktoegang als opties vanuit het
-      e-mailvenster in te schakelen. Bovendien zijn opties toegankelijk via de sleutelknop voor de extensie op
-      het add-on-tabblad.
+      PrintingTools NG biedt vele aanpassingen voor e-mailprinten. De extensie heeft vele opties voor zowel de
+      headers als de berichtonderdelen. Daarnaast kunnen pagina-opties worden ingesteld die niet kunnen worden
+      gedaan in de normale Thunderbird-afdrukvoorbeeld. PDF-uitvoer kan ook worden gedaan met automatische
+      naamgeving met behulp van een flexibel token-gebaseerd systeem.
+    </p>
+    <h3 class="indent0">De knop Afdrukken NG toevoegen aan de werkbalk van de e-mailheader:</h3>
+    <p>
+      De knop Print NG wordt automatisch toegevoegd aan de uniforme werkbalk vanaf Thunderbird v115. De knop
+      kan ook worden toegevoegd aan de mailheader-werkbalk om zowel afdruktoegang als opties vanuit het
+      mailpaneel in te schakelen. Extra opties zijn toegankelijk via de sleutelknop voor de extensie op het
+      tabblad Addon.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Volg deze stappen om de knop op de werkbalk van de e-mailkop te plaatsen:</p>
+    <p>Volg deze stappen om de knop op de werkbalk van de e-mailheader te plaatsen:</p>
     <div class="indent1">
-      <li>Klik op de knop Meer op de werkbalk van de e-mailkop</li>
-      <li>Selecteer Aangepast... Hierdoor wordt het venster Werkbalk aanpassen geopend</li>
+      <li>Klik op de knop Meer op de werkbalk van de e-mailheader</li>
+      <li>Selecteer Aangepast... Hiermee wordt het venster Werkbalk aanpassen geopend</li>
       <li>Zoek de knop Afdrukken NG</li>
-      <li>Sleep de knop naar de gewenste locatie</li>
+      <li>Versleep de knop naar de gewenste locatie</li>
       <li>Gebruik de knop voor Afdrukken, Voorbeeld, Opties en Help</li>
     </div>
-    <h3 class="indent0">PrintingTools NG-sneltoetsen</h3>
+    <h3 class="indent0">Sneltoetsen voor PrintingTools NG</h3>
     <p>
-      PrintingTools wijst de standaard Thunderbird Print-snelkoppeling opnieuw toe, zodat deze zichzelf
-      aanroept in plaats van de standaard Print. Op Windows en Linux gebruik je Control-P en Command-P op Mac.
-      Het is ook mogelijk om het dialoogvenster Opties te openen met Control-Shift-P.
+      PrintingTools wijst de standaard Thunderbird Print-snelkoppeling opnieuw toe om zichzelf aan te roepen
+      in plaats van de standaard Print. Gebruik Control-P op Windows en Linux en Command-P op Mac. Het is ook
+      mogelijk om het dialoogvenster Opties te openen met Control-Shift-P.
     </p>
-    <h3 class="indent0">Hier volgt een voorbeeld van enkele functies voor het opmaken van kopteksten:</h3>
+    <h3 class="indent0">Hieronder ziet u een voorbeeld van enkele functies voor koptekstopmaak:</h3>
     <div class="indent1">
-      <li>Aangepaste koptekstrandstijl met behulp van CSS (boven en onder, blauw)</li>
-      <li>Achtergrondkleur van de kop</li>
-      <li>Uitgelijnde kopteksten</li>
-      <li>Aangepaste kopvolgorde</li>
+      <li>Aangepaste headerrandstijl met behulp van CSS (boven en onder, blauw)</li>
+      <li>Achtergrondkleur van de koptekst</li>
+      <li>Uitgelijnde headers</li>
+      <li>Aangepaste headervolgorde</li>
       <li>Paginatitel en berichtenmap</li>
-      <li>Bijlagelijst met pictogrammen in de koptekst</li>
-      <li>Volledig aanpasbare datumnotatie, internationale opmaak</li>
+      <li>Bijlagenlijst met pictogrammen in de header</li>
+      <li>Volledig aanpasbare datumnotatie internationale opmaak</li>
     </div>
     <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Aangepaste datumnotatie</h2>
     <p>
-      De aangepaste datumoptie biedt volledige controle over de datumnotatie die wordt gebruikt voor zowel de
-      datum als de ontvangstdatum in de e-mailheaders. De aangepaste datum biedt meerdere gelokaliseerde
-      opties die vrijwel elk formaat mogelijk maken. Houd er rekening mee dat de aangepaste datumtekenreeks
-      scheidingstekens, letterlijke waarden inclusief Unicode-tekens kan bevatten, gecombineerd met de
-      datum\tijd-tokens die hieronder worden vermeld.<br /><br />
-      Opmerking: de aangepaste datumresultaten in de onderstaande voorbeelden zullen verschillen op basis van
-      de werkelijke datum, de landinstelling van de gebruiker en de tijdzone.
+      De optie voor aangepaste datum biedt volledige controle over de datumopmaak die wordt gebruikt voor
+      zowel de datum als de ontvangstdatum in de e-mailheaders. De aangepaste datum biedt meerdere
+      gelokaliseerde opties die bijna elke opmaak toestaan. Let op dat de aangepaste datumreeks
+      scheidingstekens, letterlijke waarden inclusief unicodetekens kan bevatten, gemengd met de hieronder
+      vermelde datum\tijd-tokens.<br /><br />
+      Let op: De aangepaste datumresultaten in de onderstaande voorbeelden kunnen verschillen op basis van de
+      werkelijke datum, de landinstellingen en de tijdzone van de gebruiker.
     </p>
     <br />
     <h3 class="indent0">Voorbeelden:</h3>
@@ -100,7 +118,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
         <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-        <td>zh-TW locatie, lange dag</td>
+        <td>zh-TW locale, lange dag</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
@@ -115,16 +133,16 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>en-Amerikaanse landinstelling, lange dag/maand</td>
+        <td>en-US locale, lange dag/maand</td>
       </tr>
     </table>
     <br />
     <p>
-      Het aangepaste datumformaat maakt gebruik van % reeksen die overeenkomen met de
-      <code>strftime()</code> Unix-achtige functionaliteit. Het is gebaseerd op een JavaScript-poort van
+      De aangepaste datumnotatie gebruikt %-reeksen die overeenkomen met de Unix-achtige functionaliteit van
+      <code>strftime()</code> . Het is gebaseerd op een JavaScript-poort van
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , een functie om de datum en tijd op te maken.<br />
-      Haven van strftime() door TH Doan (https://thdoan.github.io/strftime/)<br />
+      , een functie om de datum en tijd te formatteren.<br />
+      Port van strftime() door TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
     <h3 style="margin-left: 30px;">Beschrijvingen van conversiesequenties</h3>
@@ -138,7 +156,7 @@
       <tbody>
         <tr>
           <td><code class="code1">%a</code></td>
-          <td>Afgekorte naam van de dag van de week.</td>
+          <td>Afkorting van de dag van de week.</td>
         </tr>
         <tr>
           <td><code class="code1">%A</code></td>
@@ -146,7 +164,7 @@
         </tr>
         <tr>
           <td><code class="code1">%b</code></td>
-          <td>Afgekorte naam van de maand.</td>
+          <td>Afgekorte maandnaam.</td>
         </tr>
         <tr>
           <td><code class="code1">%B</code></td>
@@ -154,7 +172,7 @@
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
-          <td>Voorkeursweergave van datum en tijd (UTC) voor de huidige landinstelling.</td>
+          <td>Gewenste weergave van datum en tijd (UTC) voor de huidige landinstelling.</td>
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
@@ -162,23 +180,23 @@
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
-          <td>Dag van de maand als decimaal getal (bereik 01 tot 31).</td>
+          <td>Dag van de maand als decimaal getal (bereik 01 tot en met 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%e</code></td>
-          <td>Dag van de maand als decimaal getal (bereik 1 tot 31).</td>
+          <td>Dag van de maand als decimaal getal (bereik 1 tot en met 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%F</code></td>
-          <td>Datumnotatie ISO 8601 (equivalent aan <code class="code1">%Y-%m-%d</code> ).</td>
+          <td>Datumnotatie volgens ISO 8601 (equivalent aan <code class="code1">%Y-%m-%d</code> ).</td>
         </tr>
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
-            ISO 8601-weekgebaseerd jaar met eeuw als decimaal getal. Het 4-cijferige jaartal komt overeen met
-            het ISO-weeknummer (zie <code class="code1">%V</code> ). Dit heeft hetzelfde formaat en dezelfde
-            waarde als <code class="code1">%Y</code> , behalve dat als het ISO-weeknummer bij het vorige of
-            volgende jaar hoort, dat jaar in plaats daarvan wordt gebruikt.
+            ISO 8601 weekgebaseerd jaar met eeuw als decimaal getal. Het 4-cijferige jaar komt overeen met het
+            ISO-weeknummer (zie <code class="code1">%V</code> ). Dit heeft dezelfde indeling en waarde als
+            <code class="code1">%Y</code> , behalve dat als het ISO-weeknummer tot het vorige of volgende jaar
+            behoort, dat jaar in plaats daarvan wordt gebruikt.
           </td>
         </tr>
         <tr>
@@ -191,14 +209,14 @@
         <tr>
           <td><code class="code1">%H</code></td>
           <td>
-            Uur als decimaal getal met behulp van een 24-uursklok (bereik 00 tot 23). Zie ook
+            Uur als decimaal getal met gebruik van een 24-uurs klok (bereik 00 tot 23). Zie ook
             <code class="code1">%k</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%I</code></td>
           <td>
-            Uur als decimaal getal met een 12-uursklok (bereik 01 tot 12). Zie ook
+            Uur als decimaal getal met gebruik van een 12-uurs klok (bereik 01 tot 12). Zie ook
             <code class="code1">%l</code> .
           </td>
         </tr>
@@ -209,14 +227,14 @@
         <tr>
           <td><code class="code1">%k</code></td>
           <td>
-            Uur als decimaal getal met behulp van een 24-uursklok (bereik 0 tot 23). Zie ook
+            Uur als decimaal getal met gebruik van een 24-uurs klok (bereik 0 tot 23). Zie ook
             <code class="code1">%H</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            Uur als decimaal getal met een 12-uursklok (bereik 1 tot 12). Zie ook
+            Uur als decimaal getal met gebruik van een 12-uurs klok (bereik 1 tot 12). Zie ook
             <code class="code1">%I</code> .
           </td>
         </tr>
@@ -235,8 +253,8 @@
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            Ofwel &quot;AM&quot; of &quot;PM&quot; volgens de opgegeven tijdswaarde. Middag wordt behandeld
-            als &quot;PM&quot; en middernacht als &quot;AM&quot;.
+            Ofwel &quot;AM&quot; of &quot;PM&quot; volgens de gegeven tijdswaarde. Middag wordt behandeld als
+            &quot;PM&quot; en middernacht als &quot;AM&quot;.
           </td>
         </tr>
         <tr>
@@ -247,16 +265,16 @@
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
-          <td>Aantal seconden sinds het tijdperk, 1970-01-01 00:00:00 +0000 (UTC).</td>
+          <td>Aantal seconden sinds het Epoch, 1970-01-01 00:00:00 +0000 (UTC).</td>
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
-          <td>Tweede als een decimaal getal (bereik 00 tot 59).</td>
+          <td>Seconde als decimaal getal (bereik 00 tot 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Dag van de week als decimaal getal (bereik 1 tot 7), waarbij maandag 1 is. Zie ook
+            Dag van de week als decimaal (bereik 1 tot 7), waarbij maandag 1 is. Zie ook
             <code class="code1">%w</code> .
           </td>
         </tr>
@@ -264,13 +282,13 @@
           <td><code class="code1">%V</code></td>
           <td>
             ISO 8601-weeknummer van het huidige jaar als decimaal getal (bereik 01 tot 53), waarbij week 1 de
-            eerste week is die minimaal 4 dagen in het nieuwe jaar heeft (dat wil zeggen de eerste donderdag).
+            eerste week is met minimaal 4 dagen in het nieuwe jaar (dat wil zeggen de eerste donderdag).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%w</code></td>
           <td>
-            Dag van de week als decimaal getal (bereik 0 tot 6), waarbij zondag 0 is. Zie ook
+            Dag van de week als decimaal (bereik 0 tot 6), zondag is 0. Zie ook
             <code class="code1">%u</code> .
           </td>
         </tr>
@@ -280,7 +298,7 @@
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
-          <td>Voorkeurstijdweergave voor de huidige landinstelling zonder datum.</td>
+          <td>Voorkeurstijdweergave voor de huidige landinstelling zonder de datum.</td>
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
@@ -288,18 +306,18 @@
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>
-          <td>Jaar als decimaal getal inclusief de eeuw.</td>
+          <td>Jaartal als decimaal getal, inclusief de eeuw.</td>
         </tr>
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            De <code class="code1">+hhmm</code> of <code class="code1">-hhmm</code> numerieke tijdzone (dat
-            wil zeggen de uur- en minutenafwijking ten opzichte van UTC).
+            De numerieke tijdzone <code class="code1">+hhmm</code> of <code class="code1">-hhmm</code> (dat
+            wil zeggen, de uren en minuten afwijking van UTC).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%Z</code></td>
-          <td>Naam of afkorting van tijdzone.</td>
+          <td>Naam of afkorting van de tijdzone.</td>
         </tr>
         <tr>
           <td><code class="code1">%t</code></td>
@@ -315,13 +333,13 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Dag letterlijk. Gelokaliseerd, voornamelijk voor Aziatische landen. (ja: 日, ko: 일)</td>
+          <td>Dag Letterlijk. Gelokaliseerd, voornamelijk voor Aziatische locaties. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
     <h3 class="indent0">Compatibiliteitsopmerkingen:</h3>
     <ul>
-      <li><code class="code1">%c</code> - geformatteerde tekenreeks is iets anders</li>
+      <li><code class="code1">%c</code> - geformatteerde string is iets anders</li>
       <li>
         <code class="code1">%D</code> - niet geïmplementeerd (gebruik <code class="code1">%m/%d/%y</code> of
         <code class="code1">%d/%m/%y</code> )
@@ -331,8 +349,8 @@
       <li><code class="code1">%h</code> - niet geïmplementeerd (gebruik <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - spatie is niet toegevoegd</li>
       <li>
-        <code class="code1">%n</code> - zoals <code class="code1">%m</code> , maar geen voorloopnul (gebruik
-        <code class="code1">\n</code> voor nieuwe regel)
+        <code class="code1">%n</code> - zoals <code class="code1">%m</code> , maar zonder voorloopnul (gebruik
+        <code class="code1">\n</code> voor een nieuwe regel)
       </li>
       <li><code class="code1">%O</code> - niet geïmplementeerd</li>
       <li>
@@ -351,39 +369,39 @@
       <li><code class="code1">%%</code> - niet geïmplementeerd (gebruik <code class="code1">%</code> )</li>
     </ul>
     <br />
-    <h2 id="pdf_output_help">PDF-uitvoer en automatische bestandsnaamgeving</h2>
+    <h2 id="pdf_output_help">PDF-uitvoer en automatische bestandsbenaming</h2>
     <p>
       PDF-uitvoer kan nu zowel automatisch worden benoemd met behulp van een tokensysteem als worden
-      opgeslagen in een vooraf gedefinieerde PDF-uitvoermap. Dit is vooral handig bij het afdrukken van
-      meerdere geselecteerde e-mails, omdat het niet nodig is om voor elke e-mail een naam en locatie te
+      opgeslagen in een vooraf gedefinieerde PDF-uitvoerdirectory. Dit is met name handig bij het afdrukken
+      van meerdere geselecteerde e-mails, omdat het niet nodig is om voor elke e-mail een naam en locatie te
       kiezen.
     </p>
     <p />
     <p>
-      Schakel de PDF-uitvoermap in en kies een map voor de opslaglocatie. De uitvoerbestandsnaam volgt het
-      geconfigureerde bestandsnaamformaat.
+      Schakel de PDF-uitvoermap in en kies een map voor de opslaglocatie. De uitvoerbestandsnaam volgt de
+      geconfigureerde bestandsnaamindeling.
     </p>
     <p />
     <p>
-      Het bestandsnaamformaat bestaat uit tokens en eventuele statische tekens zoals scheidingstekens of
-      witruimte. De uitgebreide bestandsnaamopmaak maakt gebruik van tokens. De exacte bestandsnaam kan worden
-      samengesteld met behulp van de tokens, evenals eventuele tekst of geldige bestandsnaamtekens. Ongeldige
-      tekens zijn: <code>| * : &lt; &gt; ? \ / &quot;</code>
+      De bestandsnaamopmaak bestaat uit tokens en alle statische tekens zoals scheidingstekens of spaties. De
+      uitgebreide bestandsnaamopmaak maakt gebruik van tokens. De exacte bestandsnaam kan worden samengesteld
+      met behulp van de tokens en alle tekst of geldige bestandsnaamtekens. Ongeldige tekens zijn:
+      <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>Het standaardnaamformaat is: ${subject}, wat alleen het onderwerp van de e-mail is.</p>
+    <p>De standaardnaamnotatie is: ${subject}, wat gewoon het onderwerp van de e-mail is.</p>
     <p />
     <p>Voorbeelden</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> - Het standaardformaat, onderwerp van de
+      <span class="notranslate"><code>${subject}</code></span> - De standaardopmaak, onderwerp van de
       e-mail<br />
-      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Gebruik het
-      aangepaste datumformaat in plaats van de standaard<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Gebruik de aangepaste
+      datumnotatie in plaats van de standaardnotatie<br />
       <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Met wat aangepaste
       tekst<br />
     </p>
     <p>
-      De onderstaande tabel beschrijft de volledige set tokens die kunnen worden gebruikt in de
+      In de onderstaande tabel wordt de volledige set tokens beschreven die kunnen worden gebruikt in de
       bestandsnaamindeling.
     </p>
     <table class="token-table">
@@ -413,139 +431,151 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${smart_name}</code></td>
-        <td>De ontvangers als het bericht in de map Verzonden staat, anders de naam van de afzender</td>
+        <td>
+          De ontvangers als het bericht zich in een map Verzonden bevindt, anders de naam van de afzender
+        </td>
       </tr>
       <tr>
         <td class="notranslate"><code>${index}</code></td>
-        <td>Het berichtindexnummer.</td>
+        <td>Het indexnummer van het bericht.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${prefix}</code></td>
-        <td>De waarde van de voorvoegseltekstoptie.</td>
+        <td>De waarde van de prefixtekstoptie.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
-        <td>De waarde van de achtervoegseltekstoptie.</td>
+        <td>De waarde van de optie suffixtekst.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
-        <td>Het standaard datumformaat. Het standaardformaat is: JJJJMMDDHHmm</td>
+        <td>De standaard datumnotatie. De standaardnotatie is: JJJJMMDDUUmm</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
-        <td>Het aangepaste datumformaat. Zie het gedeelte over aangepaste datumnotatie.</td>
+        <td>De aangepaste datumnotatie. Zie de sectie aangepaste datumnotatie.</td>
+      </tr>
+      <tr>
+        <td class="notranslate"><code>${messageID}</code></td>
+        <td>De unieke bericht-ID van de e-mail.</td>
       </tr>
     </table>
     <br />
-    <h2 id="print_options_help">Afdruk- en paginaopties</h2>
+    <h2 id="print_options_help">Afdruk- en pagina-opties</h2>
     <p>
-      Met deze opties kunt u zowel de standaardprinter als de opties per printerpagina instellen. Het is ook
-      mogelijk om de stille modus in te stellen, waarbij het voorbeeldvenster niet wordt weergegeven en het
+      Met deze opties kunt u de standaardprinter en de opties per printerpagina instellen. Het is ook mogelijk
+      om de stille modus in te stellen, waarbij het voorbeelddialoogvenster niet wordt weergegeven en het
       afdrukken onmiddellijk wordt uitgevoerd.
     </p>
     <p>
-      Met de pagina-opties kunt u items instellen wanneer zowel het voorbeeld als het afdrukken zijn voltooid.
-      Deze opties blijven tijdens het afdrukken behouden. Als de opties die zijn ingesteld in PrintingTools NG
-      worden gewijzigd in het afdrukvoorbeeld, hebben ze geen invloed op volgende afdrukken. Sommige items
-      kunnen niet worden ingesteld in het voorbeelddialoogvenster, waaronder de kop- en voetteksten. Andere
-      items blijven niet behouden in het voorbeeld en moeten normaal gesproken elke keer dat er een afdruk
-      wordt gemaakt, worden ingesteld. PrintingTools NG lost beide problemen op.
+      Met de paginaopties kunt u items instellen wanneer zowel het voorbeeld als het afdrukken is voltooid.
+      Deze opties zijn permanent tijdens het afdrukken. Als opties die zijn ingesteld in PrintingTools NG
+      worden gewijzigd in het afdrukvoorbeeld, hebben ze geen invloed op latere afdrukken. Sommige items
+      kunnen niet worden ingesteld in het dialoogvenster Voorbeeld, waaronder de kop- en voetteksten. Andere
+      items worden niet behouden door het voorbeeld en moeten normaal gesproken worden ingesteld telkens
+      wanneer een afdruk is voltooid. PrintingTools NG lost beide problemen op.
     </p>
     <p>
-      Eén item dat niet door het voorbeeld wordt opgeslagen, zijn de paginabereiken. Een typisch
-      gebruiksscenario is dat u standaard alleen de eerste pagina van een e-mail wilt afdrukken. Normaal
-      gesproken zou men de paginabereiken elke keer moeten laten veranderen. Let op: als een paginabereik dat
-      is ingesteld in PrintingTools NG niet geldig is, bijvoorbeeld als het aantal pagina&#39;s wordt
-      overschreden, moet het bereik in het voorbeeld worden gecorrigeerd voordat het wordt afgedrukt. Een
-      paginabereik dat is ingesteld op &quot;1&quot; is altijd geldig en drukt de eerste pagina van het
-      bericht af.
+      Eén item dat niet wordt opgeslagen door de preview is de paginabereiken. Een typisch gebruiksvoorbeeld
+      is wanneer men alleen de eerste pagina van een e-mail als standaard wil afdrukken. Normaal gesproken zou
+      men de paginabereiken elke keer moeten wijzigen. Let op: als een paginabereik dat is ingesteld in
+      PrintingTools NG niet geldig is, zoals het overschrijden van het aantal pagina&#39;s, moet het bereik
+      worden gecorrigeerd in de preview voordat het wordt afgedrukt. Een paginabereik dat is ingesteld op
+      &quot;1&quot; is altijd geldig en drukt de eerste pagina van het bericht af.
     </p>
     <p>Opmerkingen:</p>
-    <p>Met de schaaloptie kunt u een blijvende schaal instellen.</p>
+    <p>Met de schaaloptie kunt u een permanente schaal instellen.</p>
     <p>
-      Paginabereiken worden op dezelfde manier beschreven als in het voorbeeld. Voorbeelden zijn 1, 1-2,
-      3-4,5. Houd er rekening mee dat als een vooraf ingesteld paginabereik niet geldig is voor een bepaald
-      bericht, het voorbeeld een fout zal tonen.
+      Paginabereiken worden op dezelfde manier beschreven als in de preview. Voorbeelden zijn 1, 1-2, 3-4,5.
+      Let op: als een vooraf ingesteld paginabereik niet geldig is voor een bepaald bericht, zal de preview
+      een foutmelding tonen.
     </p>
     <p>
-      De marges kunnen worden ingesteld met eenheden die geschikt zijn voor de landinstelling van de
-      gebruiker, in inches of millimeters (in of mm). Let op: als gevolg van afrondingsfouten kunnen sommige
-      mm-waarden met kleine verschillen worden opgeslagen.
+      De marges kunnen worden ingesteld met eenheden die geschikt zijn voor de landinstellingen van de
+      gebruiker, inches of millimeters (in of mm). Let op: vanwege afrondingsfouten kunnen sommige mm-waarden
+      met kleine verschillen worden opgeslagen.
     </p>
     <p></p>
     <p>
-      De kop- en voetteksten kunnen zo worden ingesteld dat ze verschillende berichtvariabelen bevatten die
-      hieronder worden vermeld. Daarnaast kan ook willekeurige tekst worden opgenomen. Als u geen kop- of
-      voetteksten wilt afdrukken en afdrukruimte wilt besparen, hoeft u alleen maar alle velden leeg te maken.
+      De headers en footers kunnen worden ingesteld om verschillende berichtvariabelen op te nemen die
+      hieronder worden vermeld. Daarnaast kan willekeurige tekst worden opgenomen. Om geen headers of footers
+      af te drukken en afdrukruimte te besparen, maakt u alle velden leeg.
     </p>
     <div class="indent1">
-      <li>&amp;D = Datum</li>
+      <li>&amp;D = Afdrukdatum</li>
+      <li>&amp;MD = Berichtdatum</li>
       <li>&amp;P = Paginanummer</li>
-      <li>&amp;PT = Paginanummer met totaal (“3 van 5”)</li>
-      <li>&amp;T = Paginatitel (onderwerp van het bericht)</li>
+      <li>&amp;PT = Paginanummer met Totaal (“3 van 5”)</li>
+      <li>&amp;T = Paginatitel (Onderwerp van het bericht)</li>
       <li>&amp;U = URL (de URL van het bericht)</li>
     </div>
-    <h2 id="advanced_options_help">Geavanceerde mogelijkheden</h2>
+    <h2 id="advanced_options_help">Geavanceerde opties</h2>
     <p>
       Dit zijn opties waarmee u afdrukitems kunt instellen die verder gaan dan de basisinstellingen van de
-      gebruikersinterface. Momenteel is de enige geavanceerde optie het regelen van de randmarges voor kop- en
-      voetteksten. De opties worden ingesteld in de Geavanceerde opties op het tabblad Diversen en zijn door
-      spaties gescheiden.<br />
-      Het formaat is:<br /><br />
+      gebruikersinterface. De opties worden ingesteld in de geavanceerde opties in het tabblad Diversen en
+      zijn door spaties gescheiden tags.<br />
+      De optietags en -formaten worden hieronder weergegeven:<br /><br />
+      <b>Voeg de Message-ID toe aan het einde van de headers-tag:</b><br /><br />
+      <b>voegBerichtIdToHdr toe</b><br /><br />
+      <b>Stel de kolombreedte voor de headers-tag in:</b><br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> Waarbij <i>nnn</i> het aantal pixels is<br /><br />
+      <b>Randmarges voor kop- en voetteksten:</b><br /><br />
       P: <i>printernaam</i> ::S: <i>optienaam</i> = <i>waarde</i><br /><br />
-      Bij de printernaam zijn de spaties vervangen door onderstrepingstekens en het ingebouwde opslaan naar
-      PDF is Mozilla_Save_to_PDF<br /><br />
+      De spaties in de printernaam zijn vervangen door onderstrepingstekens en de ingebouwde optie Opslaan als
+      PDF is Mozilla_Opslaan_als_PDF<br /><br />
       Nog een voorbeeld: Microsoft_Print_to_PDF<br /><br />
-      De huidige optienaammogelijkheden zijn:<br />
+      De huidige optie-naammogelijkheden zijn:<br />
       <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
       <span class="notranslate">edges</span> is een pseudo-optie die alle randmarges op dezelfde waarde
       instelt. De randmarges zijn in inches.<br /><br />
       Voorbeelden:<br /><br />
-      P:Mozilla_Save_to_PDF::S:edges=0,25<br />
-      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
-      Als u alle randmarges wilt instellen op 0,10 inch, behalve de edgeTop op 0,25 inch, voert u het volgende
+      P:Mozilla_Opslaan_naar_PDF::S:randen=0.25<br />
+      P:Microsoft_Afdrukken_naar_PDF::S:edgeTop=0.1<br /><br />
+      Als u alle randmarges op 0,10 inch wilt instellen, behalve de edgeTop op 0,25 inch, voert u het volgende
       in:<br /><br />
-      P:Mozilla_Save_to_PDF::S:edges=0,10 P:Mozilla_Save_to_PDF::S:edgeTop=0,25
+      P:Mozilla_Opslaan_naar_PDF::S:randen=0.10 P:Mozilla_Opslaan_naar_PDF::S:randBovenaan=0.25
     </p>
     <h2>Steun</h2>
     <p>
-      Plaats problemen of functieverzoeken in de GitHub-repository van de extensies:
+      Plaats problemen of functieverzoeken in de GitHub-repository voor extensies:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
       ><br /><br />
-      Neem bij bugproblemen de volgende informatie op om de problemen op te lossen:<br />
+      Vermeld bij bugproblemen de volgende informatie om het probleem op te lossen:<br />
       - PrintingTools NG-versie<br />
       - Thunderbird-versie<br />
       - Besturingssysteem en versie<br />
-      - Debug-uitvoer (kopie van de Debug Console - toegang met Control-Shift-J)<br />
-      - Een beschrijving van de stappen die tot het probleem leiden<br />
+      - Debug-uitvoer (kopiëren vanuit de Debug Console - openen met Control-Shift-J)<br />
+      - Een beschrijving van de stappen die tot het probleem hebben geleid<br />
     </p>
-    <h2 id="debug_options_help">Foutopsporingsopties</h2>
+    <h2 id="debug_options_help">Debug-opties</h2>
     <p>
-      De foutopsporingsopties bestaan uit een reeks trefwoorden die worden ingevoerd als een door spaties
-      gescheiden lijst. De opties worden doorgaans gebruikt voor console-foutopsporing, maar kunnen ook worden
-      gebruikt voor testen of in verschillende modi.
+      De debugopties zijn een set trefwoorden die worden ingevoerd als een spatiegescheiden lijst. De opties
+      worden doorgaans gebruikt voor console-debugginguitvoer, maar kunnen ook worden gebruikt voor testen of
+      verschillende modi.
     </p>
     <div class="indent1">
       <li>
-        <code class="notranslate">initialsource</code> - toon de berichtbron voordat PTNG enige opmaak
-        uitvoert
+        <code class="notranslate">initialsource</code> - toon de bron van het bericht voordat PTNG enige
+        opmaak uitvoert
       </li>
       <li><code class="notranslate">finaloutput</code> - toon de uiteindelijke berichtuitvoer</li>
-      <li><code class="notranslate">pdfoutput</code> - debug-uitvoer voor de uitvoer van PDF-berichten</li>
-      <li><code class="notranslate">printsettings</code> - debug uitvoer voor print- en pagina-opties</li>
+      <li><code class="notranslate">pdfoutput</code> - debug-uitvoer voor PDF-berichtuitvoer</li>
       <li>
-        <code class="notranslate">helpinwin</code> - modusvlag om hulp in een venster weer te geven in plaats
-        van de standaard op een tabblad
+        <code class="notranslate">printsettings</code> - foutopsporingsuitvoer voor afdruk- en pagina-opties
+      </li>
+      <li>
+        <code class="notranslate">helpinwin</code> - modusvlag om hulp in een venster te tonen in plaats van
+        de standaard in een tabblad
       </li>
     </div>
-    <h2>Kredieten</h2>
+    <h2>Credits</h2>
     <div class="indent1">
       <li>PrintingTools NG is gebaseerd op de originele extensie van Paolo &quot;Kosmos&quot;</li>
       <li>List.js door Jonny Strömberg https://listjs.com</li>
       <li>Latinize.js door Jakub Dundalek https://github.com/dundalek/latinize</li>
     </div>
     <p>
-      Dank aan de volgende gebruikers voor verbeteringenuggesties en testhulp:<br /><br />
+      Dank aan de volgende gebruikers voor hun suggesties voor verbeteringen en testhulp:<br /><br />
       - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
       - <code class="notranslate">@RRoenn</code><br />
       - <code class="notranslate">@tidebre67</code><br />
