@@ -70,11 +70,18 @@ var utils = {
     var subject = "";
     if (rawSubject) {
       subject = rawSubject;
+      console.log("sub ", subject)
+
       if (rawMsgFlags & 0x0010) {
+        console.log("flag")
 				if (Services.locale.appLocaleAsBCP47 === "de") {
-        subject = "AW: " + subject;
+        subject = "AW_ " + subject;
+        console.log("flag de", subject)
+
         } else {
-        subject = "Re: " + subject;
+        subject = "Re_ " + subject;
+        console.log("flag others ", subject)
+
         }
       }
     } else {
