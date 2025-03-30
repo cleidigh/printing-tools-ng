@@ -71,7 +71,11 @@ var utils = {
     if (rawSubject) {
       subject = rawSubject;
       if (rawMsgFlags & 0x0010) {
-        subject = "Re_" + subject;
+				if (Services.locale.appLocaleAsBCP47 === "de") {
+        subject = "AW: " + subject;
+        } else {
+        subject = "Re: " + subject;
+        }
       }
     } else {
       subject = "NOSUBJECT";
