@@ -526,6 +526,7 @@ var printingtools = {
 		var currentPrinterName = this.prefs.getCharPref("print_printer");
 
 		for (let msgURI of printingtools.msgUris) {
+			console.log(msgURI)
 			var MailService = MailServices.messageServiceFromURI(msgURI);
 			let msgHdr = top.messenger.msgHdrFromURI(msgURI);
 			msgSubject = msgHdr.mime2DecodedSubject;
