@@ -563,12 +563,9 @@ var printingtools = {
 
 				messagePaneBrowser.browsingContext.print(ps);
 			} else {
-				//console.log("use pb print")
-				// This is key to flushing cache else we operate on modified browser
-				await top.PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+				//console.log("use printbrowser to print")
 				await top.PrintUtils.loadPrintBrowser(MailService.getUrlForUri(msgURI).spec);
 
-				// getUrlForUri
 				printingtools.previewDoc = top.PrintUtils.printBrowser.contentDocument
 				await printingtools.reformatLayout();
 
