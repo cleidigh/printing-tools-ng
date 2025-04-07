@@ -563,13 +563,16 @@ var printingtools = {
 
 				messagePaneBrowser.browsingContext.print(ps);
 			} else {
-				//console.log("use printbrowser to print")
+				console.log("use printbrowser to print")
+				await top.PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+
 				await top.PrintUtils.loadPrintBrowser(MailService.getUrlForUri(msgURI).spec);
 
 				printingtools.previewDoc = top.PrintUtils.printBrowser.contentDocument
 				await printingtools.reformatLayout();
 
 				await top.PrintUtils.printBrowser.browsingContext.print(ps);
+
 			}
 
 			if (pdfOutput) {

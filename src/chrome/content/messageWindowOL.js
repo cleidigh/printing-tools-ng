@@ -53,7 +53,7 @@ WL.injectElements(`
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 	WL.injectElements(`
-<toolbarpalette id="MailToolbarPalette">
+<toolbar id="mail-bar3">
 	<toolbarbutton id="ptng-button"
 	  label="&print.label; NG"
 	  tooltiptext="&ptng.label;"    
@@ -70,7 +70,7 @@ WL.injectElements(`
 		  <menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/> 
 		  </menupopup>
 	  </toolbarbutton>
-</toolbarpalette>
+</toolbar>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
