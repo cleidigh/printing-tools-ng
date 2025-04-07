@@ -1630,8 +1630,6 @@ var printingtools = {
 				var fs = window.getComputedStyle(table1).getPropertyValue('font-size');
 				var fsn = Number(fs.split("px")[0])
 
-				console.log("locale for width", locale)
-
 				switch (locale) {
 					case "de":
 						if (!alwaysCcBcc) {
@@ -1658,8 +1656,6 @@ var printingtools = {
 					maxHdrWidth = hdrColWidth[1];
 				}
 			}
-			console.log("using  width", maxHdrWidth)
-
 
 			for (var i = 0; i < trs.length; i++) {
 
