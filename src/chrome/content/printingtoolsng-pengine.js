@@ -206,35 +206,15 @@ var printingtools = {
 
 				var messagePaneBrowser;
 
-				if (window.document.URL.endsWith("messenger.xhtml")) {
-					var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
+				try {
+					messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
 					if (dbgopts.indexOf("trace1") > -1) {
-						console.log("messenger window, mail3PaneTabBrowser1Doc:", mail3PaneTabBrowser1Doc);
+						console.log("non messenger window, messageBrowser from mpane", messagePaneBrowser);
 					}
-					if (mail3PaneTabBrowser1Doc.getElementById("messagepane")) {
-						messagePaneBrowser = mail3PaneTabBrowser1Doc.getElementById("messagepane")
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
-						}
-					} else {
-						let messageBrowserDoc = mail3PaneTabBrowser1Doc.getElementById("messageBrowser").contentDocument;
-						messagePaneBrowser = messageBrowserDoc.getElementById("messagepane")
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("messenger window, messagePaneBrowser from under messageBrowser", messagePaneBrowser);
-						}
-					}
-
-				} else {
-					try {
-						messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("non messenger window, messageBrowser from mpane", messagePaneBrowser);
-						}
-					} catch {
-						messagePaneBrowser = document.getElementById("messagepane");
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("non messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
-						}
+				} catch {
+					messagePaneBrowser = document.getElementById("messagepane");
+					if (dbgopts.indexOf("trace1") > -1) {
+						console.log("non messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
 					}
 				}
 
@@ -243,8 +223,6 @@ var printingtools = {
 					console.log("messagePaneBrowser contentDoc", messagePaneBrowser.contentDocument);
 					console.log("messagePaneBrowser contentWin", messagePaneBrowser.contentDocument);
 
-
-					//console.log("document",document.body.outerHTML)
 				}
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = printingtools.msgUris[0];
@@ -252,7 +230,6 @@ var printingtools = {
 					console.log("PTNG: Single message, Use existing print messagePane")
 					console.log("PTNG: Message uri: ", uri);
 				}
-
 
 				printingtools.previewDoc = messagePaneBrowser.contentDocument;
 
@@ -548,33 +525,19 @@ var printingtools = {
 					console.log("PTNG: pageRanges: ", ps.pageRanges);
 				}
 			}
-			if (!top.PrintUtils.printBrowser) {
-				console.log(window)
-				console.log(top)
 
-				let messagePaneBrowser;
-				if (window.document.URL.endsWith("messenger.xhtml") || window.document.URL.endsWith("messageWindow.xhtml")) {
-					messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
-				} else {
-					messagePaneBrowser = document.getElementById("messagepane");
-
-				}
-				console.log(messagePaneBrowser)
-
-				messagePaneBrowser.browsingContext.print(ps);
-			} else {
-				console.log("use printbrowser to print")
-				await top.PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
-
-				await top.PrintUtils.loadPrintBrowser(MailService.getUrlForUri(msgURI).spec);
-
-				printingtools.previewDoc = top.PrintUtils.printBrowser.contentDocument
-				await printingtools.reformatLayout();
-
-				await top.PrintUtils.printBrowser.browsingContext.print(ps);
-
+			if (dbgopts.indexOf("trace1") > -1) {
+				console.log("PTNG: Use printbrowser to print");
 			}
 
+			let w3p = this.getMail3Pane();
+			await w3p.PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+			await w3p.PrintUtils.loadPrintBrowser(MailService.getUrlForUri(msgURI).spec);
+
+			printingtools.previewDoc = w3p.PrintUtils.printBrowser.contentDocument
+			await printingtools.reformatLayout();
+
+			await w3p.PrintUtils.printBrowser.browsingContext.print(ps);
 			if (pdfOutput) {
 				this.utils.PTNG_WriteStatus(this.mainStrBundle.GetStringFromName("writing") + ": " + pdfFileName);
 			} else {
@@ -1319,15 +1282,13 @@ var printingtools = {
 	},
 
 	reformatLayout: async function () {
+		var dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
-		//console.debug('pTNG: Reformat layout ');
-
-
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: Reformat layout ");
+		}
 		printingtools.doc = printingtools.previewDoc;
 
-		//console.log(printingtools.doc.body.outerHTML)
-
-		var dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		if (dbgopts.indexOf("initialsource") > -1) {
 			console.log("PTNG: initial source:\n");
 			console.log(printingtools.doc.documentElement.outerHTML);
@@ -1711,7 +1672,7 @@ var printingtools = {
 
 			hdrVal.innerText = msgHdr.messageId;
 			hdrVal.style.wordBreak = "break-all";
-			
+
 			mainHdrTable.appendChild(firstHdrRowClone);
 		}
 
