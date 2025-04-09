@@ -206,6 +206,26 @@ var printingtools = {
 
 				var messagePaneBrowser;
 
+				if (window.document.URL.endsWith("messenger.xhtml")) {
+					var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
+					if (dbgopts.indexOf("trace1") > -1) {
+						console.log("messenger window, mail3PaneTabBrowser1Doc:", mail3PaneTabBrowser1Doc);
+					}
+					if (mail3PaneTabBrowser1Doc.getElementById("messagepane")) {
+						messagePaneBrowser = mail3PaneTabBrowser1Doc.getElementById("messagepane")
+						if (dbgopts.indexOf("trace1") > -1) {
+							console.log("messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
+						}
+					} else {
+						let messageBrowserDoc = mail3PaneTabBrowser1Doc.getElementById("messageBrowser").contentDocument;
+						messagePaneBrowser = messageBrowserDoc.getElementById("messagepane")
+						if (dbgopts.indexOf("trace1") > -1) {
+							console.log("messenger window, messagePaneBrowser from under messageBrowser", messagePaneBrowser);
+						}
+					}
+
+				} else {
+				
 				try {
 					messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
 					if (dbgopts.indexOf("trace1") > -1) {
@@ -217,7 +237,7 @@ var printingtools = {
 						console.log("non messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
 					}
 				}
-
+			}
 				if (dbgopts.indexOf("trace1") > -1) {
 					console.log("messagePaneBrowser final", messagePaneBrowser);
 					console.log("messagePaneBrowser contentDoc", messagePaneBrowser.contentDocument);
