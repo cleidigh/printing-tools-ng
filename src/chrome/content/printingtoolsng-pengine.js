@@ -525,7 +525,14 @@ var printingtools = {
 		for (let msgURI of printingtools.msgUris) {
 			console.log(msgURI)
 			var MailService = MailServices.messageServiceFromURI(msgURI);
-			let msgHdr = top.messenger.msgHdrFromURI(msgURI);
+			var msgHdr;
+				try {
+					msgHdr = top.messenger.msgHdrFromURI(uri);
+				} catch (ex) {
+					printingtools.getHdr();
+					msgHdr = printingtools.hdr;
+				}
+
 			msgSubject = msgHdr.mime2DecodedSubject;
 
 			// update headers and footers for custom tokens
