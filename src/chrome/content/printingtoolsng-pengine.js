@@ -199,7 +199,7 @@ var printingtools = {
 
 		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave) {
 			if (dbgopts.indexOf("trace1") > -1) {
-
+			console.log("PTNG: Preview mode")
 			}
 
 			if (url !== "undefinedURL") {
