@@ -171,7 +171,12 @@ var printingtools = {
 				console.log("PTNG: Output directory (cfg): ", pdfOutputDir);
 			}
 			var autoPDFSave = false;
-			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && sel.rangeCount == 0) {
+			let isEML = false;
+			if (printingtools.msgUris[0].includes(".eml?")) {
+				isEML = true;
+			}
+
+			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && sel.rangeCount == 0 && !isEML) {
 				autoPDFSave = confirm(this.mainStrBundle.GetStringFromName("confirm_pdf_autosave"));
 				var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 				if (dbgopts.indexOf("pdfoutput") > -1) {
@@ -196,10 +201,9 @@ var printingtools = {
 		}
 
 
-
-		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave) {
+		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave)  {
 			if (dbgopts.indexOf("trace1") > -1) {
-			console.log("PTNG: Preview mode")
+				console.log("PTNG: Preview mode")
 			}
 
 			if (url !== "undefinedURL") {
@@ -225,19 +229,19 @@ var printingtools = {
 					}
 
 				} else {
-				
-				try {
-					messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
-					if (dbgopts.indexOf("trace1") > -1) {
-						console.log("non messenger window, messageBrowser from mpane", messagePaneBrowser);
-					}
-				} catch {
-					messagePaneBrowser = document.getElementById("messagepane");
-					if (dbgopts.indexOf("trace1") > -1) {
-						console.log("non messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
+
+					try {
+						messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
+						if (dbgopts.indexOf("trace1") > -1) {
+							console.log("non messenger window, messageBrowser from mpane", messagePaneBrowser);
+						}
+					} catch {
+						messagePaneBrowser = document.getElementById("messagepane");
+						if (dbgopts.indexOf("trace1") > -1) {
+							console.log("non messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
+						}
 					}
 				}
-			}
 				if (dbgopts.indexOf("trace1") > -1) {
 					console.log("messagePaneBrowser final", messagePaneBrowser);
 					console.log("messagePaneBrowser contentDoc", messagePaneBrowser.contentDocument);
@@ -415,6 +419,7 @@ var printingtools = {
 					msgHdr = printingtools.hdr;
 				}
 
+				console.log("hdr bef tokens", msgHdr)
 				printerSettings.setHdrFtrTokens(null, msgHdr);
 
 				if (selection.rangeCount > 1) {
@@ -455,6 +460,9 @@ var printingtools = {
 			return;
 		}
 
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: PDF mode")
+		}
 		if (printingtools.num < 1) {
 			return;
 		}
@@ -526,15 +534,18 @@ var printingtools = {
 			console.log(msgURI)
 			var MailService = MailServices.messageServiceFromURI(msgURI);
 			var msgHdr;
-				try {
-					msgHdr = top.messenger.msgHdrFromURI(uri);
-				} catch (ex) {
-					printingtools.getHdr();
-					msgHdr = printingtools.hdr;
-				}
+			try {
+				msgHdr = top.messenger.msgHdrFromURI(uri);
+			} catch (ex) {
+				printingtools.getHdr();
+				msgHdr = printingtools.hdr;
+			}
 
-			msgSubject = msgHdr.mime2DecodedSubject;
-
+			try {
+				msgSubject = msgHdr.mime2DecodedSubject;
+			} catch {
+				msgSubject = "subject"
+			}
 			// update headers and footers for custom tokens
 			ps = printerSettings.setHdrFtrTokens(ps, msgHdr);
 
@@ -1297,7 +1308,7 @@ var printingtools = {
 				dummy.dateReceived = secs;
 				printingtools.hdr = dummy;
 
-				console.log(str_message)
+				//console.log(str_message)
 				console.log(dummy)
 
 			}
