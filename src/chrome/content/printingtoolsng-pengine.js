@@ -201,7 +201,7 @@ var printingtools = {
 		}
 
 
-		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave)  {
+		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave) {
 			if (dbgopts.indexOf("trace1") > -1) {
 				console.log("PTNG: Preview mode")
 			}
@@ -332,7 +332,9 @@ var printingtools = {
 				Services.obs.addObserver(printSubdialogObs, "subdialog-loaded");
 
 				function restoreDoc() {
-					console.log("Restore document")
+					if (dbgopts.indexOf("trace1") > -1) {
+						console.log("PTNG: Restore document");
+					}
 					printingtools.restoreInlinePref();
 
 					if (printingtools.restoreWithInlineAttsPref && (selection.rangeCount == 1)) {
@@ -419,11 +421,9 @@ var printingtools = {
 					msgHdr = printingtools.hdr;
 				}
 
-				console.log("hdr bef tokens", msgHdr)
 				printerSettings.setHdrFtrTokens(null, msgHdr);
 
 				if (selection.rangeCount > 1) {
-					//console.log("print selection")
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
 				} else {
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
@@ -453,6 +453,7 @@ var printingtools = {
 
 				// set custom dr ftr tokens before preview
 				let msgHdr = top.messenger.msgHdrFromURI(uri);
+
 				printerSettings.setHdrFtrTokens(null, msgHdr);
 
 				top.PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext);
@@ -531,7 +532,6 @@ var printingtools = {
 		var currentPrinterName = this.prefs.getCharPref("print_printer");
 
 		for (let msgURI of printingtools.msgUris) {
-			console.log(msgURI)
 			var MailService = MailServices.messageServiceFromURI(msgURI);
 			var msgHdr;
 			try {
@@ -1298,6 +1298,13 @@ var printingtools = {
 					//console.log("ca date " + dateOrig)
 				}
 
+				try {
+					var messageId = str_message.split("\message-id:")[1].split("\n")[0];
+					messageId = messageId.replace(/<|>/g,"");
+				} catch {
+					messageId = "";
+				}
+
 				//console.log("fin date " + dateOrig)
 				dateOrig = dateOrig.replace(/ +$/, "");
 				dateOrig = dateOrig.replace(/^ +/, "");
@@ -1306,11 +1313,8 @@ var printingtools = {
 				dummy.date = secs * 1000 * 1000;
 				dummy.dateInSeconds = secs;
 				dummy.dateReceived = secs;
+				dummy.messageId = messageId;
 				printingtools.hdr = dummy;
-
-				//console.log(str_message)
-				console.log(dummy)
-
 			}
 			else {
 				printingtools.hdr = m.msgHdrFromURI(uris[printingtools.current]);
@@ -1694,7 +1698,6 @@ var printingtools = {
 				table3.style.color = "black";
 				table3.style.backgroundColor = backgroundColor;
 			}
-			//Services.console.logStringMessage("finish table layout");
 		}
 		printingtools.setTableLayout();
 
@@ -1706,7 +1709,13 @@ var printingtools = {
 			rowHdrDiv.innerText = "Message-ID:";
 			rowHdrDiv.style.wordBreak = "break-all";
 			let hdrVal = firstHdrRowClone.children[1];
-			let msgHdr = top.messenger.msgHdrFromURI(this.msgUris[this.current - 1]);
+			var msgHdr;
+			try {
+				msgHdr = top.messenger.msgHdrFromURI(uri);
+			} catch (ex) {
+				printingtools.getHdr();
+				msgHdr = printingtools.hdr;
+			}
 
 			hdrVal.innerText = msgHdr.messageId;
 			hdrVal.style.wordBreak = "break-all";
