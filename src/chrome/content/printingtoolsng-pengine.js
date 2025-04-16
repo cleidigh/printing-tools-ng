@@ -1717,6 +1717,8 @@ var printingtools = {
 				console.log("advopts2", advopts2);
 				advopts2 = "";
 			}
+		} else {
+			advopts2 = advopts;
 		}
 		console.log("advopts2", advopts2);
 
