@@ -22,7 +22,28 @@
 		</tr>
 	</table>
 
+	<h3 id="release_notes" style="padding-left: 4px;">Release Notes:</h3>
+	<p>
+		<b>Important Note:</b> As of the release of Thunderbird v136, Mozilla will be doing 
+		monthly releases. I may not be able to release PrintingTools NG every month.
+		Please check before you update Thunderbird to see if there is a compatible
+		PrintingTools NG update available.<br><br>
 
+		Christopher <br><br>
+
+
+		- New: Add the message date to any page header or footer with the new variable: <b>&MD</b> #277<br>
+		- New: Add the Message-ID to the end of the headers. #268, #283 Use:<br>
+		&nbsp;&nbsp;&nbsp;<b>addMessageIdToHdr</b><br>
+		&nbsp;&nbsp;&nbsp;in the Advanced options field<br>
+		- New: Filename token <b>${messageID}</b> for the Message-ID header #285<br>
+		- New: Set the header column width. Use:<br>
+		&nbsp;&nbsp;&nbsp;<b>hdrColWidth:<i>nnn</i></b><br>
+		&nbsp;&nbsp;&nbsp;in the Advanced options field, where <i>nnn</i> is in px<br>
+		- Fix the 100 selected message limit #272, #280<br>
+		
+		
+</p>
 
 	<br>
 	<h2 id="main_help">PrintingTools NG Overview</h2>
@@ -440,6 +461,10 @@
 			<td class="notranslate"><code>${date_custom}</code></td>
 			<td>The custom date format. See the custom date formatting section.</td>
 		</tr>
+		<tr>
+			<td class="notranslate"><code>${messageID}</code></td>
+			<td>The unique Message-ID of the email.</td>
+		</tr>
 
 	</table>
 
@@ -487,7 +512,8 @@
 		no headers or footers and save printing space, just make all fields blank.
 	</p>
 	<div class="indent1">
-		<li>&D = Date</li>
+		<li>&D = Print Date</li>
+		<li>&MD = Message Date</li>
 		<li>&P = Page Number</li>
 		<li>&PT = Page Number with Total (“3 of 5”)</li>
 		<li>&T = Page Title (Subject of the message)</li>
@@ -497,11 +523,17 @@
 	<h2 id="advanced_options_help">Advanced Options</h2>
 <p>
 	These are options that allow one to set printing items beyond the
-	basic UI settings. Currently the one advanced option is for controlling 
-	the edge margins for headers and footers.	The options are set in the Advanced options in the Misc tab
-	and are space separated.<br>
-	The format is :<br><br>
+	basic UI settings. 	The options are set in the Advanced options in the Misc tab
+	and are space separated tags.<br>
+	The option tags and formats are given below:<br><br>
 	
+	<b>Add the Message-ID to the end of headers tag:</b><br><br>
+	<b>&nbsp;&nbsp;addMessageIdToHdr</b><br><br>
+
+	<b>Set the column width for the headers tag:</b><br><br>
+	<b>&nbsp;&nbsp;hdrColWidth:<i>nnn</i> </b> Where <i>nnn</i> is the number of pixels<br><br>
+
+	<b>Header and footer edge margins:</b><br><br>
 	P:<i>printer-name</i>::S:<i>option-name</i>=<i>value</i><br><br>
 	
 	The printer name has the spaces replaced with underscores and 

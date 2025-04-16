@@ -18,6 +18,24 @@
         </td>
       </tr>
     </table>
+    <h3 id="release_notes" style="padding-left: 4px;">Notas de lanzamento:</h3>
+    <p>
+      <b>Nota importante:</b> a partir do lanzamento de Thunderbird v136, Mozilla realizará versións mensuais.
+      É posible que non poida lanzar PrintingTools NG todos os meses. Comproba antes de actualizar Thunderbird
+      para ver se hai unha actualización compatible de PrintingTools NG dispoñible.<br /><br />
+      Cristóbal<br /><br />
+      - Novo: engade a data da mensaxe a calquera cabeceira ou pé de páxina coa nova variable:
+      <b>&amp;MD</b> #277<br />
+      - Novo: engade o ID de mensaxe ao final das cabeceiras. #268, #283 Usar:<br />
+      <b>addMessageIdToHdr</b><br />
+      no campo Opcións avanzadas<br />
+      - Novo: token de nome de ficheiro <b>${messageID}</b> para a cabeceira Message-ID #285<br />
+      - Novo: define o ancho da columna da cabeceira. Uso:<br />
+      <b>hdrColWidth: <i>nnn</i></b
+      ><br />
+      no campo Opcións avanzadas, onde <i>nnn</i> está en px<br />
+      - Corrixe o límite de 100 mensaxes seleccionadas #272, #280<br />
+    </p>
     <br />
     <h2 id="main_help">PrintingTools NG Visión xeral</h2>
     <p>
@@ -115,7 +133,7 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>Localización en-US, día/mes longo</td>
+        <td>gl-US Localización, día/mes longo</td>
       </tr>
     </table>
     <br />
@@ -234,7 +252,7 @@
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            Ou &quot;AM&quot; ou &quot;PM&quot; segundo o valor de hora indicado. O mediodía trátase como
+            &quot;AM&quot; ou &quot;PM&quot; segundo o valor de hora indicado. O mediodía trátase como
             &quot;PM&quot; e a medianoite como &quot;AM&quot;.
           </td>
         </tr>
@@ -426,6 +444,10 @@
         <td class="notranslate"><code>${date_custom}</code></td>
         <td>O formato de data personalizado. Consulte a sección de formato de data personalizado.</td>
       </tr>
+      <tr>
+        <td class="notranslate"><code>${messageID}</code></td>
+        <td>O ID de mensaxe único do correo electrónico.</td>
+      </tr>
     </table>
     <br />
     <h2 id="print_options_help">Opcións de impresión e páxina</h2>
@@ -436,7 +458,7 @@
     </p>
     <p>
       As opcións de páxina permítenche configurar elementos cando se faga a vista previa ou a impresión. Estas
-      opcións son persistentes durante a impresión. Se as opcións definidas en PrintingTools NG se modifican
+      opcións son persistentes durante a impresión. Se se modifican as opcións definidas en PrintingTools NG
       na vista previa de impresión, non afectarán ás impresións posteriores. Algúns elementos non están
       dispoñibles para seren configurados no diálogo de vista previa, incluídos os encabezados e os pés de
       páxina. Outros elementos non se conservan na vista previa e normalmente deberían configurarse cada vez
@@ -469,7 +491,8 @@
       páxina e aforrar espazo de impresión, só tes que deixar todos os campos en branco.
     </p>
     <div class="indent1">
-      <li>&amp;D = Data</li>
+      <li>&amp;D = Data de impresión</li>
+      <li>&amp;MD = Data da mensaxe</li>
       <li>&amp;P = Número de páxina</li>
       <li>&amp;PT = Número de páxina con total (&quot;3 de 5&quot;)</li>
       <li>&amp;T = Título da páxina (Asunto da mensaxe)</li>
@@ -478,9 +501,14 @@
     <h2 id="advanced_options_help">Opcións avanzadas</h2>
     <p>
       Estas son opcións que permiten establecer elementos de impresión máis aló da configuración básica da IU.
-      Actualmente, a única opción avanzada é para controlar as marxes dos encabezados e pés de páxina. As
-      opcións están definidas nas Opcións avanzadas da pestana Varios e están separadas por espazos.<br />
-      O formato é:<br /><br />
+      As opcións están definidas nas Opcións avanzadas da pestana Varios e son etiquetas separadas por
+      espazos.<br />
+      As etiquetas e os formatos das opcións indícanse a continuación:<br /><br />
+      <b>Engade o ID de mensaxe ao final da etiqueta de cabeceiras:</b><br /><br />
+      <b>addMessageIdToHdr</b><br /><br />
+      <b>Establece o ancho da columna para a etiqueta de cabeceiras:</b><br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> Onde <i>nnn</i> é o número de píxeles<br /><br />
+      <b>Marxes de cabeceira e pé de páxina:</b><br /><br />
       P: <i>nome-impresora</i> ::S: <i>nome-opción</i> = <i>valor</i><br /><br />
       O nome da impresora ten os espazos substituídos por guións baixos e o elemento Gardar en PDF integrado é
       Mozilla_Save_to_PDF<br /><br />
@@ -496,7 +524,7 @@
       introduza o seguinte:<br /><br />
       P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
     </p>
-    <h2>Apoiar</h2>
+    <h2>Apoio</h2>
     <p>
       Publica problemas ou solicitudes de funcións no repositorio de extensións de GitHub:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a

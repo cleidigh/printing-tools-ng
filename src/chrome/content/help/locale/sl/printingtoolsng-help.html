@@ -18,6 +18,24 @@
         </td>
       </tr>
     </table>
+    <h3 id="release_notes" style="padding-left: 4px;">Opombe ob izdaji:</h3>
+    <p>
+      <b>Pomembna opomba:</b> od izdaje Thunderbird v136 bo Mozilla izdajala mesečne izdaje. Morda ne bom
+      mogel izdati PrintingTools NG vsak mesec. Preden posodobite Thunderbird, preverite, ali je na voljo
+      združljiva posodobitev PrintingTools NG.<br /><br />
+      Christopher<br /><br />
+      - Novo: dodajte datum sporočila v katero koli glavo ali nogo strani z novo spremenljivko:
+      <b>&amp;MD</b> #277<br />
+      - Novo: dodajte ID sporočila na konec glav. #268, #283 Uporaba:<br />
+      <b>addMessageIdToHdr</b><br />
+      v polju Napredne možnosti<br />
+      - Novo: žeton imena datoteke <b>${messageID}</b> za glavo ID-ja sporočila #285<br />
+      - Novo: nastavite širino stolpca glave. Uporaba:<br />
+      <b>hdrColWidth: <i>nnn</i></b
+      ><br />
+      v polju Napredne možnosti, kjer je <i>nnn</i> v px<br />
+      - Popravite omejitev 100 izbranih sporočil #272, #280<br />
+    </p>
     <br />
     <h2 id="main_help">Pregled PrintingTools NG</h2>
     <p>
@@ -333,7 +351,7 @@
       <li>
         <code class="code1">%r</code> - ni implementirano (uporabi <code class="code1">%I:%M:%S %p</code> )
       </li>
-      <li><code class="code1">%R</code> - ni implementirano (uporabi <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%R</code> - ni implementirano (uporabite <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - ni implementirano (uporabite <code class="code1">\t</code> )</li>
       <li>
         <code class="code1">%T</code> - ni implementirano (uporabite <code class="code1">%H:%M:%S</code> )
@@ -346,7 +364,7 @@
     <br />
     <h2 id="pdf_output_help">Izpis PDF in samodejno poimenovanje datotek</h2>
     <p>
-      Izhod PDF je zdaj mogoče samodejno poimenovati s sistemom žetonov in shraniti v vnaprej določen izhodni
+      Izpis PDF je zdaj mogoče samodejno poimenovati s sistemom žetonov in shraniti v vnaprej določen izhodni
       imenik PDF. To je še posebej uporabno pri tiskanju več izbranih e-poštnih sporočil, saj ni treba izbrati
       imena in lokacije za vsako e-poštno sporočilo.
     </p>
@@ -425,6 +443,10 @@
         <td class="notranslate"><code>${date_custom}</code></td>
         <td>Oblika datuma po meri. Oglejte si razdelek o oblikovanju datuma po meri.</td>
       </tr>
+      <tr>
+        <td class="notranslate"><code>${messageID}</code></td>
+        <td>Enolični ID sporočila e-pošte.</td>
+      </tr>
     </table>
     <br />
     <h2 id="print_options_help">Možnosti tiskanja in strani</h2>
@@ -465,7 +487,8 @@
       prostor za tiskanje, preprosto izpraznite vsa polja.
     </p>
     <div class="indent1">
-      <li>&amp;D = Datum</li>
+      <li>&amp;D = Natisni datum</li>
+      <li>&amp;MD = Datum sporočila</li>
       <li>&amp;P = številka strani</li>
       <li>&amp;PT = Številka strani s skupno (»3 od 5«)</li>
       <li>&amp;T = Naslov strani (Zadeva sporočila)</li>
@@ -474,9 +497,14 @@
     <h2 id="advanced_options_help">Napredne možnosti</h2>
     <p>
       To so možnosti, ki omogočajo nastavitev elementov za tiskanje zunaj osnovnih nastavitev uporabniškega
-      vmesnika. Trenutno je ena napredna možnost za nadzor robov za glave in noge. Možnosti so nastavljene v
-      Naprednih možnostih na zavihku Razno in so ločene s presledkom.<br />
-      Format je:<br /><br />
+      vmesnika. Možnosti so nastavljene v Naprednih možnostih na zavihku Razno in so oznake, ločene s
+      presledki.<br />
+      Oznake možnosti in formati so podani spodaj:<br /><br />
+      <b>Dodajte ID sporočila na konec oznake glave:</b><br /><br />
+      <b>addMessageIdToHdr</b><br /><br />
+      <b>Nastavite širino stolpca za oznako glave:</b><br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> Kjer je <i>nnn</i> število slikovnih pik<br /><br />
+      <b>Robovi glave in noge:</b><br /><br />
       P: <i>ime-tiskalnika</i> ::S: <i>ime-možnosti</i> = <i>vrednost</i><br /><br />
       V imenu tiskalnika so presledki zamenjani s podčrtaji, vgrajena funkcija za shranjevanje v PDF pa je
       Mozilla_Save_to_PDF<br /><br />
@@ -496,7 +524,7 @@
       Objavite težave ali zahteve po funkcijah v repozitoriju razširitev GitHub:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">Težave PrintingTools NG</a
       ><br /><br />
-      V težave z napakami vključite naslednje informacije, ki vam bodo pomagale rešiti težave:<br />
+      Pri težavah z napakami vključite naslednje informacije, da boste lažje rešili težave:<br />
       - Različica PrintingTools NG<br />
       - Različica Thunderbird<br />
       - Operacijski sistem in različica<br />

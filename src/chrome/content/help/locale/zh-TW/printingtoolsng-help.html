@@ -18,6 +18,17 @@
         </td>
       </tr>
     </table>
+    <h3 id="release_notes" style="padding-left: 4px;">发行说明：</h3>
+    <p>
+      <b>重要提示：</b>自 Thunderbird v136 发布以来，Mozilla 将每月发布一次。我可能无法每月发布 PrintingTools
+      NG。请在更新 Thunderbird 之前检查是否有兼容的 PrintingTools NG 更新可用。<br /><br />克里斯托弗<br /><br />-
+      新功能：使用新变量将消息日期添加到任何页眉或页脚： <b>&amp;MD</b> #277<br />
+      - 新增：将消息 ID 添加到标题末尾。#268、#283 使用：<br /><b>添加到消息ID到Hdr</b
+      ><br />在高级选项字段<br />- 新增：文件名标记<b>${messageID}</b>用于 Message-ID 标头 #285<br />
+      - 新增：设置标题列宽度。使用：<br />
+      <b>hdrColWidth: <i>nnn</i></b
+      ><br />在高级选项字段中，其中<i>nnn</i>以 px 为单位<br />- 修复选定消息限制为 100 条 #272, #280<br />
+    </p>
     <br />
     <h2 id="main_help">PrintingTools NG 概述</h2>
     <p>
@@ -138,7 +149,7 @@
         </tr>
         <tr>
           <td><code class="code1">%b</code></td>
-          <td>月份名称的缩写。</td>
+          <td>缩写的月份名称。</td>
         </tr>
         <tr>
           <td><code class="code1">%B</code></td>
@@ -242,7 +253,7 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            ISO 8601 当前年份的周数，以十进制数表示（范围为 01 到 53），其中第 1 周是新年中至少有 4
+            ISO 8601 当前年份的周数，以十进制数表示（范围为 01 至 53），其中第 1 周是新年中至少有 4
             天的第一个周（即第一个星期四）。
           </td>
         </tr>
@@ -283,11 +294,11 @@
         </tr>
         <tr>
           <td><code class="code1">%0</code></td>
-          <td>年份文字。已本地化，主要针对亚洲地区。（zh-CN：年，ko：년）</td>
+          <td>年字面意思。本地化，主要针对亚洲地区。 (zh-CN: 年, ko: 년)</td>
         </tr>
         <tr>
           <td><code class="code1">%1</code></td>
-          <td>月份文字。已本地化，主要针对亚洲地区。（中文：月，韩文：월）</td>
+          <td>月份字面意思。本地化，主要针对亚洲地区。 (zh-TW: 月, ko: 월)</td>
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
@@ -334,13 +345,13 @@
     <p>启用 PDF 输出目录并选择保存位置的目录。输出文件名将遵循配置的文件名格式。</p>
     <p />
     <p>
-      文件名格式由标记和任何静态字符（如分隔符或空格）组成。扩展文件名格式使用标记。可以使用标记以及任何文本或有效的文件名字符构造准确的文件名。无效字符为：
+      文件名格式由标记和任何静态字符（如分隔符或空格）组成。扩展文件名格式使用标记。可以使用标记以及任何文本或有效的文件名字符构造准确的文件名。无效字符包括：
       <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
     <p>默认名称格式为：${subject}，即电子邮件的主题。</p>
     <p />
-    <p>例子</p>
+    <p>示例</p>
     <p>
       <span class="notranslate"><code>${subject}</code></span> - 默认格式，电子邮件的主题<br /><span
         class="notranslate"
@@ -401,6 +412,10 @@
         <td class="notranslate"><code>${date_custom}</code></td>
         <td>自定义日期格式。请参阅自定义日期格式部分。</td>
       </tr>
+      <tr>
+        <td class="notranslate"><code>${messageID}</code></td>
+        <td>电子邮件的唯一消息 ID。</td>
+      </tr>
     </table>
     <br />
     <h2 id="print_options_help">打印和页面选项</h2>
@@ -408,8 +423,8 @@
       这些选项允许您设置默认打印机以及每个打印机页面选项。还可以设置静音模式，其中不显示预览对话框并立即进行打印。
     </p>
     <p>
-      页面选项允许您在预览或打印完成后设置项目。这些选项在打印过程中保持不变。如果在 PrintingTools NG
-      中设置的选项在打印预览中发生更改，则不会影响后续打印。有些项目无法在预览对话框中设置，其中包括页眉和页脚。其他项目不会保留在预览中，通常必须在每次打印完成后进行设置。PrintingTools
+      页面选项允许您在预览或打印完成时设置项目。这些选项在打印过程中保持不变。如果在 PrintingTools NG
+      中设置的选项在打印预览中发生更改，则不会影响后续打印。有些项目无法在预览对话框中设置，其中包括页眉和页脚。其他项目不会保留在预览中，通常必须在每次打印完成时进行设置。PrintingTools
       NG 解决了这两个问题。
     </p>
     <p>
@@ -432,16 +447,21 @@
       页眉和页脚可以设置为包含下面列出的各种消息变量。此外，还可以包含任意文本。要不打印页眉或页脚并节省打印空间，只需将所有字段留空即可。
     </p>
     <div class="indent1">
-      <li>&amp;D = 日期</li>
+      <li>&amp;D = 打印日期</li>
+      <li>&amp;MD = 消息日期</li>
       <li>&amp;P = 页码</li>
       <li>&amp;PT = 带总页码（“3/5”）</li>
       <li>&amp;T = 页面标题（消息主题）</li>
-      <li>&amp;U = URL（消息的 URL）</li>
+      <li>&amp;U = URL（邮件的 URL）</li>
     </div>
     <h2 id="advanced_options_help">高级选项</h2>
     <p>
-      这些选项允许设置基本 UI
-      设置以外的打印项目。目前，一个高级选项用于控制页眉和页脚的边缘边距。这些选项在“杂项”选项卡中的“高级选项”中设置，并以空格分隔。<br />格式为：<br /><br />
+      这些选项允许设置基本 UI 设置以外的打印项目。这些选项在 Misc 选项卡中的 Advanced
+      选项中设置，并以空格分隔标签。<br />选项标签和格式如下：<br /><br /><b
+        >将 Message-ID 添加到 headers 标签的末尾：</b
+      ><br /><br /><b>添加到消息ID到Hdr</b><br /><br /><b>设置标题标签的列宽：</b><br /><br />
+      <b>hdrColWidth: <i>nnn</i></b
+      >其中<i>nnn</i>是像素数<br /><br /><b>页眉和页脚边缘边距：</b><br /><br />
       P:<i>打印机名称</i>::S:<i>选项名称</i>=<i>值</i
       ><br /><br />打印机名称中的空格被下划线替换，内置的“保存为 PDF”为 Mozilla_Save_to_PDF<br /><br />另一个示例：Microsoft_Print_to_PDF<br /><br />当前的选项名称可能性为：<br />
       <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
@@ -462,7 +482,7 @@
       - 导致问题的步骤描述<br />
     </p>
     <h2 id="debug_options_help">调试选项</h2>
-    <p>调试选项是一组以空格分隔的关键字列表。这些选项通常用于控制台调试输出，但也可用于测试或不同的模式。</p>
+    <p>调试选项是一组以空格分隔的关键字列表。这些选项通常用于控制台调试输出，但也可用于测试或不同模式。</p>
     <div class="indent1">
       <li><code class="notranslate">initialsource</code>在 PTNG 进行任何格式化之前显示消息源</li>
       <li><code class="notranslate">finaloutput</code>显示最终的消息输出</li>
@@ -476,7 +496,7 @@
     <h2>致谢</h2>
     <div class="indent1">
       <li>PrintingTools NG 基于 Paolo“Kosmos”的原始扩展</li>
-      <li>Jonny Strömberg 的 List.js https://listjs.com</li>
+      <li>List.js，作者：Jonny Strömberg https://listjs.com</li>
       <li>Latinize.js 作者：Jakub Dundalek https://github.com/dundalek/latinize</li>
     </div>
     <p>

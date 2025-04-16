@@ -18,6 +18,24 @@
         </td>
       </tr>
     </table>
+    <h3 id="release_notes" style="padding-left: 4px;">Notes de llançament:</h3>
+    <p>
+      <b>Nota important:</b> a partir del llançament de Thunderbird v136, Mozilla farà llançaments mensuals.
+      És possible que no pugui llançar PrintingTools NG cada mes. Comproveu abans d&#39;actualitzar el
+      Thunderbird per veure si hi ha una actualització compatible de PrintingTools NG disponible.<br /><br />
+      Cristòfor<br /><br />
+      - Nou: afegiu la data del missatge a qualsevol capçalera o peu de pàgina amb la nova variable:
+      <b>&amp;MD</b> #277<br />
+      - Nou: afegiu l&#39;ID de missatge al final de les capçaleres. #268, #283 Ús:<br />
+      <b>addMessageIdToHdr</b><br />
+      al camp Opcions avançades<br />
+      - Nou: testimoni de nom de fitxer <b>${messageID}</b> per a la capçalera Message-ID #285<br />
+      - Nou: estableix l&#39;amplada de la columna de la capçalera. Ús:<br />
+      <b>hdrColWidth: <i>nnn</i></b
+      ><br />
+      al camp Opcions avançades, on <i>nnn</i> és en px<br />
+      - Corregiu el límit de 100 missatges seleccionats #272, #280<br />
+    </p>
     <br />
     <h2 id="main_help">Visió general de PrintingTools NG</h2>
     <p>
@@ -190,8 +208,8 @@
         <tr>
           <td><code class="code1">%H</code></td>
           <td>
-            Hora com a nombre decimal utilitzant un rellotge de 24 hores (interval de 00 a 23). Vegeu també
-            <code class="code1">%k</code> .
+            L&#39;hora com a nombre decimal utilitzant un rellotge de 24 hores (interval de 00 a 23). Vegeu
+            també <code class="code1">%k</code> .
           </td>
         </tr>
         <tr>
@@ -324,7 +342,7 @@
         <code class="code1">%D</code> - no implementat (utilitza <code class="code1">%m/%d/%y</code> o
         <code class="code1">%d/%m/%y</code> )
       </li>
-      <li><code class="code1">%e</code> - l&#39;espai no s&#39;afegeix</li>
+      <li><code class="code1">%e</code> - l&#39;espai no s&#39;ha afegit</li>
       <li><code class="code1">%E</code> - no implementat</li>
       <li><code class="code1">%h</code> - no implementat (utilitza <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - l&#39;espai no s&#39;afegeix</li>
@@ -430,6 +448,10 @@
         <td class="notranslate"><code>${date_custom}</code></td>
         <td>El format de data personalitzat. Consulteu la secció de format de data personalitzat.</td>
       </tr>
+      <tr>
+        <td class="notranslate"><code>${messageID}</code></td>
+        <td>L&#39;identificador de missatge únic del correu electrònic.</td>
+      </tr>
     </table>
     <br />
     <h2 id="print_options_help">Opcions d&#39;impressió i pàgina</h2>
@@ -474,7 +496,8 @@
       ni peu de pàgina i estalviar espai d&#39;impressió, només cal deixar tots els camps en blanc.
     </p>
     <div class="indent1">
-      <li>&amp;D = Data</li>
+      <li>&amp;D = Data d&#39;impressió</li>
+      <li>&amp;MD = Data del missatge</li>
       <li>&amp;P = Número de pàgina</li>
       <li>&amp;PT = Número de pàgina amb total (&quot;3 de 5&quot;)</li>
       <li>&amp;T = Títol de la pàgina (Assumpte del missatge)</li>
@@ -483,10 +506,14 @@
     <h2 id="advanced_options_help">Opcions avançades</h2>
     <p>
       Aquestes són opcions que permeten establir elements d&#39;impressió més enllà de la configuració bàsica
-      de la interfície d&#39;usuari. Actualment, l&#39;única opció avançada és per controlar els marges de les
-      vores de les capçaleres i peus de pàgina. Les opcions s&#39;estableixen a les Opcions avançades de la
-      pestanya Diversos i estan separades per espais.<br />
-      El format és:<br /><br />
+      de la interfície d&#39;usuari. Les opcions es defineixen a les Opcions avançades de la pestanya Diversos
+      i són etiquetes separades per espais.<br />
+      Les etiquetes i els formats d&#39;opcions es donen a continuació:<br /><br />
+      <b>Afegiu l&#39;ID de missatge al final de l&#39;etiqueta de capçaleres:</b><br /><br />
+      <b>addMessageIdToHdr</b><br /><br />
+      <b>Estableix l&#39;amplada de columna per a l&#39;etiqueta de capçaleres:</b><br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> On <i>nnn</i> és el nombre de píxels<br /><br />
+      <b>Marges de la capçalera i del peu de pàgina:</b><br /><br />
       P: <i>nom-impressora</i> ::S: <i>nom-opció</i> = <i>valor</i><br /><br />
       El nom de la impressora té els espais substituïts per guions baixos i l&#39;element Desa a PDF integrat
       és Mozilla_Save_to_PDF<br /><br />
@@ -504,7 +531,7 @@
     </p>
     <h2>Suport</h2>
     <p>
-      Si us plau, publiqueu problemes o sol·licituds de funcions al repositori d&#39;extensions de GitHub:
+      Si us plau, publiqueu problemes o sol·licituds de funcions al repositori de GitHub d&#39;extensions:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
       ><br /><br />
       En problemes d&#39;error, incloeu la informació següent per ajudar a resoldre els problemes:<br />

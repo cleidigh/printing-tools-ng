@@ -99,18 +99,29 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			let currentWin = windows.find(fw => fw.focused)
 			let currentTab = currentWin.tabs.find(t => t.active);
 
+			var msgListPage = null;
 			var msgList = [];
 			if (currentTab.mailTab) {
 
 				try {
-					msgList = await browser.mailTabs.getSelectedMessages();
+					do {
+						if (!msgListPage) {
+							msgListPage = await messenger.mailTabs.getSelectedMessages();
+							msgList = msgListPage.messages.map(msgHdr => msgHdr.id);
+						} else {
+							msgListPage = await messenger.messages.continueList(msgListPage.id);
+							msgList = msgList.concat(msgListPage.messages.map(msgHdr => msgHdr.id));
+						}
+
+					} while (msgListPage.id);
+
 				} catch {
 					msgList = null;
 				}
 				return msgList;
 			} else if (currentTab.type == "messageDisplay") {
 				let msgDisplayed = await browser.messageDisplay.getDisplayedMessage(currentTab.id);
-				msgList = { id: null, messages: [msgDisplayed] };
+				msgList = [msgDisplayed.id];
 				return msgList;
 			}
 		case "getFullMessage":
@@ -154,12 +165,12 @@ async function openHelp(info) {
 			await browser.windows.create({ url: `chrome/content/help/locale/${locale}/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
 		}
 	} catch (ex) {
-			if (info.opentype == "tab") {
-				await browser.tabs.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1 })
-			} else {
-				await browser.windows.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
-			}
+		if (info.opentype == "tab") {
+			await browser.tabs.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, index: 1 })
+		} else {
+			await browser.windows.create({ url: `chrome/content/help/locale/en-US/printingtoolsng-help.html${bm}`, type: "panel", width: 1180, height: 520 })
 		}
+	}
 }
 
 async function getFullMessage(messageId) {

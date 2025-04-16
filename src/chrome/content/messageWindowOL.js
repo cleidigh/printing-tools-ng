@@ -1,10 +1,8 @@
-var Services = globalThis.Services ||
-  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
 
 // Import any needed modules.
 var ADDON_ID = "PrintingToolsNG@cleidigh.kokkini.net";
 
-var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
+var { ExtensionParent } = ChromeUtils.importESModule("resource://gre/modules/ExtensionParent.sys.mjs");
 
 // Get our extension object.
 let extension2 = ExtensionParent.GlobalManager.getExtension(ADDON_ID);
@@ -53,7 +51,7 @@ WL.injectElements(`
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 	WL.injectElements(`
-<toolbarpalette id="MailToolbarPalette">
+<toolbar id="mail-bar3">
 	<toolbarbutton id="ptng-button"
 	  label="&print.label; NG"
 	  tooltiptext="&ptng.label;"    
@@ -70,7 +68,7 @@ WL.injectElements(`
 		  <menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/> 
 		  </menupopup>
 	  </toolbarbutton>
-</toolbarpalette>
+</toolbar>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 

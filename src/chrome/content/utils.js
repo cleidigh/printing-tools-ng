@@ -10,8 +10,7 @@ latinizeString,
 
 */
 
-var Services = globalThis.Services ||
-  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
+var { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs");
 
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/modules/latinize.js");
 
@@ -59,10 +58,10 @@ var utils = {
     var rawDateInSeconds = msgHdr.dateInSeconds;
     var rawRecipients = msgHdr.mime2DecodedRecipients;
     var rawKey = msgHdr.messagekey;
-    var rawMsgFlags = msgHdr.Flags;
+    var rawMsgFlags = msgHdr.flags;
     var rawFolder = msgHdr.folder;
     var rawFolderFlags = msgHdr.folder.flags;
-
+    var rawMessageID = msgHdr.messageId;
     var fileName;
 
     // set processed components
@@ -72,7 +71,7 @@ var utils = {
     if (rawSubject) {
       subject = rawSubject;
       if (rawMsgFlags & 0x0010) {
-        subject = "Re_" + subject;
+        subject = "Re_ " + subject;
       }
     } else {
       subject = "NOSUBJECT";
@@ -119,8 +118,8 @@ var utils = {
     }
 
     // Dates
-    var std8601Date = st.strftime.strftime("%y%m%d", new Date(rawDateInSeconds * 1000));
-    var customDate = st.strftime.strftime(customDateFormat, new Date(rawDateInSeconds * 1000));
+    var std8601Date = strftime.strftime("%y%m%d", new Date(rawDateInSeconds * 1000));
+    var customDate = strftime.strftime(customDateFormat, new Date(rawDateInSeconds * 1000));
 
     // SmartName for Sent or Drafts folder
     var isSentFolder = rawFolderFlags & 0x0200 || rawFolderFlags & 0x0400;
@@ -147,6 +146,7 @@ var utils = {
     fileName = fileName.replace("${suffix}", suffix);
     fileName = fileName.replace("${date_custom}", customDate);
     fileName = fileName.replace("${date}", std8601Date);
+    fileName = fileName.replace("${messageID}", rawMessageID);
 
     // User defined character filter
     if (filterCharacters !== "") {

@@ -1,14 +1,14 @@
 {
     "manifest_version": 2,
     "name": "PrintingTools NG",
-    "version": "3.1.0",
+    "version": "3.1.1",
     "description": "__MSG_extensionDescription__",
     "author": "Christopher Leidigh",
     "applications": {
         "gecko": {
             "id": "PrintingToolsNG@cleidigh.kokkini.net",
             "strict_min_version": "115.0",
-            "strict_max_version": "128.*"
+            "strict_max_version": "138.*"
         }
     },
     "browser_action": {
@@ -34,15 +34,7 @@
               "script": "api/NotifyTools/implementation.js",
               "events": ["startup"]
             }
-          },
-        "notificationbar": {
-          "schema": "api/notificationbar/schema.json",
-          "parent": {
-            "scopes": ["addon_parent"],
-            "paths": [["notificationbar"]],
-            "script": "api/notificationbar/implementation.js"
           }
-      }
     },
     "permissions" : [
       "activeTab",

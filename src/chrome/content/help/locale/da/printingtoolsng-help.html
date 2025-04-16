@@ -18,6 +18,24 @@
         </td>
       </tr>
     </table>
+    <h3 id="release_notes" style="padding-left: 4px;">Udgivelsesbemærkninger:</h3>
+    <p>
+      <b>Vigtig bemærkning:</b> Fra og med udgivelsen af Thunderbird v136 vil Mozilla lave månedlige
+      udgivelser. Jeg kan muligvis ikke frigive PrintingTools NG hver måned. Tjek venligst, før du opdaterer
+      Thunderbird, for at se, om der er en kompatibel PrintingTools NG-opdatering tilgængelig.<br /><br />
+      Christopher<br /><br />
+      - Ny: Tilføj meddelelsesdatoen til enhver sidehoved eller sidefod med den nye variabel:
+      <b>&amp;MD</b> #277<br />
+      - Nyt: Tilføj meddelelses-id&#39;et til slutningen af overskrifterne. #268, #283 Brug:<br />
+      <b>addMessageIdToHdr</b><br />
+      i feltet Avancerede indstillinger<br />
+      - Nyt: Filnavnstoken <b>${messageID}</b> for Message-ID header #285<br />
+      - Ny: Indstil overskriftskolonnens bredde. Bruge:<br />
+      <b>hdrColWidth: <i>nnn</i></b
+      ><br />
+      i feltet Avancerede indstillinger, hvor <i>nnn</i> er i px<br />
+      - Ret grænsen på 100 valgte beskeder #272, #280<br />
+    </p>
     <br />
     <h2 id="main_help">PrintingTools NG Oversigt</h2>
     <p>
@@ -36,7 +54,7 @@
     <br />
     <p>Følg disse trin for at placere knappen på værktøjslinjen for posthoved:</p>
     <div class="indent1">
-      <li>Klik på knappen Mere på værktøjslinjen i e-mailoverskriften</li>
+      <li>Klik på knappen Mere på værktøjslinjen for posthoved</li>
       <li>Vælg Brugerdefineret... Dette åbner vinduet Tilpas værktøjslinje</li>
       <li>Find knappen Udskriv NG</li>
       <li>Træk og slip knappen til den ønskede placering</li>
@@ -78,7 +96,7 @@
         <tr>
           <td>Dato streng</td>
           <td>Resultat</td>
-          <td>Bemærk</td>
+          <td>Note</td>
         </tr>
       </thead>
       <tr>
@@ -287,8 +305,8 @@
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            Den numeriske tidszone <code class="code1">+hhmm</code> eller
-            <code class="code1">-hhmm</code> (det vil sige time- og minutforskydningen fra UTC).
+            Den <code class="code1">+hhmm</code> eller <code class="code1">-hhmm</code> numeriske tidszone
+            (det vil sige time- og minutforskydningen fra UTC).
           </td>
         </tr>
         <tr>
@@ -313,7 +331,7 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Dag bogstaveligt. Lokaliseret, primært til asiatiske steder. (ja: 日, ko: 일)</td>
+          <td>Dag bogstaveligt. Lokaliseret, hovedsageligt til asiatiske lokaliteter. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
@@ -358,7 +376,7 @@
     </p>
     <p />
     <p>
-      Filnavnsformatet består af tokens og eventuelle statiske tegn såsom separatorer eller mellemrum. Den
+      Filnavneformatet består af tokens og eventuelle statiske tegn såsom separatorer eller blanktegn. Den
       udvidede filnavnsformatering bruger tokens. Det nøjagtige filnavn kan konstrueres ved hjælp af tokens
       såvel som enhver tekst eller gyldige filnavnstegn. Ugyldige tegn er:
       <code>| * : &lt; &gt; ? \ / &quot;</code>
@@ -377,7 +395,7 @@
     <p>Tabellen nedenfor beskriver det fulde sæt af tokens, der kan bruges i filnavnsformatet.</p>
     <table class="token-table">
       <tr>
-        <td>Polet</td>
+        <td>Token</td>
         <td>Beskrivelse</td>
       </tr>
       <tr>
@@ -424,6 +442,10 @@
         <td class="notranslate"><code>${date_custom}</code></td>
         <td>Det brugerdefinerede datoformat. Se afsnittet om tilpasset datoformatering.</td>
       </tr>
+      <tr>
+        <td class="notranslate"><code>${messageID}</code></td>
+        <td>E-mailens unikke meddelelses-id.</td>
+      </tr>
     </table>
     <br />
     <h2 id="print_options_help">Udskrifts- og sideindstillinger</h2>
@@ -467,7 +489,8 @@
       sidefødder og spare udskrivningsplads skal du blot gøre alle felter tomme.
     </p>
     <div class="indent1">
-      <li>&amp;D = Dato</li>
+      <li>&amp;D = Udskriftsdato</li>
+      <li>&amp;MD = Meddelelsesdato</li>
       <li>&amp;P = Sidenummer</li>
       <li>&amp;PT = Sidetal med i alt (&quot;3 af 5&quot;)</li>
       <li>&amp;T = Sidetitel (emne for meddelelsen)</li>
@@ -476,10 +499,14 @@
     <h2 id="advanced_options_help">Avancerede indstillinger</h2>
     <p>
       Disse er muligheder, der gør det muligt at indstille udskrivningselementer ud over de grundlæggende
-      UI-indstillinger. I øjeblikket er den ene avancerede mulighed for at kontrollere kantmargener for
-      sidehoveder og sidefødder. Indstillingerne er angivet i Avancerede indstillinger på fanen Diverse og er
-      mellemrumsadskilt.<br />
-      Formatet er:<br /><br />
+      UI-indstillinger. Indstillingerne er angivet i de Avancerede indstillinger på fanen Diverse og er
+      mellemrumsadskilte tags.<br />
+      Indstillingstags og formater er angivet nedenfor:<br /><br />
+      <b>Tilføj meddelelses-id&#39;et til slutningen af header-tagget:</b><br /><br />
+      <b>addMessageIdToHdr</b><br /><br />
+      <b>Indstil kolonnebredden for header-tagget:</b><br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> Hvor <i>nnn</i> er antallet af pixels<br /><br />
+      <b>Sidehoved og sidefods kantmargener:</b><br /><br />
       P: <i>printernavn</i> ::S: <i>valgmulighedsnavn</i> = <i>værdi</i><br /><br />
       Printernavnet har mellemrummene erstattet med understregninger, og den indbyggede Gem til PDF er
       Mozilla_Save_to_PDF<br /><br />
@@ -495,7 +522,7 @@
       du indtaste følgende:<br /><br />
       P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
     </p>
-    <h2>Support</h2>
+    <h2>Støtte</h2>
     <p>
       Send venligst problemer eller funktionsanmodninger i udvidelserne GitHub-lageret:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a

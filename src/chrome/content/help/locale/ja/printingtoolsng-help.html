@@ -11,15 +11,31 @@
       <tr>
         <td style="vertical-align: top;">
           <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG ヘルプ</div>
-          <div id="extVersion" style="padding-left: 4px;">v3.0.0</div>
+          <div id="extVersion" style="padding-left: 4px;">v3.1.1</div>
         </td>
         <td style="text-align: right; padding-right: 35px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <br>
 
+    <h3 id="release_notes" style="padding-left: 4px;">リリースノート:</h3>
+    <p>
+    <b>重要事項:</b> Thunderbird v136のリリースから Mozilla は毎月リリースすることになりました。
+    毎月 PrintingTools NG をリリースできないかもしれません。Thunderbird をアップデートする前に互換性のある 
+    PrintingTools NG のアップデートがあるかどうかご確認ください。<br><br>
+
+    Christopher <br><br>
+
+    - 新規： 新しい変数 <b>&MD</b> を使ってメッセージの日時をページのヘッダーやフッターに追加できるようにしました。 #277<br>
+    - 新規: ヘッダーの最後に Message-ID を追加できるようにしました。 #268, #283<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;高度なオプション欄で <b>addMessageIdToHdr</b> を使用してください。<br>
+    - 新規: Message-ID 用にファイル名トークンの <b>${messageID}</b> を追加しました。 #285<br>
+    - 新規: ヘッダーの列幅を設定します。高度なオプション欄で <b>hdrColWidth:nnn</b> を使用してください。（nnn はピクセル単位です）<br>
+    - 修正: 選択されたメッセージの100件の印刷制限を修正しました。 #272, #280<br>
+    </p>
+
+    <br>
     <h2 id="main_help">PrintingTools NG 概要</h2>
     <p>
       PrintingTools NG はメッセージ印刷で多くのカスタマイズを提供します。
@@ -430,6 +446,10 @@
         <td class="notranslate"><code>${date_custom}</code></td>
         <td>カスタムの日時形式。カスタム日時形式の項目を参照。</td>
       </tr>
+      <tr>
+        <td class="notranslate"><code>${messageID}</code></td>
+        <td>メッセージ固有の Message-ID。</td>
+       </tr>
     </table>
     <br><br><!-- add by @kiki-ja -->
 
@@ -468,11 +488,12 @@
       ヘッダーやフッターを印刷せずに印刷スペースを節約するときはすべてのフィールドを空白にします。
     </p>
     <div class="indent1">
-      <li>&amp;D = 日時</li>
-      <li>&amp;P = ページ番号</li>
-      <li>&amp;PT = ページ番号 / 総ページ数 (3/5)</li>
-      <li>&amp;T = タイトル (メッセージの件名)</li>
-      <li>&amp;U = URL (メッセージの URL)</li>
+      <li>&D = 印刷日時</li>
+      <li>&MD = メッセージ日時</li>
+      <li>&P = ページ番号</li>
+      <li>&PT = ページ番号 / 総ページ数 (3/5)</li>
+      <li>&T = タイトル (メッセージの件名)</li>
+      <li>&U = URL (メッセージの URL)</li>
     </div>
     <br><br><!-- add by @kiki-ja -->
 
@@ -480,30 +501,37 @@
   <p>
     これらは基本的なUI印刷設定を超えて設定できるオプションです。
     現在、ヘッダーとフッターの端からの余白を制御するための１つの高度なオプションがあります。
-    これは「全般設定」タブの「高度なオプション」で設定でき、スペースで区切ります。<br>
-    形式は次のとおりです:<br><br>
-    
+    これは「全般設定」タブの「高度なオプション」で設定でき、タグをスペースで区切ります。<br>
+    タグと形式は次のとおりです:<br><br>
+
+	<b>Message-ID を ヘッダーの最後に追加する：</b><br><br>
+	<b>&nbsp;&nbsp;addMessageIdToHdr</b><br><br>
+
+	<b>ヘッダーの列幅を設定する：</b><br><br>
+	<b>&nbsp;&nbsp;hdrColWidth:<i>nnn</i> </b>ここの <i>nnn</i> はピクセル単位です。<br><br>
+
+    <b>ヘッダーとフッターの端の余白：</b><br><br>
     P:<i>プリンター名</i>::S:<i>オプション名</i>=<i>値</i><br><br>
-    
+
     プリンター名のスペースはアンダースコアに置き換えられ、
     標準内蔵の「PDF に保存」は Mozilla_Save_to_PDF です。<br><br>
-    
+
     別の例: Microsoft_Print_to_PDF<br><br>
-    
+
     現在のオプション名は次のとおりです。<br>
     <span class="notranslate">edges, edgeTop、edgeBottom、edgeLeft、edgeRight</span><br><br>
-    
+
     <span class="notranslate">edges</span> は、すべての端からの余白を同じ値に設定する疑似オプションです。
     余白はインチ単位です。<br><br>
-    
+
     例:<br><br>
-    
+
     P:Mozilla_Save_to_PDF::S:edges=0.25<br>
     P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br><br>
-    
+
     edgeTop の余白を 0.25 インチにして、その他のすべての
     余白を 0.10 インチにしたい場合は、次のように入力します:<br><br>
-    
+
     P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
   </p>
     <h2>サポート</h2>
@@ -549,7 +577,7 @@
       - <code class="notranslate">@jobisoft</code><br>
       - <code class="notranslate">@JF1313</code><br>
       - <code class="notranslate">@DenB10</code><br />
-		  - <code class="notranslate">@ichnilatis-gr</code><br />
+      - <code class="notranslate">@ichnilatis-gr</code><br />
       - <code class="notranslate">@KC-T</code><br>
       - <code class="notranslate">@madvinegar</code><br>
       - <code class="notranslate">@ditchfinder</code><br>

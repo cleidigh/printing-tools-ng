@@ -2,7 +2,7 @@
 	PrintingTools NG is a derivative extension for Thunderbird 68+
 	providing printing tools for messages.
 	The derivative extension authors:
-		Copyright (C) 2023 : Christopher Leidigh
+		Copyright (C) 2025 : Christopher Leidigh
 
 	The original extension & derivatives, PrintingTools, by Paolo "Kaosmos",
 	is covered by the GPLv3 open-source license (see LICENSE file).
@@ -22,13 +22,31 @@
 		along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-var { MailE10SUtils } = ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
+// update to use es6 modules for 128+, 136+ required - thx Axel
 
-var st = {};
-Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/strftime.js", st);
+var messengerWindow = Services.wm.getMostRecentWindow("mail:3pane");
+
+var { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
+var Ptng_ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
+
+var { ExtensionParent } = ChromeUtils.importESModule(
+	"resource://gre/modules/ExtensionParent.sys.mjs"
+);
+
+var ptngExtension = ExtensionParent.GlobalManager.getExtension(
+	"PrintingToolsNG@cleidigh.kokkini.net"
+);
+
+var { MailE10SUtils } = Ptng_ESM
+	? ChromeUtils.importESModule("resource:///modules/MailE10SUtils.sys.mjs")
+	: ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
+
+var { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs");
+
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
 
-var { printerSettings } = ChromeUtils.import("chrome://printingtoolsng/content/printerSettings.js");
+var { printerSettings } = ChromeUtils.importESModule("chrome://printingtoolsng/content/printerSettings.mjs?"
+	+ ptngExtension.manifest.version + new Date());
 
 var mail3paneWin = Services.wm.getMostRecentWindow("mail:3pane");
 
@@ -57,8 +75,8 @@ var printingtools = {
 
 	WEXT_cmd_print: async function (data) {
 
-		if (data.command != "WEXT_cmd_print")  {
-			return ;
+		if (data.command != "WEXT_cmd_print") {
+			return;
 		}
 
 		let windowId = data.windowId;
@@ -97,17 +115,17 @@ var printingtools = {
 		let url2 = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 
 		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
-		msgList.messages.forEach(msg => {
+		msgList.forEach(msgId => {
 			let realMessage = window.printingtoolsng.extension
-				.messageManager.get(msg.id);
+				.messageManager.get(msgId);
 			try {
 				let uri = realMessage.folder.getUriForMsg(realMessage);
-				printingtools.msgUris.push(uri)
+				printingtools.msgUris.push(uri);
 			} catch { }
 		});
 
 		if (url2 && printingtools.msgUris.length == 0) {
-			printingtools.msgUris.push(url2)
+			printingtools.msgUris.push(url2);
 
 		}
 
@@ -153,7 +171,12 @@ var printingtools = {
 				console.log("PTNG: Output directory (cfg): ", pdfOutputDir);
 			}
 			var autoPDFSave = false;
-			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && sel.rangeCount == 0) {
+			let isEML = false;
+			if (printingtools.msgUris[0].includes(".eml?")) {
+				isEML = true;
+			}
+
+			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && sel.rangeCount == 0 && !isEML) {
 				autoPDFSave = confirm(this.mainStrBundle.GetStringFromName("confirm_pdf_autosave"));
 				var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 				if (dbgopts.indexOf("pdfoutput") > -1) {
@@ -178,10 +201,9 @@ var printingtools = {
 		}
 
 
-
 		if (printingtools.num == 1 && options.printSilent == false && !autoPDFSave) {
 			if (dbgopts.indexOf("trace1") > -1) {
-
+				console.log("PTNG: Preview mode")
 			}
 
 			if (url !== "undefinedURL") {
@@ -207,6 +229,7 @@ var printingtools = {
 					}
 
 				} else {
+
 					try {
 						messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
 						if (dbgopts.indexOf("trace1") > -1) {
@@ -219,14 +242,11 @@ var printingtools = {
 						}
 					}
 				}
-
 				if (dbgopts.indexOf("trace1") > -1) {
 					console.log("messagePaneBrowser final", messagePaneBrowser);
 					console.log("messagePaneBrowser contentDoc", messagePaneBrowser.contentDocument);
 					console.log("messagePaneBrowser contentWin", messagePaneBrowser.contentDocument);
 
-
-					//console.log("document",document.body.outerHTML)
 				}
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = printingtools.msgUris[0];
@@ -234,7 +254,6 @@ var printingtools = {
 					console.log("PTNG: Single message, Use existing print messagePane")
 					console.log("PTNG: Message uri: ", uri);
 				}
-
 
 				printingtools.previewDoc = messagePaneBrowser.contentDocument;
 
@@ -291,13 +310,31 @@ var printingtools = {
 					selection.addRange(range);
 				}
 
-				var w = document.commandDispatcher.focusedWindow
+				// The window focus event is not consistent or reliable 
+				// use an observer to listen for preview closing then restore doc
 
-				// Use message pane focus event to restore message 
+				var printSubdialogObs = {
+					async observe(subDialogWindow) {
+						// A subDialog has been opened.
 
-				var l = w.addEventListener("focus", function (e) {
+						// We only want to deal with the print subDialog.
+						if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html")) {
+							return;
+						}
 
-					//console.log("Message pane focused  ")
+						subDialogWindow.addEventListener("dialogclosing", () => {
+							restoreDoc();
+							Services.obs.removeObserver(printSubdialogObs, "subdialog-loaded");
+						});
+					}
+				}
+
+				Services.obs.addObserver(printSubdialogObs, "subdialog-loaded");
+
+				function restoreDoc() {
+					if (dbgopts.indexOf("trace1") > -1) {
+						console.log("PTNG: Restore document");
+					}
 					printingtools.restoreInlinePref();
 
 					if (printingtools.restoreWithInlineAttsPref && (selection.rangeCount == 1)) {
@@ -367,15 +404,26 @@ var printingtools = {
 
 					//console.log("after restore")
 					//Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+				}
 
-				}, { once: true });
+				//}, { once: true });
 
 				if (dbgopts.indexOf("pdfoutput") > -1 && pdfOutput) {
 					console.log("PTNG: Message URI: ", uri);
 				}
 
+				// set custom dr ftr tokens before preview
+				var msgHdr;
+				try {
+					msgHdr = top.messenger.msgHdrFromURI(uri);
+				} catch (ex) {
+					printingtools.getHdr();
+					msgHdr = printingtools.hdr;
+				}
+
+				printerSettings.setHdrFtrTokens(null, msgHdr);
+
 				if (selection.rangeCount > 1) {
-					//console.log("print selection")
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, { printSelectionOnly: true });
 				} else {
 					top.PrintUtils.startPrintWindow(messagePaneBrowser.browsingContext, {});
@@ -403,14 +451,19 @@ var printingtools = {
 
 				await printingtools.reformatLayout();
 
+				// set custom dr ftr tokens before preview
+				let msgHdr = top.messenger.msgHdrFromURI(uri);
+
+				printerSettings.setHdrFtrTokens(null, msgHdr);
+
 				top.PrintUtils.startPrintWindow(PrintUtils.printBrowser.browsingContext);
 			}
-
-			//printingtools.restoreInlinePref();
-
 			return;
 		}
 
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: PDF mode")
+		}
 		if (printingtools.num < 1) {
 			return;
 		}
@@ -480,8 +533,21 @@ var printingtools = {
 
 		for (let msgURI of printingtools.msgUris) {
 			var MailService = MailServices.messageServiceFromURI(msgURI);
-			let msgHdr = top.messenger.msgHdrFromURI(msgURI);
-			msgSubject = msgHdr.mime2DecodedSubject;
+			var msgHdr;
+			try {
+				msgHdr = top.messenger.msgHdrFromURI(uri);
+			} catch (ex) {
+				printingtools.getHdr();
+				msgHdr = printingtools.hdr;
+			}
+
+			try {
+				msgSubject = msgHdr.mime2DecodedSubject;
+			} catch {
+				msgSubject = "subject"
+			}
+			// update headers and footers for custom tokens
+			ps = printerSettings.setHdrFtrTokens(ps, msgHdr);
 
 			if (pdfOutput) {
 				pdfFileName = await this.utils.constructPDFoutputFilename(msgURI, pdfOutputDir);
@@ -497,33 +563,19 @@ var printingtools = {
 					console.log("PTNG: pageRanges: ", ps.pageRanges);
 				}
 			}
-			if (!top.PrintUtils.printBrowser) {
-				console.log(window)
-				console.log(top)
 
-				let messagePaneBrowser;
-				if (window.document.URL.endsWith("messenger.xhtml") || window.document.URL.endsWith("messageWindow.xhtml")) {
-					messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
-				} else {
-					messagePaneBrowser = document.getElementById("messagepane");
-
-				}
-				console.log(messagePaneBrowser)
-
-				messagePaneBrowser.browsingContext.print(ps);
-			} else {
-				//console.log("use pb print")
-				// This is key to flushing cache else we operate on modified browser
-				await top.PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
-				await top.PrintUtils.loadPrintBrowser(MailService.getUrlForUri(msgURI).spec);
-
-				// getUrlForUri
-				printingtools.previewDoc = top.PrintUtils.printBrowser.contentDocument
-				await printingtools.reformatLayout();
-
-				await top.PrintUtils.printBrowser.browsingContext.print(ps);
+			if (dbgopts.indexOf("trace1") > -1) {
+				console.log("PTNG: Use printbrowser to print");
 			}
 
+			let w3p = this.getMail3Pane();
+			await w3p.PrintUtils.loadPrintBrowser("chrome://printingtoolsng/content/test.html");
+			await w3p.PrintUtils.loadPrintBrowser(MailService.getUrlForUri(msgURI).spec);
+
+			printingtools.previewDoc = w3p.PrintUtils.printBrowser.contentDocument
+			await printingtools.reformatLayout();
+
+			await w3p.PrintUtils.printBrowser.browsingContext.print(ps);
 			if (pdfOutput) {
 				this.utils.PTNG_WriteStatus(this.mainStrBundle.GetStringFromName("writing") + ": " + pdfFileName);
 			} else {
@@ -1246,34 +1298,39 @@ var printingtools = {
 					//console.log("ca date " + dateOrig)
 				}
 
+				try {
+					var messageId = str_message.split("\message-id:")[1].split("\n")[0];
+					messageId = messageId.replace(/<|>/g,"");
+				} catch {
+					messageId = "";
+				}
+
 				//console.log("fin date " + dateOrig)
 				dateOrig = dateOrig.replace(/ +$/, "");
 				dateOrig = dateOrig.replace(/^ +/, "");
 				var secs = Date.parse(dateOrig) / 1000;
+
+				dummy.date = secs * 1000 * 1000;
 				dummy.dateInSeconds = secs;
 				dummy.dateReceived = secs;
+				dummy.messageId = messageId;
 				printingtools.hdr = dummy;
-
-				//console.log(str_message)
-				//console.log(dummy)
-
 			}
 			else {
 				printingtools.hdr = m.msgHdrFromURI(uris[printingtools.current]);
+				printingtools.date = printingtools.hdr.date;
 			}
 		}
 	},
 
 	reformatLayout: async function () {
+		var dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
-		//console.debug('pTNG: Reformat layout ');
-
-
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: Reformat layout ");
+		}
 		printingtools.doc = printingtools.previewDoc;
 
-		//console.log(printingtools.doc.body.outerHTML)
-
-		var dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		if (dbgopts.indexOf("initialsource") > -1) {
 			console.log("PTNG: initial source:\n");
 			console.log(printingtools.doc.documentElement.outerHTML);
@@ -1569,6 +1626,7 @@ var printingtools = {
 
 			if (this.getTable(2) && !noExtHeaders) {
 				//maxHdrWidth = 160;
+				console.log("tab2")
 			} else {
 				let locale = Services.locale.appLocaleAsBCP47.split("-")[0];
 				let alwaysCcBcc = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always");
@@ -1594,7 +1652,13 @@ var printingtools = {
 
 			}
 
-
+			var advopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
+			if (advopts.includes("hdrColWidth")) {
+				let hdrColWidth = advopts.match(/hdrColWidth:(\d{1,3})/);
+				if (hdrColWidth[1]) {
+					maxHdrWidth = hdrColWidth[1];
+				}
+			}
 
 			for (var i = 0; i < trs.length; i++) {
 
@@ -1634,9 +1698,30 @@ var printingtools = {
 				table3.style.color = "black";
 				table3.style.backgroundColor = backgroundColor;
 			}
-			//Services.console.logStringMessage("finish table layout");
 		}
 		printingtools.setTableLayout();
+
+		// check if we want to include the Message-ID
+		if (advopts.includes("addMessageIdToHdr")) {
+			let mainHdrTable = this.getTable(0);
+			let firstHdrRowClone = mainHdrTable.rows[0].cloneNode(true);
+			let rowHdrDiv = firstHdrRowClone.firstChild.firstChild;
+			rowHdrDiv.innerText = "Message-ID:";
+			rowHdrDiv.style.wordBreak = "break-all";
+			let hdrVal = firstHdrRowClone.children[1];
+			var msgHdr;
+			try {
+				msgHdr = top.messenger.msgHdrFromURI(uri);
+			} catch (ex) {
+				printingtools.getHdr();
+				msgHdr = printingtools.hdr;
+			}
+
+			hdrVal.innerText = msgHdr.messageId;
+			hdrVal.style.wordBreak = "break-all";
+
+			mainHdrTable.appendChild(firstHdrRowClone);
+		}
 
 		// Remove attachments  table from  end of message 
 
@@ -2188,7 +2273,7 @@ var printingtools = {
 			} else if (longFormat === 3) {
 				let customDateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
 				let locale = Services.locale.appLocaleAsBCP47;
-				var formatted_date = st.strftime.strftime(customDateFormat, date_obj, locale);
+				var formatted_date = strftime.strftime(customDateFormat, date_obj, locale);
 
 			} else {
 				var formatted_date = date_obj.toUTCString();
@@ -2290,28 +2375,24 @@ var printingtools = {
 
 	getAttatchmentList: async function () {
 
-		let currentUri = printingtools.msgUris[printingtools.current];
+		// we go back to scraping attachments since we can't
+		// use messages.getAttachmentsList with no id for eml
+		// messages.
+		// For unknown reason we need an async call or things fail
+		// Can't find reason.
 
-		// 115 eml exp
-		if (currentUri.includes(".eml?") || 1) {
+		await new Promise(r => window.setTimeout(r, 0));
 
-			printingtools.hdr = mail3paneWin.messenger.msgHdrFromURI(currentUri);
+		printingtools.attList = [];
 
-			var mHdr = window.printingtoolsng.extension.messageManager.convert(printingtools.hdr);
-			//console.log(mHdr)
-			printingtools.attList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: mHdr.id });
+		let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
+		let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
 
-			if (!printingtools.attList.length) {
-				let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
-				let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
+		printingtools.attList = fileNames.map((fn, i) => {
+			return { name: fn, size: fileSizes[i] };
+		});
 
-				printingtools.attList = fileNames.map((fn, i) => {
-					return { name: fn, size: fileSizes[i] };
-				});
-
-			}
-			return printingtools.attList;
-		}
+		return printingtools.attList;
 
 	},
 

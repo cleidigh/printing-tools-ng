@@ -3,15 +3,16 @@
 // Load all scripts from original overlay file - creates common scope
 // onLoad() installs each overlay xul fragment
 
-var Services = globalThis.Services ||
-  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
 
-// Import any needed modules.
+// Import any needed modules. Update for esm
+
 var ADDON_ID = "PrintingToolsNG@cleidigh.kokkini.net";
 var extMsgHandler;
 var btListener;
 
-var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
+var { ExtensionParent } = ChromeUtils.importESModule(
+	"resource://gre/modules/ExtensionParent.sys.mjs"
+);
 
 // Get our extension object.
 let extension2 = ExtensionParent.GlobalManager.getExtension(ADDON_ID);

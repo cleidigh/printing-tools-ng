@@ -2,7 +2,7 @@
   PrintingTools NG is a derivative extension for Thunderbird 68+
   providing printing tools for messages.
   The derivative extension authors:
-    Copyright (C) 2023 : Christopher Leidigh
+    Copyright (C) 2025 : Christopher Leidigh
 
   The original extension & derivatives, PrintingTools, by Paolo "Kaosmos",
   is covered by the GPLv3 open-source license (see LICENSE file).
@@ -32,9 +32,6 @@ st,
 
 */
 
-var Services = globalThis.Services ||
-  ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
-
 var window3Pane = Cc["@mozilla.org/appshell/window-mediator;1"]
   .getService(Ci.nsIWindowMediator)
   .getMostRecentWindow("mail:3pane");
@@ -46,13 +43,11 @@ var locale = Services.locale.appLocaleAsBCP47;
 
 var prefs = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
 var PSSVC = Cc["@mozilla.org/gfx/printsettings-service;1"].getService(Ci.nsIPrintSettingsService);
-var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+var dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
-var gprinterSettings = printerSettings;
-var EXPORTED_SYMBOLS = ["printerSettings"];
 
 // These are our default settings for those we control separate from main prefs
-var printerSettings = {
+export var printerSettings = {
   defaultPTNGprinterSettings: {
     shrinkToFit: 1,
     scaling: 1,
@@ -638,6 +633,64 @@ var printerSettings = {
     }
   },
 
+  setHdrFtrTokens: function (ps, msgHdr) {
+    // replace custom tokens (only received date &RD for now)
+    var w = Cc["@mozilla.org/appshell/window-mediator;1"]
+      .getService(Ci.nsIWindowMediator)
+      .getMostRecentWindow("mail:3pane");
+
+    // check if we have any custom tokens to replace
+    // only &MD now
+
+    try {
+      var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
+    } catch (e) {
+      return null;
+    }
+    let props = prefs.getStringPref(`extensions.printingtoolsng.printer.${printerName}`);
+    let customProps = JSON.parse(props);
+
+    let allHdrsAndFtrs =
+      customProps.headerStrLeft +
+      customProps.headerStrCenter +
+      customProps.headerStrRight +
+      customProps.footerStrLeft +
+      customProps.footerStrCenter +
+      customProps.footerStrRight;
+
+    if (!allHdrsAndFtrs.includes("&MD")) {
+      return ps;
+    }
+
+    let psValid = !!ps;
+
+    // if ps not valid we have to read/save from prefs
+    if (!psValid) {
+      ps = w.PrintUtils.getPrintSettings();
+    }
+
+    let formatted_date = w.printingtools.formatDate(msgHdr.date / 1000, null);
+
+    ps.headerStrLeft = customProps.headerStrLeft.replace("&MD", formatted_date);
+    ps.headerStrCenter = customProps.headerStrCenter.replace("&MD", formatted_date);
+    ps.headerStrRight = customProps.headerStrRight.replace("&MD", formatted_date);
+    ps.footerStrLeft = customProps.footerStrLeft.replace("&MD", formatted_date);
+    ps.footerStrCenter = customProps.footerStrCenter.replace("&MD", formatted_date);
+    ps.footerStrRight = customProps.footerStrRight.replace("&MD", formatted_date);
+
+    // if we are operating on prefs we must save them
+    if (!psValid) {
+      let savePrefs = Ci.nsIPrintSettings.kInitSaveHeaderLeft |
+      Ci.nsIPrintSettings.kInitSaveHeaderCenter | Ci.nsIPrintSettings.kInitSaveHeaderRight |
+      Ci.nsIPrintSettings.kInitSaveFooterLeft | Ci.nsIPrintSettings.kInitSaveFooterCenter |
+      Ci.nsIPrintSettings.kInitSaveFooterRight |
+      Ci.kAdvSaveSettings;
+
+      PSSVC.maybeSavePrintSettingsToPrefs(ps, savePrefs);
+    }
+    return ps;
+  },
+
   // We setup an observer for the preview subdialog so we can set
   // PTNG preferences which are not set in printsettings
   // pageRanges is set from PTNG settings. Other prefs can be
@@ -661,13 +714,13 @@ var printerSettings = {
       dbgopts = prefs.getCharPref("extensions.printingtoolsng.debug.options");
 
       // We only want to deal with the print subDialog.
-      if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html?")) {
+      if (!subDialogWindow.location.href.startsWith("chrome://global/content/print.html")) {
         return;
       }
 
       if (dbgopts.indexOf("printsettings") > -1) {
         console.log("subDialog opened: " + subDialogWindow.location.href);
-     }
+      }
 
       // Wait until print-settings in the subDialog have been loaded/rendered.
       await new Promise(resolve =>
@@ -679,12 +732,10 @@ var printerSettings = {
         console.log(subDialogWindow.document.documentElement.innerHTML);
       }
 
-
       let cr = subDialogWindow.document.querySelector("#custom-range");
       let rp = subDialogWindow.document.querySelector("#range-picker");
       let mp = subDialogWindow.document.querySelector("#margins-picker");
       let cmg = subDialogWindow.document.querySelector("#custom-margins");
-
 
       try {
         var printerName = prefs.getCharPref("print_printer").replace(/ /g, '_');
