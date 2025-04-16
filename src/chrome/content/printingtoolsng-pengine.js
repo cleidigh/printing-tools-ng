@@ -1300,7 +1300,7 @@ var printingtools = {
 
 				try {
 					var messageId = str_message.split("\message-id:")[1].split("\n")[0];
-					messageId = messageId.replace(/<|>/g,"");
+					messageId = messageId.replace(/<|>/g, "");
 				} catch {
 					messageId = "";
 				}
@@ -1653,6 +1653,8 @@ var printingtools = {
 			}
 
 			var advopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
+			console.log("advopts", advopts);
+
 			if (advopts.includes("hdrColWidth")) {
 				let hdrColWidth = advopts.match(/hdrColWidth:(\d{1,3})/);
 				if (hdrColWidth[1]) {
@@ -1660,10 +1662,10 @@ var printingtools = {
 				}
 			}
 
+			console.log("advopts", advopts);
+
 			for (var i = 0; i < trs.length; i++) {
-
 				trs[i].firstChild.setAttribute("width", `${maxHdrWidth}px`);
-
 			}
 		}
 
@@ -1680,6 +1682,8 @@ var printingtools = {
 		if (!printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color")) {
 			backgroundColor = "#ffffff";
 		}
+
+		console.log("advopts", advopts);
 
 		if (!noheaders && borders) {
 			printingtools.setTableBorders(noExtHeaders);
@@ -1699,10 +1703,25 @@ var printingtools = {
 				table3.style.backgroundColor = backgroundColor;
 			}
 		}
+		console.log("advopts", advopts);
+
 		printingtools.setTableLayout();
 
+		console.log("advopts", advopts);
+
+		var advopts2;
+		if (advopts == undefined) {
+			advopts2 = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
+			console.log("advopts2", advopts2);
+			if (advopts2 == undefined) {
+				console.log("advopts2", advopts2);
+				advopts2 = "";
+			}
+		}
+		console.log("advopts2", advopts2);
+
 		// check if we want to include the Message-ID
-		if (advopts.includes("addMessageIdToHdr")) {
+		if (advopts2.includes("addMessageIdToHdr")) {
 			let mainHdrTable = this.getTable(0);
 			let firstHdrRowClone = mainHdrTable.rows[0].cloneNode(true);
 			let rowHdrDiv = firstHdrRowClone.firstChild.firstChild;
