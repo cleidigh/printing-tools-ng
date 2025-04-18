@@ -1624,6 +1624,8 @@ var printingtools = {
 				tw.remove()
 			}
 
+			console.log("before table2 check:");
+
 			if (this.getTable(2) && !noExtHeaders) {
 				//maxHdrWidth = 160;
 				console.log("tab2")
@@ -1652,6 +1654,8 @@ var printingtools = {
 
 			}
 
+			console.log("before advopts set:");
+
 			var advopts;
 			for (let index = 0; index < 10; index++) {
 				advopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
@@ -1664,6 +1668,8 @@ var printingtools = {
 				console.log("advopts still undfefined, setting to empty string!!");
 				advopts = "";
 			}
+
+			console.log("after advopts set:");
 
 			console.log("advopts:", advopts);
 
@@ -1685,6 +1691,8 @@ var printingtools = {
 		if (table2) {
 			table2.style.display = "none";
 		}
+
+		console.log("after t2 display  set:");
 
 		var backgroundColor = printingtools.prefs.getCharPref("extensions.printingtoolsng.headers.background.color");
 		if (!printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color")) {
@@ -1710,10 +1718,32 @@ var printingtools = {
 			}
 		}
 
+		console.log("before layout  set:");
+
 		printingtools.setTableLayout();
 
+		console.log("after layout  set:");
+
+		var advopts2;
+			for (let index = 0; index < 10; index++) {
+				advopts2 = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
+				console.log("advopts2:", index, advopts2);
+				if (advopts2 != undefined) {
+					break;
+				}
+			}
+			if (advopts2 == undefined) {
+				console.log("advopts2 still undfefined, setting to empty string!!");
+				advopts2 = "";
+			}
+
+			console.log("after advopts2 set:");
+
+			console.log("advopts2:", advopts2);
+
+
 		// check if we want to include the Message-ID
-		if (advopts.includes("addMessageIdToHdr")) {
+		if (advopts2.includes("addMessageIdToHdr")) {
 			let mainHdrTable = this.getTable(0);
 			let firstHdrRowClone = mainHdrTable.rows[0].cloneNode(true);
 			let rowHdrDiv = firstHdrRowClone.firstChild.firstChild;
@@ -1734,6 +1764,8 @@ var printingtools = {
 			mainHdrTable.appendChild(firstHdrRowClone);
 		}
 
+		console.log("after  addMessageIdToHdr:");
+
 		// Remove attachments  table from  end of message 
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.hide.inline_attachments_list")) {
@@ -1752,6 +1784,8 @@ var printingtools = {
 			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
 		}
 
+		console.log("PTNG: End Reformat");
+		
 	},
 
 	createPTNGStyleSheet: function () {
