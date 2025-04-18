@@ -1746,10 +1746,18 @@ var printingtools = {
 		if (advopts2.includes("addMessageIdToHdr")) {
 			let mainHdrTable = this.getTable(0);
 			let firstHdrRowClone = mainHdrTable.rows[0].cloneNode(true);
+			console.log(firstHdrRowClone)
 			let rowHdrDiv = firstHdrRowClone.firstChild.firstChild;
+			let t = firstHdrRowClone.firstChild.firstChild.innerText
+			console.log(t)
+
+
 			rowHdrDiv.innerText = "Message-ID:";
 			rowHdrDiv.style.wordBreak = "break-all";
-			let hdrVal = firstHdrRowClone.children[1];
+			console.log(firstHdrRowClone.children)
+
+			let hdrVal = firstHdrRowClone.children[0].childNodes[1];
+			console.log(hdrVal)
 			var msgHdr;
 			try {
 				msgHdr = top.messenger.msgHdrFromURI(uri);
@@ -1758,8 +1766,10 @@ var printingtools = {
 				msgHdr = printingtools.hdr;
 			}
 
-			hdrVal.innerText = msgHdr.messageId;
-			hdrVal.style.wordBreak = "break-all";
+			//hdrVal = msgHdr.messageId;
+			firstHdrRowClone.children[0].childNodes[1].nodeValue = msgHdr.messageId;
+
+			firstHdrRowClone.firstChild.style.wordBreak = "break-all";
 
 			mainHdrTable.appendChild(firstHdrRowClone);
 		}
