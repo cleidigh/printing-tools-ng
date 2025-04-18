@@ -1652,8 +1652,20 @@ var printingtools = {
 
 			}
 
-			var advopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
-			console.log("advopts", advopts);
+			var advopts;
+			for (let index = 0; index < 10; index++) {
+				advopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
+				console.log("advopts:", index, advopts);
+				if (advopts != undefined) {
+					break;
+				}
+			}
+			if (advopts == undefined) {
+				console.log("advopts still undfefined, setting to empty string!!");
+				advopts = "";
+			}
+
+			console.log("advopts:", advopts);
 
 			if (advopts.includes("hdrColWidth")) {
 				let hdrColWidth = advopts.match(/hdrColWidth:(\d{1,3})/);
@@ -1662,14 +1674,10 @@ var printingtools = {
 				}
 			}
 
-			console.log("advopts", advopts);
-
 			for (var i = 0; i < trs.length; i++) {
 				trs[i].firstChild.setAttribute("width", `${maxHdrWidth}px`);
 			}
 		}
-
-		//console.log(printingtools.doc.documentElement.outerHTML);
 
 		table1.style.tableLayout = "fixed";
 		table1.style.marginRight = "10px";
@@ -1682,8 +1690,6 @@ var printingtools = {
 		if (!printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.use_background_color")) {
 			backgroundColor = "#ffffff";
 		}
-
-		console.log("advopts", advopts);
 
 		if (!noheaders && borders) {
 			printingtools.setTableBorders(noExtHeaders);
@@ -1703,27 +1709,11 @@ var printingtools = {
 				table3.style.backgroundColor = backgroundColor;
 			}
 		}
-		console.log("advopts", advopts);
 
 		printingtools.setTableLayout();
 
-		console.log("advopts", advopts);
-
-		var advopts2;
-		if (advopts == undefined) {
-			advopts2 = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
-			console.log("advopts2", advopts2);
-			if (advopts2 == undefined) {
-				console.log("advopts2", advopts2);
-				advopts2 = "";
-			}
-		} else {
-			advopts2 = advopts;
-		}
-		console.log("advopts2", advopts2);
-
 		// check if we want to include the Message-ID
-		if (advopts2.includes("addMessageIdToHdr")) {
+		if (advopts.includes("addMessageIdToHdr")) {
 			let mainHdrTable = this.getTable(0);
 			let firstHdrRowClone = mainHdrTable.rows[0].cloneNode(true);
 			let rowHdrDiv = firstHdrRowClone.firstChild.firstChild;
