@@ -1314,13 +1314,16 @@ var printingtools = {
 				dummy.dateInSeconds = secs;
 				dummy.dateReceived = secs;
 				dummy.messageId = messageId;
+				dummy.isEML = true;
 				printingtools.hdr = dummy;
+				console.log(printingtools.hdr)
 			}
 			else {
 				printingtools.hdr = m.msgHdrFromURI(uris[printingtools.current]);
 				printingtools.date = printingtools.hdr.date;
 			}
 		}
+		return printingtools.hdr;
 	},
 
 	reformatLayout: async function () {
@@ -2391,6 +2394,21 @@ var printingtools = {
 		await new Promise(r => window.setTimeout(r, 0));
 
 		printingtools.attList = [];
+
+		var msgHdr;
+		try {
+			msgHdr = top.messenger.msgHdrFromURI(printingtools.msgUris[printingtools.current]);
+		} catch (ex) {
+			msgHdr = await printingtools.getHdr();
+			console.log(msgHdr)
+		}
+
+		var messageHdr = null;
+		if (!msgHdr.isEML) {
+			messageHdr = window.printingtoolsng.extension.messageManager.convert(msgHdr);
+		}
+		let atts = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: messageHdr, isEML: msgHdr.isEML });
+		console.log(atts)
 
 		let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
 		let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
