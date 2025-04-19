@@ -1300,7 +1300,7 @@ var printingtools = {
 
 				try {
 					var messageId = str_message.split("\message-id:")[1].split("\n")[0];
-					messageId = messageId.replace(/<|>/g,"");
+					messageId = messageId.replace(/<|>/g, "");
 				} catch {
 					messageId = "";
 				}
@@ -1325,6 +1325,7 @@ var printingtools = {
 
 	reformatLayout: async function () {
 		var dbgopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+		var advopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
 
 		if (dbgopts.indexOf("trace1") > -1) {
 			console.log("PTNG: Reformat layout ");
@@ -1652,7 +1653,6 @@ var printingtools = {
 
 			}
 
-			var advopts = printingtools.prefs.getCharPref("extensions.printingtoolsng.advanced.options");
 			if (advopts.includes("hdrColWidth")) {
 				let hdrColWidth = advopts.match(/hdrColWidth:(\d{1,3})/);
 				if (hdrColWidth[1]) {
@@ -1701,25 +1701,32 @@ var printingtools = {
 		}
 		printingtools.setTableLayout();
 
+		// this needed a rewrite for the different table
+		// structure for non aligned headers #299
+		
 		// check if we want to include the Message-ID
 		if (advopts.includes("addMessageIdToHdr")) {
-			let mainHdrTable = this.getTable(0);
-			let firstHdrRowClone = mainHdrTable.rows[0].cloneNode(true);
-			let rowHdrDiv = firstHdrRowClone.firstChild.firstChild;
-			rowHdrDiv.innerText = "Message-ID:";
-			rowHdrDiv.style.wordBreak = "break-all";
-			let hdrVal = firstHdrRowClone.children[1];
-			var msgHdr;
+			let alignHdrs = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.align");
+			let msgHdr;
 			try {
 				msgHdr = top.messenger.msgHdrFromURI(uri);
 			} catch (ex) {
 				printingtools.getHdr();
 				msgHdr = printingtools.hdr;
 			}
-
-			hdrVal.innerText = msgHdr.messageId;
-			hdrVal.style.wordBreak = "break-all";
-
+			let mainHdrTable = this.getTable(0);
+			let firstHdrRowClone = mainHdrTable.rows[0].cloneNode(true);
+			let rowHdrDiv = firstHdrRowClone.firstChild.firstChild;
+			rowHdrDiv.innerText = "Message-ID:";
+			if (alignHdrs) {
+				let hdrVal = firstHdrRowClone.children[1];
+				hdrVal.innerText = msgHdr.messageId;
+				hdrVal.style.wordBreak = "break-all";
+			} else {
+				let hdrVal = firstHdrRowClone.children[0].childNodes[1];
+				hdrVal.nodeValue = msgHdr.messageId;
+				firstHdrRowClone.firstChild.style.wordBreak = "break-all";
+			}
 			mainHdrTable.appendChild(firstHdrRowClone);
 		}
 
