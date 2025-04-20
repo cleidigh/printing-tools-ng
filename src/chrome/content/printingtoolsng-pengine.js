@@ -1878,6 +1878,7 @@ var printingtools = {
 		printingtools.currentShowInlineAttsPref = printingtools.prefs.getBoolPref("mail.inline_attachments");
 		printingtools.restoreWithInlineAttsPref = true;
 		printingtools.prefs.setBoolPref("mail.inline_attachments", false);
+		console.log(printingtools.prefs.getBoolPref("mail.inline_attachments"))
 	},
 
 	restoreInlinePref: function () {
