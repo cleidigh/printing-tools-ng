@@ -1706,7 +1706,7 @@ var printingtools = {
 
 		// this needed a rewrite for the different table
 		// structure for non aligned headers #299
-		
+
 		// check if we want to include the Message-ID
 		if (advopts.includes("addMessageIdToHdr")) {
 			let alignHdrs = printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.align");
@@ -2385,40 +2385,33 @@ var printingtools = {
 
 	getAttatchmentList: async function () {
 
-		// we go back to scraping attachments since we can't
-		// use messages.getAttachmentsList with no id for eml
-		// messages.
-		// For unknown reason we need an async call or things fail
-		// Can't find reason.
-
-		await new Promise(r => window.setTimeout(r, 0));
-
 		printingtools.attList = [];
+		let showSignatureAtts = printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach");
 
-		var msgHdr;
+		let msgHdr;
 		try {
 			msgHdr = top.messenger.msgHdrFromURI(printingtools.msgUris[printingtools.current]);
 		} catch (ex) {
 			msgHdr = await printingtools.getHdr();
 			console.log(msgHdr)
 		}
-
-		var messageHdr = null;
+		let messageHdr = null;
 		if (!msgHdr.isEML) {
 			messageHdr = window.printingtoolsng.extension.messageManager.convert(msgHdr);
 		}
-		let atts = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageId: messageHdr, isEML: msgHdr.isEML });
-		console.log(atts)
-
-		let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
-		let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
-
-		printingtools.attList = fileNames.map((fn, i) => {
-			return { name: fn, size: fileSizes[i] };
+		let atts = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageHdr: messageHdr, isEML: msgHdr.isEML });
+		printingtools.attList = atts.map((att, i) => {
+			return { name: att.name, size: att.size };
+		}).filter(att => {
+			if (!showSignatureAtts) {
+				if (att.name.endsWith(".p7m") || att.name.endsWith(".p7s") ||
+					att.name.endsWith(".vcf") || att.name.endsWith(".asc")) {
+					return false;
+				}
+			}
+			return true;
 		});
-
 		return printingtools.attList;
-
 	},
 
 
@@ -2548,36 +2541,6 @@ var printingtools = {
 			}
 		}
 
-		try {
-			if (opener && printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach")) {
-				var attList = opener.document.getElementById("attachmentList");
-				if (attList) {
-					var atts = attList.childNodes;
-					for (var i = 0; i < atts.length; i++) {
-						if (Array.isArray)
-							var attDiv = atts[i].getAttribute("tooltiptext");
-						else
-							var attDiv = atts[i].label;
-						if (attDiv.lastIndexOf(".p7m") + 4 != attDiv.length && attDiv.lastIndexOf(".p7s") + 4 != attDiv.length && attDiv.lastIndexOf(".vcf") + 4 != attDiv.length)
-							continue;
-						if (!firsttime)
-							comma = ", ";
-						if (Array.isArray)
-							attDiv = atts[i].attachment.name;
-						if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon")) {
-							var imgSrc = printingtools.findIconSrc(attDiv);
-							// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon"  height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
-							attDiv = '<img src="' + imgSrc + '" class="attIcon"  height="16px" width="16px">&nbsp;' + attDiv + "";
-						}
-						// write into the new TD innerHTML the name of the attachment, if necessary with a comma
-						newTD.innerHTML = newTD.innerHTML + comma + attDiv;
-						firsttime = false;
-					}
-				}
-			}
-		}
-		catch (e) { }
-
 		if (newTD)
 			printingtools.appendAttTD(newTD);
 
@@ -2585,24 +2548,13 @@ var printingtools = {
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
 			printingtools.appendReceivedTD();
 
-		// if (!String.trim) {
-		if (0) {
-			// TB2 and lower
-			// removes the HR elements, in the same numbers of the attachments, beginning from the last one
-			var hrs = printingtools.doc.getElementsByTagName("HR");
-			var hrsLength = hrs.length;
-			for (var i = hrsLength - 1; i > hrsLength - counter; i--)
-				hrs[i].parentNode.removeChild(hrs[i]);
-		}
-		else {
-			// TB3 or higher
 			// removes all the FIELDSET elements with class = mimeAttachmentHeader
 			var fieldSets = printingtools.doc.getElementsByTagName("FIELDSET");
 			for (var i = fieldSets.length - 1; i > -1; i--) {
 				if (fieldSets[i].getAttribute("class") == "mimeAttachmentHeader")
 					fieldSets[i].parentNode.removeChild(fieldSets[i]);
 			}
-		}
+		
 	},
 
 	findIconSrc: function (filename) {

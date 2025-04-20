@@ -183,14 +183,11 @@ async function getFullMessage(messageId) {
 async function getAttatchmentList(messageHdr, isEML) {
 
 	if (isEML) {
-		messageId = (await messenger.messages.getDisplayedMessage()).id;
-		console.log(messageId)
+		messageHdr = await messenger.messageDisplay.getDisplayedMessage();
 	}
 
-	var a = await messenger.messages.listAttachments(messageId);
-	//console.log(a)
-
-	return a;
+	let attList = await messenger.messages.listAttachments(messageHdr.id);
+	return attList;
 }
 
 // External print handler 
