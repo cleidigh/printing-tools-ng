@@ -2385,7 +2385,6 @@ var printingtools = {
 	},
 
 	getAttatchmentList: async function () {
-
 		printingtools.attList = [];
 		let showSignatureAtts = printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach");
 
@@ -2394,21 +2393,24 @@ var printingtools = {
 			msgHdr = top.messenger.msgHdrFromURI(printingtools.msgUris[printingtools.current]);
 		} catch (ex) {
 			msgHdr = await printingtools.getHdr();
-			console.log(msgHdr)
 		}
 		let messageHdr = null;
 		if (!msgHdr.isEML) {
 			messageHdr = window.printingtoolsng.extension.messageManager.convert(msgHdr);
 		}
+
 		let atts = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageHdr: messageHdr, isEML: msgHdr.isEML });
-		printingtools.attList = atts.map((att, i) => {
-			return { name: att.name, size: att.size };
-		}).filter(att => {
+		printingtools.attList = atts.filter(att => {
+			// filter signature attachments depending upon pref
 			if (!showSignatureAtts) {
 				if (att.name.endsWith(".p7m") || att.name.endsWith(".p7s") ||
 					att.name.endsWith(".vcf") || att.name.endsWith(".asc")) {
 					return false;
 				}
+			}
+			//we always filter inline attachments
+			if (att.contentDisposition == "inline") {
+				return false;
 			}
 			return true;
 		});
