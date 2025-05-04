@@ -131,7 +131,7 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 
 		case "getAttatchmentList":
 
-			rv = await getAttatchmentList(info.messageId);
+			rv = await getAttatchmentList(info.messageHdr, info.isEML);
 			return rv;
 
 		case "openHelp":
@@ -180,14 +180,14 @@ async function getFullMessage(messageId) {
 }
 
 
-async function getAttatchmentList(messageId) {
+async function getAttatchmentList(messageHdr, isEML) {
 
-	var m = await messenger.messages.get(messageId);
-	//console.log(m)
-	var a = await messenger.messages.listAttachments(m.id);
-	//console.log(a)
+	if (isEML) {
+		messageHdr = await messenger.messageDisplay.getDisplayedMessage();
+	}
 
-	return a;
+	let attList = await messenger.messages.listAttachments(messageHdr.id);
+	return attList;
 }
 
 // External print handler 

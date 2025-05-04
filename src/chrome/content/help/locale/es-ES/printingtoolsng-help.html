@@ -24,7 +24,9 @@
       mensuales. Es posible que no pueda publicar PrintingTools NG todos los meses. Antes de actualizar
       Thunderbird, verifique si hay una actualización compatible con PrintingTools NG disponible.<br /><br />
       Cristóbal<br /><br />
-      - Nuevo: agregue la fecha del mensaje a cualquier encabezado o pie de página con la nueva variable:
+      - Corrección: Error en la impresión y vista previa con la opción Alinear encabezados desactivada<br />
+      - Corrección: Mostrar archivos adjuntos de firma en el encabezado<br />
+      - Nuevo: Agregue la fecha del mensaje a cualquier encabezado o pie de página con la nueva variable:
       <b>&amp;MD</b> #277<br />
       - Nuevo: Agregue el ID del mensaje al final de los encabezados. #268, #283 Uso:<br />
       <b>añadirIdDeMensajeAHDR</b><br />
@@ -257,8 +259,8 @@
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            Puede ser &quot;AM&quot; o &quot;PM&quot;, según el valor de hora dado. El mediodía se considera
-            &quot;PM&quot; y la medianoche, &quot;AM&quot;.
+            Puede ser &quot;AM&quot; o &quot;PM&quot;, según el valor de hora indicado. El mediodía se
+            considera &quot;PM&quot; y la medianoche, &quot;AM&quot;.
           </td>
         </tr>
         <tr>
@@ -373,8 +375,8 @@
     </p>
     <p />
     <p>
-      Habilite el directorio de salida PDF y elija un directorio para guardar el archivo. El nombre del
-      archivo de salida seguirá el formato configurado.
+      Habilite el directorio de salida PDF y elija una ubicación para guardar. El nombre del archivo de salida
+      seguirá el formato configurado.
     </p>
     <p />
     <p>
@@ -466,8 +468,8 @@
     <p>
       Las opciones de página permiten configurar elementos al finalizar la vista previa o la impresión. Estas
       opciones se mantienen durante la impresión. Si se modifican las opciones configuradas en PrintingTools
-      NG durante la vista previa, no afectarán las impresiones posteriores. Algunos elementos, como los
-      encabezados y pies de página, no se pueden configurar en el cuadro de diálogo de vista previa. Otros
+      NG durante la vista previa, no afectarán las impresiones posteriores. Algunos elementos no se pueden
+      configurar en el cuadro de diálogo de vista previa, como los encabezados y pies de página. Otros
       elementos no se conservan en la vista previa y, normalmente, habría que configurarlos cada vez que se
       imprime. PrintingTools NG soluciona ambos problemas.
     </p>
@@ -477,7 +479,7 @@
       que cambiar los rangos de páginas cada vez. Tenga en cuenta que si un rango de páginas configurado en
       PrintingTools NG no es válido, por ejemplo, si excede el número de páginas, deberá corregirse en la
       vista previa antes de imprimir. Un rango de páginas configurado en &quot;1&quot; siempre será válido e
-      imprime la primera página del mensaje.
+      imprimirá la primera página del mensaje.
     </p>
     <p>Notas:</p>
     <p>La opción de escala permite establecer una escala persistente.</p>

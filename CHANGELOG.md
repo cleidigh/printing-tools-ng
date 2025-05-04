@@ -2,6 +2,10 @@
 
 ## Versions
 
+Version 3.1.3 : Maintenance Release - April 23, 2025
+
+- fix showing signature files
+
 Version 3.1.0 : Thunderbird v128 Release - July 28, 2024
 
 - New: Thunderbird v128 support

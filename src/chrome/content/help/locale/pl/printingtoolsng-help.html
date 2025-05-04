@@ -24,6 +24,8 @@
       będę w stanie wydawać PrintingTools NG co miesiąc. Przed aktualizacją Thunderbirda sprawdź, czy jest
       dostępna zgodna aktualizacja PrintingTools NG.<br /><br />
       Krzysztof<br /><br />
+      - Naprawiono: Niepowodzenie drukowania i podglądu przy wyłączonej opcji Wyrównaj nagłówki<br />
+      - Naprawiono: Pokaż załączniki pliku podpisu w nagłówku<br />
       - Nowość: Dodaj datę wiadomości do dowolnego nagłówka lub stopki strony za pomocą nowej zmiennej:
       <b>&amp;MD</b> #277<br />
       - Nowość: Dodaj Message-ID na końcu nagłówków. #268, #283 Użycie:<br />
@@ -195,7 +197,7 @@
             Rok oparty na tygodniu ISO 8601 ze stuleciem jako liczbą dziesiętną. 4-cyfrowy rok odpowiada
             numerowi tygodnia ISO (patrz <code class="code1">%V</code> ). Ma ten sam format i wartość co
             <code class="code1">%Y</code> , z tą różnicą, że jeśli numer tygodnia ISO należy do poprzedniego
-            lub następnego roku, to zamiast niego używany jest ten rok.
+            lub następnego roku, to ten rok jest używany zamiast niego.
           </td>
         </tr>
         <tr>
@@ -330,7 +332,7 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Dzień dosłowny. Zlokalizowany, głównie dla regionów azjatyckich. (ja: 日, ko: 일)</td>
+          <td>Dzień dosłownie. Zlokalizowany, głównie dla regionów azjatyckich. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
@@ -358,7 +360,7 @@
       <li>
         <code class="code1">%T</code> - nie zaimplementowano (użyj <code class="code1">%H:%M:%S</code> )
       </li>
-      <li><code class="code1">%U</code> – nie zaimplementowano</li>
+      <li><code class="code1">%U</code> - nie zaimplementowano</li>
       <li><code class="code1">%W</code> - nie zaimplementowano</li>
       <li><code class="code1">%+</code> - nie zaimplementowano</li>
       <li><code class="code1">%%</code> - nie zaimplementowano (użyj <code class="code1">%</code> )</li>
