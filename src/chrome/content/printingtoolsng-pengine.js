@@ -2409,7 +2409,7 @@ var printingtools = {
 				}
 			}
 			//we always filter inline attachments
-			if (att.contentDisposition == "inline") {
+			if (att.contentDisposition == "inline" || att.contentId) {
 				return false;
 			}
 			return true;
