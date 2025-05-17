@@ -2400,6 +2400,17 @@ var printingtools = {
 		}
 
 		let atts = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageHdr: messageHdr, isEML: msgHdr.isEML });
+
+		let dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+		
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: attachments list", atts);
+			atts.forEach(att => {
+				console.log("Name:", att.name);
+				console.log("contentDisposition:", att.contentDisposition);
+				console.log("contentId:", att.contentId);
+			});
+		}
 		printingtools.attList = atts.filter(att => {
 			// filter signature attachments depending upon pref
 			if (!showSignatureAtts) {
