@@ -2419,6 +2419,10 @@ var printingtools = {
 					return false;
 				}
 			}
+
+			if (att.contentDisposition == "attachment") {
+				return true;
+			}
 			//we always filter inline attachments
 			if (att.contentDisposition == "inline" || att.contentId) {
 				return false;
