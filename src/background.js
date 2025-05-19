@@ -130,8 +130,12 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 			return rv;
 
 		case "getAttatchmentList":
-
+			try {
 			rv = await getAttatchmentList(info.messageHdr, info.isEML);
+			} catch (ex) {
+				console.log(ex)
+				rv = [];
+			}
 			return rv;
 
 		case "openHelp":
