@@ -2385,6 +2385,8 @@ var printingtools = {
 	},
 
 	getAttatchmentList: async function () {
+		const tbVersion = utils.getThunderbirdVersion();
+
 		printingtools.attList = [];
 		let showSignatureAtts = printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.add_p7m_vcf_attach");
 
@@ -2400,17 +2402,15 @@ var printingtools = {
 		}
 
 		let atts = await window.ptngAddon.notifyTools.notifyBackground({ command: "getAttatchmentList", messageHdr: messageHdr, isEML: msgHdr.isEML });
+		let fileNames = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-file")].map(elm => elm.innerHTML)
+		let fileSizes = [...printingtools.previewDoc.querySelectorAll(".moz-mime-attachment-table .moz-mime-attachment-size")].map(elm => elm.innerHTML)
+
+		let attsTable = fileNames.map((fn, i) => {
+			return { name: fn, size: fileSizes[i] };
+		});
 
 		let dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
-		
-		if (dbgopts.indexOf("trace1") > -1) {
-			console.log("PTNG: attachments list", atts);
-			atts.forEach(att => {
-				console.log("Name:", att.name);
-				console.log("contentDisposition:", att.contentDisposition);
-				console.log("contentId:", att.contentId);
-			});
-		}
+
 		printingtools.attList = atts.filter(att => {
 			// filter signature attachments depending upon pref
 			if (!showSignatureAtts) {
@@ -2429,6 +2429,29 @@ var printingtools = {
 			}
 			return true;
 		});
+
+		if (tbVersion.major == 128) {
+			// see if we have any attachments in table 
+			// that are not in the atts list
+			
+			attsTable.forEach(att => {
+				let exists = printingtools.attList.find(attL => att.name == attL.name);
+				if (!exists) {
+					printingtools.attList.push(att)
+				}
+			});
+		}
+
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("PTNG: attachments list", atts);
+			atts.forEach(att => {
+				console.log("Name:", att.name);
+				console.log("contentDisposition:", att.contentDisposition);
+				console.log("contentId:", att.contentId);
+				console.log("attsTable:", attsTable);
+				console.log("Final attList:", printingtools.attList);
+			});
+		}
 		return printingtools.attList;
 	},
 
@@ -2566,13 +2589,13 @@ var printingtools = {
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
 			printingtools.appendReceivedTD();
 
-			// removes all the FIELDSET elements with class = mimeAttachmentHeader
-			var fieldSets = printingtools.doc.getElementsByTagName("FIELDSET");
-			for (var i = fieldSets.length - 1; i > -1; i--) {
-				if (fieldSets[i].getAttribute("class") == "mimeAttachmentHeader")
-					fieldSets[i].parentNode.removeChild(fieldSets[i]);
-			}
-		
+		// removes all the FIELDSET elements with class = mimeAttachmentHeader
+		var fieldSets = printingtools.doc.getElementsByTagName("FIELDSET");
+		for (var i = fieldSets.length - 1; i > -1; i--) {
+			if (fieldSets[i].getAttribute("class") == "mimeAttachmentHeader")
+				fieldSets[i].parentNode.removeChild(fieldSets[i]);
+		}
+
 	},
 
 	findIconSrc: function (filename) {
