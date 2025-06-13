@@ -2,6 +2,10 @@
 
 ## Versions
 
+Version 3.1.4 : Maintenance Release - May 28, 2025
+
+- Thunderbird v139 compatibility 
+
 Version 3.1.3 : Maintenance Release - April 23, 2025
 
 - fix showing signature files
