@@ -2,6 +2,10 @@
 
 ## Versions
 
+Version 3.1.7 : Maintenance Release - August 13, 2025
+
+- Thunderbird v143 compatibility 
+
 Version 3.1.4 : Maintenance Release - May 28, 2025
 
 - Thunderbird v139 compatibility 
