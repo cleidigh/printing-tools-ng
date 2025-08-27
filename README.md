@@ -13,11 +13,11 @@ Original add-on’s homepage:
 https://addons.thunderbird.net/addon/printingtools/
 
 
-![PTng_version](https://img.shields.io/badge/version-v2.2.1-darkorange.png?label=PrintingTools%20NG)
-[![PTng_tb_version](https://img.shields.io/badge/version-v3.1.4-blue.png?label=Thunderbird%20Add-On)](https://addons.thunderbird.net/en-US/thunderbird/addon/)
-![Thunderbird_version](https://img.shields.io/badge/version-v91.0--103.*-blue.png?label=Thunderbird)
+![PTng_version](https://img.shields.io/badge/version-v3.1.7-darkorange.png?label=PrintingTools%20NG)
+[![PTng_tb_version](https://img.shields.io/badge/version-v3.1.7-blue.png?label=Thunderbird%20Add-On)](https://addons.thunderbird.net/en-US/thunderbird/addon/)
+![Thunderbird_version](https://img.shields.io/badge/version128--143.*-blue.png?label=Thunderbird)
 [![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-red.png)](https://opensource.org/licenses/GPL-3.0)
-![Release Status](https://img.shields.io/badge/Release%20Status-v2.2.1%20Released-brightgreen.png)
+![Release Status](https://img.shields.io/badge/Release%20Status-v3.1.7%20Released-brightgreen.png)
 
 #
 
