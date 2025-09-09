@@ -162,8 +162,11 @@ export var printerSettings = {
     console.log(n)
     console.log(new Intl.NumberFormat(locale).format(n))
 
-    el.value = new Intl.NumberFormat(locale).format(n);
-    el.valueAsNumber = new Intl.NumberFormat(locale).format(n);
+    let n3 = new Intl.NumberFormat(locale).format(n);
+    console.log(n3)
+    let n4 = n3.toString()
+    el.value = n4
+    //el.value = new Intl.NumberFormat(locale).format(n).toString();
     console.log(el)
 
     el = document.querySelector("#margin-bottom");
