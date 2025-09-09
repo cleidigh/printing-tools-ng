@@ -157,7 +157,14 @@ export var printerSettings = {
     // Round all margins to two decimal places
     let el = document.querySelector("#margin-top");
     let n = this.inchesToLocaleUnits(printSettings.marginTop, localeUnits).toFixed(2);
+    console.log(locale)
+    
+    console.log(n)
+    console.log(new Intl.NumberFormat(locale).format(n))
+
     el.value = new Intl.NumberFormat(locale).format(n);
+    el.valueAsNumber = new Intl.NumberFormat(locale).format(n);
+    console.log(el)
 
     el = document.querySelector("#margin-bottom");
     n = this.inchesToLocaleUnits(printSettings.marginBottom, localeUnits).toFixed(2);
