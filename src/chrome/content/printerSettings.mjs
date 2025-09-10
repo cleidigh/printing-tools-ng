@@ -157,29 +157,19 @@ export var printerSettings = {
     // Round all margins to two decimal places
     let el = document.querySelector("#margin-top");
     let n = this.inchesToLocaleUnits(printSettings.marginTop, localeUnits).toFixed(2);
-    console.log(locale)
-    
-    console.log(n)
-    console.log(new Intl.NumberFormat(locale).format(n))
-
-    let n3 = new Intl.NumberFormat(locale).format(n);
-    console.log(n3)
-    let n4 = n3.toString()
-    el.value = n4
-    //el.value = new Intl.NumberFormat(locale).format(n).toString();
-    console.log(el)
+    el.value = new Intl.NumberFormat(locale).format(n).replace(',','.');
 
     el = document.querySelector("#margin-bottom");
     n = this.inchesToLocaleUnits(printSettings.marginBottom, localeUnits).toFixed(2);
-    el.value = new Intl.NumberFormat(locale).format(n);
+    el.value = new Intl.NumberFormat(locale).format(n).replace(',','.');
 
     el = document.querySelector("#margin-left");
     n = this.inchesToLocaleUnits(printSettings.marginLeft, localeUnits).toFixed(2);
-    el.value = new Intl.NumberFormat(locale).format(n);
+    el.value = new Intl.NumberFormat(locale).format(n).replace(',','.');
 
     el = document.querySelector("#margin-right");
     n = this.inchesToLocaleUnits(printSettings.marginRight, localeUnits).toFixed(2);
-    el.value = new Intl.NumberFormat(locale).format(n);
+    el.value = new Intl.NumberFormat(locale).format(n).replace(',','.');
 
     // setup headers and footers
     el = document.querySelector("#headerleft");
