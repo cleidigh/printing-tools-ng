@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <title>Pomoč PrintingTools NG</title>
+    <title>Pomoč za PrintingTools NG</title>
   </head>
   <body>
     <table style="width: 100%;">
       <tr>
         <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">Pomoč PrintingTools NG</div>
+          <div style="font-size: 1.8em; font-weight: bold;">Pomoč za PrintingTools NG</div>
           <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
         </td>
         <td style="text-align: right; padding-right: 30px;">
@@ -18,77 +18,66 @@
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Opombe ob izdaji:</h3>
+    <h3 id="release_notes" style="padding-left: 4px;">Opombe k izdaji:</h3>
     <p>
-      <b>Pomembna opomba:</b> od izdaje Thunderbird v136 bo Mozilla izdajala mesečne izdaje. Morda ne bom
-      mogel izdati PrintingTools NG vsak mesec. Preden posodobite Thunderbird, preverite, ali je na voljo
-      združljiva posodobitev PrintingTools NG.<br /><br />
-      Christopher<br /><br />
-      - Popravek: Napaka tiskanja in predogleda z IZKLOPLJENO možnostjo Poravnaj glave<br />
-      - Popravek: Prikaži priloge podpisnih datotek v glavi<br />
-      - Novo: dodajte datum sporočila v katero koli glavo ali nogo strani z novo spremenljivko:
-      <b>&amp;MD</b> #277<br />
-      - Novo: dodajte ID sporočila na konec glav. #268, #283 Uporaba:<br />
-      <b>addMessageIdToHdr</b><br />
-      v polju Napredne možnosti<br />
-      - Novo: žeton imena datoteke <b>${messageID}</b> za glavo ID-ja sporočila #285<br />
-      - Novo: nastavite širino stolpca glave. Uporaba:<br />
-      <b>hdrColWidth: <i>nnn</i></b
-      ><br />
-      v polju Napredne možnosti, kjer je <i>nnn</i> v px<br />
-      - Popravite omejitev 100 izbranih sporočil #272, #280<br />
+      <b>Pomembno obvestilo:</b> Od izdaje Thunderbirda v136 naprej bo Mozilla izdajala mesečne izdaje. Morda
+      ne bom mogel izdati PrintingTools NG vsak mesec. Preden posodobite Thunderbird, preverite, ali je na
+      voljo združljiva posodobitev PrintingTools NG.<br /><br />
+      Krištof<br /><br />
+      - Popravek: gumb V redu je vedno onemogočen za jezikovne nastavitve, ki uporabljajo vejico kot decimalno
+      vejico - Sprememba Thunderbirda za vnose HTML
     </p>
     <br />
-    <h2 id="main_help">Pregled PrintingTools NG</h2>
+    <h2 id="main_help">Pregled orodij za tiskanje NG</h2>
     <p>
-      PrintingTools NG omogoča številne prilagoditve tiskanja po e-pošti. Razširitev ima veliko možnosti tako
-      za glave kot tudi za dele sporočila. Poleg tega je mogoče nastaviti možnosti strani, ki jih ni mogoče
-      narediti v običajnem predogledu tiskanja Thunderbird. Izpis PDF je mogoče izvesti tudi s samodejnim
-      poimenovanjem z uporabo prilagodljivega sistema, ki temelji na žetonih.
+      PrintingTools NG omogoča številne prilagoditve tiskanja e-pošte. Razširitev ima veliko možnosti tako za
+      glave kot za dele sporočila. Poleg tega je mogoče nastaviti možnosti strani, ki jih ni mogoče izvesti v
+      običajnem predogledu tiskanja Thunderbird. Izpis PDF je mogoče izvesti tudi s samodejnim poimenovanjem z
+      uporabo prilagodljivega sistema, ki temelji na žetonih.
     </p>
-    <h3 class="indent0">Dodajanje gumba Print NG v orodno vrstico glave pošte:</h3>
+    <h3 class="indent0">Dodajanje gumba Natisni NG v orodno vrstico glave pošte:</h3>
     <p>
-      Gumb Print NG je samodejno dodan v enotno orodno vrstico od Thunderbird v115. Gumb lahko dodate tudi v
-      orodno vrstico glave pošte, da omogočite tako dostop do tiskanja kot tudi možnosti iz poštnega podokna.
-      Poleg tega lahko do možnosti dostopate z gumbom ključa za razširitev na zavihku dodatka.
+      Gumb »Natisni NG« je samodejno dodan v poenoteno orodno vrstico od različice Thunderbird 115. Gumb je
+      mogoče dodati tudi v orodno vrstico glave pošte, da omogočite dostop do tiskanja in možnosti iz podokna
+      za pošto. Do dodatnih možnosti lahko dostopate tudi z gumbom ključa za razširitev na zavihku dodatkov.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Sledite tem korakom, da gumb postavite v orodno vrstico glave pošte:</p>
+    <p>Če želite gumb postaviti v orodno vrstico glave e-pošte, sledite tem korakom:</p>
     <div class="indent1">
-      <li>V orodni vrstici glave pošte kliknite gumb Več</li>
-      <li>Izberite Po meri ... S tem se odpre okno Prilagodi orodno vrstico</li>
+      <li>Kliknite gumb Več v orodni vrstici glave pošte</li>
+      <li>Izberite Po meri ... S tem se bo odprlo okno Prilagodi orodno vrstico</li>
       <li>Poiščite gumb Print NG</li>
       <li>Povlecite in spustite gumb na želeno mesto</li>
       <li>Uporabite gumb za tiskanje, predogled, možnosti in pomoč</li>
     </div>
-    <h3 class="indent0">Bližnjice na tipkovnici PrintingTools NG</h3>
+    <h3 class="indent0">Bližnjice na tipkovnici za PrintingTools NG</h3>
     <p>
-      PrintingTools preslika standardno bližnjico Thunderbird Print, da se sama prikliče namesto standardne
-      bližnjice Print. V sistemih Windows in Linux uporabite Control-P in Command-P v Macu. Možno je tudi
-      odpreti pogovorno okno Možnosti s Control-Shift-P.
+      Orodja za tiskanje preslikajo standardno bližnjico za tiskanje v programu Thunderbird tako, da se
+      namesto standardne bližnjice za tiskanje sproži sama. V sistemih Windows in Linux uporabite Control-P, v
+      sistemu Mac pa Command-P. Pogovorno okno z možnostmi je mogoče odpreti tudi s Control-Shift-P.
     </p>
     <h3 class="indent0">Sledi primer nekaterih funkcij oblikovanja glave:</h3>
     <div class="indent1">
-      <li>Prilagojen slog obrobe glave z uporabo CSS (zgoraj in spodaj, modra)</li>
+      <li>Prilagojen slog obrobe glave z uporabo CSS (zgoraj in spodaj, modro)</li>
       <li>Barva ozadja glave</li>
       <li>Poravnane glave</li>
       <li>Prilagojen vrstni red glave</li>
       <li>Naslov strani in mapa s sporočili</li>
       <li>Seznam prilog z ikonami v glavi</li>
-      <li>Popolnoma prilagodljiva oblika datuma, mednarodno oblikovanje</li>
+      <li>Popolnoma prilagodljiv format datuma v mednarodnem formatu</li>
     </div>
     <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Oblika datuma po meri</h2>
     <p>
-      Možnost datuma po meri omogoča popoln nadzor nad oblikovanjem datuma, ki se uporablja za datum in datum
-      prejema v glavah e-poštnih sporočil. Datum po meri ponuja več lokaliziranih možnosti, ki omogočajo
-      skoraj vsako obliko. Upoštevajte, da lahko datumski niz po meri vključuje ločila, literale, vključno z
-      znaki unicode, pomešanimi s spodaj navedenimi žetoni datuma\časa.<br /><br />
+      Možnost datuma po meri omogoča popoln nadzor nad oblikovanjem datuma, ki se uporablja tako za datum kot
+      za datum prejema v glavah e-poštnih sporočil. Datum po meri ponuja več lokaliziranih možnosti, ki
+      omogočajo skoraj vsako obliko zapisa. Upoštevajte, da lahko niz datuma po meri vključuje ločila,
+      literale, vključno z znaki Unicode, pomešane z žetoni datuma/časa, navedenimi spodaj.<br /><br />
       Opomba: Rezultati datuma po meri v spodnjih primerih se bodo razlikovali glede na dejanski datum,
-      področne nastavitve in časovni pas uporabnika.
+      jezikovne nastavitve in časovni pas uporabnika.
     </p>
     <br />
     <h3 class="indent0">Primeri:</h3>
@@ -113,12 +102,12 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
         <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-        <td>zh-CN kraj, kratki dan</td>
+        <td>zh-CN lokacija, kratek dan</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
         <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-        <td>zh-TW kraj, dolg dan</td>
+        <td>zh-TW lokacija, dolg dan</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
@@ -128,21 +117,21 @@
       <tr>
         <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
         <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-        <td>de locale, kratek dan/mesec</td>
+        <td>kraj, kratek dan/mesec</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>en-US locale, dolg dan/mesec</td>
+        <td>en-US lokal, dolg dan/mesec</td>
       </tr>
     </table>
     <br />
     <p>
-      Oblika datuma po meri uporablja zaporedja %, ki se ujemajo s funkcijo <code>strftime()</code> Unix.
-      Temelji na vratih JavaScript
+      Oblika datuma po meri uporablja zaporedja %, ki se ujemajo s funkcionalnostjo <code>strftime()</code> v
+      Unixu. Temelji na JavaScript različici funkcije
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , funkciji za oblikovanje datuma in ure.<br />
-      Pristanišče strftime() TH Doana (https://thdoan.github.io/strftime/)<br />
+      , ki omogoča oblikovanje datuma in časa.<br />
+      Prilagajanje funkcije strftime() avtorja TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
     <h3 style="margin-left: 30px;">Opisi zaporedja pretvorb</h3>
@@ -172,86 +161,88 @@
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
-          <td>Predstavitev želenega datuma in časa (UTC) za trenutni jezik.</td>
+          <td>Prednostna predstavitev datuma in časa (UTC) za trenutne jezikovne nastavitve.</td>
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
-          <td>Številka stoletja (leto/100) kot 2-mestno celo število.</td>
+          <td>Številka stoletja (leto/100) kot dvomestno celo število.</td>
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
-          <td>Dan v mesecu kot decimalno število (razpon od 01 do 31).</td>
+          <td>Dan v mesecu kot decimalno število (območje od 01 do 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%e</code></td>
-          <td>Dan v mesecu kot decimalno število (razpon od 1 do 31).</td>
+          <td>Dan v mesecu kot decimalno število (območje od 1 do 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%F</code></td>
-          <td>Format datuma ISO 8601 (enakovredno <code class="code1">%Y-%m-%d</code> ).</td>
+          <td>Oblika datuma po standardu ISO 8601 (enakovredno <code class="code1">%Y-%m-%d</code> ).</td>
         </tr>
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
-            Tedensko leto po ISO 8601 s stoletjem kot decimalnim številom. 4-mestno leto ustreza številki
-            tedna ISO (glejte <code class="code1">%V</code> ). To ima enako obliko in vrednost kot
-            <code class="code1">%Y</code> , le da če številka tedna ISO pripada prejšnjemu ali naslednjemu
-            letu, se namesto tega uporabi to leto.
+            Leto po standardu ISO 8601, ki temelji na tednu in je decimalno število stoletje. Štirimestno leto
+            ustreza številki tedna po standardu ISO (glejte <code class="code1">%V</code> ). Ima enako obliko
+            in vrednost kot <code class="code1">%Y</code> , le da če številka tedna po standardu ISO pripada
+            prejšnjemu ali naslednjemu letu, se namesto tega uporabi to leto.
           </td>
         </tr>
         <tr>
           <td><code class="code1">%g</code></td>
-          <td>Kot <code class="code1">%G</code> , vendar brez stoletja, to je z 2-mestno letnico (00-99).</td>
+          <td>
+            Kot <code class="code1">%G</code> , vendar brez stoletja, torej z dvomestno letnico (00–99).
+          </td>
         </tr>
         <tr>
           <td><code class="code1">%H</code></td>
           <td>
-            Ura kot decimalno število z uporabo 24-urne ure (razpon od 00 do 23). Glej tudi
+            Ura kot decimalno število z uporabo 24-urnega formata (območje od 00 do 23). Glejte tudi
             <code class="code1">%k</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%I</code></td>
           <td>
-            Ura kot decimalno število z uporabo 12-urne ure (razpon od 01 do 12). Glej tudi
+            Ura kot decimalno število z uporabo 12-urnega formata (območje od 01 do 12). Glejte tudi
             <code class="code1">%l</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%j</code></td>
-          <td>Dan v letu kot decimalno število (razpon od 001 do 366).</td>
+          <td>Dan v letu kot decimalno število (območje od 001 do 366).</td>
         </tr>
         <tr>
           <td><code class="code1">%k</code></td>
           <td>
-            Ura kot decimalno število z uporabo 24-urne ure (razpon od 0 do 23). Glej tudi
+            Ura kot decimalno število z uporabo 24-urnega formata (območje od 0 do 23). Glejte tudi
             <code class="code1">%H</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            Ura kot decimalno število z uporabo 12-urne ure (razpon od 1 do 12). Glej tudi
+            Ura kot decimalno število z uporabo 12-urnega formata (območje od 1 do 12). Glejte tudi
             <code class="code1">%I</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%m</code></td>
-          <td>Mesec kot decimalno število (razpon od 01 do 12).</td>
+          <td>Mesec kot decimalno število (območje od 01 do 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%n</code></td>
-          <td>Mesec kot decimalno število (razpon od 1 do 12).</td>
+          <td>Mesec kot decimalno število (območje od 1 do 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%M</code></td>
-          <td>Minuta kot decimalno število (razpon od 00 do 59).</td>
+          <td>Minuta kot decimalno število (območje od 00 do 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            Bodisi &quot;AM&quot; ali &quot;PM&quot; glede na podano časovno vrednost. Opoldne se obravnava
-            kot &quot;PM&quot;, polnoč pa kot &quot;AM&quot;.
+            Bodisi »AM« ali »PM« glede na podano časovno vrednost. Poldne se obravnava kot »PM«, polnoč pa kot
+            »AM«.
           </td>
         </tr>
         <tr>
@@ -262,53 +253,53 @@
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
-          <td>Število sekund od Epohe, 1970-01-01 00:00:00 +0000 (UTC).</td>
+          <td>Število sekund od epohe, 1. 1. 1970 00:00:00 +0000 (UTC).</td>
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
-          <td>Sekunda kot decimalno število (razpon od 00 do 59).</td>
+          <td>Sekunda kot decimalno število (območje od 00 do 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Dan v tednu kot decimalno število (razpon od 1 do 7), pri čemer je ponedeljek 1. Glejte tudi
+            Dan v tednu kot decimalno število (območje od 1 do 7), ponedeljek je 1. Glejte tudi
             <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Številka tedna po ISO 8601 tekočega leta kot decimalno število (razpon od 01 do 53), kjer je 1.
-            teden prvi teden, ki ima vsaj 4 dni v novem letu (to je prvi četrtek).
+            Številka tedna tekočega leta po standardu ISO 8601 kot decimalno število (območje od 01 do 53),
+            kjer je 1. teden prvi teden, ki ima v novem letu vsaj 4 dni (torej prvi četrtek).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%w</code></td>
           <td>
-            Dan v tednu kot decimalno (razpon od 0 do 6), nedelja je 0. Glejte tudi
+            Dan v tednu kot decimalno število (območje od 0 do 6), nedelja je 0. Glejte tudi
             <code class="code1">%u</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%x</code></td>
-          <td>Želena predstavitev datuma za trenutni jezik brez časa.</td>
+          <td>Prednostna predstavitev datuma za trenutno lokacijo brez časa.</td>
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
-          <td>Prednostna predstavitev časa za trenutni jezik brez datuma.</td>
+          <td>Prednostna predstavitev časa za trenutno lokacijo brez datuma.</td>
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
-          <td>Leto kot decimalno število brez stoletja (razpon od 00 do 99).</td>
+          <td>Leto kot decimalno število brez stoletja (območje od 00 do 99).</td>
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>
-          <td>Leto kot decimalno število vključno s stoletjem.</td>
+          <td>Leto kot decimalno število, vključno s stoletjem.</td>
         </tr>
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            <code class="code1">+hhmm</code> ali <code class="code1">-hhmm</code> numerični časovni pas (to je
+            Številski časovni pas <code class="code1">+hhmm</code> ali <code class="code1">-hhmm</code> (torej
             odmik ure in minute od UTC).
           </td>
         </tr>
@@ -330,7 +321,7 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Day Literal. Lokalizirano, predvsem za azijske kraje. (ja: 日, ko: 일)</td>
+          <td>Dnevna dobesedna oblika. Lokalizirano, predvsem za azijske jezike. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
@@ -343,15 +334,15 @@
       </li>
       <li><code class="code1">%e</code> - presledek ni dodan</li>
       <li><code class="code1">%E</code> - ni implementirano</li>
-      <li><code class="code1">%h</code> - ni implementirano (uporabi <code class="code1">%b</code> )</li>
+      <li><code class="code1">%h</code> - ni implementirano (uporabite <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - presledek ni dodan</li>
       <li>
-        <code class="code1">%n</code> - kot <code class="code1">%m</code> , vendar brez začetne ničle
-        (uporabite <code class="code1">\n</code> za novo vrstico)
+        <code class="code1">%n</code> - kot <code class="code1">%m</code> , vendar brez začetne ničle (za novo
+        vrstico uporabite <code class="code1">\n</code> )
       </li>
       <li><code class="code1">%O</code> - ni implementirano</li>
       <li>
-        <code class="code1">%r</code> - ni implementirano (uporabi <code class="code1">%I:%M:%S %p</code> )
+        <code class="code1">%r</code> - ni implementirano (uporabite <code class="code1">%I:%M:%S %p</code> )
       </li>
       <li><code class="code1">%R</code> - ni implementirano (uporabite <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - ni implementirano (uporabite <code class="code1">\t</code> )</li>
@@ -361,41 +352,39 @@
       <li><code class="code1">%U</code> - ni implementirano</li>
       <li><code class="code1">%W</code> - ni implementirano</li>
       <li><code class="code1">%+</code> - ni implementirano</li>
-      <li><code class="code1">%%</code> - ni implementirano (uporabi <code class="code1">%</code> )</li>
+      <li><code class="code1">%%</code> - ni implementirano (uporabite <code class="code1">%</code> )</li>
     </ul>
     <br />
-    <h2 id="pdf_output_help">Izpis PDF in samodejno poimenovanje datotek</h2>
+    <h2 id="pdf_output_help">Izhod PDF in samodejno poimenovanje datotek</h2>
     <p>
-      Izpis PDF je zdaj mogoče samodejno poimenovati s sistemom žetonov in shraniti v vnaprej določen izhodni
-      imenik PDF. To je še posebej uporabno pri tiskanju več izbranih e-poštnih sporočil, saj ni treba izbrati
-      imena in lokacije za vsako e-poštno sporočilo.
+      Izhodne datoteke PDF je zdaj mogoče samodejno poimenovati z uporabo sistema žetonov in shraniti v
+      vnaprej določen imenik za izhodne datoteke PDF. To je še posebej uporabno pri tiskanju več izbranih
+      e-poštnih sporočil, saj ni treba izbrati imena in lokacije za vsako e-poštno sporočilo.
     </p>
     <p />
     <p>
-      Omogočite izhodni imenik PDF in izberite imenik za lokacijo shranjevanja. Izhodno ime datoteke bo
-      sledilo konfigurirani obliki imena datoteke.
+      Omogočite izhodno mapo PDF in izberite mapo za mesto shranjevanja. Ime izhodne datoteke bo sledilo
+      konfigurirani obliki imena datoteke.
     </p>
     <p />
     <p>
-      Format imena datoteke je sestavljen iz žetonov in kakršnih koli statičnih znakov, kot so ločila ali
+      Oblika imena datoteke je sestavljena iz žetonov in morebitnih statičnih znakov, kot so ločila ali
       presledki. Razširjeno oblikovanje imena datoteke uporablja žetone. Natančno ime datoteke je mogoče
-      sestaviti z uporabo žetonov ter katerega koli besedila ali veljavnih znakov imena datoteke. Neveljavni
-      znaki so: <code>| * : &lt; &gt; ? \ / &quot;</code>
+      sestaviti z uporabo žetonov, pa tudi katerega koli besedila ali veljavnih znakov imena datoteke.
+      Neveljavni znaki so: <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>Privzeta oblika imena je: ${subject}, ki je samo zadeva e-pošte.</p>
+    <p>Privzeta oblika imena je: ${subject}, kar je samo zadeva e-poštnega sporočila.</p>
     <p />
     <p>Primeri</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> – privzeta oblika, zadeva e-pošte<br />
-      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – namesto privzetega
-      uporabite obliko datuma po meri<br />
-      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - z nekaj besedila po
+      <span class="notranslate"><code>${subject}</code></span> - Privzeta oblika, zadeva e-pošte<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Uporabite obliko
+      datuma po meri namesto privzete<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Z nekaj besedila po
       meri<br />
     </p>
-    <p>
-      Spodnja tabela opisuje celoten nabor žetonov, ki jih je mogoče uporabiti v obliki zapisa imena datoteke.
-    </p>
+    <p>Spodnja tabela opisuje celoten nabor žetonov, ki jih je mogoče uporabiti v obliki imena datoteke.</p>
     <table class="token-table">
       <tr>
         <td>Žeton</td>
@@ -427,11 +416,11 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${index}</code></td>
-        <td>Številka indeksa sporočila.</td>
+        <td>Indeksna številka sporočila.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${prefix}</code></td>
-        <td>Vrednost možnosti besedila predpone.</td>
+        <td>Vrednost možnosti predpone besedila.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
@@ -439,11 +428,11 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
-        <td>Standardni format datuma. Privzeta oblika je: LLLLMMDDHHmm</td>
+        <td>Standardna oblika datuma. Privzeta oblika je: LLLLMMDDDHHmm</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
-        <td>Oblika datuma po meri. Oglejte si razdelek o oblikovanju datuma po meri.</td>
+        <td>Oblika datuma po meri. Glejte razdelek o oblikovanju datuma po meri.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
@@ -453,91 +442,91 @@
     <br />
     <h2 id="print_options_help">Možnosti tiskanja in strani</h2>
     <p>
-      Te možnosti vam omogočajo, da nastavite privzeti tiskalnik in možnosti posamezne strani tiskalnika.
-      Možno je tudi nastaviti tihi način, kjer pogovorno okno za predogled ni prikazano in se tiskanje izvede
-      takoj.
+      Te možnosti vam omogočajo nastavitev privzetega tiskalnika in možnosti za posamezne strani tiskalnika.
+      Možno je tudi nastaviti tihi način, v katerem se pogovorno okno za predogled ne prikaže in se tiskanje
+      izvede takoj.
     </p>
     <p>
-      Možnosti strani vam omogočajo nastavitev elementov, ko je končan predogled ali tiskanje. Te možnosti so
-      obstojne med tiskanjem. Če se možnosti, nastavljene v PrintingTools NG, spremenijo v predogledu
-      tiskanja, ne bodo vplivale na naslednje natise. Nekateri elementi niso na voljo za nastavitev v
-      pogovornem oknu za predogled, med njimi so glave in noge. Drugih elementov predogled ne ohrani in jih je
-      običajno treba nastaviti vsakič, ko je tiskanje končano. PrintingTools NG rešuje obe težavi.
+      Možnosti strani vam omogočajo nastavitev elementov, ko je predogled ali tiskanje končano. Te možnosti
+      ostanejo shranjene med tiskanjem. Če se možnosti, nastavljene v orodju PrintingTools NG, spremenijo v
+      predogledu tiskanja, to ne bo vplivalo na nadaljnje tiskanje. Nekaterih elementov ni mogoče nastaviti v
+      pogovornem oknu za predogled, med njimi so glave in noge. Drugi elementi se ne ohranijo v predogledu in
+      jih je običajno treba nastaviti vsakič, ko je tiskanje končano. PrintingTools NG rešuje obe težavi.
     </p>
     <p>
-      En element, ki ga predogled ne shrani, so obsegi strani. Tipičen primer uporabe je, ko želimo kot
-      privzeto natisniti samo prvo stran e-pošte. običajno bi bilo treba vsakokrat spremeniti obsege strani.
-      Upoštevajte, da če obseg strani, nastavljen v PrintingTools NG, ni veljaven, na primer prekoračitev
-      števila strani, bo treba obseg popraviti v predogledu pred tiskanjem. Obseg strani, nastavljen na
-      &quot;1&quot;, bo vedno veljaven in natisne prvo stran sporočila.
+      Predogled ne shrani obsegov strani. Tipičen primer uporabe je, ko želimo kot privzeto natisniti samo
+      prvo stran e-pošte. Običajno bi bilo treba obsege strani vsakič spremeniti. Upoštevajte, da če obseg
+      strani, nastavljen v orodju PrintingTools NG, ni veljaven, na primer presega število strani, je treba
+      obseg pred tiskanjem popraviti v predogledu. Obseg strani, nastavljen na »1«, bo vedno veljaven in
+      natisne prvo stran sporočila.
     </p>
     <p>Opombe:</p>
-    <p>Možnost skaliranja omogoča nastavitev trajne lestvice.</p>
+    <p>Možnost skaliranja omogoča nastavitev trajnega merila.</p>
     <p>
-      Obsegi strani so opisani na enak način kot v predogledu. Primeri so 1, 1-2, 3-4,5. Upoštevajte, da če
-      prednastavljen obseg strani ni veljaven za dano sporočilo, bo v predogledu prikazana napaka.
+      Obsegi strani so opisani na enak način kot v predogledu. Primeri so 1, 1–2, 3–4, 5. Upoštevajte, da če
+      prednastavljeni obsegi strani niso veljavni za dano sporočilo, bo predogled prikazal napako.
     </p>
     <p>
-      Robove je mogoče nastaviti z uporabo enot, ki ustrezajo lokalni nastavitvi uporabnika, inčev ali
-      milimetrov (in ali mm). Upoštevajte, da so lahko zaradi napak pri zaokroževanju nekatere vrednosti v mm
-      shranjene z majhnimi razlikami.
+      Robove je mogoče nastaviti z enotami, ki ustrezajo uporabnikovim jezikovnim nastavitvam, bodisi v palcih
+      bodisi v milimetrih (in ali mm). Upoštevajte, da se lahko zaradi napak pri zaokroževanju nekatere
+      vrednosti v mm shranijo z majhnimi razlikami.
     </p>
     <p></p>
     <p>
-      Glave in noge lahko nastavite tako, da vključujejo različne spremenljivke sporočil, navedene spodaj.
-      Dodatno je lahko vključeno tudi poljubno besedilo. Če želite tiskati brez glav ali nog in prihraniti
-      prostor za tiskanje, preprosto izpraznite vsa polja.
+      Glave in noge je mogoče nastaviti tako, da vključujejo različne spodaj navedene spremenljivke sporočil.
+      Poleg tega je mogoče vključiti tudi poljubno besedilo. Če želite, da se glave ali noge ne natisnejo in
+      prihranite prostor za tiskanje, preprosto izpolnite vsa polja.
     </p>
     <div class="indent1">
-      <li>&amp;D = Natisni datum</li>
+      <li>&amp;D = Datum tiskanja</li>
       <li>&amp;MD = Datum sporočila</li>
-      <li>&amp;P = številka strani</li>
-      <li>&amp;PT = Številka strani s skupno (»3 od 5«)</li>
+      <li>&amp;P = Številka strani</li>
+      <li>&amp;PT = Številka strani s skupnim seštevkom (»3 od 5«)</li>
       <li>&amp;T = Naslov strani (Zadeva sporočila)</li>
       <li>&amp;U = URL (URL sporočila)</li>
     </div>
     <h2 id="advanced_options_help">Napredne možnosti</h2>
     <p>
-      To so možnosti, ki omogočajo nastavitev elementov za tiskanje zunaj osnovnih nastavitev uporabniškega
-      vmesnika. Možnosti so nastavljene v Naprednih možnostih na zavihku Razno in so oznake, ločene s
-      presledki.<br />
-      Oznake možnosti in formati so podani spodaj:<br /><br />
+      To so možnosti, ki omogočajo nastavitev elementov tiskanja, ki presegajo osnovne nastavitve
+      uporabniškega vmesnika. Možnosti so nastavljene v Naprednih možnostih na zavihku Razno in so oznake,
+      ločene s presledki.<br />
+      Oznake in oblike opcij so navedene spodaj:<br /><br />
       <b>Dodajte ID sporočila na konec oznake glave:</b><br /><br />
-      <b>addMessageIdToHdr</b><br /><br />
+      <b>dodajIdMessageToHdr</b><br /><br />
       <b>Nastavite širino stolpca za oznako glave:</b><br /><br />
-      <b>hdrColWidth: <i>nnn</i></b> Kjer je <i>nnn</i> število slikovnih pik<br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> , kjer je <i>nnn</i> število slikovnih pik<br /><br />
       <b>Robovi glave in noge:</b><br /><br />
       P: <i>ime-tiskalnika</i> ::S: <i>ime-možnosti</i> = <i>vrednost</i><br /><br />
-      V imenu tiskalnika so presledki zamenjani s podčrtaji, vgrajena funkcija za shranjevanje v PDF pa je
-      Mozilla_Save_to_PDF<br /><br />
+      V imenu tiskalnika so presledki zamenjani s podčrtaji, vgrajena funkcija shranjevanja v PDF pa je
+      Mozilla_Save_to_PDF.<br /><br />
       Drug primer: Microsoft_Print_to_PDF<br /><br />
-      Trenutne možnosti imena možnosti so:<br />
+      Trenutne možnosti imen opcij so:<br />
       <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
-      <span class="notranslate">edges</span> je psevdo možnost, ki nastavi vse robove robov na isto vrednost.
+      <span class="notranslate">edges</span> je psevdo možnost, ki nastavi vse robove na enako vrednost.
       Robovi robov so v palcih.<br /><br />
       Primeri:<br /><br />
       P:Mozilla_Save_to_PDF::S:edges=0,25<br />
       P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
-      Če želite vse robove nastaviti na 0,10 palca, razen edgeTop na 0,25 palca, vnesite naslednje:<br /><br />
-      P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+      Če želite nastaviti vse robove na 0,10 palca, razen edgeTop na 0,25 palca, vnesite naslednje:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0,10 P:Mozilla_Save_to_PDF::S:edgeTop=0,25
     </p>
     <h2>Podpora</h2>
     <p>
-      Objavite težave ali zahteve po funkcijah v repozitoriju razširitev GitHub:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">Težave PrintingTools NG</a
+      Prosimo, objavite težave ali zahteve za funkcije v repozitoriju razširitev GitHub:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues"
+        >Težave s PrintingTools NG</a
       ><br /><br />
-      V težave z napakami vključite naslednje informacije, ki vam bodo pomagale rešiti težave:<br />
+      Pri težavah z napakami vključite naslednje informacije, ki bodo pomagale rešiti težave:<br />
       - Različica PrintingTools NG<br />
-      - Različica Thunderbird<br />
+      - Različica Thunderbirda<br />
       - Operacijski sistem in različica<br />
-      - Izhod za odpravljanje napak (kopiraj iz konzole za odpravljanje napak - dostop s tipkami
-      Control-Shift-J)<br />
-      – Opis korakov, ki vodijo do težave<br />
+      - Izpis za odpravljanje napak (kopirano iz konzole za odpravljanje napak - dostop s Control-Shift-J)<br />
+      - Opis korakov, ki vodijo do težave<br />
     </p>
     <h2 id="debug_options_help">Možnosti odpravljanja napak</h2>
     <p>
-      Možnosti odpravljanja napak so nabor ključnih besed, ki so vnesene kot seznam, ločen s presledki.
-      Možnosti se običajno uporabljajo za izpis razhroščevanja konzole, lahko pa se uporabljajo tudi za
+      Možnosti za odpravljanje napak so niz ključnih besed, ki se vnesejo kot seznam, ločen s presledki.
+      Možnosti se običajno uporabljajo za izhod za odpravljanje napak v konzoli, lahko pa se uporabijo tudi za
       testiranje ali različne načine.
     </p>
     <div class="indent1">
@@ -545,25 +534,27 @@
         <code class="notranslate">initialsource</code> - prikaži vir sporočila, preden PTNG izvede kakršno
         koli oblikovanje
       </li>
-      <li><code class="notranslate">finaloutput</code> - prikaži končni izhod sporočila</li>
-      <li><code class="notranslate">pdfoutput</code> - izhod za odpravljanje napak za izpis sporočila PDF</li>
+      <li><code class="notranslate">finaloutput</code> - prikaži končni izpis sporočila</li>
       <li>
-        <code class="notranslate">printsettings</code> - izhod za odpravljanje napak za možnosti tiskanja in
+        <code class="notranslate">pdfoutput</code> - izpis za odpravljanje napak pri izpisu sporočila PDF
+      </li>
+      <li>
+        <code class="notranslate">printsettings</code> - izpis za odpravljanje napak pri možnostih tiskanja in
         strani
       </li>
       <li>
         <code class="notranslate">helpinwin</code> - zastavica načina za prikaz pomoči v oknu namesto
-        standardnega v zavihku
+        standardne v zavihku
       </li>
     </div>
-    <h2>Krediti</h2>
+    <h2>Zasluge</h2>
     <div class="indent1">
-      <li>PrintingTools NG temelji na izvirni razširitvi Paola &quot;Kosmos&quot;</li>
+      <li>PrintingTools NG temelji na originalni razširitvi Paola &quot;Kosmos&quot;</li>
       <li>List.js Jonnyja Strömberga https://listjs.com</li>
       <li>Latinize.js Jakuba Dundaleka https://github.com/dundalek/latinize</li>
     </div>
     <p>
-      Hvala naslednjim uporabnikom za predloge za izboljšave in pomoč pri testiranju:<br /><br />
+      Zahvaljujemo se naslednjim uporabnikom za predloge za izboljšave in pomoč pri testiranju:<br /><br />
       - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
       - <code class="notranslate">@RRoenn</code><br />
       - <code class="notranslate">@tidebre67</code><br />

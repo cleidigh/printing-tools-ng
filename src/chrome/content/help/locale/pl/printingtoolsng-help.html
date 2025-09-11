@@ -20,38 +20,27 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px;">Informacje o wydaniu:</h3>
     <p>
-      <b>Ważna uwaga:</b> Od wydania Thunderbird v136 Mozilla będzie wydawać miesięczne wersje. Być może nie
-      będę w stanie wydawać PrintingTools NG co miesiąc. Przed aktualizacją Thunderbirda sprawdź, czy jest
-      dostępna zgodna aktualizacja PrintingTools NG.<br /><br />
+      <b>Ważna uwaga:</b> Od wydania Thunderbirda w wersji 136 Mozilla będzie publikować comiesięczne
+      aktualizacje. Możliwe, że nie będę w stanie wydawać PrintingTools NG co miesiąc. Przed aktualizacją
+      Thunderbirda sprawdź, czy jest dostępna kompatybilna aktualizacja PrintingTools NG.<br /><br />
       Krzysztof<br /><br />
-      - Naprawiono: Niepowodzenie drukowania i podglądu przy wyłączonej opcji Wyrównaj nagłówki<br />
-      - Naprawiono: Pokaż załączniki pliku podpisu w nagłówku<br />
-      - Nowość: Dodaj datę wiadomości do dowolnego nagłówka lub stopki strony za pomocą nowej zmiennej:
-      <b>&amp;MD</b> #277<br />
-      - Nowość: Dodaj Message-ID na końcu nagłówków. #268, #283 Użycie:<br />
-      <b>dodajMessageIdToHdr</b><br />
-      w polu Opcje zaawansowane<br />
-      - Nowość: Token nazwy pliku <b>${messageID}</b> dla nagłówka Message-ID #285<br />
-      - Nowe: Ustaw szerokość kolumny nagłówka. Użyj:<br />
-      <b>SzerokośćHDR: <i>nnn</i></b
-      ><br />
-      w polu Opcje zaawansowane, gdzie <i>nnn</i> jest w px<br />
-      - Naprawiono limit 100 wybranych wiadomości #272, #280<br />
+      - Naprawiono: przycisk OK jest zawsze wyłączony w przypadku ustawień regionalnych, w których jako
+      separator dziesiętny używany jest przecinek - Zmiana w Thunderbirdzie dla danych wejściowych HTML
     </p>
     <br />
     <h2 id="main_help">Przegląd PrintingTools NG</h2>
     <p>
-      PrintingTools NG umożliwia wiele dostosowań drukowania wiadomości e-mail. Rozszerzenie ma wiele opcji
-      zarówno dla nagłówków, jak i części wiadomości. Dodatkowo można ustawić opcje strony, których nie można
-      wykonać w normalnym podglądzie wydruku Thunderbird. Wyjście PDF można również wykonać z automatycznym
-      nadawaniem nazw przy użyciu elastycznego systemu opartego na tokenach.
+      PrintingTools NG umożliwia wiele personalizacji drukowania wiadomości e-mail. Rozszerzenie oferuje wiele
+      opcji zarówno dla nagłówków, jak i części wiadomości. Dodatkowo można ustawić opcje strony, których nie
+      można ustawić w standardowym podglądzie wydruku w Thunderbirdzie. Pliki PDF można również eksportować z
+      automatycznym nadawaniem nazw za pomocą elastycznego systemu opartego na tokenach.
     </p>
-    <h3 class="indent0">Dodawanie przycisku Drukuj NG do paska narzędzi nagłówka wiadomości e-mail:</h3>
+    <h3 class="indent0">Dodanie przycisku Drukuj NG do paska narzędzi nagłówka wiadomości e-mail:</h3>
     <p>
-      Przycisk Print NG jest automatycznie dodawany do zunifikowanego paska narzędzi od wersji Thunderbird
-      v115. Przycisk może być również dodany do paska narzędzi nagłówka poczty, aby umożliwić zarówno dostęp
-      do drukowania, jak i opcje z panelu pocztowego. Dodatkowo opcje są dostępne za pomocą przycisku klucza
-      dla rozszerzenia na karcie dodatku.
+      Przycisk Drukuj NG jest automatycznie dodawany do ujednoliconego paska narzędzi od wersji Thunderbird
+      115. Przycisk można również dodać do paska narzędzi nagłówka wiadomości, aby umożliwić zarówno
+      drukowanie, jak i dostęp do opcji z panelu pocztowego. Dodatkowo, dostęp do opcji można uzyskać za
+      pomocą przycisku klucza dla rozszerzenia na karcie dodatków.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
@@ -65,16 +54,17 @@
     </div>
     <h3 class="indent0">Skróty klawiaturowe PrintingTools NG</h3>
     <p>
-      PrintingTools przemapowuje standardowy skrót Thunderbird Print, aby wywołać samego siebie zamiast
-      standardowego Print. W systemach Windows i Linux użyj Control-P i Command-P na Mac. Można również
-      otworzyć okno dialogowe Opcje za pomocą Control-Shift-P.
+      PrintingTools przemapowuje standardowy skrót klawiaturowy drukowania Thunderbirda, aby wywołać samego
+      siebie zamiast standardowego skrótu drukowania. W systemach Windows i Linux należy użyć kombinacji
+      klawiszy Control-P, a na komputerach Mac Command-P. Można również otworzyć okno dialogowe Opcje za
+      pomocą kombinacji klawiszy Control-Shift-P.
     </p>
     <h3 class="indent0">Poniżej przedstawiono przykład niektórych funkcji formatowania nagłówka:</h3>
     <div class="indent1">
       <li>Dostosowany styl obramowania nagłówka za pomocą CSS (góra i dół, niebieski)</li>
       <li>Kolor tła nagłówka</li>
       <li>Wyrównane nagłówki</li>
-      <li>Niestandardowa kolejność nagłówków</li>
+      <li>Dostosowana kolejność nagłówków</li>
       <li>Tytuł strony i folder wiadomości</li>
       <li>Lista załączników z ikonami w nagłówku</li>
       <li>W pełni konfigurowalny format daty, formatowanie międzynarodowe</li>
@@ -84,11 +74,11 @@
     <br />
     <h2 id="customdate_format_help">Niestandardowy format daty</h2>
     <p>
-      Opcja niestandardowej daty pozwala na pełną kontrolę nad formatowaniem daty używanym zarówno dla Date,
-      jak i Received Date w nagłówkach wiadomości e-mail. Niestandardowa data zapewnia wiele zlokalizowanych
-      opcji, umożliwiających niemal każdy format. Należy pamiętać, że niestandardowy ciąg daty może zawierać
-      separatory, literały, w tym znaki Unicode, wymieszane z tokenami date\time wymienionymi poniżej.<br /><br />
-      Uwaga: Niestandardowe wyniki dotyczące daty w poniższych przykładach będą się różnić w zależności od
+      Opcja niestandardowej daty pozwala na pełną kontrolę nad formatowaniem daty używanej zarówno dla Daty,
+      jak i Daty otrzymania w nagłówkach wiadomości e-mail. Opcja ta oferuje wiele zlokalizowanych opcji,
+      umożliwiających niemal dowolny format. Należy pamiętać, że niestandardowy ciąg daty może zawierać
+      separatory, literały, w tym znaki Unicode, połączone z tokenami daty i godziny wymienionymi poniżej.<br /><br />
+      Uwaga: wyniki dotyczące niestandardowych dat w poniższych przykładach będą się różnić w zależności od
       rzeczywistej daty, ustawień regionalnych użytkownika i strefy czasowej.
     </p>
     <br />
@@ -109,7 +99,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
         <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-        <td>ko locale z literałami</td>
+        <td>ustawienia regionalne ko z literałami</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
@@ -139,10 +129,10 @@
     </table>
     <br />
     <p>
-      Niestandardowy format daty wykorzystuje sekwencje % pasujące do funkcji <code>strftime()</code> typu
-      Unix. Opiera się na porcie JavaScript funkcji
+      Niestandardowy format daty wykorzystuje sekwencje % pasujące do funkcji <code>strftime()</code> systemu
+      Unix. Jest on oparty na porcie JavaScript funkcji
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , która formatuje datę i godzinę.<br />
+      do formatowania daty i godziny.<br />
       Port strftime() autorstwa TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
@@ -177,7 +167,7 @@
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
-          <td>Numer stulecia (rok/100) jako liczba całkowita 2-cyfrowa.</td>
+          <td>Numer stulecia (rok/100) jako liczba całkowita dwucyfrowa.</td>
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
@@ -194,10 +184,10 @@
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
-            Rok oparty na tygodniu ISO 8601 ze stuleciem jako liczbą dziesiętną. 4-cyfrowy rok odpowiada
-            numerowi tygodnia ISO (patrz <code class="code1">%V</code> ). Ma ten sam format i wartość co
-            <code class="code1">%Y</code> , z tą różnicą, że jeśli numer tygodnia ISO należy do poprzedniego
-            lub następnego roku, to ten rok jest używany zamiast niego.
+            Rok w formacie ISO 8601, oparty na tygodniu, ze stuleciem jako liczbą dziesiętną. 4-cyfrowy rok
+            odpowiada numerowi tygodnia ISO (patrz <code class="code1">%V</code> ). Ma on ten sam format i
+            wartość co <code class="code1">%Y</code> , z tą różnicą, że jeśli numer tygodnia ISO należy do
+            poprzedniego lub następnego roku, używany jest ten rok.
           </td>
         </tr>
         <tr>
@@ -244,22 +234,25 @@
         </tr>
         <tr>
           <td><code class="code1">%n</code></td>
-          <td>Miesiąc jako liczba dziesiętna (w zakresie od 1 do 12).</td>
+          <td>Miesiąc jako liczba dziesiętna (zakres od 1 do 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%M</code></td>
-          <td>Minuta jako liczba dziesiętna (w zakresie od 00 do 59).</td>
+          <td>Minuta jako liczba dziesiętna (zakres od 00 do 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            Albo „AM” albo „PM” zgodnie z podaną wartością czasu. Południe jest traktowane jako „PM”, a północ
+            „AM” lub „PM” w zależności od podanej wartości czasu. Południe jest traktowane jako „PM”, a północ
             jako „AM”.
           </td>
         </tr>
         <tr>
           <td><code class="code1">%P</code></td>
-          <td>Podobnie jak <code class="code1">%p</code> , ale pisane małymi literami („am” lub „pm”).</td>
+          <td>
+            Podobnie jak <code class="code1">%p</code> , ale pisane małymi literami (&quot;am&quot; lub
+            &quot;pm&quot;).
+          </td>
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
@@ -267,33 +260,33 @@
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
-          <td>Sekunda jako liczba dziesiętna (w zakresie od 00 do 59).</td>
+          <td>Sekunda jako liczba dziesiętna (zakres od 00 do 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Dzień tygodnia w formacie dziesiętnym (zakres od 1 do 7), gdzie poniedziałek ma wartość 1. Zobacz
-            także <code class="code1">%w</code> .
+            Dzień tygodnia w formacie dziesiętnym (zakres od 1 do 7), przy czym poniedziałek ma wartość 1.
+            Zobacz także <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Numer tygodnia bieżącego roku w formacie ISO 8601 podany jako liczba dziesiętna (w zakresie od 01
-            do 53), gdzie tydzień 1 oznacza pierwszy tydzień, który ma co najmniej 4 dni w nowym roku (czyli
-            pierwszy czwartek).
+            ISO 8601 numer tygodnia bieżącego roku podany jako liczba dziesiętna (w zakresie od 01 do 53),
+            gdzie tydzień 1 oznacza pierwszy tydzień, który ma co najmniej 4 dni w nowym roku (czyli pierwszy
+            czwartek).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%w</code></td>
           <td>
-            Dzień tygodnia w formacie dziesiętnym (w zakresie od 0 do 6), gdzie niedziela ma wartość 0. Zobacz
+            Dzień tygodnia w formacie dziesiętnym (zakres od 0 do 6), przy czym niedziela ma wartość 0. Zobacz
             także <code class="code1">%u</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%x</code></td>
-          <td>Preferowana reprezentacja daty dla bieżącej lokalizacji bez czasu.</td>
+          <td>Preferowana forma podania daty dla bieżącego ustawienia regionalnego, bez czasu.</td>
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
@@ -311,7 +304,8 @@
           <td><code class="code1">%z</code></td>
           <td>
             Strefa czasowa wyrażona numerycznie <code class="code1">+hhmm</code> lub
-            <code class="code1">-hhmm</code> (czyli przesunięcie godzinowe w stosunku do UTC).
+            <code class="code1">-hhmm</code> ) (czyli przesunięcie godzinowe i minutowe w stosunku do strefy
+            UTC).
           </td>
         </tr>
         <tr>
@@ -320,7 +314,7 @@
         </tr>
         <tr>
           <td><code class="code1">%t</code></td>
-          <td>Krótki skrót oznaczający strefę czasową.</td>
+          <td>Krótki skrót strefy czasowej.</td>
         </tr>
         <tr>
           <td><code class="code1">%0</code></td>
@@ -332,13 +326,13 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Dzień dosłownie. Zlokalizowany, głównie dla regionów azjatyckich. (ja: 日, ko: 일)</td>
+          <td>Dzień dosłowny. Zlokalizowany, głównie dla języków azjatyckich. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
     <h3 class="indent0">Uwagi dotyczące zgodności:</h3>
     <ul>
-      <li><code class="code1">%c</code> - sformatowany ciąg jest nieznacznie inny</li>
+      <li><code class="code1">%c</code> - sformatowany ciąg jest nieco inny</li>
       <li>
         <code class="code1">%D</code> - nie zaimplementowano (użyj <code class="code1">%m/%d/%y</code> lub
         <code class="code1">%d/%m/%y</code> )
@@ -348,19 +342,19 @@
       <li><code class="code1">%h</code> - nie zaimplementowano (użyj <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> – spacja nie jest dodawana</li>
       <li>
-        <code class="code1">%n</code> - podobnie jak <code class="code1">%m</code> , ale bez zera wiodącego
+        <code class="code1">%n</code> – podobnie jak <code class="code1">%m</code> , ale bez zera wiodącego
         (użyj <code class="code1">\n</code> dla nowej linii)
       </li>
       <li><code class="code1">%O</code> - nie zaimplementowano</li>
       <li>
-        <code class="code1">%r</code> - nie zaimplementowano (użyj <code class="code1">%I:%M:%S %p</code> )
+        <code class="code1">%r</code> – nie zaimplementowano (użyj <code class="code1">%I:%M:%S %p</code> )
       </li>
-      <li><code class="code1">%R</code> - nie zaimplementowano (użyj <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%R</code> – nie zaimplementowano (użyj <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - nie zaimplementowano (użyj <code class="code1">\t</code> )</li>
       <li>
-        <code class="code1">%T</code> - nie zaimplementowano (użyj <code class="code1">%H:%M:%S</code> )
+        <code class="code1">%T</code> – nie zaimplementowano (użyj <code class="code1">%H:%M:%S</code> )
       </li>
-      <li><code class="code1">%U</code> - nie zaimplementowano</li>
+      <li><code class="code1">%U</code> – nie zaimplementowano</li>
       <li><code class="code1">%W</code> - nie zaimplementowano</li>
       <li><code class="code1">%+</code> - nie zaimplementowano</li>
       <li><code class="code1">%%</code> - nie zaimplementowano (użyj <code class="code1">%</code> )</li>
@@ -368,32 +362,32 @@
     <br />
     <h2 id="pdf_output_help">Wyjście PDF i automatyczne nadawanie nazw plikom</h2>
     <p>
-      Wyjście PDF może być teraz zarówno automatycznie nazywane za pomocą systemu tokenów, jak i zapisywane w
-      zdefiniowanym katalogu wyjściowym PDF. Jest to szczególnie przydatne podczas drukowania wielu wybranych
-      wiadomości e-mail, ponieważ nie trzeba wybierać nazwy i lokalizacji dla każdej wiadomości e-mail.
+      Pliki wyjściowe PDF mogą teraz automatycznie nadawać nazwy za pomocą systemu tokenów i zapisywać je w
+      predefiniowanym katalogu wyjściowym PDF. Jest to szczególnie przydatne podczas drukowania wielu
+      wybranych wiadomości e-mail, ponieważ nie trzeba wybierać nazwy i lokalizacji dla każdej wiadomości.
     </p>
     <p />
     <p>
-      Włącz katalog wyjściowy PDF i wybierz katalog dla lokalizacji zapisu. Nazwa pliku wyjściowego będzie
-      zgodna ze skonfigurowanym formatem nazwy pliku.
+      Włącz katalog wyjściowy PDF i wybierz katalog do zapisu. Nazwa pliku wyjściowego będzie zgodna ze
+      skonfigurowanym formatem.
     </p>
     <p />
     <p>
-      Format nazwy pliku składa się z tokenów i wszelkich znaków statycznych, takich jak separatory lub
+      Format nazwy pliku składa się z tokenów i wszelkich znaków statycznych, takich jak separatory czy
       spacje. Rozszerzone formatowanie nazwy pliku wykorzystuje tokeny. Dokładną nazwę pliku można utworzyć,
-      wykorzystując tokeny, a także dowolny tekst lub prawidłowe znaki nazwy pliku. Nieprawidłowe znaki to:
+      używając tokenów, a także dowolnego tekstu lub poprawnych znaków nazwy pliku. Nieprawidłowe znaki to:
       <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>Domyślny format nazwy to: ${subject}, co oznacza po prostu temat wiadomości e-mail.</p>
+    <p>Domyślny format nazwy to: ${subject}, który jest po prostu tematem wiadomości e-mail.</p>
     <p />
     <p>Przykłady</p>
     <p>
       <span class="notranslate"><code>${subject}</code></span> – domyślny format, temat wiadomości e-mail<br />
-      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Użyj niestandardowego
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Użyj niestandardowego
       formatu daty zamiast domyślnego<br />
-      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Z pewnym
-      niestandardowym tekstem<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Z niestandardowym
+      tekstem<br />
     </p>
     <p>Poniższa tabela opisuje pełny zestaw tokenów, które można wykorzystać w formacie nazwy pliku.</p>
     <table class="token-table">
@@ -439,73 +433,73 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
-        <td>Standardowy format daty. Domyślny format to: YYYYMMDDHHmm</td>
+        <td>Standardowy format daty. Domyślny format to: RRRRMMDDGGmm</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
-        <td>Niestandardowy format daty. Zobacz sekcję niestandardowego formatowania daty.</td>
+        <td>Niestandardowy format daty. Zobacz sekcję dotyczącą niestandardowego formatowania daty.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
-        <td>Unikalny Message-ID wiadomości e-mail.</td>
+        <td>Unikalny identyfikator wiadomości e-mail.</td>
       </tr>
     </table>
     <br />
     <h2 id="print_options_help">Opcje drukowania i strony</h2>
     <p>
-      Opcje te pozwalają ustawić domyślną drukarkę, jak również opcje strony drukarki. Można również ustawić
-      tryb cichy, w którym okno dialogowe podglądu nie jest wyświetlane, a drukowanie odbywa się natychmiast.
+      Te opcje pozwalają ustawić domyślną drukarkę, a także opcje drukowania dla każdej strony. Można również
+      ustawić tryb cichy, w którym okno dialogowe podglądu nie jest wyświetlane, a drukowanie odbywa się
+      natychmiast.
     </p>
     <p>
-      Opcje strony umożliwiają ustawienie elementów po zakończeniu podglądu lub drukowania. Opcje te są trwałe
-      podczas drukowania. Jeśli opcje ustawione w PrintingTools NG zostaną zmienione w podglądzie wydruku, nie
-      będą miały wpływu na kolejne wydruki. Niektóre elementy nie są dostępne do ustawienia w oknie dialogowym
-      podglądu, w tym nagłówki i stopki. Inne elementy nie są zachowywane przez podgląd i normalnie musiałyby
-      być ustawiane za każdym razem, gdy drukowanie jest wykonywane. PrintingTools NG rozwiązuje oba te
-      problemy.
+      Opcje strony umożliwiają ustawianie elementów zarówno po zakończeniu podglądu, jak i drukowania. Opcje
+      te są trwałe w trakcie drukowania. Zmiana opcji ustawionych w PrintingTools NG w podglądzie wydruku nie
+      wpłynie na kolejne wydruki. Niektóre elementy nie są dostępne do ustawienia w oknie podglądu, na
+      przykład nagłówki i stopki. Inne elementy nie są zachowywane w podglądzie i zazwyczaj trzeba by je
+      ustawiać po każdym wydruku. PrintingTools NG rozwiązuje oba te problemy.
     </p>
     <p>
-      Jednym z elementów niezapisanych przez podgląd są zakresy stron. Typowy przypadek użycia to taki, w
-      którym chce się wydrukować tylko pierwszą stronę wiadomości e-mail jako domyślną. Zwykle trzeba by było
-      zmieniać zakresy stron za każdym razem. Należy pamiętać, że jeśli zakres stron ustawiony w PrintingTools
-      NG jest nieprawidłowy, np. przekracza liczbę stron, zakres będzie musiał zostać poprawiony w podglądzie
-      przed wydrukowaniem. Zakres stron ustawiony na „1” zawsze będzie prawidłowy i wydrukuje pierwszą stronę
+      Jednym z elementów niezapisanych w podglądzie są zakresy stron. Typowym przypadkiem użycia jest
+      sytuacja, gdy chcemy wydrukować domyślnie tylko pierwszą stronę wiadomości e-mail. Zazwyczaj konieczne
+      byłoby za każdym razem zmienianie zakresów stron. Należy pamiętać, że jeśli zakres stron ustawiony w
+      PrintingTools NG jest nieprawidłowy, np. przekracza liczbę stron, należy go poprawić w podglądzie przed
+      drukowaniem. Zakres stron ustawiony na „1” zawsze będzie prawidłowy i wydrukuje pierwszą stronę
       wiadomości.
     </p>
     <p>Uwagi:</p>
-    <p>Opcja skalowania umożliwia ustawienie stałej skali.</p>
+    <p>Opcja skalowania pozwala ustawić stałą skalę.</p>
     <p>
-      Zakresy stron są opisane w ten sam sposób, jak w podglądzie. Przykłady to 1, 1-2, 3-4,5. Należy
+      Zakresy stron są opisane w taki sam sposób, jak w podglądzie. Przykłady to 1, 1-2, 3-4, 5. Należy
       pamiętać, że jeśli wstępnie ustawiony zakres stron nie jest prawidłowy dla danej wiadomości, podgląd
       wyświetli błąd.
     </p>
     <p>
-      Marginesy można ustawić za pomocą jednostek odpowiednich dla ustawień regionalnych użytkownika, cali lub
-      milimetrów (in lub mm). Należy pamiętać, że ze względu na błędy zaokrągleń, niektóre wartości mm mogą
-      być zapisane z niewielkimi różnicami.
+      Marginesy można ustawić w jednostkach odpowiednich dla ustawień regionalnych użytkownika, calach lub
+      milimetrach (in lub mm). Uwaga: ze względu na błędy zaokrągleń, niektóre wartości w mm mogą zostać
+      zapisane z niewielkimi różnicami.
     </p>
     <p></p>
     <p>
-      Nagłówki i stopki można ustawić tak, aby zawierały różne zmienne wiadomości wymienione poniżej.
-      Dodatkowo można również uwzględnić dowolny tekst. Aby nie drukować nagłówków ani stopek i zaoszczędzić
-      miejsce na drukowaniu, po prostu pozostaw wszystkie pola puste.
+      Nagłówki i stopki można skonfigurować tak, aby zawierały różne zmienne wiadomości wymienione poniżej.
+      Dodatkowo można dodać dowolny tekst. Aby nie drukować nagłówków ani stopek i zaoszczędzić miejsce na
+      wydruku, wystarczy pozostawić wszystkie pola puste.
     </p>
     <div class="indent1">
       <li>&amp;D = Data wydruku</li>
       <li>&amp;MD = Data wiadomości</li>
       <li>&amp;P = Numer strony</li>
-      <li>&amp;PT = Numer strony z liczbą całkowitą („3 z 5”)</li>
-      <li>&amp;T = Tytuł strony (temat wiadomości)</li>
-      <li>&amp;U = URL (Adres URL wiadomości)</li>
+      <li>&amp;PT = Numer strony z wynikiem całkowitym („3 z 5”)</li>
+      <li>&amp;T = Tytuł strony (Temat wiadomości)</li>
+      <li>&amp;U = URL (adres URL wiadomości)</li>
     </div>
     <h2 id="advanced_options_help">Opcje zaawansowane</h2>
     <p>
-      Są to opcje, które pozwalają ustawić elementy drukowania poza podstawowymi ustawieniami interfejsu
-      użytkownika. Opcje są ustawiane w opcjach zaawansowanych na karcie Misc i są rozdzielonymi spacją
-      znacznikami.<br />
+      Są to opcje, które pozwalają na ustawienie elementów drukowania wykraczających poza podstawowe
+      ustawienia interfejsu użytkownika. Opcje te są ustawiane w opcjach zaawansowanych na karcie Różne i są
+      rozdzielone spacjami.<br />
       Poniżej podano tagi i formaty opcji:<br /><br />
       <b>Dodaj Message-ID na końcu znacznika headers:</b><br /><br />
-      <b>dodajMessageIdToHdr</b><br /><br />
+      <b>dodajIdentyfikatorWiadomościDoHdr</b><br /><br />
       <b>Ustaw szerokość kolumny dla znacznika nagłówków:</b><br /><br />
       <b>hdrColWidth: <i>nnn</i></b> , gdzie <i>nnn</i> to liczba pikseli<br /><br />
       <b>Marginesy krawędzi nagłówka i stopki:</b><br /><br />
@@ -515,56 +509,57 @@
       Inny przykład: Microsoft_Print_to_PDF<br /><br />
       Obecne możliwości nazw opcji to:<br />
       <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
-      <span class="notranslate">edges</span> to pseudo opcja, która ustawia wszystkie marginesy krawędzi na tę
-      samą wartość. Marginesy krawędzi są w calach.<br /><br />
+      <span class="notranslate">edges</span> to pseudoopcja, która ustawia wszystkie marginesy krawędzi na tę
+      samą wartość. Marginesy krawędzi są podane w calach.<br /><br />
       Przykłady:<br /><br />
       P:Mozilla_Zapisz_do_PDF::S:krawędzie=0,25<br />
-      P:Microsoft_Drukuj_do_PDF::S:edgeTop=0.1<br /><br />
-      Jeśli chcesz ustawić wszystkie marginesy krawędzi na 0,10 cala, z wyjątkiem marginesu edgeTop na 0,25
-      cala, wprowadź następujące polecenie:<br /><br />
-      P:Mozilla_Zapisz_do_PDF::S:krawędzie=0,10 P:Mozilla_Zapisz_do_PDF::S:krawędzieTop=0,25
+      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
+      Jeśli chcesz ustawić wszystkie marginesy krawędziowe na 0,10 cala, z wyjątkiem marginesu edgeTop na 0,25
+      cala, wpisz następujące polecenie:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0,10 P:Mozilla_Save_to_PDF::S:edgeTop=0,25
     </p>
     <h2>Wsparcie</h2>
     <p>
-      Prosimy o zgłaszanie problemów lub próśb o dodanie funkcji w repozytorium GitHub rozszerzeń:
+      Prosimy o zgłaszanie problemów i próśb o dodanie funkcji w repozytorium GitHub rozszerzeń:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
       ><br /><br />
-      W zgłoszeniach błędów należy podać następujące informacje, aby ułatwić ich rozwiązanie:<br />
+      Zgłaszając błędy, uwzględnij następujące informacje, aby ułatwić ich rozwiązanie:<br />
       - Wersja PrintingTools NG<br />
       - Wersja Thunderbirda<br />
-      - System operacyjny i wersja<br />
+      - System operacyjny i jego wersja<br />
       - Wyjście debugowania (skopiuj z konsoli debugowania - dostęp za pomocą Control-Shift-J)<br />
       - Opis kroków prowadzących do problemu<br />
     </p>
     <h2 id="debug_options_help">Opcje debugowania</h2>
     <p>
-      Opcje debugowania to zestaw słów kluczowych, które są wprowadzane jako lista rozdzielona spacją. Opcje
-      są zazwyczaj używane do wyjścia debugowania konsoli, ale mogą być również używane do testowania lub
-      różnych trybów.
+      Opcje debugowania to zestaw słów kluczowych, które są wprowadzane jako lista rozdzielona spacjami. Opcje
+      te są zazwyczaj używane do debugowania konsoli, ale mogą być również używane do testowania lub w innych
+      trybach.
     </p>
     <div class="indent1">
       <li>
-        <code class="notranslate">initialsource</code> - pokaż źródło wiadomości zanim PTNG wykona
-        jakiekolwiek formatowanie
+        <code class="notranslate">initialsource</code> - pokaż źródło wiadomości przed wykonaniem formatowania
+        przez PTNG
       </li>
-      <li><code class="notranslate">finaloutput</code> – pokaż ostateczny wynik wiadomości</li>
-      <li><code class="notranslate">pdfoutput</code> - wyjście debugowania dla wyjścia wiadomości PDF</li>
+      <li><code class="notranslate">finaloutput</code> – wyświetl ostateczny wynik wiadomości</li>
+      <li><code class="notranslate">pdfoutput</code> – wyjście debugowania dla wyjścia wiadomości PDF</li>
       <li>
-        <code class="notranslate">printsettings</code> - wyjście debugowania dla opcji drukowania i stron
+        <code class="notranslate">printsettings</code> – dane wyjściowe debugowania dla opcji drukowania i
+        stron
       </li>
       <li>
-        <code class="notranslate">helpinwin</code> - flaga trybu umożliwiająca wyświetlanie pomocy w oknie, a
-        nie standardowo w karcie
+        <code class="notranslate">helpinwin</code> - flaga trybu umożliwiająca wyświetlanie pomocy w oknie
+        zamiast standardowej opcji w karcie
       </li>
     </div>
     <h2>Kredyty</h2>
     <div class="indent1">
-      <li>PrintingTools NG opiera się na oryginalnym rozszerzeniu autorstwa Paolo „Kosmos”</li>
+      <li>PrintingTools NG opiera się na oryginalnym rozszerzeniu autorstwa Paolo „Kosmosa”</li>
       <li>List.js autorstwa Jonny’ego Strömberga https://listjs.com</li>
       <li>Latinize.js autorstwa Jakuba Dundalka https://github.com/dundalek/latinize</li>
     </div>
     <p>
-      Dziękujemy następującym użytkownikom za sugestie ulepszeń i pomoc w testach:<br /><br />
+      Dziękujemy następującym użytkownikom za sugestie ulepszeń i pomoc w testowaniu:<br /><br />
       - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
       - <code class="notranslate">@RRoenn</code><br />
       - <code class="notranslate">@tidebre67</code><br />

@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <title>PrintingTools NG Hjelp</title>
+    <title>Hjelp med PrintingTools NG</title>
   </head>
   <body>
     <table style="width: 100%;">
       <tr>
         <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Hjelp</div>
+          <div style="font-size: 1.8em; font-weight: bold;">Hjelp med PrintingTools NG</div>
           <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
         </td>
         <td style="text-align: right; padding-right: 30px;">
@@ -18,61 +18,49 @@
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Utgivelsesnotater:</h3>
+    <h3 id="release_notes" style="padding-left: 4px;">Utgivelsesmerknader:</h3>
     <p>
       <b>Viktig merknad:</b> Fra og med utgivelsen av Thunderbird v136 vil Mozilla gjøre månedlige utgivelser.
-      Jeg kan kanskje ikke gi ut PrintingTools NG hver måned. Vennligst sjekk før du oppdaterer Thunderbird
-      for å se om det er en kompatibel PrintingTools NG-oppdatering tilgjengelig.<br /><br />
-      Christopher<br /><br />
-      - Reparer: Utskrifts- og forhåndsvisningsfeil med alternativet Juster topptekster AV<br />
-      - Fix: Vis signaturfilvedlegg i overskriften<br />
-      - Ny: Legg til meldingsdatoen i hvilken som helst sidetopp eller bunntekst med den nye variabelen:
-      <b>&amp;MD</b> #277<br />
-      - Ny: Legg til meldings-ID på slutten av overskriftene. #268, #283 Bruk:<br />
-      <b>addMessageIdToHdr</b><br />
-      i feltet Avanserte alternativer<br />
-      - Nytt: Filnavntoken <b>${messageID}</b> for meldings-ID-overskriften #285<br />
-      - Ny: Still inn overskriftskolonnebredden. Bruk:<br />
-      <b>hdrColWidth: <i>nnn</i></b
-      ><br />
-      i feltet Avanserte alternativer, der <i>nnn</i> er i px<br />
-      - Fiks den 100 valgte meldingsgrensen #272, #280<br />
+      Jeg kan kanskje ikke gi ut PrintingTools NG hver måned. Sjekk før du oppdaterer Thunderbird for å se om
+      det finnes en kompatibel PrintingTools NG-oppdatering tilgjengelig.<br /><br />
+      Kristoffer<br /><br />
+      – Fiksing: OK-knappen er alltid deaktivert for språkinnstillinger som bruker komma som desimaltegn –
+      Endring i Thunderbird for HTML-inndata
     </p>
     <br />
-    <h2 id="main_help">PrintingTools NG Oversikt</h2>
+    <h2 id="main_help">Oversikt over PrintingTools NG</h2>
     <p>
-      PrintingTools NG gir mulighet for mange tilpasninger av e-postutskrift. Utvidelsen har mange
-      alternativer for både overskriftene og meldingsdelene. I tillegg kan sidealternativer angis som ikke kan
-      gjøres i den vanlige forhåndsvisningen av Thunderbird. PDF-utdata kan også gjøres med automatisk
-      navngivning ved å bruke et fleksibelt tokenbasert system.
+      PrintingTools NG tillater mange tilpasninger for e-postutskrift. Utvidelsen har mange alternativer for
+      både overskrifter og meldingsdeler. I tillegg kan sidealternativer angis som ikke kan gjøres i den
+      vanlige forhåndsvisningen av Thunderbird. PDF-utskrift kan også gjøres med automatisk navngiving ved
+      hjelp av et fleksibelt tokenbasert system.
     </p>
-    <h3 class="indent0">Legge til Print NG-knappen på verktøylinjen for e-posthode:</h3>
+    <h3 class="indent0">Legger til Print NG-knappen i verktøylinjen for e-posthodet:</h3>
     <p>
       Print NG-knappen legges automatisk til den enhetlige verktøylinjen fra og med Thunderbird v115. Knappen
-      kan også legges til verktøylinjen for e-posthodet for å aktivere både utskriftstilgang og alternativer
-      fra postruten. I tillegg kan du få tilgang til alternativer med skiftenøkkelknappen for utvidelsen på
-      tilleggsfanen.
+      kan også legges til verktøylinjen i e-posthodet for å aktivere både utskriftstilgang og alternativer fra
+      postruten. I tillegg kan alternativer nås med skiftenøkkelknappen for utvidelsen i tilleggsfanen.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Følg disse trinnene for å plassere knappen på verktøylinjen for e-postoverskriften:</p>
+    <p>Følg disse trinnene for å plassere knappen på verktøylinjen i e-posthodet:</p>
     <div class="indent1">
       <li>Klikk på Mer-knappen på verktøylinjen for e-posthodet</li>
-      <li>Velg Egendefinert... Dette åpner vinduet Tilpass verktøylinje</li>
+      <li>Velg Tilpasset... Dette åpner vinduet Tilpass verktøylinje</li>
       <li>Finn Print NG-knappen</li>
       <li>Dra og slipp knappen til ønsket plassering</li>
-      <li>Bruk knappen for Skriv ut, Forhåndsvisning, Alternativer og Hjelp</li>
+      <li>Bruk knappen for utskrift, forhåndsvisning, alternativer og hjelp</li>
     </div>
-    <h3 class="indent0">PrintingTools NG tastatursnarveier</h3>
+    <h3 class="indent0">PrintingTools NG-hurtigtaster</h3>
     <p>
-      PrintingTools tilordner standard Thunderbird Print-snarveien for å starte seg selv i stedet for standard
-      Print. På Windows og Linux bruker du Control-P og Command-P på Mac. Det er også mulig å åpne
-      dialogboksen Alternativer med Control-Shift-P.
+      PrintingTools endrer standard Thunderbird Print-snarveien slik at den aktiverer seg selv i stedet for
+      standard Print. Bruk Ctrl-P og Command-P på Mac på Windows og Linux. Det er også mulig å åpne
+      dialogboksen Alternativer med Ctrl-Shift-P.
     </p>
-    <h3 class="indent0">Følgende er et eksempel på noen av topptekstformateringsfunksjonene:</h3>
+    <h3 class="indent0">Følgende er et eksempel på noen av funksjonene for formatering av overskriften:</h3>
     <div class="indent1">
-      <li>Tilpasset overskriftskantstil ved hjelp av CSS (øverst og nederst, blå)</li>
-      <li>Bakgrunnsfarge for topptekst</li>
+      <li>Tilpasset kantlinjestil for topptekst ved hjelp av CSS (topp og bunn, blå)</li>
+      <li>Bakgrunnsfarge for overskrift</li>
       <li>Justerte overskrifter</li>
       <li>Tilpasset overskriftsrekkefølge</li>
       <li>Sidetittel og meldingsmappe</li>
@@ -82,14 +70,14 @@
     <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
-    <h2 id="customdate_format_help">Egendefinert datoformat</h2>
+    <h2 id="customdate_format_help">Tilpasset datoformat</h2>
     <p>
-      Alternativet tilpasset dato gir full kontroll over datoformateringen som brukes for både dato og mottatt
-      dato i e-postoverskriftene. Den tilpassede datoen gir flere lokaliserte alternativer som tillater nesten
-      alle formater. Merk at den egendefinerte datostrengen kan inkludere skilletegn, bokstaver inkludert
-      unicode-tegn blandet med dato\klokkeslett-tokenene som er oppført nedenfor.<br /><br />
-      Merk: De tilpassede datoresultatene i eksemplene nedenfor vil være forskjellige basert på den faktiske
-      datoen, brukerens lokalitet og tidssone.
+      Alternativet for tilpasset dato gir full kontroll over datoformateringen som brukes for både dato og
+      mottaksdato i e-postoverskriftene. Den tilpassede datoen gir flere lokaliserte alternativer som tillater
+      nesten alle formater. Merk at den tilpassede datostrengen kan inneholde skilletegn, bokstaver inkludert
+      Unicode-tegn blandet med dato- og klokkesletttokenene som er oppført nedenfor.<br /><br />
+      Merk: Resultatene for tilpasset dato i eksemplene nedenfor vil variere basert på den faktiske datoen,
+      brukerens lokale innstilling og tidssone.
     </p>
     <br />
     <h3 class="indent0">Eksempler:</h3>
@@ -104,7 +92,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
         <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-        <td>ja lokalitet med bokstaver</td>
+        <td>ja språk med bokstaver</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
@@ -114,17 +102,17 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
         <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-        <td>zh-CN-lokalitet, kort dag</td>
+        <td>zh-CN-lokal, kort dag</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
         <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-        <td>zh-TW-lokalitet, lang dag</td>
+        <td>zh-TW-lokal, lang dag</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
         <td class="notranslate">20.04.2022 18:01:42 CET</td>
-        <td>Punktskillere</td>
+        <td>Punktskilletegn</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
@@ -134,19 +122,19 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>en-US lokalitet, lang dag/måned</td>
+        <td>en-US språkinnstilling, lang dag/måned</td>
       </tr>
     </table>
     <br />
     <p>
-      Det tilpassede datoformatet bruker %-sekvenser som samsvarer med den
-      <code>strftime()</code> Unix-lignende funksjonaliteten. Den er basert på en JavaScript-port av
+      Det tilpassede datoformatet bruker %-sekvenser som samsvarer med den Unix-lignende funksjonaliteten
+      <code>strftime()</code> . Det er basert på en JavaScript-portering av
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , en funksjon for å formatere dato og klokkeslett.<br />
-      Port of strftime() av TH Doan (https://thdoan.github.io/strftime/)<br />
+      Portering av strftime() av TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Konverteringssekvensbeskrivelser</h3>
+    <h3 style="margin-left: 30px;">Beskrivelser av konverteringssekvenser</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -161,7 +149,7 @@
         </tr>
         <tr>
           <td><code class="code1">%A</code></td>
-          <td>Fullt navn på ukedagen.</td>
+          <td>Ukedagens fulle navn.</td>
         </tr>
         <tr>
           <td><code class="code1">%b</code></td>
@@ -169,23 +157,23 @@
         </tr>
         <tr>
           <td><code class="code1">%B</code></td>
-          <td>Fullt månedsnavn.</td>
+          <td>Fullstendig månedsnavn.</td>
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
-          <td>Foretrukket dato og klokkeslett (UTC) representasjon for gjeldende lokalitet.</td>
+          <td>Foretrukket dato- og klokkeslettrepresentasjon (UTC) for gjeldende språkinnstilling.</td>
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
-          <td>Århundretall (år/100) som et 2-sifret heltall.</td>
+          <td>Århundretall (år/100) som et tosifret heltall.</td>
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
-          <td>Dag i måneden som et desimaltall (område 01 til 31).</td>
+          <td>Månedens dag som et desimaltall (område 01 til 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%e</code></td>
-          <td>Dag i måneden som et desimaltall (fra 1 til 31).</td>
+          <td>Månedens dag som et desimaltall (område 1 til 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%F</code></td>
@@ -194,8 +182,8 @@
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
-            ISO 8601 ukebasert årstall med århundre som desimaltall. Det 4-sifrede året tilsvarer
-            ISO-ukenummeret (se <code class="code1">%V</code> ). Dette har samme format og verdi som
+            ISO 8601 ukebasert år med århundre som desimaltall. Det firesifrede året tilsvarer ISO-ukenummeret
+            (se <code class="code1">%V</code> ). Dette har samme format og verdi som
             <code class="code1">%Y</code> , bortsett fra at hvis ISO-ukenummeret tilhører forrige eller neste
             år, brukes det året i stedet.
           </td>
@@ -203,26 +191,26 @@
         <tr>
           <td><code class="code1">%g</code></td>
           <td>
-            Som <code class="code1">%G</code> , men uten århundre, altså med et 2-sifret årstall (00-99).
+            Som <code class="code1">%G</code> , men uten århundre, det vil si med et tosifret årstall (00–99).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%H</code></td>
           <td>
-            Time som et desimaltall ved hjelp av en 24-timers klokke (område 00 til 23). Se også
+            Time som et desimaltall ved bruk av en 24-timers klokke (område 00 til 23). Se også
             <code class="code1">%k</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%I</code></td>
           <td>
-            Time som et desimaltall med en 12-timers klokke (område 01 til 12). Se også
+            Time som et desimaltall ved bruk av en 12-timers klokke (område 01 til 12). Se også
             <code class="code1">%l</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%j</code></td>
-          <td>Dag i året som et desimaltall (område 001 til 366).</td>
+          <td>Årsdag som et desimaltall (område 001 til 366).</td>
         </tr>
         <tr>
           <td><code class="code1">%k</code></td>
@@ -244,24 +232,22 @@
         </tr>
         <tr>
           <td><code class="code1">%n</code></td>
-          <td>Måned som et desimaltall (fra 1 til 12).</td>
+          <td>Måned som et desimaltall (område 1 til 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%M</code></td>
-          <td>Minutt som et desimaltall (fra 00 til 59).</td>
+          <td>Minutt som et desimaltall (område 00 til 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            Enten &quot;AM&quot; eller &quot;PM&quot; i henhold til den gitte tidsverdien. Middag blir
-            behandlet som &quot;PM&quot; og midnatt som &quot;AM&quot;.
+            Enten «AM» eller «PM» i henhold til den gitte tidsverdien. Middag behandles som «PM» og midnatt
+            som «AM».
           </td>
         </tr>
         <tr>
           <td><code class="code1">%P</code></td>
-          <td>
-            Som <code class="code1">%p</code> , men med små bokstaver (&quot;am&quot; eller &quot;pm&quot;).
-          </td>
+          <td>Som <code class="code1">%p</code> , men med små bokstaver («am» eller «pm»).</td>
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
@@ -269,44 +255,48 @@
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
-          <td>Andre som et desimaltall (fra 00 til 59).</td>
+          <td>Sekund som et desimaltall (område 00 til 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%u</code></td>
-          <td>Ukedag som desimal (område 1 til 7), mandag er 1. Se også <code class="code1">%w</code> .</td>
+          <td>
+            Ukedag som desimaltall (område 1 til 7), mandag er 1. Se også <code class="code1">%w</code> .
+          </td>
         </tr>
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            ISO 8601 ukenummer for inneværende år som et desimaltall (område 01 til 53), der uke 1 er den
+            ISO 8601-ukenummeret for inneværende år som et desimaltall (område 01 til 53), der uke 1 er den
             første uken som har minst 4 dager i det nye året (det vil si den første torsdagen).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%w</code></td>
-          <td>Ukedag som desimal (område 0 til 6), søndag er 0. Se også <code class="code1">%u</code> .</td>
+          <td>
+            Ukedag som desimaltall (område 0 til 6), søndag er 0. Se også <code class="code1">%u</code> .
+          </td>
         </tr>
         <tr>
           <td><code class="code1">%x</code></td>
-          <td>Foretrukket datorepresentasjon for gjeldende lokalitet uten klokkeslett.</td>
+          <td>Foretrukket datorepresentasjon for gjeldende sted uten klokkeslett.</td>
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
-          <td>Foretrukket tidsrepresentasjon for gjeldende lokalitet uten dato.</td>
+          <td>Foretrukket tidsrepresentasjon for gjeldende sted uten dato.</td>
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
-          <td>År som et desimaltall uten et århundre (område 00 til 99).</td>
+          <td>År som et desimaltall uten århundre (område 00 til 99).</td>
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>
-          <td>År som et desimaltall inkludert århundre.</td>
+          <td>År som et desimaltall inkludert århundret.</td>
         </tr>
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            Den <code class="code1">+hhmm</code> eller <code class="code1">-hhmm</code> numeriske tidssonen
-            (det vil si time- og minuttforskyvningen fra UTC).
+            Den numeriske tidssonen <code class="code1">+hhmm</code> eller
+            <code class="code1">-hhmm</code> (det vil si time- og minuttforskyvningen fra UTC).
           </td>
         </tr>
         <tr>
@@ -315,7 +305,7 @@
         </tr>
         <tr>
           <td><code class="code1">%t</code></td>
-          <td>Kort tidssone-forkortelse.</td>
+          <td>Kort tidssoneforkortelse.</td>
         </tr>
         <tr>
           <td><code class="code1">%0</code></td>
@@ -327,13 +317,13 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Dag bokstavelig. Lokalisert, hovedsakelig for asiatiske steder. (ja: 日, ko: 일)</td>
+          <td>Daglig bokstavelig. Lokalisert, hovedsakelig for asiatiske språk. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
     <h3 class="indent0">Kompatibilitetsmerknader:</h3>
     <ul>
-      <li><code class="code1">%c</code> - formatert streng er litt annerledes</li>
+      <li><code class="code1">%c</code> - den formaterte strengen er litt annerledes</li>
       <li>
         <code class="code1">%D</code> - ikke implementert (bruk <code class="code1">%m/%d/%y</code> eller
         <code class="code1">%d/%m/%y</code> )
@@ -343,51 +333,52 @@
       <li><code class="code1">%h</code> - ikke implementert (bruk <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - mellomrom er ikke lagt til</li>
       <li>
-        <code class="code1">%n</code> - som <code class="code1">%m</code> , men ingen innledende null (bruk
-        <code class="code1">\n</code> for nylinje)
+        <code class="code1">%n</code> - som <code class="code1">%m</code> , men uten innledende null (bruk
+        <code class="code1">\n</code> for linjeskift)
       </li>
       <li><code class="code1">%O</code> - ikke implementert</li>
       <li>
         <code class="code1">%r</code> - ikke implementert (bruk <code class="code1">%I:%M:%S %p</code> )
       </li>
-      <li><code class="code1">%R</code> – ikke implementert (bruk <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%R</code> - ikke implementert (bruk <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - ikke implementert (bruk <code class="code1">\t</code> )</li>
       <li><code class="code1">%T</code> - ikke implementert (bruk <code class="code1">%H:%M:%S</code> )</li>
-      <li><code class="code1">%U</code> - ikke implementert</li>
+      <li><code class="code1">%U</code> – ikke implementert</li>
       <li><code class="code1">%W</code> - ikke implementert</li>
       <li><code class="code1">%+</code> - ikke implementert</li>
       <li><code class="code1">%%</code> - ikke implementert (bruk <code class="code1">%</code> )</li>
     </ul>
     <br />
-    <h2 id="pdf_output_help">PDF-utdata og automatisk filnavn</h2>
+    <h2 id="pdf_output_help">PDF-utdata og automatisk filnavngiving</h2>
     <p>
       PDF-utdata kan nå både navngis automatisk ved hjelp av et token-system og lagres i en forhåndsdefinert
-      PDF-utdatakatalog. Dette er spesielt nyttig når du skriver ut flere utvalgte e-poster, da det ikke er
-      nødvendig å velge navn og sted for hver e-post.
+      PDF-utdatamappe. Dette er spesielt nyttig når du skriver ut flere valgte e-poster, da det ikke er
+      nødvendig å velge et navn og en plassering for hver e-post.
     </p>
     <p />
     <p>
-      Aktiver PDF-utdatakatalogen og velg en katalog for lagringsstedet. Utdatafilnavnet vil følge det
-      konfigurerte filnavnsformatet.
+      Aktiver PDF-utdatamappen og velg en mappe for lagringsstedet. Utdatafilnavnet vil følge det konfigurerte
+      filnavnformatet.
     </p>
     <p />
     <p>
-      Filnavnformatet består av tokens og eventuelle statiske tegn som skilletegn eller mellomrom. Den
-      utvidede filnavnformateringen bruker tokens. Det eksakte filnavnet kan konstrueres ved å bruke tokens,
-      så vel som tekst eller gyldige filnavntegn. Ugyldige tegn er: <code>| * : &lt; &gt; ? \ / &quot;</code>
+      Filnavnformatet består av tokener og eventuelle statiske tegn som skilletegn eller mellomrom. Den
+      utvidede filnavnformateringen bruker tokener. Det nøyaktige filnavnet kan konstrueres ved hjelp av
+      tokenene samt all tekst eller gyldige filnavntegn. Ugyldige tegn er:
+      <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>Standard navneformat er: ${subject} som bare er emnet for e-posten.</p>
+    <p>Standard navneformat er: ${subject}, som bare er emnet i e-posten.</p>
     <p />
     <p>Eksempler</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> – Standardformatet, emnet for e-posten<br />
-      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Bruk det
-      egendefinerte datoformatet i stedet for standard<br />
-      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> – Med litt
-      egendefinert tekst<br />
+      <span class="notranslate"><code>${subject}</code></span> – Standardformatet for emnet i e-posten<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Bruk det tilpassede
+      datoformatet i stedet for standard<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> – Med litt tilpasset
+      tekst<br />
     </p>
-    <p>Tabellen nedenfor beskriver hele settet med tokens som kan brukes i filnavnformatet.</p>
+    <p>Tabellen nedenfor beskriver hele settet med tokener som kan brukes i filnavnformatet.</p>
     <table class="token-table">
       <tr>
         <td>Token</td>
@@ -399,7 +390,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${sender}</code></td>
-        <td>Navnet på meldingsavsenderen.</td>
+        <td>Navnet på avsenderen av meldingen.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${recipient}</code></td>
@@ -407,11 +398,11 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${sender_email}</code></td>
-        <td>E-postadressen til meldingsavsenderen.</td>
+        <td>E-postadressen til avsenderen av meldingen.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${recipient_email}</code></td>
-        <td>E-postadressen til meldingsmottakeren.</td>
+        <td>E-postadressen til mottakeren av meldingen.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${smart_name}</code></td>
@@ -423,134 +414,137 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${prefix}</code></td>
-        <td>Prefikstekstalternativverdien.</td>
+        <td>Verdien for prefikstekstalternativet.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
-        <td>Alternativverdien for suffikstekst.</td>
+        <td>Verdien for alternativet for suffikstekst.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
-        <td>Standard datoformat. Standardformatet er: ÅÅÅÅMMDDHHmm</td>
+        <td>Standard datoformat. Standardformatet er: ÅÅÅÅMMDDTHHmm</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
-        <td>Det egendefinerte datoformatet. Se delen for tilpasset datoformatering.</td>
+        <td>Det tilpassede datoformatet. Se delen om tilpasset datoformatering.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
-        <td>E-postens unike meldings-ID.</td>
+        <td>Den unike meldings-ID-en til e-posten.</td>
       </tr>
     </table>
     <br />
     <h2 id="print_options_help">Utskrifts- og sidealternativer</h2>
     <p>
-      Disse alternativene lar deg angi standard skriver og alternativer per skriverside. Det er også mulig å
-      stille inn stille modus der forhåndsvisningsdialogen ikke vises og utskriften gjøres umiddelbart.
+      Disse alternativene lar deg angi standardskriver samt alternativer per skriverside. Det er også mulig å
+      angi stillemodus der forhåndsvisningsdialogen ikke vises og utskriften fullføres umiddelbart.
     </p>
     <p>
       Sidealternativene lar deg angi elementer når både forhåndsvisning eller utskrift er ferdig. Disse
-      alternativene er vedvarende på hele utskriften. Hvis alternativene som er angitt i PrintingTools NG
-      endres i forhåndsvisningen, vil de ikke påvirke etterfølgende utskrifter. Noen elementer er ikke
-      tilgjengelige for å angis i forhåndsvisningsdialogen, disse inkluderer topp- og bunntekst. Andre
-      elementer beholdes ikke av forhåndsvisningen og vil normalt måtte angis hver gang en utskrift er ferdig.
-      PrintingTools NG løser begge disse problemene.
+      alternativene er permanente under utskrift. Hvis alternativer angitt i PrintingTools NG endres i
+      forhåndsvisningen, vil de ikke påvirke påfølgende utskrifter. Noen elementer kan ikke angis i
+      forhåndsvisningsdialogen, disse inkluderer topptekster og bunntekster. Andre elementer beholdes ikke av
+      forhåndsvisningen og må vanligvis angis hver gang en utskrift er ferdig. PrintingTools NG løser begge
+      disse problemene.
     </p>
     <p>
-      Et element som ikke lagres av forhåndsvisningen, er sideområdene. Et typisk brukstilfelle er der man
-      ønsker å skrive ut bare den første siden i en e-post som standard. normalt må man få sideområdene til å
-      endre seg hver gang. Merk at hvis et sideområde angitt i PrintingTools NG ikke er gyldig, for eksempel
-      overskridelse av antall sider, må området korrigeres i forhåndsvisningen før utskrift. Et sideområde
-      satt til &quot;1&quot; vil alltid være gyldig og skriver ut den første siden av meldingen.
+      Et element som ikke lagres av forhåndsvisningen er sideintervallene. Et typisk brukstilfelle er når man
+      bare ønsker å skrive ut den første siden av en e-post som standard. Normalt må man endre
+      sideintervallene hver gang. Merk at hvis et sideintervall angitt i PrintingTools NG ikke er gyldig, for
+      eksempel ved å overskride antall sider, må området korrigeres i forhåndsvisningen før utskrift. Et
+      sideintervall satt til &quot;1&quot; vil alltid være gyldig og skrive ut den første siden av meldingen.
     </p>
     <p>Merknader:</p>
-    <p>Skaleringsalternativet lar en sette en vedvarende skala.</p>
+    <p>Skaleringsalternativet lar en angi en vedvarende skala.</p>
     <p>
-      Sideområder beskrives på samme måte som i forhåndsvisningen. Eksempler er 1, 1-2, 3-4,5. Merk at hvis et
-      forhåndsinnstilt sideområde ikke er gyldig for en gitt melding, vil forhåndsvisningen vise en feil.
+      Sideintervaller beskrives på samme måte som i forhåndsvisningen. Eksempler er 1, 1–2, 3–4, 5. Merk at
+      hvis et forhåndsinnstilt sideintervall ikke er gyldig for en gitt melding, vil forhåndsvisningen vise en
+      feil.
     </p>
     <p>
-      Marginene kan settes ved å bruke enheter som passer for brukerens lokalitet, enten tommer eller
-      millimeter (in eller mm). Merk at på grunn av avrundingsfeil kan enkelte mm-verdier lagres med små
+      Marginene kan angis med enheter som passer for brukerens lokale innstilling, enten tommer eller
+      millimeter (in eller mm). Merk at på grunn av avrundingsfeil kan noen mm-verdier lagres med små
       forskjeller.
     </p>
     <p></p>
     <p>
-      Topp- og bunntekstene kan settes til å inkludere ulike meldingsvariabler som er oppført nedenfor. I
-      tillegg kan vilkårlig tekst også inkluderes. For å ikke skrive ut topp- eller bunntekst og spare
-      utskriftsplass, gjør du bare alle felt tomme.
+      Topptekster og bunntekster kan settes til å inkludere diverse meldingsvariabler som er oppført nedenfor.
+      I tillegg kan vilkårlig tekst også inkluderes. For å ikke skrive ut topptekster eller bunntekster og
+      spare utskriftsplass, bare la alle feltene være tomme.
     </p>
     <div class="indent1">
       <li>&amp;D = Utskriftsdato</li>
       <li>&amp;MD = Meldingsdato</li>
       <li>&amp;P = Sidetall</li>
-      <li>&amp;PT = Sidetall med totalt (&quot;3 av 5&quot;)</li>
+      <li>&amp;PT = Sidetall med total («3 av 5»)</li>
       <li>&amp;T = Sidetittel (emne for meldingen)</li>
-      <li>&amp;U = URL (URLen til meldingen)</li>
+      <li>&amp;U = URL (URL-en til meldingen)</li>
     </div>
     <h2 id="advanced_options_help">Avanserte alternativer</h2>
     <p>
-      Dette er alternativer som lar en angi utskriftselementer utover de grunnleggende UI-innstillingene.
-      Alternativene angis i Avanserte alternativer i kategorien Diverse og er mellomromseparerte tagger.<br />
-      Alternativtaggene og formatene er gitt nedenfor:<br /><br />
-      <b>Legg til meldings-ID-en på slutten av overskriftene:</b><br /><br />
-      <b>addMessageIdToHdr</b><br /><br />
-      <b>Angi kolonnebredden for header-taggen:</b><br /><br />
-      <b>hdrColWidth: <i>nnn</i></b> Hvor <i>nnn</i> er antall piksler<br /><br />
-      <b>Topp- og bunntekstkantmarger:</b><br /><br />
+      Dette er alternativer som lar deg angi utskriftselementer utover de grunnleggende
+      brukergrensesnittinnstillingene. Alternativene angis i Avanserte alternativer i Diverse-fanen og er
+      mellomromseparerte tagger.<br />
+      Alternativkodene og formatene er gitt nedenfor:<br /><br />
+      <b>Legg til meldings-ID-en på slutten av overskriftstaggen:</b><br /><br />
+      <b>leggMeldings-IDTilHDR</b><br /><br />
+      <b>Angi kolonnebredden for overskriftstaggen:</b><br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> Der <i>nnn</i> er antall piksler<br /><br />
+      <b>Kantmarginer for topptekst og bunntekst:</b><br /><br />
       P: <i>skrivernavn</i> ::S: <i>alternativnavn</i> = <i>verdi</i><br /><br />
-      Skrivernavnet har mellomrommene erstattet med understrekinger, og den innebygde Lagre til PDF er
+      Skrivernavnet har mellomrom erstattet med understrek, og den innebygde Lagre til PDF-funksjonen er
       Mozilla_Save_to_PDF<br /><br />
       Et annet eksempel: Microsoft_Print_to_PDF<br /><br />
-      De nåværende alternativ-navn-mulighetene er:<br />
+      De nåværende mulighetene for alternativnavn er:<br />
       <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
       <span class="notranslate">edges</span> er et pseudoalternativ som setter alle kantmargene til samme
-      verdi. Kantmarginene er i tommer.<br /><br />
+      verdi. Kantmargene er i tommer.<br /><br />
       Eksempler:<br /><br />
       P:Mozilla_Save_to_PDF::S:edges=0.25<br />
       P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
-      Hvis man ønsker å sette alle kantmargene til 0,10 tommer bortsett fra edgeTop til 0,25 tommer, skriv inn
-      følgende:<br /><br />
-      P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+      Hvis man ønsker å sette alle kantmarginene til 0,10 tommer unntatt edgeTop til 0,25 tommer, skriver man
+      inn følgende:<br /><br />
+      P:Mozilla_Lagre_til_PDF::S:kanter=0.10 P:Mozilla_Lagre_til_PDF::S:kantTopp=0.25
     </p>
     <h2>Støtte</h2>
     <p>
-      Vennligst legg ut problemer eller funksjonsforespørsler i GitHub-depotet for utvidelser:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      Vennligst legg ut problemer eller funksjonsforespørsler i utvidelsenes GitHub-repository:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues"
+        >PrintingTools NG-problemer</a
       ><br /><br />
-      I feilproblemer, ta med følgende informasjon for å hjelpe deg med å løse problemene:<br />
-      - PrintingTools NG versjon<br />
-      - Thunderbird-versjon<br />
+      Ved feil, ta med følgende informasjon for å løse problemene:<br />
+      - PrintingTools NG-versjon<br />
+      - Thunderbird-versjonen<br />
       - Operativsystem og versjon<br />
-      - Feilsøkingsutgang (kopi fra feilsøkingskonsollen - tilgang med Control-Shift-J)<br />
-      - En beskrivelse av trinnene som fører til problemet<br />
+      - Feilsøkingsutdata (kopier fra feilsøkingskonsollen - tilgang med Ctrl-Shift-J)<br />
+      – En beskrivelse av trinnene som førte til problemet<br />
     </p>
     <h2 id="debug_options_help">Feilsøkingsalternativer</h2>
     <p>
-      Feilsøkingsalternativene er et sett med nøkkelord som legges inn som en mellomromseparert liste.
-      Alternativene brukes vanligvis for utdata for konsollfeilsøking, men kan også brukes til testing eller
+      Feilsøkingsalternativene er et sett med nøkkelord som skrives inn som en mellomromseparert liste.
+      Alternativene brukes vanligvis til feilsøking i konsollen, men kan også brukes til testing eller
       forskjellige moduser.
     </p>
     <div class="indent1">
       <li><code class="notranslate">initialsource</code> - vis meldingskilden før PTNG formaterer</li>
       <li><code class="notranslate">finaloutput</code> - vis den endelige meldingsutgangen</li>
-      <li><code class="notranslate">pdfoutput</code> - feilsøkingsutgang for PDF-meldingsutgang</li>
+      <li><code class="notranslate">pdfoutput</code> - feilsøkingsutdata for PDF-meldingsutdata</li>
       <li>
-        <code class="notranslate">printsettings</code> - feilsøke utdata for utskrifts- og sidealternativer
+        <code class="notranslate">printsettings</code> - feilsøkingsutdata for utskrifts- og sidealternativer
       </li>
       <li>
-        <code class="notranslate">helpinwin</code> - modusflagg for å vise hjelp i et vindu i stedet for
-        standarden i en fane
+        <code class="notranslate">helpinwin</code> – modusflagg for å vise hjelp i et vindu i stedet for
+        standard i en fane
       </li>
     </div>
     <h2>Studiepoeng</h2>
     <div class="indent1">
-      <li>PrintingTools NG er basert på den originale utvidelsen av Paolo &quot;Kosmos&quot;</li>
+      <li>PrintingTools NG er basert på den originale utvidelsen av Paolo «Kosmos»</li>
       <li>List.js av Jonny Strömberg https://listjs.com</li>
       <li>Latinize.js av Jakub Dundalek https://github.com/dundalek/latinize</li>
     </div>
     <p>
-      Takk til følgende brukere for forbedringsforslag og testhjelp:<br /><br />
+      Takk til følgende brukere for forslag til forbedringer og hjelp med testing:<br /><br />
       - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
       - <code class="notranslate">@RRoenn</code><br />
       - <code class="notranslate">@tidebre67</code><br />

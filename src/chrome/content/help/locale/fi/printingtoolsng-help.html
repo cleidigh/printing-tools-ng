@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <title>PrintingTools NG Ohje</title>
+    <title>PrintingTools NG -ohje</title>
   </head>
   <body>
     <table style="width: 100%;">
       <tr>
         <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Ohje</div>
-          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
+          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG -ohje</div>
+          <div id="extVersion" style="padding-left: 4px;">versio 2.2.1</div>
         </td>
         <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
@@ -20,77 +20,66 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px;">Julkaisutiedot:</h3>
     <p>
-      <b>Tärkeä huomautus:</b> Thunderbird v136:n julkaisusta lähtien Mozilla julkaisee kuukausittain. En ehkä
-      pysty julkaisemaan PrintingTools NG:tä joka kuukausi. Tarkista ennen Thunderbirdin päivittämistä, onko
-      saatavilla yhteensopiva PrintingTools NG -päivitys.<br /><br />
-      Christopher<br /><br />
-      - Korjaus: Tulostus- ja esikatseluvirhe, kun Kohdista otsikot -asetus on pois käytöstä<br />
-      - Korjaus: Näytä allekirjoitustiedoston liitteet otsikossa<br />
-      - Uusi: Lisää viestin päivämäärä mille tahansa sivun ylä- tai alatunnisteeseen uudella muuttujalla:
-      <b>&amp;MD</b> #277<br />
-      - Uusi: Lisää Message-ID otsikoiden loppuun. #268, #283 Käytä:<br />
-      <b>addMessageIdToHdr</b><br />
-      Lisäasetukset-kentässä<br />
-      - Uusi: Tiedostonimitunnus <b>${messageID}</b> Message-ID-otsikolle #285<br />
-      - Uusi: Aseta otsikkosarakkeen leveys. Käyttää:<br />
-      <b>hdrColWidth: <i>nnn</i></b
-      ><br />
-      Lisäasetukset-kentässä, jossa <i>nnn</i> on pikselinä<br />
-      - Korjaa 100 valitun viestin raja #272, #280<br />
+      <b>Tärkeä huomautus:</b> Thunderbird v136:n julkaisusta lähtien Mozilla julkaisee kuukausittaisia
+      päivityksiä. En välttämättä pysty julkaisemaan PrintingTools NG:tä joka kuukausi. Tarkista ennen
+      Thunderbirdin päivittämistä, onko saatavilla yhteensopivaa PrintingTools NG -päivitystä.<br /><br />
+      Kristoffer<br /><br />
+      - Korjaus: OK-painike ei aina ollut käytössä kieliasetuksissa, joissa pilkkua käytetään
+      desimaalipisteenä - Thunderbirdin muutos HTML-syötteissä
     </p>
     <br />
-    <h2 id="main_help">PrintingTools NG Yleiskatsaus</h2>
+    <h2 id="main_help">PrintingTools NG -yleiskatsaus</h2>
     <p>
-      PrintingTools NG mahdollistaa monia mukautuksia sähköpostitulostukseen. Laajennuksella on monia
-      vaihtoehtoja sekä otsikoille että viestiosille. Lisäksi voidaan määrittää Sivuasetukset, joita ei voi
-      tehdä normaalissa Thunderbird-tulostuksen esikatselussa. PDF-tulostus voidaan tehdä myös automaattisella
-      nimeämisellä käyttämällä joustavaa merkkipohjaista järjestelmää.
+      PrintingTools NG mahdollistaa monia sähköpostitulostuksen mukautuksia. Laajennuksessa on monia
+      vaihtoehtoja sekä otsikoille että viestin osille. Lisäksi voidaan määrittää sivuasetuksia, joita ei voi
+      tehdä tavallisessa Thunderbirdin tulostusesikatselussa. PDF-tulostus voidaan tehdä myös automaattisella
+      nimeämisellä joustavan merkkipohjaisen järjestelmän avulla.
     </p>
     <h3 class="indent0">Tulosta NG -painikkeen lisääminen sähköpostin otsikkopalkkiin:</h3>
     <p>
-      Tulosta NG -painike lisätään automaattisesti yhdistettyyn työkalupalkkiin Thunderbird v115:stä lähtien.
-      Painike voidaan myös lisätä sähköpostin otsikkotyökalupalkkiin, jotta voidaan käyttää sekä tulostusta
-      että vaihtoehtoja postiruudusta. Lisäksi vaihtoehtoja pääsee käsiksi lisäosavälilehden laajennuksen
-      jakoavainpainikkeella.
+      Tulosta NG -painike lisätään automaattisesti yhtenäiseen työkalupalkkiin Thunderbirdin versiosta 115
+      alkaen. Painike voidaan lisätä myös sähköpostin otsikkopalkkiin, jotta sekä tulostus että
+      sähköpostipaneelin asetukset ovat käytettävissä. Lisäksi asetuksiin pääsee käsiksi laajennuksen
+      jakoavainpainikkeella lisäosat-välilehdellä.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Sijoita painike sähköpostin otsikkopalkkiin seuraavasti:</p>
+    <p>Sijoita painike sähköpostin otsikkotyökaluriville seuraavasti:</p>
     <div class="indent1">
-      <li>Napsauta Lisää-painiketta sähköpostin otsikkopalkissa</li>
-      <li>Valitse Mukautettu... Tämä avaa Mukauta työkalupalkki -ikkunan</li>
+      <li>Napsauta sähköpostin otsikkotyökalurivin Lisää-painiketta</li>
+      <li>Valitse Mukautettu... Tämä avaa Mukauta työkalupalkkia -ikkunan.</li>
       <li>Etsi Tulosta NG -painike</li>
       <li>Vedä ja pudota painike haluamaasi paikkaan</li>
-      <li>Käytä painiketta Tulosta, Esikatselu, Asetukset ja Ohje</li>
+      <li>Käytä painiketta Tulosta-, Esikatselu-, Asetukset- ja Ohje-toimintoihin</li>
     </div>
     <h3 class="indent0">PrintingTools NG -pikanäppäimet</h3>
     <p>
-      PrintingTools yhdistää normaalin Thunderbird Print -pikakuvakkeen uudelleen kutsuakseen itsensä
-      tavallisen Printin sijaan. Käytä Windowsissa ja Linuxissa Ctrl-P ja Komento-P Macissa. On myös
-      mahdollista avata Asetukset-valintaikkuna painamalla Control-Shift-P.
+      PrintingTools muuttaa Thunderbirdin vakiomuotoisen Print-pikakuvakkeen käynnistymään itsestään
+      vakiomuotoisen Print-komennon sijaan. Windowsissa ja Linuxissa käytä Ctrl-P:tä ja Macissa Command-P:tä.
+      Asetukset-valintaikkunan voi avata myös Ctrl-Shift-P:llä.
     </p>
     <h3 class="indent0">Seuraavassa on esimerkki joistakin otsikon muotoiluominaisuuksista:</h3>
     <div class="indent1">
-      <li>Räätälöity otsikon reunatyyli CSS:n avulla (ylä ja ala, sininen)</li>
-      <li>Otsikon taustaväri</li>
+      <li>Mukautettu otsikon reunuksen tyyli CSS:llä (ylä- ja alareuna, sininen)</li>
+      <li>Ylätunnisteen taustaväri</li>
       <li>Tasatut otsikot</li>
-      <li>Räätälöity otsikkojärjestys</li>
+      <li>Mukautettu otsikkojärjestys</li>
       <li>Sivun otsikko ja viestikansio</li>
-      <li>Liiteluettelo, jonka otsikossa on kuvakkeet</li>
-      <li>Täysin muokattavissa oleva päivämäärämuoto kansainvälinen muotoilu</li>
+      <li>Liiteluettelo, jossa on kuvakkeita otsikossa</li>
+      <li>Täysin muokattavissa oleva kansainvälinen päivämäärämuoto</li>
     </div>
     <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Mukautettu päivämäärämuoto</h2>
     <p>
-      Mukautettu päivämäärävaihtoehto mahdollistaa sähköpostin otsikoiden sekä päivämäärän että
-      vastaanottopäivän päivämäärän muotoilun täydellisen hallinnan. Mukautettu päivämäärä tarjoaa useita
-      lokalisoituja vaihtoehtoja, jotka mahdollistavat melkein minkä tahansa muodon. Huomaa, että mukautettu
-      päivämäärämerkkijono voi sisältää erottimia, literaaleja, mukaan lukien unicode-merkkejä sekoitettuna
-      alla lueteltuihin päivämäärä/aika-tunnisteisiin.<br /><br />
-      Huomautus: Muokatut päivämäärätulokset alla olevissa esimerkeissä vaihtelevat todellisen päivämäärän,
-      käyttäjien kielen ja aikavyöhykkeen mukaan.
+      Mukautettu päivämäärä -vaihtoehto mahdollistaa sähköpostin otsikoiden päivämäärän ja
+      vastaanottopäivämäärän muotoilun täydellisen hallinnan. Mukautettu päivämäärä tarjoaa useita
+      lokalisoituja vaihtoehtoja, jotka sallivat lähes minkä tahansa muotoilun. Huomaa, että mukautettu
+      päivämäärämerkkijono voi sisältää erottimia, literaaleja ja unicode-merkkejä sekä alla lueteltuja
+      päivämäärä/aika-tokeneja.<br /><br />
+      Huomautus: Alla olevien esimerkkien mukautetun päivämäärän tulokset vaihtelevat todellisen päivämäärän,
+      käyttäjän kieliasetuksen ja aikavyöhykkeen mukaan.
     </p>
     <br />
     <h3 class="indent0">Esimerkkejä:</h3>
@@ -99,28 +88,28 @@
         <tr>
           <td>Päivämäärämerkkijono</td>
           <td>Tulos</td>
-          <td>Huom</td>
+          <td>Huomautus</td>
         </tr>
       </thead>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
         <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-        <td>ja locale literaaleilla</td>
+        <td>ja-kieli literaaleilla</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
         <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-        <td>ko locale literaaleilla</td>
+        <td>ko-kieli literaaleilla</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
         <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-        <td>zh-CN kieli, lyhyt päivä</td>
+        <td>zh-CN-alue, lyhyt päivä</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
         <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-        <td>zh-TW alue, pitkä päivä</td>
+        <td>zh-TW-paikkakunta, pitkä päivä</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
@@ -135,23 +124,23 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>fi-USA, pitkä päivä/kuukausi</td>
+        <td>en-US-kieliasetus, pitkä päivä/kuukausi</td>
       </tr>
     </table>
     <br />
     <p>
-      Mukautettu päivämäärämuoto käyttää % sekvenssejä, jotka vastaavat <code>strftime()</code> Unixin
-      kaltaista toimintoa. Se perustuu
+      Mukautettu päivämäärämuoto käyttää %-sarjoja, jotka vastaavat Unixin kaltaista
+      <code>strftime()</code> -funktiota. Se perustuu JavaScript-versioon
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      JavaScript-porttiin, funktioon, joka muotoilee päivämäärän ja kellonajan.<br />
-      Port of strftime() by TH Doan (https://thdoan.github.io/strftime/)<br />
+      -funktiosta, joka muotoilee päivämäärän ja kellonajan.<br />
+      TH Doanin porttaama strftime() (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
     <h3 style="margin-left: 30px;">Muunnossekvenssien kuvaukset</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
-          <th>Järjestys</th>
+          <th>Sarja</th>
           <th>Kuvaus</th>
         </tr>
       </thead>
@@ -170,79 +159,79 @@
         </tr>
         <tr>
           <td><code class="code1">%B</code></td>
-          <td>Koko kuukauden nimi.</td>
+          <td>Kuukauden koko nimi.</td>
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
-          <td>Ensisijainen päivämäärä ja kellonaika (UTC) nykyiselle maa-asetukselle.</td>
+          <td>Nykyisen kieliasetuksen ensisijainen päivämäärän ja kellonajan (UTC) esitystapa.</td>
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
-          <td>Vuosisadan luku (vuosi/100) 2-numeroisena kokonaislukuna.</td>
+          <td>Vuosisadan luku (vuosi/100) kaksinumeroisena kokonaislukuna.</td>
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
-          <td>Kuukauden päivä desimaalilukuna (välillä 01-31).</td>
+          <td>Kuukauden päivä desimaalilukuna (välillä 01–31).</td>
         </tr>
         <tr>
           <td><code class="code1">%e</code></td>
-          <td>Kuukauden päivä desimaalilukuna (välillä 1-31).</td>
+          <td>Kuukauden päivä desimaalilukuna (välillä 1–31).</td>
         </tr>
         <tr>
           <td><code class="code1">%F</code></td>
-          <td>ISO 8601 -päivämäärämuoto (vastaa <code class="code1">%Y-%m-%d</code> ).</td>
+          <td>ISO 8601 -päivämäärämuoto (vastaa muotoa <code class="code1">%Y-%m-%d</code> ).</td>
         </tr>
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
-            ISO 8601 viikkoperusteinen vuosi vuosisata desimaalilukuna. 4-numeroinen vuosi vastaa
-            ISO-viikkonumeroa (katso <code class="code1">%V</code> ). Tällä on sama muoto ja arvo kuin
-            <code class="code1">%Y</code> , paitsi että jos ISO-viikon numero kuuluu edelliseen tai seuraavaan
-            vuoteen, käytetään sitä vuotta sen sijaan.
+            ISO 8601 -standardin mukainen viikkopohjainen vuosi, jossa desimaalilukuna on vuosisata.
+            Nelinumeroinen vuosi vastaa ISO-viikkonumeroa (katso <code class="code1">%V</code> ). Tällä on
+            sama muoto ja arvo kuin <code class="code1">%Y</code> , paitsi että jos ISO-viikkonumero kuuluu
+            edelliseen tai seuraavaan vuoteen, käytetään kyseistä vuotta.
           </td>
         </tr>
         <tr>
           <td><code class="code1">%g</code></td>
           <td>
-            Kuten <code class="code1">%G</code> , mutta ilman vuosisataa, eli 2-numeroisella vuosiluvulla
+            Kuten <code class="code1">%G</code> , mutta ilman vuosisataa eli kaksinumeroisella vuodella
             (00-99).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%H</code></td>
           <td>
-            Tunti desimaalilukuna käyttäen 24 tunnin kelloa (välillä 00-23). Katso myös
+            Tunti desimaalilukuna 24-tuntisessa kellossa (väli 00 - 23). Katso myös
             <code class="code1">%k</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%I</code></td>
           <td>
-            Tunti desimaalilukuna käyttämällä 12 tunnin kelloa (alue 01-12). Katso myös
+            Tunti desimaalilukuna 12-tuntisessa kellossa (väli 01–12). Katso myös
             <code class="code1">%l</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%j</code></td>
-          <td>Vuoden päivä desimaalilukuna (välillä 001 - 366).</td>
+          <td>Vuoden päivä desimaalilukuna (välillä 001–366).</td>
         </tr>
         <tr>
           <td><code class="code1">%k</code></td>
           <td>
-            Tunti desimaalilukuna käyttäen 24 tunnin kelloa (alue 0-23). Katso myös
+            Tunti desimaalilukuna 24-tuntisessa kellossa (alue 0–23). Katso myös
             <code class="code1">%H</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            Tunti desimaalilukuna käyttäen 12 tunnin kelloa (välillä 1-12). Katso myös
+            Tunti desimaalilukuna 12-tuntisessa kellossa (väli 1–12). Katso myös
             <code class="code1">%I</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%m</code></td>
-          <td>Kuukausi desimaalilukuna (välillä 01-12).</td>
+          <td>Kuukausi desimaalilukuna (välillä 01–12).</td>
         </tr>
         <tr>
           <td><code class="code1">%n</code></td>
@@ -250,71 +239,72 @@
         </tr>
         <tr>
           <td><code class="code1">%M</code></td>
-          <td>Minuutti desimaalilukuna (välillä 00 - 59).</td>
+          <td>Minuutti desimaalilukuna (välillä 00–59).</td>
         </tr>
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            Joko &quot;AM&quot; tai &quot;PM&quot; annetun aika-arvon mukaan. Keskipäivää käsitellään nimellä
-            &quot;PM&quot; ja keskiyötä &quot;AM&quot;.
+            Joko &quot;AM&quot; tai &quot;PM&quot; annetun aika-arvon mukaan. Keskipäivää käsitellään
+            &quot;PM&quot;:nä ja keskiyötä &quot;AM&quot;:nä.
           </td>
         </tr>
         <tr>
           <td><code class="code1">%P</code></td>
           <td>
-            Kuten <code class="code1">%p</code> , mutta pienillä kirjaimilla (&quot;am&quot; tai
+            Kuten <code class="code1">%p</code> , mutta pienellä kirjaimella (&quot;am&quot; tai
             &quot;pm&quot;).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
-          <td>Sekuntien lukumäärä Epochista, 1970-01-01 00:00:00 +0000 (UTC).</td>
+          <td>Sekuntien määrä aikakaudesta, 1970-01-01 00:00:00 +0000 (UTC).</td>
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
-          <td>Toinen desimaalilukuna (välillä 00 - 59).</td>
+          <td>Sekunti desimaalilukuna (välillä 00–59).</td>
         </tr>
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Viikonpäivä desimaalilukuna (väli 1-7), maanantaina 1. Katso myös <code class="code1">%w</code> .
+            Viikonpäivä desimaalilukuna (välillä 1–7), maanantai on 1. Katso myös
+            <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            ISO 8601 kuluvan vuoden viikkonumero desimaalilukuna (välillä 01-53), jossa viikko 1 on
+            Kuluvan vuoden ISO 8601 -viikkonumero desimaalilukuna (välillä 01–53), jossa viikko 1 on
             ensimmäinen viikko, jolla on vähintään 4 päivää uudessa vuodessa (eli ensimmäinen torstai).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%w</code></td>
           <td>
-            Viikonpäivä desimaalilukuna (alue 0 - 6), sunnuntain ollessa 0. Katso myös
+            Viikonpäivä desimaalilukuna (välillä 0–6), sunnuntain ollessa 0. Katso myös
             <code class="code1">%u</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%x</code></td>
-          <td>Ensisijainen päivämääräesitys nykyiselle maa-alueelle ilman aikaa.</td>
+          <td>Nykyisen kieliasetuksen ensisijainen päivämäärän esitystapa ilman aikaa.</td>
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
-          <td>Ensisijainen aikaesitys nykyiselle maa-alueelle ilman päivämäärää.</td>
+          <td>Nykyisen kieliasetuksen ensisijainen aikaesitys ilman päivämäärää.</td>
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
-          <td>Vuosi desimaalilukuna ilman vuosisataa (välillä 00-99).</td>
+          <td>Vuosi desimaalilukuna ilman vuosisataa (välillä 00–99).</td>
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>
-          <td>Vuosi desimaalilukuna, mukaan lukien vuosisata.</td>
+          <td>Vuosi desimaalilukuna, joka sisältää vuosisadan.</td>
         </tr>
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            <code class="code1">+hhmm</code> tai <code class="code1">-hhmm</code> numeerinen aikavyöhyke (eli
-            tuntien ja minuuttien poikkeama UTC:stä).
+            Numeerinen aikavyöhyke <code class="code1">+hhmm</code> tai <code class="code1">-hhmm</code> (eli
+            tunti- ja minuuttipoikkeama UTC-ajasta).
           </td>
         </tr>
         <tr>
@@ -323,7 +313,7 @@
         </tr>
         <tr>
           <td><code class="code1">%t</code></td>
-          <td>Lyhyt aikavyöhykelyhenne.</td>
+          <td>Lyhyt aikavyöhyke.</td>
         </tr>
         <tr>
           <td><code class="code1">%0</code></td>
@@ -335,7 +325,7 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Päivä kirjaimellisesti. Lokalisoitu, pääasiassa Aasian kielille. (ja: 日, ko: 일)</td>
+          <td>Päiväkirjaimellisesti. Lokalisoitu, pääasiassa aasialaisille alueille. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
@@ -343,60 +333,61 @@
     <ul>
       <li><code class="code1">%c</code> - muotoiltu merkkijono on hieman erilainen</li>
       <li>
-        <code class="code1">%D</code> - ei käytössä (käytä <code class="code1">%m/%d/%y</code> tai
+        <code class="code1">%D</code> - ei toteutettu (käytä <code class="code1">%m/%d/%y</code> tai
         <code class="code1">%d/%m/%y</code> )
       </li>
-      <li><code class="code1">%e</code> - tilaa ei ole lisätty</li>
+      <li><code class="code1">%e</code> - välilyöntiä ei lisätä</li>
       <li><code class="code1">%E</code> - ei toteutettu</li>
-      <li><code class="code1">%h</code> - ei käytössä (käytä <code class="code1">%b</code> )</li>
-      <li><code class="code1">%k</code> - tilaa ei ole lisätty</li>
+      <li><code class="code1">%h</code> - ei toteutettu (käytä <code class="code1">%b</code> )</li>
+      <li><code class="code1">%k</code> - välilyöntiä ei lisätä</li>
       <li>
-        <code class="code1">%n</code> - kuten <code class="code1">%m</code> , mutta ei alkunollaa (käytä
-        <code class="code1">\n</code> rivinvaihdossa)
+        <code class="code1">%n</code> - kuten <code class="code1">%m</code> , mutta ilman etunollaa (käytä
+        <code class="code1">\n</code> rivinvaihtoon)
       </li>
       <li><code class="code1">%O</code> - ei toteutettu</li>
       <li><code class="code1">%r</code> - ei toteutettu (käytä <code class="code1">%I:%M:%S %p</code> )</li>
-      <li><code class="code1">%R</code> - ei käytössä (käytä <code class="code1">%H:%M</code> )</li>
+      <li><code class="code1">%R</code> - ei toteutettu (käytä <code class="code1">%H:%M</code> )</li>
       <li><code class="code1">%t</code> - ei toteutettu (käytä <code class="code1">\t</code> )</li>
-      <li><code class="code1">%T</code> - ei käytössä (käytä <code class="code1">%H:%M:%S</code> )</li>
+      <li><code class="code1">%T</code> - ei toteutettu (käytä <code class="code1">%H:%M:%S</code> )</li>
       <li><code class="code1">%U</code> - ei toteutettu</li>
       <li><code class="code1">%W</code> - ei toteutettu</li>
       <li><code class="code1">%+</code> - ei toteutettu</li>
-      <li><code class="code1">%%</code> - ei käytössä (käytä <code class="code1">%</code> )</li>
+      <li><code class="code1">%%</code> - ei toteutettu (käytä <code class="code1">%</code> )</li>
     </ul>
     <br />
     <h2 id="pdf_output_help">PDF-tulostus ja automaattinen tiedostojen nimeäminen</h2>
     <p>
-      PDF-tulostus voidaan nyt sekä nimetä automaattisesti token-järjestelmän avulla että tallentaa ennalta
+      PDF-tuloste voidaan nyt sekä nimetä automaattisesti tunnusjärjestelmän avulla että tallentaa ennalta
       määritettyyn PDF-tulostushakemistoon. Tämä on erityisen hyödyllistä tulostettaessa useita valittuja
-      sähköposteja, koska jokaiselle sähköpostille ei tarvitse valita nimeä ja sijaintia.
+      sähköposteja, koska jokaiselle sähköpostille ei tarvitse valita nimeä ja sijaintia erikseen.
     </p>
     <p />
     <p>
-      Ota PDF-tulostushakemisto käyttöön ja valitse hakemisto tallennuspaikalle. Tulostustiedoston nimi
-      noudattaa määritettyä tiedostonimimuotoa.
+      Ota PDF-tiedostojen tulostushakemisto käyttöön ja valitse tallennussijainnille hakemisto.
+      Tulostetiedoston nimi noudattaa määritettyä tiedostonimen muotoa.
     </p>
     <p />
     <p>
-      Tiedostonimen muoto koostuu tunnuksista ja kaikista staattisista merkeistä, kuten erottimista tai
-      välilyönnistä. Laajennetussa tiedostonimen muotoilussa käytetään tunnuksia. Tarkka tiedostonimi voidaan
-      rakentaa käyttämällä tunnuksia sekä mitä tahansa tekstiä tai kelvollisia tiedostonimen merkkejä.
+      Tiedostonimen muoto koostuu tokeneista ja kaikista staattisista merkeistä, kuten erottimista tai
+      välilyönneistä. Laajennettu tiedostonimen muotoilu käyttää tokeneita. Tarkka tiedostonimi voidaan
+      muodostaa käyttämällä tokeneita sekä mitä tahansa tekstiä tai kelvollisia tiedostonimen merkkejä.
       Virheelliset merkit ovat: <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>Oletusnimimuoto on: ${subject}, joka on vain sähköpostin aihe.</p>
+    <p>Oletusarvoinen nimen muoto on: ${subject}, joka on vain sähköpostin otsikko.</p>
     <p />
     <p>Esimerkkejä</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> – oletusmuoto, sähköpostin aihe<br />
-      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Käytä mukautettua
-      päivämäärämuotoa oletusmuodon sijaan<br />
-      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Muokattu teksti<br />
+      <span class="notranslate"><code>${subject}</code></span> - Sähköpostin aiheen oletusmuoto<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Käytä mukautettua
+      päivämäärämuotoa oletusarvoisen sijaan<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Mukautetun tekstin
+      kera<br />
     </p>
-    <p>Alla olevassa taulukossa kuvataan kaikki tunnukset, joita voidaan käyttää tiedostonimimuodossa.</p>
+    <p>Alla olevassa taulukossa kuvataan kaikki tiedostonimen muodossa käytettävät tunnukset.</p>
     <table class="token-table">
       <tr>
-        <td>Token</td>
+        <td>Tunnus</td>
         <td>Kuvaus</td>
       </tr>
       <tr>
@@ -421,7 +412,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${smart_name}</code></td>
-        <td>Vastaanottajat, jos viesti on Lähetetyt-kansiossa, muuten lähettäjän nimi</td>
+        <td>Vastaanottajat, jos viesti on Lähetetyt-kansiossa, muussa tapauksessa lähettäjän nimi</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${index}</code></td>
@@ -429,19 +420,19 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${prefix}</code></td>
-        <td>Etuliitteen tekstivaihtoehdon arvo.</td>
+        <td>Etuliitteen tekstiasetuksen arvo.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
-        <td>Loppuliitteen tekstivaihtoehdon arvo.</td>
+        <td>Päätetekstin vaihtoehdon arvo.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
-        <td>Vakiopäivämäärän muoto. Oletusmuoto on: VVVVKKDDHHmm</td>
+        <td>Vakiopäivämäärämuoto. Oletusmuoto on: VVVVKKPPHHmm</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
-        <td>Mukautettu päivämäärämuoto. Katso mukautetun päivämäärän muotoilun osa.</td>
+        <td>Mukautettu päivämäärämuoto. Katso mukautettu päivämäärämuotoilu -osio.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
@@ -451,116 +442,117 @@
     <br />
     <h2 id="print_options_help">Tulostus- ja sivuasetukset</h2>
     <p>
-      Näiden asetusten avulla voit määrittää oletustulostimen sekä tulostinsivun asetukset. On myös
-      mahdollista asettaa hiljainen tila, jossa esikatseluikkunaa ei näytetä ja tulostus tapahtuu
+      Näiden asetusten avulla voit määrittää oletustulostimen sekä tulostinkohtaisia sivukohtaisia asetuksia.
+      Voit myös asettaa äänettömän tilan, jossa esikatseluikkunaa ei näytetä ja tulostus tapahtuu
       välittömästi.
     </p>
     <p>
-      Sivuasetusten avulla voit määrittää kohteita, kun sekä esikatselu että tulostus on valmis. Nämä
-      vaihtoehdot ovat pysyviä koko tulostuksen ajan. Jos PrintingTools NG:ssä asetettuja asetuksia muutetaan
-      tulostuksen esikatselussa, ne eivät vaikuta seuraaviin tulosteisiin. Joitakin kohteita ei voi asettaa
-      esikatseluikkunassa, esimerkiksi ylä- ja alatunnisteet. Muut kohteet eivät säily esikatselussa, ja ne on
-      normaalisti asetettava joka kerta, kun tulostetaan. PrintingTools NG ratkaisee nämä molemmat ongelmat.
+      Sivun asetusten avulla voit määrittää kohteita, kun sekä esikatselu että tulostus on valmis. Nämä
+      asetukset pysyvät voimassa koko tulostuksen ajan. Jos PrintingTools NG:ssä määritettyjä asetuksia
+      muutetaan tulostuksen esikatselussa, ne eivät vaikuta seuraaviin tulosteisiin. Joitakin kohteita ei voi
+      määrittää esikatselu-valintaikkunassa, kuten ylä- ja alatunnisteita. Toisia kohteita ei säilytetä
+      esikatselussa, ja ne olisi normaalisti määritettävä joka kerta, kun tulostus on valmis. PrintingTools NG
+      ratkaisee molemmat näistä ongelmista.
     </p>
     <p>
-      Yksi kohde, jota esikatselu ei ole tallentanut, ovat sivualueet. Tyypillinen käyttötapaus on, kun
-      halutaan tulostaa vain sähköpostin ensimmäinen sivu oletusarvoisesti. normaalisti sivualueita on
-      muutettava joka kerta. Huomaa, jos PrintingTools NG:ssä asetettu sivualue ei kelpaa, kuten sivumäärä
-      ylittää, alue on korjattava esikatselussa ennen tulostamista. Sivualue, joka on asetettu arvoon
-      &quot;1&quot;, on aina voimassa ja tulostaa viestin ensimmäisen sivun.
+      Yksi esikatselussa tallentamaton kohta on sivualueet. Tyypillinen käyttötapaus on, kun halutaan tulostaa
+      oletuksena vain sähköpostin ensimmäinen sivu. Normaalisti sivualueet on muutettava joka kerta. Huomaa,
+      että jos PrintingTools NG:ssä asetettu sivualue ei ole kelvollinen, esimerkiksi sivumäärä ylittää
+      sallitun määrän, alue on korjattava esikatselussa ennen tulostusta. Arvolla &quot;1&quot; asetettu
+      sivualue on aina kelvollinen ja tulostaa viestin ensimmäisen sivun.
     </p>
     <p>Huomautuksia:</p>
-    <p>Skaalausvaihtoehdon avulla voidaan asettaa pysyvä asteikko.</p>
+    <p>Skaalausvaihtoehdolla voi asettaa pysyvän skaalauksen.</p>
     <p>
-      Sivualueet kuvataan samalla tavalla kuin esikatselussa. Esimerkkejä ovat 1, 1-2, 3-4,5. Huomaa, että jos
-      esiasetettu sivualue ei kelpaa tietylle viestille, esikatselu näyttää virheilmoituksen.
+      Sivualueet kuvataan samalla tavalla kuin esikatselussa. Esimerkkejä ovat 1, 1–2, 3–4 ja 5. Huomaa, että
+      jos ennalta määritetty sivualue ei ole kelvollinen tietylle viestille, esikatselussa näkyy virhe.
     </p>
     <p>
-      Marginaalit voidaan asettaa käyttämällä käyttäjän maa-alueelle sopivia yksiköitä, joko tuumina tai
-      millimetreinä (in tai mm). Huomaa, että pyöristysvirheiden vuoksi jotkin mm-arvot voidaan tallentaa
-      pienin eroin.
+      Marginaalit voidaan asettaa käyttäjän aluekohtaisesti sopivilla yksiköillä, joko tuumina tai
+      millimetreinä (in tai mm). Huomaa, että pyöristysvirheiden vuoksi jotkin millimetriarvot voidaan
+      tallentaa pienillä eroilla.
     </p>
     <p></p>
     <p>
       Ylä- ja alatunnisteet voidaan asettaa sisältämään erilaisia alla lueteltuja viestimuuttujia. Lisäksi
-      mielivaltaista tekstiä voidaan sisällyttää. Jos et halua tulostaa ylä- tai alatunnisteita ja säästää
+      voidaan sisällyttää mielivaltaista tekstiä. Jos et halua tulostaa ylä- tai alatunnisteita ja säästää
       tulostustilaa, jätä kaikki kentät tyhjiksi.
     </p>
     <div class="indent1">
-      <li>&amp;D = Tulostuspäivämäärä</li>
+      <li>&amp;D = Tulosta päivämäärä</li>
       <li>&amp;MD = Viestin päivämäärä</li>
       <li>&amp;P = Sivunumero</li>
-      <li>&amp;PT = sivunumero yhteensä (&quot;3/5&quot;)</li>
+      <li>&amp;PT = Sivunumero ja kokonaismäärä (&quot;3/5&quot;)</li>
       <li>&amp;T = Sivun otsikko (viestin aihe)</li>
       <li>&amp;U = URL (viestin URL-osoite)</li>
     </div>
     <h2 id="advanced_options_help">Lisäasetukset</h2>
     <p>
-      Nämä ovat vaihtoehtoja, joiden avulla voidaan asettaa tulostuskohteita käyttöliittymän perusasetusten
-      ulkopuolelle. Vaihtoehdot on määritetty Muut-välilehden Lisäasetukset-kohdassa, ja ne ovat välilyönnillä
+      Nämä ovat asetuksia, joiden avulla voi määrittää tulostuskohteita peruskäyttöliittymän asetusten
+      lisäksi. Asetukset määritetään Muut-välilehden Lisäasetukset-kohdassa, ja ne ovat välilyönneillä
       erotettuja tunnisteita.<br />
-      Vaihtoehtotunnisteet ja -muodot on annettu alla:<br /><br />
-      <b>Lisää Message-ID otsikkotunnisteen loppuun:</b><br /><br />
-      <b>addMessageIdToHdr</b><br /><br />
-      <b>Aseta otsikkotunnisteen sarakkeen leveys:</b><br /><br />
-      <b>hdrColWidth: <i>nnn</i></b> Missä <i>nnn</i> on pikselien määrä<br /><br />
-      <b>Ylä- ja alatunnisteen reunamarginaalit:</b><br /><br />
-      P: <i>tulostimen nimi</i> ::S: <i>valinnan nimi</i> = <i>arvo</i><br /><br />
-      Tulostimen nimessä välilyönnit on korvattu alaviivoilla ja sisäänrakennettu Tallenna PDF-muotoon on
-      Mozilla_Save_to_PDF<br /><br />
+      Asetustunnisteet ja -muodot on annettu alla:<br /><br />
+      <b>Lisää viestitunnus otsikkotunnisteen loppuun:</b><br /><br />
+      <b>lisääViestinIdHdr:ään</b><br /><br />
+      <b>Aseta otsikkotunnisteen sarakeleveys:</b><br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> , jossa <i>nnn</i> on pikselien lukumäärä<br /><br />
+      <b>Ylä- ja alatunnisteen reunojen marginaalit:</b><br /><br />
+      P: <i>tulostimen-nimi</i> ::S: <i>asetuksen-nimi</i> = <i>arvo</i><br /><br />
+      Tulostimen nimessä välilyönnit on korvattu alaviivoilla ja sisäänrakennettu Tallenna PDF-muotoon
+      -toiminto on Mozilla_Save_to_PDF.<br /><br />
       Toinen esimerkki: Microsoft_Print_to_PDF<br /><br />
-      Nykyiset vaihtoehdon nimimahdollisuudet ovat:<br />
+      Nykyiset vaihtoehdot vaihtoehdoille ovat:<br />
       <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
-      <span class="notranslate">edges</span> on pseudo-vaihtoehto, joka asettaa kaikki reunamarginaalit samaan
-      arvoon. Reunojen marginaalit ovat tuumina.<br /><br />
+      <span class="notranslate">edges</span> on pseudo-asetus, joka asettaa kaikki reunamarginaalit samaan
+      arvoon. Reunamarginaalit ovat tuumina.<br /><br />
       Esimerkkejä:<br /><br />
-      P:Mozilla_Save_to_PDF::S:edges=0,25<br />
+      P:Mozilla_Save_to_PDF::S:edges=0.25<br />
       P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
-      Jos haluat asettaa kaikki reunamarginaalit 0,10 tuumaan paitsi edgeTop 0,25 tuumaan, kirjoita
+      Jos halutaan asettaa kaikki reunamarginaalit 0,10 tuumaan paitsi reunan yläreunan 0,25 tuumaan, syötä
       seuraava:<br /><br />
       P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
     </p>
     <h2>Tukea</h2>
     <p>
-      Lähetä ongelmat tai ominaisuuspyynnöt laajennusten GitHub-tietovarastoon:
+      Lähetä ongelmat tai ominaisuuspyynnöt laajennusten GitHub-arkistoon:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
       ><br /><br />
-      Sisällytä virheongelmiin seuraavat tiedot ongelmien ratkaisemiseksi:<br />
+      Virheongelmissa, sisällytä seuraavat tiedot ongelmien ratkaisemiseksi:<br />
       - PrintingTools NG -versio<br />
       - Thunderbird-versio<br />
       - Käyttöjärjestelmä ja versio<br />
-      - Virheenkorjaustulos (kopioi virheenkorjauskonsolista - pääsy Ctrl-Shift-J)<br />
-      - Kuvaus ongelmaan johtavista vaiheista<br />
+      - Virheenjäljitystulos (kopioi virheenjäljityskonsolista - käytä Ctrl-Shift-J)<br />
+      - Kuvaus ongelmaan johtaneista vaiheista<br />
     </p>
     <h2 id="debug_options_help">Virheenkorjausasetukset</h2>
     <p>
-      Vianetsintävaihtoehdot ovat joukko avainsanoja, jotka syötetään välilyönnillä erotettuna luettelona.
-      Vaihtoehtoja käytetään tyypillisesti konsolin virheenkorjaukseen, mutta niitä voidaan käyttää myös
-      testaukseen tai eri tiloihin.
+      Virheenjäljitysasetukset ovat joukko avainsanoja, jotka syötetään välilyönneillä erotettuna luettelona.
+      Asetuksia käytetään tyypillisesti konsolin virheenjäljitystulosteeseen, mutta niitä voidaan käyttää myös
+      testaukseen tai muihin tiloihin.
     </p>
     <div class="indent1">
       <li>
-        <code class="notranslate">initialsource</code> - näytä viestin lähde ennen kuin PTNG tekee mitään
-        muotoilua
+        <code class="notranslate">initialsource</code> - näyttää viestin lähteen ennen kuin PTNG tekee mitään
+        muotoiluja
       </li>
-      <li><code class="notranslate">finaloutput</code> - näytä lopullinen viestin tulos</li>
-      <li><code class="notranslate">pdfoutput</code> - virheenkorjaustuloste PDF-viestien ulostulolle</li>
+      <li><code class="notranslate">finaloutput</code> - näytä viestin lopullinen tuloste</li>
+      <li><code class="notranslate">pdfoutput</code> - PDF-viestin tulosteen virheenkorjaustuloste</li>
       <li>
-        <code class="notranslate">printsettings</code> - virheenkorjaus tulostus- ja sivuvaihtoehtoja varten
+        <code class="notranslate">printsettings</code> - tulostus- ja sivuasetusten virheenkorjaustuloste
       </li>
       <li>
-        <code class="notranslate">helpinwin</code> - tilan lippu, joka näyttää ohjeen ikkunassa tavallisen
+        <code class="notranslate">helpinwin</code> - tilalippu, joka näyttää ohjeen ikkunassa tavallisen
         välilehden sijaan
       </li>
     </div>
-    <h2>Krediitit</h2>
+    <h2>Tekijät</h2>
     <div class="indent1">
-      <li>PrintingTools NG perustuu alkuperäiseen Paolo &quot;Kosmos&quot; -laajennukseen.</li>
+      <li>PrintingTools NG perustuu Paolo &quot;Kosmosin&quot; alkuperäiseen laajennukseen.</li>
       <li>List.js kirjoittanut Jonny Strömberg https://listjs.com</li>
       <li>Latinize.js kirjoittanut Jakub Dundalek https://github.com/dundalek/latinize</li>
     </div>
     <p>
-      Kiitos seuraaville käyttäjille parannusehdotuksista ja testiavustuksesta:<br /><br />
+      Kiitos seuraaville käyttäjille parannusehdotuksista ja testausavusta:<br /><br />
       - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
       - <code class="notranslate">@RRoenn</code><br />
       - <code class="notranslate">@tidebre67</code><br />

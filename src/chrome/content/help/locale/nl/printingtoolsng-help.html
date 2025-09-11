@@ -20,24 +20,12 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px;">Release-opmerkingen:</h3>
     <p>
-      <b>Belangrijke opmerking:</b> Vanaf de release van Thunderbird v136 brengt Mozilla maandelijkse releases
-      uit. Het is mogelijk dat ik PrintingTools NG niet elke maand kan uitbrengen. Controleer voordat u
+      <b>Belangrijke opmerking:</b> Vanaf de release van Thunderbird v136 zal Mozilla maandelijkse releases
+      uitbrengen. Het is mogelijk dat ik PrintingTools NG niet elke maand kan uitbrengen. Controleer voordat u
       Thunderbird bijwerkt of er een compatibele update voor PrintingTools NG beschikbaar is.<br /><br />
-      Christoffel<br /><br />
-      - Oplossing: Afdrukken en voorvertoning mislukt wanneer de optie Kopteksten uitlijnen is
-      uitgeschakeld<br />
-      - Oplossing: Toon handtekeningbestandbijlagen in header<br />
-      - Nieuw: Voeg de berichtdatum toe aan elke paginakoptekst of -voettekst met de nieuwe variabele:
-      <b>&amp;MD</b> #277<br />
-      - Nieuw: Voeg de Message-ID toe aan het einde van de headers. #268, #283 Gebruik:<br />
-      <b>voegBerichtIdAanHdr toe</b><br />
-      in het veld Geavanceerde opties<br />
-      - Nieuw: Bestandsnaamtoken <b>${messageID}</b> voor de Message-ID-header #285<br />
-      - Nieuw: Stel de breedte van de headerkolom in. Gebruik:<br />
-      <b>hdrColWidth: <i>nnn</i></b
-      ><br />
-      in het veld Geavanceerde opties, waarbij <i>nnn</i> in px staat<br />
-      - Herstel de limiet van 100 geselecteerde berichten #272, #280<br />
+      Christopher<br /><br />
+      - Oplossing: OK-knop is altijd uitgeschakeld voor landinstellingen met komma als decimaal punt -
+      Thunderbird-wijziging voor HTML-invoer
     </p>
     <br />
     <h2 id="main_help">Overzicht van PrintingTools NG</h2>
@@ -51,7 +39,7 @@
     <p>
       De knop Afdrukken NG is automatisch toegevoegd aan de gecombineerde werkbalk vanaf Thunderbird v115. De
       knop kan ook worden toegevoegd aan de werkbalk van de e-mailheader om zowel afdruktoegang als opties
-      vanuit het e-mailvenster mogelijk te maken. Opties zijn ook toegankelijk via de sleutelknop voor de
+      vanuit het e-mailvenster mogelijk te maken. Extra opties zijn toegankelijk via de sleutelknop voor de
       extensie op het tabblad van de invoegtoepassing.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
@@ -77,7 +65,7 @@
       <li>Uitgelijnde headers</li>
       <li>Aangepaste headervolgorde</li>
       <li>Paginatitel en berichtenmap</li>
-      <li>Bijlagenlijst met pictogrammen in de kop</li>
+      <li>Bijlagenlijst met pictogrammen in de koptekst</li>
       <li>Volledig aanpasbare datumnotatie internationale opmaak</li>
     </div>
     <br />
@@ -85,8 +73,8 @@
     <br />
     <h2 id="customdate_format_help">Aangepaste datumnotatie</h2>
     <p>
-      Met de optie Aangepaste datum heeft u volledige controle over de datumopmaak die wordt gebruikt voor
-      zowel de datum als de ontvangstdatum in de e-mailheaders. De optie Aangepaste datum biedt meerdere
+      De optie voor aangepaste datums biedt volledige controle over de datumopmaak die wordt gebruikt voor
+      zowel de datum als de ontvangstdatum in de e-mailheaders. De aangepaste datum biedt meerdere
       gelokaliseerde opties die vrijwel elke opmaak mogelijk maken. Houd er rekening mee dat de aangepaste
       datumreeks scheidingstekens, letterlijke waarden (inclusief Unicode-tekens) kan bevatten, gecombineerd
       met de hieronder vermelde datum-/tijdtokens.<br /><br />
@@ -183,11 +171,11 @@
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
-          <td>Dag van de maand als decimaal getal (bereik 01 t/m 31).</td>
+          <td>Dag van de maand als decimaal getal (bereik 01 tot en met 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%e</code></td>
-          <td>Dag van de maand als decimaal getal (bereik 1 t/m 31).</td>
+          <td>Dag van de maand als decimaal getal (bereik 1 tot en met 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%F</code></td>
@@ -196,10 +184,10 @@
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
-            Jaartal volgens ISO 8601 op weekbasis met eeuw als decimaal getal. Het 4-cijferige jaartal komt
-            overeen met het ISO-weeknummer (zie <code class="code1">%V</code> ). Dit heeft dezelfde notatie en
-            waarde als <code class="code1">%Y</code> , behalve dat als het ISO-weeknummer bij het vorige of
-            volgende jaar hoort, dat jaar wordt gebruikt.
+            Weekjaar volgens ISO 8601 met eeuw als decimaal getal. Het viercijferige jaartal komt overeen met
+            het ISO-weeknummer (zie <code class="code1">%V</code> ). Dit heeft dezelfde notatie en waarde als
+            <code class="code1">%Y</code> , behalve dat als het ISO-weeknummer bij het vorige of volgende jaar
+            hoort, dat jaar wordt gebruikt.
           </td>
         </tr>
         <tr>
@@ -284,7 +272,7 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            ISO 8601-weeknummer van het huidige jaar als decimaal getal (bereik 01 t/m 53), waarbij week 1 de
+            ISO 8601-weeknummer van het huidige jaar als decimaal getal (bereik 01 tot 53), waarbij week 1 de
             eerste week is met minimaal 4 dagen in het nieuwe jaar (dat wil zeggen de eerste donderdag).
           </td>
         </tr>
@@ -301,7 +289,7 @@
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
-          <td>Voorkeursweergave van de tijd voor de huidige landinstelling zonder de datum.</td>
+          <td>Voorkeurstijdweergave voor de huidige landinstelling zonder de datum.</td>
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
@@ -315,7 +303,7 @@
           <td><code class="code1">%z</code></td>
           <td>
             De numerieke tijdzone <code class="code1">+hhmm</code> of <code class="code1">-hhmm</code> (dat
-            wil zeggen, de uren en minuten afwijking van UTC).
+            wil zeggen, het verschil in uren en minuten ten opzichte van UTC).
           </td>
         </tr>
         <tr>
@@ -404,7 +392,7 @@
     </p>
     <p>
       De onderstaande tabel beschrijft de volledige set tokens die kunnen worden gebruikt in het
-      Bestandsnaamformaat.
+      bestandsnaamformaat.
     </p>
     <table class="token-table">
       <tr>
@@ -470,20 +458,21 @@
       wordt uitgevoerd.
     </p>
     <p>
-      Met de paginaopties kunt u items instellen nadat zowel het voorbeeld als het afdrukken is voltooid. Deze
-      opties blijven behouden tijdens het afdrukken. Als opties die in PrintingTools NG zijn ingesteld, worden
-      gewijzigd in het afdrukvoorbeeld, hebben ze geen invloed op volgende afdrukken. Sommige items kunnen
-      niet worden ingesteld in het voorbeeldvenster, waaronder de kop- en voetteksten. Andere items blijven
-      niet behouden in het voorbeeld en moeten normaal gesproken bij elke afdruk opnieuw worden ingesteld.
-      PrintingTools NG lost beide problemen op.
+      Met de pagina-opties kunt u items instellen nadat zowel het voorbeeld als het afdrukken is voltooid.
+      Deze opties blijven behouden tijdens het afdrukken. Als opties die in PrintingTools NG zijn ingesteld,
+      worden gewijzigd in het afdrukvoorbeeld, hebben ze geen invloed op volgende afdrukken. Sommige items
+      kunnen niet worden ingesteld in het voorbeeldvenster, waaronder de kop- en voetteksten. Andere items
+      blijven niet behouden in het voorbeeld en moeten normaal gesproken bij elke afdruk opnieuw worden
+      ingesteld. PrintingTools NG lost beide problemen op.
     </p>
     <p>
       Eén item dat niet door de voorvertoning wordt opgeslagen, is het paginabereik. Een typisch
       gebruiksvoorbeeld is wanneer men standaard alleen de eerste pagina van een e-mail wil afdrukken. Normaal
-      gesproken zou men de paginabereiken elke keer moeten aanpassen. Let op: als een paginabereik dat in
-      PrintingTools NG is ingesteld, bijvoorbeeld omdat het aantal pagina&#39;s wordt overschreden, moet het
-      bereik in de voorvertoning worden gecorrigeerd voordat het wordt afgedrukt. Een paginabereik dat is
-      ingesteld op &quot;1&quot; is altijd geldig en drukt de eerste pagina van het bericht af.
+      gesproken zou men de paginabereiken telkens moeten wijzigen. Let op: als een paginabereik dat in
+      PrintingTools NG is ingesteld, ongeldig is (bijvoorbeeld omdat het aantal pagina&#39;s wordt
+      overschreden), moet het bereik in de voorvertoning worden gecorrigeerd voordat het wordt afgedrukt. Een
+      paginabereik dat is ingesteld op &quot;1&quot; is altijd geldig en drukt de eerste pagina van het
+      bericht af.
     </p>
     <p>Opmerkingen:</p>
     <p>Met de schaaloptie kunt u een permanente schaal instellen.</p>
@@ -521,7 +510,7 @@
       <b>voegBerichtIdAanHdr toe</b><br /><br />
       <b>Stel de kolombreedte voor de headers-tag in:</b><br /><br />
       <b>hdrColWidth: <i>nnn</i></b> Waarbij <i>nnn</i> het aantal pixels is<br /><br />
-      <b>Randmarges van kop- en voetteksten:</b><br /><br />
+      <b>Randmarges voor kop- en voettekst:</b><br /><br />
       P: <i>printernaam</i> ::S: <i>optienaam</i> = <i>waarde</i><br /><br />
       In de printernaam zijn de spaties vervangen door onderstrepingstekens en de ingebouwde optie Opslaan
       naar PDF is Mozilla_Opslaan_naar_PDF<br /><br />
@@ -531,11 +520,11 @@
       <span class="notranslate">edges</span> is een pseudo-optie die alle randmarges op dezelfde waarde
       instelt. De randmarges zijn in inches.<br /><br />
       Voorbeelden:<br /><br />
-      P:Mozilla_Opslaan_naar_PDF::S:randen=0.25<br />
+      P:Mozilla_Opslaan_in_PDF::S:randen=0.25<br />
       P:Microsoft_Afdrukken_naar_PDF::S:edgeTop=0.1<br /><br />
       Als u alle randmarges op 0,10 inch wilt instellen, behalve de edgeTop op 0,25 inch, voert u het volgende
       in:<br /><br />
-      P:Mozilla_Opslaan_naar_PDF::S:randen=0.10 P:Mozilla_Opslaan_naar_PDF::S:randBovenaan=0.25
+      P:Mozilla_Opslaan_in_PDF::S:edges=0.10 P:Mozilla_Opslaan_in_PDF::S:edgeTop=0.25
     </p>
     <h2>Steun</h2>
     <p>
@@ -546,7 +535,7 @@
       - PrintingTools NG-versie<br />
       - Thunderbird-versie<br />
       - Besturingssysteem en versie<br />
-      - Foutopsporingsoutput (kopie van de foutopsporingsconsole - toegang met Control-Shift-J)<br />
+      - Debug-uitvoer (kopie van de Debug Console - toegang met Control-Shift-J)<br />
       - Een beschrijving van de stappen die tot het probleem hebben geleid<br />
     </p>
     <h2 id="debug_options_help">Debug-opties</h2>

@@ -24,19 +24,8 @@
       mensais. Talvez eu não consiga lançar o PrintingTools NG todo mês. Verifique antes de atualizar o
       Thunderbird se há uma atualização compatível disponível para o PrintingTools NG.<br /><br />
       Cristóvão<br /><br />
-      - Correção: Falha de impressão e visualização com a opção Alinhar cabeçalhos DESATIVADA<br />
-      - Correção: Mostrar anexos de arquivo de assinatura no cabeçalho<br />
-      - Novo: Adicione a data da mensagem a qualquer cabeçalho ou rodapé de página com a nova variável:
-      <b>&amp;MD</b> #277<br />
-      - Novo: Adicionar o Message-ID ao final dos cabeçalhos. #268, #283 Uso:<br />
-      <b>adicionarIdDaMensagemAoHDr</b><br />
-      no campo Opções avançadas<br />
-      - Novo: Token de nome de arquivo <b>${messageID}</b> para o cabeçalho Message-ID #285<br />
-      - Novo: Defina a largura da coluna do cabeçalho. Uso:<br />
-      <b>hdrColWidth: <i>nnn</i></b
-      ><br />
-      no campo Opções avançadas, onde <i>nnn</i> está em px<br />
-      - Corrigir o limite de 100 mensagens selecionadas #272, #280<br />
+      - Correção: botão OK sempre desabilitado para localidades que usam vírgula como ponto decimal -
+      Alteração do Thunderbird para entradas HTML
     </p>
     <br />
     <h2 id="main_help">Visão geral do PrintingTools NG</h2>
@@ -335,7 +324,7 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Dia Literal. Localizado, principalmente para locais asiáticos. (ja: 日, ko: 일)</td>
+          <td>Literal do dia. Localizado, principalmente para locais asiáticos. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
