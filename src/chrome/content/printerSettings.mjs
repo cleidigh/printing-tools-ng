@@ -153,7 +153,13 @@ export var printerSettings = {
       cr.value = this.pageRangesToString(pr);
     }
 
-
+    // Thunderbird changed the html:input such
+    // that it no longer accepts comma as a decimal
+    // when directly setting the input.value
+    // so we have to use the decimal to set
+    // the increment arrows also Change the comma
+    // to a decimal
+    
     // Round all margins to two decimal places
     let el = document.querySelector("#margin-top");
     let n = this.inchesToLocaleUnits(printSettings.marginTop, localeUnits).toFixed(2);
