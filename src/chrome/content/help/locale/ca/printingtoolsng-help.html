@@ -4,81 +4,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <title>PrintingTools NG Ajuda</title>
+    <title>Ajuda de PrintingTools NG</title>
   </head>
   <body>
     <table style="width: 100%;">
       <tr>
         <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Ajuda</div>
-          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
+          <div style="font-size: 1.8em; font-weight: bold;">Ajuda de PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px;">versió 2.2.1</div>
         </td>
         <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Notes de llançament:</h3>
+    <h3 id="release_notes" style="padding-left: 4px;">Notes de la versió:</h3>
     <p>
-      <b>Nota important:</b> a partir del llançament de Thunderbird v136, Mozilla farà llançaments mensuals.
-      És possible que no pugui llançar PrintingTools NG cada mes. Comproveu abans d&#39;actualitzar el
-      Thunderbird per veure si hi ha una actualització compatible de PrintingTools NG disponible.<br /><br />
+      <b>Nota important:</b> A partir del llançament de Thunderbird v136, Mozilla farà llançaments mensuals.
+      És possible que no pugui publicar PrintingTools NG cada mes. Abans d&#39;actualitzar Thunderbird,
+      comproveu si hi ha una actualització compatible de PrintingTools NG disponible.<br /><br />
       Cristòfor<br /><br />
-      - Correcció: error d&#39;impressió i previsualització amb l&#39;opció Alinea les capçaleres
-      DESACTIVADA<br />
-      - Correcció: mostra els fitxers adjunts de signatura a la capçalera<br />
-      - Nou: afegiu la data del missatge a qualsevol capçalera o peu de pàgina amb la nova variable:
-      <b>&amp;MD</b> #277<br />
-      - Nou: afegiu l&#39;ID de missatge al final de les capçaleres. #268, #283 Ús:<br />
-      <b>addMessageIdToHdr</b><br />
-      al camp Opcions avançades<br />
-      - Nou: testimoni de nom de fitxer <b>${messageID}</b> per a la capçalera Message-ID #285<br />
-      - Nou: estableix l&#39;amplada de la columna de la capçalera. Ús:<br />
-      <b>hdrColWidth: <i>nnn</i></b
-      ><br />
-      al camp Opcions avançades, on <i>nnn</i> és en px<br />
-      - Corregiu el límit de 100 missatges seleccionats #272, #280<br />
+      - Correcció: el botó D&#39;acord sempre està desactivat per a les configuracions regionals que utilitzen
+      coma com a punt decimal - Canvi de Thunderbird per a les entrades HTML
     </p>
     <br />
-    <h2 id="main_help">Visió general de PrintingTools NG</h2>
+    <h2 id="main_help">Informació general de PrintingTools NG</h2>
     <p>
-      PrintingTools NG permet moltes personalitzacions a la impressió per correu electrònic. L&#39;extensió té
-      moltes opcions tant per a les capçaleres com per a les parts del missatge. A més, es poden establir
-      opcions de pàgina que no es poden fer a la vista prèvia d&#39;impressió normal del Thunderbird. La
-      sortida de PDF també es pot fer amb un nom automàtic mitjançant un sistema flexible basat en testimonis.
+      PrintingTools NG permet moltes personalitzacions per a la impressió de correus electrònics.
+      L&#39;extensió té moltes opcions tant per a les capçaleres com per a les parts del missatge. A més, es
+      poden definir opcions de pàgina que no es poden fer a la vista prèvia d&#39;impressió normal de
+      Thunderbird. La sortida en PDF també es pot fer amb nomenclatura automàtica mitjançant un sistema
+      flexible basat en testimonis.
     </p>
-    <h3 class="indent0">Afegeix el botó Imprimeix NG a la barra d&#39;eines de la capçalera del correu:</h3>
+    <h3 class="indent0">Afegir el botó Imprimeix NG a la barra d&#39;eines de la capçalera del correu:</h3>
     <p>
-      El botó Print NG s&#39;afegeix automàticament a la barra d&#39;eines unificada a partir del Thunderbird
-      v115. El botó també es pot afegir a la barra d&#39;eines de la capçalera del correu per habilitar tant
-      l&#39;accés a la impressió com les opcions del panell de correu. A més, es pot accedir a les opcions
-      mitjançant el botó de clau anglesa de l&#39;extensió a la pestanya del complement.
+      El botó Imprimeix NG s&#39;afegeix automàticament a la barra d&#39;eines unificada a partir del
+      Thunderbird v115. El botó també es pot afegir a la barra d&#39;eines de la capçalera del correu per
+      habilitar tant l&#39;accés a la impressió com a les opcions des del panell de correu. A més, es pot
+      accedir a les opcions mitjançant el botó d&#39;eines angleses de l&#39;extensió a la pestanya del
+      complement.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Seguiu aquests passos per col·locar el botó a la barra d&#39;eines de la capçalera del correu:</p>
+    <p>Segueix aquests passos per col·locar el botó a la barra d&#39;eines de la capçalera del correu:</p>
     <div class="indent1">
       <li>Feu clic al botó Més a la barra d&#39;eines de la capçalera del correu</li>
       <li>Seleccioneu Personalitzat... Això obrirà la finestra Personalitza la barra d&#39;eines</li>
-      <li>Localitzeu el botó Print NG</li>
-      <li>Arrossegueu i deixeu anar el botó a la ubicació desitjada</li>
-      <li>Utilitzeu el botó d&#39;impressió, previsualització, opcions i ajuda</li>
+      <li>Localitzeu el botó Imprimeix NG</li>
+      <li>Arrossega i deixa anar el botó a la ubicació desitjada</li>
+      <li>Feu servir el botó per a Imprimir, Vista prèvia, Opcions i Ajuda</li>
     </div>
-    <h3 class="indent0">Dreceres de teclat PrintingTools NG</h3>
+    <h3 class="indent0">Dreceres de teclat de PrintingTools NG</h3>
     <p>
-      PrintingTools torna a mapejar la drecera estàndard del Thunderbird Print per invocar-se en lloc de la
-      drecera estàndard. A Windows i Linux, utilitzeu Control-P i Command-P a Mac. També és possible obrir el
-      diàleg Opcions amb Control-Maj-P.
+      PrintingTools remapja la drecera d&#39;impressió estàndard de Thunderbird perquè s&#39;invoqui a si
+      mateixa en comptes de la drecera d&#39;impressió estàndard. A Windows i Linux, feu servir Control-P i
+      Command-P a Mac. També és possible obrir el quadre de diàleg Opcions amb Control-Maj-P.
     </p>
-    <h3 class="indent0">El següent és un exemple d&#39;algunes de les funcions de format de capçalera:</h3>
+    <h3 class="indent0">El següent és un exemple d&#39;algunes de les funcions de format de la capçalera:</h3>
     <div class="indent1">
-      <li>Estil de vora de capçalera personalitzat mitjançant CSS (superior i inferior, blau)</li>
+      <li>Estil de vora de capçalera personalitzat amb CSS (superior i inferior, blau)</li>
       <li>Color de fons de la capçalera</li>
       <li>Capçaleres alineades</li>
-      <li>Comanda de capçalera personalitzada</li>
+      <li>Ordre de capçalera personalitzat</li>
       <li>Títol de la pàgina i carpeta de missatges</li>
       <li>Llista de fitxers adjunts amb icones a la capçalera</li>
-      <li>Format de data totalment personalitzable Format internacional</li>
+      <li>Format de data totalment personalitzable, format internacional</li>
     </div>
     <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
@@ -86,12 +76,12 @@
     <h2 id="customdate_format_help">Format de data personalitzat</h2>
     <p>
       L&#39;opció de data personalitzada permet un control complet sobre el format de data utilitzat tant per
-      a la data com per a la data de recepció a les capçaleres del correu electrònic. La data personalitzada
-      ofereix múltiples opcions localitzades que permeten gairebé qualsevol format. Tingueu en compte que la
-      cadena de data personalitzada pot incloure separadors, literals que inclouen caràcters Unicode barrejats
-      amb els testimonis de data/hora que s&#39;indiquen a continuació.<br /><br />
-      Nota: els resultats de la data personalitzada dels exemples següents seran diferents segons la data
-      real, la configuració regional dels usuaris i la zona horària.
+      a la Data com per a la Data de recepció a les capçaleres dels correus electrònics. La data
+      personalitzada ofereix diverses opcions localitzades que permeten gairebé qualsevol format. Tingueu en
+      compte que la cadena de data personalitzada pot incloure separadors, literals, inclosos caràcters
+      Unicode, barrejats amb els tokens de data i hora que s&#39;enumeren a continuació.<br /><br />
+      Nota: Els resultats de la data personalitzada en els exemples següents seran diferents en funció de la
+      data real, la configuració regional i la zona horària de l&#39;usuari.
     </p>
     <br />
     <h3 class="indent0">Exemples:</h3>
@@ -106,22 +96,22 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
         <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-        <td>ja local amb literals</td>
+        <td>configuració regional amb literals</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
         <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-        <td>ko local amb literals</td>
+        <td>configuració regional de ko amb literals</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
         <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-        <td>local zh-CN, dia curt</td>
+        <td>configuració regional zh-CN, dia curt</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
         <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-        <td>local zh-TW, dia llarg</td>
+        <td>Configuració regional de zh-TW, dia llarg</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
@@ -136,19 +126,19 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>localització en-US, dia/mes llarg</td>
+        <td>configuració regional en-US, dia/mes llarg</td>
       </tr>
     </table>
     <br />
     <p>
-      El format de data personalitzat utilitza % de seqüències que coincideixen amb la funcionalitat semblant
-      a Unix <code>strftime()</code> . Es basa en un port JavaScript de
+      El format de data personalitzat utilitza seqüències % que coincideixen amb la funcionalitat similar a
+      Unix <code>strftime()</code> . Es basa en un port JavaScript de
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , una funció per formatar la data i l&#39;hora.<br />
       Port de strftime() per TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Descripcions de la seqüència de conversió</h3>
+    <h3 style="margin-left: 30px;">Descripcions de seqüències de conversió</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -167,27 +157,27 @@
         </tr>
         <tr>
           <td><code class="code1">%b</code></td>
-          <td>Nom del mes abreujat.</td>
+          <td>Nom abreujat del mes.</td>
         </tr>
         <tr>
           <td><code class="code1">%B</code></td>
-          <td>Nom del mes complet.</td>
+          <td>Nom complet del mes.</td>
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
-          <td>Representació de data i hora (UTC) preferida per a la configuració regional actual.</td>
+          <td>Representació de data i hora (UTC) preferides per a la configuració regional actual.</td>
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
-          <td>Número de segle (any/100) com a nombre enter de 2 dígits.</td>
+          <td>Número de segle (any/100) com a enter de 2 dígits.</td>
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
-          <td>Dia del mes com a nombre decimal (interval del 01 al 31).</td>
+          <td>Dia del mes com a número decimal (interval de 01 a 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%e</code></td>
-          <td>Dia del mes com a nombre decimal (interval de l&#39;1 al 31).</td>
+          <td>Dia del mes com a número decimal (interval de l&#39;1 al 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%F</code></td>
@@ -196,8 +186,8 @@
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
-            Any setmanal ISO 8601 amb el segle com a nombre decimal. L&#39;any de 4 dígits correspon al número
-            de setmana ISO (vegeu <code class="code1">%V</code> ). Té el mateix format i valor que
+            Any ISO 8601 basat en setmanes amb segle com a nombre decimal. L&#39;any de 4 dígits correspon al
+            número de setmana ISO (vegeu <code class="code1">%V</code> ). Té el mateix format i valor que
             <code class="code1">%Y</code> , excepte que si el número de setmana ISO pertany a l&#39;any
             anterior o següent, s&#39;utilitza aquest any.
           </td>
@@ -211,52 +201,52 @@
         <tr>
           <td><code class="code1">%H</code></td>
           <td>
-            L&#39;hora com a nombre decimal utilitzant un rellotge de 24 hores (interval de 00 a 23). Vegeu
-            també <code class="code1">%k</code> .
+            Hora com a nombre decimal utilitzant un rellotge de 24 hores (rang de 00 a 23). Vegeu també
+            <code class="code1">%k</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%I</code></td>
           <td>
-            L&#39;hora com a nombre decimal utilitzant un rellotge de 12 hores (interval de 01 a 12). Vegeu
-            també <code class="code1">%l</code> .
+            Hora com a nombre decimal utilitzant un rellotge de 12 hores (rang de 01 a 12). Vegeu també
+            <code class="code1">%l</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%j</code></td>
-          <td>Dia de l&#39;any com a nombre decimal (interval del 001 al 366).</td>
+          <td>Dia de l&#39;any com a número decimal (interval de 001 a 366).</td>
         </tr>
         <tr>
           <td><code class="code1">%k</code></td>
           <td>
-            Hora com a nombre decimal utilitzant un rellotge de 24 hores (interval de 0 a 23). Vegeu també
+            Hora com a nombre decimal utilitzant un rellotge de 24 hores (rang de 0 a 23). Vegeu també
             <code class="code1">%H</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            L&#39;hora com a nombre decimal utilitzant un rellotge de 12 hores (interval d&#39;1 a 12). Vegeu
-            també <code class="code1">%I</code> .
+            Hora com a nombre decimal utilitzant un rellotge de 12 hores (rang d&#39;1 a 12). Vegeu també
+            <code class="code1">%I</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%m</code></td>
-          <td>Mes com a nombre decimal (interval de 01 a 12).</td>
+          <td>Mes com a número decimal (interval de 01 a 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%n</code></td>
-          <td>Mes com a nombre decimal (interval de l&#39;1 al 12).</td>
+          <td>Mes com a nombre decimal (interval d&#39;1 a 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%M</code></td>
-          <td>El minut com a nombre decimal (interval del 00 al 59).</td>
+          <td>Minut com a nombre decimal (rang de 00 a 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            &quot;AM&quot; o &quot;PM&quot; segons el valor horari donat. El migdia es considera
-            &quot;PM&quot; i la mitjanit com &quot;AM&quot;.
+            &quot;AM&quot; o &quot;PM&quot; segons el valor de temps donat. El migdia es tracta com a
+            &quot;PM&quot; i la mitjanit com a &quot;AM&quot;.
           </td>
         </tr>
         <tr>
@@ -265,31 +255,30 @@
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
-          <td>Nombre de segons des de l&#39;època, 1970-01-01 00:00:00 +0000 (UTC).</td>
+          <td>Nombre de segons des de l&#39;Època, 1970-01-01 00:00:00 +0000 (UTC).</td>
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
-          <td>Segon com a nombre decimal (interval del 00 al 59).</td>
+          <td>Segon com a nombre decimal (rang de 00 a 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Dia de la setmana com a decimal (interval de l&#39;1 al 7), el dilluns és l&#39;1. Vegeu també
+            Dia de la setmana com a decimal (interval d&#39;1 a 7), on el dilluns és l&#39;1. Vegeu també
             <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Número de setmana ISO 8601 de l&#39;any actual com a nombre decimal (interval del 01 al 53), on la
-            setmana 1 és la primera setmana que té almenys 4 dies a l&#39;any nou (és a dir, el primer
-            dijous).
+            Número de setmana ISO 8601 de l&#39;any actual com a nombre decimal (interval de 01 a 53), on la
+            setmana 1 és la primera setmana que té almenys 4 dies en el nou any (és a dir, el primer dijous).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%w</code></td>
           <td>
-            Dia de la setmana com a decimal (interval de 0 a 6), el diumenge és 0. Vegeu també
+            Dia de la setmana com a decimal (interval de 0 a 6), on el diumenge és 0. Vegeu també
             <code class="code1">%u</code> .
           </td>
         </tr>
@@ -299,21 +288,21 @@
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
-          <td>Representació de l&#39;hora preferida per a la configuració regional actual sense la data.</td>
+          <td>Representació horària preferida per a la configuració regional actual sense la data.</td>
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
-          <td>Any com a nombre decimal sense segle (interval del 00 al 99).</td>
+          <td>Any com a nombre decimal sense segle (interval de 00 a 99).</td>
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>
-          <td>Any com a nombre decimal inclòs el segle.</td>
+          <td>Any com a nombre decimal que inclou el segle.</td>
         </tr>
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            La zona horària numèrica <code class="code1">+hhmm</code> o <code class="code1">-hhmm</code> (és a
-            dir, el desplaçament d&#39;hora i minuts respecte a l&#39;UTC).
+            El fus horari numèric <code class="code1">+hhmm</code> o <code class="code1">-hhmm</code> (és a
+            dir, l&#39;hora i els minuts de desplaçament respecte a UTC).
           </td>
         </tr>
         <tr>
@@ -322,7 +311,7 @@
         </tr>
         <tr>
           <td><code class="code1">%t</code></td>
-          <td>Abreviatura de zona horària curta.</td>
+          <td>Abreviatura curta de fus horari.</td>
         </tr>
         <tr>
           <td><code class="code1">%0</code></td>
@@ -334,24 +323,27 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Dia Literal. Localitzat, principalment per a localitats asiàtiques. (ja: 日, ko: 일)</td>
+          <td>
+            Literal del dia. Localitzat, principalment per a configuracions regionals asiàtiques. (ja: 日, ko:
+            일)
+          </td>
         </tr>
       </tbody>
     </table>
     <h3 class="indent0">Notes de compatibilitat:</h3>
     <ul>
-      <li><code class="code1">%c</code> : la cadena formatada és lleugerament diferent</li>
+      <li><code class="code1">%c</code> - la cadena formatada és lleugerament diferent</li>
       <li>
-        <code class="code1">%D</code> - no implementat (utilitza <code class="code1">%m/%d/%y</code> o
+        <code class="code1">%D</code> - no implementat (feu servir <code class="code1">%m/%d/%y</code> o
         <code class="code1">%d/%m/%y</code> )
       </li>
-      <li><code class="code1">%e</code> - l&#39;espai no s&#39;afegeix</li>
+      <li><code class="code1">%e</code> - no s&#39;afegeix espai</li>
       <li><code class="code1">%E</code> - no implementat</li>
       <li><code class="code1">%h</code> - no implementat (utilitza <code class="code1">%b</code> )</li>
-      <li><code class="code1">%k</code> - l&#39;espai no s&#39;afegeix</li>
+      <li><code class="code1">%k</code> - no s&#39;ha afegit cap espai</li>
       <li>
-        <code class="code1">%n</code> - com <code class="code1">%m</code> , però sense zero inicial (utilitza
-        <code class="code1">\n</code> per a la nova línia)
+        <code class="code1">%n</code> - com <code class="code1">%m</code> , però sense zeros inicials (feu
+        servir <code class="code1">\n</code> per a la nova línia)
       </li>
       <li><code class="code1">%O</code> - no implementat</li>
       <li>
@@ -368,41 +360,42 @@
     <br />
     <h2 id="pdf_output_help">Sortida PDF i nomenclatura automàtica de fitxers</h2>
     <p>
-      La sortida PDF ara es pot anomenar automàticament mitjançant un sistema de testimonis i desar-se en un
-      directori de sortida PDF predefinit. Això és especialment útil quan s&#39;imprimeixen diversos correus
-      electrònics seleccionats, ja que no cal triar un nom i una ubicació per a cada correu electrònic.
+      La sortida PDF ara es pot anomenar automàticament mitjançant un sistema de testimonis i es pot desar en
+      un directori de sortida PDF predefinit. Això és especialment útil quan s&#39;imprimeixen diversos
+      correus electrònics seleccionats, ja que no cal triar un nom i una ubicació per a cada correu
+      electrònic.
     </p>
     <p />
     <p>
-      Habiliteu el directori de sortida PDF i trieu un directori per a la ubicació de desar. El nom de fitxer
-      de sortida seguirà el format de nom de fitxer configurat.
+      Habiliteu el directori de sortida del PDF i trieu un directori per a la ubicació de desament. El nom del
+      fitxer de sortida seguirà el format de nom de fitxer configurat.
     </p>
     <p />
     <p>
-      El format del nom de fitxer consta de testimonis i qualsevol caràcter estàtic com ara separadors o
-      espais en blanc. El format de nom de fitxer estès utilitza fitxes. El nom de fitxer exacte es pot
-      construir utilitzant les fitxes, així com qualsevol text o caràcters de nom de fitxer vàlids. Els
+      El format del nom de fitxer consisteix en símbols i qualsevol caràcter estàtic com ara separadors o
+      espais en blanc. El format de nom de fitxer ampliat utilitza símbols. El nom de fitxer exacte es pot
+      construir utilitzant els símbols, així com qualsevol text o caràcters de nom de fitxer vàlids. Els
       caràcters no vàlids són: <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>El format de nom predeterminat és: ${subject} que és només l&#39;assumpte del correu electrònic.</p>
+    <p>El format de nom per defecte és: ${subject} que és simplement l&#39;assumpte del correu electrònic.</p>
     <p />
     <p>Exemples</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> : el format predeterminat, l&#39;assumpte del
+      <span class="notranslate"><code>${subject}</code></span> - El format per defecte, l&#39;assumpte del
       correu electrònic<br />
-      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> : utilitzeu el format
-      de data personalitzat en lloc del predeterminat<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Utilitza el format de
+      data personalitzat en comptes del format predeterminat<br />
       <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Amb text
       personalitzat<br />
     </p>
     <p>
-      La taula següent descriu el conjunt complet de fitxes que es poden utilitzar en el format de nom de
+      La taula següent descriu el conjunt complet de tokens que es poden utilitzar en el format de nom de
       fitxer.
     </p>
     <table class="token-table">
       <tr>
-        <td>Token</td>
+        <td>testimoni</td>
         <td>Descripció</td>
       </tr>
       <tr>
@@ -411,7 +404,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${sender}</code></td>
-        <td>El nom del remitent del missatge.</td>
+        <td>El nom de l&#39;emissor del missatge.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${recipient}</code></td>
@@ -419,17 +412,15 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${sender_email}</code></td>
-        <td>L&#39;adreça de correu electrònic del remitent del missatge.</td>
+        <td>L&#39;adreça electrònica del remitent del missatge.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${recipient_email}</code></td>
-        <td>L&#39;adreça de correu electrònic del destinatari del missatge.</td>
+        <td>L&#39;adreça electrònica del destinatari del missatge.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${smart_name}</code></td>
-        <td>
-          Els destinataris si el missatge es troba en una carpeta Enviats, en cas contrari el nom del remitent
-        </td>
+        <td>Els destinataris si el missatge és a la carpeta Enviats, en cas contrari el nom del remitent</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${index}</code></td>
@@ -445,11 +436,11 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
-        <td>El format de data estàndard. El format predeterminat és: YYYYMMDDHHmm</td>
+        <td>El format de data estàndard. El format per defecte és: AAAAMMDDHHmm</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
-        <td>El format de data personalitzat. Consulteu la secció de format de data personalitzat.</td>
+        <td>El format de data personalitzat. Vegeu la secció de format de data personalitzat.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
@@ -459,113 +450,114 @@
     <br />
     <h2 id="print_options_help">Opcions d&#39;impressió i pàgina</h2>
     <p>
-      Aquestes opcions us permeten establir la impressora predeterminada així com les opcions per pàgina
-      d&#39;impressora. També és possible configurar el mode silenciós on no es mostri el diàleg de vista
-      prèvia i la impressió es faci immediatament.
+      Aquestes opcions us permeten definir la impressora predeterminada, així com les opcions de pàgina per
+      impressora. També és possible definir el mode silenciós, on no es mostra el quadre de diàleg de
+      previsualització i la impressió es fa immediatament.
     </p>
     <p>
-      Les opcions de pàgina us permeten establir elements quan s&#39;hagi acabat la vista prèvia o la
-      impressió. Aquestes opcions són persistents durant la impressió. Si les opcions establertes a
-      PrintingTools NG es canvien a la vista prèvia d&#39;impressió, no afectaran les impressions posteriors.
-      Alguns elements no estan disponibles per configurar-los al diàleg de vista prèvia, aquests inclouen les
-      capçaleres i peus de pàgina. Altres elements no es conserven a la vista prèvia i normalment
-      s&#39;haurien de configurar cada vegada que es fa una impressió. PrintingTools NG resol aquests dos
-      problemes.
+      Les opcions de pàgina permeten definir elements quan es fa la vista prèvia o la impressió. Aquestes
+      opcions són persistents durant la impressió. Si les opcions definides a PrintingTools NG es modifiquen a
+      la vista prèvia, no afectaran les impressions posteriors. Alguns elements no es poden definir al quadre
+      de diàleg de vista prèvia, com ara les capçaleres i els peus de pàgina. Altres elements no es conserven
+      a la vista prèvia i normalment s&#39;haurien de definir cada vegada que es fa una impressió.
+      PrintingTools NG resol aquests dos problemes.
     </p>
     <p>
-      Un element que no es desa a la previsualització són els intervals de pàgines. Un cas d&#39;ús típic és
-      quan es vol imprimir només la primera pàgina d&#39;un correu electrònic com a predeterminada. normalment
-      s&#39;hauria de fer canviar els intervals de pàgines cada vegada. Tingueu en compte que si un interval
-      de pàgines establert a PrintingTools NG no és vàlid, com ara superar el nombre de pàgines, caldrà
-      corregir l&#39;interval a la vista prèvia abans d&#39;imprimir. Un interval de pàgines establert en
-      &quot;1&quot; sempre serà vàlid i imprimeix la primera pàgina del missatge.
+      Un element que la vista prèvia no desa són els intervals de pàgines. Un cas d&#39;ús típic és quan es
+      vol imprimir només la primera pàgina d&#39;un correu electrònic per defecte. Normalment, s&#39;hauria de
+      fer que els intervals de pàgines canviïn cada vegada. Tingueu en compte que si un interval de pàgines
+      definit a PrintingTools NG no és vàlid, com ara si supera el nombre de pàgines, caldrà corregir
+      l&#39;interval a la vista prèvia abans d&#39;imprimir. Un interval de pàgines definit a &quot;1&quot;
+      sempre serà vàlid i imprimirà la primera pàgina del missatge.
     </p>
     <p>Notes:</p>
-    <p>L&#39;opció d&#39;escala permet establir una escala persistent.</p>
+    <p>L&#39;opció d&#39;escalat permet establir una escala persistent.</p>
     <p>
-      Els intervals de pàgines es descriuen de la mateixa manera que a la vista prèvia. Els exemples són 1,
-      1-2, 3-4,5. Tingueu en compte que si un interval de pàgina preestablert no és vàlid per a un missatge
-      determinat, la previsualització mostrarà un error.
+      Els intervals de pàgines es descriuen de la mateixa manera que a la vista prèvia. Exemples: 1, 1-2, 3-4,
+      5. Tingueu en compte que si un interval de pàgines preestablert no és vàlid per a un missatge
+      determinat, la vista prèvia mostrarà un error.
     </p>
     <p>
-      Els marges es poden establir utilitzant unitats adequades per a la configuració regional de
-      l&#39;usuari, ja sigui polzades o mil·límetres (polzades o mm). Tingueu en compte que a causa dels
-      errors d&#39;arrodoniment, alguns valors de mm es poden desar amb petites diferències.
+      Els marges es poden definir utilitzant unitats adequades per a la configuració regional de l&#39;usuari,
+      ja siguin polzades o mil·límetres (polzades o mm). Tingueu en compte que, a causa d&#39;errors
+      d&#39;arrodoniment, és possible que alguns valors en mm es desin amb petites diferències.
     </p>
     <p></p>
     <p>
-      Les capçaleres i peus de pàgina es poden configurar per incloure diverses variables de missatge que
-      s&#39;enumeren a continuació. A més, també es pot incloure text arbitrari. Per no imprimir cap capçalera
-      ni peu de pàgina i estalviar espai d&#39;impressió, només cal deixar tots els camps en blanc.
+      Les capçaleres i els peus de pàgina es poden configurar per incloure diverses variables de missatge que
+      s&#39;enumeren a continuació. A més, també es pot incloure text arbitrari. Per no imprimir cap
+      capçaleres ni peus de pàgina i estalviar espai d&#39;impressió, només cal que deixeu tots els camps en
+      blanc.
     </p>
     <div class="indent1">
       <li>&amp;D = Data d&#39;impressió</li>
       <li>&amp;MD = Data del missatge</li>
       <li>&amp;P = Número de pàgina</li>
-      <li>&amp;PT = Número de pàgina amb total (&quot;3 de 5&quot;)</li>
-      <li>&amp;T = Títol de la pàgina (Assumpte del missatge)</li>
+      <li>&amp;PT = Número de pàgina amb total (“3 de 5”)</li>
+      <li>&amp;T = Títol de la pàgina (assumpte del missatge)</li>
       <li>&amp;U = URL (l&#39;URL del missatge)</li>
     </div>
     <h2 id="advanced_options_help">Opcions avançades</h2>
     <p>
-      Aquestes són opcions que permeten establir elements d&#39;impressió més enllà de la configuració bàsica
-      de la interfície d&#39;usuari. Les opcions es defineixen a les Opcions avançades de la pestanya Diversos
+      Aquestes són opcions que permeten definir elements d&#39;impressió més enllà de la configuració bàsica
+      de la interfície d&#39;usuari. Les opcions es configuren a les Opcions avançades de la pestanya Diversos
       i són etiquetes separades per espais.<br />
-      Les etiquetes i els formats d&#39;opcions es donen a continuació:<br /><br />
-      <b>Afegiu l&#39;ID de missatge al final de l&#39;etiqueta de capçaleres:</b><br /><br />
-      <b>addMessageIdToHdr</b><br /><br />
-      <b>Estableix l&#39;amplada de columna per a l&#39;etiqueta de capçaleres:</b><br /><br />
-      <b>hdrColWidth: <i>nnn</i></b> On <i>nnn</i> és el nombre de píxels<br /><br />
+      Les etiquetes i els formats de les opcions es mostren a continuació:<br /><br />
+      <b>Afegiu l&#39;ID del missatge a l&#39;etiqueta del final de les capçaleres:</b><br /><br />
+      <b>afegirIDdemissatgeAHDR</b><br /><br />
+      <b>Defineix l&#39;amplada de columna per a l&#39;etiqueta de capçalera:</b><br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> on <i>nnn</i> és el nombre de píxels<br /><br />
       <b>Marges de la capçalera i del peu de pàgina:</b><br /><br />
       P: <i>nom-impressora</i> ::S: <i>nom-opció</i> = <i>valor</i><br /><br />
-      El nom de la impressora té els espais substituïts per guions baixos i l&#39;element Desa a PDF integrat
-      és Mozilla_Save_to_PDF<br /><br />
+      El nom de la impressora té els espais substituïts per subratllats i l&#39;opció Desa a PDF integrada és
+      Mozilla_Save_to_PDF.<br /><br />
       Un altre exemple: Microsoft_Print_to_PDF<br /><br />
       Les possibilitats actuals de nom d&#39;opció són:<br />
       <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
-      <span class="notranslate">edges</span> és una pseudo-opció que estableix tots els marges de les vores al
+      <span class="notranslate">edges</span> és una pseudoopció que estableix tots els marges de les vores al
       mateix valor. Els marges de les vores són en polzades.<br /><br />
       Exemples:<br /><br />
-      P:Mozilla_Save_to_PDF::S:edges=0,25<br />
+      P:Mozilla_Save_to_PDF::S:edges=0.25<br />
       P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
-      Si voleu establir tots els marges de les vores a 0,10 polzades excepte l&#39;edgeTop a 0,25 polzades,
-      introduïu el següent:<br /><br />
-      P:Mozilla_Save_to_PDF::S:edges=0,10 P:Mozilla_Save_to_PDF::S:edgeTop=0,25
+      Si es volgués establir tots els marges de les vores a 0,10 polzades excepte el marge superior a 0,25
+      polzades, s&#39;introduiria el següent:<br /><br />
+      P:Mozilla_Desa_a_PDF::S:vores=0.10 P:Mozilla_Desa_a_PDF::S:voresSuperior=0.25
     </p>
     <h2>Suport</h2>
     <p>
-      Si us plau, publiqueu problemes o sol·licituds de funcions al repositori de GitHub d&#39;extensions:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      Publiqueu els problemes o les sol·licituds de funcions al repositori d&#39;extensions de GitHub:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues"
+        >Problemes de PrintingTools NG</a
       ><br /><br />
-      En problemes d&#39;error, incloeu la informació següent per ajudar a resoldre els problemes:<br />
+      En els problemes d&#39;errors, incloeu la informació següent per ajudar a resoldre els problemes:<br />
       - Versió PrintingTools NG<br />
-      - Versió Thunderbird<br />
+      - Versió de Thunderbird<br />
       - Sistema operatiu i versió<br />
-      - Sortida de depuració (còpia des de la consola de depuració - accés amb Control-Maj-J)<br />
-      - Una descripció dels passos que han conduït al problema<br />
+      - Sortida de depuració (còpia de la consola de depuració - accés amb Control-Maj-J)<br />
+      - Una descripció dels passos que han portat al problema<br />
     </p>
     <h2 id="debug_options_help">Opcions de depuració</h2>
     <p>
       Les opcions de depuració són un conjunt de paraules clau que s&#39;introdueixen com una llista separada
       per espais. Les opcions s&#39;utilitzen normalment per a la sortida de depuració de la consola, però
-      també es poden utilitzar per a proves o diferents modes.
+      també es poden utilitzar per a proves o per a diferents modes.
     </p>
     <div class="indent1">
       <li>
-        <code class="notranslate">initialsource</code> : mostra la font del missatge abans que PTNG faci
-        qualsevol format
+        <code class="notranslate">initialsource</code> - mostra l&#39;origen del missatge abans que PTNG faci
+        cap formatació
       </li>
-      <li><code class="notranslate">finaloutput</code> : mostra la sortida del missatge final</li>
+      <li><code class="notranslate">finaloutput</code> - mostra la sortida final del missatge</li>
       <li>
         <code class="notranslate">pdfoutput</code> - sortida de depuració per a la sortida de missatges PDF
       </li>
       <li>
-        <code class="notranslate">printsettings</code> : depura la sortida per a les opcions d&#39;impressió i
-        de pàgina
+        <code class="notranslate">printsettings</code> - depuració de la sortida per a les opcions
+        d&#39;impressió i de pàgina
       </li>
       <li>
-        <code class="notranslate">helpinwin</code> - marca de mode per mostrar l&#39;ajuda en una finestra en
-        lloc de l&#39;estàndard en una pestanya
+        <code class="notranslate">helpinwin</code> - indicador de mode per mostrar l&#39;ajuda en una finestra
+        en comptes de l&#39;estàndard en una pestanya
       </li>
     </div>
     <h2>Crèdits</h2>
@@ -575,7 +567,7 @@
       <li>Latinize.js de Jakub Dundalek https://github.com/dundalek/latinize</li>
     </div>
     <p>
-      Gràcies als usuaris següents pels suggeriments de millora i l&#39;ajuda de prova:<br /><br />
+      Gràcies als següents usuaris pels suggeriments de millora i l&#39;ajuda amb les proves:<br /><br />
       - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
       - <code class="notranslate">@RRoenn</code><br />
       - <code class="notranslate">@tidebre67</code><br />

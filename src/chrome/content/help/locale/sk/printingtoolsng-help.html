@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../printingtoolsng-help.css" type="text/css" />
-    <title>Pomocník PrintingTools NG</title>
+    <title>Pomocník pre PrintingTools NG</title>
   </head>
   <body>
     <table style="width: 100%;">
       <tr>
         <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">Pomocník PrintingTools NG</div>
+          <div style="font-size: 1.8em; font-weight: bold;">Pomocník pre PrintingTools NG</div>
           <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
         </td>
         <td style="text-align: right; padding-right: 30px;">
@@ -21,63 +21,52 @@
     <h3 id="release_notes" style="padding-left: 4px;">Poznámky k vydaniu:</h3>
     <p>
       <b>Dôležitá poznámka:</b> Od vydania Thunderbirdu v136 bude Mozilla vydávať mesačné verzie. Možno
-      nebudem môcť vydať PrintingTools NG každý mesiac. Pred aktualizáciou Thunderbirdu skontrolujte, či nie
-      je k dispozícii kompatibilná aktualizácia PrintingTools NG.<br /><br />
+      nebudem môcť vydávať PrintingTools NG každý mesiac. Pred aktualizáciou Thunderbirdu si overte, či je k
+      dispozícii kompatibilná aktualizácia PrintingTools NG.<br /><br />
       Christopher<br /><br />
-      - Oprava: Zlyhanie tlače a náhľadu s možnosťou Zarovnať hlavičky VYPNUTÉ<br />
-      - Oprava: Zobrazovať prílohy súboru s podpisom v hlavičke<br />
-      - Nové: Pridajte dátum správy do hlavičky alebo päty stránky s novou premennou:
-      <b>&amp;MD</b> #277<br />
-      - Nové: Pridajte ID správy na koniec hlavičiek. #268, #283 Použitie:<br />
-      <b>addMessageIdToHdr</b><br />
-      v poli Rozšírené možnosti<br />
-      - Novinka: Token názvu súboru <b>${messageID}</b> pre hlavičku ID správy #285<br />
-      - Nové: Nastavte šírku stĺpca hlavičky. Použitie:<br />
-      <b>hdrColWidth: <i>nnn</i></b
-      ><br />
-      v poli Rozšírené možnosti, kde <i>nnn</i> je v px<br />
-      - Opravte limit 100 vybratých správ #272, #280<br />
+      - Oprava: Tlačidlo OK bolo vždy neaktívne pre lokály používajúce čiarku ako desatinnú čiarku - Zmena v
+      Thunderbirde pre HTML vstupy
     </p>
     <br />
-    <h2 id="main_help">Prehľad PrintingTools NG</h2>
+    <h2 id="main_help">Prehľad nástrojov PrintingTools NG</h2>
     <p>
-      PrintingTools NG umožňuje mnoho prispôsobení tlače e-mailom. Rozšírenie má veľa možností pre hlavičky aj
-      časti správy. Okrem toho je možné nastaviť možnosti strany, ktoré nemožno vykonať v bežnom náhľade tlače
-      Thunderbird. Výstup PDF možno vykonať aj s automatickým pomenovaním pomocou flexibilného systému
+      PrintingTools NG umožňuje mnoho úprav tlače e-mailov. Rozšírenie má veľa možností pre hlavičky aj časti
+      správy. Okrem toho je možné nastaviť možnosti stránky, ktoré nie je možné vykonať v bežnom náhľade tlače
+      v Thunderbirde. Výstup PDF je možné vykonať aj s automatickým pomenovaním pomocou flexibilného systému
       založeného na tokenoch.
     </p>
-    <h3 class="indent0">Pridanie tlačidla Tlačiť NG na panel s nástrojmi hlavičky pošty:</h3>
+    <h3 class="indent0">Pridanie tlačidla Tlačiť NG do panela s nástrojmi hlavičky e-mailu:</h3>
     <p>
-      Tlačidlo Print NG sa automaticky pridá na zjednotený panel nástrojov od Thunderbirdu v115. Tlačidlo
-      možno pridať aj na panel s nástrojmi hlavičky pošty, aby ste umožnili prístup k tlači, ako aj možnosti z
-      panela pošty. Ďalšie možnosti sú dostupné pomocou tlačidla kľúča pre rozšírenie na karte doplnku.
+      Tlačidlo Tlačiť NG sa od verzie Thunderbird v115 automaticky pridáva do zjednoteného panela s nástrojmi.
+      Tlačidlo je možné pridať aj do panela s nástrojmi hlavičky pošty, aby sa umožnil prístup k tlači, ako aj
+      možnosti z panela pošty. K možnostiam je možné získať prístup aj pomocou tlačidla kľúča pre rozšírenie
+      na karte doplnkov.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Ak chcete umiestniť tlačidlo na panel s nástrojmi hlavičky pošty, postupujte podľa týchto krokov:</p>
+    <p>Ak chcete umiestniť tlačidlo na panel s nástrojmi hlavičky e-mailu, postupujte podľa týchto krokov:</p>
     <div class="indent1">
-      <li>Kliknite na tlačidlo Viac na paneli s nástrojmi hlavičky pošty</li>
-      <li>Zvoľte Custom... Otvorí sa okno Customize Toolbar</li>
-      <li>Nájdite tlačidlo Tlačiť NG</li>
+      <li>Kliknite na tlačidlo Viac na paneli s nástrojmi hlavičky e-mailu</li>
+      <li>Vyberte možnosť Vlastné... Týmto sa otvorí okno Prispôsobiť panel s nástrojmi</li>
+      <li>Vyhľadajte tlačidlo Tlačiť NG</li>
       <li>Presuňte tlačidlo na požadované miesto</li>
-      <li>Použite tlačidlo pre Tlač, Náhľad, Možnosti a Pomocníka</li>
+      <li>Použite tlačidlo pre Tlač, Náhľad, Možnosti a Pomocník</li>
     </div>
     <h3 class="indent0">Klávesové skratky PrintingTools NG</h3>
     <p>
-      PrintingTools premapuje štandardnú skratku Thunderbird Print tak, aby sa sama vyvolala namiesto
-      štandardnej tlače. V systémoch Windows a Linux použite kombináciu klávesov Control-P a Command-P na
-      počítačoch Mac. Dialógové okno Možnosti je tiež možné otvoriť pomocou kombinácie klávesov
-      Control-Shift-P.
+      Nástroje PrintingTools premapujú štandardnú skratku Tlač v Thunderbirde tak, aby sa namiesto štandardnej
+      skratky Tlač vyvolávala sama. V systémoch Windows a Linux použite Control-P a Command-P na Macu.
+      Dialógové okno Možnosti je možné otvoriť aj pomocou Control-Shift-P.
     </p>
     <h3 class="indent0">Nasleduje príklad niektorých funkcií formátovania hlavičky:</h3>
     <div class="indent1">
-      <li>Prispôsobený štýl orámovania hlavičky pomocou CSS (horný a spodný, modrý)</li>
+      <li>Prispôsobený štýl okraja hlavičky pomocou CSS (horný a dolný, modrý)</li>
       <li>Farba pozadia hlavičky</li>
       <li>Zarovnané hlavičky</li>
-      <li>Prispôsobené poradie hlavičky</li>
-      <li>Názov stránky a priečinok správ</li>
+      <li>Prispôsobené poradie hlavičiek</li>
+      <li>Názov stránky a priečinok so správami</li>
       <li>Zoznam príloh s ikonami v hlavičke</li>
-      <li>Plne prispôsobiteľné medzinárodné formátovanie formátu dátumu</li>
+      <li>Plne prispôsobiteľný formát dátumu, medzinárodné formátovanie</li>
     </div>
     <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
@@ -85,18 +74,18 @@
     <h2 id="customdate_format_help">Vlastný formát dátumu</h2>
     <p>
       Možnosť vlastného dátumu umožňuje úplnú kontrolu nad formátovaním dátumu použitého pre dátum aj dátum
-      prijatia v hlavičkách e-mailu. Vlastný dátum poskytuje viacero lokalizovaných možností umožňujúcich
-      takmer akýkoľvek formát. Všimnite si, že vlastný reťazec dátumu môže obsahovať oddeľovače, literály
-      vrátane znakov Unicode zmiešané s tokenmi dátumu a času uvedenými nižšie.<br /><br />
-      Poznámka: Výsledky vlastného dátumu v príkladoch nižšie sa budú líšiť v závislosti od skutočného dátumu,
-      miestneho nastavenia používateľa a časového pásma.
+      prijatia v hlavičkách e-mailov. Vlastný dátum poskytuje viacero lokalizovaných možností, ktoré umožňujú
+      takmer akýkoľvek formát. Upozorňujeme, že reťazec vlastného dátumu môže obsahovať oddeľovače, literály
+      vrátane znakov Unicode v kombinácii s tokenmi dátumu/času uvedenými nižšie.<br /><br />
+      Poznámka: Výsledky vlastného dátumu v nižšie uvedených príkladoch sa budú líšiť v závislosti od
+      skutočného dátumu, miestnych nastavení a časového pásma používateľa.
     </p>
     <br />
     <h3 class="indent0">Príklady:</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
-          <td>Dátumový reťazec</td>
+          <td>Reťazec dátumu</td>
           <td>Výsledok</td>
           <td>Poznámka</td>
         </tr>
@@ -104,7 +93,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
         <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-        <td>ja locale s literálmi</td>
+        <td>locale ja s literálmi</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
@@ -119,38 +108,38 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
         <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-        <td>zh-TW locale, dlhý deň</td>
+        <td>zh-TW lokalita, dlhý deň</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
         <td class="notranslate">20.04.2022 18:01:42 CET</td>
-        <td>Oddeľovače bodov</td>
+        <td>Bodkové oddeľovače</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
         <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-        <td>de locale, krátky deň/mesiac</td>
+        <td>miestne, krátky deň/mesiac</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>miestne nastavenie en-US, dlhý deň/mesiac</td>
+        <td>lokála en-US, dlhý deň/mesiac</td>
       </tr>
     </table>
     <br />
     <p>
-      Vlastný formát dátumu využíva % sekvencie zodpovedajúce funkcii <code>strftime()</code> typu Unix. Je
-      založený na JavaScriptovom porte
+      Vlastný formát dátumu využíva sekvencie % zodpovedajúce funkcii <code>strftime()</code> v systéme Unix.
+      Je založený na JavaScriptovom porte funkcie
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , funkcii na formátovanie dátumu a času.<br />
-      Port of strftime() od TH Doana (https://thdoan.github.io/strftime/)<br />
+      , ktorá slúži na formátovanie dátumu a času.<br />
+      Port funkcie strftime() od TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Popisy sekvencií konverzií</h3>
+    <h3 style="margin-left: 30px;">Popisy konverzných sekvencií</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
-          <th>Sekvencia</th>
+          <th>Postupnosť</th>
           <th>Popis</th>
         </tr>
       </thead>
@@ -169,7 +158,7 @@
         </tr>
         <tr>
           <td><code class="code1">%B</code></td>
-          <td>Názov celého mesiaca.</td>
+          <td>Celý názov mesiaca.</td>
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
@@ -177,7 +166,7 @@
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
-          <td>Číslo storočia (rok/100) ako 2-miestne celé číslo.</td>
+          <td>Číslo storočia (rok/100) ako dvojciferné celé číslo.</td>
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
@@ -189,32 +178,32 @@
         </tr>
         <tr>
           <td><code class="code1">%F</code></td>
-          <td>Formát dátumu ISO 8601 (ekvivalent <code class="code1">%Y-%m-%d</code> ).</td>
+          <td>Formát dátumu podľa normy ISO 8601 (ekvivalent <code class="code1">%Y-%m-%d</code> ).</td>
         </tr>
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
-            Týždenný rok podľa normy ISO 8601 so storočím ako desatinným číslom. 4-ciferný rok zodpovedá číslu
-            týždňa podľa normy ISO (pozri <code class="code1">%V</code> ). Toto má rovnaký formát a hodnotu
-            ako <code class="code1">%Y</code> , s výnimkou toho, že ak číslo týždňa ISO patrí predchádzajúcemu
-            alebo nasledujúcemu roku, použije sa namiesto neho tento rok.
+            Rok podľa normy ISO 8601 založený na týždni so storočím ako desatinným číslom. Štvorciferný rok
+            zodpovedá číslu týždňa podľa normy ISO (pozri <code class="code1">%V</code> ). Má rovnaký formát a
+            hodnotu ako <code class="code1">%Y</code> , s výnimkou, že ak číslo týždňa podľa normy ISO patrí
+            do predchádzajúceho alebo nasledujúceho roka, použije sa namiesto toho tento rok.
           </td>
         </tr>
         <tr>
           <td><code class="code1">%g</code></td>
-          <td>Ako <code class="code1">%G</code> , ale bez storočia, teda s 2-ciferným rokom (00-99).</td>
+          <td>Ako <code class="code1">%G</code> , ale bez storočia, teda s dvojciferným rokom (00-99).</td>
         </tr>
         <tr>
           <td><code class="code1">%H</code></td>
           <td>
-            Hodina ako desatinné číslo s použitím 24-hodinového formátu hodín (rozsah 00 až 23). Pozri tiež
+            Hodina ako desatinné číslo s použitím 24-hodinového formátu (rozsah 00 až 23). Pozrite si tiež
             <code class="code1">%k</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%I</code></td>
           <td>
-            Hodina ako desatinné číslo s použitím 12-hodinového formátu hodín (rozsah 01 až 12). Pozri tiež
+            Hodina ako desatinné číslo s použitím 12-hodinového formátu (rozsah 01 až 12). Pozrite si tiež
             <code class="code1">%l</code> .
           </td>
         </tr>
@@ -225,14 +214,14 @@
         <tr>
           <td><code class="code1">%k</code></td>
           <td>
-            Hodina ako desatinné číslo s použitím 24-hodinového formátu hodín (rozsah 0 až 23). Pozri tiež
+            Hodina ako desatinné číslo s použitím 24-hodinového formátu (rozsah 0 až 23). Pozrite si tiež
             <code class="code1">%H</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            Hodina ako desatinné číslo s použitím 12-hodinového formátu hodín (rozsah 1 až 12). Pozri tiež
+            Hodina ako desatinné číslo s použitím 12-hodinového formátu (rozsah 1 až 12). Pozrite si tiež
             <code class="code1">%I</code> .
           </td>
         </tr>
@@ -251,51 +240,49 @@
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            Buď „AM“ alebo „PM“ podľa danej časovej hodnoty. Poludnie sa považuje za „PM“ a polnoc ako „AM“.
+            Buď „AM“ alebo „PM“ podľa zadanej časovej hodnoty. Poludnie sa považuje za „PM“ a polnoc za „AM“.
           </td>
         </tr>
         <tr>
           <td><code class="code1">%P</code></td>
-          <td>
-            Ako <code class="code1">%p</code> , ale malými písmenami (&quot;am&quot; alebo &quot;pm&quot;).
-          </td>
+          <td>Ako <code class="code1">%p</code> , ale malými písmenami („am“ alebo „pm“).</td>
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
-          <td>Počet sekúnd od epochy, 1970-01-01 00:00:00 + 0000 (UTC).</td>
+          <td>Počet sekúnd od Epochy, 1. januára 1970 00:00:00 +0000 (UTC).</td>
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
-          <td>Druhé ako desiatkové číslo (rozsah 00 až 59).</td>
+          <td>Sekunda ako desatinné číslo (rozsah 00 až 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Deň v týždni ako desatinné číslo (rozsah 1 až 7), pondelok je 1. Pozri tiež
+            Deň v týždni ako desatinné číslo (rozsah 1 až 7), pondelok je 1. Pozrite si tiež
             <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            ISO 8601 číslo týždňa aktuálneho roka ako desatinné číslo (rozsah 01 až 53), kde týždeň 1 je prvý
-            týždeň, ktorý má aspoň 4 dni v novom roku (t. j. prvý štvrtok).
+            Číslo týždňa aktuálneho roka podľa normy ISO 8601 ako desatinné číslo (rozsah 01 až 53), kde 1.
+            týždeň je prvý týždeň, ktorý má v novom roku aspoň 4 dni (t. j. prvý štvrtok).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%w</code></td>
           <td>
-            Deň v týždni ako desatinné číslo (rozsah 0 až 6), nedeľa je 0. Pozri tiež
+            Deň v týždni ako desatinné číslo (rozsah 0 až 6), nedeľa je 0. Pozrite si tiež
             <code class="code1">%u</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%x</code></td>
-          <td>Preferovaná reprezentácia dátumu pre aktuálne miestne nastavenie bez času.</td>
+          <td>Preferované zobrazenie dátumu pre aktuálne miestne nastavenie bez času.</td>
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
-          <td>Preferovaná časová reprezentácia pre aktuálne miestne nastavenie bez dátumu.</td>
+          <td>Preferované zobrazenie času pre aktuálne miestne nastavenie bez dátumu.</td>
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
@@ -309,7 +296,7 @@
           <td><code class="code1">%z</code></td>
           <td>
             Číselné časové pásmo <code class="code1">+hhmm</code> alebo <code class="code1">-hhmm</code> (t.
-            j. hodinový a minútový posun od UTC).
+            j. posun hodiny a minúty od UTC).
           </td>
         </tr>
         <tr>
@@ -330,68 +317,75 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Deň doslovný. Lokalizované, hlavne pre ázijské lokality. (ja: 日, ko: 일)</td>
+          <td>Denný doslov. Lokalizované, najmä pre ázijské jazyky. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
     <h3 class="indent0">Poznámky ku kompatibilite:</h3>
     <ul>
-      <li><code class="code1">%c</code> – formátovaný reťazec sa mierne líši</li>
+      <li><code class="code1">%c</code> - formátovaný reťazec je mierne odlišný</li>
       <li>
-        <code class="code1">%D</code> – neimplementované (použite <code class="code1">%m/%d/%y</code> alebo
-        <code class="code1">%d/%m/%y</code> )
+        <code class="code1">%D</code> - nie je implementované (použite
+        <code class="code1">%m/%d/%y</code> alebo <code class="code1">%d/%m/%y</code> )
       </li>
       <li><code class="code1">%e</code> - medzera sa nepridáva</li>
       <li><code class="code1">%E</code> – neimplementované</li>
-      <li><code class="code1">%h</code> – neimplementované (použite <code class="code1">%b</code> )</li>
+      <li><code class="code1">%h</code> - nie je implementované (použite <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - medzera sa nepridáva</li>
       <li>
-        <code class="code1">%n</code> – ako <code class="code1">%m</code> , ale bez úvodnej nuly (použite
-        <code class="code1">\n</code> pre nový riadok)
+        <code class="code1">%n</code> - ako <code class="code1">%m</code> , ale bez úvodnej nuly (pre nový
+        riadok použite <code class="code1">\n</code> )
       </li>
-      <li><code class="code1">%O</code> – neimplementované</li>
+      <li><code class="code1">%O</code> – nie je implementované</li>
       <li>
-        <code class="code1">%r</code> – neimplementované (použite <code class="code1">%I:%M:%S %p</code> )
+        <code class="code1">%r</code> - nie je implementované (použite
+        <code class="code1">%I:%M:%S %p</code> )
       </li>
-      <li><code class="code1">%R</code> – neimplementované (použite <code class="code1">%H:%M</code> )</li>
-      <li><code class="code1">%t</code> – neimplementované (použite <code class="code1">\t</code> )</li>
-      <li><code class="code1">%T</code> – neimplementované (použite <code class="code1">%H:%M:%S</code> )</li>
-      <li><code class="code1">%U</code> – neimplementované</li>
+      <li>
+        <code class="code1">%R</code> - nie je implementované (použite <code class="code1">%H:%M</code> )
+      </li>
+      <li><code class="code1">%t</code> - nie je implementované (použite <code class="code1">\t</code> )</li>
+      <li>
+        <code class="code1">%T</code> - nie je implementované (použite <code class="code1">%H:%M:%S</code> )
+      </li>
+      <li><code class="code1">%U</code> – nie je implementované</li>
       <li><code class="code1">%W</code> – neimplementované</li>
       <li><code class="code1">%+</code> – neimplementované</li>
-      <li><code class="code1">%%</code> – neimplementované (použite <code class="code1">%</code> )</li>
+      <li><code class="code1">%%</code> - neimplementované (použite <code class="code1">%</code> )</li>
     </ul>
     <br />
     <h2 id="pdf_output_help">Výstup PDF a automatické pomenovanie súborov</h2>
     <p>
-      Výstup PDF je teraz možné automaticky pomenovať pomocou systému tokenov a uložiť do preddefinovaného
-      výstupného adresára PDF. To je užitočné najmä pri tlači viacerých vybraných e-mailov, pretože nie je
-      potrebné vyberať názov a umiestnenie pre každý e-mail.
+      Výstup PDF je teraz možné automaticky pomenovať pomocou systému tokenov a uložiť do vopred definovaného
+      adresára pre výstup PDF. Toto je obzvlášť užitočné pri tlači viacerých vybratých e-mailov, pretože nie
+      je potrebné vyberať názov a umiestnenie pre každý e-mail.
     </p>
     <p />
     <p>
-      Povoľte výstupný adresár PDF a vyberte adresár pre umiestnenie uloženia. Výstupný názov súboru bude mať
-      nastavený formát súboru.
+      Povoľte výstupný adresár PDF a vyberte adresár pre uloženie. Názov výstupného súboru bude mať
+      nakonfigurovaný formát názvu súboru.
     </p>
     <p />
     <p>
-      Formát súboru pozostáva z tokenov a akýchkoľvek statických znakov, ako sú oddeľovače alebo medzery.
-      Rozšírené formátovanie názvu súboru využíva tokeny. Presný názov súboru možno vytvoriť pomocou tokenov,
-      ako aj ľubovoľného textu alebo platných znakov názvu súboru. Neplatné znaky sú:
+      Formát názvu súboru pozostáva z tokenov a akýchkoľvek statických znakov, ako sú oddeľovače alebo
+      medzery. Rozšírené formátovanie názvu súboru využíva tokeny. Presný názov súboru je možné vytvoriť
+      pomocou tokenov, ako aj ľubovoľného textu alebo platných znakov názvu súboru. Neplatné znaky sú:
       <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>Predvolený formát mena je: ${predmet}, ktorý je len predmetom e-mailu.</p>
+    <p>Predvolený formát mena je: ${subject}, čo je iba predmet e-mailu.</p>
     <p />
     <p>Príklady</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> – Predvolený formát, predmet e-mailu<br />
-      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – použite vlastný
-      formát dátumu namiesto predvoleného<br />
-      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> – S nejakým vlastným
+      <span class="notranslate"><code>${subject}</code></span> – Predvolený formát predmetu e-mailu<br />
+      <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Použiť vlastný formát
+      dátumu namiesto predvoleného<br />
+      <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> – S vlastným
       textom<br />
     </p>
-    <p>Nižšie uvedená tabuľka popisuje celú sadu tokenov, ktoré možno použiť vo formáte názvu súboru.</p>
+    <p>
+      V nasledujúcej tabuľke je popísaná úplná sada tokenov, ktoré je možné použiť vo formáte názvu súboru.
+    </p>
     <table class="token-table">
       <tr>
         <td>Token</td>
@@ -419,7 +413,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${smart_name}</code></td>
-        <td>Príjemcovia, ak je správa v priečinku Odoslané, inak meno odosielateľa</td>
+        <td>Príjemcovia, ak sa správa nachádza v priečinku Odoslané, inak meno odosielateľa</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${index}</code></td>
@@ -435,11 +429,11 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
-        <td>Štandardný formát dátumu. Predvolený formát je: RRRRMMDDHHmm</td>
+        <td>Štandardný formát dátumu. Predvolený formát je: RRRRMMMDDHHmm</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
-        <td>Vlastný formát dátumu. Pozrite si sekciu vlastného formátovania dátumu.</td>
+        <td>Vlastný formát dátumu. Pozrite si časť o vlastnom formátovaní dátumu.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
@@ -449,114 +443,113 @@
     <br />
     <h2 id="print_options_help">Možnosti tlače a strany</h2>
     <p>
-      Tieto možnosti vám umožňujú nastaviť predvolenú tlačiareň, ako aj možnosti pre jednotlivé strany
-      tlačiarne. Je tiež možné nastaviť tichý režim, kedy sa dialógové okno náhľadu nezobrazí a tlač sa vykoná
-      okamžite.
+      Tieto možnosti vám umožňujú nastaviť predvolenú tlačiareň, ako aj možnosti pre jednotlivé stránky
+      tlačiarne. Je tiež možné nastaviť tichý režim, v ktorom sa dialógové okno s ukážkou nezobrazí a tlač sa
+      vykoná okamžite.
     </p>
     <p>
-      Možnosti strany vám umožňujú nastaviť položky, keď sa dokončí ukážka alebo tlač. Tieto možnosti sú
-      trvalé počas tlače. Ak sa v náhľade tlače zmenia možnosti nastavené v PrintingTools NG, neovplyvnia
-      nasledujúce výtlačky. Niektoré položky nie je možné nastaviť v dialógovom okne ukážky, medzi ktoré
-      patria hlavičky a päty. Ostatné položky náhľad neuchová a normálne by sa museli nastaviť pri každej
-      tlači. PrintingTools NG rieši oba tieto problémy.
+      Možnosti stránky vám umožňujú nastaviť položky po dokončení náhľadu aj tlače. Tieto možnosti sú trvalé
+      počas tlače. Ak sa možnosti nastavené v PrintingTools NG zmenia v náhľade tlače, neovplyvnia to následné
+      tlače. Niektoré položky nie je možné nastaviť v dialógovom okne náhľadu, vrátane hlavičiek a pätičiek.
+      Iné položky sa v náhľade nezachovajú a zvyčajne by sa museli nastavovať pri každej tlači. PrintingTools
+      NG rieši oba tieto problémy.
     </p>
     <p>
-      Jedna položka, ktorú náhľad neuložil, sú rozsahy strán. Typickým prípadom použitia je situácia, keď si
-      želáte vytlačiť iba prvú stranu e-mailu ako predvolenú. za normálnych okolností by sa rozsah stránok
-      musel zakaždým meniť. Upozorňujeme, že ak rozsah strán nastavený v PrintingTools NG nie je platný,
-      napríklad presahuje počet strán, rozsah bude potrebné v náhľade pred tlačou opraviť. Rozsah strán
-      nastavený na &quot;1&quot; bude vždy platný a vytlačí prvú stranu správy.
+      Jednou z položiek, ktoré sa v ukážke neukladajú, sú rozsahy strán. Typickým prípadom použitia je, keď si
+      niekto želá vytlačiť iba prvú stranu e-mailu ako predvolenú. Normálne by bolo potrebné rozsahy strán
+      meniť zakaždým. Upozorňujeme, že ak rozsah strán nastavený v PrintingTools NG nie je platný, napríklad
+      prekračuje počet strán, bude potrebné rozsah pred tlačou opraviť v ukážke. Rozsah strán nastavený na „1“
+      bude vždy platný a vytlačí sa prvá strana správy.
     </p>
     <p>Poznámky:</p>
-    <p>Možnosť zmeny mierky umožňuje nastaviť trvalú mierku.</p>
+    <p>Možnosť škálovania umožňuje nastaviť trvalú mierku.</p>
     <p>
-      Rozsahy strán sú opísané rovnakým spôsobom ako v náhľade. Príklady sú 1, 1-2, 3-4,5. Upozorňujeme, že ak
-      prednastavené rozsahy strán nie sú platné pre danú správu, ukážka zobrazí chybu.
+      Rozsahy stránok sú popísané rovnakým spôsobom ako v ukážke. Príklady sú 1, 1-2, 3-4, 5. Upozorňujeme, že
+      ak prednastavený rozsah stránok nie je pre danú správu platný, ukážka zobrazí chybu.
     </p>
     <p>
-      Okraje je možné nastaviť pomocou jednotiek vhodných pre miestne nastavenie používateľa, či už ide o
-      palce alebo milimetre (in alebo mm). Všimnite si, že kvôli chybám zaokrúhľovania sa môžu niektoré
-      hodnoty v mm uložiť s malými rozdielmi.
+      Okraje je možné nastaviť pomocou jednotiek vhodných pre miestne nastavenie používateľa, buď palce alebo
+      milimetre (in alebo mm). Upozorňujeme, že z dôvodu chýb zaokrúhľovania sa niektoré hodnoty v mm môžu
+      uložiť s malými rozdielmi.
     </p>
     <p></p>
     <p>
-      Hlavičky a päty je možné nastaviť tak, aby zahŕňali rôzne premenné správy uvedené nižšie. Okrem toho
-      môže byť zahrnutý aj ľubovoľný text. Ak chcete netlačiť žiadne hlavičky ani päty a ušetriť miesto pri
-      tlači, jednoducho nechajte všetky polia prázdne.
+      Hlavičky a päty je možné nastaviť tak, aby obsahovali rôzne premenné správ uvedené nižšie. Okrem toho je
+      možné zahrnúť aj ľubovoľný text. Ak chcete, aby sa hlavičky ani päty netlačili a ušetrili miesto na
+      tlač, stačí vyplniť všetky polia.
     </p>
     <div class="indent1">
       <li>&amp;D = Dátum tlače</li>
       <li>&amp;MD = Dátum správy</li>
       <li>&amp;P = Číslo strany</li>
-      <li>&amp;PT = Číslo stránky s celkovým súčtom („3 z 5“)</li>
-      <li>&amp;T = Názov stránky (predmet správy)</li>
+      <li>&amp;PT = Číslo strany s celkovým počtom („3 z 5“)</li>
+      <li>&amp;T = Názov stránky (Predmet správy)</li>
       <li>&amp;U = URL (URL správy)</li>
     </div>
     <h2 id="advanced_options_help">Rozšírené možnosti</h2>
     <p>
       Toto sú možnosti, ktoré umožňujú nastaviť položky tlače nad rámec základných nastavení používateľského
-      rozhrania. Možnosti sa nastavujú v rozšírených možnostiach na karte Rôzne a sú to značky oddelené
-      medzerou.<br />
-      Značky a formáty možností sú uvedené nižšie:<br /><br />
-      <b>Pridajte Message-ID na koniec značky hlavičiek:</b><br /><br />
-      <b>addMessageIdToHdr</b><br /><br />
+      rozhrania. Možnosti sa nastavujú v časti Rozšírené možnosti na karte Rôzne a sú oddelené medzerami.<br />
+      Značky a formáty volieb sú uvedené nižšie:<br /><br />
+      <b>Pridajte ID správy na koniec značky hlavičky:</b><br /><br />
+      <b>pridaťIdMessageToHdr</b><br /><br />
       <b>Nastavte šírku stĺpca pre značku hlavičky:</b><br /><br />
-      <b>hdrColWidth: <i>nnn</i></b> Kde <i>nnn</i> je počet pixelov<br /><br />
+      <b>hdrColWidth: <i>nnn</i></b> , kde <i>nnn</i> je počet pixelov<br /><br />
       <b>Okraje hlavičky a päty:</b><br /><br />
-      P: <i>názov-tlačiarne</i> ::S: <i>názov-volby</i> = <i>hodnota</i><br /><br />
-      Názov tlačiarne má medzery nahradené podčiarkovníkom a vstavaná funkcia Uložiť do PDF je
+      P: <i>názov-tlačiarne</i> ::S: <i>názov-voľby</i> = <i>hodnota</i><br /><br />
+      Názov tlačiarne má medzery nahradené podčiarkovníkmi a vstavaná funkcia Uložiť do PDF je
       Mozilla_Save_to_PDF<br /><br />
       Ďalší príklad: Microsoft_Print_to_PDF<br /><br />
-      Aktuálne možnosti názvu voľby sú:<br />
+      Aktuálne možnosti názvu opcie sú:<br />
       <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
-      <span class="notranslate">edges</span> je pseudo voľba, ktorá nastavuje všetky okraje okrajov na rovnakú
-      hodnotu. Okraje okrajov sú v palcoch.<br /><br />
+      <span class="notranslate">edges</span> je pseudo-voľba, ktorá nastaví všetky okraje hrán na rovnakú
+      hodnotu. Okraje hrán sú v palcoch.<br /><br />
       Príklady:<br /><br />
       P:Mozilla_Save_to_PDF::S:edges=0,25<br />
-      P:Microsoft_Print_to_PDF::S:edgeTop=0,1<br /><br />
-      Ak chcete nastaviť všetky okraje okrajov na 0,10 palca okrem okraja hore na 0,25 palca, zadajte
-      nasledovné:<br /><br />
-      P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
+      Ak chcete nastaviť všetky okraje na 0,10 palca okrem edgeTop na 0,25 palca, zadajte nasledovné:<br /><br />
+      P:Mozilla_Save_to_PDF::S:edges=0,10 P:Mozilla_Save_to_PDF::S:edgeTop=0,25
     </p>
     <h2>Podpora</h2>
     <p>
-      Uverejnite problémy alebo požiadavky na funkcie v úložisku GitHub rozšírení:
+      Problémy alebo požiadavky na funkcie zverejňujte v repozitári rozšírení GitHub:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues"
-        >Problémy s nástrojmi PrintingTools NG</a
+        >Problémy s PrintingTools NG</a
       ><br /><br />
-      Pri problémoch s chybami uveďte nasledujúce informácie, ktoré vám pomôžu vyriešiť problémy:<br />
+      V prípade problémov s chybami uveďte nasledujúce informácie, ktoré pomôžu vyriešiť problémy:<br />
       - Verzia PrintingTools NG<br />
-      - Verzia Thunderbird<br />
+      - Verzia Thunderbirdu<br />
       - Operačný systém a verzia<br />
-      - Výstup ladenia (kopírovanie z konzoly ladenia - prístup pomocou Ctrl-Shift-J)<br />
+      - Výstup ladenia (kopírovanie z ladiacej konzoly - prístup pomocou Ctrl-Shift-J)<br />
       - Popis krokov vedúcich k problému<br />
     </p>
     <h2 id="debug_options_help">Možnosti ladenia</h2>
     <p>
-      Možnosti ladenia sú množinou kľúčových slov, ktoré sa zadávajú ako zoznam oddelený medzerou. Voľby sa
-      zvyčajne používajú na výstup ladenia konzoly, ale môžu sa použiť aj na testovanie alebo rôzne režimy.
+      Možnosti ladenia sú súbor kľúčových slov, ktoré sa zadávajú ako zoznam oddelený medzerami. Možnosti sa
+      zvyčajne používajú na výstup ladenia konzoly, ale môžu sa použiť aj na testovanie alebo v rôznych
+      režimoch.
     </p>
     <div class="indent1">
       <li>
         <code class="notranslate">initialsource</code> - zobrazí zdroj správy predtým, ako PTNG vykoná
         akékoľvek formátovanie
       </li>
-      <li><code class="notranslate">finaloutput</code> - zobrazí výstup finálnej správy</li>
-      <li><code class="notranslate">pdfoutput</code> - výstup ladenia pre výstup správy PDF</li>
-      <li><code class="notranslate">printsettings</code> - výstup ladenia pre možnosti tlače a strany</li>
+      <li><code class="notranslate">finaloutput</code> - zobrazí konečný výstup správy</li>
+      <li><code class="notranslate">pdfoutput</code> - ladiaci výstup pre výstup PDF správ</li>
+      <li><code class="notranslate">printsettings</code> - ladiaci výstup pre možnosti tlače a stránky</li>
       <li>
-        <code class="notranslate">helpinwin</code> - príznak režimu na zobrazenie pomoci v okne namiesto
-        štandardu na karte
+        <code class="notranslate">helpinwin</code> - príznak režimu pre zobrazenie nápovedy v okne namiesto
+        štandardnej na karte
       </li>
     </div>
     <h2>Kredity</h2>
     <div class="indent1">
-      <li>PrintingTools NG je založený na pôvodnom rozšírení od Paola &quot;Kosmos&quot;</li>
+      <li>PrintingTools NG je založený na pôvodnom rozšírení od Paola „Kosmos“</li>
       <li>List.js od Jonnyho Strömberga https://listjs.com</li>
       <li>Latinize.js od Jakuba Dundalka https://github.com/dundalek/latinize</li>
     </div>
     <p>
-      Ďakujeme nasledujúcim používateľom za návrhy na zlepšenie a pomoc pri testovaní:<br /><br />
+      Ďakujeme nasledujúcim používateľom za návrhy na vylepšenia a pomoc s testovaním:<br /><br />
       - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
       - <code class="notranslate">@RRoenn</code><br />
       - <code class="notranslate">@tidebre67</code><br />

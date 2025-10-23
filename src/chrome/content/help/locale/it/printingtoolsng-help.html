@@ -22,39 +22,29 @@
     <p>
       <b>Nota importante:</b> a partire dal rilascio di Thunderbird v136, Mozilla pubblicherà rilasci mensili.
       Potrei non essere in grado di rilasciare PrintingTools NG ogni mese. Prima di aggiornare Thunderbird,
-      verifica se è disponibile un aggiornamento compatibile con PrintingTools NG.<br /><br />
+      verifica se è disponibile un aggiornamento compatibile per PrintingTools NG.<br /><br />
       Cristoforo<br /><br />
-      - Correzione: errore di stampa e anteprima con l&#39;opzione Allinea intestazioni DISATTIVATA<br />
-      - Correzione: Mostra gli allegati dei file di firma nell&#39;intestazione<br />
-      - Nuovo: aggiungi la data del messaggio a qualsiasi intestazione o piè di pagina con la nuova variabile:
-      <b>&amp;MD</b> #277<br />
-      - Novità: aggiungi il Message-ID alla fine delle intestazioni. #268, #283 Utilizzo:<br />
-      <b>aggiungiMessageIdToHdr</b><br />
-      nel campo Opzioni avanzate<br />
-      - Nuovo: token del nome file <b>${messageID}</b> per l&#39;intestazione Message-ID #285<br />
-      - Nuovo: imposta la larghezza della colonna dell&#39;intestazione. Usa:<br />
-      <b>LarghezzaColHDR: <i>nnn</i></b
-      ><br />
-      nel campo Opzioni avanzate, dove <i>nnn</i> è in px<br />
-      - Correggere il limite di 100 messaggi selezionati #272, #280<br />
+      - Correzione: il pulsante OK è sempre disabilitato per le impostazioni locali che utilizzano la virgola
+      come punto decimale - Modifica di Thunderbird per gli input HTML
     </p>
     <br />
     <h2 id="main_help">Panoramica di PrintingTools NG</h2>
     <p>
       PrintingTools NG consente numerose personalizzazioni per la stampa delle email. L&#39;estensione offre
       numerose opzioni sia per le intestazioni che per le parti del messaggio. È inoltre possibile impostare
-      Opzioni Pagina non disponibili nella normale anteprima di stampa di Thunderbird. L&#39;output in PDF può
-      essere eseguito anche con denominazione automatica, utilizzando un sistema flessibile basato su token.
+      Opzioni Pagina, non disponibili nella normale anteprima di stampa di Thunderbird. L&#39;output in PDF
+      può essere eseguito anche con denominazione automatica, utilizzando un sistema flessibile basato su
+      token.
     </p>
     <h3 class="indent0">
-      Aggiungere il pulsante Stampa NG alla barra degli strumenti dell&#39;intestazione della posta:
+      Aggiunta del pulsante Stampa NG alla barra degli strumenti dell&#39;intestazione della posta:
     </h3>
     <p>
       Il pulsante Stampa NG viene aggiunto automaticamente alla barra degli strumenti unificata a partire da
-      Thunderbird v115. Il pulsante può anche essere aggiunto alla barra degli strumenti dell&#39;intestazione
+      Thunderbird v115. Il pulsante può essere aggiunto anche alla barra degli strumenti dell&#39;intestazione
       della posta per abilitare sia l&#39;accesso alla stampa che le opzioni dal riquadro della posta.
-      Inoltre, è possibile accedere alle opzioni tramite il pulsante a forma di chiave inglese
-      dell&#39;estensione nella scheda dei componenti aggiuntivi.
+      Inoltre, è possibile accedere alle opzioni tramite il pulsante con la chiave inglese dell&#39;estensione
+      nella scheda dei componenti aggiuntivi.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
@@ -64,14 +54,14 @@
     </p>
     <div class="indent1">
       <li>Fare clic sul pulsante Altro sulla barra degli strumenti dell&#39;intestazione della posta</li>
-      <li>Seleziona Personalizzato... Si aprirà la finestra Personalizza barra degli strumenti</li>
+      <li>Seleziona Personalizza... Si aprirà la finestra Personalizza barra degli strumenti</li>
       <li>Individuare il pulsante Stampa NG</li>
       <li>Trascina e rilascia il pulsante nella posizione desiderata</li>
       <li>Utilizzare il pulsante per Stampa, Anteprima, Opzioni e Aiuto</li>
     </div>
     <h3 class="indent0">Tasti di scelta rapida di PrintingTools NG</h3>
     <p>
-      PrintingTools riassegna la scorciatoia standard di Thunderbird per richiamare se stessa al posto della
+      PrintingTools rimappa la scorciatoia standard di Thunderbird per richiamare se stessa al posto della
       normale funzione Stampa. Su Windows e Linux, utilizzare Ctrl-P e Comando-P su Mac. È anche possibile
       aprire la finestra di dialogo Opzioni con Ctrl-Maiusc-P.
     </p>
@@ -94,10 +84,10 @@
     <p>
       L&#39;opzione data personalizzata consente il controllo completo sulla formattazione della data
       utilizzata sia per la data che per la data di ricezione nelle intestazioni delle email. La data
-      personalizzata offre diverse opzioni localizzate, consentendo la gestione di quasi tutti i formati. Si
-      noti che la stringa data personalizzata può includere separatori, valori letterali, inclusi caratteri
-      Unicode, combinati con i token data/ora elencati di seguito.<br /><br />
-      Nota: i risultati della data personalizzata negli esempi sottostanti saranno diversi in base alla data
+      personalizzata offre diverse opzioni localizzate, consentendo quasi qualsiasi formato. Si noti che la
+      stringa data personalizzata può includere separatori, valori letterali, inclusi caratteri Unicode,
+      combinati con i token data/ora elencati di seguito.<br /><br />
+      Nota: i risultati della data personalizzata negli esempi seguenti saranno diversi in base alla data
       effettiva, alle impostazioni locali e al fuso orario dell&#39;utente.
     </p>
     <br />
@@ -113,7 +103,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
         <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-        <td>sì locale con letterali</td>
+        <td>ja locale con letterali</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
@@ -138,7 +128,7 @@
       <tr>
         <td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
         <td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
-        <td>de locale, giorno/mese abbreviato</td>
+        <td>de locale, giorno/mese corto</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
@@ -149,7 +139,7 @@
     <br />
     <p>
       Il formato data personalizzato utilizza sequenze % corrispondenti alla funzionalità Unix-like
-      <code>strftime()</code> . Si basa su un porting JavaScript di
+      <code>strftime()</code> . Si basa su una versione JavaScript di
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , una funzione per formattare data e ora.<br />
       Porta di strftime() di TH Doan (https://thdoan.github.io/strftime/)<br />
@@ -203,30 +193,27 @@
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
-            Anno basato sulla settimana secondo ISO 8601 con il secolo come numero decimale. L&#39;anno a 4
-            cifre corrisponde al numero della settimana ISO (vedere <code class="code1">%V</code> ). Ha lo
-            stesso formato e valore di <code class="code1">%Y</code> , tranne per il fatto che se il numero
-            della settimana ISO appartiene all&#39;anno precedente o successivo, viene utilizzato
-            quell&#39;anno.
+            Anno basato sulla settimana ISO 8601 con il secolo come numero decimale. L&#39;anno a 4 cifre
+            corrisponde al numero della settimana ISO (vedere <code class="code1">%V</code> ). Ha lo stesso
+            formato e valore di <code class="code1">%Y</code> , tranne per il fatto che se il numero della
+            settimana ISO appartiene all&#39;anno precedente o successivo, viene utilizzato quell&#39;anno.
           </td>
         </tr>
         <tr>
           <td><code class="code1">%g</code></td>
-          <td>
-            Come <code class="code1">%G</code> , ma senza secolo, cioè con l&#39;anno a 2 cifre (00-99).
-          </td>
+          <td>Come <code class="code1">%G</code> , ma senza secolo, cioè con anno a 2 cifre (00-99).</td>
         </tr>
         <tr>
           <td><code class="code1">%H</code></td>
           <td>
-            Ora come numero decimale nel formato 24 ore (intervallo da 00 a 23). Vedi anche
+            Ora come numero decimale utilizzando un orologio a 24 ore (intervallo da 00 a 23). Vedere anche
             <code class="code1">%k</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%I</code></td>
           <td>
-            Ora come numero decimale utilizzando un orologio a 12 ore (intervallo da 01 a 12). Vedi anche
+            Ora come numero decimale utilizzando un orologio a 12 ore (intervallo da 01 a 12). Vedere anche
             <code class="code1">%l</code> .
           </td>
         </tr>
@@ -237,14 +224,14 @@
         <tr>
           <td><code class="code1">%k</code></td>
           <td>
-            Ora come numero decimale nel formato 24 ore (intervallo da 0 a 23). Vedi anche
+            Ora come numero decimale utilizzando un orologio a 24 ore (intervallo da 0 a 23). Vedere anche
             <code class="code1">%H</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            Ora come numero decimale usando un orologio a 12 ore (intervallo da 1 a 12). Vedi anche
+            Ora come numero decimale utilizzando un orologio a 12 ore (intervallo da 1 a 12). Vedere anche
             <code class="code1">%I</code> .
           </td>
         </tr>
@@ -273,7 +260,7 @@
         </tr>
         <tr>
           <td><code class="code1">%s</code></td>
-          <td>Numero di secondi trascorsi dall&#39;Epoch, 1970-01-01 00:00:00 +0000 (UTC).</td>
+          <td>Numero di secondi trascorsi dall&#39;Epoca, 1970-01-01 00:00:00 +0000 (UTC).</td>
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
@@ -282,23 +269,23 @@
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Giorno della settimana come numero decimale (intervallo da 1 a 7), dove lunedì è 1. Vedere anche
+            Giorno della settimana come numero decimale (intervallo da 1 a 7), lunedì pari a 1. Vedere anche
             <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Numero della settimana ISO 8601 dell&#39;anno in corso sotto forma di numero decimale (intervallo
-            da 01 a 53), dove la settimana 1 è la prima settimana che ha almeno 4 giorni nel nuovo anno
-            (ovvero, il primo giovedì).
+            Numero della settimana ISO 8601 dell&#39;anno in corso come numero decimale (intervallo da 01 a
+            53), dove la settimana 1 è la prima settimana che ha almeno 4 giorni nel nuovo anno (ovvero, il
+            primo giovedì).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%w</code></td>
           <td>
-            Giorno della settimana come numero decimale (intervallo da 0 a 6), dove la domenica è 0. Vedere
-            anche <code class="code1">%u</code> .
+            Giorno della settimana come numero decimale (intervallo da 0 a 6), domenica pari a 0. Vedere anche
+            <code class="code1">%u</code> .
           </td>
         </tr>
         <tr>
@@ -307,7 +294,7 @@
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
-          <td>Rappresentazione oraria preferita per le impostazioni locali correnti senza la data.</td>
+          <td>Rappresentazione dell&#39;ora preferita per le impostazioni locali correnti senza la data.</td>
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
@@ -315,13 +302,13 @@
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>
-          <td>Anno come numero decimale comprensivo di secolo.</td>
+          <td>Anno come numero decimale comprensivo del secolo.</td>
         </tr>
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
-            Il fuso orario numerico <code class="code1">+hhmm</code> o <code class="code1">-hhmm</code> (vale
-            a dire lo scostamento di ore e minuti rispetto all&#39;UTC).
+            Il fuso orario numerico <code class="code1">+hhmm</code> o
+            <code class="code1">-hhmm</code> (ovvero lo scostamento di ore e minuti rispetto a UTC).
           </td>
         </tr>
         <tr>
@@ -376,14 +363,14 @@
     <br />
     <h2 id="pdf_output_help">Output PDF e denominazione automatica dei file</h2>
     <p>
-      L&#39;output PDF può ora essere nominato automaticamente tramite un sistema di token e salvato in una
+      L&#39;output PDF può ora essere denominato automaticamente tramite un sistema di token e salvato in una
       directory di output PDF predefinita. Questa funzionalità è particolarmente utile quando si stampano più
       email selezionate, poiché non è necessario scegliere un nome e una posizione per ciascuna email.
     </p>
     <p />
     <p>
-      Abilita la directory di output del PDF e scegli una directory per il salvataggio. Il nome del file di
-      output seguirà il formato configurato.
+      Abilita la directory di output PDF e scegli una directory per il salvataggio. Il nome del file di output
+      seguirà il formato configurato.
     </p>
     <p />
     <p>
@@ -405,8 +392,8 @@
       personalizzato<br />
     </p>
     <p>
-      Nella tabella seguente viene descritto il set completo di token che possono essere utilizzati nel
-      formato Filename.
+      La tabella seguente descrive il set completo di token che possono essere utilizzati nel formato
+      Filename.
     </p>
     <table class="token-table">
       <tr>
@@ -441,15 +428,15 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${index}</code></td>
-        <td>Numero di indice del messaggio.</td>
+        <td>Il numero di indice del messaggio.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${prefix}</code></td>
-        <td>Valore dell&#39;opzione testo prefisso.</td>
+        <td>Valore dell&#39;opzione del testo prefisso.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
-        <td>Valore dell&#39;opzione del testo suffisso.</td>
+        <td>Valore dell&#39;opzione del testo del suffisso.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
@@ -457,7 +444,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
-        <td>Formato data personalizzato. Consulta la sezione relativa al formato data personalizzato.</td>
+        <td>Formato data personalizzato. Consulta la sezione Formattazione data personalizzata.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
@@ -467,8 +454,8 @@
     <br />
     <h2 id="print_options_help">Opzioni di stampa e pagina</h2>
     <p>
-      Queste opzioni consentono di impostare la stampante predefinita e le opzioni di pagina per stampante. È
-      anche possibile impostare la modalità silenziosa, in cui la finestra di dialogo di anteprima non viene
+      Queste opzioni consentono di impostare la stampante predefinita e le opzioni di stampa per ogni pagina.
+      È anche possibile impostare la modalità silenziosa, in cui la finestra di dialogo di anteprima non viene
       visualizzata e la stampa viene eseguita immediatamente.
     </p>
     <p>
@@ -476,7 +463,7 @@
       Queste opzioni sono persistenti durante la stampa. Se le opzioni impostate in PrintingTools NG vengono
       modificate nell&#39;anteprima di stampa, non influiranno sulle stampe successive. Alcuni elementi non
       sono disponibili per l&#39;impostazione nella finestra di dialogo di anteprima, tra cui intestazioni e
-      piè di pagina. Altri elementi non vengono mantenuti nell&#39;anteprima e normalmente dovrebbero essere
+      piè di pagina. Altri elementi non vengono mantenuti dall&#39;anteprima e normalmente dovrebbero essere
       impostati ogni volta che si esegue una stampa. PrintingTools NG risolve entrambi questi problemi.
     </p>
     <p>
@@ -484,15 +471,14 @@
       tipico è quando si desidera stampare solo la prima pagina di un&#39;e-mail come impostazione
       predefinita. Normalmente, sarebbe necessario modificare gli intervalli di pagine ogni volta. Nota: se un
       intervallo di pagine impostato in PrintingTools NG non è valido, ad esempio perché supera il numero di
-      pagine specificato, l&#39;intervallo dovrà essere corretto nell&#39;anteprima prima della stampa. Un
-      intervallo di pagine impostato su &quot;1&quot; sarà sempre valido e stamperà la prima pagina del
-      messaggio.
+      pagine, l&#39;intervallo dovrà essere corretto nell&#39;anteprima prima della stampa. Un intervallo di
+      pagine impostato su &quot;1&quot; sarà sempre valido e stamperà la prima pagina del messaggio.
     </p>
     <p>Note:</p>
     <p>L&#39;opzione di ridimensionamento consente di impostare una scala persistente.</p>
     <p>
-      Gli intervalli di pagine sono descritti allo stesso modo dell&#39;anteprima. Alcuni esempi sono 1, 1-2,
-      3-4, 5. Si noti che se un intervallo di pagine preimpostato non è valido per un determinato messaggio,
+      Gli intervalli di pagine sono descritti nello stesso modo dell&#39;anteprima. Esempi sono 1, 1-2, 3-4,
+      5. Si noti che se un intervallo di pagine preimpostato non è valido per un determinato messaggio,
       l&#39;anteprima mostrerà un errore.
     </p>
     <p>
@@ -502,7 +488,7 @@
     </p>
     <p></p>
     <p>
-      È possibile impostare intestazioni e piè di pagina per includere le diverse variabili di messaggio
+      È possibile impostare le intestazioni e i piè di pagina in modo da includere le variabili di messaggio
       elencate di seguito. È inoltre possibile includere testo arbitrario. Per non stampare intestazioni o piè
       di pagina e risparmiare spazio di stampa, è sufficiente lasciare tutti i campi vuoti.
     </p>
@@ -516,20 +502,20 @@
     </div>
     <h2 id="advanced_options_help">Opzioni avanzate</h2>
     <p>
-      Queste opzioni consentono di impostare elementi di stampa che vanno oltre le impostazioni di base
-      dell&#39;interfaccia utente. Le opzioni si impostano nelle Opzioni avanzate della scheda Varie e sono
+      Si tratta di opzioni che consentono di impostare elementi di stampa oltre alle impostazioni di base
+      dell&#39;interfaccia utente. Le opzioni sono impostate nelle Opzioni avanzate della scheda Varie e sono
       contrassegnate da tag separati da spazi.<br />
       Di seguito sono riportati i tag e i formati delle opzioni:<br /><br />
       <b>Aggiungere il Message-ID alla fine del tag headers:</b><br /><br />
       <b>aggiungiMessageIdToHdr</b><br /><br />
-      <b>Imposta la larghezza della colonna per il tag header:</b><br /><br />
+      <b>Imposta la larghezza della colonna per il tag headers:</b><br /><br />
       <b>hdrColWidth: <i>nnn</i></b> Dove <i>nnn</i> è il numero di pixel<br /><br />
       <b>Margini dell&#39;intestazione e del piè di pagina:</b><br /><br />
       P: <i>nome-stampante</i> ::S: <i>nome-opzione</i> = <i>valore</i><br /><br />
-      Il nome della stampante ha gli spazi sostituiti da caratteri di sottolineatura e il salvataggio in PDF
-      incorporato è Mozilla_Save_to_PDF<br /><br />
+      Nel nome della stampante gli spazi sono sostituiti da caratteri di sottolineatura e il salvataggio in
+      PDF integrato è Mozilla_Save_to_PDF<br /><br />
       Un altro esempio: Microsoft_Print_to_PDF<br /><br />
-      Le possibilità attuali per i nomi delle opzioni sono:<br />
+      Le possibilità attuali per il nome dell&#39;opzione sono:<br />
       <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
       <span class="notranslate">edges</span> è una pseudo-opzione che imposta tutti i margini dei bordi allo
       stesso valore. I margini dei bordi sono espressi in pollici.<br /><br />
@@ -547,7 +533,7 @@
         >Problemi di PrintingTools NG</a
       ><br /><br />
       In caso di problemi con i bug, includi le seguenti informazioni per aiutarti a risolverli:<br />
-      - Versione NG di PrintingTools<br />
+      - Versione PrintingTools NG<br />
       - Versione Thunderbird<br />
       - Sistema operativo e versione<br />
       - Output di debug (copia dalla console di debug - accesso con Ctrl-Shift-J)<br />
@@ -555,9 +541,9 @@
     </p>
     <h2 id="debug_options_help">Opzioni di debug</h2>
     <p>
-      Le opzioni di debug sono un insieme di parole chiave che vengono inserite come un elenco separato da
-      spazi. Le opzioni vengono in genere utilizzate per l&#39;output di debug della console, ma possono
-      essere utilizzate anche per test o altre modalità.
+      Le opzioni di debug sono un insieme di parole chiave inserite come elenco separato da spazi. Le opzioni
+      vengono in genere utilizzate per l&#39;output di debug della console, ma possono essere utilizzate anche
+      per test o altre modalità.
     </p>
     <div class="indent1">
       <li>
@@ -565,7 +551,7 @@
         qualsiasi formattazione
       </li>
       <li><code class="notranslate">finaloutput</code> - mostra l&#39;output del messaggio finale</li>
-      <li><code class="notranslate">pdfoutput</code> - output di debug per l&#39;output dei messaggi PDF</li>
+      <li><code class="notranslate">pdfoutput</code> - output di debug per l&#39;output del messaggio PDF</li>
       <li>
         <code class="notranslate">printsettings</code> - output di debug per le opzioni di stampa e di pagina
       </li>

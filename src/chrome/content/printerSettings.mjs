@@ -153,23 +153,29 @@ export var printerSettings = {
       cr.value = this.pageRangesToString(pr);
     }
 
-
+    // Thunderbird changed the html:input such
+    // that it no longer accepts comma as a decimal
+    // when directly setting the input.value
+    // so we have to use the decimal to set
+    // the increment arrows also Change the comma
+    // to a decimal
+    
     // Round all margins to two decimal places
     let el = document.querySelector("#margin-top");
     let n = this.inchesToLocaleUnits(printSettings.marginTop, localeUnits).toFixed(2);
-    el.value = new Intl.NumberFormat(locale).format(n);
+    el.value = new Intl.NumberFormat(locale).format(n).replace(',','.');
 
     el = document.querySelector("#margin-bottom");
     n = this.inchesToLocaleUnits(printSettings.marginBottom, localeUnits).toFixed(2);
-    el.value = new Intl.NumberFormat(locale).format(n);
+    el.value = new Intl.NumberFormat(locale).format(n).replace(',','.');
 
     el = document.querySelector("#margin-left");
     n = this.inchesToLocaleUnits(printSettings.marginLeft, localeUnits).toFixed(2);
-    el.value = new Intl.NumberFormat(locale).format(n);
+    el.value = new Intl.NumberFormat(locale).format(n).replace(',','.');
 
     el = document.querySelector("#margin-right");
     n = this.inchesToLocaleUnits(printSettings.marginRight, localeUnits).toFixed(2);
-    el.value = new Intl.NumberFormat(locale).format(n);
+    el.value = new Intl.NumberFormat(locale).format(n).replace(',','.');
 
     // setup headers and footers
     el = document.querySelector("#headerleft");

@@ -22,13 +22,8 @@
     <p>
       <b>重要提示：</b>自 Thunderbird v136 发布起，Mozilla 将每月发布一次更新。我可能无法每月发布
       PrintingTools NG。请在更新 Thunderbird 之前检查是否有兼容的 PrintingTools NG 更新可用。<br /><br />克里斯托弗<br /><br />-
-      修复：关闭对齐标题选项时打印和预览失败<br />- 修复：在标题中显示签名文件附件<br />-
-      新增：使用新变量将消息日期添加到任何页眉或页脚： <b>&amp;MD</b> #277<br />
-      - 新增：将 Message-ID 添加到标头末尾。#268、#283 用途：<br /><b>添加到消息ID</b
-      ><br />在高级选项字段中<br />- 新增：Message-ID 标头的文件名标记<b>${messageID}</b> #285<br />
-      - 新增：设置标题列宽度。使用：<br />
-      <b>hdrColWidth： <i>nnn</i></b
-      ><br />在高级选项字段中，其中<i>nnn</i>以 px 为单位<br />- 修复 100 条选定消息的限制 #272, #280<br />
+      修复：对于使用逗号作为小数点的区域设置，“确定”按钮始终处于禁用状态 - Thunderbird 针对 HTML
+      输入进行了更改
     </p>
     <br />
     <h2 id="main_help">PrintingTools NG概述</h2>
@@ -200,7 +195,7 @@
         <tr>
           <td><code class="code1">%I</code></td>
           <td>
-            采用 12 小时制的十进制数表示的小时数（范围为 01 到 12）。另请参阅<code class="code1">%l</code> 。
+            使用 12 小时制的十进制数表示的小时数（范围为 01 到 12）。另请参阅<code class="code1">%l</code> 。
           </td>
         </tr>
         <tr>

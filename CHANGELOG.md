@@ -2,6 +2,11 @@
 
 ## Versions
 
+Version 3.1.8 : Maintenance Release - September 16, 2025
+
+	- Fix: OK button always disabled for locales using comma as decimal point
+ 		- Thunderbird change for HTML inputs
+
 Version 3.1.7 : Maintenance Release - August 13, 2025
 
 - Thunderbird v143 compatibility 
