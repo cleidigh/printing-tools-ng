@@ -1648,9 +1648,7 @@ var printingtools = {
 						break;
 
 					default:
-
 						maxHdrWidth = 100 + 6 * Math.max((fsn - 14), 0);
-						console.log(maxHdrWidth)
 						break;
 				}
 
@@ -1662,8 +1660,6 @@ var printingtools = {
 					maxHdrWidth = hdrColWidth[1];
 				}
 			}
-
-						console.log("final", maxHdrWidth)
 
 			for (var i = 0; i < trs.length; i++) {
 
