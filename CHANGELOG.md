@@ -2,6 +2,11 @@
 
 ## Versions
 
+Version 3.1.9 : Maintenance Release - November 6, 2025
+
+- Thunderbird v140-v146 compatibility 
+- Change default maxHdrWidth base to 100px
+
 Version 3.1.8 : Maintenance Release - September 16, 2025
 
 	- Fix: OK button always disabled for locales using comma as decimal point

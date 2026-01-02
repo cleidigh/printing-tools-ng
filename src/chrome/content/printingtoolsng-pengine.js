@@ -1648,9 +1648,7 @@ var printingtools = {
 						break;
 
 					default:
-
-						maxHdrWidth = 120 + 6 * Math.max((fsn - 14), 0);
-
+						maxHdrWidth = 100 + 6 * Math.max((fsn - 14), 0);
 						break;
 				}
 
