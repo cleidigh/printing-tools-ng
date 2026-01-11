@@ -7,25 +7,34 @@
     <title>Ayuda de PrintingTools NG</title>
   </head>
   <body>
-    <table style="width: 100%;">
+    <table style="width: 100%">
       <tr>
-        <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">Ayuda de PrintingTools NG</div>
-          <div id="extVersion" style="padding-left: 4px;">versión 2.2.1</div>
+        <td style="vertical-align: top">
+          <div style="font-size: 1.8em; font-weight: bold">Ayuda de PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px">versión 2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px;">
+        <td style="text-align: right; padding-right: 30px">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Notas de la versión:</h3>
+    <h3 id="release_notes" style="padding-left: 4px">Notas de la versión:</h3>
     <p>
-      <b>Nota importante:</b> A partir del lanzamiento de Thunderbird v136, Mozilla realizará lanzamientos
-      mensuales. Es posible que no pueda publicar PrintingTools NG todos los meses. Antes de actualizar
-      Thunderbird, verifique si hay una actualización compatible con PrintingTools NG disponible.<br /><br />
-      Cristóbal<br /><br />
-      - Corrección: el botón Aceptar siempre está deshabilitado para configuraciones regionales que usan una
-      coma como punto decimal. - Cambio de Thunderbird para entradas HTML.
+      <b
+        >URGENTE: NO ACTUALICE A THUNDERBIRD V147 SI NECESITA SOPORTE PARA EXPORTAR PDF O IMPRESIÓN DE
+        MÚLTIPLES MENSAJES.</b
+      ><br />
+      Hay un error grave en Thunderbird que a veces provoca un bloqueo al exportar PDF o imprimir varios
+      mensajes sin la vista previa. Se desconoce cuándo se solucionará en Thunderbird. Sin embargo, presenté
+      el error y ya se ha analizado, pero lamentablemente es poco probable que se solucione en Thunderbird
+      v147.<br />
+      Estoy intentando determinar si solo actualizaré PrintingTools NG para el canal ESR de ahora en adelante.
+      No puedo tener errores como este en el futuro. Quizás sea necesario probar compilaciones no oficiales,
+      no estoy seguro. Si necesitas PrintingTools NG, tendrás que permanecer en el canal ESR o revertirlo para
+      asegurar la continuidad. Pronto publicaré instrucciones para la reversión en la sección de problemas de
+      Github.<br /><br />
+      Lo siento, esto está fuera de mi control.<br /><br />
+      Cristóbal<br />
     </p>
     <br />
     <h2 id="main_help">Descripción general de PrintingTools NG</h2>
@@ -43,7 +52,7 @@
       El botón Imprimir NG se añade automáticamente a la barra de herramientas unificada a partir de
       Thunderbird v115. También se puede añadir a la barra de herramientas del encabezado del correo para
       habilitar tanto el acceso a la impresión como las opciones del panel de correo. También se puede acceder
-      a las opciones con el botón de la extensión en la pestaña de complementos.
+      a las opciones mediante el botón de la extensión en la pestaña de complementos.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
@@ -79,7 +88,7 @@
     <h2 id="customdate_format_help">Formato de fecha personalizado</h2>
     <p>
       La opción de fecha personalizada permite un control total sobre el formato de fecha utilizado tanto para
-      la fecha como para la fecha de recepción en los encabezados del correo electrónico. Esta opción ofrece
+      la fecha como para la fecha de recepción en los encabezados de correo electrónico. Esta opción ofrece
       múltiples opciones de localización que permiten prácticamente cualquier formato. Tenga en cuenta que la
       cadena de fecha personalizada puede incluir separadores, literales (incluidos caracteres Unicode) y los
       tokens de fecha y hora que se indican a continuación.<br /><br />
@@ -141,7 +150,7 @@
       Puerto de strftime() de TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Descripciones de secuencias de conversión</h3>
+    <h3 style="margin-left: 30px">Descripciones de secuencias de conversión</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -192,7 +201,7 @@
             Año basado en la semana ISO 8601 con siglo como número decimal. El año de 4 dígitos corresponde al
             número de semana ISO (véase <code class="code1">%V</code> ). Tiene el mismo formato y valor que
             <code class="code1">%Y</code> , excepto que si el número de semana ISO pertenece al año anterior o
-            al siguiente, se utiliza ese año.
+            posterior, se utiliza ese año.
           </td>
         </tr>
         <tr>
@@ -291,7 +300,7 @@
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
-          <td>Representación de la hora preferida para la configuración regional actual sin la fecha.</td>
+          <td>Representación de hora preferida para la configuración regional actual sin la fecha.</td>
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
@@ -326,7 +335,9 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Literal de día. Localizado principalmente para regiones asiáticas. (Ja: 日, ko: 일)</td>
+          <td>
+            Literal de día. Localizado principalmente para regiones asiáticas. (Japonés: 日, coreano: 일)
+          </td>
         </tr>
       </tbody>
     </table>
@@ -364,18 +375,18 @@
     </p>
     <p />
     <p>
-      Habilite el directorio de salida PDF y elija una ubicación para guardar. El nombre del archivo de salida
-      seguirá el formato configurado.
+      Habilite el directorio de salida PDF y elija un directorio para guardar el archivo. El nombre del
+      archivo de salida seguirá el formato configurado.
     </p>
     <p />
     <p>
       El formato del nombre de archivo se compone de tokens y cualquier carácter estático, como separadores o
       espacios. El formato extendido del nombre de archivo utiliza tokens. El nombre de archivo exacto se
-      puede construir utilizando los tokens, así como cualquier texto o carácter válido de nombre de archivo.
-      Los caracteres no válidos son: <code>| * : &lt; &gt; ? \ / &quot;</code>
+      puede construir utilizando los tokens, así como cualquier texto o carácter válido. Los caracteres no
+      válidos son: <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>El formato de nombre predeterminado es: ${subject}, que es solo el asunto del correo electrónico.</p>
+    <p>El formato de nombre predeterminado es: ${subject} que es solo el asunto del correo electrónico.</p>
     <p />
     <p>Ejemplos</p>
     <p>
@@ -450,9 +461,9 @@
     <br />
     <h2 id="print_options_help">Opciones de impresión y página</h2>
     <p>
-      Estas opciones permiten configurar la impresora predeterminada, así como las opciones de impresión por
-      página. También es posible configurar el modo silencioso, en el que no se muestra la vista previa y la
-      impresión se realiza inmediatamente.
+      Estas opciones permiten configurar la impresora predeterminada, así como las opciones de página por
+      impresora. También es posible configurar el modo silencioso, en el que no se muestra la vista previa y
+      la impresión se realiza inmediatamente.
     </p>
     <p>
       Las opciones de página permiten configurar elementos al finalizar la vista previa o la impresión. Estas
@@ -468,7 +479,7 @@
       que cambiar los rangos de páginas cada vez. Tenga en cuenta que si un rango de páginas configurado en
       PrintingTools NG no es válido, por ejemplo, si excede el número de páginas, deberá corregirse en la
       vista previa antes de imprimir. Un rango de páginas configurado en &quot;1&quot; siempre será válido e
-      imprimirá la primera página del mensaje.
+      imprime la primera página del mensaje.
     </p>
     <p>Notas:</p>
     <p>La opción de escala permite establecer una escala persistente.</p>
@@ -485,7 +496,7 @@
     <p></p>
     <p>
       Los encabezados y pies de página se pueden configurar para incluir diversas variables de mensaje que se
-      listan a continuación. Además, se puede incluir texto arbitrario. Para no imprimir encabezados ni pies
+      enumeran a continuación. Además, se puede incluir texto arbitrario. Para no imprimir encabezados ni pies
       de página y ahorrar espacio de impresión, simplemente deje todos los campos en blanco.
     </p>
     <div class="indent1">
@@ -502,12 +513,12 @@
       interfaz de usuario. Se configuran en las opciones avanzadas de la pestaña Varios y son etiquetas
       separadas por espacios.<br />
       Las etiquetas y formatos de opciones se detallan a continuación:<br /><br />
-      <b>Añade el ID del mensaje al final de la etiqueta de encabezado:</b><br /><br />
+      <b>Agregue el ID del mensaje al final de la etiqueta de encabezado:</b><br /><br />
       <b>añadirIdDeMensajeAHDR</b><br /><br />
       <b>Establezca el ancho de columna para la etiqueta de encabezados:</b><br /><br />
       <b>hdrColWidth: <i>nnn</i></b> Donde <i>nnn</i> es el número de píxeles<br /><br />
       <b>Márgenes del borde del encabezado y pie de página:</b><br /><br />
-      P: <i>nombre-impresora</i> ::S: <i>nombre-opción</i> = <i>valor</i><br /><br />
+      P: <i>nombre-de-impresora</i> ::S: <i>nombre-de-opción</i> = <i>valor</i><br /><br />
       El nombre de la impresora tiene los espacios reemplazados por guiones bajos y la función Guardar en PDF
       integrada es Mozilla_Save_to_PDF<br /><br />
       Otro ejemplo: Microsoft_Print_to_PDF<br /><br />
@@ -540,12 +551,12 @@
     <p>
       Las opciones de depuración son un conjunto de palabras clave que se introducen como una lista separada
       por espacios. Estas opciones se suelen usar para la salida de depuración de la consola, pero también
-      pueden utilizarse para pruebas o para diferentes modos.
+      pueden usarse para pruebas o para diferentes modos.
     </p>
     <div class="indent1">
       <li>
         <code class="notranslate">initialsource</code> : muestra la fuente del mensaje antes de que PTNG
-        realice cualquier formateo
+        realice cualquier formato
       </li>
       <li><code class="notranslate">finaloutput</code> - muestra la salida del mensaje final</li>
       <li>

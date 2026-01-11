@@ -7,25 +7,34 @@
     <title>Ajuda de PrintingTools NG</title>
   </head>
   <body>
-    <table style="width: 100%;">
+    <table style="width: 100%">
       <tr>
-        <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">Ajuda de PrintingTools NG</div>
-          <div id="extVersion" style="padding-left: 4px;">versió 2.2.1</div>
+        <td style="vertical-align: top">
+          <div style="font-size: 1.8em; font-weight: bold">Ajuda de PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px">versió 2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px;">
+        <td style="text-align: right; padding-right: 30px">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Notes de la versió:</h3>
+    <h3 id="release_notes" style="padding-left: 4px">Notes de la versió:</h3>
     <p>
-      <b>Nota important:</b> A partir del llançament de Thunderbird v136, Mozilla farà llançaments mensuals.
-      És possible que no pugui publicar PrintingTools NG cada mes. Abans d&#39;actualitzar Thunderbird,
-      comproveu si hi ha una actualització compatible de PrintingTools NG disponible.<br /><br />
-      Cristòfor<br /><br />
-      - Correcció: el botó D&#39;acord sempre està desactivat per a les configuracions regionals que utilitzen
-      coma com a punt decimal - Canvi de Thunderbird per a les entrades HTML
+      <b
+        >URGENT: NO ACTUALITZEU A THUNDERBIRD V147 SI NECESSITEU EXPORTACIÓ DE PDF O SUPORT PER A LA IMPRESSIÓ
+        DE MÚLTIPLES MISSATGES.</b
+      ><br />
+      Hi ha un error central de Thunderbird que DE VEGADES provoca un bloqueig en exportar PDF o imprimir
+      diversos missatges sense la vista prèvia. Es desconeix quan es corregirà això a Thunderbird. Tanmateix,
+      he enviat l&#39;error i ja s&#39;ha estudiat, però malauradament és poc probable que es corregeixi a
+      Thunderbird v147.<br />
+      Estic intentant determinar si només actualitzaré PrintingTools NG per al canal ESR a partir d&#39;ara.
+      No puc tenir errors com aquest en el futur. Potser caldrà provar compilacions no oficials, no
+      n&#39;estic segur. Si necessiteu PrintingTools NG, haureu de romandre al canal ESR o tornar al canal ESR
+      per garantir la continuïtat. Aviat publicaré les instruccions de reversió a la secció de problemes de
+      Github.<br /><br />
+      Ho sento, això està fora del meu control.<br /><br />
+      Cristòfor<br />
     </p>
     <br />
     <h2 id="main_help">Informació general de PrintingTools NG</h2>
@@ -40,7 +49,7 @@
     <p>
       El botó Imprimeix NG s&#39;afegeix automàticament a la barra d&#39;eines unificada a partir del
       Thunderbird v115. El botó també es pot afegir a la barra d&#39;eines de la capçalera del correu per
-      habilitar tant l&#39;accés a la impressió com a les opcions des del panell de correu. A més, es pot
+      habilitar tant l&#39;accés a la impressió com les opcions des del panell de correu. A més, es pot
       accedir a les opcions mitjançant el botó d&#39;eines angleses de l&#39;extensió a la pestanya del
       complement.
     </p>
@@ -138,7 +147,7 @@
       Port de strftime() per TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Descripcions de seqüències de conversió</h3>
+    <h3 style="margin-left: 30px">Descripcions de seqüències de conversió</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -378,7 +387,7 @@
       caràcters no vàlids són: <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>El format de nom per defecte és: ${subject} que és simplement l&#39;assumpte del correu electrònic.</p>
+    <p>El format de nom per defecte és: ${subject} que és només l&#39;assumpte del correu electrònic.</p>
     <p />
     <p>Exemples</p>
     <p>

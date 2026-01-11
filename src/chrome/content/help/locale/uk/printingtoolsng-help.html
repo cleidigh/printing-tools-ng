@@ -7,25 +7,33 @@
     <title>Довідка PrintingTools NG</title>
   </head>
   <body>
-    <table style="width: 100%;">
+    <table style="width: 100%">
       <tr>
-        <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">Довідка PrintingTools NG</div>
-          <div id="extVersion" style="padding-left: 4px;">версія 2.2.1</div>
+        <td style="vertical-align: top">
+          <div style="font-size: 1.8em; font-weight: bold">Довідка PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px">версія 2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px;">
+        <td style="text-align: right; padding-right: 30px">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Примітки до випуску:</h3>
+    <h3 id="release_notes" style="padding-left: 4px">Примітки до випуску:</h3>
     <p>
-      <b>Важливе зауваження:</b> З моменту випуску Thunderbird версії 136, Mozilla випускатиме щомісячні
-      релізи. Можливо, я не зможу випускати PrintingTools NG щомісяця. Будь ласка, перевірте перед оновленням
-      Thunderbird, чи доступне сумісне оновлення PrintingTools NG.<br /><br />
-      Крістофер<br /><br />
-      - Виправлення: кнопка &quot;ОК&quot; завжди була недоступна для локалей, що використовують кому як
-      десяткову точку - Зміна Thunderbird для HTML-вводу
+      <b
+        >ТЕРМІНОВО: НЕ ОНОВЛЮЙТЕСЯ ДО THUNDERBIRD V147, ЯКЩО ВАМ ПОТРІБЕН ЕКСПОРТ PDF АБО ПІДТРИМКА ДРУКУ
+        КІЛЬКОХ ПОВІДОМЛЕНЬ.</b
+      ><br />
+      Існує основна помилка Thunderbird, яка ІНОДІ викликає аварійне завершення роботи під час експорту PDF
+      або друку кількох повідомлень без попереднього перегляду. Коли це буде виправлено в Thunderbird,
+      невідомо. Однак я повідомив про помилку, і вона вже розглядається, але, на жаль, навряд чи буде
+      виправлена в Thunderbird v147.<br />
+      Я намагаюся визначити, чи буду я оновлювати PrintingTools NG лише для каналу ESR. У майбутньому таких
+      помилок не повинно виникати. Можливо, доведеться спробувати неофіційні збірки, я не впевнений. Якщо вам
+      потрібен PrintingTools NG, вам доведеться залишатися на каналі ESR або повернутися до каналу ESR, щоб
+      забезпечити безперервність. Незабаром я опублікую інструкції щодо відкату в розділі проблем Github.<br /><br />
+      Вибачте, це поза моїм контролем.<br /><br />
+      Крістофер<br />
     </p>
     <br />
     <h2 id="main_help">Огляд PrintingTools NG</h2>
@@ -94,7 +102,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
         <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-        <td>локалізація ja з літералами</td>
+        <td>локаль ja з літералами</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
@@ -136,7 +144,7 @@
       Порт strftime() від TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Описи послідовності конверсій</h3>
+    <h3 style="margin-left: 30px">Описи послідовності конверсій</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -434,7 +442,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
-        <td>Користувацький формат дати. Див. розділ про власне форматування дати.</td>
+        <td>Користувацький формат дати. Див. розділ про форматування власної дати.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
@@ -499,7 +507,7 @@
       <b>Додайте Message-ID до кінця тегу headers:</b><br /><br />
       <b>додатиMessageIdToHdr</b><br /><br />
       <b>Встановіть ширину стовпця для тегу headers:</b><br /><br />
-      <b>hdrColWidth: <i>nnn</i></b> , де <i>nnn</i> – кількість пікселів<br /><br />
+      <b>hdrColWidth: <i>nnn,</i></b> де <i>nnn</i> – кількість пікселів<br /><br />
       <b>Поля верхнього та нижнього колонтитулів:</b><br /><br />
       P: <i>ім&#39;я-принтера</i> ::S: <i>ім&#39;я-опції</i> = <i>значення</i><br /><br />
       У назві принтера пробіли замінено на символи підкреслення, а вбудована функція збереження у PDF —
