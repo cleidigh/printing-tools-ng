@@ -2,12 +2,12 @@
 URGENT: DO NOT UPDATE TO THUNDERBIRD V147 IF YOU
 NEED PDF EXPORT OR MULTIPLE MESSAGE PRINTING SUPPORT.</b><br>
 There is a core Thunderbird bug that causes a crash when doing PDF export or printing multiple messages without the preview. When this will be fixed in Thunderbird is unknown.
+However I submitted the bug and it has already being 
+looked at, but unfortunately unlikely to be fixed in Thunderbird v147.
 <br>
 I am trying to determine if I will only update PrintingTools NG for the ESR channel going forward. I cannot have such errors as this in the future. It might be necessary to try unofficial builds, I'm not sure. If you need PrintingTools NG you will have to remain on the ESR channel or rollback to the ESR channel to ensure continuity. I will be posting rollback instructions on the Github issues section soon.
 <br>
-https://github.com/thunderbird/import-export-tools-ng/issues
 <br>
 Sorry this is out of my control.
 Christopher 
 <br>
-- Increased the maximum mbox import to 50GB
