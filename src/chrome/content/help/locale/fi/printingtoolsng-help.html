@@ -7,25 +7,33 @@
     <title>PrintingTools NG -ohje</title>
   </head>
   <body>
-    <table style="width: 100%;">
+    <table style="width: 100%">
       <tr>
-        <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG -ohje</div>
-          <div id="extVersion" style="padding-left: 4px;">versio 2.2.1</div>
+        <td style="vertical-align: top">
+          <div style="font-size: 1.8em; font-weight: bold">PrintingTools NG -ohje</div>
+          <div id="extVersion" style="padding-left: 4px">versio 2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px;">
+        <td style="text-align: right; padding-right: 30px">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Julkaisutiedot:</h3>
+    <h3 id="release_notes" style="padding-left: 4px">Julkaisutiedot:</h3>
     <p>
-      <b>Tärkeä huomautus:</b> Thunderbird v136:n julkaisusta lähtien Mozilla julkaisee kuukausittaisia
-      päivityksiä. En välttämättä pysty julkaisemaan PrintingTools NG:tä joka kuukausi. Tarkista ennen
-      Thunderbirdin päivittämistä, onko saatavilla yhteensopivaa PrintingTools NG -päivitystä.<br /><br />
-      Kristoffer<br /><br />
-      - Korjaus: OK-painike ei aina ollut käytössä kieliasetuksissa, joissa pilkkua käytetään
-      desimaalipisteenä - Thunderbirdin muutos HTML-syötteissä
+      <b
+        >KIIREELLINEN: ÄLÄ PÄIVITÄ THUNDERBIRD V147 -VERSIOON, JOS TARVITSET PDF-VIENNIN TAI USEIDEN VIESTIEN
+        TULOSTUSTUKEN.</b
+      ><br />
+      Thunderbirdissä on ydinongelma, joka JOSKUS aiheuttaa ohjelman kaatumisen PDF-viennissä tai useiden
+      viestien tulostuksessa ilman esikatselua. Thunderbirdin korjauspäivämäärä on tuntematon. Lähetin
+      kuitenkin ilmoituksen bugista, ja sitä on jo tutkittu, mutta valitettavasti korjaus Thunderbirdin
+      versiossa 147 ei todennäköisesti tapahdu.<br />
+      Yritän selvittää, päivitänkö PrintingTools NG:n jatkossa vain ESR-kanavalle. Tällaisia virheitä ei voi
+      tapahtua tulevaisuudessa. Saattaa olla tarpeen kokeilla epävirallisia koontiversioita, en ole varma. Jos
+      tarvitset PrintingTools NG:tä, sinun on pysyttävä ESR-kanavalla tai palattava ESR-kanavalle jatkuvuuden
+      varmistamiseksi. Julkaisen palautusohjeet pian Githubin ongelmat -osiossa.<br /><br />
+      Anteeksi, tämä ei ole minun hallinnassani.<br /><br />
+      Kristoffer<br />
     </p>
     <br />
     <h2 id="main_help">PrintingTools NG -yleiskatsaus</h2>
@@ -54,9 +62,9 @@
     </div>
     <h3 class="indent0">PrintingTools NG -pikanäppäimet</h3>
     <p>
-      PrintingTools muuttaa Thunderbirdin vakiomuotoisen Print-pikakuvakkeen käynnistymään itsestään
-      vakiomuotoisen Print-komennon sijaan. Windowsissa ja Linuxissa käytä Ctrl-P:tä ja Macissa Command-P:tä.
-      Asetukset-valintaikkunan voi avata myös Ctrl-Shift-P:llä.
+      PrintingTools muuttaa Thunderbirdin vakiomuotoisen Tulosta-pikakuvakkeen käynnistymään itsestään
+      vakiomuotoisen Tulosta-komennon sijaan. Windowsissa ja Linuxissa käytä Ctrl-P:tä ja Macissa
+      Command-P:tä. Asetukset-valintaikkunan voi avata myös Ctrl-Shift-P:llä.
     </p>
     <h3 class="indent0">Seuraavassa on esimerkki joistakin otsikon muotoiluominaisuuksista:</h3>
     <div class="indent1">
@@ -130,13 +138,13 @@
     <br />
     <p>
       Mukautettu päivämäärämuoto käyttää %-sarjoja, jotka vastaavat Unixin kaltaista
-      <code>strftime()</code> -funktiota. Se perustuu JavaScript-versioon
+      <code>strftime()</code> -funktion toiminnallisuutta. Se perustuu JavaScript-versioon
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       -funktiosta, joka muotoilee päivämäärän ja kellonajan.<br />
       TH Doanin porttaama strftime() (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Muunnossekvenssien kuvaukset</h3>
+    <h3 style="margin-left: 30px">Muunnossekvenssien kuvaukset</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -186,7 +194,7 @@
           <td>
             ISO 8601 -standardin mukainen viikkopohjainen vuosi, jossa desimaalilukuna on vuosisata.
             Nelinumeroinen vuosi vastaa ISO-viikkonumeroa (katso <code class="code1">%V</code> ). Tällä on
-            sama muoto ja arvo kuin <code class="code1">%Y</code> , paitsi että jos ISO-viikkonumero kuuluu
+            sama muoto ja arvo kuin <code class="code1">%Y</code> llä, paitsi että jos ISO-viikkonumero kuuluu
             edelliseen tai seuraavaan vuoteen, käytetään kyseistä vuotta.
           </td>
         </tr>
@@ -495,7 +503,7 @@
       <b>Lisää viestitunnus otsikkotunnisteen loppuun:</b><br /><br />
       <b>lisääViestinIdHdr:ään</b><br /><br />
       <b>Aseta otsikkotunnisteen sarakeleveys:</b><br /><br />
-      <b>hdrColWidth: <i>nnn</i></b> , jossa <i>nnn</i> on pikselien lukumäärä<br /><br />
+      <b>hdrColWidth: <i>nnn</i> ,</b> jossa <i>nnn</i> on pikselien lukumäärä<br /><br />
       <b>Ylä- ja alatunnisteen reunojen marginaalit:</b><br /><br />
       P: <i>tulostimen-nimi</i> ::S: <i>asetuksen-nimi</i> = <i>arvo</i><br /><br />
       Tulostimen nimessä välilyönnit on korvattu alaviivoilla ja sisäänrakennettu Tallenna PDF-muotoon
@@ -506,7 +514,7 @@
       <span class="notranslate">edges</span> on pseudo-asetus, joka asettaa kaikki reunamarginaalit samaan
       arvoon. Reunamarginaalit ovat tuumina.<br /><br />
       Esimerkkejä:<br /><br />
-      P:Mozilla_Save_to_PDF::S:edges=0.25<br />
+      P:Mozilla_Tallenna_PDF:ksi:S:reunat=0.25<br />
       P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
       Jos halutaan asettaa kaikki reunamarginaalit 0,10 tuumaan paitsi reunan yläreunan 0,25 tuumaan, syötä
       seuraava:<br /><br />

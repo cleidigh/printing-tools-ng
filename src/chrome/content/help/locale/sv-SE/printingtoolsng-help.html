@@ -7,25 +7,34 @@
     <title>Hjälp med PrintingTools NG</title>
   </head>
   <body>
-    <table style="width: 100%;">
+    <table style="width: 100%">
       <tr>
-        <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">Hjälp med PrintingTools NG</div>
-          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
+        <td style="vertical-align: top">
+          <div style="font-size: 1.8em; font-weight: bold">Hjälp med PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px">v2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px;">
+        <td style="text-align: right; padding-right: 30px">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Versionsinformation:</h3>
+    <h3 id="release_notes" style="padding-left: 4px">Versionsinformation:</h3>
     <p>
-      <b>Viktigt:</b> Från och med lanseringen av Thunderbird v136 kommer Mozilla att göra månatliga utgåvor.
-      Jag kanske inte kan släppa PrintingTools NG varje månad. Kontrollera innan du uppdaterar Thunderbird om
-      det finns en kompatibel PrintingTools NG-uppdatering tillgänglig.<br /><br />
-      Kristoffer<br /><br />
-      - Åtgärd: OK-knappen är alltid inaktiverad för språkinställningar som använder kommatecken - Ändring av
-      Thunderbird för HTML-inmatningar
+      <b
+        >BRÅDSKANDE: UPPDATERA INTE TILL THUNDERBIRD V147 OM DU BEHÖVER PDF-EXPORT ELLER STÖD FÖR UTSKRIFT AV
+        FLERA MEDDELANDEN.</b
+      ><br />
+      Det finns en grundläggande Thunderbird-bugg som IBLAND orsakar en krasch vid PDF-export eller utskrift
+      av flera meddelanden utan förhandsgranskning. När detta kommer att vara åtgärdat i Thunderbird är okänt.
+      Jag skickade dock in buggen och den har redan tittats på, men tyvärr är det osannolikt att den kommer
+      att vara åtgärdad i Thunderbird v147.<br />
+      Jag försöker avgöra om jag bara kommer att uppdatera PrintingTools NG för ESR-kanalen framöver. Jag kan
+      inte få sådana fel i framtiden. Det kan bli nödvändigt att prova inofficiella versioner, jag är inte
+      säker. Om du behöver PrintingTools NG måste du stanna kvar på ESR-kanalen eller återställa till
+      ESR-kanalen för att säkerställa kontinuitet. Jag kommer snart att publicera instruktioner för
+      återställning i Github-problemavsnittet.<br /><br />
+      Tyvärr är detta utom min kontroll.<br /><br />
+      Kristoffer<br />
     </p>
     <br />
     <h2 id="main_help">Översikt över PrintingTools NG</h2>
@@ -136,7 +145,7 @@
       Portering av strftime() av TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Beskrivningar av konverteringssekvenser</h3>
+    <h3 style="margin-left: 30px">Beskrivningar av konverteringssekvenser</h3>
     <table class="dateformat-table">
       <thead>
         <tr>

@@ -574,7 +574,7 @@ var printingtools = {
 
 			printingtools.previewDoc = w3p.PrintUtils.printBrowser.contentDocument
 			await printingtools.reformatLayout();
-
+			ps.printSilent = true;
 			await w3p.PrintUtils.printBrowser.browsingContext.print(ps);
 			if (pdfOutput) {
 				this.utils.PTNG_WriteStatus(this.mainStrBundle.GetStringFromName("writing") + ": " + pdfFileName);

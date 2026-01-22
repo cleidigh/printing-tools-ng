@@ -7,25 +7,34 @@
     <title>Pomoc PrintingTools NG</title>
   </head>
   <body>
-    <table style="width: 100%;">
+    <table style="width: 100%">
       <tr>
-        <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">Pomoc PrintingTools NG</div>
-          <div id="extVersion" style="padding-left: 4px;">wersja 2.2.1</div>
+        <td style="vertical-align: top">
+          <div style="font-size: 1.8em; font-weight: bold">Pomoc PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px">wersja 2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px;">
+        <td style="text-align: right; padding-right: 30px">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Informacje o wydaniu:</h3>
+    <h3 id="release_notes" style="padding-left: 4px">Informacje o wydaniu:</h3>
     <p>
-      <b>Ważna uwaga:</b> Od wydania Thunderbirda w wersji 136 Mozilla będzie publikować comiesięczne
-      aktualizacje. Możliwe, że nie będę w stanie wydawać PrintingTools NG co miesiąc. Przed aktualizacją
-      Thunderbirda sprawdź, czy jest dostępna kompatybilna aktualizacja PrintingTools NG.<br /><br />
-      Krzysztof<br /><br />
-      - Naprawiono: przycisk OK jest zawsze wyłączony w przypadku ustawień regionalnych, w których jako
-      separator dziesiętny używany jest przecinek - Zmiana w Thunderbirdzie dla danych wejściowych HTML
+      <b
+        >PILNE: NIE AKTUALIZUJ WERSJI THUNDERBIRD DO WERSJI 147, JEŚLI POTRZEBUJESZ EKSPORTU DO FORMATU PDF
+        LUB OBSŁUGI DRUKOWANIA WIELU WIADOMOŚCI.</b
+      ><br />
+      Istnieje podstawowy błąd Thunderbirda, który CZASAMI powoduje awarię podczas eksportu do PDF-ów lub
+      drukowania wielu wiadomości bez podglądu. Nie wiadomo, kiedy zostanie to naprawione w Thunderbirdzie.
+      Zgłosiłem jednak błąd i jest on już sprawdzany, ale niestety mało prawdopodobne, aby został naprawiony w
+      Thunderbirdzie w wersji 147.<br />
+      Próbuję ustalić, czy w przyszłości będę aktualizować PrintingTools NG tylko dla kanału ESR. Nie mogę
+      mieć takich błędów w przyszłości. Być może konieczne będzie wypróbowanie nieoficjalnych kompilacji, ale
+      nie jestem pewien. Jeśli potrzebujesz PrintingTools NG, będziesz musiał pozostać na kanale ESR lub
+      wycofać się do kanału ESR, aby zapewnić ciągłość. Wkrótce opublikuję instrukcje dotyczące wycofania w
+      sekcji problemów na GitHubie.<br /><br />
+      Przepraszam, to nie zależy ode mnie.<br /><br />
+      Krzysztof<br />
     </p>
     <br />
     <h2 id="main_help">Przegląd PrintingTools NG</h2>
@@ -124,7 +133,7 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>en-US locale, długi dzień/miesiąc</td>
+        <td>lokalizacja en-US, długi dzień/miesiąc</td>
       </tr>
     </table>
     <br />
@@ -136,7 +145,7 @@
       Port strftime() autorstwa TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Opisy sekwencji konwersji</h3>
+    <h3 style="margin-left: 30px">Opisy sekwencji konwersji</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -265,8 +274,8 @@
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Dzień tygodnia w formacie dziesiętnym (zakres od 1 do 7), przy czym poniedziałek ma wartość 1.
-            Zobacz także <code class="code1">%w</code> .
+            Dzień tygodnia w formacie dziesiętnym (zakres od 1 do 7), gdzie poniedziałek ma wartość 1. Zobacz
+            także <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>
@@ -383,7 +392,7 @@
     <p />
     <p>Przykłady</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> – domyślny format, temat wiadomości e-mail<br />
+      <span class="notranslate"><code>${subject}</code></span> – domyślny format tematu wiadomości e-mail<br />
       <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Użyj niestandardowego
       formatu daty zamiast domyślnego<br />
       <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Z niestandardowym

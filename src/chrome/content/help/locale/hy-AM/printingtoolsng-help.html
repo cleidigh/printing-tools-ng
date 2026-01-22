@@ -7,25 +7,34 @@
     <title>PrintingTools NG օգնություն</title>
   </head>
   <body>
-    <table style="width: 100%;">
+    <table style="width: 100%">
       <tr>
-        <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG օգնություն</div>
-          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
+        <td style="vertical-align: top">
+          <div style="font-size: 1.8em; font-weight: bold">PrintingTools NG օգնություն</div>
+          <div id="extVersion" style="padding-left: 4px">v2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px;">
+        <td style="text-align: right; padding-right: 30px">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Թողարկման նշումներ՝</h3>
+    <h3 id="release_notes" style="padding-left: 4px">Թողարկման նշումներ՝</h3>
     <p>
-      <b>Կարևոր նշում.</b> Thunderbird v136-ի թողարկումից ի վեր Mozilla-ն ամսական թողարկումներ կկատարի:
-      Հնարավոր է՝ չկարողանամ ամեն ամիս թողարկել PrintingTools NG-ն: Thunderbird-ը թարմացնելուց առաջ խնդրում եմ
-      ստուգել, թե արդյոք հասանելի է PrintingTools NG-ի հետ համատեղելի թարմացում:<br /><br />
-      Քրիստոֆեր<br /><br />
-      - Ուղղում. OK կոճակը միշտ անջատված է ստորակետը որպես տասնորդական կետ օգտագործող տեղային արժեքների համար
-      - Thunderbird-ի փոփոխություն HTML մուտքագրման համար
+      <b
+        >ՇՏԱՊ։ ՉԹԱՐՄԱՑՆԵԼ THUNDERBIRD V147-ԻՆ, ԵԹԵ ՁԵԶ ԱՆՀՐԱԺԵՇՏ Է PDF ԱՐՏԱՀԱՆՈՒՄ ԿԱՄ ԲԱԶՄԱԿԻ
+        ՀԱՂՈՐԴԱԳՐՈՒԹՅՈՒՆՆԵՐԻ ՏՊԱԳՐՄԱՆ ԱՋԱԿՑՈՒԹՅՈՒՆ։</b
+      ><br />
+      Thunderbird-ում կա մի հիմնական սխալ, որը ԵՐԲԵՄՆ խափանում է առաջացնում PDF արտահանում կատարելիս կամ առանց
+      նախադիտման մի քանի հաղորդագրություններ տպելիս: Թե երբ սա կշտկվի Thunderbird-ում, անհայտ է:
+      Այնուամենայնիվ, ես ներկայացրել եմ սխալը, և այն արդեն ուսումնասիրվում է, բայց, ցավոք, քիչ հավանական է, որ
+      այն շտկվի Thunderbird v147-ում:<br />
+      Փորձում եմ պարզել, թե արդյոք PrintingTools NG-ն կթարմացնեմ միայն ESR ալիքի համար։ Ապագայում նման սխալներ
+      չեմ կարող ունենալ։ Հնարավոր է՝ անհրաժեշտ լինի փորձել ոչ պաշտոնական տարբերակներ, վստահ չեմ։ Եթե ձեզ
+      անհրաժեշտ է PrintingTools NG, ապա ստիպված կլինեք մնալ ESR ալիքում կամ վերադառնալ ESR ալիքին՝
+      շարունակականությունն ապահովելու համար։ Շուտով կհրապարակեմ հետկանչի հրահանգներ Github-ի խնդիրների
+      բաժնում։<br /><br />
+      Կներեք, սա իմ վերահսկողությունից դուրս է։<br /><br />
+      Քրիստոֆեր<br />
     </p>
     <br />
     <h2 id="main_help">PrintingTools NG-ի ակնարկ</h2>
@@ -137,7 +146,7 @@
       Strftime()-ի պորտը՝ TH Doan-ի կողմից (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Փոխակերպման հաջորդականության նկարագրություններ</h3>
+    <h3 style="margin-left: 30px">Փոխակերպման հաջորդականության նկարագրություններ</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -289,7 +298,7 @@
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
-          <td>Տարին որպես տասնորդական թիվ՝ առանց դարի (00-ից 99 միջակայքում):</td>
+          <td>Տարին որպես տասնորդական թիվ՝ առանց դարի (00-ից մինչև 99 միջակայքում):</td>
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>

@@ -62,7 +62,6 @@
 		"mozilla/avoid-removeChild": "warn",
 		"mozilla/use-chromeutils-generateqi": "off",
 
-		"linebreak-style": [2, "windows"],
 		"quotes":"off",
 		"spaced-comment": [
 			2,
