@@ -2,6 +2,9 @@
 
 ## Versions
 
+Version 3.1.10 : Warning Release - January 12, 2026
+- Bug in Thunderbird v147 causes crash when printing in non preview mode
+
 Version 3.1.9 : Maintenance Release - November 6, 2025
 
 - Thunderbird v140-v146 compatibility 
