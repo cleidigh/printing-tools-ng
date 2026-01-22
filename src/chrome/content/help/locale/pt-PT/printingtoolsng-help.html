@@ -7,68 +7,58 @@
     <title>Ajuda do PrintingTools NG</title>
   </head>
   <body>
-    <table style="width: 100%">
+    <table style="width: 100%;">
       <tr>
-        <td style="vertical-align: top">
-          <div style="font-size: 1.8em; font-weight: bold">Ajuda do PrintingTools NG</div>
-          <div id="extVersion" style="padding-left: 4px">v2.2.1</div>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">Ajuda do PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px">
+        <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px">Notas de lançamento:</h3>
+    <h3 id="release_notes" style="padding-left: 4px;">Notas de versão:</h3>
     <p>
-      <b
-        >URGENTE: NÃO ATUALIZE PARA O THUNDERBIRD V147 SE VOCÊ PRECISA DE SUPORTE PARA EXPORTAÇÃO DE PDF OU
-        IMPRESSÃO DE MÚLTIPLAS MENSAGENS.</b
-      ><br />
-      Existe um bug central no Thunderbird que, ÀS VEZES, causa o travamento do sistema ao exportar PDFs ou
-      imprimir várias mensagens sem a pré-visualização. Não se sabe quando esse bug será corrigido no
-      Thunderbird. No entanto, relatei o problema e ele já está sendo analisado, mas infelizmente é improvável
-      que seja corrigido na versão 147 do Thunderbird.<br />
-      Estou tentando determinar se, daqui para frente, atualizarei o PrintingTools NG apenas para o canal ESR.
-      Não posso tolerar erros como este no futuro. Talvez seja necessário testar versões não oficiais, não
-      tenho certeza. Se você precisa do PrintingTools NG, terá que permanecer no canal ESR ou reverter para
-      ele para garantir a continuidade. Publicarei as instruções de reversão na seção de problemas do Github
-      em breve.<br /><br />
-      Sinto muito, mas isso está fora do meu controle.<br /><br />
-      Christopher<br />
+      <b>Observação importante:</b> A partir do lançamento do Thunderbird v136, a Mozilla lançará versões
+      mensais. Talvez eu não consiga lançar o PrintingTools NG todo mês. Verifique antes de atualizar o
+      Thunderbird se há uma atualização compatível disponível para o PrintingTools NG.<br /><br />
+      Cristóvão<br /><br />
+      - Correção: botão OK sempre desabilitado para localidades que usam vírgula como ponto decimal -
+      Alteração do Thunderbird para entradas HTML
     </p>
     <br />
     <h2 id="main_help">Visão geral do PrintingTools NG</h2>
     <p>
-      O PrintingTools NG permite diversas personalizações para a impressão de e-mails. A extensão oferece
-      várias opções tanto para os cabeçalhos quanto para o corpo da mensagem. Além disso, é possível
-      configurar opções de página que não estão disponíveis na visualização de impressão padrão do
-      Thunderbird. A saída em PDF também pode ser feita com nomeação automática usando um sistema flexível
-      baseado em tokens.
+      O PrintingTools NG permite diversas personalizações na impressão de e-mails. A extensão possui diversas
+      opções tanto para os cabeçalhos quanto para as partes da mensagem. Além disso, é possível definir opções
+      de página que não podem ser definidas na pré-visualização de impressão normal do Thunderbird. A saída em
+      PDF também pode ser feita com nomeação automática usando um sistema flexível baseado em tokens.
     </p>
     <h3 class="indent0">Adicionando o botão Imprimir NG à barra de ferramentas do cabeçalho do e-mail:</h3>
     <p>
       O botão Imprimir NG é adicionado automaticamente à barra de ferramentas unificada a partir do
       Thunderbird v115. O botão também pode ser adicionado à barra de ferramentas do cabeçalho do e-mail para
-      habilitar o acesso à impressão, bem como opções no painel de e-mail. Além disso, as opções podem ser
-      acessadas pelo ícone de chave inglesa da extensão na guia de complementos.
+      habilitar tanto o acesso à impressão quanto as opções do painel de e-mail. Além disso, as opções podem
+      ser acessadas pelo botão de chave inglesa da extensão na aba de complementos.
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Siga estes passos para colocar o botão na barra de ferramentas do cabeçalho do e-mail:</p>
+    <p>Siga estas etapas para colocar o botão na barra de ferramentas do cabeçalho do e-mail:</p>
     <div class="indent1">
-      <li>Clique no botão Mais na barra de ferramentas do cabeçalho do e-mail.</li>
-      <li>Selecione Personalizar... Isso abrirá a janela Personalizar Barra de Ferramentas.</li>
+      <li>Clique no botão Mais na barra de ferramentas do cabeçalho do e-mail</li>
+      <li>Selecione Personalizar... Isso abrirá a janela Personalizar Barra de Ferramentas</li>
       <li>Localize o botão Imprimir NG</li>
-      <li>Arraste e solte o botão no local desejado.</li>
-      <li>Use os botões para Imprimir, Visualizar, Opções e Ajuda.</li>
+      <li>Arraste e solte o botão no local desejado</li>
+      <li>Use o botão para Imprimir, Visualizar, Opções e Ajuda</li>
     </div>
     <h3 class="indent0">Atalhos de teclado do PrintingTools NG</h3>
     <p>
-      O PrintingTools remapeia o atalho padrão de impressão do Thunderbird para que ele mesmo seja executado
-      em vez da função Imprimir padrão. No Windows e Linux, use Control-P e, no Mac, Command-P. Também é
-      possível abrir a caixa de diálogo Opções com Control-Shift-P.
+      O PrintingTools remapeia o atalho de impressão padrão do Thunderbird para invocá-lo em vez do atalho de
+      impressão padrão. No Windows e Linux, use Control-P e Command-P no Mac. Também é possível abrir a caixa
+      de diálogo Opções com Control-Shift-P.
     </p>
-    <h3 class="indent0">Segue abaixo um exemplo de alguns dos recursos de formatação de cabeçalho:</h3>
+    <h3 class="indent0">A seguir, um exemplo de alguns recursos de formatação de cabeçalho:</h3>
     <div class="indent1">
       <li>Estilo de borda de cabeçalho personalizado usando CSS (superior e inferior, azul)</li>
       <li>Cor de fundo do cabeçalho</li>
@@ -76,27 +66,27 @@
       <li>Ordem de cabeçalho personalizada</li>
       <li>Título da página e pasta de mensagens</li>
       <li>Lista de anexos com ícones no cabeçalho</li>
-      <li>Formato de data totalmente personalizável, formatação internacional.</li>
+      <li>Formato de data totalmente personalizável com formatação internacional</li>
     </div>
     <br />
     <div class="indent0"><img src="resource://printingtoolsng/icons/Ptngex1.png" /></div>
     <br />
     <h2 id="customdate_format_help">Formato de data personalizado</h2>
     <p>
-      A opção de data personalizada permite o controle total sobre a formatação da data usada tanto para a
-      Data quanto para a Data de Recebimento nos cabeçalhos de e-mail. A data personalizada oferece diversas
-      opções localizadas, permitindo praticamente qualquer formato. Observe que a string de data personalizada
-      pode incluir separadores, caracteres literais, incluindo caracteres Unicode, misturados com os tokens de
-      data/hora listados abaixo.<br /><br />
-      Observação: Os resultados da data personalizada nos exemplos abaixo serão diferentes dependendo da data
-      real, da localidade e do fuso horário do usuário.
+      A opção de data personalizada permite controle total sobre a formatação de data usada para a Data e a
+      Data de Recebimento nos cabeçalhos de e-mail. A data personalizada oferece diversas opções localizadas,
+      permitindo praticamente qualquer formato. Observe que a sequência de caracteres de data personalizada
+      pode incluir separadores, literais, incluindo caracteres Unicode, combinados com os tokens de data/hora
+      listados abaixo.<br /><br />
+      Observação: os resultados de data personalizada nos exemplos abaixo serão diferentes com base na data
+      real, na localidade e no fuso horário dos usuários.
     </p>
     <br />
     <h3 class="indent0">Exemplos:</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
-          <td>String de data</td>
+          <td>Cadeia de datas</td>
           <td>Resultado</td>
           <td>Observação</td>
         </tr>
@@ -104,7 +94,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S [GMT %z]</code></td>
         <td class="notranslate">2022年04月20日 水 JST 16:06:45 [GMT +0900]</td>
-        <td>ja local com literais</td>
+        <td>ja locale com literais</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
@@ -114,12 +104,12 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
         <td class="notranslate">2022年04月20日 周三 18:01:42 北京时间</td>
-        <td>Localidade zh-CN, dia curto</td>
+        <td>zh-CN locale, dia curto</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
         <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-        <td>Localidade zh-TW, dia longo</td>
+        <td>zh-TW locale, dia longo</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
@@ -134,20 +124,19 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>en-US locale, dia longo/mês</td>
+        <td>local en-US, dia/mês longo</td>
       </tr>
     </table>
     <br />
     <p>
-      O formato de data personalizado utiliza sequências de porcentagem (%) que correspondem à funcionalidade
-      semelhante à função <code>strftime()</code> do Unix. Ele é baseado em uma implementação em JavaScript da
-      função
+      O formato de data personalizado utiliza sequências % correspondentes à funcionalidade
+      <code>strftime()</code> semelhante à do Unix. Ele se baseia em uma porta JavaScript de
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
-      , que formata a data e a hora.<br />
-      Adaptação da função strftime() por TH Doan (https://thdoan.github.io/strftime/)<br />
+      , uma função para formatar data e hora.<br />
+      Port de strftime() por TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px">Descrições de sequências de conversão</h3>
+    <h3 style="margin-left: 30px;">Descrições de sequências de conversão</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -174,19 +163,19 @@
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
-          <td>Formato de data e hora preferencial (UTC) para a localidade atual.</td>
+          <td>Representação de data e hora (UTC) preferida para o local atual.</td>
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
-          <td>Número do século (ano/100) como um número inteiro de 2 dígitos.</td>
+          <td>Número do século (ano/100) como um inteiro de 2 dígitos.</td>
         </tr>
         <tr>
           <td><code class="code1">%d</code></td>
-          <td>Dia do mês em formato decimal (entre 01 e 31).</td>
+          <td>Dia do mês como um número decimal (intervalo de 01 a 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%e</code></td>
-          <td>Dia do mês em formato decimal (de 1 a 31).</td>
+          <td>Dia do mês como um número decimal (intervalo de 1 a 31).</td>
         </tr>
         <tr>
           <td><code class="code1">%F</code></td>
@@ -195,17 +184,16 @@
         <tr>
           <td><code class="code1">%G</code></td>
           <td>
-            O ano ISO 8601 é baseado em semanas e o século é representado por um número decimal. O ano de 4
-            dígitos corresponde ao número da semana ISO (ver <code class="code1">%V</code> ). Este tem o mesmo
-            formato e valor que <code class="code1">%Y</code> , exceto que, se o número da semana ISO
-            pertencer ao ano anterior ou seguinte, esse ano será usado em vez do anterior.
+            Ano baseado na semana ISO 8601 com século como número decimal. O ano de 4 dígitos corresponde ao
+            número da semana ISO (consulte <code class="code1">%V</code> ). Este tem o mesmo formato e valor
+            que <code class="code1">%Y</code> , exceto que, se o número da semana ISO pertencer ao ano
+            anterior ou seguinte, esse ano será usado.
           </td>
         </tr>
         <tr>
           <td><code class="code1">%g</code></td>
           <td>
-            Semelhante <code class="code1">%G</code> , mas sem o século, ou seja, com um ano de dois dígitos
-            (00-99).
+            Como <code class="code1">%G</code> , mas sem século, ou seja, com um ano de 2 dígitos (00-99).
           </td>
         </tr>
         <tr>
@@ -224,7 +212,7 @@
         </tr>
         <tr>
           <td><code class="code1">%j</code></td>
-          <td>Dia do ano em formato decimal (intervalo de 001 a 366).</td>
+          <td>Dia do ano como um número decimal (intervalo de 001 a 366).</td>
         </tr>
         <tr>
           <td><code class="code1">%k</code></td>
@@ -242,27 +230,27 @@
         </tr>
         <tr>
           <td><code class="code1">%m</code></td>
-          <td>Mês em formato decimal (intervalo de 01 a 12).</td>
+          <td>Mês como um número decimal (intervalo de 01 a 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%n</code></td>
-          <td>Mês em formato decimal (de 1 a 12).</td>
+          <td>Mês como um número decimal (intervalo de 1 a 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%M</code></td>
-          <td>Minuto em formato decimal (intervalo de 00 a 59).</td>
+          <td>Minuto como um número decimal (intervalo de 00 a 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%p</code></td>
           <td>
-            &quot;AM&quot; ou &quot;PM&quot;, de acordo com o horário especificado. Meio-dia é considerado
-            &quot;PM&quot; e meia-noite, &quot;AM&quot;.
+            &quot;AM&quot; ou &quot;PM&quot;, de acordo com o valor de tempo fornecido. Meio-dia é tratado
+            como &quot;PM&quot; e meia-noite como &quot;AM&quot;.
           </td>
         </tr>
         <tr>
           <td><code class="code1">%P</code></td>
           <td>
-            Semelhante <code class="code1">%p</code> , mas em minúsculas (&quot;am&quot; ou &quot;pm&quot;).
+            Como <code class="code1">%p</code> , mas em letras minúsculas (&quot;am&quot; ou &quot;pm&quot;).
           </td>
         </tr>
         <tr>
@@ -271,51 +259,51 @@
         </tr>
         <tr>
           <td><code class="code1">%S</code></td>
-          <td>Em segundo lugar, como um número decimal (intervalo de 00 a 59).</td>
+          <td>Segundo como um número decimal (intervalo de 00 a 59).</td>
         </tr>
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Dia da semana em formato decimal (intervalo de 1 a 7), sendo segunda-feira o dia 1. Veja também
+            Dia da semana como decimal (intervalo de 1 a 7), sendo segunda-feira 1. Veja também
             <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            O número da semana ISO 8601 do ano corrente é expresso em decimal (intervalo de 01 a 53), onde a
-            semana 1 é a primeira semana do novo ano que possui pelo menos 4 dias (ou seja, a primeira
+            Número da semana ISO 8601 do ano atual como um número decimal (intervalo de 01 a 53), onde a
+            semana 1 é a primeira semana que tem pelo menos 4 dias no ano novo (ou seja, a primeira
             quinta-feira).
           </td>
         </tr>
         <tr>
           <td><code class="code1">%w</code></td>
           <td>
-            Dia da semana em decimal (intervalo de 0 a 6), sendo domingo igual a 0. Veja também
+            Dia da semana como decimal (intervalo de 0 a 6), sendo domingo 0. Veja também
             <code class="code1">%u</code> .
           </td>
         </tr>
         <tr>
           <td><code class="code1">%x</code></td>
-          <td>Representação preferencial da data para a localidade atual, sem a hora.</td>
+          <td>Representação de data preferida para o local atual sem a hora.</td>
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
-          <td>Representação de tempo preferencial para a localidade atual, sem a data.</td>
+          <td>Representação de tempo preferida para o local atual sem a data.</td>
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
-          <td>Ano em formato decimal, sem o século (intervalo de 00 a 99).</td>
+          <td>Ano como um número decimal sem século (intervalo de 00 a 99).</td>
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>
-          <td>Ano em formato decimal, incluindo o século.</td>
+          <td>Ano como um número decimal incluindo o século.</td>
         </tr>
         <tr>
           <td><code class="code1">%z</code></td>
           <td>
             O fuso horário numérico <code class="code1">+hhmm</code> ou <code class="code1">-hhmm</code> (ou
-            seja, a diferença de horas e minutos em relação ao UTC).
+            seja, o deslocamento de hora e minuto em relação ao UTC).
           </td>
         </tr>
         <tr>
@@ -324,7 +312,7 @@
         </tr>
         <tr>
           <td><code class="code1">%t</code></td>
-          <td>Abreviação curta de fuso horário.</td>
+          <td>Abreviação de fuso horário curto.</td>
         </tr>
         <tr>
           <td><code class="code1">%0</code></td>
@@ -336,7 +324,7 @@
         </tr>
         <tr>
           <td><code class="code1">%2</code></td>
-          <td>Dia Literal. Adaptado, principalmente para regiões asiáticas. (ja: 日, ko: 일)</td>
+          <td>Literal do dia. Localizado, principalmente para locais asiáticos. (ja: 日, ko: 일)</td>
         </tr>
       </tbody>
     </table>
@@ -350,10 +338,10 @@
       <li><code class="code1">%e</code> - espaço não é adicionado</li>
       <li><code class="code1">%E</code> - não implementado</li>
       <li><code class="code1">%h</code> - não implementado (use <code class="code1">%b</code> )</li>
-      <li><code class="code1">%k</code> - espaço não adicionado</li>
+      <li><code class="code1">%k</code> - espaço não é adicionado</li>
       <li>
-        <code class="code1">%n</code> - semelhante <code class="code1">%m</code> , mas sem zero à esquerda
-        (use <code class="code1">\n</code> para nova linha)
+        <code class="code1">%n</code> - como <code class="code1">%m</code> , mas sem zero à esquerda (use
+        <code class="code1">\n</code> para nova linha)
       </li>
       <li><code class="code1">%O</code> - não implementado</li>
       <li><code class="code1">%r</code> - não implementado (use <code class="code1">%I:%M:%S %p</code> )</li>
@@ -368,24 +356,24 @@
     <br />
     <h2 id="pdf_output_help">Saída em PDF e nomeação automática de arquivos</h2>
     <p>
-      Agora, a saída em PDF pode ser nomeada automaticamente usando um sistema de tokens e salva em um
-      diretório de saída predefinido. Isso é particularmente útil ao imprimir vários e-mails selecionados,
-      pois não é necessário escolher um nome e um local para cada e-mail.
+      A saída em PDF agora pode ser nomeada automaticamente usando um sistema de tokens e salva em um
+      diretório de saída PDF predefinido. Isso é particularmente útil ao imprimir vários e-mails selecionados,
+      pois não é necessário escolher um nome e local para cada e-mail.
     </p>
     <p />
     <p>
-      Ative o diretório de saída em PDF e escolha um diretório para salvar o arquivo. O nome do arquivo de
-      saída seguirá o formato configurado.
+      Habilite o diretório de saída do PDF e escolha um diretório para salvar. O nome do arquivo de saída
+      seguirá o formato de nome de arquivo configurado.
     </p>
     <p />
     <p>
-      O formato de nome de arquivo consiste em tokens e quaisquer caracteres estáticos, como separadores ou
+      O formato do nome de arquivo consiste em tokens e quaisquer caracteres estáticos, como separadores ou
       espaços em branco. A formatação estendida de nome de arquivo utiliza tokens. O nome de arquivo exato
-      pode ser construído utilizando os tokens, bem como qualquer texto ou caracteres válidos para nome de
-      arquivo. Os caracteres inválidos são: <code>| * : &lt; &gt; ? \ / &quot;</code>
+      pode ser construído utilizando os tokens, bem como qualquer texto ou caracteres válidos de nome de
+      arquivo. Caracteres inválidos são: <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>O formato de nome padrão é: ${subject}, que é simplesmente o assunto do e-mail.</p>
+    <p>O formato de nome padrão é: ${subject}, que é apenas o assunto do e-mail.</p>
     <p />
     <p>Exemplos</p>
     <p>
@@ -396,12 +384,12 @@
       personalizado<br />
     </p>
     <p>
-      A tabela abaixo descreve o conjunto completo de tokens que podem ser usados no formato de nome de
-      arquivo.
+      A tabela abaixo descreve o conjunto completo de tokens que podem ser usados no Formato de Nome de
+      Arquivo.
     </p>
     <table class="token-table">
       <tr>
-        <td>Token</td>
+        <td>Ficha</td>
         <td>Descrição</td>
       </tr>
       <tr>
@@ -427,16 +415,16 @@
       <tr>
         <td class="notranslate"><code>${smart_name}</code></td>
         <td>
-          Os destinatários, se a mensagem estiver na pasta Enviados; caso contrário, o nome do remetente.
+          Os destinatários se a mensagem estiver em uma pasta Enviados, caso contrário, o nome do remetente
         </td>
       </tr>
       <tr>
         <td class="notranslate"><code>${index}</code></td>
-        <td>O número de índice da mensagem.</td>
+        <td>O número do índice da mensagem.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${prefix}</code></td>
-        <td>O valor da opção de texto prefixado.</td>
+        <td>O valor da opção de texto do prefixo.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
@@ -444,7 +432,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>
-        <td>O formato de data padrão. O formato padrão é: AAAAMMDDDHHmm</td>
+        <td>Formato de data padrão. O formato padrão é: AAAAMMDDHHmm</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date_custom}</code></td>
@@ -452,49 +440,49 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
-        <td>O ID exclusivo da mensagem do e-mail.</td>
+        <td>O Message-ID exclusivo do e-mail.</td>
       </tr>
     </table>
     <br />
     <h2 id="print_options_help">Opções de impressão e página</h2>
     <p>
       Essas opções permitem definir a impressora padrão, bem como as opções de página por impressora. Também é
-      possível ativar o modo silencioso, no qual a caixa de diálogo de visualização não é exibida e a
+      possível definir o modo silencioso, em que a caixa de diálogo de pré-visualização não é exibida e a
       impressão é feita imediatamente.
     </p>
     <p>
-      As opções de página permitem definir itens tanto na pré-visualização quanto na impressão. Essas opções
-      são mantidas durante a impressão. Se as opções definidas no PrintingTools NG forem alteradas na
-      pré-visualização de impressão, elas não afetarão as impressões subsequentes. Alguns itens não podem ser
-      definidos na caixa de diálogo de pré-visualização, como cabeçalhos e rodapés. Outros itens não são
-      mantidos pela pré-visualização e normalmente precisariam ser definidos a cada impressão. O PrintingTools
-      NG resolve esses dois problemas.
+      As opções de página permitem definir itens quando a pré-visualização ou a impressão são concluídas.
+      Essas opções são persistentes durante a impressão. Se as opções definidas no PrintingTools NG forem
+      alteradas na pré-visualização da impressão, elas não afetarão as impressões subsequentes. Alguns itens
+      não podem ser definidos na caixa de diálogo de pré-visualização, incluindo cabeçalhos e rodapés. Outros
+      itens não são retidos pela pré-visualização e normalmente teriam que ser definidos sempre que uma
+      impressão fosse concluída. O PrintingTools NG resolve ambos os problemas.
     </p>
     <p>
       Um item que não é salvo pela pré-visualização são os intervalos de páginas. Um caso de uso típico é
-      quando se deseja imprimir apenas a primeira página de um e-mail por padrão. Normalmente, seria
+      quando se deseja imprimir apenas a primeira página de um e-mail como padrão. Normalmente, seria
       necessário alterar os intervalos de páginas a cada vez. Observe que, se um intervalo de páginas definido
-      no PrintingTools NG não for válido, por exemplo, se exceder o número de páginas, o intervalo precisará
-      ser corrigido na pré-visualização antes da impressão. Um intervalo de páginas definido como
-      &quot;1&quot; será sempre válido e imprimirá a primeira página da mensagem.
+      no PrintingTools NG não for válido, como exceder o número de páginas, o intervalo precisará ser
+      corrigido na pré-visualização antes da impressão. Um intervalo de páginas definido como &quot;1&quot;
+      sempre será válido e imprimirá a primeira página da mensagem.
     </p>
-    <p>Notas:</p>
-    <p>A opção de escala permite definir uma escala permanente.</p>
+    <p>Observações:</p>
+    <p>A opção de escala permite definir uma escala persistente.</p>
     <p>
-      Os intervalos de páginas são descritos da mesma forma que na pré-visualização. Exemplos: 1, 1-2, 3-4, 5.
-      Observe que, se um intervalo de páginas predefinido não for válido para uma determinada mensagem, a
+      Os intervalos de páginas são descritos da mesma forma que na pré-visualização. Exemplos são 1, 1-2, 3-4,
+      5. Observe que, se um intervalo de páginas predefinido não for válido para uma determinada mensagem, a
       pré-visualização exibirá um erro.
     </p>
     <p>
-      As margens podem ser definidas usando unidades apropriadas para a localidade do usuário, seja em
-      polegadas ou milímetros (in ou mm). Observe que, devido a erros de arredondamento, alguns valores em mm
-      podem ser salvos com pequenas diferenças.
+      As margens podem ser definidas usando unidades apropriadas para a localidade do usuário, em polegadas ou
+      milímetros (pol ou mm). Observe que, devido a erros de arredondamento, alguns valores em mm podem ser
+      salvos com pequenas diferenças.
     </p>
     <p></p>
     <p>
       Os cabeçalhos e rodapés podem ser configurados para incluir diversas variáveis de mensagem listadas
-      abaixo. Além disso, também é possível incluir texto arbitrário. Para imprimir sem cabeçalhos ou rodapés
-      e economizar espaço de impressão, basta deixar todos os campos em branco.
+      abaixo. Além disso, texto arbitrário também pode ser incluído. Para não imprimir cabeçalhos ou rodapés e
+      economizar espaço de impressão, basta deixar todos os campos em branco.
     </p>
     <div class="indent1">
       <li>&amp;D = Data de impressão</li>
@@ -502,75 +490,76 @@
       <li>&amp;P = Número da página</li>
       <li>&amp;PT = Número da página com total (“3 de 5”)</li>
       <li>&amp;T = Título da página (Assunto da mensagem)</li>
-      <li>&amp;U = URL (O URL da mensagem)</li>
+      <li>&amp;U = URL (A URL da mensagem)</li>
     </div>
     <h2 id="advanced_options_help">Opções avançadas</h2>
     <p>
-      Essas são opções que permitem configurar itens de impressão além das configurações básicas da interface
-      do usuário. As opções são definidas nas opções avançadas da guia Diversos e são representadas por tags
-      separadas por espaço.<br />
-      As opções de tags e formatos são apresentadas abaixo:<br /><br />
-      <b>Adicione o ID da mensagem ao final da tag de cabeçalho:</b><br /><br />
-      <b>adicionarIdDaMensagemAoHdr</b><br /><br />
-      <b>Defina a largura da coluna para a tag de cabeçalho:</b><br /><br />
+      Estas são opções que permitem definir itens de impressão além das configurações básicas da interface do
+      usuário. As opções são definidas nas Opções avançadas na aba Diversos e são tags separadas por
+      espaços.<br />
+      As tags e formatos das opções são fornecidos abaixo:<br /><br />
+      <b>Adicione o Message-ID ao final da tag de cabeçalhos:</b><br /><br />
+      <b>adicionarIdDaMensagemAoHDr</b><br /><br />
+      <b>Defina a largura da coluna para a tag de cabeçalhos:</b><br /><br />
       <b>hdrColWidth: <i>nnn</i></b> Onde <i>nnn</i> é o número de pixels<br /><br />
-      <b>Margens das bordas do cabeçalho e rodapé:</b><br /><br />
+      <b>Margens de cabeçalho e rodapé:</b><br /><br />
       P: <i>nome-da-impressora</i> ::S: <i>nome-da-opção</i> = <i>valor</i><br /><br />
-      O nome da impressora tem os espaços substituídos por sublinhados e a opção integrada &quot;Salvar em
-      PDF&quot; é Mozilla_Save_to_PDF.<br /><br />
+      O nome da impressora tem os espaços substituídos por sublinhados e o Salvar em PDF integrado é
+      Mozilla_Save_to_PDF<br /><br />
       Outro exemplo: Microsoft_Print_to_PDF<br /><br />
-      As possibilidades atuais de nome de opção são:<br />
+      As possibilidades atuais de nomes de opções são:<br />
       <span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br /><br />
-      <span class="notranslate">edges</span> é uma pseudo-opção que define todas as margens das bordas com o
-      mesmo valor. As margens das bordas são em polegadas.<br /><br />
+      <span class="notranslate">edges</span> é uma pseudoopção que define todas as margens das bordas com o
+      mesmo valor. As margens das bordas são expressas em polegadas.<br /><br />
       Exemplos:<br /><br />
-      P:Mozilla_Save_to_PDF::S:edges=0.25<br />
-      P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
-      Se alguém quiser definir todas as margens laterais para 0,10 polegadas, exceto a margem superior
-      (edgeTop) para 0,25 polegadas, digite o seguinte:<br /><br />
-      P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+      P:Mozilla_Salvar_em_PDF::S:edges=0,25<br />
+      P:Microsoft_Imprimir_em_PDF::S:edgeTop=0.1<br /><br />
+      Se você quiser definir todas as margens da borda para 0,10 polegadas, exceto a edgeTop para 0,25
+      polegadas, digite o seguinte:<br /><br />
+      P:Mozilla_Salvar_em_PDF::S:edges=0,10 P:Mozilla_Salvar_em_PDF::S:edgeTop=0,25
     </p>
     <h2>Apoiar</h2>
     <p>
-      Por favor, relate problemas ou solicitações de recursos no repositório GitHub da extensão:
-      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
+      Publique problemas ou solicitações de recursos no repositório de extensões do GitHub:
+      <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues"
+        >Problemas do PrintingTools NG</a
       ><br /><br />
-      Ao relatar erros, inclua as seguintes informações para ajudar a solucionar os problemas:<br />
+      Em problemas de bug, inclua as seguintes informações para ajudar a resolver os problemas:<br />
       - Versão PrintingTools NG<br />
       - Versão Thunderbird<br />
       - Sistema operacional e versão<br />
-      - Saída de depuração (copie do Console de Depuração - acesse com Control-Shift-J)<br />
-      - Uma descrição das etapas que levaram ao problema.<br />
+      - Saída de depuração (cópia do console de depuração - acesso com Control-Shift-J)<br />
+      - Uma descrição das etapas que levaram ao problema<br />
     </p>
     <h2 id="debug_options_help">Opções de depuração</h2>
     <p>
       As opções de depuração são um conjunto de palavras-chave inseridas como uma lista separada por espaços.
-      Essas opções são normalmente usadas para exibir a saída de depuração no console, mas também podem ser
-      usadas para testes ou diferentes modos de operação.
+      As opções são normalmente usadas para saída de depuração do console, mas também podem ser usadas para
+      testes ou modos diferentes.
     </p>
     <div class="indent1">
       <li>
-        <code class="notranslate">initialsource</code> - exibe o código-fonte da mensagem antes que o PTNG
-        faça qualquer formatação.
+        <code class="notranslate">initialsource</code> - mostra a fonte da mensagem antes que o PTNG faça
+        qualquer formatação
       </li>
-      <li><code class="notranslate">finaloutput</code> - mostra a mensagem final</li>
-      <li><code class="notranslate">pdfoutput</code> - saída de depuração para saída de mensagens PDF</li>
+      <li><code class="notranslate">finaloutput</code> - mostra a saída da mensagem final</li>
+      <li><code class="notranslate">pdfoutput</code> - saída de depuração para saída de mensagem em PDF</li>
       <li>
         <code class="notranslate">printsettings</code> - saída de depuração para opções de impressão e página
       </li>
       <li>
-        <code class="notranslate">helpinwin</code> - opção para exibir a ajuda em uma janela em vez da aba
-        padrão.
+        <code class="notranslate">helpinwin</code> - sinalizador de modo para mostrar ajuda em uma janela em
+        vez do padrão em uma guia
       </li>
     </div>
     <h2>Créditos</h2>
     <div class="indent1">
-      <li>PrintingTools NG é baseado na extensão original de Paolo &quot;Kosmos&quot;.</li>
+      <li>PrintingTools NG é baseado na extensão original de Paolo &quot;Kosmos&quot;</li>
       <li>List.js por Jonny Strömberg https://listjs.com</li>
       <li>Latinize.js por Jakub Dundalek https://github.com/dundalek/latinize</li>
     </div>
     <p>
-      Agradecemos aos seguintes usuários pelas sugestões de melhoria e pela ajuda nos testes:<br /><br />
+      Agradecemos aos seguintes usuários pelas sugestões de melhorias e ajuda nos testes:<br /><br />
       - <code class="notranslate">@kiki-ja (major release and feature management help)</code><br />
       - <code class="notranslate">@RRoenn</code><br />
       - <code class="notranslate">@tidebre67</code><br />

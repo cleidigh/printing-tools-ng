@@ -7,34 +7,25 @@
     <title>Hjælp til PrintingTools NG</title>
   </head>
   <body>
-    <table style="width: 100%">
+    <table style="width: 100%;">
       <tr>
-        <td style="vertical-align: top">
-          <div style="font-size: 1.8em; font-weight: bold">Hjælp til PrintingTools NG</div>
-          <div id="extVersion" style="padding-left: 4px">v2.2.1</div>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">Hjælp til PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px">
+        <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px">Udgivelsesnoter:</h3>
+    <h3 id="release_notes" style="padding-left: 4px;">Udgivelsesnoter:</h3>
     <p>
-      <b
-        >VIGTIG: OPDATER IKKE TIL THUNDERBIRD V147, HVIS DU HAR BRUG FOR PDF-EKSPORT ELLER UNDERSTØTTE TIL
-        UDSKRIVNING AF FLERE MEDDELELSER.</b
-      ><br />
-      Der er en grundlæggende Thunderbird-fejl, der NOGEN GANGE forårsager et nedbrud, når man eksporterer
-      PDF&#39;er eller udskriver flere beskeder uden forhåndsvisning. Hvornår dette bliver rettet i
-      Thunderbird er ukendt. Jeg har dog indsendt fejlen, og den er allerede blevet undersøgt, men det er
-      desværre usandsynligt, at den bliver rettet i Thunderbird v147.<br />
-      Jeg prøver at finde ud af, om jeg fremadrettet kun vil opdatere PrintingTools NG til ESR-kanalen. Jeg
-      kan ikke have den slags fejl i fremtiden. Det kan være nødvendigt at prøve uofficielle builds, jeg er
-      ikke sikker. Hvis du har brug for PrintingTools NG, skal du forblive på ESR-kanalen eller rulle tilbage
-      til ESR-kanalen for at sikre kontinuitet. Jeg vil snart poste rollback-instruktioner i
-      Github-problemsektionen.<br /><br />
-      Beklager, dette er uden for min kontrol.<br /><br />
-      Kristoffer<br />
+      <b>Vigtig bemærkning:</b> Fra udgivelsen af Thunderbird v136 vil Mozilla udgive månedlige versioner. Jeg
+      kan muligvis ikke udgive PrintingTools NG hver måned. Tjek venligst, før du opdaterer Thunderbird, om
+      der er en kompatibel PrintingTools NG-opdatering tilgængelig.<br /><br />
+      Kristoffer<br /><br />
+      - Rettelse: OK-knappen er altid deaktiveret for lokaliteter, der bruger komma som decimaltegn - Ændring
+      af Thunderbird for HTML-input
     </p>
     <br />
     <h2 id="main_help">Oversigt over PrintingTools NG</h2>
@@ -145,7 +136,7 @@
       Portering af strftime() af TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px">Beskrivelser af konverteringssekvenser</h3>
+    <h3 style="margin-left: 30px;">Beskrivelser af konverteringssekvenser</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -244,7 +235,7 @@
         </tr>
         <tr>
           <td><code class="code1">%n</code></td>
-          <td>Måned som et decimaltal (interval 1 til 12).</td>
+          <td>Måned som et decimaltal (område 1 til 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%M</code></td>
@@ -343,7 +334,7 @@
         <code class="code1">%D</code> - ikke implementeret (brug <code class="code1">%m/%d/%y</code> eller
         <code class="code1">%d/%m/%y</code> )
       </li>
-      <li><code class="code1">%e</code> - mellemrum tilføjes ikke</li>
+      <li><code class="code1">%e</code> - mellemrum er ikke tilføjet</li>
       <li><code class="code1">%E</code> - ikke implementeret</li>
       <li><code class="code1">%h</code> - ikke implementeret (brug <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - mellemrum tilføjes ikke</li>
@@ -372,7 +363,7 @@
     </p>
     <p />
     <p>
-      Aktiver PDF-outputmappen, og vælg en mappe til lagringsplaceringen. Outputfilnavnet vil følge det
+      Aktivér PDF-outputmappen, og vælg en mappe til lagringsplaceringen. Outputfilnavnet vil følge det
       konfigurerede filnavnformat.
     </p>
     <p />
@@ -387,7 +378,7 @@
     <p />
     <p>Eksempler</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> - Standardformatet for emnet i e-mailen<br />
+      <span class="notranslate"><code>${subject}</code></span> - Standardformatet, emnet for e-mailen<br />
       <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Brug det
       brugerdefinerede datoformat i stedet for standard<br />
       <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Med noget
@@ -405,7 +396,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${sender}</code></td>
-        <td>Navnet på beskedens afsender.</td>
+        <td>Navnet på afsenderen af beskeden.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${recipient}</code></td>

@@ -7,34 +7,25 @@
     <title>Hjelp med PrintingTools NG</title>
   </head>
   <body>
-    <table style="width: 100%">
+    <table style="width: 100%;">
       <tr>
-        <td style="vertical-align: top">
-          <div style="font-size: 1.8em; font-weight: bold">Hjelp med PrintingTools NG</div>
-          <div id="extVersion" style="padding-left: 4px">v2.2.1</div>
+        <td style="vertical-align: top;">
+          <div style="font-size: 1.8em; font-weight: bold;">Hjelp med PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px">
+        <td style="text-align: right; padding-right: 30px;">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px">Utgivelsesmerknader:</h3>
+    <h3 id="release_notes" style="padding-left: 4px;">Utgivelsesmerknader:</h3>
     <p>
-      <b
-        >HASTENDE: IKKE OPPDATER TIL THUNDERBIRD V147 HVIS DU TRENGER PDF-EKSPORT ELLER STØTTE FOR UTSKRIFT AV
-        FLERE MELDINGER.</b
-      ><br />
-      Det finnes en kjernefeil i Thunderbird som NOEN GANGER forårsaker krasj når man eksporterer PDF eller
-      skriver ut flere meldinger uten forhåndsvisning. Når dette vil bli fikset i Thunderbird er ukjent. Jeg
-      sendte imidlertid inn feilen, og den har allerede blitt undersøkt, men det er dessverre usannsynlig at
-      den blir fikset i Thunderbird v147.<br />
-      Jeg prøver å finne ut om jeg bare skal oppdatere PrintingTools NG for ESR-kanalen fremover. Jeg kan ikke
-      få slike feil i fremtiden. Det kan være nødvendig å prøve uoffisielle versjoner, jeg er ikke sikker.
-      Hvis du trenger PrintingTools NG, må du forbli på ESR-kanalen eller rulle tilbake til ESR-kanalen for å
-      sikre kontinuitet. Jeg vil snart legge ut instruksjoner for tilbakestilling i
-      Github-problemseksjonen.<br /><br />
-      Beklager, dette er utenfor min kontroll.<br /><br />
-      Kristoffer<br />
+      <b>Viktig merknad:</b> Fra og med utgivelsen av Thunderbird v136 vil Mozilla gjøre månedlige utgivelser.
+      Jeg kan kanskje ikke gi ut PrintingTools NG hver måned. Sjekk før du oppdaterer Thunderbird for å se om
+      det finnes en kompatibel PrintingTools NG-oppdatering tilgjengelig.<br /><br />
+      Kristoffer<br /><br />
+      – Fiksing: OK-knappen er alltid deaktivert for språkinnstillinger som bruker komma som desimaltegn –
+      Endring i Thunderbird for HTML-inndata
     </p>
     <br />
     <h2 id="main_help">Oversikt over PrintingTools NG</h2>
@@ -66,9 +57,9 @@
       standard Print. Bruk Ctrl-P og Command-P på Mac på Windows og Linux. Det er også mulig å åpne
       dialogboksen Alternativer med Ctrl-Shift-P.
     </p>
-    <h3 class="indent0">Følgende er et eksempel på noen av funksjonene for formatering av overskrifter:</h3>
+    <h3 class="indent0">Følgende er et eksempel på noen av funksjonene for formatering av overskriften:</h3>
     <div class="indent1">
-      <li>Tilpasset kantlinjestil for topptekst ved hjelp av CSS (øverst og nederst, blå)</li>
+      <li>Tilpasset kantlinjestil for topptekst ved hjelp av CSS (topp og bunn, blå)</li>
       <li>Bakgrunnsfarge for overskrift</li>
       <li>Justerte overskrifter</li>
       <li>Tilpasset overskriftsrekkefølge</li>
@@ -143,7 +134,7 @@
       Portering av strftime() av TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px">Beskrivelser av konverteringssekvenser</h3>
+    <h3 style="margin-left: 30px;">Beskrivelser av konverteringssekvenser</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -170,7 +161,7 @@
         </tr>
         <tr>
           <td><code class="code1">%c</code></td>
-          <td>Foretrukket dato- og klokkeslettrepresentasjon (UTC) for gjeldende språk.</td>
+          <td>Foretrukket dato- og klokkeslettrepresentasjon (UTC) for gjeldende språkinnstilling.</td>
         </tr>
         <tr>
           <td><code class="code1">%C</code></td>
@@ -472,7 +463,8 @@
     </p>
     <p>
       Marginene kan angis med enheter som passer for brukerens lokale innstilling, enten tommer eller
-      millimeter (in eller mm). Merk at på grunn av avrundingsfeil kan noen mm-verdier lagres med små avvik.
+      millimeter (in eller mm). Merk at på grunn av avrundingsfeil kan noen mm-verdier lagres med små
+      forskjeller.
     </p>
     <p></p>
     <p>
