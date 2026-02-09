@@ -24,17 +24,19 @@
 
 	<h3 id="release_notes" style="padding-left: 4px;">Release Notes:</h3>
 	<p>
-		<b>Important Note:</b> As of the release of Thunderbird v136, Mozilla will be doing 
-		monthly releases. I may not be able to release PrintingTools NG every month.
-		Please check before you update Thunderbird to see if there is a compatible
-		PrintingTools NG update available.<br><br>
+		<b>Note : Thunderbird v148 has fixed the issue with PDF Export.
+			I will do my best to continue supporting the release channel,
+			however, please check for PrintingTools NG support before
+			updating Thunderbird.</b>
+		<br><br>
 
-		Christopher <br><br>
+		Change : Disable the option "Maximum length for text" as the default state.<br>
+		<br>
+		This option sets the maximum length for HTML '&lt;p&gt;' elements. This can cause
+		extra whitespace or blank lines in some layouts.
+		<br>
 
-		- Fix: OK button always disabled for locales using comma as decimal point<br>
- 		- Thunderbird change for HTML inputs<br>
-		
-</p>
+	</p>
 
 	<br>
 	<h2 id="main_help">PrintingTools NG Overview</h2>
@@ -48,9 +50,9 @@
 
 	<p>
 		The Print NG button is automatically added to the unified toolbar as of
-		Thunderbird v115. The button may also be added to the mail header toolbar 
-		to enable both printing	access as well as options from the mailpane. 
-		Additionally options can be accessed by the wrench button for the extension 
+		Thunderbird v115. The button may also be added to the mail header toolbar
+		to enable both printing access as well as options from the mailpane.
+		Additionally options can be accessed by the wrench button for the extension
 		on the addon tab.
 	</p>
 
@@ -61,27 +63,27 @@
 	<p>
 		Follow these steps to place the button on the mail header toolbar:
 	</p>
-	
+
 	<div class="indent1">
 		<li>Click the More button on the mail header toolbar</li>
 		<li>Select Custom... This will open the Customize Toolbar window</li>
 		<li>Locate the Print NG button </li>
 		<li>Drag and drop the button to your desired location</li>
 		<li>Use the button for Print, Preview, Options and Help</li>
-		
+
 	</div>
 
 	<h3 class="indent0">PrintingTools NG keyboard shortcuts</h3>
 
 	<p>
 		PrintingTools remaps the standard Thunderbird Print shortcut to
-		invoke itself instead of the standard Print. On Windows and Linux 
+		invoke itself instead of the standard Print. On Windows and Linux
 		use Control-P and Command-P on Mac. It is also possible to open the Options
 		dialog with Control-Shift-P.
 
 	</p>
 	<h3 class="indent0">The following is an example of some of the header formatting features:</h3>
-	
+
 	<div class="indent1">
 		<li>Customized header border style using CSS (top and bottom, blue)</li>
 		<li>Header background color</li>
@@ -90,7 +92,7 @@
 		<li>Page title and message folder</li>
 		<li>Attachment list with icons in header</li>
 		<li>Fully customizable date format international formatting</li>
-		
+
 	</div>
 	<br>
 	<div class="indent0">
@@ -226,13 +228,13 @@
 			</tr>
 			<tr>
 				<td><code class="code1">%H</code></td>
-				<td>Hour as a decimal number using a 24-hour clock (range 00 to 23). See also <code
-						class="code1">%k</code>.</td>
+				<td>Hour as a decimal number using a 24-hour clock (range 00 to 23). See also <code class="code1">%k</code>.
+				</td>
 			</tr>
 			<tr>
 				<td><code class="code1">%I</code></td>
-				<td>Hour as a decimal number using a 12-hour clock (range 01 to 12). See also <code
-						class="code1">%l</code>.</td>
+				<td>Hour as a decimal number using a 12-hour clock (range 01 to 12). See also <code class="code1">%l</code>.
+				</td>
 			</tr>
 			<tr>
 				<td><code class="code1">%j</code></td>
@@ -240,13 +242,11 @@
 			</tr>
 			<tr>
 				<td><code class="code1">%k</code></td>
-				<td>Hour as a decimal number using a 24-hour clock (range 0 to 23). See also <code
-						class="code1">%H</code>.</td>
+				<td>Hour as a decimal number using a 24-hour clock (range 0 to 23). See also <code class="code1">%H</code>.</td>
 			</tr>
 			<tr>
 				<td><code class="code1">%l</code></td>
-				<td>Hour as a decimal number using a 12-hour clock (range 1 to 12). See also <code
-						class="code1">%I</code>.</td>
+				<td>Hour as a decimal number using a 12-hour clock (range 1 to 12). See also <code class="code1">%I</code>.</td>
 			</tr>
 			<tr>
 				<td><code class="code1">%m</code></td>
@@ -400,7 +400,7 @@
 		The table below describes the full set of tokens that can be used in the Filename Format.
 	</p>
 
-	
+
 
 	<table class="token-table">
 		<tr>
@@ -463,15 +463,15 @@
 
 	<h2 id="print_options_help">Print and Page Options</h2>
 	<p>
-		These options allow you to set the default printer as well as 
-		per printer page options. It is	also possible to set the silent mode where the preview dialog is
+		These options allow you to set the default printer as well as
+		per printer page options. It is also possible to set the silent mode where the preview dialog is
 		not shown and printing is done immediately.
 	</p>
 	<p>The page options allow you to set items when both preview
-		or printing is done. These options are persistent across 
-		printing. If options set in PrintingTools NG are changed 
+		or printing is done. These options are persistent across
+		printing. If options set in PrintingTools NG are changed
 		in the print preview they will not affect subsequent prints.
-		Some items are not available to be set in the preview dialog, 
+		Some items are not available to be set in the preview dialog,
 		these include the headers and footers.
 		Other items are not retained by the preview and normally would
 		have to be set each time a print is done. PrintingTools NG
@@ -481,10 +481,10 @@
 	<p>
 		One item not saved by the preview is the page ranges. A typical use case is where
 		one wishes to print just the first page of an email as the default.
-		normally one would have to make the page ranges change each time. Note 
-		if a page range set in PrintingTools NG is not valid such as exceeding 
-		the number of pages, the range will need to be corrected in the preview 
-		before printing. A page range set to "1" will always be valid and prints 
+		normally one would have to make the page ranges change each time. Note
+		if a page range set in PrintingTools NG is not valid such as exceeding
+		the number of pages, the range will need to be corrected in the preview
+		before printing. A page range set to "1" will always be valid and prints
 		the first page of the message.
 	</p>
 	<p>Notes:</p>
@@ -499,7 +499,7 @@
 	</p>
 	<p></p>
 	<p>The headers and footers can be set to include various message variables
-		listed below. Additionally arbitrary text can also be included. To print 
+		listed below. Additionally arbitrary text can also be included. To print
 		no headers or footers and save printing space, just make all fields blank.
 	</p>
 	<div class="indent1">
@@ -512,42 +512,42 @@
 	</div>
 
 	<h2 id="advanced_options_help">Advanced Options</h2>
-<p>
-	These are options that allow one to set printing items beyond the
-	basic UI settings. 	The options are set in the Advanced options in the Misc tab
-	and are space separated tags.<br>
-	The option tags and formats are given below:<br><br>
-	
-	<b>Add the Message-ID to the end of headers tag:</b><br><br>
-	<b>&nbsp;&nbsp;addMessageIdToHdr</b><br><br>
+	<p>
+		These are options that allow one to set printing items beyond the
+		basic UI settings. The options are set in the Advanced options in the Misc tab
+		and are space separated tags.<br>
+		The option tags and formats are given below:<br><br>
 
-	<b>Set the column width for the headers tag:</b><br><br>
-	<b>&nbsp;&nbsp;hdrColWidth:<i>nnn</i> </b> Where <i>nnn</i> is the number of pixels<br><br>
+		<b>Add the Message-ID to the end of headers tag:</b><br><br>
+		<b>&nbsp;&nbsp;addMessageIdToHdr</b><br><br>
 
-	<b>Header and footer edge margins:</b><br><br>
-	P:<i>printer-name</i>::S:<i>option-name</i>=<i>value</i><br><br>
-	
-	The printer name has the spaces replaced with underscores and 
-	the built in Save to PDF is Mozilla_Save_to_PDF<br><br>
-	
-	Another example: Microsoft_Print_to_PDF<br><br>
-	
-	The current option-name possibilities are:<br>
-	<span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br><br>
-	
-	<span class="notranslate">edges</span> is a pseudo option that sets all the edge margins to the same value.
-	The edge margins are in inches.<br><br>
-	
-	Examples:<br><br>
-	
-	P:Mozilla_Save_to_PDF::S:edges=0.25<br>
-	P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br><br>
-	
-	If one wanted to set all the edge margins to 0.10 inches except the
-	edgeTop to 0.25 inches, enter the following :<br><br>
-	
-	P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
-</p>
+		<b>Set the column width for the headers tag:</b><br><br>
+		<b>&nbsp;&nbsp;hdrColWidth:<i>nnn</i> </b> Where <i>nnn</i> is the number of pixels<br><br>
+
+		<b>Header and footer edge margins:</b><br><br>
+		P:<i>printer-name</i>::S:<i>option-name</i>=<i>value</i><br><br>
+
+		The printer name has the spaces replaced with underscores and
+		the built in Save to PDF is Mozilla_Save_to_PDF<br><br>
+
+		Another example: Microsoft_Print_to_PDF<br><br>
+
+		The current option-name possibilities are:<br>
+		<span class="notranslate">edges, edgeTop, edgeBottom, edgeLeft, edgeRight</span><br><br>
+
+		<span class="notranslate">edges</span> is a pseudo option that sets all the edge margins to the same value.
+		The edge margins are in inches.<br><br>
+
+		Examples:<br><br>
+
+		P:Mozilla_Save_to_PDF::S:edges=0.25<br>
+		P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br><br>
+
+		If one wanted to set all the edge margins to 0.10 inches except the
+		edgeTop to 0.25 inches, enter the following :<br><br>
+
+		P:Mozilla_Save_to_PDF::S:edges=0.10 P:Mozilla_Save_to_PDF::S:edgeTop=0.25
+	</p>
 
 	<h2>Support</h2>
 	<p>
@@ -565,8 +565,8 @@
 
 	<h2 id="debug_options_help">Debug Options</h2>
 	<p>
-		The debug options are a set of keywords that are entered as a space separated 
-		list. The options are typically used for console debugging output, but may also 
+		The debug options are a set of keywords that are entered as a space separated
+		list. The options are typically used for console debugging output, but may also
 		be used for testing or different modes.
 
 	</p>
@@ -575,8 +575,9 @@
 		<li><code class="notranslate">finaloutput</code> - show the final message output</li>
 		<li><code class="notranslate">pdfoutput</code> - debug output for PDF message output</li>
 		<li><code class="notranslate">printsettings</code> - debug output for print and page options</li>
-		<li><code class="notranslate">helpinwin</code> - mode flag to show help in a window instead of the standard in a tab</li>
-		
+		<li><code class="notranslate">helpinwin</code> - mode flag to show help in a window instead of the standard in a tab
+		</li>
+
 	</div>
 
 	<h2>Credits</h2>
@@ -610,7 +611,7 @@
 		- <code class="notranslate">@pechh</code><br>
 	</p>
 
-<script type="text/javascript" src="../../help.js" ></script>
+	<script type="text/javascript" src="../../help.js"></script>
 </body>
 
 </html>
