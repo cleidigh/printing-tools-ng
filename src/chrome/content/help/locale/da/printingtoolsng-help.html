@@ -7,25 +7,27 @@
     <title>Hjælp til PrintingTools NG</title>
   </head>
   <body>
-    <table style="width: 100%;">
+    <table style="width: 100%">
       <tr>
-        <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">Hjælp til PrintingTools NG</div>
-          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
+        <td style="vertical-align: top">
+          <div style="font-size: 1.8em; font-weight: bold">Hjælp til PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px">v2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px;">
+        <td style="text-align: right; padding-right: 30px">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Udgivelsesnoter:</h3>
+    <h3 id="release_notes" style="padding-left: 4px">Udgivelsesnoter:</h3>
     <p>
-      <b>Vigtig bemærkning:</b> Fra udgivelsen af Thunderbird v136 vil Mozilla udgive månedlige versioner. Jeg
-      kan muligvis ikke udgive PrintingTools NG hver måned. Tjek venligst, før du opdaterer Thunderbird, om
-      der er en kompatibel PrintingTools NG-opdatering tilgængelig.<br /><br />
-      Kristoffer<br /><br />
-      - Rettelse: OK-knappen er altid deaktiveret for lokaliteter, der bruger komma som decimaltegn - Ændring
-      af Thunderbird for HTML-input
+      <b
+        >Bemærk: Thunderbird v148 har løst problemet med PDF-eksport. Jeg vil gøre mit bedste for fortsat at
+        understøtte udgivelseskanalen, men tjek venligst om PrintingTools NG understøtter det, før du
+        opdaterer Thunderbird.</b
+      ><br /><br />
+      Ændring: Deaktiver indstillingen &quot;Maksimal tekstlængde&quot; som standardtilstand.<br /><br />
+      Denne indstilling angiver den maksimale længde for HTML &#39;&lt;p&gt;&#39;-elementer. Dette kan
+      forårsage ekstra mellemrum eller tomme linjer i nogle layouts.<br />
     </p>
     <br />
     <h2 id="main_help">Oversigt over PrintingTools NG</h2>
@@ -136,7 +138,7 @@
       Portering af strftime() af TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Beskrivelser af konverteringssekvenser</h3>
+    <h3 style="margin-left: 30px">Beskrivelser af konverteringssekvenser</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -225,7 +227,7 @@
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            Time som et decimaltal ved brug af et 12-timers ur (interval 1 til 12). Se også
+            Time som et decimaltal ved brug af et 12-timers ur (område 1 til 12). Se også
             <code class="code1">%I</code> .
           </td>
         </tr>
@@ -235,7 +237,7 @@
         </tr>
         <tr>
           <td><code class="code1">%n</code></td>
-          <td>Måned som et decimaltal (område 1 til 12).</td>
+          <td>Måned som et decimaltal (interval 1 til 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%M</code></td>
@@ -334,7 +336,7 @@
         <code class="code1">%D</code> - ikke implementeret (brug <code class="code1">%m/%d/%y</code> eller
         <code class="code1">%d/%m/%y</code> )
       </li>
-      <li><code class="code1">%e</code> - mellemrum er ikke tilføjet</li>
+      <li><code class="code1">%e</code> - mellemrum tilføjes ikke</li>
       <li><code class="code1">%E</code> - ikke implementeret</li>
       <li><code class="code1">%h</code> - ikke implementeret (brug <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - mellemrum tilføjes ikke</li>

@@ -7,25 +7,27 @@
     <title>PrintingTools NG Súgó</title>
   </head>
   <body>
-    <table style="width: 100%;">
+    <table style="width: 100%">
       <tr>
-        <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">PrintingTools NG Súgó</div>
-          <div id="extVersion" style="padding-left: 4px;">v2.2.1</div>
+        <td style="vertical-align: top">
+          <div style="font-size: 1.8em; font-weight: bold">PrintingTools NG Súgó</div>
+          <div id="extVersion" style="padding-left: 4px">v2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px;">
+        <td style="text-align: right; padding-right: 30px">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Kiadási megjegyzések:</h3>
+    <h3 id="release_notes" style="padding-left: 4px">Kiadási megjegyzések:</h3>
     <p>
-      <b>Fontos megjegyzés:</b> A Thunderbird v136 megjelenésétől kezdve a Mozilla havi frissítéseket fog
-      kiadni. Előfordulhat, hogy nem tudom minden hónapban kiadni a PrintingTools NG-t. Kérjük, a Thunderbird
-      frissítése előtt ellenőrizze, hogy elérhető-e kompatibilis PrintingTools NG frissítés.<br /><br />
-      Kristóf<br /><br />
-      - Javítás: Az OK gomb mindig letiltva van, ha a területi beállításokban vesszőt használnak
-      tizedesjelként - Thunderbird változás HTML bemenetekhez
+      <b
+        >Megjegyzés: A Thunderbird v148-as verziójában kijavították a PDF exportálás problémáját. Mindent
+        megteszek, hogy továbbra is támogassam a kiadási csatornát, azonban kérlek, a Thunderbird frissítése
+        előtt ellenőrizd a PrintingTools NG támogatását.</b
+      ><br /><br />
+      Változás: A „Szöveg maximális hossza” opció letiltása alapértelmezett állapotként.<br /><br />
+      Ez a beállítás a HTML &#39;&lt;p&gt;&#39; elemek maximális hosszát állítja be. Ez egyes elrendezésekben
+      extra szóközöket vagy üres sorokat okozhat.<br />
     </p>
     <br />
     <h2 id="main_help">PrintingTools NG áttekintése</h2>
@@ -131,14 +133,14 @@
     </table>
     <br />
     <p>
-      Az egyéni dátumformátum a <code>strftime()</code> Unix-szerű funkcionalitásával megegyező % sorozatokat
+      Az egyéni dátumformátum az <code>strftime()</code> Unix-szerű funkcionalitásával megegyező % sorozatokat
       használ.
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       függvény JavaScript portján alapul, amely egy dátum és idő formázására szolgáló függvény.<br />
       Az strftime() portolása TH Doan által (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Konverziós sorozat leírásai</h3>
+    <h3 style="margin-left: 30px">Konverziós sorozat leírásai</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -183,7 +185,7 @@
         </tr>
         <tr>
           <td><code class="code1">%F</code></td>
-          <td>ISO 8601 dátumformátum (egyenértékű <code class="code1">%Y-%m-%d</code> formátummal).</td>
+          <td>ISO 8601 dátumformátum (egyenértékű a <code class="code1">%Y-%m-%d</code> formátummal).</td>
         </tr>
         <tr>
           <td><code class="code1">%G</code></td>
@@ -208,7 +210,7 @@
         <tr>
           <td><code class="code1">%I</code></td>
           <td>
-            Az óra decimális számként, 12 órás formátumban (01 és 12 közötti tartomány). Lásd még:
+            Az óra decimális számként, 12 órás formátumban (01 és 12 közötti tartomány). Lásd még
             <code class="code1">%l</code> .
           </td>
         </tr>
@@ -341,7 +343,7 @@
       <li><code class="code1">%k</code> - szóköz nem kerül hozzáadásra</li>
       <li>
         <code class="code1">%n</code> - mint <code class="code1">%m</code> , de nincs kezdő nulla (sortöréshez
-        <code class="code1">\n</code> karaktert használ)
+        használj <code class="code1">\n</code> karaktert)
       </li>
       <li><code class="code1">%O</code> - nincs megvalósítva</li>
       <li>
@@ -357,10 +359,7 @@
       <li><code class="code1">%U</code> - nincs megvalósítva</li>
       <li><code class="code1">%W</code> - nincs megvalósítva</li>
       <li><code class="code1">%+</code> - nincs megvalósítva</li>
-      <li>
-        <code class="code1">%%</code> - nincs megvalósítva (használja
-        <code class="code1">%</code> karakterláncot)
-      </li>
+      <li><code class="code1">%%</code> - nincs megvalósítva (használja <code class="code1">%</code> )</li>
     </ul>
     <br />
     <h2 id="pdf_output_help">PDF kimenet és automatikus fájlnevezés</h2>
@@ -432,7 +431,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
-        <td>Az utótag szöveges beállítási értéke.</td>
+        <td>Az utótag szöveges opció értéke.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>

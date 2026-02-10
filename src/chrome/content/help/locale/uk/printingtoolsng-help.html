@@ -7,25 +7,27 @@
     <title>Довідка PrintingTools NG</title>
   </head>
   <body>
-    <table style="width: 100%;">
+    <table style="width: 100%">
       <tr>
-        <td style="vertical-align: top;">
-          <div style="font-size: 1.8em; font-weight: bold;">Довідка PrintingTools NG</div>
-          <div id="extVersion" style="padding-left: 4px;">версія 2.2.1</div>
+        <td style="vertical-align: top">
+          <div style="font-size: 1.8em; font-weight: bold">Довідка PrintingTools NG</div>
+          <div id="extVersion" style="padding-left: 4px">версія 2.2.1</div>
         </td>
-        <td style="text-align: right; padding-right: 30px;">
+        <td style="text-align: right; padding-right: 30px">
           <img src="resource://printingtoolsng/icons/printing-tools-ng-icon-64px.png" />
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px;">Примітки до випуску:</h3>
+    <h3 id="release_notes" style="padding-left: 4px">Примітки до випуску:</h3>
     <p>
-      <b>Важливе зауваження:</b> З моменту випуску Thunderbird версії 136, Mozilla випускатиме щомісячні
-      релізи. Можливо, я не зможу випускати PrintingTools NG щомісяця. Будь ласка, перевірте перед оновленням
-      Thunderbird, чи доступне сумісне оновлення PrintingTools NG.<br /><br />
-      Крістофер<br /><br />
-      - Виправлення: кнопка &quot;ОК&quot; завжди була недоступна для локалей, що використовують кому як
-      десяткову точку - Зміна Thunderbird для HTML-вводу
+      <b
+        >Примітка: У Thunderbird v148 виправлено проблему з експортом PDF. Я зроблю все можливе, щоб
+        продовжувати підтримувати канал випуску, проте, будь ласка, перевірте підтримку PrintingTools NG перед
+        оновленням Thunderbird.</b
+      ><br /><br />
+      Зміна: Вимкнути опцію «Максимальна довжина тексту» як стан за замовчуванням.<br /><br />
+      Цей параметр встановлює максимальну довжину для елементів HTML &#39;&lt;p&gt;&#39;. Це може призвести до
+      появи додаткових пробілів або порожніх рядків у деяких макетах.<br />
     </p>
     <br />
     <h2 id="main_help">Огляд PrintingTools NG</h2>
@@ -136,7 +138,7 @@
       Порт strftime() від TH Doan (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
-    <h3 style="margin-left: 30px;">Описи послідовності конверсій</h3>
+    <h3 style="margin-left: 30px">Описи послідовності конверсій</h3>
     <table class="dateformat-table">
       <thead>
         <tr>
@@ -499,7 +501,7 @@
       <b>Додайте Message-ID до кінця тегу headers:</b><br /><br />
       <b>додатиMessageIdToHdr</b><br /><br />
       <b>Встановіть ширину стовпця для тегу headers:</b><br /><br />
-      <b>hdrColWidth: <i>nnn</i></b> , де <i>nnn</i> – кількість пікселів<br /><br />
+      <b>hdrColWidth: <i>nnn,</i></b> де <i>nnn</i> – кількість пікселів<br /><br />
       <b>Поля верхнього та нижнього колонтитулів:</b><br /><br />
       P: <i>ім&#39;я-принтера</i> ::S: <i>ім&#39;я-опції</i> = <i>значення</i><br /><br />
       У назві принтера пробіли замінено на символи підкреслення, а вбудована функція збереження у PDF —
