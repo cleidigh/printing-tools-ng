@@ -37,7 +37,7 @@ pref("extensions.printingtoolsng.headers.add_name_type", 0);
 pref("extensions.printingtoolsng.change_branch", true);
 pref("extensions.printingtoolsng.headers.align", true);
 pref("extensions.PrintingToolsNG@cleidigh.kokkini.net.description", "chrome://printingtoolsng/locale/printingtoolsng.properties");
-pref("extensions.printingtoolsng.pre_max_length", 90);
+pref("extensions.printingtoolsng.pre_max_length", -1);
 pref("extensions.printingtoolsng.images.resize", true);
 pref("extensions.printingtoolsng.show_options_button", true);
 pref("extensions.printingtoolsng.add_received_date", false);
