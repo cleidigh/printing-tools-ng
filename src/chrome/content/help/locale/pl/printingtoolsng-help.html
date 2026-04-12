@@ -21,20 +21,13 @@
     <h3 id="release_notes" style="padding-left: 4px">Informacje o wydaniu:</h3>
     <p>
       <b
-        >PILNE: NIE AKTUALIZUJ WERSJI THUNDERBIRD DO WERSJI 147, JEŚLI POTRZEBUJESZ EKSPORTU DO FORMATU PDF
-        LUB OBSŁUGI DRUKOWANIA WIELU WIADOMOŚCI.</b
-      ><br />
-      Istnieje podstawowy błąd Thunderbirda, który CZASAMI powoduje awarię podczas eksportu do PDF-ów lub
-      drukowania wielu wiadomości bez podglądu. Nie wiadomo, kiedy zostanie to naprawione w Thunderbirdzie.
-      Zgłosiłem jednak błąd i jest on już sprawdzany, ale niestety mało prawdopodobne, aby został naprawiony w
-      Thunderbirdzie w wersji 147.<br />
-      Próbuję ustalić, czy w przyszłości będę aktualizować PrintingTools NG tylko dla kanału ESR. Nie mogę
-      mieć takich błędów w przyszłości. Być może konieczne będzie wypróbowanie nieoficjalnych kompilacji, ale
-      nie jestem pewien. Jeśli potrzebujesz PrintingTools NG, będziesz musiał pozostać na kanale ESR lub
-      wycofać się do kanału ESR, aby zapewnić ciągłość. Wkrótce opublikuję instrukcje dotyczące wycofania w
-      sekcji problemów na GitHubie.<br /><br />
-      Przepraszam, to nie zależy ode mnie.<br /><br />
-      Krzysztof<br />
+        >Uwaga: Thunderbird v148 rozwiązał problem z eksportem PDF. Dołożę wszelkich starań, aby nadal
+        wspierać ten kanał dystrybucji, jednak przed aktualizacją Thunderbirda prosimy o sprawdzenie
+        dostępności PrintingTools NG.</b
+      ><br /><br />
+      Zmiana: Wyłącz opcję „Maksymalna długość tekstu” jako stan domyślny.<br /><br />
+      Ta opcja ustawia maksymalną długość elementów HTML „&lt;p&gt;”. Może to powodować powstawanie
+      dodatkowych odstępów lub pustych linii w niektórych układach.<br />
     </p>
     <br />
     <h2 id="main_help">Przegląd PrintingTools NG</h2>
@@ -133,7 +126,7 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>lokalizacja en-US, długi dzień/miesiąc</td>
+        <td>en-US locale, długi dzień/miesiąc</td>
       </tr>
     </table>
     <br />
@@ -274,8 +267,8 @@
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Dzień tygodnia w formacie dziesiętnym (zakres od 1 do 7), gdzie poniedziałek ma wartość 1. Zobacz
-            także <code class="code1">%w</code> .
+            Dzień tygodnia w formacie dziesiętnym (zakres od 1 do 7), przy czym poniedziałek ma wartość 1.
+            Zobacz także <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>
@@ -392,7 +385,7 @@
     <p />
     <p>Przykłady</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> – domyślny format tematu wiadomości e-mail<br />
+      <span class="notranslate"><code>${subject}</code></span> – domyślny format, temat wiadomości e-mail<br />
       <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> – Użyj niestandardowego
       formatu daty zamiast domyślnego<br />
       <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Z niestandardowym

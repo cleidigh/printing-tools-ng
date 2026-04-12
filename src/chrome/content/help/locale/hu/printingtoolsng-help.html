@@ -21,19 +21,13 @@
     <h3 id="release_notes" style="padding-left: 4px">Kiadási megjegyzések:</h3>
     <p>
       <b
-        >SÜRGŐS: NE FRISSÍTSEN THUNDERBIRD V147-ES VÁLTOZATRA, HA PDF EXPORTÁLÁSRA VAGY TÖBB ÜZENET
-        NYOMTATÁSÁNAK TÁMOGATÁSÁRA VAN SZÜKSÉGE.</b
-      ><br />
-      Van egy alapvető Thunderbird hiba, ami NÉHA összeomlást okoz PDF exportálás vagy több üzenet előnézet
-      nélküli nyomtatásakor. Nem tudni, hogy ez mikor lesz javítva a Thunderbirdben. Azonban beküldtem a
-      hibát, és már vizsgálják, de sajnos nem valószínű, hogy a Thunderbird 147-es verziójában javítják.<br />
-      Próbálom eldönteni, hogy a jövőben csak az ESR csatornára frissítsem-e a PrintingTools NG-t. A jövőben
-      nem fordulhatnak elő ilyen hibák. Szükséges lehet nem hivatalos verziókat kipróbálni, nem vagyok benne
-      biztos. Ha szükséged van a PrintingTools NG-re, akkor az ESR csatornán kell maradnod, vagy vissza kell
-      térned az ESR csatornára a folytonosság biztosítása érdekében. Hamarosan közzéteszem a visszaállítási
-      utasításokat a Github problémái részben.<br /><br />
-      Bocsánat, ez kívül esik az irányításomon.<br /><br />
-      Kristóf<br />
+        >Megjegyzés: A Thunderbird v148-as verziójában kijavították a PDF exportálás problémáját. Mindent
+        megteszek, hogy továbbra is támogassam a kiadási csatornát, azonban kérlek, a Thunderbird frissítése
+        előtt ellenőrizd a PrintingTools NG támogatását.</b
+      ><br /><br />
+      Változás: A „Szöveg maximális hossza” opció letiltása alapértelmezett állapotként.<br /><br />
+      Ez a beállítás a HTML &#39;&lt;p&gt;&#39; elemek maximális hosszát állítja be. Ez egyes elrendezésekben
+      extra szóközöket vagy üres sorokat okozhat.<br />
     </p>
     <br />
     <h2 id="main_help">PrintingTools NG áttekintése</h2>
@@ -437,7 +431,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
-        <td>Az utótag szöveges beállítási értéke.</td>
+        <td>Az utótag szöveges opció értéke.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>

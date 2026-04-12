@@ -21,20 +21,13 @@
     <h3 id="release_notes" style="padding-left: 4px">Udgivelsesnoter:</h3>
     <p>
       <b
-        >VIGTIG: OPDATER IKKE TIL THUNDERBIRD V147, HVIS DU HAR BRUG FOR PDF-EKSPORT ELLER UNDERSTØTTE TIL
-        UDSKRIVNING AF FLERE MEDDELELSER.</b
-      ><br />
-      Der er en grundlæggende Thunderbird-fejl, der NOGEN GANGE forårsager et nedbrud, når man eksporterer
-      PDF&#39;er eller udskriver flere beskeder uden forhåndsvisning. Hvornår dette bliver rettet i
-      Thunderbird er ukendt. Jeg har dog indsendt fejlen, og den er allerede blevet undersøgt, men det er
-      desværre usandsynligt, at den bliver rettet i Thunderbird v147.<br />
-      Jeg prøver at finde ud af, om jeg fremadrettet kun vil opdatere PrintingTools NG til ESR-kanalen. Jeg
-      kan ikke have den slags fejl i fremtiden. Det kan være nødvendigt at prøve uofficielle builds, jeg er
-      ikke sikker. Hvis du har brug for PrintingTools NG, skal du forblive på ESR-kanalen eller rulle tilbage
-      til ESR-kanalen for at sikre kontinuitet. Jeg vil snart poste rollback-instruktioner i
-      Github-problemsektionen.<br /><br />
-      Beklager, dette er uden for min kontrol.<br /><br />
-      Kristoffer<br />
+        >Bemærk: Thunderbird v148 har løst problemet med PDF-eksport. Jeg vil gøre mit bedste for fortsat at
+        understøtte udgivelseskanalen, men tjek venligst om PrintingTools NG understøtter det, før du
+        opdaterer Thunderbird.</b
+      ><br /><br />
+      Ændring: Deaktiver indstillingen &quot;Maksimal tekstlængde&quot; som standardtilstand.<br /><br />
+      Denne indstilling angiver den maksimale længde for HTML &#39;&lt;p&gt;&#39;-elementer. Dette kan
+      forårsage ekstra mellemrum eller tomme linjer i nogle layouts.<br />
     </p>
     <br />
     <h2 id="main_help">Oversigt over PrintingTools NG</h2>
@@ -234,7 +227,7 @@
         <tr>
           <td><code class="code1">%l</code></td>
           <td>
-            Time som et decimaltal ved brug af et 12-timers ur (interval 1 til 12). Se også
+            Time som et decimaltal ved brug af et 12-timers ur (område 1 til 12). Se også
             <code class="code1">%I</code> .
           </td>
         </tr>
@@ -372,7 +365,7 @@
     </p>
     <p />
     <p>
-      Aktiver PDF-outputmappen, og vælg en mappe til lagringsplaceringen. Outputfilnavnet vil følge det
+      Aktivér PDF-outputmappen, og vælg en mappe til lagringsplaceringen. Outputfilnavnet vil følge det
       konfigurerede filnavnformat.
     </p>
     <p />
@@ -387,7 +380,7 @@
     <p />
     <p>Eksempler</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> - Standardformatet for emnet i e-mailen<br />
+      <span class="notranslate"><code>${subject}</code></span> - Standardformatet, emnet for e-mailen<br />
       <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Brug det
       brugerdefinerede datoformat i stedet for standard<br />
       <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Med noget
@@ -405,7 +398,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${sender}</code></td>
-        <td>Navnet på beskedens afsender.</td>
+        <td>Navnet på afsenderen af beskeden.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${recipient}</code></td>

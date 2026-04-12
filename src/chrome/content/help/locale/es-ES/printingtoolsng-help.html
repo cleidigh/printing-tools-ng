@@ -21,20 +21,13 @@
     <h3 id="release_notes" style="padding-left: 4px">Notas de la versión:</h3>
     <p>
       <b
-        >URGENTE: NO ACTUALICE A THUNDERBIRD V147 SI NECESITA SOPORTE PARA EXPORTAR PDF O IMPRESIÓN DE
-        MÚLTIPLES MENSAJES.</b
-      ><br />
-      Hay un error grave en Thunderbird que a veces provoca un bloqueo al exportar PDF o imprimir varios
-      mensajes sin la vista previa. Se desconoce cuándo se solucionará en Thunderbird. Sin embargo, presenté
-      el error y ya se ha analizado, pero lamentablemente es poco probable que se solucione en Thunderbird
-      v147.<br />
-      Estoy intentando determinar si solo actualizaré PrintingTools NG para el canal ESR de ahora en adelante.
-      No puedo tener errores como este en el futuro. Quizás sea necesario probar compilaciones no oficiales,
-      no estoy seguro. Si necesitas PrintingTools NG, tendrás que permanecer en el canal ESR o revertirlo para
-      asegurar la continuidad. Pronto publicaré instrucciones para la reversión en la sección de problemas de
-      Github.<br /><br />
-      Lo siento, esto está fuera de mi control.<br /><br />
-      Cristóbal<br />
+        >Nota: Thunderbird v148 ha solucionado el problema con la exportación a PDF. Haré todo lo posible por
+        seguir dando soporte al canal de lanzamiento; sin embargo, le recomendamos que compruebe la
+        compatibilidad con PrintingTools NG antes de actualizar Thunderbird.</b
+      ><br /><br />
+      Cambiar: deshabilitar la opción &quot;Longitud máxima del texto&quot; como estado predeterminado.<br /><br />
+      Esta opción establece la longitud máxima de los elementos HTML &#39;&lt;p&gt;&#39;. Esto puede generar
+      espacios o líneas en blanco adicionales en algunos diseños.<br />
     </p>
     <br />
     <h2 id="main_help">Descripción general de PrintingTools NG</h2>
@@ -514,7 +507,7 @@
       separadas por espacios.<br />
       Las etiquetas y formatos de opciones se detallan a continuación:<br /><br />
       <b>Agregue el ID del mensaje al final de la etiqueta de encabezado:</b><br /><br />
-      <b>añadirIdDeMensajeAHDR</b><br /><br />
+      <b>añadirIdDeMensajeAHDr</b><br /><br />
       <b>Establezca el ancho de columna para la etiqueta de encabezados:</b><br /><br />
       <b>hdrColWidth: <i>nnn</i></b> Donde <i>nnn</i> es el número de píxeles<br /><br />
       <b>Márgenes del borde del encabezado y pie de página:</b><br /><br />

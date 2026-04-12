@@ -20,13 +20,11 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px">发布说明：</h3>
     <p>
-      <b>紧急通知：如果您需要 PDF 导出或多封邮件打印支持，请勿更新至 Thunderbird V147。</b><br />
-      Thunderbird 存在一个核心 bug，有时在导出 PDF 或打印多封邮件而不预览时会导致程序崩溃。目前尚不清楚
-      Thunderbird 何时会修复此问题。我已经提交了该 bug 报告，相关人员也已开始调查，但遗憾的是，该 bug
-      不太可能在 Thunderbird v147 中得到修复。<br />我正在考虑是否以后只更新 ESR 通道的 PrintingTools
-      NG。我不能再让这类错误再次发生。或许需要尝试非官方版本，但我还不确定。如果您需要 PrintingTools
-      NG，则必须继续使用 ESR 通道，或者回滚到 ESR 通道以确保功能连续性。我很快会在 GitHub issues
-      部分发布回滚说明。<br /><br />抱歉，这件事我无能为力。<br /><br />克里斯托弗<br />
+      <b
+        >注意：Thunderbird v148 已修复 PDF 导出问题。我会尽力继续支持发布渠道，但请在更新 Thunderbird 之前检查
+        PrintingTools NG 是否受支持。</b
+      ><br /><br />更改：禁用“文本最大长度”选项的默认状态。<br /><br />此选项设置 HTML &#39;&lt;p&gt;&#39;
+      元素的最大长度。这可能会导致某些布局中出现额外的空白或空行。<br />
     </p>
     <br />
     <h2 id="main_help">PrintingTools NG 概述</h2>
@@ -92,7 +90,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
         <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-        <td>ko 本地化与字面值</td>
+        <td>ko 本地化与字面量</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
@@ -117,7 +115,7 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>en-US 本地化，长日/月</td>
+        <td>en-US 地区，长日/月</td>
       </tr>
     </table>
     <br />
@@ -259,7 +257,7 @@
         </tr>
         <tr>
           <td><code class="code1">%x</code></td>
-          <td>当前区域设置中不带时间的首选日期表示方式。</td>
+          <td>当前区域设置的首选日期表示方式，不包含时间。</td>
         </tr>
         <tr>
           <td><code class="code1">%X</code></td>
@@ -410,13 +408,13 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
-        <td>邮件的唯一消息 ID。</td>
+        <td>邮件的唯一消息ID。</td>
       </tr>
     </table>
     <br />
     <h2 id="print_options_help">打印和页面选项</h2>
     <p>
-      这些选项允许您设置默认打印机以及每页打印选项。您还可以设置静默模式，在该模式下不会显示预览对话框，打印会立即进行。
+      这些选项允许您设置默认打印机以及每页打印选项。您还可以设置静默模式，在该模式下不会显示预览对话框，打印将立即进行。
     </p>
     <p>
       页面选项允许您在预览或打印时设置项目。这些选项在打印过程中始终有效。如果在 PrintingTools NG

@@ -2,6 +2,19 @@
 
 ## Versions
 
+Version 3.1.11 : Maintenance Release - February 12, 2026
+
+
+Note : Thunderbird v148 has fixed the issue with PDF Export.
+			I will do my best to continue supporting the release channel,
+			however, please check for PrintingTools NG support before
+			updating Thunderbird.
+
+- Thunderbird v140 - v149 support
+- Change : Disable the option "Maximum length for text" as the default state.
+
+This option sets the maximum length for HTML '<p>' elements. This can cause	extra whitespace or blank lines in some layouts.
+
 Version 3.1.10 : Warning Release - January 12, 2026
 - Bug in Thunderbird v147 causes crash when printing in non preview mode
 

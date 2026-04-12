@@ -21,20 +21,13 @@
     <h3 id="release_notes" style="padding-left: 4px">Release-opmerkingen:</h3>
     <p>
       <b
-        >DRINGEND: UPDATE NIET NAAR THUNDERBIRD V147 ALS U PDF-EXPORT OF ONDERSTEUNING VOOR HET AFDRUKKEN VAN
-        MEERDERE BERICHTEN NODIG HEBT.</b
-      ><br />
-      Er is een fundamentele bug in Thunderbird die er SOMS voor zorgt dat het programma vastloopt bij het
-      exporteren naar PDF of het afdrukken van meerdere berichten zonder voorbeeldweergave. Het is onbekend
-      wanneer dit in Thunderbird zal worden opgelost. Ik heb de bug echter gemeld en er wordt al naar gekeken,
-      maar helaas is het onwaarschijnlijk dat het in Thunderbird versie 147 zal worden verholpen.<br />
-      Ik probeer te bepalen of ik PrintingTools NG in de toekomst alleen nog voor het ESR-kanaal ga bijwerken.
-      Ik kan me dergelijke fouten in de toekomst niet veroorloven. Het kan nodig zijn om onofficiële builds te
-      proberen, ik weet het nog niet zeker. Als je PrintingTools NG nodig hebt, moet je op het ESR-kanaal
-      blijven of terugkeren naar het ESR-kanaal om de continuïteit te garanderen. Ik zal binnenkort
-      instructies voor het terugdraaien plaatsen in de GitHub Issues-sectie.<br /><br />
-      Sorry, dit ligt buiten mijn macht.<br /><br />
-      Christopher<br />
+        >Opmerking: Thunderbird v148 heeft het probleem met PDF-export opgelost. Ik zal mijn best doen om het
+        releasekanaal te blijven ondersteunen, maar controleer alstublieft of PrintingTools NG ondersteuning
+        biedt voordat u Thunderbird bijwerkt.</b
+      ><br /><br />
+      Wijziging: Schakel de optie &quot;Maximale lengte voor tekst&quot; uit als standaardinstelling.<br /><br />
+      Deze optie stelt de maximale lengte in voor HTML &#39;&lt;p&gt;&#39;-elementen. Dit kan in sommige
+      lay-outs leiden tot extra witruimte of lege regels.<br />
     </p>
     <br />
     <h2 id="main_help">Overzicht van PrintingTools NG</h2>
@@ -88,8 +81,8 @@
       gelokaliseerde opties, waardoor vrijwel elke notatie mogelijk is. Houd er rekening mee dat de aangepaste
       datumstring scheidingstekens en letterlijke tekens, inclusief Unicode-tekens, kan bevatten, gecombineerd
       met de onderstaande datum-/tijdtokens.<br /><br />
-      Let op: de aangepaste datumresultaten in de onderstaande voorbeelden kunnen verschillen afhankelijk van
-      de werkelijke datum, de locatie en de tijdzone van de gebruiker.
+      Let op: de aangepaste datumresultaten in de onderstaande voorbeelden kunnen afwijken, afhankelijk van de
+      werkelijke datum, de locatie en de tijdzone van de gebruiker.
     </p>
     <br />
     <h3 class="indent0">Voorbeelden:</h3>
@@ -284,7 +277,7 @@
           <td><code class="code1">%V</code></td>
           <td>
             Het ISO 8601-weeknummer van het huidige jaar als decimaal getal (bereik 01 tot 53), waarbij week 1
-            de eerste week is die ten minste 4 dagen in het nieuwe jaar heeft (dat wil zeggen, de eerste
+            de eerste week is die ten minste 4 dagen in het nieuwe jaar heeft (dat wil zeggen de eerste
             donderdag).
           </td>
         </tr>
@@ -305,7 +298,7 @@
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
-          <td>Jaar als decimaal getal zonder eeuw (bereik 00 tot 99).</td>
+          <td>Het jaar als decimaal getal zonder eeuw (bereik 00 tot 99).</td>
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>
@@ -513,7 +506,7 @@
     <p>
       Dit zijn opties waarmee je afdrukinstellingen kunt aanpassen die verder gaan dan de standaard
       UI-instellingen. De opties vind je in de &#39;Geavanceerde opties&#39; op het tabblad &#39;Diversen&#39;
-      en worden gescheiden door spaties.<br />
+      en worden weergegeven als tags gescheiden door spaties.<br />
       De optielabels en -formaten worden hieronder weergegeven:<br /><br />
       <b>Voeg de Message-ID toe aan het einde van de headers-tag:</b><br /><br />
       <b>addMessageIdToHdr</b><br /><br />

@@ -21,20 +21,13 @@
     <h3 id="release_notes" style="padding-left: 4px">Notas de lançamento:</h3>
     <p>
       <b
-        >URGENTE: NÃO ATUALIZE PARA O THUNDERBIRD V147 SE VOCÊ PRECISA DE SUPORTE PARA EXPORTAÇÃO DE PDF OU
-        IMPRESSÃO DE MÚLTIPLAS MENSAGENS.</b
-      ><br />
-      Existe um bug central no Thunderbird que, ÀS VEZES, causa o travamento do sistema ao exportar PDFs ou
-      imprimir várias mensagens sem a pré-visualização. Não se sabe quando esse bug será corrigido no
-      Thunderbird. No entanto, relatei o problema e ele já está sendo analisado, mas infelizmente é improvável
-      que seja corrigido na versão 147 do Thunderbird.<br />
-      Estou tentando determinar se, daqui para frente, atualizarei o PrintingTools NG apenas para o canal ESR.
-      Não posso tolerar erros como este no futuro. Talvez seja necessário testar versões não oficiais, não
-      tenho certeza. Se você precisa do PrintingTools NG, terá que permanecer no canal ESR ou reverter para
-      ele para garantir a continuidade. Publicarei as instruções de reversão na seção de problemas do Github
-      em breve.<br /><br />
-      Sinto muito, mas isso está fora do meu controle.<br /><br />
-      Christopher<br />
+        >Nota: O Thunderbird v148 corrigiu o problema com a exportação para PDF. Farei o possível para
+        continuar oferecendo suporte ao canal de lançamento, porém, verifique a compatibilidade com o
+        PrintingTools NG antes de atualizar o Thunderbird.</b
+      ><br /><br />
+      Alteração: Desative a opção &quot;Comprimento máximo do texto&quot; como estado padrão.<br /><br />
+      Esta opção define o comprimento máximo para elementos HTML &#39;&lt;p&gt;&#39;. Isso pode causar espaços
+      em branco extras ou linhas em branco em alguns layouts.<br />
     </p>
     <br />
     <h2 id="main_help">Visão geral do PrintingTools NG</h2>
@@ -70,7 +63,7 @@
     </p>
     <h3 class="indent0">Segue abaixo um exemplo de alguns dos recursos de formatação de cabeçalho:</h3>
     <div class="indent1">
-      <li>Estilo de borda de cabeçalho personalizado usando CSS (superior e inferior, azul)</li>
+      <li>Estilo de borda do cabeçalho personalizado usando CSS (superior e inferior, azul)</li>
       <li>Cor de fundo do cabeçalho</li>
       <li>Cabeçalhos alinhados</li>
       <li>Ordem de cabeçalho personalizada</li>

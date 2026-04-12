@@ -21,18 +21,13 @@
     <h3 id="release_notes" style="padding-left: 4px">Opombe k izdaji:</h3>
     <p>
       <b
-        >NUJNO: NE POSODOBITE NA THUNDERBIRD V147, ČE POTREBUJETE IZVOZ PDF-JA ALI PODPORO ZA TISKANJE VEČ
-        SPOROČIL.</b
-      ><br />
-      V Thunderbirdu obstaja osnovna napaka, ki VČASIH povzroči sesutje sistema pri izvozu PDF-ja ali tiskanju
-      več sporočil brez predogleda. Kdaj bo to v Thunderbirdu odpravljeno, ni znano. Vendar sem napako
-      prijavil in jo že pregledujejo, vendar žal verjetno ne bo odpravljena v Thunderbirdu v147.<br />
-      Poskušam ugotoviti, ali bom v prihodnje posodabljal PrintingTools NG samo za kanal ESR. V prihodnosti ne
-      smem imeti takšnih napak. Morda bo treba poskusiti neuradne različice, nisem prepričan. Če potrebujete
-      PrintingTools NG, boste morali ostati na kanalu ESR ali se vrniti na kanal ESR, da zagotovite
-      kontinuiteto. Kmalu bom objavil navodila za povrnitev v razdelku o težavah na Githubu.<br /><br />
-      Žal mi je, to je izven mojega nadzora.<br /><br />
-      Krištof<br />
+        >Opomba: Thunderbird v148 je odpravil težavo z izvozom PDF. Po svojih najboljših močeh se bom trudil,
+        da bom še naprej podpiral izdajni kanal, vendar pred posodobitvijo Thunderbirda preverite podporo za
+        PrintingTools NG.</b
+      ><br /><br />
+      Sprememba: Onemogočite možnost »Največja dolžina besedila« kot privzeto stanje.<br /><br />
+      Ta možnost nastavi največjo dolžino elementov HTML &#39;&lt;p&gt;&#39;. To lahko v nekaterih postavitvah
+      povzroči dodatne presledke ali prazne vrstice.<br />
     </p>
     <br />
     <h2 id="main_help">Pregled orodij za tiskanje NG</h2>
@@ -276,8 +271,8 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Številka tedna tekočega leta po standardu ISO 8601 kot decimalno število (območje od 01 do 53),
-            kjer je 1. teden prvi teden, ki ima v novem letu vsaj 4 dni (torej prvi četrtek).
+            Številka tedna po standardu ISO 8601 tekočega leta kot decimalno število (območje od 01 do 53),
+            kjer je 1. teden prvi teden, ki ima vsaj 4 dni v novem letu (torej prvi četrtek).
           </td>
         </tr>
         <tr>
@@ -527,7 +522,7 @@
       - Različica PrintingTools NG<br />
       - Različica Thunderbirda<br />
       - Operacijski sistem in različica<br />
-      - Izpis za odpravljanje napak (kopiranje iz konzole za odpravljanje napak - dostop s Control-Shift-J)<br />
+      - Izpis za odpravljanje napak (kopirano iz konzole za odpravljanje napak - dostop s Control-Shift-J)<br />
       - Opis korakov, ki vodijo do težave<br />
     </p>
     <h2 id="debug_options_help">Možnosti odpravljanja napak</h2>

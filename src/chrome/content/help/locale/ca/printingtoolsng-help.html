@@ -21,20 +21,13 @@
     <h3 id="release_notes" style="padding-left: 4px">Notes de la versió:</h3>
     <p>
       <b
-        >URGENT: NO ACTUALITZEU A THUNDERBIRD V147 SI NECESSITEU EXPORTACIÓ DE PDF O SUPORT PER A LA IMPRESSIÓ
-        DE MÚLTIPLES MISSATGES.</b
-      ><br />
-      Hi ha un error central de Thunderbird que DE VEGADES provoca un bloqueig en exportar PDF o imprimir
-      diversos missatges sense la vista prèvia. Es desconeix quan es corregirà això a Thunderbird. Tanmateix,
-      he enviat l&#39;error i ja s&#39;ha estudiat, però malauradament és poc probable que es corregeixi a
-      Thunderbird v147.<br />
-      Estic intentant determinar si només actualitzaré PrintingTools NG per al canal ESR a partir d&#39;ara.
-      No puc tenir errors com aquest en el futur. Potser caldrà provar compilacions no oficials, no
-      n&#39;estic segur. Si necessiteu PrintingTools NG, haureu de romandre al canal ESR o tornar al canal ESR
-      per garantir la continuïtat. Aviat publicaré les instruccions de reversió a la secció de problemes de
-      Github.<br /><br />
-      Ho sento, això està fora del meu control.<br /><br />
-      Cristòfor<br />
+        >Nota: El Thunderbird v148 ha solucionat el problema amb l&#39;exportació de PDF. Faré tot el possible
+        per continuar donant suport al canal de llançament, però si us plau, comproveu si PrintingTools NG és
+        compatible abans d&#39;actualitzar el Thunderbird.</b
+      ><br /><br />
+      Canvi: Desactiveu l&#39;opció &quot;Longitud màxima del text&quot; per defecte.<br /><br />
+      Aquesta opció estableix la longitud màxima per als elements HTML &#39;&lt;p&gt;&#39;. Això pot causar
+      espais en blanc addicionals o línies en blanc en alguns dissenys.<br />
     </p>
     <br />
     <h2 id="main_help">Informació general de PrintingTools NG</h2>
@@ -73,7 +66,7 @@
     <div class="indent1">
       <li>Estil de vora de capçalera personalitzat amb CSS (superior i inferior, blau)</li>
       <li>Color de fons de la capçalera</li>
-      <li>Capçaleres alineades</li>
+      <li>Encapçalaments alineats</li>
       <li>Ordre de capçalera personalitzat</li>
       <li>Títol de la pàgina i carpeta de missatges</li>
       <li>Llista de fitxers adjunts amb icones a la capçalera</li>
@@ -387,7 +380,7 @@
       caràcters no vàlids són: <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>El format de nom per defecte és: ${subject} que és només l&#39;assumpte del correu electrònic.</p>
+    <p>El format de nom per defecte és: ${subject} que és simplement l&#39;assumpte del correu electrònic.</p>
     <p />
     <p>Exemples</p>
     <p>
