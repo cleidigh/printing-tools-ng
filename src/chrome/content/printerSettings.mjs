@@ -463,8 +463,9 @@ export var printerSettings = {
     printSettings.footerStrRight = el.value;
 
     // Make printBGColors follow Use Headers Background Color #187
-    el = document.querySelector("#useHeadersBkColor");
-    if (el.getAttribute("checked") === "true") {
+    el = document.querySelector("#useHeadersBkColor");    
+
+    if (el.checked) {
       printSettings.printBGColors = true;
     } else {
       printSettings.printBGColors = false;
