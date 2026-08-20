@@ -19,15 +19,7 @@
       </tr>
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Utgivelsesmerknader:</h3>
-    <p>
-      <b
-        >Merk: Thunderbird v148 har løst problemet med PDF-eksport. Jeg vil gjøre mitt beste for å fortsette å
-        støtte utgivelseskanalen, men sjekk om PrintingTools NG støtter før du oppdaterer Thunderbird.</b
-      ><br /><br />
-      Endre: Deaktiver alternativet «Maksimumslengde for tekst» som standardinnstilling.<br /><br />
-      Dette alternativet angir maksimal lengde for HTML-elementer i formatet &#39;&lt;p&gt;&#39;. Dette kan
-      føre til ekstra mellomrom eller blanke linjer i enkelte oppsett.<br />
-    </p>
+    <p>- Fikset at bakgrunnsfargen på overskriften ikke ble skrevet ut</p>
     <br />
     <h2 id="main_help">Oversikt over PrintingTools NG</h2>
     <p>
@@ -60,7 +52,7 @@
     </p>
     <h3 class="indent0">Følgende er et eksempel på noen av funksjonene for formatering av overskrifter:</h3>
     <div class="indent1">
-      <li>Tilpasset kantlinjestil for topptekst ved hjelp av CSS (topp og bunn, blå)</li>
+      <li>Tilpasset kantlinjestil for topptekst ved hjelp av CSS (øverst og nederst, blå)</li>
       <li>Bakgrunnsfarge for overskrift</li>
       <li>Justerte overskrifter</li>
       <li>Tilpasset overskriftsrekkefølge</li>
@@ -98,7 +90,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %t %H:%M:%S</code></td>
         <td class="notranslate">2022년04월20일 수 KST 16:11:06</td>
-        <td>ko-lokalitet med bokstaver</td>
+        <td>ko-språk med bokstaver</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %a %H:%M:%S %Z</code></td>
@@ -464,8 +456,7 @@
     </p>
     <p>
       Marginene kan angis med enheter som passer for brukerens lokale innstilling, enten tommer eller
-      millimeter (in eller mm). Merk at på grunn av avrundingsfeil kan noen mm-verdier lagres med små
-      forskjeller.
+      millimeter (in eller mm). Merk at på grunn av avrundingsfeil kan noen mm-verdier lagres med små avvik.
     </p>
     <p></p>
     <p>
