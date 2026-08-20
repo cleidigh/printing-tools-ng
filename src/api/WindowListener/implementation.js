@@ -1479,8 +1479,9 @@ var WindowListener_115 = class extends ExtensionCommon.ExtensionAPI {
         },
 
         registerDefaultPrefs(defaultUrl) {
+          
           let url = context.extension.rootURI.resolve(defaultUrl);
-
+          console.log(defaultUrl, url)
           let prefsObj = {};
           prefsObj.Services = globalThis.Services||
             ChromeUtils.import("resource://gre/modules/Services.jsm").Services;
@@ -1506,7 +1507,13 @@ var WindowListener_115 = class extends ExtensionCommon.ExtensionAPI {
                 );
             }
           };
-          Services.scriptloader.loadSubScript(url, prefsObj, "UTF-8");
+          console.log("bef")
+
+          //Services.scriptloader.loadSubScript(url, prefsObj, "UTF-8");
+          Services.scriptloader.loadSubScriptWithOptions(url, { target: prefsObj, allowUnsafeURL: true});
+          
+          console.log("aft")
+          
         },
 
         registerChromeUrl(data) {
