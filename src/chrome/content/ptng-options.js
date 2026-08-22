@@ -49,7 +49,10 @@ function setComplexPref(pref, value) {
 async function initPMDpanel() {
 
 	// cleidigh
-	//console.debug('initialize panel');
+	console.debug('initialize panel');
+	console.debug('strftime tests:');
+	let testDate = new Date();
+	let dateformat
 
 	var win = Cc["@mozilla.org/appshell/window-mediator;1"]
 		.getService(Ci.nsIWindowMediator)
