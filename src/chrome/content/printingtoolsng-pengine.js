@@ -55,22 +55,6 @@ if (window == mail3paneWin) {
 	printerSettings.addPrintPreviewObserver();
 }
 
-// tests
-	console.debug('strftime tests:');
-	let testDate = new Date();
-	let dateformat = Services.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
-	let locale = Services.locale.appLocaleAsBCP47;
-
-	console.debug('Current date:', testDate.toLocaleString());
-	console.debug('Custom Date Format:', dateformat);
-	console.debug('Formatted Date:', strftime.strftime(dateformat, testDate, locale));
-	console.debug('Date Format %H:%M %t:', strftime.strftime("%H:%M %t", testDate, locale));
-	console.debug('Date Format %t:', strftime.strftime("%t", testDate, locale));
-	console.debug('Date Format %z:', strftime.strftime("%z", testDate, locale));
-	console.debug('Date Format %Z:', strftime.strftime("%Z", testDate, locale));
-	console.debug('Date Format TZ , no strftime:', testDate.toLocaleDateString([], { timeZoneName: 'short', day: '2-digit' }).slice(3));
-	console.debug('Date Format TZ only, no strftime:', testDate.toLocaleDateString([], { timeZoneName: 'short' }));
-
 var printingtools = {
 
 	current: null,
