@@ -102,7 +102,6 @@ WL.injectElements(`
 	// inject extension object into private context
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
-		console.log(window.printingtoolsng)
 	extMsgHandler = window.ptngAddon.notifyTools.addListener(handleExternalPrint);
 
 	// Capture Control-P print shortcut
@@ -273,6 +272,4 @@ function onUnload(shutdown) {
 
 	let printEntry = document.getElementById("printMenuItem");
 	printEntry.setAttribute("key", "key_print");
-	
-	window.printingtoolsng.shutdown();
-}
+	}
