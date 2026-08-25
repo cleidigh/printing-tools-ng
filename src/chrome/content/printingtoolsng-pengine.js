@@ -967,12 +967,12 @@ var printingtools = {
 				divHTML = divHTML.replace("To:", to + ':');
 				divHTML = divHTML.replace("From:", from + ':');
 				divHTML = divHTML.replace("Attachments:", attachments + ':');
-				div.innerHTML = divHTML;
+				div.setHTML = divHTML;
 				// var divHTML = div.innerHTML.replace(":", );
 			} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
 				divHTML = divHTML.replace("From:", from + ':');
 				if (divHTML) {
-					div.innerHTML = divHTML;
+					div.setHTML = divHTML;
 				}
 			}
 
@@ -1079,12 +1079,12 @@ var printingtools = {
 
 					if (divHTML.indexOf(bcc) == 0) {
 						divHTML = bcc + ":";
-						div.innerHTML = divHTML;
+						div.setHTML = divHTML;
 						//console.log("rpl bcc " + div.outerHTML)
 					}
 					if (divHTML.indexOf(cc) == 0) {
 						divHTML = cc + ":";
-						div.innerHTML = divHTML;
+						div.setHTML = divHTML;
 						//console.log("rpl cc " + div.outerHTML)
 					}
 				}
@@ -1095,7 +1095,7 @@ var printingtools = {
 					divHTML = divHTML.replace("BCC:", bcc + ':');
 					divHTML = divHTML.replace("CC:", cc + ':');
 
-					div.innerHTML = divHTML;
+					div.setHTML = divHTML;
 					// var divHTML = div.innerHTML.replace(":", );
 					// Services.console.logStringMessage(`header entry: ${i} ${trs[i].outerHTML}`);
 				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "de") {
@@ -1103,7 +1103,7 @@ var printingtools = {
 						var div = trs[i].firstChild.firstChild;
 						divHTML = divHTML.replace("Blindkopie (BCC):", "Bcc:");
 						divHTML = divHTML.replace("Kopie (CC):", "Cc:");
-						div.innerHTML = divHTML;
+						div.setHTML = divHTML;
 						cc = "Cc";
 						bcc = "Bcc";
 					}
@@ -1119,13 +1119,13 @@ var printingtools = {
 							cc = "Cc";
 						}
 					}
-					div.innerHTML = divHTML;
+					div.setHTML = divHTML;
 				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "en") {
 					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 						var div = trs[i].firstChild.firstChild;
 						divHTML = divHTML.replace("BCC:", "Bcc:");
 						divHTML = divHTML.replace("CC:", "Cc:");
-						div.innerHTML = divHTML;
+						div.setHTML = divHTML;
 						cc = "Cc";
 						bcc = "Bcc";
 					}
@@ -1141,7 +1141,7 @@ var printingtools = {
 						divHTML = divHTML.replace(cc, "Cc");
 						cc = "Cc";
 					}
-					div.innerHTML = divHTML;
+					div.setHTML = divHTML;
 				}
 
 				// Services.console.logStringMessage(divHTML.outerHTML);
@@ -1568,7 +1568,7 @@ var printingtools = {
 					var newTDelement = trs[i].insertBefore(tdElement, trs[i].firstChild);
 					newTDelement.setAttribute("style", style);
 
-
+					
 					newTDelement.appendChild(printingtools.doc.getElementById("spanTD"));
 				}
 				else {
@@ -1599,7 +1599,7 @@ var printingtools = {
 					trw.style.display = trs[i].style.display;
 					trs[i].firstChild.style.paddingLeft = "6px";
 					// trw.appendChild(trs[i].firstChild.cloneNode(true));
-					trw.innerHTML = trs[i].firstChild.outerHTML;
+					trw.setHTML = trs[i].firstChild.outerHTML;
 					tw.appendChild(trw);
 				}
 				// tw.style.height = 0;
@@ -1957,7 +1957,7 @@ var printingtools = {
 				}
 				folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="resource://printingtoolsng/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
 			}
-			h3.innerHTML = myname + folderHtml;
+			h3.setHTML = myname + folderHtml;
 			var firsttable = printingtools.getTable(0);
 			if (firsttable) {
 				firsttable.parentNode.insertBefore(h3, firsttable);
@@ -2142,7 +2142,7 @@ var printingtools = {
 						s.style.whiteSpace = "wrap";
 						s.style.wordWrap = "break-word";
 					}
-					tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
+					tds1[i].setHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
 				}
 			}
 		}
@@ -2203,7 +2203,10 @@ var printingtools = {
 
 					s = tds1[i].firstChild.nextSibling
 					let sub = s.textContent;
-					s.outerHTML = sub;
+
+					// Equivalent setHTML approach via parent
+					const parent = s.parentNode;
+					parent.setHTML = sub
 				}
 				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 					s.style.overflow = "hidden";
@@ -2240,7 +2243,7 @@ var printingtools = {
 					s.style.wordWrap = "break-word";
 				}
 
-				tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
+				tds1[i].setHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
 			}
 		}
 		// Services.console.logStringMessage(table1.outerHTML);
@@ -2334,7 +2337,7 @@ var printingtools = {
 			newTR.setAttribute("id", "recTR");
 			var newTD = printingtools.doc.createElement("TD");
 			newTD.setAttribute("id", "receivedDate");
-			newTD.innerHTML = "<span><b>" + bundle.GetStringFromName("received") + ": </b></span>" + formatted_date;
+			newTD.setHTML = "<span><b>" + bundle.GetStringFromName("received") + ": </b></span>" + formatted_date;
 			newTR.appendChild(newTD);
 
 			// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
@@ -2355,13 +2358,30 @@ var printingtools = {
 		var headtable1 = printingtools.getTable(0);
 		var newTR = printingtools.doc.createElement("TR");
 		newTR.setAttribute("id", "attTR");
-		var newTDhtml = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>" + newTD.innerHTML;
-		newTD.innerHTML = newTDhtml;
+		console.log(newTR.outerHTML)
+		let tdInner = newTD.innerHTML;
+		let newTD2 = printingtools.doc.createElement("SPAN");
+		newTD2.setAttribute("id","spanTD")
+		newTD2.textContent = bundle.GetStringFromName("attachments") + ":"
+		//newTD2.setHTML = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>";
+		
+		console.log(newTD2.outerHTML)
+
+		let newTDhtml = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>" + tdInner;
+		//console.log(newTDhtml)
+
+		newTD.insertBefore(newTD2, newTD.firstChild)
+
+
+		console.log(newTD.innerHTML)
+		
 		//if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.setborders"))
 		//	newTD.setAttribute("style", "padding: 0px 10px;");
 		newTR.appendChild(newTD);
 		if (headtable1 && headtable1.lastChild)
 			headtable1.lastChild.appendChild(newTR);
+		console.log(headtable1.outerHTML)
+
 	},
 
 	formatBytes: function (bytes, decimals) {
@@ -2431,7 +2451,7 @@ var printingtools = {
 		if (tbVersion.major == 128) {
 			// see if we have any attachments in table 
 			// that are not in the atts list
-			
+
 			attsTable.forEach(att => {
 				let exists = printingtools.attList.find(attL => att.name == attL.name);
 				if (!exists) {
@@ -2539,12 +2559,13 @@ var printingtools = {
 						var imgSrc = printingtools.findIconSrc(filename);
 						currAtt = '<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">&nbsp;' + currAtt + "</span>"
 					}
-					attDiv = attDiv + currAtt + comma;
+					//attDiv = attDiv + currAtt + comma;
 					if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
-						attDiv += '<br>'
+						//attDiv += '<br>'
 					}
 				}
-				newTD.innerHTML = attDiv;
+
+				newTD.setHTML(attDiv + currAtt + comma)
 				attTab.parentNode.removeChild(attTab);
 			}
 		}
@@ -2567,15 +2588,21 @@ var printingtools = {
 					if (withIcon) {
 						var filename = attDiv.substring(0, attDiv.lastIndexOf("&")).toLowerCase();
 						var imgSrc = printingtools.findIconSrc(filename);
+						
+						console.log(attDiv)
 						// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
 						attDiv = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "";
+						console.log(attDiv)
 					}
 					// write into the new TD innerHTML the name of the attachment, if necessary with a comma
 					newTD.innerHTML = newTD.innerHTML + comma + attDiv;
+					
+					
+					//newTD.setHTML(newTD.innerHTML + comma + attDiv);
 					firsttime = false;
 					counter++;
 					// empty the TABLE
-					attTable[i].innerHTML = "";
+					attTable[i].setHTML = "";
 				}
 			}
 		}
