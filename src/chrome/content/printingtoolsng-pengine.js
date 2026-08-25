@@ -2558,12 +2558,19 @@ var printingtools = {
 						var filename = currAtt.substring(0, currAtt.lastIndexOf("&")).toLowerCase();
 						var imgSrc = printingtools.findIconSrc(filename);
 						currAtt = '<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">&nbsp;' + currAtt + "</span>"
+						var currAttDiv = printingtools.doc.createElement("DIV");
+
+						currAttDiv.setHTML(currAtt)
+						console.log(currAttDiv.outerHTML)
 					}
 					//attDiv = attDiv + currAtt + comma;
 					if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
 						//attDiv += '<br>'
 					}
 				}
+				newTD.appendChild(currAttDiv)
+				newTD.insertBefore()
+				
 
 				newTD.setHTML(attDiv + currAtt + comma)
 				attTab.parentNode.removeChild(attTab);
