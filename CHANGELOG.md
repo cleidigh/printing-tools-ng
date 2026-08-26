@@ -4,6 +4,7 @@
 
 Version 3.1.14 : Maintenance Release - August 26, 2026
 
+- Thunderbird v140 - v154 support
 - New: Custom date token '%:z' - UTC offset as +-HH:MM, the colon separated
   form of '%z', as used by ISO 8601 extended format
   See Custom Date Format in help
