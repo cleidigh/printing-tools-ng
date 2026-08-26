@@ -1346,7 +1346,19 @@ var Templater = function(list) {
       }
     } else if (/<tr[\s>]/g.exec(item)) {
       var tbody = document.createElement('tbody');
-      tbody.innerHTML = item;
+      console.log(tbody)
+      console.log(item)
+      let trc = item.match(/tr class="(.*?)"/i)
+      let tdc = item.match(/td class="(.*?)"/i)
+
+      console.log(trc)
+
+      tbody.setHTML(item);
+      tbody.firstChild.classList.add(trc[1])
+      tbody.firstChild.firstChild.classList.add(tdc[1])
+
+      console.log(tbody.innerHTML)
+
       return tbody.firstChild;
     } else if (item.indexOf("<") !== -1) {
       var div = document.createElement('div');
@@ -1414,7 +1426,8 @@ var Templater = function(list) {
       } else {
         elm = list.utils.getByClass(item.elm, valueName, true);
         if (elm) {
-          elm.innerHTML = value;
+          console.log(value)
+          elm.setHTML(value);
         }
       }
       elm = undefined;
