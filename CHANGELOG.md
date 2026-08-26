@@ -2,6 +2,15 @@
 
 ## Versions
 
+Unreleased
+
+- New: Custom date token '%:z' - UTC offset as +-HH:MM, the colon separated
+  form of '%z', as used by ISO 8601 extended format
+  See Custom Date Format in help
+- Fix: Missing '</td>' in the en-US help custom date example table
+- Change: Remove unused strftime.js, orphaned when strftime.mjs was added
+  for Thunderbird v136
+
 Version 3.1.11 : Maintenance Release - February 12, 2026
 
 
