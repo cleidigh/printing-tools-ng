@@ -89,6 +89,28 @@ Thank you so much
 - Fixed not Printing Calendar #176
 - Fixed not Printing with Conversations addon #177
 
+## Building
+
+PrintingTools NG is packaged as a standard Thunderbird `.xpi`, which is a zip
+archive. Building one requires Node.js:
+
+```
+npm install
+npm run build-xpi
+```
+
+The archive is assembled from `src/`, minus the patterns listed in
+`src/.tb-hybrid-ignore`, so that `manifest.json` sits at the root of the zip.
+It is written to the directory named by `config.target_dir` in `package.json`
+(`xpi/beta/`) and takes its name from the `version` field of
+`src/manifest.json` - for example `xpi/beta/printing-tools-ng-3.1.14-tb.xpi`.
+
+Note that an existing archive of the same name is deleted and rebuilt, so bump
+the version in `src/manifest.json` first if you need to keep the previous one.
+
+To install the result in Thunderbird, open **Tools > Add-ons and Themes**, click
+the gear icon, choose **Install Add-on From File...** and select the `.xpi`.
+
 ## Issues & Questions
 Post any issues or questions for PrintingTools NG under [Issues](https://github.com/cleidigh/printing-tools-ng/issues)
 
