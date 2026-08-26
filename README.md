@@ -26,7 +26,7 @@ https://addons.thunderbird.net/addon/printingtools/
 PrintingTools NG provides numerous layout and formatting options for
 printing messages, the address books and individual contacts.  It is
 a fork and update of the original PrintingTools extension.  Currently
-the extension supports Thunderbird 68-102
+the extension supports Thunderbird 140-154.
 
 The following are the main enhancements provided by PrintingTools NG, 
 see the options for additional features.
