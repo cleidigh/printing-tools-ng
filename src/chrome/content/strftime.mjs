@@ -42,11 +42,20 @@ export var strftime = {
       },
       zeroPad = function (nNum, nPad) {
         return ((Math.pow(10, nPad) + nNum) + '').slice(1);
+      },
+      // Python-style UTC offset for '%:z': +-HH:MM, with :SS appended when the zone
+      // offset is not a whole number of minutes. A JS Date is never naive.
+      utcOffsetColon = function () {
+        var nTotalSec = Math.round(-date.getTimezoneOffset() * 60),
+          sSign = (nTotalSec < 0) ? '-' : '+',
+          nAbsSec = Math.abs(nTotalSec),
+          sOffset = sSign + zeroPad(Math.floor(nAbsSec / 3600), 2) + ':' + zeroPad(Math.floor(nAbsSec / 60) % 60, 2);
+        return (nAbsSec % 60) ? (sOffset + ':' + zeroPad(nAbsSec % 60, 2)) : sOffset;
       };
 
 
 
-    return sFormat.replace(/%[a-z0-9]/gi, function (sMatch) {
+    return sFormat.replace(/%:?[a-z0-9]/gi, function (sMatch) {
       return (({
         '%a': aDaysShort[nDay],
         '%A': aDays[nDay],
@@ -86,6 +95,7 @@ export var strftime = {
         '%y': (nYear + '').slice(2),
         '%Y': nYear,
         '%z': date.toTimeString().replace(/.+GMT([+-]\d+).+/, '$1'),
+        '%:z': utcOffsetColon(),
         '%Z': date.toTimeString().replace(/.+\((.+?)\)$/, '$1'),
         '%t': date.toLocaleDateString([], { timeZoneName: 'short', day: '2-digit' }).slice(3),
         '%0': strftime.getLiteral(date, locale, 0),
