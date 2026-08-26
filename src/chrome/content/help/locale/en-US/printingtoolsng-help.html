@@ -136,7 +136,7 @@
 			<td>Dot separators</td>
 		</tr>
 		<tr>
-			<td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code>
+			<td><code class="code1 notranslate">%a, %b %d %Y %H:%M:%S</code></td>
 			<td class="notranslate">Mi, Apr 20 2022 18:01:42</td>
 			<td>de locale, short day/month</td>
 		</tr>
@@ -144,6 +144,26 @@
 			<td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
 			<td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
 			<td>en-US locale, long day/month</td>
+		</tr>
+		<tr>
+			<td><code class="code1 notranslate">%Y%m%d</code></td>
+			<td class="notranslate">20220420</td>
+			<td>ISO 8601 basic, date only</td>
+		</tr>
+		<tr>
+			<td><code class="code1 notranslate">%Y%m%dT%H%M%S%z</code></td>
+			<td class="notranslate">20220420T180142+0200</td>
+			<td>ISO 8601 basic, date and time with UTC offset</td>
+		</tr>
+		<tr>
+			<td><code class="code1 notranslate">%Y-%m-%d</code></td>
+			<td class="notranslate">2022-04-20</td>
+			<td>ISO 8601 extended, date only</td>
+		</tr>
+		<tr>
+			<td><code class="code1 notranslate">%Y-%m-%dT%H:%M:%S%:z</code></td>
+			<td class="notranslate">2022-04-20T18:01:42+02:00</td>
+			<td>ISO 8601 extended, date and time with UTC offset</td>
 		</tr>
 
 	</table>
@@ -305,6 +325,12 @@
 				<td>The <code class="code1">+hhmm</code> or <code class="code1">-hhmm</code> numeric
 					timezone (that is, the hour and minute offset
 					from UTC).</td>
+			</tr>
+			<tr>
+				<td><code class="code1">%:z</code></td>
+				<td>The <code class="code1">+hh:mm</code> or <code class="code1">-hh:mm</code> numeric
+					timezone, that is <code class="code1">%z</code> with a colon
+					separator, as used by ISO 8601 extended format.</td>
 			</tr>
 			<tr>
 				<td><code class="code1">%Z</code></td>

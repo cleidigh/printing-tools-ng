@@ -13,11 +13,11 @@ Original add-on’s homepage:
 https://addons.thunderbird.net/addon/printingtools/
 
 
-![PTng_version](https://img.shields.io/badge/version-v3.1.7-darkorange.png?label=PrintingTools%20NG)
-[![PTng_tb_version](https://img.shields.io/badge/version-v3.1.7-blue.png?label=Thunderbird%20Add-On)](https://addons.thunderbird.net/en-US/thunderbird/addon/)
-![Thunderbird_version](https://img.shields.io/badge/version128--143.*-blue.png?label=Thunderbird)
+![PTng_version](https://img.shields.io/badge/version-v3.1.14-darkorange.png?label=PrintingTools%20NG)
+[![PTng_tb_version](https://img.shields.io/badge/version-v3.1.14-blue.png?label=Thunderbird%20Add-On)](https://addons.thunderbird.net/en-US/thunderbird/addon/)
+![Thunderbird_version](https://img.shields.io/badge/version140--154.*-blue.png?label=Thunderbird)
 [![License: GPL 3.0](https://img.shields.io/badge/License-GPL%203.0-red.png)](https://opensource.org/licenses/GPL-3.0)
-![Release Status](https://img.shields.io/badge/Release%20Status-v3.1.7%20Released-brightgreen.png)
+![Release Status](https://img.shields.io/badge/Release%20Status-v3.1.14%20Released-brightgreen.png)
 
 #
 
@@ -26,7 +26,7 @@ https://addons.thunderbird.net/addon/printingtools/
 PrintingTools NG provides numerous layout and formatting options for
 printing messages, the address books and individual contacts.  It is
 a fork and update of the original PrintingTools extension.  Currently
-the extension supports Thunderbird 68-102
+the extension supports Thunderbird 140-154.
 
 The following are the main enhancements provided by PrintingTools NG, 
 see the options for additional features.
@@ -88,6 +88,28 @@ Thank you so much
 - Dark Mode Support #141
 - Fixed not Printing Calendar #176
 - Fixed not Printing with Conversations addon #177
+
+## Building
+
+PrintingTools NG is packaged as a standard Thunderbird `.xpi`, which is a zip
+archive. Building one requires Node.js:
+
+```
+npm install
+npm run build-xpi
+```
+
+The archive is assembled from `src/`, minus the patterns listed in
+`src/.tb-hybrid-ignore`, so that `manifest.json` sits at the root of the zip.
+It is written to the directory named by `config.target_dir` in `package.json`
+(`xpi/beta/`) and takes its name from the `version` field of
+`src/manifest.json` - for example `xpi/beta/printing-tools-ng-3.1.14-tb.xpi`.
+
+Note that an existing archive of the same name is deleted and rebuilt, so bump
+the version in `src/manifest.json` first if you need to keep the previous one.
+
+To install the result in Thunderbird, open **Tools > Add-ons and Themes**, click
+the gear icon, choose **Install Add-on From File...** and select the `.xpi`.
 
 ## Issues & Questions
 Post any issues or questions for PrintingTools NG under [Issues](https://github.com/cleidigh/printing-tools-ng/issues)

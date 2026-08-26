@@ -2,6 +2,26 @@
 
 ## Versions
 
+Version 3.1.14 : Maintenance Release - August 26, 2026
+
+- Thunderbird v140 - v154 support
+- New: Custom date token '%:z' - UTC offset as +-HH:MM, the colon separated
+  form of '%z', as used by ISO 8601 extended format
+  See Custom Date Format in help
+- Fix: Missing '</td>' in the en-US help custom date example table
+- Change: Remove unused strftime.js, orphaned when strftime.mjs was added
+  for Thunderbird v136
+
+Version 3.1.13 : Maintenance Release - May 11, 2026
+
+- Thunderbird v140 - v152 support
+- Fix : Use Headers Background Color not applied to the printed background #187
+- Updated help : en-US, de, fr, ja, zh-TW
+
+Version 3.1.12 : Maintenance Release - April 13, 2026
+
+- Thunderbird v140 - v151 support
+
 Version 3.1.11 : Maintenance Release - February 12, 2026
 
 
@@ -32,6 +52,14 @@ Version 3.1.7 : Maintenance Release - August 13, 2025
 
 - Thunderbird v143 compatibility 
 
+Version 3.1.6 : Maintenance Release - July 22, 2025
+
+- Thunderbird v128 - v141 support
+
+Version 3.1.5 : Maintenance Release - June 17, 2025
+
+- Thunderbird v128 - v140 support
+
 Version 3.1.4 : Maintenance Release - May 28, 2025
 
 - Thunderbird v139 compatibility 
@@ -39,6 +67,14 @@ Version 3.1.4 : Maintenance Release - May 28, 2025
 Version 3.1.3 : Maintenance Release - April 23, 2025
 
 - fix showing signature files
+
+Version 3.1.2 : Maintenance Release - April 22, 2025
+
+- Thunderbird v115 - v138 support
+- Fix : Attachment table in the header for messages with signature attachments
+- Fix : Message-ID header for the non aligned header layout #299
+- Fix : Advanced options preferences not read reliably
+- Updated help : en-US, de, fr, ja
 
 Version 3.1.0 : Thunderbird v128 Release - July 28, 2024
 
