@@ -1568,7 +1568,7 @@ var printingtools = {
 					var newTDelement = trs[i].insertBefore(tdElement, trs[i].firstChild);
 					newTDelement.setAttribute("style", style);
 
-					
+
 					newTDelement.appendChild(printingtools.doc.getElementById("spanTD"));
 				}
 				else {
@@ -2361,10 +2361,10 @@ var printingtools = {
 		//console.log(newTR.outerHTML)
 		let tdInner = newTD.innerHTML;
 		let newTD2 = printingtools.doc.createElement("SPAN");
-		newTD2.setAttribute("id","spanTD")
+		newTD2.setAttribute("id", "spanTD")
 		newTD2.textContent = bundle.GetStringFromName("attachments") + ":"
 		//newTD2.setHTML = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>";
-		
+
 		//console.log(newTD2.outerHTML)
 
 		let newTDhtml = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>" + tdInner;
@@ -2374,13 +2374,13 @@ var printingtools = {
 
 
 		//console.log(newTD.innerHTML)
-		
+
 		//if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.setborders"))
 		//	newTD.setAttribute("style", "padding: 0px 10px;");
 		newTR.appendChild(newTD);
 		if (headtable1 && headtable1.lastChild)
 			headtable1.lastChild.appendChild(newTR);
-			//console.log(headtable1.outerHTML)
+		//console.log(headtable1.outerHTML)
 
 	},
 
@@ -2556,6 +2556,8 @@ var printingtools = {
 					}
 					var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
 					console.log(currAtt)
+					var currAttSPAN = printingtools.doc.createElement("SPAN");
+					currAttSPAN.setAttribute("style", "padding-left: 16px; word-wrap: nowrap; position: relative;");
 					var currAttTEXT = printingtools.doc.createTextNode("\xA0" + currAtt);;
 
 					var currAttP1DIV = printingtools.doc.createElement("DIV");;
@@ -2568,24 +2570,23 @@ var printingtools = {
 
 						currAtt = '<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">&nbsp;' + currAtt + "</span>"
 
-						var currAttSPAN = printingtools.doc.createElement("SPAN");
-						currAttSPAN.setAttribute("style", "padding-left: 16px; word-wrap: nowrap; position: relative;");
+
 
 						//currAttP1DIV.setHTML('<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" >')
-						
+
 						console.log(currAttSPAN.outerHTML)
 						//curAttIMG.setHTML('<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">')
-						curAttIMG.setAttribute("src",imgSrc)
+						curAttIMG.setAttribute("src", imgSrc)
 						curAttIMG.classList.add("attIcon")
-						curAttIMG.setAttribute("height","16px")
-						curAttIMG.setAttribute("width","16px")
-						curAttIMG.setAttribute("style","position: absolute; bottom: 2px; left: 0px")
+						curAttIMG.setAttribute("height", "16px")
+						curAttIMG.setAttribute("width", "16px")
+						curAttIMG.setAttribute("style", "position: absolute; bottom: 2px; left: 0px")
 						console.log(curAttIMG.outerHTML)
-						
+
 						currAttSPAN.appendChild(curAttIMG)
 						currAttSPAN.appendChild(currAttTEXT)
-						console.log(currAttSPAN.outerHTML)
-						
+						console.log(currAttSPAN)
+
 						var currAttDiv = printingtools.doc.createElement("DIV");
 
 						currAttDiv.setHTML(currAtt)
@@ -2600,7 +2601,7 @@ var printingtools = {
 				}
 				//newTD.appendChild(currAttDiv)
 				//newTD.insertBefore()
-				console.log(attDiv)
+				console.log(currAttSPAN)
 				newTD.appendChild(currAttSPAN)
 
 				//newTD.innerHTML = attDiv;
@@ -2626,7 +2627,7 @@ var printingtools = {
 					if (withIcon) {
 						var filename = attDiv.substring(0, attDiv.lastIndexOf("&")).toLowerCase();
 						var imgSrc = printingtools.findIconSrc(filename);
-						
+
 						console.log(attDiv)
 						// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
 						attDiv = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "";
@@ -2634,8 +2635,8 @@ var printingtools = {
 					}
 					// write into the new TD innerHTML the name of the attachment, if necessary with a comma
 					newTD.innerHTML = newTD.innerHTML + comma + attDiv;
-					
-					
+
+
 					//newTD.setHTML(newTD.innerHTML + comma + attDiv);
 					firsttime = false;
 					counter++;
