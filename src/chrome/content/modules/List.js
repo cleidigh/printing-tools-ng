@@ -1325,7 +1325,7 @@ var Templater = function(list) {
       } else {
         elm = list.utils.getByClass(el, valueNames[i], true);
         if (elm) {
-          elm.innerHTML = "";
+          elm.setHTML = "";
         }
       }
       elm = undefined;
@@ -1346,23 +1346,23 @@ var Templater = function(list) {
       }
     } else if (/<tr[\s>]/g.exec(item)) {
       var tbody = document.createElement('tbody');
-      console.log(tbody)
-      console.log(item)
       let trc = item.match(/tr class="(.*?)"/i)
       let tdc = item.match(/td class="(.*?)"/i)
-
-      console.log(trc)
 
       tbody.setHTML(item);
       tbody.firstChild.classList.add(trc[1])
       tbody.firstChild.firstChild.classList.add(tdc[1])
 
-      console.log(tbody.innerHTML)
-
       return tbody.firstChild;
     } else if (item.indexOf("<") !== -1) {
       var div = document.createElement('div');
-      div.innerHTML = item;
+      let trc = item.match(/tr class="(.*?)"/i)
+      let tdc = item.match(/td class="(.*?)"/i)
+
+      tbody.setHTML(item);
+      tbody.firstChild.classList.add(trc[1])
+      tbody.firstChild.firstChild.classList.add(tdc[1])
+
       return div.firstChild;
     } else {
       var source = document.getElementById(list.item);
