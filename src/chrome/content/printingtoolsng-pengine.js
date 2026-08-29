@@ -2554,7 +2554,7 @@ var printingtools = {
 					} else {
 						comma = "";
 					}
-					var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
+					var currAtt = tds[i].innerHTML + "&(" + tds[i + 1].innerHTML + ")";
 					console.log(currAtt)
 					var currAttSPAN = printingtools.doc.createElement("SPAN");
 					currAttSPAN.setAttribute("style", "padding-left: 1px; word-wrap: nowrap; position: relative;");
@@ -2562,17 +2562,12 @@ var printingtools = {
 
 					var currAttP1DIV = printingtools.doc.createElement("DIV");;
 					var curAttIMG = printingtools.doc.createElement("IMG");;
-					var currAttP3;
 
 					if (withIcon) {
 						var filename = currAtt.substring(0, currAtt.lastIndexOf("&")).toLowerCase();
 						var imgSrc = printingtools.findIconSrc(filename);
 
 						currAtt = '<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">&nbsp;' + currAtt + "</span>"
-
-
-
-						//currAttP1DIV.setHTML('<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" >')
 
 						//console.log(currAttSPAN.outerHTML)
 						//curAttIMG.setHTML('<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">')
