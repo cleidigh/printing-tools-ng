@@ -2574,17 +2574,16 @@ var printingtools = {
 
 						//currAttP1DIV.setHTML('<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" >')
 
-						console.log(currAttSPAN.outerHTML)
+						//console.log(currAttSPAN.outerHTML)
 						//curAttIMG.setHTML('<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">')
 						curAttIMG.setAttribute("src", imgSrc)
 						curAttIMG.classList.add("attIcon")
 						curAttIMG.setAttribute("height", "16px")
 						curAttIMG.setAttribute("width", "16px")
-						curAttIMG.setAttribute("style", "position: absolute; bottom: 2px; left: 0px")
+						curAttIMG.setAttribute("style", "position2: absolute; bottom: 2px; left: 0px")
 						console.log(curAttIMG.outerHTML)
 
 						currAttSPAN.appendChild(curAttIMG)
-						currAttSPAN.appendChild(currAttTEXT)
 						console.log(currAttSPAN)
 
 						var currAttDiv = printingtools.doc.createElement("DIV");
@@ -2592,17 +2591,19 @@ var printingtools = {
 						currAttDiv.setHTML(currAtt)
 						//console.log(currAttDiv.outerHTML)
 					}
+						currAttSPAN.appendChild(currAttTEXT)
+
 					attDiv = attDiv + currAtt + comma;
 					if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
 						attDiv += '<br>'
 					}
 					//console.log(attDIV.outerHTML)
+				newTD.appendChild(currAttSPAN)
 
 				}
 				//newTD.appendChild(currAttDiv)
 				//newTD.insertBefore()
 				console.log(currAttSPAN)
-				newTD.appendChild(currAttSPAN)
 
 				//newTD.innerHTML = attDiv;
 				attTab.parentNode.removeChild(attTab);
