@@ -2557,8 +2557,8 @@ var printingtools = {
 					var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
 					console.log(currAtt)
 					var currAttSPAN = printingtools.doc.createElement("SPAN");
-					currAttSPAN.setAttribute("style", "padding-left: 16px; word-wrap: nowrap; position: relative;");
-					var currAttTEXT = printingtools.doc.createTextNode("\xA0" + currAtt);;
+					currAttSPAN.setAttribute("style", "padding-left: 1px; word-wrap: nowrap; position: relative;");
+					var currAttTEXT = printingtools.doc.createTextNode("\xA0" + currAtt + comma);;
 
 					var currAttP1DIV = printingtools.doc.createElement("DIV");;
 					var curAttIMG = printingtools.doc.createElement("IMG");;
@@ -2581,10 +2581,10 @@ var printingtools = {
 						curAttIMG.setAttribute("height", "16px")
 						curAttIMG.setAttribute("width", "16px")
 						curAttIMG.setAttribute("style", "position2: absolute; bottom: 2px; left: 0px")
-						console.log(curAttIMG.outerHTML)
+						//console.log(curAttIMG.outerHTML)
 
 						currAttSPAN.appendChild(curAttIMG)
-						console.log(currAttSPAN)
+						//console.log(currAttSPAN)
 
 						var currAttDiv = printingtools.doc.createElement("DIV");
 
@@ -2597,7 +2597,7 @@ var printingtools = {
 					if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
 						attDiv += '<br>'
 					}
-					//console.log(attDIV.outerHTML)
+					console.log(attDIV.outerHTML)
 				newTD.appendChild(currAttSPAN)
 
 				}
