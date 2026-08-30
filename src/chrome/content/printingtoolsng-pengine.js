@@ -968,7 +968,6 @@ var printingtools = {
 				divHTML = divHTML.replace("From:", from + ':');
 				divHTML = divHTML.replace("Attachments:", attachments + ':');
 				div.setHTML = divHTML;
-				// var divHTML = div.innerHTML.replace(":", );
 			} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
 				divHTML = divHTML.replace("From:", from + ':');
 				if (divHTML) {
@@ -1080,12 +1079,10 @@ var printingtools = {
 					if (divHTML.indexOf(bcc) == 0) {
 						divHTML = bcc + ":";
 						div.setHTML = divHTML;
-						//console.log("rpl bcc " + div.outerHTML)
 					}
 					if (divHTML.indexOf(cc) == 0) {
 						divHTML = cc + ":";
 						div.setHTML = divHTML;
-						//console.log("rpl cc " + div.outerHTML)
 					}
 				}
 
@@ -1096,8 +1093,6 @@ var printingtools = {
 					divHTML = divHTML.replace("CC:", cc + ':');
 
 					div.setHTML = divHTML;
-					// var divHTML = div.innerHTML.replace(":", );
-					// Services.console.logStringMessage(`header entry: ${i} ${trs[i].outerHTML}`);
 				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "de") {
 					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 						var div = trs[i].firstChild.firstChild;
@@ -1598,7 +1593,6 @@ var printingtools = {
 					// let trw = md.document.createElement("TR");
 					trw.style.display = trs[i].style.display;
 					trs[i].firstChild.style.paddingLeft = "6px";
-					// trw.appendChild(trs[i].firstChild.cloneNode(true));
 					trw.setHTML = trs[i].firstChild.outerHTML;
 					tw.appendChild(trw);
 				}
@@ -2533,117 +2527,55 @@ var printingtools = {
 		// takes all the TABLE elements of the doc
 		var attTable = printingtools.doc.getElementsByTagName("TABLE");
 
-		if (Array.isArray) {  // Thunderbird 5 or higher (different layout)
-			var attTab = null;
-			for (var i = 0; i < attTable.length; i++) {
-				var tabclass = attTable[i].getAttribute("class");
-				if (attTable[i].getAttribute("class") == "mimeAttachmentTable") {
-					attTab = attTable[i];
-					break;
-				}
+		var attTab = null;
+		for (var i = 0; i < attTable.length; i++) {
+			var tabclass = attTable[i].getAttribute("class");
+			if (attTable[i].getAttribute("class") == "mimeAttachmentTable") {
+				attTab = attTable[i];
+				break;
 			}
-			if (attTab) {
-				var tds = attTab.getElementsByTagName("TD");
-				var attDiv = "";
-				var attDIV = printingtools.doc.createElement("DIV");
-				var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
-				for (var i = 0; i < tds.length; i = i + 2) {
+		}
+		if (attTab) {
+			var tds = attTab.getElementsByTagName("TD");
+			var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
+			for (var i = 0; i < tds.length; i = i + 2) {
 
-					if (tds.length > 1 && i < tds.length - 2 && maxAttPerLine !== 1) {
-						comma = ", ";
-					} else {
-						comma = "";
-					}
-					var currAtt = tds[i].innerHTML + "\xA0(" + tds[i + 1].innerHTML + ")";
-					console.log(currAtt)
-					var currAttSPAN = printingtools.doc.createElement("SPAN");
-					currAttSPAN.setAttribute("style", "padding-left: 1px; word-wrap: nowrap; position2; relative;");
-					var currAttTEXT = printingtools.doc.createTextNode("\xA0" + currAtt + comma);;
+				if (tds.length > 1 && i < tds.length - 2 && maxAttPerLine !== 1) {
+					comma = ", ";
+				} else {
+					comma = "";
+				}
+				var currAtt = tds[i].innerHTML + "\xA0(" + tds[i + 1].innerHTML + ")";
+				var currAttSPAN = printingtools.doc.createElement("SPAN");
+				currAttSPAN.setAttribute("style", "padding-left: 1px; word-wrap: nowrap; position2; relative;");
+				var currAttTEXT = printingtools.doc.createTextNode("\xA0" + currAtt + comma);;
 
-					var currAttP1DIV = printingtools.doc.createElement("DIV");;
-					var curAttIMG = printingtools.doc.createElement("IMG");;
+				var curAttIMG = printingtools.doc.createElement("IMG");;
 
-					if (withIcon) {
-						var filename = currAtt.substring(0, currAtt.lastIndexOf("(") - 1).toLowerCase();
-						var imgSrc = printingtools.findIconSrc(filename);
+				if (withIcon) {
+					var filename = currAtt.substring(0, currAtt.lastIndexOf("(") - 1).toLowerCase();
+					var imgSrc = printingtools.findIconSrc(filename);
 
-						currAtt = '<span style="padding-left: 16px; word-wrap: nowrap; position2: relative;" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">&nbsp;' + currAtt + "</span>"
+					curAttIMG.setAttribute("src", imgSrc)
+					curAttIMG.classList.add("attIcon")
+					curAttIMG.setAttribute("height", "16px")
+					curAttIMG.setAttribute("width", "16px")
+					curAttIMG.setAttribute("style", "position2: absolute; bottom: 2px; left: 0px")
 
-						//console.log(currAttSPAN.outerHTML)
-						//curAttIMG.setHTML('<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">')
-						curAttIMG.setAttribute("src", imgSrc)
-						curAttIMG.classList.add("attIcon")
-						curAttIMG.setAttribute("height", "16px")
-						curAttIMG.setAttribute("width", "16px")
-						curAttIMG.setAttribute("style", "position2: absolute; bottom: 2px; left: 0px")
-						//console.log(curAttIMG.outerHTML)
+					newTD.appendChild(curAttIMG)
+				}
+				currAttSPAN.appendChild(currAttTEXT)
 
-						newTD.appendChild(curAttIMG)
-						//currAttSPAN.appendChild(curAttIMG)
-						//console.log(currAttSPAN)
-
-						var currAttDiv = printingtools.doc.createElement("DIV");
-
-						currAttDiv.setHTML(currAtt)
-						//console.log(currAttDiv.outerHTML)
-					}
-						currAttSPAN.appendChild(currAttTEXT)
-
-					attDiv = attDiv + currAtt + comma;
-					if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
-						attDiv += '<br>'
-						var br = printingtools.doc.createElement("BR");
-						currAttSPAN.appendChild(br);
-					}
-					console.log(attDIV.outerHTML)
+				if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
+					var br = printingtools.doc.createElement("BR");
+					currAttSPAN.appendChild(br);
+				}
 				newTD.appendChild(currAttSPAN)
 
-				}
-				//newTD.appendChild(currAttDiv)
-				//newTD.insertBefore()
-				console.log(currAttSPAN)
-
-				//newTD.innerHTML = attDiv;
-				attTab.parentNode.removeChild(attTab);
 			}
+			attTab.parentNode.removeChild(attTab);
 		}
-		else {
-			// skips the first TABLE, that are the headers-part1
-			for (var i = 0; i < attTable.length; i++) {
-				// skips the TABLE with class=header-part2 and 3 and without the words "Content-Type"
-				var tabclass = attTable[i].getAttribute("class");
-				var tabindexof = attTable[i].innerHTML.indexOf("Content-Type");
-				var tabindexof2 = attTable[i].innerHTML.indexOf("Content-Encoding");
-				var tabindexof3 = attTable[i].innerHTML.indexOf("X-UIDL");
-				if (attTable[i] && tabindexof3 < 0 && (tabindexof > -1 || tabindexof2 > -1) && tabclass != "header-part2" && tabclass != "header-part3") {
-					// takes all the TD elements of the TABLE 
-					var tds = attTable[i].getElementsByTagName("TD");
-					// remove from the first TD element (the name of the attachment) the class "bold"
-					tds[0].firstChild.removeAttribute("class");
-					if (!firsttime)
-						comma = ", ";
-					var attDiv = tds[0].innerHTML;
-					if (withIcon) {
-						var filename = attDiv.substring(0, attDiv.lastIndexOf("&")).toLowerCase();
-						var imgSrc = printingtools.findIconSrc(filename);
 
-						console.log(attDiv)
-						// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
-						attDiv = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "";
-						console.log(attDiv)
-					}
-					// write into the new TD innerHTML the name of the attachment, if necessary with a comma
-					newTD.innerHTML = newTD.innerHTML + comma + attDiv;
-
-
-					//newTD.setHTML(newTD.innerHTML + comma + attDiv);
-					firsttime = false;
-					counter++;
-					// empty the TABLE
-					attTable[i].setHTML = "";
-				}
-			}
-		}
 
 		if (newTD)
 			printingtools.appendAttTD(newTD);
