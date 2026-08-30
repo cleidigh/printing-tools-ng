@@ -1426,7 +1426,6 @@ var Templater = function(list) {
       } else {
         elm = list.utils.getByClass(item.elm, valueName, true);
         if (elm) {
-          console.log(value)
           elm.setHTML(value);
         }
       }
