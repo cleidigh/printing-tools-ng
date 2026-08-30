@@ -2592,6 +2592,8 @@ var printingtools = {
 					attDiv = attDiv + currAtt + comma;
 					if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
 						attDiv += '<br>'
+						var br = printingtools.doc.createElement("BR");
+						currAttSPAN.appendChild(br);
 					}
 					console.log(attDIV.outerHTML)
 				newTD.appendChild(currAttSPAN)
