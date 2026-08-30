@@ -2554,20 +2554,20 @@ var printingtools = {
 					} else {
 						comma = "";
 					}
-					var currAtt = tds[i].innerHTML + "&(" + tds[i + 1].innerHTML + ")";
+					var currAtt = tds[i].innerHTML + "\xA0(" + tds[i + 1].innerHTML + ")";
 					console.log(currAtt)
 					var currAttSPAN = printingtools.doc.createElement("SPAN");
-					currAttSPAN.setAttribute("style", "padding-left: 1px; word-wrap: nowrap; position: relative;");
+					currAttSPAN.setAttribute("style", "padding-left: 1px; word-wrap: nowrap; position2; relative;");
 					var currAttTEXT = printingtools.doc.createTextNode("\xA0" + currAtt + comma);;
 
 					var currAttP1DIV = printingtools.doc.createElement("DIV");;
 					var curAttIMG = printingtools.doc.createElement("IMG");;
 
 					if (withIcon) {
-						var filename = currAtt.substring(0, currAtt.lastIndexOf("&")).toLowerCase();
+						var filename = currAtt.substring(0, currAtt.lastIndexOf("(") - 1).toLowerCase();
 						var imgSrc = printingtools.findIconSrc(filename);
 
-						currAtt = '<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">&nbsp;' + currAtt + "</span>"
+						currAtt = '<span style="padding-left: 16px; word-wrap: nowrap; position2: relative;" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">&nbsp;' + currAtt + "</span>"
 
 						//console.log(currAttSPAN.outerHTML)
 						//curAttIMG.setHTML('<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">')
@@ -2578,7 +2578,8 @@ var printingtools = {
 						curAttIMG.setAttribute("style", "position2: absolute; bottom: 2px; left: 0px")
 						//console.log(curAttIMG.outerHTML)
 
-						currAttSPAN.appendChild(curAttIMG)
+						newTD.appendChild(curAttIMG)
+						//currAttSPAN.appendChild(curAttIMG)
 						//console.log(currAttSPAN)
 
 						var currAttDiv = printingtools.doc.createElement("DIV");
