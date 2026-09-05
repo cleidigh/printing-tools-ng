@@ -91,13 +91,13 @@ export var strftime = {
         '%0': strftime.getLiteral(date, locale, 0),
         '%1': strftime.getLiteral(date, locale, 1),
         '%2': strftime.getLiteral(date, locale, 2),
-        '%9': strftime.getTest(),
+        '%9': strftime.getTest(date),
       }[sMatch] || '') + '') || sMatch;
     });
   },
 
-  getTest: function () {
-    return "TEST";
+  getTest: function (date) {
+    return "TEST: " + date.toLocaleDateString([], { timeZoneName: 'short', day: '2-digit' }).slice(3);
   },
   
   getLiteral: function (date, locale, literal) {

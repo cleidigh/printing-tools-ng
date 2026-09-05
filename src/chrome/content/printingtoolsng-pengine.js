@@ -60,22 +60,30 @@ if (window.printingtools) {
 	console.log("duplicate")
 }
 
-console.debug('strftime tests: on load');
-let testDate = new Date();
-let dateformat = Services.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
-let locale = Services.locale.appLocaleAsBCP47;
+if (1) {
+	console.debug('strftime tests: on load');
+	let testDate = new Date();
+	let dateformat = Services.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
+	let locale = Services.locale.appLocaleAsBCP47;
 
-console.debug('Current date:', testDate.toLocaleString());
-//console.debug('Custom Date Format:', dateformat);
-//console.debug('Formatted Date:', strftime.strftime(dateFormat, testDate, locale));
-console.debug('Date Format %H:%M %t:', strftime.strftime("%H:%M %t", testDate, locale));
-console.debug('Date Format %t:', strftime.strftime("%t", testDate, locale));
-console.debug('Date Format %t %9:', strftime.strftime("%t %9", testDate, locale));
+	console.debug('Current date:', testDate.toLocaleString());
+	//console.debug('Custom Date Format:', dateformat);
+	//console.debug('Formatted Date:', strftime.strftime(dateFormat, testDate, locale));
+	console.debug('Date Format %H:%M %t:', strftime.strftime("%H:%M %t", testDate, locale));
+	console.debug('Date Format %t:', strftime.strftime("%t", testDate, locale));
+	console.debug('Date Format %t %9:', strftime.strftime("%t %9", testDate, locale));
 
-console.debug('Date Format TZ , no strftime:', testDate.toLocaleDateString([], { timeZoneName: 'short', day: '2-digit' }).slice(3));
-console.debug('Date Format TZ only, no strftime:', testDate.toLocaleDateString([], { timeZoneName: 'short' }));
+	console.debug('Date Format TZ , no strftime:', testDate.toLocaleDateString([], { timeZoneName: 'short', day: '2-digit' }).slice(3));
+	console.debug('Date Format TZ only, no strftime:', testDate.toLocaleDateString([], { timeZoneName: 'short' }));
 
-console.log(strftime.strftime.toSource());
+	console.log("strftime source:")
+	console.log(strftime.toSource());
+	console.log("strftime.getTest source:")
+
+	console.log(strftime.getTest.toSource());
+	console.log("Call getTest:", strftime.getTest(testDate));
+}
+
 
 
 
@@ -2302,7 +2310,7 @@ var printingtools = {
 				var formatted_date = date_obj.toUTCString();
 			} else if (longFormat === 3) {
 
-				console.debug('strftime tests: on load');
+				console.debug('strftime tests: on print');
 				let testDate2 = new Date();
 				let dateformat2 = Services.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
 				let locale2 = Services.locale.appLocaleAsBCP47;
@@ -2316,8 +2324,12 @@ var printingtools = {
 
 				console.debug('Date Format TZ , no strftime:', testDate2.toLocaleDateString([], { timeZoneName: 'short', day: '2-digit' }).slice(3));
 				console.debug('Date Format TZ only, no strftime:', testDate2.toLocaleDateString([], { timeZoneName: 'short' }));
-				console.log(strftime.strftime.toSource());
+				console.log("strftime source:")
+				console.log(strftime.toSource());
+				console.log("strftime.getTest source:")
 
+				console.log(strftime.getTest.toSource());
+				console.log("Call getTest:", strftime.getTest(testDate2));
 				let customDateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
 				let locale = Services.locale.appLocaleAsBCP47;
 				var formatted_date = strftime.strftime(customDateFormat, date_obj, locale);
