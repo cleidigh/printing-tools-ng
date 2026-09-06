@@ -19,7 +19,7 @@ function onLoad() {
 
 
   Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
-  //Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
+  Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
   Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/UIlisteners.js", window);
 
 

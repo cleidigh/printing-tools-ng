@@ -41,8 +41,6 @@ var { MailE10SUtils } = Ptng_ESM
 	? ChromeUtils.importESModule("resource:///modules/MailE10SUtils.sys.mjs")
 	: ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
 
-var { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs?"
-	+ ptngExtension.manifest.version + new Date());
 
 
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
@@ -60,7 +58,7 @@ if (window.printingtools) {
 	console.log("duplicate")
 }
 
-if (1) {
+if (0) {
 	console.debug('strftime tests: on load');
 	let testDate = new Date();
 	let dateformat = Services.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
@@ -2310,7 +2308,10 @@ var printingtools = {
 				var formatted_date = date_obj.toUTCString();
 			} else if (longFormat === 3) {
 
-				console.debug('strftime tests: on print');
+				let { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs?"
+					+ ptngExtension.manifest.version + new Date());
+
+				console.debug('strftime tests - b4: on print');
 				let testDate2 = new Date();
 				let dateformat2 = Services.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
 				let locale2 = Services.locale.appLocaleAsBCP47;
