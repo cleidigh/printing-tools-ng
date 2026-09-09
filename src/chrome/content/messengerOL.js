@@ -19,7 +19,8 @@ let extension2 = ExtensionParent.GlobalManager.getExtension(ADDON_ID);
 
 // Load notifyTools into a custom namespace, to prevent clashes with other add-ons.
 window.ptngAddon = {};
-Services.scriptloader.loadSubScript(extension2.rootURI.resolve("chrome/content/notifyTools.js"), window.ptngAddon, "UTF-8");
+console.log("loading safe URL")
+Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/notifyTools.js", window.ptngAddon, "UTF-8");
 
 
 async function onLoad() {
