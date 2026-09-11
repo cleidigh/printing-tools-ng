@@ -39,6 +39,8 @@ messenger.WindowListener.registerChromeUrl([
 
 ]);
 
+	console.log(`PrintingTools NG v${browser.runtime.getManifest().version}`);
+
 messenger.WindowListener.registerOptionsPage("chrome://printingtoolsng/content/ptng-options.xhtml");
 
 // Register each overlay script Which controls subsequent fragment loading
