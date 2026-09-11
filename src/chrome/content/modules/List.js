@@ -1,4 +1,5 @@
 /*! List.js v1.5.0 (http://listjs.com) by Jonny Strömberg (http://javve.com) */
+// Replace innerHTML sets
 var List =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -1325,7 +1326,7 @@ var Templater = function(list) {
       } else {
         elm = list.utils.getByClass(el, valueNames[i], true);
         if (elm) {
-          elm.innerHTML = "";
+          elm.setHTML = "";
         }
       }
       elm = undefined;
@@ -1346,11 +1347,23 @@ var Templater = function(list) {
       }
     } else if (/<tr[\s>]/g.exec(item)) {
       var tbody = document.createElement('tbody');
-      tbody.innerHTML = item;
+      let trc = item.match(/tr class="(.*?)"/i)
+      let tdc = item.match(/td class="(.*?)"/i)
+
+      tbody.setHTML(item);
+      tbody.firstChild.classList.add(trc[1])
+      tbody.firstChild.firstChild.classList.add(tdc[1])
+
       return tbody.firstChild;
     } else if (item.indexOf("<") !== -1) {
       var div = document.createElement('div');
-      div.innerHTML = item;
+      let trc = item.match(/tr class="(.*?)"/i)
+      let tdc = item.match(/td class="(.*?)"/i)
+
+      tbody.setHTML(item);
+      tbody.firstChild.classList.add(trc[1])
+      tbody.firstChild.firstChild.classList.add(tdc[1])
+
       return div.firstChild;
     } else {
       var source = document.getElementById(list.item);
@@ -1414,7 +1427,7 @@ var Templater = function(list) {
       } else {
         elm = list.utils.getByClass(item.elm, valueName, true);
         if (elm) {
-          elm.innerHTML = value;
+          elm.setHTML(value);
         }
       }
       elm = undefined;
