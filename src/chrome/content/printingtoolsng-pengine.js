@@ -41,8 +41,6 @@ var { MailE10SUtils } = Ptng_ESM
 	? ChromeUtils.importESModule("resource:///modules/MailE10SUtils.sys.mjs")
 	: ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
 
-var { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs");
-
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
 
 var { printerSettings } = ChromeUtils.importESModule("chrome://printingtoolsng/content/printerSettings.mjs?"
@@ -2280,6 +2278,9 @@ var printingtools = {
 			} else if (longFormat === 2) {
 				var formatted_date = date_obj.toUTCString();
 			} else if (longFormat === 3) {
+				let { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs?"
+					+ ptngExtension.manifest.version + new Date());
+
 				let customDateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
 				let locale = Services.locale.appLocaleAsBCP47;
 				var formatted_date = strftime.strftime(customDateFormat, date_obj, locale);
