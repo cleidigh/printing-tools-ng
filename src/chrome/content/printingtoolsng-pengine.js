@@ -2335,7 +2335,13 @@ var printingtools = {
 			newTR.setAttribute("id", "recTR");
 			var newTD = printingtools.doc.createElement("TD");
 			newTD.setAttribute("id", "receivedDate");
-			newTD.innerHTML = "<span><b>" + bundle.GetStringFromName("received") + ": </b></span>" + formatted_date;
+			let rdIH = "<span><b>" + bundle.GetStringFromName("received") + ": </b></span>" + formatted_date;
+			console.log(rdIH)
+			//newTD.innerHTML = rdIH
+			newTD.setHTML(rdIH)
+			console.log(newTD.innerHTML)
+			
+			
 			newTR.appendChild(newTD);
 
 			// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
