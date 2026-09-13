@@ -2287,10 +2287,9 @@ var printingtools = {
 
 				tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
 
-				// PROBLEM
-				console.log(tds1[1].innerHTML)
-				//tds1[1].setHTML( "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
-				console.log(tds1[1].innerHTML + " sethtml\n")
+				console.log(tds1[i].innerHTML)
+				tds1[i].setHTML( "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
+				console.log(tds1[i].innerHTML + " sethtml\n")
 
 
 			}
