@@ -1108,7 +1108,8 @@ var printingtools = {
 
 					div.innerHTML = divHTML;
 					console.log(div.innerHTML)
-					div.setHTML(divHTML)
+				//div.setHTML(divHTML)
+
 					console.log(div.innerHTML + " sethtml\n")
 					// var divHTML = div.innerHTML.replace(":", );
 					// Services.console.logStringMessage(`header entry: ${i} ${trs[i].outerHTML}`);
@@ -1627,7 +1628,7 @@ var printingtools = {
 					// trw.appendChild(trs[i].firstChild.cloneNode(true));
 					trw.innerHTML = trs[i].firstChild.outerHTML;
 					console.log(trw.innerHTML)
-					trw.setHTML(divHTML)
+				//trw.setHTML(trs[i].firstChild.outerHTML)
 					console.log(trw.innerHTML + " sethtml\n")
 					tw.appendChild(trw);
 				}
@@ -1992,7 +1993,7 @@ var printingtools = {
 			h3.innerHTML = myname + folderHtml;
 
 			console.log(h3.innerHTML)
-			h3.setHTML(divHTML)
+			//h3.setHTML(divHTML)
 			console.log(h3.innerHTML + " sethtml\n")
 
 
@@ -2183,7 +2184,7 @@ var printingtools = {
 					tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
 
 					console.log(tds1[i].innerHTML)
-					//tds1[i].setHTML("<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
+					tds1[i].setHTML("<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
 					console.log(tds1[i].innerHTML + " sethtml\n")
 
 
@@ -2286,8 +2287,9 @@ var printingtools = {
 
 				tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
 
+				// PROBLEM
 				console.log(tds1[1].innerHTML)
-				tds1[1].setHTML( "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
+				//tds1[1].setHTML( "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
 				console.log(tds1[1].innerHTML + " sethtml\n")
 
 
