@@ -1993,7 +1993,7 @@ var printingtools = {
 			h3.innerHTML = myname + folderHtml;
 
 			console.log(h3.innerHTML)
-			//h3.setHTML(divHTML)
+			h3.setHTML(myname + folderHtml)
 			console.log(h3.innerHTML + " sethtml\n")
 
 
