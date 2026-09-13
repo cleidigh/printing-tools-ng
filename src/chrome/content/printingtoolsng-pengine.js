@@ -966,11 +966,18 @@ var printingtools = {
 				divHTML = divHTML.replace("From:", from + ':');
 				divHTML = divHTML.replace("Attachments:", attachments + ':');
 				div.innerHTML = divHTML;
+				console.log(div.innerHTML)
+				//div.setHTML(divHTML)
+				console.log(div.innerHTML + " sethtml\n")
+
 				// var divHTML = div.innerHTML.replace(":", );
 			} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
 				divHTML = divHTML.replace("From:", from + ':');
 				if (divHTML) {
 					div.innerHTML = divHTML;
+					console.log(div.innerHTML)
+					div.setHTML(divHTML)
+					console.log(div.innerHTML + " sethtml\n")
 				}
 			}
 
@@ -1078,11 +1085,17 @@ var printingtools = {
 					if (divHTML.indexOf(bcc) == 0) {
 						divHTML = bcc + ":";
 						div.innerHTML = divHTML;
+						console.log(div.innerHTML)
+						//div.setHTML(divHTML)
+						console.log(div.innerHTML + " sethtml\n")
 						//console.log("rpl bcc " + div.outerHTML)
 					}
 					if (divHTML.indexOf(cc) == 0) {
 						divHTML = cc + ":";
 						div.innerHTML = divHTML;
+						console.log(div.innerHTML)
+						//div.setHTML(divHTML)
+						console.log(div.innerHTML + " sethtml\n")
 						//console.log("rpl cc " + div.outerHTML)
 					}
 				}
@@ -1094,6 +1107,9 @@ var printingtools = {
 					divHTML = divHTML.replace("CC:", cc + ':');
 
 					div.innerHTML = divHTML;
+					console.log(div.innerHTML)
+					div.setHTML(divHTML)
+					console.log(div.innerHTML + " sethtml\n")
 					// var divHTML = div.innerHTML.replace(":", );
 					// Services.console.logStringMessage(`header entry: ${i} ${trs[i].outerHTML}`);
 				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "de") {
@@ -1102,6 +1118,9 @@ var printingtools = {
 						divHTML = divHTML.replace("Blindkopie (BCC):", "Bcc:");
 						divHTML = divHTML.replace("Kopie (CC):", "Cc:");
 						div.innerHTML = divHTML;
+						console.log(div.innerHTML)
+						div.setHTML(divHTML)
+						console.log(div.innerHTML + " sethtml\n")
 						cc = "Cc";
 						bcc = "Bcc";
 					}
@@ -1118,12 +1137,18 @@ var printingtools = {
 						}
 					}
 					div.innerHTML = divHTML;
+					console.log(div.innerHTML)
+					//div.setHTML(divHTML)
+					console.log(div.innerHTML + " sethtml\n")
 				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "en") {
 					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 						var div = trs[i].firstChild.firstChild;
 						divHTML = divHTML.replace("BCC:", "Bcc:");
 						divHTML = divHTML.replace("CC:", "Cc:");
 						div.innerHTML = divHTML;
+						console.log(div.innerHTML)
+						//div.setHTML(divHTML)
+						console.log(div.innerHTML + " sethtml\n")
 						cc = "Cc";
 						bcc = "Bcc";
 					}
@@ -1140,6 +1165,9 @@ var printingtools = {
 						cc = "Cc";
 					}
 					div.innerHTML = divHTML;
+					console.log(div.innerHTML)
+					//div.setHTML(divHTML)
+					console.log(div.innerHTML + " sethtml\n")
 				}
 
 				// Services.console.logStringMessage(divHTML.outerHTML);
@@ -1598,6 +1626,9 @@ var printingtools = {
 					trs[i].firstChild.style.paddingLeft = "6px";
 					// trw.appendChild(trs[i].firstChild.cloneNode(true));
 					trw.innerHTML = trs[i].firstChild.outerHTML;
+					console.log(trw.innerHTML)
+					trw.setHTML(divHTML)
+					console.log(trw.innerHTML + " sethtml\n")
 					tw.appendChild(trw);
 				}
 				// tw.style.height = 0;
@@ -1830,6 +1861,9 @@ var printingtools = {
 				}
 			}
 			containerDiv.innerHTML = "";
+			console.log(containerDiv.innerHTML)
+			containerDiv.setHTML("")
+			console.log(containerDiv.innerHTML + " sethtml\n")
 
 			//suff.textContent = "…  ";
 
@@ -1956,6 +1990,12 @@ var printingtools = {
 				folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="resource://printingtoolsng/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
 			}
 			h3.innerHTML = myname + folderHtml;
+
+			console.log(h3.innerHTML)
+			h3.setHTML(divHTML)
+			console.log(h3.innerHTML + " sethtml\n")
+
+
 			var firsttable = printingtools.getTable(0);
 			if (firsttable) {
 				firsttable.parentNode.insertBefore(h3, firsttable);
@@ -2141,6 +2181,12 @@ var printingtools = {
 						s.style.wordWrap = "break-word";
 					}
 					tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
+
+					console.log(tds1[i].innerHTML)
+					//tds1[i].setHTML("<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
+					console.log(tds1[i].innerHTML + " sethtml\n")
+
+
 				}
 			}
 		}
@@ -2239,6 +2285,12 @@ var printingtools = {
 				}
 
 				tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
+
+				console.log(tds1[1].innerHTML)
+				tds1[1].setHTML( "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
+				console.log(tds1[1].innerHTML + " sethtml\n")
+
+
 			}
 		}
 		// Services.console.logStringMessage(table1.outerHTML);
@@ -2340,8 +2392,8 @@ var printingtools = {
 			//newTD.innerHTML = rdIH
 			newTD.setHTML(rdIH)
 			console.log(newTD.innerHTML)
-			
-			
+
+
 			newTR.appendChild(newTD);
 
 			// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
@@ -2364,6 +2416,12 @@ var printingtools = {
 		newTR.setAttribute("id", "attTR");
 		var newTDhtml = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>" + newTD.innerHTML;
 		newTD.innerHTML = newTDhtml;
+
+		console.log(newTD.innerHTML)
+		//newTD.setHTML(newTDhtml)
+		console.log(newTD.innerHTML + " sethtml\n")
+
+
 		//if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.setborders"))
 		//	newTD.setAttribute("style", "padding: 0px 10px;");
 		newTR.appendChild(newTD);
