@@ -966,8 +966,9 @@ var printingtools = {
 				divHTML = divHTML.replace("From:", from + ':');
 				divHTML = divHTML.replace("Attachments:", attachments + ':');
 				div.innerHTML = divHTML;
+				// tested with ja ok
 				console.log(div.innerHTML)
-				//div.setHTML(divHTML)
+				div.setHTML(divHTML)
 				console.log(div.innerHTML + " sethtml\n")
 
 				// var divHTML = div.innerHTML.replace(":", );
@@ -1107,8 +1108,9 @@ var printingtools = {
 					divHTML = divHTML.replace("CC:", cc + ':');
 
 					div.innerHTML = divHTML;
+					// tested with ja ok
 					console.log(div.innerHTML)
-				//div.setHTML(divHTML)
+					div.setHTML(divHTML)
 
 					console.log(div.innerHTML + " sethtml\n")
 					// var divHTML = div.innerHTML.replace(":", );
@@ -1147,8 +1149,9 @@ var printingtools = {
 						divHTML = divHTML.replace("BCC:", "Bcc:");
 						divHTML = divHTML.replace("CC:", "Cc:");
 						div.innerHTML = divHTML;
+						// tested with en ok
 						console.log(div.innerHTML)
-						//div.setHTML(divHTML)
+						div.setHTML(divHTML)
 						console.log(div.innerHTML + " sethtml\n")
 						cc = "Cc";
 						bcc = "Bcc";
@@ -1167,7 +1170,7 @@ var printingtools = {
 					}
 					div.innerHTML = divHTML;
 					console.log(div.innerHTML)
-					//div.setHTML(divHTML)
+					div.setHTML(divHTML)
 					console.log(div.innerHTML + " sethtml\n")
 				}
 
@@ -1628,7 +1631,7 @@ var printingtools = {
 					// trw.appendChild(trs[i].firstChild.cloneNode(true));
 					trw.innerHTML = trs[i].firstChild.outerHTML;
 					console.log(trw.innerHTML)
-				//trw.setHTML(trs[i].firstChild.outerHTML)
+					//trw.setHTML(trs[i].firstChild.outerHTML)
 					console.log(trw.innerHTML + " sethtml\n")
 					tw.appendChild(trw);
 				}
@@ -2419,7 +2422,7 @@ var printingtools = {
 		newTD.innerHTML = newTDhtml;
 
 		console.log(newTD.innerHTML)
-		//newTD.setHTML(newTDhtml)
+		newTD.setHTML(newTDhtml)
 		console.log(newTD.innerHTML + " sethtml\n")
 
 
