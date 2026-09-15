@@ -1580,6 +1580,8 @@ var printingtools = {
 
 			let md = printingtools.getMail3Pane();
 
+			console.log(printingtools.doc.documentElement.outerHTML);
+
 			if (this.getTable(2)) {
 
 				var tw = printingtools.doc.createElement("TABLE");
@@ -2580,9 +2582,8 @@ var printingtools = {
 		if (newTD)
 			printingtools.appendAttTD(newTD);
 
-			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
-
 		printingtools.sortHeaders();
+
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
 			printingtools.appendReceivedTD();
 
