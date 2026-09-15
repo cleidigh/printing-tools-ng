@@ -1562,7 +1562,7 @@ var printingtools = {
 		//console.debug('check attachments');
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments")) {
-			printingtools.rewriteAttList();
+			printingtools.rewriteAttListNew();
 		} else
 			printingtools.sortHeaders();
 		if (!noheaders && printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate"))
@@ -2433,6 +2433,41 @@ var printingtools = {
 			headtable1.lastChild.appendChild(newTR);
 	},
 
+	
+
+appendAttTDNew: function (newTD) {
+		if (!newTD.innerHTML)
+			return;
+		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
+		var headtable1 = printingtools.getTable(0);
+		var newTR = printingtools.doc.createElement("TR");
+		newTR.setAttribute("id", "attTR");
+		//console.log(newTR.outerHTML)
+		let tdInner = newTD.innerHTML;
+		let newTD2 = printingtools.doc.createElement("SPAN");
+		newTD2.setAttribute("id", "spanTD")
+		newTD2.textContent = bundle.GetStringFromName("attachments") + ":"
+		//newTD2.setHTML = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>";
+
+		//console.log(newTD2.outerHTML)
+
+		let newTDhtml = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>" + tdInner;
+		//console.log(newTDhtml)
+
+		newTD.insertBefore(newTD2, newTD.firstChild)
+
+
+		//console.log(newTD.innerHTML)
+
+		//if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.setborders"))
+		//	newTD.setAttribute("style", "padding: 0px 10px;");
+		newTR.appendChild(newTD);
+		if (headtable1 && headtable1.lastChild)
+			headtable1.lastChild.appendChild(newTR);
+		//console.log(headtable1.outerHTML)
+
+	},
+
 	formatBytes: function (bytes, decimals) {
 		if (bytes == 0) return '0 Bytes';
 		var k = 1024,
@@ -2647,6 +2682,85 @@ var printingtools = {
 
 		if (newTD)
 			printingtools.appendAttTD(newTD);
+
+		printingtools.sortHeaders();
+		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
+			printingtools.appendReceivedTD();
+
+		// removes all the FIELDSET elements with class = mimeAttachmentHeader
+		var fieldSets = printingtools.doc.getElementsByTagName("FIELDSET");
+		for (var i = fieldSets.length - 1; i > -1; i--) {
+			if (fieldSets[i].getAttribute("class") == "mimeAttachmentHeader")
+				fieldSets[i].parentNode.removeChild(fieldSets[i]);
+		}
+
+	},
+
+	rewriteAttListNew: function () {
+		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
+		var firsttime = true;
+		var counter = 0;
+		var newTD = printingtools.doc.createElement("TD");
+		newTD.setAttribute("id", "attTD");
+		// takes the second table of the headers (A , CC fields)
+		var headtable1 = printingtools.getTable(0);
+		var comma = "";
+		var withIcon = printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
+		// takes all the TABLE elements of the doc
+		var attTable = printingtools.doc.getElementsByTagName("TABLE");
+
+		var attTab = null;
+		for (var i = 0; i < attTable.length; i++) {
+			var tabclass = attTable[i].getAttribute("class");
+			if (attTable[i].getAttribute("class") == "mimeAttachmentTable") {
+				attTab = attTable[i];
+				break;
+			}
+		}
+		if (attTab) {
+			var tds = attTab.getElementsByTagName("TD");
+			var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
+			for (var i = 0; i < tds.length; i = i + 2) {
+
+				if (tds.length > 1 && i < tds.length - 2 && maxAttPerLine !== 1) {
+					comma = ", ";
+				} else {
+					comma = "";
+				}
+				var currAtt = tds[i].innerHTML + "\xA0(" + tds[i + 1].innerHTML + ")";
+				var currAttSPAN = printingtools.doc.createElement("SPAN");
+				currAttSPAN.setAttribute("style", "padding-left: 1px; word-wrap: nowrap; position2; relative;");
+				var currAttTEXT = printingtools.doc.createTextNode("\xA0" + currAtt + comma);;
+
+				var curAttIMG = printingtools.doc.createElement("IMG");;
+
+				if (withIcon) {
+					var filename = currAtt.substring(0, currAtt.lastIndexOf("(") - 1).toLowerCase();
+					var imgSrc = printingtools.findIconSrc(filename);
+
+					curAttIMG.setAttribute("src", imgSrc)
+					curAttIMG.classList.add("attIcon")
+					curAttIMG.setAttribute("height", "16px")
+					curAttIMG.setAttribute("width", "16px")
+					curAttIMG.setAttribute("style", "position2: absolute; bottom: 2px; left: 0px")
+
+					newTD.appendChild(curAttIMG)
+				}
+				currAttSPAN.appendChild(currAttTEXT)
+
+				if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
+					var br = printingtools.doc.createElement("BR");
+					currAttSPAN.appendChild(br);
+				}
+				newTD.appendChild(currAttSPAN)
+
+			}
+			attTab.parentNode.removeChild(attTab);
+		}
+
+
+		if (newTD)
+			printingtools.appendAttTDNew(newTD);
 
 		printingtools.sortHeaders();
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
