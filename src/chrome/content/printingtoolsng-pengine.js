@@ -1580,7 +1580,6 @@ var printingtools = {
 
 			let md = printingtools.getMail3Pane();
 
-			console.log(printingtools.doc.documentElement.outerHTML);
 
 			if (this.getTable(2)) {
 
@@ -1696,7 +1695,12 @@ var printingtools = {
 				table3.style.backgroundColor = backgroundColor;
 			}
 		}
+
+			console.log(printingtools.doc.documentElement.outerHTML);
+
 		printingtools.setTableLayout();
+
+			console.log(printingtools.doc.documentElement.outerHTML);
 
 		// this needed a rewrite for the different table
 		// structure for non aligned headers #299
