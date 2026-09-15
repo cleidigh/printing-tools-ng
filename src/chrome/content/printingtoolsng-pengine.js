@@ -1733,7 +1733,12 @@ var printingtools = {
 				table3.style.backgroundColor = backgroundColor;
 			}
 		}
+
+			console.log(printingtools.doc.documentElement.outerHTML);
+
 		printingtools.setTableLayout();
+
+			console.log(printingtools.doc.documentElement.outerHTML);
 
 		// this needed a rewrite for the different table
 		// structure for non aligned headers #299
