@@ -2763,6 +2763,9 @@ appendAttTDNew: function (newTD) {
 			printingtools.appendAttTDNew(newTD);
 
 		printingtools.sortHeaders();
+
+			console.log(printingtools.doc.documentElement.outerHTML);
+
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
 			printingtools.appendReceivedTD();
 
