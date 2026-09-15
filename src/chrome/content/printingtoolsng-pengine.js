@@ -2580,6 +2580,8 @@ var printingtools = {
 		if (newTD)
 			printingtools.appendAttTD(newTD);
 
+			Services.console.logStringMessage(printingtools.doc.documentElement.outerHTML);
+
 		printingtools.sortHeaders();
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
 			printingtools.appendReceivedTD();
