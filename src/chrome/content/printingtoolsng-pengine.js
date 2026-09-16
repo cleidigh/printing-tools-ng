@@ -2189,6 +2189,9 @@ var printingtools = {
 						s.style.whiteSpace = "wrap";
 						s.style.wordWrap = "break-word";
 					}
+
+
+					
 					tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
 
 					console.log(tds1[i].innerHTML)
