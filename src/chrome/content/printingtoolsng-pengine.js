@@ -1996,14 +1996,22 @@ var printingtools = {
 					if (folder.isServer)
 						break;
 				}
-				folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="resource://printingtoolsng/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
+				var folderSPAN = printingtools.doc.createElement("SPAN");
+				var folderIMG = printingtools.doc.createElement("IMG");
+				folderSPAN.setAttribute("style", "font-size: 12px; margin-left:6px;");
+				folderSPAN.textContent = folderName;
+				folderIMG.setAttribute("src", "resource://printingtoolsng/icons/folder.gif");
+				folderIMG.setAttribute("height", "16px")
+				folderIMG.setAttribute("width", "16px")
+				folderIMG.classList.add("attIcon");
+				folderIMG.style.marginLeft = "24px";
 			}
-			h3.innerHTML = myname + folderHtml;
 
-			console.log(h3.innerHTML)
-			h3.setHTML(myname + folderHtml)
-			console.log(h3.innerHTML + " sethtml\n")
-
+			h3.setHTML(myname);
+			if (add_folder) {
+				h3.appendChild(folderIMG);
+				h3.appendChild(folderSPAN);
+			}
 
 			var firsttable = printingtools.getTable(0);
 			if (firsttable) {
@@ -2015,7 +2023,9 @@ var printingtools = {
 			}
 
 		}
-		catch (e) { }
+		catch (e) {
+			console.log(e)
+		}
 	},
 
 	setIMGstyle: function (hide) {
@@ -2098,9 +2108,12 @@ var printingtools = {
 					var divs = tableTDS[i].getElementsByTagName("img");
 
 					for (var j = 0; j < divs.length; j++) {
+						console.log(divs[j])
+						console.log(divs[j].nextSibling)
+
 						textNode = divs[j].nextSibling;
-						if ((avChars - textNode.nodeValue.length) < 0 && maxchars) {
-							textNode.nodeValue = textNode.nodeValue.substring(0, avChars) + " [...]";
+						if ((avChars - textNode.textContent.length) < 0 && maxchars) {
+							//textNode.textContent = textNode.textContent.substring(0, avChars) + " [...]";
 							// break;
 						}
 						// avChars -= textNode.nodeValue.length;
@@ -2112,8 +2125,8 @@ var printingtools = {
 					var divs = tableTDS[i].getElementsByTagName("div");
 					for (var j = 0; j < divs.length; j++) {
 						textNode = divs[j].firstChild;
-						if ((avChars - textNode.nodeValue.length) < 0 && maxchars) {
-							textNode.nodeValue = textNode.nodeValue.substring(0, avChars) + " [...]";
+						if ((avChars - textNode.textContent.length) < 0 && maxchars) {
+							textNode.textContent = textNode.textContent.substring(0, avChars) + " [...]";
 							break;
 						}
 						avChars -= textNode.nodeValue.length;
@@ -2190,25 +2203,25 @@ var printingtools = {
 						s.style.wordWrap = "break-word";
 					}
 
-let attDiv = printingtools.doc.createElement("DIV");
-				attDiv.setAttribute("style", "overflow-wrap: break-word; word-wrap: break-word;");
-				console.log(tds1[i], " tds\n")
-				console.log(tds1[i].outerHTML, " tds\n")
+					let attDiv = printingtools.doc.createElement("DIV");
+					attDiv.setAttribute("style", "overflow-wrap: break-word; word-wrap: break-word;");
+					console.log(tds1[i], " tds\n")
+					console.log(tds1[i].outerHTML, " tds\n")
 
-				attDiv.appendChild(tds1[i].childNodes[0]);
-				console.log(tds1[i], " tds\n")
-				console.log(attDiv, " tds\n")
+					attDiv.appendChild(tds1[i].childNodes[0]);
+					console.log(tds1[i], " tds\n")
+					console.log(attDiv, " tds\n")
 
-				attDiv.appendChild(tds1[i].childNodes[0]);
-				console.log(tds1[i], " tds\n")
-				console.log(attDiv, " tds\n")
+					attDiv.appendChild(tds1[i].childNodes[0]);
+					console.log(tds1[i], " tds\n")
+					console.log(attDiv, " tds\n")
 
 
-				tds1[i].appendChild(attDiv);
-				console.log(tds1[i], " tds\n")
-				console.log(attDiv, " tds\n")
+					tds1[i].appendChild(attDiv);
+					console.log(tds1[i], " tds\n")
+					console.log(attDiv, " tds\n")
 
-					
+
 					//tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
 
 					console.log(tds1[i].innerHTML)
@@ -2271,7 +2284,7 @@ let attDiv = printingtools.doc.createElement("DIV");
 				if (tds1[i].nextSibling) {
 					s = tds1[i].nextSibling.firstChild;
 				}
-					console.log("s1", s)
+				console.log("s1", s)
 
 				if (!s) {
 					console.log("no subject")
@@ -2663,7 +2676,7 @@ let attDiv = printingtools.doc.createElement("DIV");
 				currAttSPAN.setAttribute("style", "padding-left: 1px; word-wrap: nowrap; position2; relative;");
 				var currAttTEXT = printingtools.doc.createTextNode("\xA0" + currAtt + comma);;
 
-				var curAttIMG = printingtools.doc.createElement("IMG");;
+				var curAttIMG = printingtools.doc.createElement("IMG");
 
 				if (withIcon) {
 					var filename = currAtt.substring(0, currAtt.lastIndexOf("(") - 1).toLowerCase();
