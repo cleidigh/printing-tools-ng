@@ -2459,30 +2459,6 @@ let attDiv = printingtools.doc.createElement("DIV");
 		}
 	},
 
-	appendAttTD: function (newTD) {
-		if (!newTD.innerHTML)
-			return;
-		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
-		var headtable1 = printingtools.getTable(0);
-		var newTR = printingtools.doc.createElement("TR");
-		newTR.setAttribute("id", "attTR");
-		var newTDhtml = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>" + newTD.innerHTML;
-		newTD.innerHTML = newTDhtml;
-
-		console.log(newTD.innerHTML)
-		newTD.setHTML(newTDhtml)
-		console.log(newTD.innerHTML + " sethtml\n")
-
-
-		//if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.setborders"))
-		//	newTD.setAttribute("style", "padding: 0px 10px;");
-		newTR.appendChild(newTD);
-		if (headtable1 && headtable1.lastChild)
-			headtable1.lastChild.appendChild(newTR);
-	},
-
-
-
 	appendAttTDNew: function (newTD) {
 		if (!newTD.innerHTML)
 			return;
@@ -2651,99 +2627,6 @@ let attDiv = printingtools.doc.createElement("DIV");
 		}
 	},
 
-
-	rewriteAttList: function () {
-		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
-		var firsttime = true;
-		var counter = 0;
-		var newTD = printingtools.doc.createElement("TD");
-		newTD.setAttribute("id", "attTD");
-		// takes the second table of the headers (A , CC fields)
-		var headtable1 = printingtools.getTable(0);
-		var comma = "";
-		var withIcon = printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments_with_icon");
-		// takes all the TABLE elements of the doc
-		var attTable = printingtools.doc.getElementsByTagName("TABLE");
-
-		var attTab = null;
-		for (var i = 0; i < attTable.length; i++) {
-			var tabclass = attTable[i].getAttribute("class");
-			if (attTable[i].getAttribute("class") == "mimeAttachmentTable") {
-				attTab = attTable[i];
-				break;
-			}
-		}
-		if (attTab) {
-			var tds = attTab.getElementsByTagName("TD");
-			var attDiv = "";
-			var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
-			for (var i = 0; i < tds.length; i = i + 2) {
-
-				if (tds.length > 1 && i < tds.length - 2 && maxAttPerLine !== 1) {
-					comma = ", ";
-				} else {
-					comma = "";
-				}
-				var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
-				if (withIcon) {
-					var filename = currAtt.substring(0, currAtt.lastIndexOf("&")).toLowerCase();
-					var imgSrc = printingtools.findIconSrc(filename);
-					currAtt = '<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">&nbsp;' + currAtt + "</span>"
-				}
-				attDiv = attDiv + currAtt + comma;
-				if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
-					attDiv += '<br>'
-				}
-			}
-			newTD.innerHTML = attDiv;
-			attTab.parentNode.removeChild(attTab);
-		}
-		// skips the first TABLE, that are the headers-part1
-		for (var i = 0; i < attTable.length; i++) {
-			// skips the TABLE with class=header-part2 and 3 and without the words "Content-Type"
-			var tabclass = attTable[i].getAttribute("class");
-			var tabindexof = attTable[i].innerHTML.indexOf("Content-Type");
-			var tabindexof2 = attTable[i].innerHTML.indexOf("Content-Encoding");
-			var tabindexof3 = attTable[i].innerHTML.indexOf("X-UIDL");
-			if (attTable[i] && tabindexof3 < 0 && (tabindexof > -1 || tabindexof2 > -1) && tabclass != "header-part2" && tabclass != "header-part3") {
-				// takes all the TD elements of the TABLE 
-				var tds = attTable[i].getElementsByTagName("TD");
-				// remove from the first TD element (the name of the attachment) the class "bold"
-				tds[0].firstChild.removeAttribute("class");
-				if (!firsttime)
-					comma = ", ";
-				var attDiv = tds[0].innerHTML;
-				if (withIcon) {
-					var filename = attDiv.substring(0, attDiv.lastIndexOf("&")).toLowerCase();
-					var imgSrc = printingtools.findIconSrc(filename);
-					// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
-					attDiv = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "";
-				}
-				// write into the new TD innerHTML the name of the attachment, if necessary with a comma
-				newTD.innerHTML = newTD.innerHTML + comma + attDiv;
-				firsttime = false;
-				counter++;
-				// empty the TABLE
-				attTable[i].innerHTML = "";
-			}
-		}
-
-		if (newTD)
-			printingtools.appendAttTD(newTD);
-
-		printingtools.sortHeaders();
-		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
-			printingtools.appendReceivedTD();
-
-		// removes all the FIELDSET elements with class = mimeAttachmentHeader
-		var fieldSets = printingtools.doc.getElementsByTagName("FIELDSET");
-		for (var i = fieldSets.length - 1; i > -1; i--) {
-			if (fieldSets[i].getAttribute("class") == "mimeAttachmentHeader")
-				fieldSets[i].parentNode.removeChild(fieldSets[i]);
-		}
-
-	},
-
 	rewriteAttListNew: function () {
 		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 		var firsttime = true;
@@ -2785,6 +2668,7 @@ let attDiv = printingtools.doc.createElement("DIV");
 				if (withIcon) {
 					var filename = currAtt.substring(0, currAtt.lastIndexOf("(") - 1).toLowerCase();
 					var imgSrc = printingtools.findIconSrc(filename);
+					console.log(imgSrc)
 
 					curAttIMG.setAttribute("src", imgSrc)
 					curAttIMG.classList.add("attIcon")
