@@ -2251,10 +2251,13 @@ var printingtools = {
 				if (tds1[i].nextSibling) {
 					s = tds1[i].nextSibling.firstChild;
 				}
+					console.log("s1", s)
 
 				if (!s) {
-
+					console.log("no subject")
 					s = tds1[i].firstChild.nextSibling
+					console.log("s", s)
+
 					let sub = s.textContent;
 					s.outerHTML = sub;
 				}
