@@ -1734,11 +1734,11 @@ var printingtools = {
 			}
 		}
 
-			console.log(printingtools.doc.documentElement.outerHTML);
+		console.log(printingtools.doc.documentElement.outerHTML);
 
 		printingtools.setTableLayout();
 
-			console.log(printingtools.doc.documentElement.outerHTML);
+		console.log(printingtools.doc.documentElement.outerHTML);
 
 		// this needed a rewrite for the different table
 		// structure for non aligned headers #299
@@ -2293,12 +2293,31 @@ var printingtools = {
 					s.style.wordWrap = "break-word";
 				}
 
-				// this borks att tbl
-				tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
+				let attDiv = printingtools.doc.createElement("DIV");
+				attDiv.setAttribute("style", "overflow-wrap: break-word; word-wrap: break-word;");
+				console.log(tds1[i], " tds\n")
+				console.log(tds1[i].outerHTML, " tds\n")
 
-				console.log(tds1[i].innerHTML)
-			  //tds1[i].setHTML( "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
-				console.log(tds1[i].innerHTML + " sethtml\n")
+				attDiv.appendChild(tds1[i].childNodes[0]);
+				console.log(tds1[i], " tds\n")
+				console.log(attDiv, " tds\n")
+
+				attDiv.appendChild(tds1[i].childNodes[0]);
+				console.log(tds1[i], " tds\n")
+				console.log(attDiv, " tds\n")
+
+
+				tds1[i].appendChild(attDiv);
+				console.log(tds1[i], " tds\n")
+				console.log(attDiv, " tds\n")
+
+				//console.log(tds1[i].innerHTML + " bef div\n")
+
+				// this borks att tbl
+				//tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
+
+				//tds1[i].setHTML( "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
+				console.log(tds1[i].outerHTML + " aft div\n")
 
 
 			}
@@ -2439,9 +2458,9 @@ var printingtools = {
 			headtable1.lastChild.appendChild(newTR);
 	},
 
-	
 
-appendAttTDNew: function (newTD) {
+
+	appendAttTDNew: function (newTD) {
 		if (!newTD.innerHTML)
 			return;
 		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
@@ -2770,7 +2789,7 @@ appendAttTDNew: function (newTD) {
 
 		printingtools.sortHeaders();
 
-			console.log(printingtools.doc.documentElement.outerHTML);
+		console.log(printingtools.doc.documentElement.outerHTML);
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
 			printingtools.appendReceivedTD();
