@@ -2113,7 +2113,7 @@ var printingtools = {
 
 						textNode = divs[j].nextSibling;
 						if ((avChars - textNode.textContent.length) < 0 && maxchars) {
-							//textNode.textContent = textNode.textContent.substring(0, avChars) + " [...]";
+							textNode.textContent = textNode.textContent.substring(0, avChars) + " [...]";
 							// break;
 						}
 						// avChars -= textNode.nodeValue.length;
