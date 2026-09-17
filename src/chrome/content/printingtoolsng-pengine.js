@@ -2427,10 +2427,11 @@ var printingtools = {
 			console.log(rdIH)
 			//newTD.innerHTML = rdIH
 			newTD.setHTML(rdIH)
-			console.log(newTD.innerHTML)
 
 
 			newTR.appendChild(newTD);
+
+			console.log(headtable1.outerHTML)
 
 			// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
 			if (headtable1 && headtable1.lastChild) {
