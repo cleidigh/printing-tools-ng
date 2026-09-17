@@ -2205,26 +2205,11 @@ var printingtools = {
 
 					let attDiv = printingtools.doc.createElement("DIV");
 					attDiv.setAttribute("style", "overflow-wrap: break-word; word-wrap: break-word;");
-					console.log(tds1[i], " tds\n")
-					console.log(tds1[i].outerHTML, " tds\n")
-
 					attDiv.appendChild(tds1[i].childNodes[0]);
-					console.log(tds1[i], " tds\n")
-					console.log(attDiv, " tds\n")
-
 					attDiv.appendChild(tds1[i].childNodes[0]);
-					console.log(tds1[i], " tds\n")
-					console.log(attDiv, " tds\n")
-
-
 					tds1[i].appendChild(attDiv);
-					console.log(tds1[i], " tds\n")
-					console.log(attDiv, " tds\n")
 
-
-					//tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
-
-					console.log(tds1[i].innerHTML)
+					//console.log(tds1[i].innerHTML)
 					//tds1[i].setHTML("<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
 					//console.log(tds1[i].innerHTML + " sethtml\n")
 
@@ -2331,21 +2316,9 @@ var printingtools = {
 
 				let attDiv = printingtools.doc.createElement("DIV");
 				attDiv.setAttribute("style", "overflow-wrap: break-word; word-wrap: break-word;");
-				console.log(tds1[i], " tds\n")
-				console.log(tds1[i].outerHTML, " tds\n")
-
 				attDiv.appendChild(tds1[i].childNodes[0]);
-				console.log(tds1[i], " tds\n")
-				console.log(attDiv, " tds\n")
-
 				attDiv.appendChild(tds1[i].childNodes[0]);
-				console.log(tds1[i], " tds\n")
-				console.log(attDiv, " tds\n")
-
-
 				tds1[i].appendChild(attDiv);
-				console.log(tds1[i], " tds\n")
-				console.log(attDiv, " tds\n")
 
 				//console.log(tds1[i].innerHTML + " bef div\n")
 
@@ -2353,8 +2326,6 @@ var printingtools = {
 				//tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
 
 				//tds1[i].setHTML( "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
-				console.log(tds1[i].outerHTML + " aft div\n")
-
 
 			}
 		}
