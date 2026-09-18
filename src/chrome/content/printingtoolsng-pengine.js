@@ -1376,6 +1376,16 @@ var printingtools = {
 			return;
 		}
 
+		// test set date id
+		let table0 = this.getTable(0);
+		console.log(table0.outerHTML)
+		let TRows = table0.firstChild.childNodes;
+		let trpos = TRows.length - 1;
+		if (trpos < 0) {
+			trpos = 0
+		}
+		console.log(TRows[trpos].setAttribute("id", "dateTR"))
+
 		printingtools.sanitizeHeaders();
 
 		await printingtools.addAttTable(printingtools.attList);
@@ -2317,7 +2327,9 @@ var printingtools = {
 				let attDiv = printingtools.doc.createElement("DIV");
 				attDiv.setAttribute("style", "overflow-wrap: break-word; word-wrap: break-word;");
 				attDiv.appendChild(tds1[i].childNodes[0]);
-				attDiv.appendChild(tds1[i].childNodes[0]);
+				if (tds1[i].childNodes[0]) {
+					attDiv.appendChild(tds1[i].childNodes[0]);
+				}
 				tds1[i].appendChild(attDiv);
 
 				//console.log(tds1[i].innerHTML + " bef div\n")
@@ -2432,13 +2444,22 @@ var printingtools = {
 			newTR.appendChild(newTD);
 
 			console.log(headtable1.outerHTML)
+			console.log(headtable1.lastChild.outerHTML)
+			console.log(printingtools.dateTRpos)
+
+			//printingtools.dateTRpos--;
+			if (printingtools.dateTRpos < 0) {
+				//printingtools.dateTRpos = 0;
+				console.log("reset to zero ")
+			}
 
 			// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
 			if (headtable1 && headtable1.lastChild) {
+				printingtools.doc.getElementById("dateTR").after(newTR)
 
-				var dateTR = headtable1.lastChild.getElementsByTagName("TR")[printingtools.dateTRpos];
+				//var dateTR = headtable1.lastChild.getElementsByTagName("TR")[printingtools.dateTRpos];
 
-				headtable1.lastChild.insertBefore(newTR, dateTR.nextSibling);
+				//headtable1.lastChild.insertBefore(newTR, dateTR.nextSibling);
 				// Services.console.logStringMessage("printingtools: final " + headtable1.outerHTML);
 			}
 		}
