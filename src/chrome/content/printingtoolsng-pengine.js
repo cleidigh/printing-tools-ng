@@ -965,26 +965,15 @@ var printingtools = {
 				divHTML = divHTML.replace("To:", to + ':');
 				divHTML = divHTML.replace("From:", from + ':');
 				divHTML = divHTML.replace("Attachments:", attachments + ':');
-				div.innerHTML = divHTML;
-				// tested with ja ok
-				console.log(div.innerHTML)
 				div.setHTML(divHTML)
-				console.log(div.innerHTML + " sethtml\n")
-
-				// var divHTML = div.innerHTML.replace(":", );
 			} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
 				divHTML = divHTML.replace("From:", from + ':');
 				if (divHTML) {
-					div.innerHTML = divHTML;
-					console.log(div.innerHTML)
 					div.setHTML(divHTML)
-					console.log(div.innerHTML + " sethtml\n")
 				}
 			}
 
 			if (trs[i].id == "attTR") {
-				// Services.console.logStringMessage(trs[i].firstChild.outerHTML);
-				// Services.console.logStringMessage(trs[i].firstChild);
 				index = printingtools.getIndexForHeader("%a");
 				if (index & 0x100) {
 					arr[index &= ~0x100] = trs[i];
@@ -994,8 +983,6 @@ var printingtools = {
 					attPresent = true;
 					arr[index] = trs[i];
 				}
-				// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
-				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
 			var div = trs[i].firstChild.firstChild;
@@ -1085,19 +1072,11 @@ var printingtools = {
 
 					if (divHTML.indexOf(bcc) == 0) {
 						divHTML = bcc + ":";
-						div.innerHTML = divHTML;
-						console.log(div.innerHTML)
-						//div.setHTML(divHTML)
-						console.log(div.innerHTML + " sethtml\n")
-						//console.log("rpl bcc " + div.outerHTML)
+						div.setHTML(divHTML)
 					}
 					if (divHTML.indexOf(cc) == 0) {
 						divHTML = cc + ":";
-						div.innerHTML = divHTML;
-						console.log(div.innerHTML)
-						//div.setHTML(divHTML)
-						console.log(div.innerHTML + " sethtml\n")
-						//console.log("rpl cc " + div.outerHTML)
+						div.setHTML(divHTML)
 					}
 				}
 
@@ -1106,24 +1085,13 @@ var printingtools = {
 					divHTML = divHTML.replace("To:", to + ':');
 					divHTML = divHTML.replace("BCC:", bcc + ':');
 					divHTML = divHTML.replace("CC:", cc + ':');
-
-					div.innerHTML = divHTML;
-					// tested with ja ok
-					console.log(div.innerHTML)
 					div.setHTML(divHTML)
-
-					console.log(div.innerHTML + " sethtml\n")
-					// var divHTML = div.innerHTML.replace(":", );
-					// Services.console.logStringMessage(`header entry: ${i} ${trs[i].outerHTML}`);
 				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "de") {
 					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 						var div = trs[i].firstChild.firstChild;
 						divHTML = divHTML.replace("Blindkopie (BCC):", "Bcc:");
 						divHTML = divHTML.replace("Kopie (CC):", "Cc:");
-						div.innerHTML = divHTML;
-						console.log(div.innerHTML)
-						div.setHTML(divHTML)
-						console.log(div.innerHTML + " sethtml\n")
+						div.setHTML(divHTML);
 						cc = "Cc";
 						bcc = "Bcc";
 					}
@@ -1139,20 +1107,13 @@ var printingtools = {
 							cc = "Cc";
 						}
 					}
-					div.innerHTML = divHTML;
-					console.log(div.innerHTML)
-					//div.setHTML(divHTML)
-					console.log(div.innerHTML + " sethtml\n")
+					div.setHTML(divHTML)
 				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "en") {
 					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 						var div = trs[i].firstChild.firstChild;
 						divHTML = divHTML.replace("BCC:", "Bcc:");
 						divHTML = divHTML.replace("CC:", "Cc:");
-						div.innerHTML = divHTML;
-						// tested with en ok
-						console.log(div.innerHTML)
-						div.setHTML(divHTML)
-						console.log(div.innerHTML + " sethtml\n")
+						div.setHTML(divHTML);
 						cc = "Cc";
 						bcc = "Bcc";
 					}
@@ -1168,13 +1129,9 @@ var printingtools = {
 						divHTML = divHTML.replace(cc, "Cc");
 						cc = "Cc";
 					}
-					div.innerHTML = divHTML;
-					console.log(div.innerHTML)
 					div.setHTML(divHTML)
-					console.log(div.innerHTML + " sethtml\n")
 				}
 
-				// Services.console.logStringMessage(divHTML.outerHTML);
 				regExp = new RegExp(to + "\\s*:");
 				if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r1");
@@ -1376,16 +1333,14 @@ var printingtools = {
 			return;
 		}
 
-		// test set date id
+		// set date id
 		let table0 = this.getTable(0);
-		console.log(table0.outerHTML)
 		let TRows = table0.firstChild.childNodes;
 		let trpos = TRows.length - 1;
 		if (trpos < 0) {
-			trpos = 0
+			trpos = 0;
 		}
-		console.log(TRows[trpos].setAttribute("id", "dateTR"))
-
+		TRows[trpos].setAttribute("id", "dateTR");
 		printingtools.sanitizeHeaders();
 
 		await printingtools.addAttTable(printingtools.attList);
@@ -1641,7 +1596,7 @@ var printingtools = {
 					// trw.appendChild(trs[i].firstChild.cloneNode(true));
 					trw.innerHTML = trs[i].firstChild.outerHTML;
 					console.log(trw.innerHTML)
-					//trw.setHTML(trs[i].firstChild.outerHTML)
+					trw.setHTML(trs[i].firstChild.outerHTML)
 					console.log(trw.innerHTML + " sethtml\n")
 					tw.appendChild(trw);
 				}
@@ -1744,11 +1699,7 @@ var printingtools = {
 			}
 		}
 
-		console.log(printingtools.doc.documentElement.outerHTML);
-
 		printingtools.setTableLayout();
-
-		console.log(printingtools.doc.documentElement.outerHTML);
 
 		// this needed a rewrite for the different table
 		// structure for non aligned headers #299
@@ -1879,12 +1830,7 @@ var printingtools = {
 					break;
 				}
 			}
-			containerDiv.innerHTML = "";
-			console.log(containerDiv.innerHTML)
-			containerDiv.setHTML("")
-			console.log(containerDiv.innerHTML + " sethtml\n")
-
-			//suff.textContent = "…  ";
+			containerDiv.setHTML("");
 
 			contents.forEach(element => {
 				console.log(element)
@@ -2118,15 +2064,10 @@ var printingtools = {
 					var divs = tableTDS[i].getElementsByTagName("img");
 
 					for (var j = 0; j < divs.length; j++) {
-						console.log(divs[j])
-						console.log(divs[j].nextSibling)
-
 						textNode = divs[j].nextSibling;
 						if ((avChars - textNode.textContent.length) < 0 && maxchars) {
 							textNode.textContent = textNode.textContent.substring(0, avChars) + " [...]";
-							// break;
 						}
-						// avChars -= textNode.nodeValue.length;
 					}
 				}
 
@@ -2279,16 +2220,13 @@ var printingtools = {
 				if (tds1[i].nextSibling) {
 					s = tds1[i].nextSibling.firstChild;
 				}
-				console.log("s1", s)
 
 				if (!s) {
-					console.log("no subject")
 					s = tds1[i].firstChild.nextSibling
-					console.log("s", s)
-
 					let sub = s.textContent;
-					s.outerHTML = sub;
+					s.setHTML(sub);
 				}
+
 				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 					s.style.overflow = "hidden";
 					s.style.whiteSpace = "nowrap";
@@ -2331,14 +2269,6 @@ var printingtools = {
 					attDiv.appendChild(tds1[i].childNodes[0]);
 				}
 				tds1[i].appendChild(attDiv);
-
-				//console.log(tds1[i].innerHTML + " bef div\n")
-
-				// this borks att tbl
-				//tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
-
-				//tds1[i].setHTML( "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
-
 			}
 		}
 		// Services.console.logStringMessage(table1.outerHTML);
@@ -2436,31 +2366,11 @@ var printingtools = {
 			var newTD = printingtools.doc.createElement("TD");
 			newTD.setAttribute("id", "receivedDate");
 			let rdIH = "<span><b>" + bundle.GetStringFromName("received") + ": </b></span>" + formatted_date;
-			console.log(rdIH)
-			//newTD.innerHTML = rdIH
 			newTD.setHTML(rdIH)
-
-
 			newTR.appendChild(newTD);
 
-			console.log(headtable1.outerHTML)
-			console.log(headtable1.lastChild.outerHTML)
-			console.log(printingtools.dateTRpos)
-
-			//printingtools.dateTRpos--;
-			if (printingtools.dateTRpos < 0) {
-				//printingtools.dateTRpos = 0;
-				console.log("reset to zero ")
-			}
-
-			// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
 			if (headtable1 && headtable1.lastChild) {
 				printingtools.doc.getElementById("dateTR").after(newTR)
-
-				//var dateTR = headtable1.lastChild.getElementsByTagName("TR")[printingtools.dateTRpos];
-
-				//headtable1.lastChild.insertBefore(newTR, dateTR.nextSibling);
-				// Services.console.logStringMessage("printingtools: final " + headtable1.outerHTML);
 			}
 		}
 	},
@@ -2674,14 +2584,12 @@ var printingtools = {
 				if (withIcon) {
 					var filename = currAtt.substring(0, currAtt.lastIndexOf("(") - 1).toLowerCase();
 					var imgSrc = printingtools.findIconSrc(filename);
-					console.log(imgSrc)
 
-					curAttIMG.setAttribute("src", imgSrc)
-					curAttIMG.classList.add("attIcon")
-					curAttIMG.setAttribute("height", "16px")
-					curAttIMG.setAttribute("width", "16px")
-					curAttIMG.setAttribute("style", "position2: absolute; bottom: 2px; left: 0px")
-
+					curAttIMG.setAttribute("src", imgSrc);
+					curAttIMG.classList.add("attIcon");
+					curAttIMG.setAttribute("height", "16px");
+					curAttIMG.setAttribute("width", "16px");
+					curAttIMG.setAttribute("style", "bottom: 2px; left: 0px");
 					newTD.appendChild(curAttIMG)
 				}
 				currAttSPAN.appendChild(currAttTEXT)
@@ -2696,13 +2604,10 @@ var printingtools = {
 			attTab.parentNode.removeChild(attTab);
 		}
 
-
-		if (newTD)
+		if (newTD) {
 			printingtools.appendAttTDNew(newTD);
-
+		}
 		printingtools.sortHeaders();
-
-		console.log(printingtools.doc.documentElement.outerHTML);
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
 			printingtools.appendReceivedTD();
@@ -2713,7 +2618,6 @@ var printingtools = {
 			if (fieldSets[i].getAttribute("class") == "mimeAttachmentHeader")
 				fieldSets[i].parentNode.removeChild(fieldSets[i]);
 		}
-
 	},
 
 	findIconSrc: function (filename) {
