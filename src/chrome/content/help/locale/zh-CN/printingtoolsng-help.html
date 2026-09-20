@@ -19,7 +19,7 @@
       </tr>
     </table>
     <h3 id="release_notes" style="padding-left: 4px">发布说明：</h3>
-    <p>- 修复了标题背景颜色无法打印的问题</p>
+    <p>- 已修复：删除 innerHTML 时出现的多个错误，这些错误在使用某些选项时会导致错误。</p>
     <br />
     <h2 id="main_help">PrintingTools NG 概述</h2>
     <p>
@@ -94,7 +94,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
         <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-        <td>zh-TW 本地化，漫长的一天</td>
+        <td>zh-TW 本地化，长日</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>
@@ -109,7 +109,7 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>en-US 地区，长日/月</td>
+        <td>en-US 本地化，长日/月</td>
       </tr>
     </table>
     <br />
@@ -402,7 +402,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
-        <td>邮件的唯一消息ID。</td>
+        <td>邮件的唯一消息 ID。</td>
       </tr>
     </table>
     <br />

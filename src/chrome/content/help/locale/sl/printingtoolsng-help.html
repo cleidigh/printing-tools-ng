@@ -18,8 +18,11 @@
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px">Opombe ob izdaji:</h3>
-    <p>- Odpravljena barva ozadja glave, ki se ni tiskala</p>
+    <h3 id="release_notes" style="padding-left: 4px">Opombe k izdaji:</h3>
+    <p>
+      - Odpravljeno: Več napak pri odstranitvi innerHTML, ki so povzročale napake pri uporabi določenih
+      možnosti.
+    </p>
     <br />
     <h2 id="main_help">Pregled orodij za tiskanje NG</h2>
     <p>
@@ -262,8 +265,8 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Številka tedna po standardu ISO 8601 tekočega leta kot decimalno število (območje od 01 do 53),
-            kjer je 1. teden prvi teden, ki ima vsaj 4 dni v novem letu (torej prvi četrtek).
+            Številka tedna tekočega leta po standardu ISO 8601 kot decimalno število (območje od 01 do 53),
+            kjer je 1. teden prvi teden, ki ima v novem letu vsaj 4 dni (torej prvi četrtek).
           </td>
         </tr>
         <tr>
@@ -348,7 +351,7 @@
       <li><code class="code1">%%</code> - ni implementirano (uporabite <code class="code1">%</code> )</li>
     </ul>
     <br />
-    <h2 id="pdf_output_help">Izhod PDF in samodejno poimenovanje datotek</h2>
+    <h2 id="pdf_output_help">Izpis PDF in samodejno poimenovanje datotek</h2>
     <p>
       Izhodne datoteke PDF je zdaj mogoče samodejno poimenovati z uporabo sistema žetonov in shraniti v
       vnaprej določen imenik za izhodne datoteke PDF. To je še posebej uporabno pri tiskanju več izbranih
@@ -443,15 +446,15 @@
       Možnosti strani vam omogočajo nastavitev elementov, ko je predogled ali tiskanje končano. Te možnosti
       ostanejo shranjene med tiskanjem. Če se možnosti, nastavljene v orodju PrintingTools NG, spremenijo v
       predogledu tiskanja, to ne bo vplivalo na nadaljnje tiskanje. Nekaterih elementov ni mogoče nastaviti v
-      pogovornem oknu za predogled, med njimi so glave in noge. Drugi elementi se ne ohranijo v predogledu in
+      pogovornem oknu za predogled, med njimi so glave in noge. Drugi elementi se v predogledu ne ohranijo in
       jih je običajno treba nastaviti vsakič, ko je tiskanje končano. PrintingTools NG rešuje obe težavi.
     </p>
     <p>
       Predogled ne shrani obsegov strani. Tipičen primer uporabe je, ko želimo kot privzeto natisniti samo
       prvo stran e-pošte. Običajno bi bilo treba obsege strani vsakič spremeniti. Upoštevajte, da če obseg
       strani, nastavljen v orodju PrintingTools NG, ni veljaven, na primer presega število strani, je treba
-      obseg pred tiskanjem popraviti v predogledu. Obseg strani, nastavljen na »1«, bo vedno veljaven in
-      natisne prvo stran sporočila.
+      obseg pred tiskanjem popraviti v predogledu. Obseg strani, nastavljen na »1«, bo vedno veljaven in bo
+      natisnil prvo stran sporočila.
     </p>
     <p>Opombe:</p>
     <p>Možnost skaliranja omogoča nastavitev trajnega merila.</p>
