@@ -1593,14 +1593,9 @@ var printingtools = {
 					// let trw = md.document.createElement("TR");
 					trw.style.display = trs[i].style.display;
 					trs[i].firstChild.style.paddingLeft = "6px";
-					// trw.appendChild(trs[i].firstChild.cloneNode(true));
-					trw.innerHTML = trs[i].firstChild.outerHTML;
-					console.log(trw.innerHTML)
 					trw.setHTML(trs[i].firstChild.outerHTML)
-					console.log(trw.innerHTML + " sethtml\n")
 					tw.appendChild(trw);
 				}
-				// tw.style.height = 0;
 
 				tw.setAttribute("border", "1px solid black");
 				tw.setAttribute("border-collapse", "collapse");
