@@ -185,7 +185,7 @@ function addTBbuttonMainFuncOrCtxMenu(addOnId, toolbarClass, mainButtFunc, buttC
 		}
 
 		if (!tbExtButton) {
-			console("Exception: Extension button not found on toolbar")
+			console.log("Exception: Extension button not found on toolbar")
 			return;
 		}
 		// get parent div for listener
