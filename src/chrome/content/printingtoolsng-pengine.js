@@ -1252,8 +1252,8 @@ var printingtools = {
 		//var uris = window.arguments[1];
 		var uris = printingtools.msgUris;
 
-		var m = Cc["@mozilla.org/messenger;1"]
-			.createInstance(Ci.nsIMessenger);
+		var m = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger);
+			console.log(m)
 		if (uris && uris[printingtools.current]) {
 			// 115 file spec diff
 			if (uris[printingtools.current].includes(".eml?")) {

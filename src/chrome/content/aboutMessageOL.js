@@ -22,6 +22,7 @@ function onLoad() {
   Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
   Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/UIlisteners.js", window);
 
+	/*
 
   WL.injectElements(`
 <toolbarpalette id="header-view-toolbar">
@@ -46,5 +47,5 @@ function onLoad() {
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
   WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
-
+*/
 }
