@@ -25,7 +25,9 @@ var utils = {
   },
 
   constructPDFoutputFilename: async function (msgURI, outputDir) {
-    let msgHdr = top.messenger.msgHdrFromURI(msgURI);
+		let MailService = MailServices.messageServiceFromURI(msgURI);
+
+    let msgHdr =  MailService.messageURIToMsgHdr(msgURI);
     var fileName;
 
     fileName = await this.formatTokenizedFileName(msgHdr, outputDir);

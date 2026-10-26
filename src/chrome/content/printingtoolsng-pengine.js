@@ -1306,7 +1306,8 @@ var printingtools = {
 				console.log(printingtools.hdr)
 			}
 			else {
-				printingtools.hdr = m.msgHdrFromURI(uris[printingtools.current]);
+				let MailService = MailServices.messageServiceFromURI(uris[printingtools.current]);
+				printingtools.hdr = MailService.messageURIToMsgHdr(uris[printingtools.current]);
 				printingtools.date = printingtools.hdr.date;
 			}
 		}
