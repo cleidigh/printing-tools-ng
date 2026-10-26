@@ -55,8 +55,8 @@ async function initPMDpanel() {
 		.getService(Ci.nsIWindowMediator)
 		.getMostRecentWindow("mail:3pane");
 
-	var PTNGVersion = win.printingtoolsng.extension.addonData.version;
-
+	//var PTNGVersion = win.printingtoolsng.extension.addonData.version;
+	var PTNGVersion = ptngExtension.addonData.version;
 	let title = document.getElementById("ptng-options").getAttribute("title");
 
 	document.getElementById("ptng-options").setAttribute("title", `${title} - v${PTNGVersion}`);
