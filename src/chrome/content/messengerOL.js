@@ -135,6 +135,7 @@ let ctxMenu =
 			<menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
 
 			<menuseparator />
+			<menuitem accesskey="o" label="options" oncommand="openPTdialog(false); event.stopPropagation();" />
 			<menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
 		</menupopup>`;
 	let dtdFiles = ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"];
