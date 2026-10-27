@@ -174,7 +174,16 @@ var printingtools = {
 				isEML = true;
 			}
 
+			console.log("pdfOutputEnabled", pdfOutputEnabled)
+			console.log("pdfOutputDir", pdfOutputDir)
+			console.log("print silent", options.printSilent)
+			console.log("rng cnt", sel.rangeCount)
+			console.log("isEML", isEML)
+
+			console.log("before confirm")
 			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && sel.rangeCount == 0 && !isEML) {
+			console.log("do confirm")
+
 				autoPDFSave = confirm(this.mainStrBundle.GetStringFromName("confirm_pdf_autosave"));
 				var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 				if (dbgopts.indexOf("pdfoutput") > -1) {
@@ -1465,6 +1474,9 @@ var printingtools = {
 			// Services.console.logStringMessage("window: " + printingtools.getMail3Pane().document.URL);
 			//var sel = printingtools.getMail3Pane().content.getSelection();
 			var sel = document.commandDispatcher.focusedWindow.getSelection();
+			console.log("sel", sel)
+			console.log(document.commandDispatcher.focusedWindow)
+
 
 			var range2 = sel.getRangeAt(0);
 			var contents2 = range2.cloneContents();
