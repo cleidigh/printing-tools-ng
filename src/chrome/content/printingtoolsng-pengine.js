@@ -1244,16 +1244,11 @@ var printingtools = {
 				tbody.appendChild(arr[i]);
 		}
 
-		//Services.console.logStringMessage("after sort");
-		//Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
 	},
 
 	getHdr: async function () {
-		//var uris = window.arguments[1];
 		var uris = printingtools.msgUris;
 
-		var m = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger);
-			console.log(m)
 		if (uris && uris[printingtools.current]) {
 			// 115 file spec diff
 			if (uris[printingtools.current].includes(".eml?")) {
@@ -1292,7 +1287,6 @@ var printingtools = {
 					messageId = "";
 				}
 
-				//console.log("fin date " + dateOrig)
 				dateOrig = dateOrig.replace(/ +$/, "");
 				dateOrig = dateOrig.replace(/^ +/, "");
 				var secs = Date.parse(dateOrig) / 1000;
@@ -1303,7 +1297,6 @@ var printingtools = {
 				dummy.messageId = messageId;
 				dummy.isEML = true;
 				printingtools.hdr = dummy;
-				console.log(printingtools.hdr)
 			}
 			else {
 				let MailService = MailServices.messageServiceFromURI(uris[printingtools.current]);
