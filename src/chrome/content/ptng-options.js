@@ -799,4 +799,6 @@ window.addEventListener("load", function (event) {
 	document.getElementById("useCcBccAlways").selected;
 });
 
-
+document.addEventListener('DOMContentLoaded', () => {
+    i18n.updateDocument({ extension: ptngExtension });
+}, { once: true });
