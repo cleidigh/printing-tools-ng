@@ -24,13 +24,15 @@ def convert(source, destination, current = None, level = 0):
     dir = source if current == None else current
     messages = []
     
+    print(source)
+    print(os.listdir(dir))
     for name in os.listdir(dir):
         path = os.path.join(dir, name)
         
         if os.path.isfile(path):
             #if path.endswith('autobackup.dtd'):
              #   messages.extend(convert_dtd(path, dir))
-            if path.endswith('hdrs.properties'):
+            if path.endswith('printingtool.dtd'):
                 messages.extend(convert_prop(path, dir))
 
         else:
