@@ -32,7 +32,7 @@ def convert(source, destination, current = None, level = 0):
         if os.path.isfile(path):
             #if path.endswith('autobackup.dtd'):
              #   messages.extend(convert_dtd(path, dir))
-            if path.endswith('printingtool.dtd'):
+            if path.endswith('printingtoolsng.dtd'):
                 messages.extend(convert_prop(path, dir))
 
         else:
