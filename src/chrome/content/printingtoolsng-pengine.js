@@ -181,7 +181,8 @@ var printingtools = {
 			console.log("isEML", isEML)
 
 			console.log("before confirm")
-			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && sel.rangeCount == 0 && !isEML) {
+			let rangeCount = sel.rangeCount
+			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && sel.rangeCount != 10 && !isEML) {
 			console.log("do confirm")
 
 				autoPDFSave = confirm(this.mainStrBundle.GetStringFromName("confirm_pdf_autosave"));

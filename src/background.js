@@ -212,7 +212,7 @@ function handleMessage(message, sender) {
 const msgCtxMenu_TopId = "msgCtxMenu_TopId";
 
 let ptngMenuDef = {
-	contexts: ["message_list", "page"],
+	contexts: ["message_list", "page", "selection"],
 	id: msgCtxMenu_TopId,
 	title: browser.i18n.getMessage("printLabel") + " NG…",
 	onclick: cmd_print
