@@ -113,6 +113,9 @@
     "all": {
         "message": "Összes"
     },
+    "allowFonts": {
+        "message": "A rendszer opció: Engedélyezte az üzenetek más betűtípusok használatát"
+    },
     "attachments": {
         "message": "Mellékletek"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen"
     },
+    "confirm_pdf_autosave": {
+        "message": "Kattintson az OK gombra a PDF automatikus mentéséhez vagy a Mégse gombra az előnézethez"
+    },
     "copies": {
         "message": "Másolatok"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Egyéni"
     },
+    "dateformatTB5": {
+        "message": "(anyanyelvi)"
+    },
     "debugOptions.label": {
         "message": "Hibakeresési beállítások"
     },
     "defaultPrinter": {
         "message": "Alapértelmezett nyomtató"
     },
+    "disallowFonts": {
+        "message": "A rendszer opció: Az üzenetek más betűtípusok használatának engedélyezése le van tiltva"
+    },
     "down": {
         "message": "Le"
     },
     "enable_pdfdir": {
         "message": "PDF kimeneti könyvtár engedélyezése"
+    },
+    "err_copies_val_notzero": {
+        "message": "A másolatok értéke nem lehet nulla"
+    },
+    "err_copies_val_req": {
+        "message": "Másolatok értéke szükséges"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Az oldaltartomány végének nagyobbnak kell lennie, mint a kezdet"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Az oldaltartományok értéke nem lehet nulla"
+    },
+    "err_pageranges_val_req": {
+        "message": "Az oldaltartományok értéke kötelező"
+    },
+    "err_scale_val_req": {
+        "message": "Skálaérték szükséges 10 és 200 között"
     },
     "extensionDescription": {
         "message": "Üzenetnyomtatás, fejlécek és PDF-kimeneti eszközök (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Az összes kiválasztott névjegy nyomtatása"
     },
+    "options": {
+        "message": "Nyomtatási lehetőségek"
+    },
     "order": {
         "message": "Fejlécelemek sorrendje"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Nyomtatási és oldalbeállítások"
     },
+    "printing": {
+        "message": "Nyomtatás"
+    },
     "ptng.label": {
         "message": "Printing Tools NG"
     },
     "ptngOptions.label": {
         "message": "Printing Tools NG beállítások"
+    },
+    "received": {
+        "message": "kapott"
     },
     "remove_emojis": {
         "message": "Távolítsa el az Unicode hangulatjeleket és szimbólumokat"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Jobb"
+    },
+    "save_to_pdf": {
+        "message": "Mentés PDF-be"
+    },
+    "select_pdf_dir": {
+        "message": "Válassza a PDF kimeneti könyvtárat"
     },
     "short.label": {
         "message": "rövid"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Folytatólagosan"
+    },
+    "writing": {
+        "message": "Írás"
     }
 }

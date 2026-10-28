@@ -113,6 +113,9 @@
     "all": {
         "message": "全部"
     },
+    "allowFonts": {
+        "message": "系统选项：允许消息使用其他字体"
+    },
     "attachments": {
         "message": "附件"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "注意：需要在“打印页面设置”对话框中启用“图像和颜色”"
     },
+    "confirm_pdf_autosave": {
+        "message": "单击确定以自动保存 PDF 或单击取消以预览"
+    },
     "copies": {
         "message": "份数"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "自设"
     },
+    "dateformatTB5": {
+        "message": ""
+    },
     "debugOptions.label": {
         "message": "调试选项"
     },
     "defaultPrinter": {
         "message": "默认打印机"
     },
+    "disallowFonts": {
+        "message": "系统选项：“允许邮件使用其他字体”已被禁用"
+    },
     "down": {
         "message": "下"
     },
     "enable_pdfdir": {
         "message": "启用 PDF 输出目录"
+    },
+    "err_copies_val_notzero": {
+        "message": "副本值不能为零"
+    },
+    "err_copies_val_req": {
+        "message": "复制所需的值"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "页面范围结束必须大于开始"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "页面范围值不能为零"
+    },
+    "err_pageranges_val_req": {
+        "message": "需要页面范围值"
+    },
+    "err_scale_val_req": {
+        "message": "比例值需要在 10 到 200 之间"
     },
     "extensionDescription": {
         "message": "消息打印、标题和 PDF 输出工具 (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "打印所有选定的联系人"
     },
+    "options": {
+        "message": "列印选项"
+    },
     "order": {
         "message": "标头顺序"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "打印和页面选项"
     },
+    "printing": {
+        "message": "印刷"
+    },
     "ptng.label": {
         "message": "印刷工具 NG"
     },
     "ptngOptions.label": {
         "message": "打印工具的选项"
+    },
+    "received": {
+        "message": "已收到"
     },
     "remove_emojis": {
         "message": "删除 Unicode 表情符号和符号"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "正确的"
+    },
+    "save_to_pdf": {
+        "message": "保存为 PDF"
+    },
+    "select_pdf_dir": {
+        "message": "选择 PDF 输出目录"
     },
     "short.label": {
         "message": "短"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "包"
+    },
+    "writing": {
+        "message": "写作"
     }
 }

@@ -113,6 +113,9 @@
     "all": {
         "message": "Allemaal"
     },
+    "allowFonts": {
+        "message": "De systeemoptie: Toestaan dat berichten andere lettertypen gebruiken, is ingeschakeld"
+    },
     "attachments": {
         "message": "Bijlagen"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Opmerking: &#39;Afbeeldingen en kleuren&#39; moet zijn ingeschakeld in het dialoogvenster Pagina-instelling afdrukken"
     },
+    "confirm_pdf_autosave": {
+        "message": "Klik op OK om PDF automatisch op te slaan of op Annuleren om een voorbeeld te bekijken"
+    },
     "copies": {
         "message": "Kopieën"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Aangepast"
     },
+    "dateformatTB5": {
+        "message": "(native)"
+    },
     "debugOptions.label": {
         "message": "Foutopsporingsopties"
     },
     "defaultPrinter": {
         "message": "Standaardprinter"
     },
+    "disallowFonts": {
+        "message": "De systeemoptie: Berichten toestaan om andere lettertypen te gebruiken is uitgeschakeld"
+    },
     "down": {
         "message": "Omlaag"
     },
     "enable_pdfdir": {
         "message": "PDF-uitvoerdirectory inschakelen"
+    },
+    "err_copies_val_notzero": {
+        "message": "Kopiewaarde kan niet nul zijn"
+    },
+    "err_copies_val_req": {
+        "message": "Kopieert waarde vereist"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Het einde van het paginabereik moet groter zijn dan het begin"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "De waarde voor Paginabereiken kan niet nul zijn"
+    },
+    "err_pageranges_val_req": {
+        "message": "Paginabereiken-waarde vereist"
+    },
+    "err_scale_val_req": {
+        "message": "Schaalwaarde vereist tussen 10 en 200"
     },
     "extensionDescription": {
         "message": "Berichten afdrukken, kopteksten en PDF-uitvoertools (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Alle geselecteerde contactpersonen afdrukken"
     },
+    "options": {
+        "message": "Afdrukopties"
+    },
     "order": {
         "message": "Kopvolgorde"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Afdruk- en pagina-opties"
     },
+    "printing": {
+        "message": "Afdrukken"
+    },
     "ptng.label": {
         "message": "Afdrukhulpmiddelen NG"
     },
     "ptngOptions.label": {
         "message": "AFDRUKTOOLS VAN OPTIES"
+    },
+    "received": {
+        "message": "Ontvangen"
     },
     "remove_emojis": {
         "message": "Verwijder Unicode-emoji&#39;s en -symbolen"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Rechts"
+    },
+    "save_to_pdf": {
+        "message": "Opslaan naar PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Selecteer PDF-uitvoermap"
     },
     "short.label": {
         "message": "kort"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Afbreken"
+    },
+    "writing": {
+        "message": "Schrijven"
     }
 }

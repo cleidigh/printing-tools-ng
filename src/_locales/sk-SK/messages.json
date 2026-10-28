@@ -113,6 +113,9 @@
     "all": {
         "message": "Všetky"
     },
+    "allowFonts": {
+        "message": "Bola zapnutá systémová možnosť: Povoliť správam používať iné písma"
+    },
     "attachments": {
         "message": "Prílohy"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Poznámka: V dialógovom okne Print Page Setup je potrebné povoliť možnosť „Images and Colors“"
     },
+    "confirm_pdf_autosave": {
+        "message": "Kliknutím na tlačidlo OK automaticky uložíte PDF alebo kliknutím na tlačidlo Zrušiť zobrazíte ukážku"
+    },
     "copies": {
         "message": "Kópie"
     },
@@ -164,11 +170,17 @@
     "date_custom.label": {
         "message": "Vlastné"
     },
+    "dateformatTB5": {
+        "message": "(natívne)"
+    },
     "debugOptions.label": {
         "message": "Možnosti ladenia"
     },
     "defaultPrinter": {
         "message": "Predvolená tlačiareň"
+    },
+    "disallowFonts": {
+        "message": "Systémová možnosť: Povoliť správam používať iné písma bola zakázaná"
     },
     "down": {
         "message": "Dole"
@@ -176,11 +188,32 @@
     "enable_pdfdir": {
         "message": "Povoliť výstupný adresár PDF"
     },
+    "err_copies_val_notzero": {
+        "message": "Hodnota kópií nemôže byť nula"
+    },
+    "err_copies_val_req": {
+        "message": "Vyžaduje sa hodnota kópií"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Koniec rozsahu stránok musí byť väčší ako začiatok"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Hodnota rozsahu stránok nemôže byť nula"
+    },
+    "err_pageranges_val_req": {
+        "message": "Vyžaduje sa hodnota rozsahu strán"
+    },
+    "err_scale_val_req": {
+        "message": "Požadovaná hodnota mierky medzi 10 a 200"
+    },
     "extensionDescription": {
         "message": "Tlač správ, hlavičky a nástroje na výstup PDF (Nextgen)"
     },
     "extensionName": {
         "message": "PrintingTools NG"
+    },
+    "extensions.{5e9999c2-ba1d-44b6-bcee-5b30ce37d3b0}.description": {
+        "message": "Rozšírené možnosti tlače pre správy a adresár"
     },
     "filename_format": {
         "message": "Formát názvu súboru"
@@ -236,6 +269,9 @@
     "multipleCards.label": {
         "message": "Vytlačte všetky vybrané kontakty"
     },
+    "options": {
+        "message": "Rozšírené nastavenie tlače"
+    },
     "order": {
         "message": "Poradie položiek"
     },
@@ -278,11 +314,17 @@
     "print_and_pageoptions": {
         "message": "Možnosti tlače a strany"
     },
+    "printing": {
+        "message": "Tlač"
+    },
     "ptng.label": {
         "message": "Nástroje na tlač NG"
     },
     "ptngOptions.label": {
         "message": "TLAČOVÉ NÁSTROJE MOŽNOSTÍ"
+    },
+    "received": {
+        "message": "Prijaté"
     },
     "remove_emojis": {
         "message": "Odstráňte emotikony a symboly Unicode"
@@ -292,6 +334,12 @@
     },
     "right": {
         "message": "Správny"
+    },
+    "save_to_pdf": {
+        "message": "Uložiť do PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Vyberte Výstupný adresár PDF"
     },
     "short.label": {
         "message": "krátky"
@@ -328,5 +376,8 @@
     },
     "wrap": {
         "message": "Obal"
+    },
+    "writing": {
+        "message": "Písanie"
     }
 }

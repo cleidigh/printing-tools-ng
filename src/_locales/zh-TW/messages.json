@@ -113,6 +113,9 @@
     "all": {
         "message": "全部"
     },
+    "allowFonts": {
+        "message": "系統選項:\\n 使用其他字形\\n已啟用"
+    },
     "attachments": {
         "message": "附件"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "注意：請在列印對話框中啟用'列印背景'"
     },
+    "confirm_pdf_autosave": {
+        "message": "確認PDF自動儲存"
+    },
     "copies": {
         "message": "份數"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "自訂"
     },
+    "dateformatTB5": {
+        "message": ""
+    },
     "debugOptions.label": {
         "message": "除錯選項"
     },
     "defaultPrinter": {
         "message": "預設印表機"
     },
+    "disallowFonts": {
+        "message": "系統選項:\\n 使用其他字形\\n已被禁用"
+    },
     "down": {
         "message": "往下"
     },
     "enable_pdfdir": {
         "message": "PDF 匯出資料夾"
+    },
+    "err_copies_val_notzero": {
+        "message": "份數數值不能為零"
+    },
+    "err_copies_val_req": {
+        "message": "份數數值錯誤"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "頁面範圍結束值必須大於起始值"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "頁數範圍不能為零"
+    },
+    "err_pageranges_val_req": {
+        "message": "需要頁數範圍"
+    },
+    "err_scale_val_req": {
+        "message": "比例值需要在 10 到 200 之间"
     },
     "extensionDescription": {
         "message": "消息打印、标题和 PDF 输出工具 (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "列印選擇的聯絡人"
     },
+    "options": {
+        "message": "列印選項"
+    },
     "order": {
         "message": "標題順序"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "列印和版面設定"
     },
+    "printing": {
+        "message": "列印"
+    },
     "ptng.label": {
         "message": "列印工具 NG"
     },
     "ptngOptions.label": {
         "message": "列印工具NG選項"
+    },
+    "received": {
+        "message": "送達"
     },
     "remove_emojis": {
         "message": "刪除 Unicode 表情符號和符號"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "右"
+    },
+    "save_to_pdf": {
+        "message": "儲存為PDF"
+    },
+    "select_pdf_dir": {
+        "message": "選擇PDF輸出資料夾"
     },
     "short.label": {
         "message": "精簡"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "自動多行排列"
+    },
+    "writing": {
+        "message": "書寫"
     }
 }

@@ -113,6 +113,9 @@
     "all": {
         "message": "すべて"
     },
+    "allowFonts": {
+        "message": "システムオプション：「メッセージが指定したフォントを優先する」が有効になりました"
+    },
     "attachments": {
         "message": "添付ファイル"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "注：「背景色」は「ページ設定」ダイアログで有効にする必要があります"
     },
+    "confirm_pdf_autosave": {
+        "message": "「OK」をクリックすると PDF が自動保存され、「キャンセル」をクリックするとプレビュー表示します"
+    },
     "copies": {
         "message": "部数"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "カスタム形式"
     },
+    "dateformatTB5": {
+        "message": "(native)"
+    },
     "debugOptions.label": {
         "message": "デバッグ設定"
     },
     "defaultPrinter": {
         "message": "デフォルトのプリンター"
     },
+    "disallowFonts": {
+        "message": "システムオプション：「メッセージが指定したフォントを優先する」が無効になりました"
+    },
     "down": {
         "message": "下へ"
     },
     "enable_pdfdir": {
         "message": "PDF の出力先フォルダーを有効にする"
+    },
+    "err_copies_val_notzero": {
+        "message": "倍率を空にすることはできません"
+    },
+    "err_copies_val_req": {
+        "message": "10 から 200 までの倍率値を入力してください"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "ページ範囲終了値は開始値より大きい必要があります"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "ページ範囲を空にすることはできません"
+    },
+    "err_pageranges_val_req": {
+        "message": "ページ範囲は必須です"
+    },
+    "err_scale_val_req": {
+        "message": "10 から 200 までの倍率値を入力してください"
     },
     "extensionDescription": {
         "message": "メッセージとヘッダーの印刷、PDF 出力ツール (Nextgen)"
@@ -233,6 +263,9 @@
     "multipleCards.label": {
         "message": "選択したすべての連絡先を印刷"
     },
+    "options": {
+        "message": "PrintingTools NG 設定"
+    },
     "order": {
         "message": "ヘッダー"
     },
@@ -275,11 +308,17 @@
     "print_and_pageoptions": {
         "message": "プリンターとページ設定"
     },
+    "printing": {
+        "message": "印刷"
+    },
     "ptng.label": {
         "message": "PrintingTools NG"
     },
     "ptngOptions.label": {
         "message": "PrintingTools NG 設定"
+    },
+    "received": {
+        "message": "受信日時"
     },
     "remove_emojis": {
         "message": "Unicode 絵文字と記号を削除する"
@@ -289,6 +328,12 @@
     },
     "right": {
         "message": "右"
+    },
+    "save_to_pdf": {
+        "message": "PDF に保存"
+    },
+    "select_pdf_dir": {
+        "message": "PDF 出力先フォルダーの選択"
     },
     "short.label": {
         "message": "短い形式"
@@ -325,5 +370,8 @@
     },
     "wrap": {
         "message": "すべて"
+    },
+    "writing": {
+        "message": "書き込み"
     }
 }

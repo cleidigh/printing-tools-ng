@@ -113,6 +113,9 @@
     "all": {
         "message": "Все"
     },
+    "allowFonts": {
+        "message": "Системная опция: Разрешить сообщениям использовать другие шрифты была включена"
+    },
     "attachments": {
         "message": "Вложения"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Примечание. «Изображения и цвета» необходимо включить в диалоговом окне «Параметры страницы печати»."
     },
+    "confirm_pdf_autosave": {
+        "message": "Нажмите «ОК» для автоматического сохранения PDF или «Отмена» для предварительного просмотра."
+    },
     "copies": {
         "message": "Копии"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Обычай"
     },
+    "dateformatTB5": {
+        "message": "(родной)"
+    },
     "debugOptions.label": {
         "message": "Параметры отладки"
     },
     "defaultPrinter": {
         "message": "Принтер по умолчанию"
     },
+    "disallowFonts": {
+        "message": "Системная опция: Разрешить сообщениям использовать другие шрифты отключена."
+    },
     "down": {
         "message": "вниз"
     },
     "enable_pdfdir": {
         "message": "Включить выходной каталог PDF"
+    },
+    "err_copies_val_notzero": {
+        "message": "Значение копий не может быть равно нулю"
+    },
+    "err_copies_val_req": {
+        "message": "Требуется копировать значение"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Конец диапазона страниц должен быть больше начала"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Значение диапазона страниц не может быть равно нулю"
+    },
+    "err_pageranges_val_req": {
+        "message": "Требуется значение диапазона страниц"
+    },
+    "err_scale_val_req": {
+        "message": "Требуется значение масштаба от 10 до 200"
     },
     "extensionDescription": {
         "message": "Печать сообщений, заголовки и инструменты вывода PDF (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Распечатать все выбранные контакты"
     },
+    "options": {
+        "message": "Варианты печати"
+    },
     "order": {
         "message": "Порядок заголовков"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Параметры печати и страницы"
     },
+    "printing": {
+        "message": "Печать"
+    },
     "ptng.label": {
         "message": "Инструменты для печати НГ"
     },
     "ptngOptions.label": {
         "message": "ИНСТРУМЕНТЫ ПЕЧАТИ ОПЦИИ"
+    },
+    "received": {
+        "message": "Получил"
     },
     "remove_emojis": {
         "message": "Удалить смайлики и символы Unicode"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Верно"
+    },
+    "save_to_pdf": {
+        "message": "Сохранить в PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Выберите каталог вывода PDF"
     },
     "short.label": {
         "message": "короткая"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Заворачивать"
+    },
+    "writing": {
+        "message": "Письмо"
     }
 }

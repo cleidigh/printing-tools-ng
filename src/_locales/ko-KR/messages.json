@@ -113,8 +113,11 @@
     "all": {
         "message": "모두"
     },
+    "allowFonts": {
+        "message": "시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 활성화되었습니다."
+    },
     "attachments": {
-        "message": "첨부파일"
+        "message": "첨부"
     },
     "attachmentsPerLine": {
         "message": "라인 당 첨부 파일 :"
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "참고 : 인쇄 페이지 설정 대화 상자에서 &#39;이미지 및 색상&#39;을 활성화해야합니다."
     },
+    "confirm_pdf_autosave": {
+        "message": "확인을 클릭하여 PDF를 자동 저장하거나 취소를 클릭하여 미리보기"
+    },
     "copies": {
         "message": "사본"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "관습"
     },
+    "dateformatTB5": {
+        "message": "(원주민)"
+    },
     "debugOptions.label": {
         "message": "디버그 옵션"
     },
     "defaultPrinter": {
         "message": "기본 프린터"
     },
+    "disallowFonts": {
+        "message": "시스템 옵션 : 메시지에서 다른 글꼴을 사용하도록 허용이 비활성화되었습니다."
+    },
     "down": {
         "message": "내려가는"
     },
     "enable_pdfdir": {
         "message": "PDF 출력 디렉토리 활성화"
+    },
+    "err_copies_val_notzero": {
+        "message": "사본 값은 0일 수 없습니다."
+    },
+    "err_copies_val_req": {
+        "message": "필요한 값 복사"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "페이지 범위 종료는 시작보다 커야 합니다."
+    },
+    "err_pageranges_val_notzero": {
+        "message": "페이지 범위 값은 0일 수 없습니다."
+    },
+    "err_pageranges_val_req": {
+        "message": "필요한 페이지 범위 값"
+    },
+    "err_scale_val_req": {
+        "message": "10에서 200 사이의 척도 값이 필요합니다."
     },
     "extensionDescription": {
         "message": "메시지 인쇄, 헤더 및 PDF 출력 도구(Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "선택한 연락처를 모두 인쇄"
     },
+    "options": {
+        "message": "인쇄 옵션"
+    },
     "order": {
         "message": "헤더 주문"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "인쇄 및 페이지 옵션"
     },
+    "printing": {
+        "message": "인쇄"
+    },
     "ptng.label": {
         "message": "인쇄 도구 NG"
     },
     "ptngOptions.label": {
         "message": "옵션의 인쇄 도구"
+    },
+    "received": {
+        "message": "받았습니다"
     },
     "remove_emojis": {
         "message": "유니코드 이모티콘 및 기호 제거"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "오른쪽"
+    },
+    "save_to_pdf": {
+        "message": "PDF로 저장"
+    },
+    "select_pdf_dir": {
+        "message": "PDF 출력 디렉토리 선택"
     },
     "short.label": {
         "message": "짧은"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "싸다"
+    },
+    "writing": {
+        "message": "글쓰기"
     }
 }

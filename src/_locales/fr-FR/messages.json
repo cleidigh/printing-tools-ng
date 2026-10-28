@@ -116,6 +116,9 @@
     "all": {
         "message": "Toutes"
     },
+    "allowFonts": {
+        "message": "L’option système « Autoriser les messages à utiliser d’autres polices » a été activée."
+    },
     "attachments": {
         "message": "Pièces jointes"
     },
@@ -152,6 +155,9 @@
     "colorsNote": {
         "message": "L’option « Imprimer les arrière-plans » doit être cochée dans le dialogue d’impression."
     },
+    "confirm_pdf_autosave": {
+        "message": "Cliquez sur [OK] pour enregistrer automatiquement en PDF ou sur [Annuler] pour prévisualiser."
+    },
     "copies": {
         "message": "Copies"
     },
@@ -167,11 +173,17 @@
     "date_custom.label": {
         "message": "Personnalisé :"
     },
+    "dateformatTB5": {
+        "message": "(natíf)"
+    },
     "debugOptions.label": {
         "message": "Options de débogage "
     },
     "defaultPrinter": {
         "message": "Destination"
+    },
+    "disallowFonts": {
+        "message": "L’option système « Autoriser les messages à utiliser d’autres polices » a été désactivée."
     },
     "down": {
         "message": "Déplacer vers le bas"
@@ -179,11 +191,32 @@
     "enable_pdfdir": {
         "message": "Enregistrer automatiquement les fichiers dans un dossier prédéfini"
     },
+    "err_copies_val_notzero": {
+        "message": "L’échelle ne peut pas être nulle."
+    },
+    "err_copies_val_req": {
+        "message": "L’échelle doit être un nombre compris entre 10 et 200."
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "La fin de l’intervalle doit être supérieure au début."
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Zéro n’est pas un numéro de page valide."
+    },
+    "err_pageranges_val_req": {
+        "message": "Un numéro de page est requis."
+    },
+    "err_scale_val_req": {
+        "message": "L’échelle doit être un nombre compris entre 10 et 200."
+    },
     "extensionDescription": {
         "message": "Outils pour l’impression des messages et l’enregistrement en PDF."
     },
     "extensionName": {
         "message": "PrintingTools NG"
+    },
+    "extensions.{5e9999c2-ba1d-44b6-bcee-5b30ce37d3b0}.description": {
+        "message": "Outils pour l’impression des messages et l’enregistrement en PDF."
     },
     "filename_format": {
         "message": "Format du nom des fichiers :"
@@ -239,6 +272,9 @@
     "multipleCards.label": {
         "message": "Imprimer tous les contacts sélectionnés"
     },
+    "options": {
+        "message": "Options d’impression"
+    },
     "order": {
         "message": "Ordre des en-têtes"
     },
@@ -281,11 +317,17 @@
     "print_and_pageoptions": {
         "message": "Impression"
     },
+    "printing": {
+        "message": "Impression de"
+    },
     "ptng.label": {
         "message": "PrintingTools NG"
     },
     "ptngOptions.label": {
         "message": "Options d’impression"
+    },
+    "received": {
+        "message": "Reçu"
     },
     "remove_emojis": {
         "message": "Supprimer les émoticônes et symboles Unicode"
@@ -295,6 +337,12 @@
     },
     "right": {
         "message": "Droite :"
+    },
+    "save_to_pdf": {
+        "message": "Enregistrer au format PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Sélectionner le dossier dans lequel les fichiers PDF seront enregistrés"
     },
     "short.label": {
         "message": "Court"
@@ -331,5 +379,8 @@
     },
     "wrap": {
         "message": "auto"
+    },
+    "writing": {
+        "message": "Écriture de"
     }
 }

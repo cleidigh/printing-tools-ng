@@ -113,6 +113,9 @@
     "all": {
         "message": "Բոլորը"
     },
+    "allowFonts": {
+        "message": "Համակարգի ընտրանքը. Թույլատրել հաղորդագրություններին օգտագործել այլ տառատեսակներ, միացված է"
+    },
     "attachments": {
         "message": "Կցորդներ"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Նշում. «Պատկերներն ու գույները» անհրաժեշտ է միացնել Տպել էջի կարգավորման երկխոսությունում"
     },
+    "confirm_pdf_autosave": {
+        "message": "Սեղմեք OK՝ PDF-ն ավտոմատ պահելու համար կամ Չեղարկել՝ նախադիտման համար"
+    },
     "copies": {
         "message": "Պատճեններ"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Պատվերով"
     },
+    "dateformatTB5": {
+        "message": "(հարազատ)"
+    },
     "debugOptions.label": {
         "message": "Վրիպազերծման ընտրանքներ"
     },
     "defaultPrinter": {
         "message": "Լռելյայն տպիչ"
     },
+    "disallowFonts": {
+        "message": "Համակարգի ընտրանք. Թույլատրել հաղորդագրություններին այլ տառատեսակներ օգտագործելն անջատված է"
+    },
     "down": {
         "message": "Ներքև"
     },
     "enable_pdfdir": {
         "message": "Միացնել PDF ելքային գրացուցակը"
+    },
+    "err_copies_val_notzero": {
+        "message": "Պատճենների արժեքը չի կարող զրո լինել"
+    },
+    "err_copies_val_req": {
+        "message": "Պահանջվում է պատճենների արժեքը"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Էջի ընդգրկույթի վերջը պետք է մեծ լինի սկզբից"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Էջի միջակայքերի արժեքը չի կարող զրո լինել"
+    },
+    "err_pageranges_val_req": {
+        "message": "Պահանջվում է էջի միջակայքի արժեքը"
+    },
+    "err_scale_val_req": {
+        "message": "Սանդղակի արժեքը պահանջվում է 10-ից 200-ի միջև"
     },
     "extensionDescription": {
         "message": "Հաղորդագրությունների տպագրություն, վերնագրեր և PDF ելքային գործիքներ (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Տպեք բոլոր ընտրված կոնտակտները"
     },
+    "options": {
+        "message": "Տպման ընտրանքներ"
+    },
     "order": {
         "message": "Վերնագրերը պատվիրում են"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Տպման և էջի ընտրանքներ"
     },
+    "printing": {
+        "message": "Տպագրություն"
+    },
     "ptng.label": {
         "message": "Տպագրական գործիքներ NG"
     },
     "ptngOptions.label": {
         "message": "ՏԱՐԲԵՐԱԿՆԵՐԻ ՏՊԱԳՐԱԿԱՆ ԳՈՐԾԻՔՆԵՐ"
+    },
+    "received": {
+        "message": "Ստացվեց"
     },
     "remove_emojis": {
         "message": "Հեռացրեք Unicode Emojis-ն ու խորհրդանիշները"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Ճիշտ"
+    },
+    "save_to_pdf": {
+        "message": "Պահպանել PDF-ում"
+    },
+    "select_pdf_dir": {
+        "message": "Ընտրեք PDF ելքային գրացուցակ"
     },
     "short.label": {
         "message": "կարճ"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Պատել"
+    },
+    "writing": {
+        "message": "Գրել"
     }
 }

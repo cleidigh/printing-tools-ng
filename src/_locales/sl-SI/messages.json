@@ -113,8 +113,11 @@
     "all": {
         "message": "Vse"
     },
+    "allowFonts": {
+        "message": "Možnost sistema: Dovoljeno je, da sporočila uporabljajo druge pisave"
+    },
     "attachments": {
-        "message": "priloge"
+        "message": "Priloge"
     },
     "attachmentsPerLine": {
         "message": "Priponke na vrstico:"
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Opomba: V pogovornem oknu za nastavitev strani za tiskanje je treba omogočiti možnost »Slike in barve«"
     },
+    "confirm_pdf_autosave": {
+        "message": "Kliknite V redu za samodejno shranjevanje PDF ali Prekliči za predogled"
+    },
     "copies": {
         "message": "Kopije"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Po meri"
     },
+    "dateformatTB5": {
+        "message": "(domače)"
+    },
     "debugOptions.label": {
         "message": "Možnosti odpravljanja napak"
     },
     "defaultPrinter": {
         "message": "Privzeti tiskalnik"
     },
+    "disallowFonts": {
+        "message": "Sistemska možnost: Dovoli, da sporočila uporabljajo druge pisave, je onemogočena"
+    },
     "down": {
         "message": "Dol"
     },
     "enable_pdfdir": {
         "message": "Omogoči izhodni imenik PDF"
+    },
+    "err_copies_val_notzero": {
+        "message": "Vrednost kopij ne more biti enaka nič"
+    },
+    "err_copies_val_req": {
+        "message": "Zahtevana vrednost kopij"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Konec obsega strani mora biti večji od začetka"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Vrednost obsega strani ne sme biti enaka nič"
+    },
+    "err_pageranges_val_req": {
+        "message": "Zahtevana je vrednost obsegov strani"
+    },
+    "err_scale_val_req": {
+        "message": "Zahtevana vrednost lestvice je med 10 in 200"
     },
     "extensionDescription": {
         "message": "Tiskanje sporočil, glave in orodja za izpis PDF (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Natisnite vse izbrane kontakte"
     },
+    "options": {
+        "message": "Možnosti tiskanja"
+    },
     "order": {
         "message": "Vrstni red glave"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Možnosti tiskanja in strani"
     },
+    "printing": {
+        "message": "Tiskanje"
+    },
     "ptng.label": {
         "message": "Tiskarska orodja NG"
     },
     "ptngOptions.label": {
         "message": "TISKALSKA ORODJA MOŽNOSTI"
+    },
+    "received": {
+        "message": "Prejeto"
     },
     "remove_emojis": {
         "message": "Odstranite emojije in simbole Unicode"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Prav"
+    },
+    "save_to_pdf": {
+        "message": "Shrani v PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Izberite Izhodni imenik PDF"
     },
     "short.label": {
         "message": "kratek"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Zavijte"
+    },
+    "writing": {
+        "message": "Pisanje"
     }
 }

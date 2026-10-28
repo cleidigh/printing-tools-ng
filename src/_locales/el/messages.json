@@ -113,6 +113,9 @@
     "all": {
         "message": "Όλες"
     },
+    "allowFonts": {
+        "message": "Η επιλογή συστήματος:\\n Επιτρέπει στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές\\nέχει ενεργοποιηθεί"
+    },
     "attachments": {
         "message": "Συνημμένα"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Σημείωση: Το &quot;Εικόνες και χρώματα&quot; πρέπει να είναι ενεργοποιημένο στο παράθυρο διαλόγου Εκτύπωση σελίδας"
     },
+    "confirm_pdf_autosave": {
+        "message": "Κάντε κλικ στο OK για αυτόματη αποθήκευση PDF ή στο Άκυρο για προεπισκόπηση"
+    },
     "copies": {
         "message": "Αντίγραφα"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Προσαρμοσμένη"
     },
+    "dateformatTB5": {
+        "message": "(τοπική)"
+    },
     "debugOptions.label": {
         "message": "Επιλογές εντοπισμού σφαλμάτων"
     },
     "defaultPrinter": {
         "message": "Προεπιλεγμένος εκτυπωτής"
     },
+    "disallowFonts": {
+        "message": "Η επιλογή συστήματος:\\n Επιτρέπει στα μηνύματα να χρησιμοποιούν άλλες γραμματοσειρές\\nέχει απενεργοποιηθεί"
+    },
     "down": {
         "message": "Κάτω"
     },
     "enable_pdfdir": {
         "message": "Ενεργοποίηση φακέλου εξαγωγής PDF"
+    },
+    "err_copies_val_notzero": {
+        "message": "Η τιμή των αντιγράφων δεν μπορεί να είναι μηδέν"
+    },
+    "err_copies_val_req": {
+        "message": "Απαιτείται τιμή αντιγράφων"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Το τέλος του εύρους σελίδων πρέπει να είναι μεγαλύτερο από την αρχή"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Η τιμή του εύρους σελίδων δεν μπορεί να είναι μηδέν"
+    },
+    "err_pageranges_val_req": {
+        "message": "Απαιτείται τιμή εύρους σελίδων"
+    },
+    "err_scale_val_req": {
+        "message": "Απαιτείται τιμή κλίμακας μεταξύ 10 και 200"
     },
     "extensionDescription": {
         "message": "Εργαλεία εκτύπωσης μηνυμάτων, κεφαλίδων και εξόδου PDF (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Εκτύπωση όλων των επιλεγμένων επαφών"
     },
+    "options": {
+        "message": "Επιλογές εκτύπωσης"
+    },
     "order": {
         "message": "Σειρά κεφαλίδων"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Επιλογές εκτύπωσης και σελίδας"
     },
+    "printing": {
+        "message": "Εκτύπωση"
+    },
     "ptng.label": {
         "message": "Εργαλεία εκτύπωσης NG"
     },
     "ptngOptions.label": {
         "message": "Επιλογές εργαλείων εκτύπωσης NG"
+    },
+    "received": {
+        "message": "Ελήφθη"
     },
     "remove_emojis": {
         "message": "Αφαίρεση Unicode Emojis και συμβόλων"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Δεξιά"
+    },
+    "save_to_pdf": {
+        "message": "Αποθήκευση σε PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Επιλογή φακέλου εξαγωγής PDF"
     },
     "short.label": {
         "message": "Σύντομη"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Αναδίπλωση"
+    },
+    "writing": {
+        "message": "Γραφή"
     }
 }

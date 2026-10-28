@@ -116,8 +116,11 @@
     "all": {
         "message": "Alle"
     },
+    "allowFonts": {
+        "message": "Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er aktiveret"
+    },
     "attachments": {
-        "message": "Vedhæftede filer"
+        "message": "Attachments"
     },
     "attachmentsPerLine": {
         "message": "Vedhæftede filer pr. Linje:"
@@ -152,6 +155,9 @@
     "colorsNote": {
         "message": "Bemærk: &#39;Billeder og farver&#39; skal aktiveres i dialogboksen Udskriv sideopsætning"
     },
+    "confirm_pdf_autosave": {
+        "message": "Klik på OK for at gemme PDF automatisk eller Annuller for at få vist"
+    },
     "copies": {
         "message": "Kopier"
     },
@@ -167,11 +173,17 @@
     "date_custom.label": {
         "message": "Brugerdefinerede"
     },
+    "dateformatTB5": {
+        "message": "(Thunderbird format)"
+    },
     "debugOptions.label": {
         "message": "Fejlfindingsindstillinger"
     },
     "defaultPrinter": {
         "message": "Standardprinter"
+    },
+    "disallowFonts": {
+        "message": "Systemindstillingen: Tillad, at beskeder bruger andre skrifttyper er deaktiveret"
     },
     "down": {
         "message": "Ned"
@@ -179,11 +191,32 @@
     "enable_pdfdir": {
         "message": "Aktiver PDF Output Directory"
     },
+    "err_copies_val_notzero": {
+        "message": "Kopiværdien må ikke være nul"
+    },
+    "err_copies_val_req": {
+        "message": "Kopiværdi påkrævet"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Sideintervallets slutning skal være større end start"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Værdien for sideintervaller må ikke være nul"
+    },
+    "err_pageranges_val_req": {
+        "message": "Sideintervaller værdi påkrævet"
+    },
+    "err_scale_val_req": {
+        "message": "Skalaværdi påkrævet mellem 10 og 200"
+    },
     "extensionDescription": {
         "message": "Beskedudskrivning, sidehoveder og PDF-outputværktøjer (Nextgen)"
     },
     "extensionName": {
         "message": "PrintingTools NG"
+    },
+    "extensions.{5e9999c2-ba1d-44b6-bcee-5b30ce37d3b0}.description": {
+        "message": "Tilføj indstillinger for udskrivning af meddelelse og adressebog."
     },
     "filename_format": {
         "message": "Filnavn format"
@@ -239,6 +272,9 @@
     "multipleCards.label": {
         "message": "Udskriv alle valgte kontakter"
     },
+    "options": {
+        "message": "Udskriftsindstillinger"
+    },
     "order": {
         "message": "Rækkefølge på header-linjer"
     },
@@ -281,11 +317,17 @@
     "print_and_pageoptions": {
         "message": "Udskrifts- og sideindstillinger"
     },
+    "printing": {
+        "message": "Trykning"
+    },
     "ptng.label": {
         "message": "Udskrivningsværktøj NG"
     },
     "ptngOptions.label": {
         "message": "UDSKRIVNINGSVÆRKTØJER AF MULIGHEDER"
+    },
+    "received": {
+        "message": "Modtaget"
     },
     "remove_emojis": {
         "message": "Fjern Unicode-emojis og symboler"
@@ -295,6 +337,12 @@
     },
     "right": {
         "message": "Ret"
+    },
+    "save_to_pdf": {
+        "message": "Gem til PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Vælg PDF Output Directory"
     },
     "short.label": {
         "message": "kort"
@@ -331,5 +379,8 @@
     },
     "wrap": {
         "message": "Pak ind"
+    },
+    "writing": {
+        "message": "Skrivning"
     }
 }

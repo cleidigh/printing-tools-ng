@@ -113,8 +113,11 @@
     "all": {
         "message": "Tots"
     },
+    "allowFonts": {
+        "message": "S&#39;ha activat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra"
+    },
     "attachments": {
-        "message": "Adjunts"
+        "message": "Arxius adjunts"
     },
     "attachmentsPerLine": {
         "message": "Fitxers adjunts per línia:"
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Nota: &quot;Imatges i colors&quot; ha d&#39;estar habilitat al quadre de diàleg Imprimeix la configuració de la pàgina"
     },
+    "confirm_pdf_autosave": {
+        "message": "Feu clic a D&#39;acord per desar automàticament el PDF o Cancel·la per previsualitzar"
+    },
     "copies": {
         "message": "Còpies"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Personalitzat"
     },
+    "dateformatTB5": {
+        "message": "(nadiu)"
+    },
     "debugOptions.label": {
         "message": "Opcions de depuració"
     },
     "defaultPrinter": {
         "message": "Impressora per defecte"
     },
+    "disallowFonts": {
+        "message": "S&#39;ha desactivat l&#39;opció del sistema: Permetre que els missatges utilitzin altres tipus de lletra"
+    },
     "down": {
         "message": "A baix"
     },
     "enable_pdfdir": {
         "message": "Activa el directori de sortida de PDF"
+    },
+    "err_copies_val_notzero": {
+        "message": "El valor de les còpies no pot ser zero"
+    },
+    "err_copies_val_req": {
+        "message": "Valor de còpies necessaris"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "El final de l&#39;interval de pàgines ha de ser més gran que l&#39;inici"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "El valor dels intervals de pàgines no pot ser zero"
+    },
+    "err_pageranges_val_req": {
+        "message": "El valor dels intervals de pàgines és obligatori"
+    },
+    "err_scale_val_req": {
+        "message": "Es requereix un valor d&#39;escala entre 10 i 200"
     },
     "extensionDescription": {
         "message": "Impressió de missatges, capçaleres i eines de sortida de PDF (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Imprimeix tots els contactes seleccionats"
     },
+    "options": {
+        "message": "Opcions d&#39;impressió"
+    },
     "order": {
         "message": "Comanda de capçaleres"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Opcions d&#39;impressió i pàgina"
     },
+    "printing": {
+        "message": "Impressió"
+    },
     "ptng.label": {
         "message": "Eines d&#39;impressió NG"
     },
     "ptngOptions.label": {
         "message": "EINES D&#39;IMPRESSIÓ D&#39;OPCIONS"
+    },
+    "received": {
+        "message": "Rebut"
     },
     "remove_emojis": {
         "message": "Elimina els emojis i els símbols Unicode"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Dret"
+    },
+    "save_to_pdf": {
+        "message": "Desa a PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Seleccioneu Directori de sortida PDF"
     },
     "short.label": {
         "message": "curt"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Embolcall"
+    },
+    "writing": {
+        "message": "Escriptura"
     }
 }

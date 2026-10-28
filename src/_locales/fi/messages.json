@@ -113,6 +113,9 @@
     "all": {
         "message": "Kaikki"
     },
+    "allowFonts": {
+        "message": "Järjestelmäasetus: Salli viestien käyttää muita kirjasimia on otettu käyttöön"
+    },
     "attachments": {
         "message": "Liitteet"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Huomautus: Kuvien ja värien on oltava käytössä Tulosta sivun asetukset -valintaikkunassa"
     },
+    "confirm_pdf_autosave": {
+        "message": "Napsauta OK tallentaaksesi PDF automaattisesti tai Peruuta esikatsellaksesi"
+    },
     "copies": {
         "message": "Kopioita"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Mukautettu"
     },
+    "dateformatTB5": {
+        "message": "(Natiivi)"
+    },
     "debugOptions.label": {
         "message": "Virheenkorjausasetukset"
     },
     "defaultPrinter": {
         "message": "Oletustulostin"
     },
+    "disallowFonts": {
+        "message": "Järjestelmäasetus: Salli viestien käyttää muita fontteja on poistettu käytöstä"
+    },
     "down": {
         "message": "Alas"
     },
     "enable_pdfdir": {
         "message": "Ota PDF-tulostushakemisto käyttöön"
+    },
+    "err_copies_val_notzero": {
+        "message": "Kopioiden arvo ei voi olla nolla"
+    },
+    "err_copies_val_req": {
+        "message": "Kopioiden arvo vaaditaan"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Sivualueen lopun on oltava suurempi kuin aloitus"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Sivualueiden arvo ei voi olla nolla"
+    },
+    "err_pageranges_val_req": {
+        "message": "Sivualueiden arvo vaaditaan"
+    },
+    "err_scale_val_req": {
+        "message": "Skaalausarvo vaaditaan välillä 10–200"
     },
     "extensionDescription": {
         "message": "Viestien tulostus, otsikot ja PDF-tulostustyökalut (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Tulosta kaikki valitut yhteystiedot"
     },
+    "options": {
+        "message": "Tulostusasetukset"
+    },
     "order": {
         "message": "Otsikot järjestyksessä"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Tulostus- ja sivuasetukset"
     },
+    "printing": {
+        "message": "Tulostus"
+    },
     "ptng.label": {
         "message": "Tulostustyökalut NG"
     },
     "ptngOptions.label": {
         "message": "VAIHTOEHTOJEN TULOSTUSTYÖKALUT"
+    },
+    "received": {
+        "message": "Otettu vastaan"
     },
     "remove_emojis": {
         "message": "Poista Unicode-emojit ja symbolit"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Oikein"
+    },
+    "save_to_pdf": {
+        "message": "Tallenna PDF-muotoon"
+    },
+    "select_pdf_dir": {
+        "message": "Valitse PDF-tulostushakemisto"
     },
     "short.label": {
         "message": "lyhyt"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Kääri"
+    },
+    "writing": {
+        "message": "Kirjoittaminen"
     }
 }

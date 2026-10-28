@@ -113,8 +113,11 @@
     "all": {
         "message": "Alle"
     },
+    "allowFonts": {
+        "message": "Systemalternativet: Tillat at meldinger bruker andre skrifter er aktivert"
+    },
     "attachments": {
-        "message": "Vedlegg"
+        "message": "vedlegg"
     },
     "attachmentsPerLine": {
         "message": "Vedlegg per linje:"
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Merk: &#39;Bilder og farger&#39; må aktiveres i dialogboksen Utskriftsformat"
     },
+    "confirm_pdf_autosave": {
+        "message": "Klikk OK for å lagre PDF automatisk eller Avbryt for å forhåndsvise"
+    },
     "copies": {
         "message": "Kopier"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Tilpasset"
     },
+    "dateformatTB5": {
+        "message": "(innfødt)"
+    },
     "debugOptions.label": {
         "message": "Feilsøkingsalternativer"
     },
     "defaultPrinter": {
         "message": "Standardskriver"
     },
+    "disallowFonts": {
+        "message": "Systemalternativet: Tillat at meldinger bruker andre skrifter er deaktivert"
+    },
     "down": {
         "message": "Ned"
     },
     "enable_pdfdir": {
         "message": "Aktiver PDF-utdatakatalog"
+    },
+    "err_copies_val_notzero": {
+        "message": "Verdien for kopier kan ikke være null"
+    },
+    "err_copies_val_req": {
+        "message": "Kopiverdi kreves"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Sideområdeslutt må være større enn start"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Verdien for sideområder kan ikke være null"
+    },
+    "err_pageranges_val_req": {
+        "message": "Sideområdeverdi kreves"
+    },
+    "err_scale_val_req": {
+        "message": "Skalaverdi påkrevd mellom 10 og 200"
     },
     "extensionDescription": {
         "message": "Meldingsutskrift, topptekster og PDF-utdataverktøy (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Skriv ut alle valgte kontakter"
     },
+    "options": {
+        "message": "Utskriftsalternativer"
+    },
     "order": {
         "message": "Topptekster bestiller"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Utskrifts- og sidealternativer"
     },
+    "printing": {
+        "message": "Printing"
+    },
     "ptng.label": {
         "message": "Utskriftsverktøy NG"
     },
     "ptngOptions.label": {
         "message": "UTSKRIFTSVERKTØY AV ALTERNATIVER"
+    },
+    "received": {
+        "message": "Mottatt"
     },
     "remove_emojis": {
         "message": "Fjern Unicode-emojier og symboler"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Ikke sant"
+    },
+    "save_to_pdf": {
+        "message": "Lagre til PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Velg PDF Output Directory"
     },
     "short.label": {
         "message": "kort"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Pakke inn"
+    },
+    "writing": {
+        "message": "Skriving"
     }
 }

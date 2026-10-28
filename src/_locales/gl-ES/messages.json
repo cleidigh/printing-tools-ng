@@ -113,8 +113,11 @@
     "all": {
         "message": "Todos"
     },
+    "allowFonts": {
+        "message": "Activouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra"
+    },
     "attachments": {
-        "message": "Anexos"
+        "message": "Adxuntos"
     },
     "attachmentsPerLine": {
         "message": "Anexos por liña:"
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Nota: &quot;Imaxes e cores&quot; ten que estar activado no diálogo de configuración da páxina de impresión"
     },
+    "confirm_pdf_autosave": {
+        "message": "Fai clic en Aceptar para gardar PDF automaticamente ou Cancelar para previsualizar"
+    },
     "copies": {
         "message": "Copias"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Personalizado"
     },
+    "dateformatTB5": {
+        "message": "(nativo)"
+    },
     "debugOptions.label": {
         "message": "Opcións de depuración"
     },
     "defaultPrinter": {
         "message": "Impresora predeterminada"
     },
+    "disallowFonts": {
+        "message": "Desactivouse a opción do sistema: Permitir que as mensaxes usen outros tipos de letra"
+    },
     "down": {
         "message": "Abaixo"
     },
     "enable_pdfdir": {
         "message": "Activa o directorio de saída de PDF"
+    },
+    "err_copies_val_notzero": {
+        "message": "O valor das copias non pode ser cero"
+    },
+    "err_copies_val_req": {
+        "message": "O valor das copias é necesario"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "O fin do intervalo de páxinas debe ser maior que o inicio"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "O valor dos intervalos de páxina non pode ser cero"
+    },
+    "err_pageranges_val_req": {
+        "message": "O valor de intervalos de páxina é necesario"
+    },
+    "err_scale_val_req": {
+        "message": "Valor de escala necesario entre 10 e 200"
     },
     "extensionDescription": {
         "message": "Impresión de mensaxes, encabezados e ferramentas de saída de PDF (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Imprimir todos os contactos seleccionados"
     },
+    "options": {
+        "message": "Opcións de impresión"
+    },
     "order": {
         "message": "Pedido de cabeceiras"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Opcións de impresión e páxina"
     },
+    "printing": {
+        "message": "Impresión"
+    },
     "ptng.label": {
         "message": "Ferramentas de impresión NG"
     },
     "ptngOptions.label": {
         "message": "FERRAMENTAS DE IMPRESIÓN DE OPCIÓNS"
+    },
+    "received": {
+        "message": "Recibido"
     },
     "remove_emojis": {
         "message": "Eliminar emojis e símbolos Unicode"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Certo"
+    },
+    "save_to_pdf": {
+        "message": "Gardar en PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Seleccione Directorio de saída PDF"
     },
     "short.label": {
         "message": "curto"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Envoltura"
+    },
+    "writing": {
+        "message": "Escritura"
     }
 }

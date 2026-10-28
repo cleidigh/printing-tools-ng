@@ -113,6 +113,9 @@
     "all": {
         "message": "Wszystko"
     },
+    "allowFonts": {
+        "message": "Opcja systemowa: Zezwól wiadomościom na używanie innych czcionek została włączona"
+    },
     "attachments": {
         "message": "Załączniki"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Uwaga: w oknie dialogowym Drukuj ustawienia strony należy włączyć opcję „Obrazy i kolory”"
     },
+    "confirm_pdf_autosave": {
+        "message": "Kliknij OK, aby automatycznie zapisać plik PDF lub Anuluj, aby wyświetlić podgląd"
+    },
     "copies": {
         "message": "Kopie"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Zwyczaj"
     },
+    "dateformatTB5": {
+        "message": "(ojczysty)"
+    },
     "debugOptions.label": {
         "message": "Opcje debugowania"
     },
     "defaultPrinter": {
         "message": "Domyślna drukarka"
     },
+    "disallowFonts": {
+        "message": "Opcja systemowa: Zezwalaj wiadomościom na używanie innych czcionek została wyłączona"
+    },
     "down": {
         "message": "Na dół"
     },
     "enable_pdfdir": {
         "message": "Włącz katalog wyjściowy PDF"
+    },
+    "err_copies_val_notzero": {
+        "message": "Wartość kopii nie może wynosić zero"
+    },
+    "err_copies_val_req": {
+        "message": "Kopie wartości wymagane"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Koniec zakresu stron musi być większy niż początek"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Wartość zakresów stron nie może wynosić zero"
+    },
+    "err_pageranges_val_req": {
+        "message": "Wymagana wartość zakresów stron"
+    },
+    "err_scale_val_req": {
+        "message": "Wymagana wartość skali od 10 do 200"
     },
     "extensionDescription": {
         "message": "Drukowanie wiadomości, nagłówki i narzędzia wyjściowe PDF (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Wydrukuj wszystkie wybrane kontakty"
     },
+    "options": {
+        "message": "Opcje drukowania"
+    },
     "order": {
         "message": "Zamówienie nagłówków"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Opcje drukowania i strony"
     },
+    "printing": {
+        "message": "Druk"
+    },
     "ptng.label": {
         "message": "Narzędzia drukarskie NG"
     },
     "ptngOptions.label": {
         "message": "NARZĘDZIA DRUKU OPCJI"
+    },
+    "received": {
+        "message": "Odebrane"
     },
     "remove_emojis": {
         "message": "Usuń emotikony i symbole Unicode"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Prawidłowy"
+    },
+    "save_to_pdf": {
+        "message": "Zapisz do PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Wybierz Katalog wyjściowy PDF"
     },
     "short.label": {
         "message": "krótki"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Owinąć"
+    },
+    "writing": {
+        "message": "Pismo"
     }
 }

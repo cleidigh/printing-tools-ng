@@ -116,6 +116,9 @@
     "all": {
         "message": "Todos"
     },
+    "allowFonts": {
+        "message": "A opção do sistema: Permitir que as mensagens usem outras fontes foi habilitada"
+    },
     "attachments": {
         "message": "Anexos"
     },
@@ -152,6 +155,9 @@
     "colorsNote": {
         "message": "Nota: &#39;Imagens e cores&#39; deve ser ativado na caixa de diálogo Configurar página de impressão"
     },
+    "confirm_pdf_autosave": {
+        "message": "Clique em OK para salvar automaticamente o PDF ou em Cancelar para visualizar"
+    },
     "copies": {
         "message": "cópias"
     },
@@ -167,11 +173,17 @@
     "date_custom.label": {
         "message": "Personalizado"
     },
+    "dateformatTB5": {
+        "message": "(nativo)"
+    },
     "debugOptions.label": {
         "message": "Opções de depuração"
     },
     "defaultPrinter": {
         "message": "Impressora padrão"
+    },
+    "disallowFonts": {
+        "message": "A opção do sistema: Permitir que as mensagens usem outras fontes foi desativada"
     },
     "down": {
         "message": "Abaixo"
@@ -179,11 +191,32 @@
     "enable_pdfdir": {
         "message": "Ativar diretório de saída de PDF"
     },
+    "err_copies_val_notzero": {
+        "message": "O valor das cópias não pode ser zero"
+    },
+    "err_copies_val_req": {
+        "message": "Valor das cópias necessário"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "O fim do intervalo de páginas deve ser maior que o início"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "O valor dos intervalos de páginas não pode ser zero"
+    },
+    "err_pageranges_val_req": {
+        "message": "O valor dos intervalos de páginas é obrigatório"
+    },
+    "err_scale_val_req": {
+        "message": "Valor de escala necessário entre 10 e 200"
+    },
     "extensionDescription": {
         "message": "Ferramentas de impressão de mensagens, cabeçalhos e saída de PDF (próxima geração)"
     },
     "extensionName": {
         "message": "Ferramentas de impressão NG"
+    },
+    "extensions.{5e9999c2-ba1d-44b6-bcee-5b30ce37d3b0}.description": {
+        "message": "Adiciona algumas opções para impressão de mensagens e contatos"
     },
     "filename_format": {
         "message": "Formato do nome do arquivo"
@@ -239,6 +272,9 @@
     "multipleCards.label": {
         "message": "Imprimir todos os contatos selecionados"
     },
+    "options": {
+        "message": "Opções de impressão"
+    },
     "order": {
         "message": "Ordem dos cabeçalhos"
     },
@@ -281,11 +317,17 @@
     "print_and_pageoptions": {
         "message": "Opções de impressão e página"
     },
+    "printing": {
+        "message": "Impressão"
+    },
     "ptng.label": {
         "message": "Ferramentas de impressão NG"
     },
     "ptngOptions.label": {
         "message": "FERRAMENTAS DE IMPRESSÃO DE OPÇÕES"
+    },
+    "received": {
+        "message": "Recebido"
     },
     "remove_emojis": {
         "message": "Remover Emojis e Símbolos Unicode"
@@ -295,6 +337,12 @@
     },
     "right": {
         "message": "Direita"
+    },
+    "save_to_pdf": {
+        "message": "Salvar em PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Selecione o diretório de saída do PDF"
     },
     "short.label": {
         "message": "curto"
@@ -331,5 +379,8 @@
     },
     "wrap": {
         "message": "Embrulho"
+    },
+    "writing": {
+        "message": "Escrevendo"
     }
 }

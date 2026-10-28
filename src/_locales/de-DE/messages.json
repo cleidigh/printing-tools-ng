@@ -116,6 +116,9 @@
     "all": {
         "message": "Alle"
     },
+    "allowFonts": {
+        "message": "Systemeinstellung:\\nSchriftartenkontrolle: Das Verwenden eigener Schriftarten\\nwurde aktiviert"
+    },
     "attachments": {
         "message": "Anhänge"
     },
@@ -152,6 +155,9 @@
     "colorsNote": {
         "message": "Hinweis: &quot;Drucken&quot; >> &quot;Mehr Einstellungen&quot; >> Einstellungen: &quot;Hintergrund drucken&quot; muss aktiviert sein"
     },
+    "confirm_pdf_autosave": {
+        "message": "Klicken Sie auf OK, um das PDF automatisch zu speichern, oder auf Abbrechen, um eine Vorschau anzuzeigen"
+    },
     "copies": {
         "message": "Kopien"
     },
@@ -167,11 +173,17 @@
     "date_custom.label": {
         "message": "Benutzerdefiniert"
     },
+    "dateformatTB5": {
+        "message": "(native)"
+    },
     "debugOptions.label": {
         "message": "Debug-Optionen"
     },
     "defaultPrinter": {
         "message": "Standard Drucker"
+    },
+    "disallowFonts": {
+        "message": "Systemeinstellung:\\nSchriftartenkontrolle: Das Verwenden eigener Schriftarten\\nwurde deaktiviert"
     },
     "down": {
         "message": "Nach unten"
@@ -179,11 +191,32 @@
     "enable_pdfdir": {
         "message": "PDF Ausgabeverzeichnis aktivieren"
     },
+    "err_copies_val_notzero": {
+        "message": "Der Skalierungswert darf nicht Null sein"
+    },
+    "err_copies_val_req": {
+        "message": "Erforderlicher Skalierungswert zwischen 10 und 200"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Das Ende des Seitenbereichs muss größer sein als der Anfang"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Der Wert für Seitenbereiche darf nicht Null sein"
+    },
+    "err_pageranges_val_req": {
+        "message": "Wert für Seitenbereiche erforderlich"
+    },
+    "err_scale_val_req": {
+        "message": "Erforderlicher Skalierungswert zwischen 10 und 200"
+    },
     "extensionDescription": {
         "message": "Nachrichtendruck, Kopfzeilen und PDF-Ausgabetools (Nextgen)"
     },
     "extensionName": {
         "message": "PrintingTools NG"
+    },
+    "extensions.{5e9999c2-ba1d-44b6-bcee-5b30ce37d3b0}.description": {
+        "message": "Einstellungen zum Drucken von Nachrichten und Adressbüchern"
     },
     "filename_format": {
         "message": "Dateinamenformat"
@@ -239,6 +272,9 @@
     "multipleCards.label": {
         "message": "Alle ausgewählten Kontakte drucken"
     },
+    "options": {
+        "message": "Erweiterte Druckeinstellungen"
+    },
     "order": {
         "message": "Reihenfolge des Nachrichtenkopfs"
     },
@@ -281,11 +317,17 @@
     "print_and_pageoptions": {
         "message": "Druck und Seitenoptionen"
     },
+    "printing": {
+        "message": "Drucken"
+    },
     "ptng.label": {
         "message": "Druckwerkzeuge NG"
     },
     "ptngOptions.label": {
         "message": "Druckwerkzeuge NG Optionen"
+    },
+    "received": {
+        "message": "Empfangen"
     },
     "remove_emojis": {
         "message": "Entfernen Sie Unicode-Emojis und -Symbole"
@@ -295,6 +337,12 @@
     },
     "right": {
         "message": "Rechts"
+    },
+    "save_to_pdf": {
+        "message": "Als PDF speichern"
+    },
+    "select_pdf_dir": {
+        "message": "Wählen Sie PDF-Ausgabeverzeichnis"
     },
     "short.label": {
         "message": "kurz"
@@ -331,5 +379,8 @@
     },
     "wrap": {
         "message": "Umbrechen"
+    },
+    "writing": {
+        "message": "Schreiben"
     }
 }

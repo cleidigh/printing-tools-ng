@@ -113,6 +113,9 @@
     "all": {
         "message": "Allt"
     },
+    "allowFonts": {
+        "message": "Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har aktiverats"
+    },
     "attachments": {
         "message": "Bilagor"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Obs! &#39;Bilder och färger&#39; måste aktiveras i dialogrutan Utskriftsformat"
     },
+    "confirm_pdf_autosave": {
+        "message": "Klicka på OK för att spara PDF automatiskt eller Avbryt för att förhandsgranska"
+    },
     "copies": {
         "message": "Kopior"
     },
@@ -164,11 +170,17 @@
     "date_custom.label": {
         "message": "Beställnings"
     },
+    "dateformatTB5": {
+        "message": "(Thunderbirds format)"
+    },
     "debugOptions.label": {
         "message": "Felsökningsalternativ"
     },
     "defaultPrinter": {
         "message": "Standardskrivare"
+    },
+    "disallowFonts": {
+        "message": "Systemalternativet: Tillåt att meddelanden använder andra teckensnitt har inaktiverats"
     },
     "down": {
         "message": "Nedåt"
@@ -176,11 +188,32 @@
     "enable_pdfdir": {
         "message": "Aktivera PDF Output Directory"
     },
+    "err_copies_val_notzero": {
+        "message": "Kopior kan inte vara noll"
+    },
+    "err_copies_val_req": {
+        "message": "Kopieringsvärde krävs"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Sidintervallets slut måste vara större än början"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Värdet för sidintervall kan inte vara noll"
+    },
+    "err_pageranges_val_req": {
+        "message": "Värde för sidintervall krävs"
+    },
+    "err_scale_val_req": {
+        "message": "Skalvärde krävs mellan 10 och 200"
+    },
     "extensionDescription": {
         "message": "Meddelandeutskrift, rubriker och PDF-utmatningsverktyg (Nextgen)"
     },
     "extensionName": {
         "message": "PrintingTools NG"
+    },
+    "extensions.{5e9999c2-ba1d-44b6-bcee-5b30ce37d3b0}.description": {
+        "message": "Lägger till några alternativ för utskrift av meddelanden och adressböcker"
     },
     "filename_format": {
         "message": "Filnamnsformat"
@@ -236,6 +269,9 @@
     "multipleCards.label": {
         "message": "Skriv ut alla markerade kontakter"
     },
+    "options": {
+        "message": "Utskriftsalternativ"
+    },
     "order": {
         "message": "Ordna huvuden"
     },
@@ -278,11 +314,17 @@
     "print_and_pageoptions": {
         "message": "Utskrifts- och sidalternativ"
     },
+    "printing": {
+        "message": "Utskrift"
+    },
     "ptng.label": {
         "message": "Utskriftsverktyg NG"
     },
     "ptngOptions.label": {
         "message": "UTSKRIFTSVERKTYG FÖR ALTERNATIV"
+    },
+    "received": {
+        "message": "Mottagen"
     },
     "remove_emojis": {
         "message": "Ta bort Unicode-emojis och symboler"
@@ -292,6 +334,12 @@
     },
     "right": {
         "message": "Höger"
+    },
+    "save_to_pdf": {
+        "message": "Spara till PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Välj PDF Output Directory"
     },
     "short.label": {
         "message": "kort"
@@ -328,5 +376,8 @@
     },
     "wrap": {
         "message": "Slå in"
+    },
+    "writing": {
+        "message": "Skrivande"
     }
 }

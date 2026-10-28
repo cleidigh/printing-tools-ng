@@ -113,6 +113,9 @@
     "all": {
         "message": "All"
     },
+    "allowFonts": {
+        "message": "The system option:\\n  Allow messages to use other fonts\\nhas been enabled"
+    },
     "attachments": {
         "message": "Attachments"
     },
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Note: Enable Print backgrounds in the Print dialog"
     },
+    "confirm_pdf_autosave": {
+        "message": "Click OK to Autosave PDF or Cancel to Preview"
+    },
     "copies": {
         "message": "Copies"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Custom"
     },
+    "dateformatTB5": {
+        "message": "(native)"
+    },
     "debugOptions.label": {
         "message": "Debug Options"
     },
     "defaultPrinter": {
         "message": "Default Printer"
     },
+    "disallowFonts": {
+        "message": "The system option:\\n  Allow messages to use other fonts\\nhas been disabled"
+    },
     "down": {
         "message": "Down"
     },
     "enable_pdfdir": {
         "message": "Enable PDF Output Directory"
+    },
+    "err_copies_val_notzero": {
+        "message": "Scale value cannot be zero"
+    },
+    "err_copies_val_req": {
+        "message": "Scale value required between 10 and 200"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Page Range end must be greater than start"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Page Ranges value cannot be zero"
+    },
+    "err_pageranges_val_req": {
+        "message": "Page Ranges value required"
+    },
+    "err_scale_val_req": {
+        "message": "Scale value required between 10 and 200"
     },
     "extensionDescription": {
         "message": "Message Printing, Headers and PDF Output Tools (Nextgen)"
@@ -233,6 +263,9 @@
     "multipleCards.label": {
         "message": "Print all selected contacts"
     },
+    "options": {
+        "message": "Printing options"
+    },
     "order": {
         "message": "Headers order"
     },
@@ -275,11 +308,17 @@
     "print_and_pageoptions": {
         "message": "Print and Page Options"
     },
+    "printing": {
+        "message": "Printing"
+    },
     "ptng.label": {
         "message": "Printing Tools NG"
     },
     "ptngOptions.label": {
         "message": "Printing Tools NG Options"
+    },
+    "received": {
+        "message": "Received"
     },
     "remove_emojis": {
         "message": "Remove Unicode Emojis and Symbols"
@@ -289,6 +328,12 @@
     },
     "right": {
         "message": "Right"
+    },
+    "save_to_pdf": {
+        "message": "Save to PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Select PDF Output Directory"
     },
     "short.label": {
         "message": "short"
@@ -325,5 +370,8 @@
     },
     "wrap": {
         "message": "Wrap"
+    },
+    "writing": {
+        "message": "Writing"
     }
 }

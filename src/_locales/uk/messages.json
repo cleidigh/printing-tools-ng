@@ -113,8 +113,11 @@
     "all": {
         "message": "все"
     },
+    "allowFonts": {
+        "message": "Параметр системи: Дозволено повідомленням використовувати інші шрифти"
+    },
     "attachments": {
-        "message": "Додатки"
+        "message": "Вкладення"
     },
     "attachmentsPerLine": {
         "message": "Додатки на рядок:"
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Примітка: У діалоговому вікні «Налаштування сторінки друку» потрібно ввімкнути «Зображення та кольори»"
     },
+    "confirm_pdf_autosave": {
+        "message": "Натисніть «ОК», щоб автоматично зберегти PDF, або «Скасувати», щоб переглянути"
+    },
     "copies": {
         "message": "Копії"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "На замовлення"
     },
+    "dateformatTB5": {
+        "message": "(рідний)"
+    },
     "debugOptions.label": {
         "message": "Параметри налагодження"
     },
     "defaultPrinter": {
         "message": "Принтер за замовчуванням"
     },
+    "disallowFonts": {
+        "message": "Параметр системи: Дозволити повідомленням використовувати інші шрифти вимкнено"
+    },
     "down": {
         "message": "Вниз"
     },
     "enable_pdfdir": {
         "message": "Увімкнути каталог виведення PDF"
+    },
+    "err_copies_val_notzero": {
+        "message": "Цінність копій не може дорівнювати нулю"
+    },
+    "err_copies_val_req": {
+        "message": "Потрібне значення копій"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "Кінець діапазону сторінок має бути більшим за початок"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "Значення діапазонів сторінок не може дорівнювати нулю"
+    },
+    "err_pageranges_val_req": {
+        "message": "Потрібне значення діапазонів сторінок"
+    },
+    "err_scale_val_req": {
+        "message": "Потрібне значення масштабу від 10 до 200"
     },
     "extensionDescription": {
         "message": "Інструменти друку повідомлень, заголовків і PDF-файлів (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Роздрукувати всі вибрані контакти"
     },
+    "options": {
+        "message": "Параметри друку"
+    },
     "order": {
         "message": "Порядок заголовків"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Параметри друку та сторінки"
     },
+    "printing": {
+        "message": "Друк"
+    },
     "ptng.label": {
         "message": "Інструменти друку НГ"
     },
     "ptngOptions.label": {
         "message": "ІНСТРУМЕНТИ ДРУКУ ВАРИАНТІВ"
+    },
+    "received": {
+        "message": "Отримано"
     },
     "remove_emojis": {
         "message": "Видаліть емодзі та символи Unicode"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "правильно"
+    },
+    "save_to_pdf": {
+        "message": "Зберегти в PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Виберіть PDF Output Directory"
     },
     "short.label": {
         "message": "короткий"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Укутати"
+    },
+    "writing": {
+        "message": "Написання"
     }
 }

@@ -113,8 +113,11 @@
     "all": {
         "message": "Todas"
     },
+    "allowFonts": {
+        "message": "Se ha habilitado la opción del sistema: Permitir que los mensajes usen otras fuentes"
+    },
     "attachments": {
-        "message": "Archivos adjuntos"
+        "message": "Adjuntos"
     },
     "attachmentsPerLine": {
         "message": "Archivos adjuntos por línea:"
@@ -149,6 +152,9 @@
     "colorsNote": {
         "message": "Nota: Es necesario habilitar &#39;Imágenes y colores&#39; en el cuadro de diálogo Configurar página de impresión"
     },
+    "confirm_pdf_autosave": {
+        "message": "Haga clic en Aceptar para guardar automáticamente el PDF o en Cancelar para obtener una vista previa"
+    },
     "copies": {
         "message": "copias"
     },
@@ -164,17 +170,41 @@
     "date_custom.label": {
         "message": "Costumbre"
     },
+    "dateformatTB5": {
+        "message": "(nativo)"
+    },
     "debugOptions.label": {
         "message": "Opciones de depuración"
     },
     "defaultPrinter": {
         "message": "Impresora predeterminada"
     },
+    "disallowFonts": {
+        "message": "La opción del sistema: Permitir que los mensajes usen otras fuentes se ha deshabilitado."
+    },
     "down": {
         "message": "Abajo"
     },
     "enable_pdfdir": {
         "message": "Habilitar directorio de salida PDF"
+    },
+    "err_copies_val_notzero": {
+        "message": "El valor de las copias no puede ser cero"
+    },
+    "err_copies_val_req": {
+        "message": "Copias valor requerido"
+    },
+    "err_pageranges_val_endgrbeg": {
+        "message": "El final del rango de páginas debe ser mayor que el inicio"
+    },
+    "err_pageranges_val_notzero": {
+        "message": "El valor de los rangos de páginas no puede ser cero"
+    },
+    "err_pageranges_val_req": {
+        "message": "Valor de rangos de página requerido"
+    },
+    "err_scale_val_req": {
+        "message": "Valor de escala requerido entre 10 y 200"
     },
     "extensionDescription": {
         "message": "Impresión de mensajes, encabezados y herramientas de salida de PDF (Nextgen)"
@@ -236,6 +266,9 @@
     "multipleCards.label": {
         "message": "Imprimir todos los contactos seleccionados"
     },
+    "options": {
+        "message": "Opciones de impresión"
+    },
     "order": {
         "message": "Orden de encabezados"
     },
@@ -278,11 +311,17 @@
     "print_and_pageoptions": {
         "message": "Opciones de impresión y página"
     },
+    "printing": {
+        "message": "Impresión"
+    },
     "ptng.label": {
         "message": "Herramientas de impresión NG"
     },
     "ptngOptions.label": {
         "message": "Opciones de impresión NG"
+    },
+    "received": {
+        "message": "Recibido"
     },
     "remove_emojis": {
         "message": "Eliminar emojis y símbolos Unicode"
@@ -292,6 +331,12 @@
     },
     "right": {
         "message": "Derecho"
+    },
+    "save_to_pdf": {
+        "message": "Guardar como PDF"
+    },
+    "select_pdf_dir": {
+        "message": "Seleccione el directorio de salida de PDF"
     },
     "short.label": {
         "message": "corto"
@@ -328,5 +373,8 @@
     },
     "wrap": {
         "message": "Envolver"
+    },
+    "writing": {
+        "message": "Escribiendo"
     }
 }
