@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Tlač správ, hlavičky a nástroje na výstup PDF (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Tlačiť"
-	}
-
+    "Help": {
+        "message": "Pomoc"
+    },
+    "HideInlineAttList": {
+        "message": "Skryť vložený zoznam príloh"
+    },
+    "PMDcaptionlabel": {
+        "message": "Možnosti tlače správ"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Globálne nastavenia tlače"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Možnosti tlače adresára"
+    },
+    "PMDlabel1": {
+        "message": "Zobraziť lokalizovaný formát dátumu"
+    },
+    "PMDlabel10": {
+        "message": "Skryť prílohy obsiahnuté v správe"
+    },
+    "PMDlabel11": {
+        "message": "Pred hlavičky pridávať meno používateľa"
+    },
+    "PMDlabel12": {
+        "message": "Používať malé písma"
+    },
+    "PMDlabel13": {
+        "message": "Skryť hlavičku kontaktu ('Karta pre')"
+    },
+    "PMDlabel14": {
+        "message": "Vložiť iba meno a e-mailovú adresu"
+    },
+    "PMDlabel15": {
+        "message": "Použiť kompaktný formát"
+    },
+    "PMDlabel16": {
+        "message": "Tlačiť len výber, ak existuje"
+    },
+    "PMDlabel17": {
+        "message": "Pridať ikonu typu súboru"
+    },
+    "PMDlabel18": {
+        "message": "Použiť písmo:"
+    },
+    "PMDlabel19": {
+        "message": "Skrátiť pole poznámky na 100 znakov"
+    },
+    "PMDlabel2": {
+        "message": "Povoliť zobrazenie upraveného zoznamu príloh"
+    },
+    "PMDlabel20": {
+        "message": "Pridať meno a dátum z adresára"
+    },
+    "PMDlabel21": {
+        "message": "Skryť všetky rozšírené hlavičky"
+    },
+    "PMDlabel22": {
+        "message": "Pridať do prílohy vizitku vCard a súbor p7m"
+    },
+    "PMDlabel23": {
+        "message": "Pridať názov priečinka"
+    },
+    "PMDlabel25": {
+        "message": "Použiť čiernu, ako základnú farbu pre texty"
+    },
+    "PMDlabel3": {
+        "message": "Nastaviť orámovanie hlavičky"
+    },
+    "PMDlabel4": {
+        "message": "Skryť hlavičku"
+    },
+    "PMDlabel5": {
+        "message": "Skracovať riadky hlavičiek dlhšie ako"
+    },
+    "PMDlabel6": {
+        "message": "znakov"
+    },
+    "PMDlabel7": {
+        "message": "Skryť obrázky"
+    },
+    "PMDlabel8": {
+        "message": "Tlač bez použitia dialógového okna"
+    },
+    "PMDlabel9": {
+        "message": "Skryť zobrazenie priebehu tlače"
+    },
+    "PMDmenuitem": {
+        "message": "Rozšírené nastavenie tlače"
+    },
+    "RG1.label": {
+        "message": "Nič"
+    },
+    "RG2.label": {
+        "message": "Používateľské meno"
+    },
+    "Scale": {
+        "message": "Mierka"
+    },
+    "addNameRG.label": {
+        "message": "Pridať do záhlavia:"
+    },
+    "addRdate.label": {
+        "message": "Pridať dátum prijatia"
+    },
+    "advancedOptions.label": {
+        "message": "Pokročilé nastavenia"
+    },
+    "alignHeaders.label": {
+        "message": "Zarovnajte hlavičky"
+    },
+    "all": {
+        "message": "Všetky"
+    },
+    "attachments": {
+        "message": "Prílohy"
+    },
+    "attachmentsPerLine": {
+        "message": "Prílohy na riadok:"
+    },
+    "body": {
+        "message": "Telo"
+    },
+    "borderStyle": {
+        "message": "Štýl hraníc:"
+    },
+    "bottom": {
+        "message": "Spodná časť"
+    },
+    "browse": {
+        "message": "Prehľadávať"
+    },
+    "cancel": {
+        "message": "Zrušiť"
+    },
+    "center": {
+        "message": "centrum"
+    },
+    "cite.checkbox": {
+        "message": "Použiť štýl pre citovaný text"
+    },
+    "cite.color": {
+        "message": "Farba:"
+    },
+    "cite.size": {
+        "message": "Veľkosť:"
+    },
+    "colorsNote": {
+        "message": "Poznámka: V dialógovom okne Print Page Setup je potrebné povoliť možnosť „Images and Colors“"
+    },
+    "copies": {
+        "message": "Kópie"
+    },
+    "custom": {
+        "message": "Vlastné"
+    },
+    "custom_date_format": {
+        "message": "Vlastný formát dátumu"
+    },
+    "date.label": {
+        "message": "Formát dátumu:"
+    },
+    "date_custom.label": {
+        "message": "Vlastné"
+    },
+    "debugOptions.label": {
+        "message": "Možnosti ladenia"
+    },
+    "defaultPrinter": {
+        "message": "Predvolená tlačiareň"
+    },
+    "down": {
+        "message": "Dole"
+    },
+    "enable_pdfdir": {
+        "message": "Povoliť výstupný adresár PDF"
+    },
+    "extensionDescription": {
+        "message": "Tlač správ, hlavičky a nástroje na výstup PDF (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Formát názvu súboru"
+    },
+    "filter_characters": {
+        "message": "Filtrovať znaky"
+    },
+    "fitToWidth": {
+        "message": "Prispôsobiť na šírku"
+    },
+    "footers": {
+        "message": "Päty"
+    },
+    "forBody": {
+        "message": "pre telo správy"
+    },
+    "forHeaders": {
+        "message": "len pre hlavičku"
+    },
+    "headers": {
+        "message": "Hlavičky"
+    },
+    "headers_order": {
+        "message": "Poradie hlavičiek"
+    },
+    "images": {
+        "message": "snímky"
+    },
+    "latinize": {
+        "message": "Latinizovať predmet a mená"
+    },
+    "left": {
+        "message": "Vľavo"
+    },
+    "long.label": {
+        "message": "Dlhý formát"
+    },
+    "longLoc.label": {
+        "message": "dlhý a lokalizovaný"
+    },
+    "margins": {
+        "message": "Okraje"
+    },
+    "maxPreLen": {
+        "message": "Nastavenie maximálnej dĺžky riadkov v odseku:"
+    },
+    "messageBody": {
+        "message": "Telo správy"
+    },
+    "misc": {
+        "message": "Všeobecné"
+    },
+    "multipleCards.label": {
+        "message": "Vytlačte všetky vybrané kontakty"
+    },
+    "order": {
+        "message": "Poradie položiek"
+    },
+    "otherHeaders": {
+        "message": "Rôzne položky hlavičky usporiadať nasledovne"
+    },
+    "output_dir": {
+        "message": "Výstupný adresár"
+    },
+    "page_headers": {
+        "message": "Hlavičky"
+    },
+    "page_options": {
+        "message": "Možnosti stránky"
+    },
+    "page_ranges": {
+        "message": "Rozsahy strán"
+    },
+    "pdf_file_naming": {
+        "message": "Pomenovanie súboru PDF"
+    },
+    "pdf_output": {
+        "message": "Výstup PDF"
+    },
+    "persistent": {
+        "message": "Vytrvalý"
+    },
+    "prefix": {
+        "message": "Predpona"
+    },
+    "print.label": {
+        "message": "Tlačiť"
+    },
+    "printLabel": {
+        "message": "Tlačiť"
+    },
+    "printPreview.label": {
+        "message": "Ukážka pred tlačou"
+    },
+    "print_and_pageoptions": {
+        "message": "Možnosti tlače a strany"
+    },
+    "ptng.label": {
+        "message": "Nástroje na tlač NG"
+    },
+    "ptngOptions.label": {
+        "message": "TLAČOVÉ NÁSTROJE MOŽNOSTÍ"
+    },
+    "remove_emojis": {
+        "message": "Odstráňte emotikony a symboly Unicode"
+    },
+    "resizeImgs.label": {
+        "message": "Zmena veľkosti veľkých obrázkov"
+    },
+    "right": {
+        "message": "Správny"
+    },
+    "short.label": {
+        "message": "krátky"
+    },
+    "showButton.label": {
+        "message": "Zobraziť tlačidlo možností v okne náhľadu"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Zobraziť súbory podpisu a VCF"
+    },
+    "showhide": {
+        "message": "Zobraziť alebo skryť"
+    },
+    "style": {
+        "message": "Štýl"
+    },
+    "suffix": {
+        "message": "Prípona"
+    },
+    "top": {
+        "message": "Hore"
+    },
+    "up": {
+        "message": "Hore"
+    },
+    "useCcBccAlways": {
+        "message": "Pre všetky miestne nastavenia používajte skratky „Cc“ a „Bcc“"
+    },
+    "useHeadersBkColor": {
+        "message": "Použiť farbu pozadia hlavičky:"
+    },
+    "withSize": {
+        "message": "veľkosti "
+    },
+    "wrap": {
+        "message": "Obal"
+    }
 }

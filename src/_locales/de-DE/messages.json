@@ -1,14 +1,335 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Nachrichtendruck, Kopfzeilen und PDF-Ausgabetools (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Drucken"
-	}
-
+    "Help": {
+        "message": "Hilfe"
+    },
+    "HideInlineAttList": {
+        "message": "Inline-Anhangsliste ausblenden"
+    },
+    "PMDcaptionlabel": {
+        "message": "Erweiterte Einstellungen für den Ausdruck von Nachrichten"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Allgemeine Druckeinstellungen"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Druckeinstellungen für das Adressbuch"
+    },
+    "PMDlabel1": {
+        "message": "Deutschsprachiges Datumsformat verwenden"
+    },
+    "PMDlabel10": {
+        "message": "Eingebundene Anhänge ausblenden"
+    },
+    "PMDlabel11": {
+        "message": "Ihren Namen über dem Nachrichtenkopf hinzufügen"
+    },
+    "PMDlabel12": {
+        "message": "Schriftart"
+    },
+    "PMDlabel13": {
+        "message": "Nachrichtenkopf von Kontakten ausblenden"
+    },
+    "PMDlabel14": {
+        "message": "Nur Namen und E-Mail-Adressen drucken"
+    },
+    "PMDlabel15": {
+        "message": "Kompaktes Layout verwenden"
+    },
+    "PMDlabel16": {
+        "message": "Nur markierten Text drucken"
+    },
+    "PMDlabel17": {
+        "message": "Symbole für Dateitypen anzeigen"
+    },
+    "PMDlabel18": {
+        "message": "Schriftart verwenden:"
+    },
+    "PMDlabel19": {
+        "message": "Nur die ersten 100 Zeichen des Feldes 'Notizen' ausdrucken"
+    },
+    "PMDlabel2": {
+        "message": "Listenformat der Anhänge optimieren"
+    },
+    "PMDlabel20": {
+        "message": "Name des Adressbuches und Datum ausdrucken"
+    },
+    "PMDlabel21": {
+        "message": "Erweiterten Nachrichtenkopf stets ausblenden"
+    },
+    "PMDlabel22": {
+        "message": "p7m und vCard anhängen"
+    },
+    "PMDlabel23": {
+        "message": "Ordnername hinzufügen"
+    },
+    "PMDlabel24": {
+        "message": "langes Datumsformat"
+    },
+    "PMDlabel25": {
+        "message": "Benutze schwarz als Standardfarbe für Text"
+    },
+    "PMDlabel3": {
+        "message": "Rahmen um die Kopfzeilen zeichnen"
+    },
+    "PMDlabel4": {
+        "message": "Nachrichtenkopf komplett ausblenden"
+    },
+    "PMDlabel5": {
+        "message": "Nachrichtenkopf auf"
+    },
+    "PMDlabel6": {
+        "message": "Zeichen kürzen"
+    },
+    "PMDlabel7": {
+        "message": "Grafiken ausblenden"
+    },
+    "PMDlabel8": {
+        "message": "Ausdruck sofort starten (ohne Dialogfenster)"
+    },
+    "PMDlabel9": {
+        "message": "Fortschrittsanzeige ausblenden"
+    },
+    "PMDmenuitem": {
+        "message": "Erweiterte Druckeinstellungen"
+    },
+    "RG1.label": {
+        "message": "Nichts"
+    },
+    "RG2.label": {
+        "message": "Benutzername"
+    },
+    "Scale": {
+        "message": "Skalierung"
+    },
+    "addNameRG.label": {
+        "message": "Vor den Kopfzeilen einfügen:"
+    },
+    "addRdate.label": {
+        "message": "Empfangsdatum hinzufügen"
+    },
+    "advancedOptions.label": {
+        "message": "Erweiterte Optionen"
+    },
+    "alignHeaders.label": {
+        "message": "Kopfzeilen ausrichten"
+    },
+    "all": {
+        "message": "Alle"
+    },
+    "attachments": {
+        "message": "Anhänge"
+    },
+    "attachmentsPerLine": {
+        "message": "Anhänge pro Zeile:"
+    },
+    "body": {
+        "message": "Textteil"
+    },
+    "borderStyle": {
+        "message": "Randstil:"
+    },
+    "bottom": {
+        "message": "Unten"
+    },
+    "browse": {
+        "message": "Durchsuchen"
+    },
+    "cancel": {
+        "message": "Abbrechen"
+    },
+    "center": {
+        "message": "Mitte"
+    },
+    "cite.checkbox": {
+        "message": "Textstil für Zitate verwenden"
+    },
+    "cite.color": {
+        "message": "Farbe:"
+    },
+    "cite.size": {
+        "message": "Größe:"
+    },
+    "colorsNote": {
+        "message": "Hinweis: &quot;Drucken&quot; >> &quot;Mehr Einstellungen&quot; >> Einstellungen: &quot;Hintergrund drucken&quot; muss aktiviert sein"
+    },
+    "copies": {
+        "message": "Kopien"
+    },
+    "custom": {
+        "message": "Benutzerdefiniert"
+    },
+    "custom_date_format": {
+        "message": "Benutzerdefiniertes Datumsformat"
+    },
+    "date.label": {
+        "message": "Datumsformat:"
+    },
+    "date_custom.label": {
+        "message": "Benutzerdefiniert"
+    },
+    "debugOptions.label": {
+        "message": "Debug-Optionen"
+    },
+    "defaultPrinter": {
+        "message": "Standard Drucker"
+    },
+    "down": {
+        "message": "Nach unten"
+    },
+    "enable_pdfdir": {
+        "message": "PDF Ausgabeverzeichnis aktivieren"
+    },
+    "extensionDescription": {
+        "message": "Nachrichtendruck, Kopfzeilen und PDF-Ausgabetools (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Dateinamenformat"
+    },
+    "filter_characters": {
+        "message": "Zeichen filtern"
+    },
+    "fitToWidth": {
+        "message": "An Seitenbreite anpassen"
+    },
+    "footers": {
+        "message": "Fußzeilen"
+    },
+    "forBody": {
+        "message": "für Nachrichteninhalt"
+    },
+    "forHeaders": {
+        "message": "nur für Nachrichtenkopf"
+    },
+    "headers": {
+        "message": "Nachrichtenkopf"
+    },
+    "headers_order": {
+        "message": "Reihenfolge"
+    },
+    "images": {
+        "message": "Bilder"
+    },
+    "latinize": {
+        "message": "Betreff und Namen latinisieren"
+    },
+    "left": {
+        "message": "Links"
+    },
+    "long.label": {
+        "message": "lang"
+    },
+    "longLoc.label": {
+        "message": "lang und lokalisiert"
+    },
+    "margins": {
+        "message": "Ränder"
+    },
+    "maxPreLen": {
+        "message": "Maximallänge an die Zeilen der Textabschnitte anpassen:"
+    },
+    "messageBody": {
+        "message": "Nachrichtentext"
+    },
+    "misc": {
+        "message": "Verschiedenes"
+    },
+    "multipleCards.label": {
+        "message": "Alle ausgewählten Kontakte drucken"
+    },
+    "order": {
+        "message": "Reihenfolge des Nachrichtenkopfs"
+    },
+    "otherHeaders": {
+        "message": "Weitere Felder folgen anschließend (falls vorhanden)."
+    },
+    "output_dir": {
+        "message": "Ausgabe Verzeichnis"
+    },
+    "page_headers": {
+        "message": "Kopfzeilen"
+    },
+    "page_options": {
+        "message": "Seitenoptionen"
+    },
+    "page_ranges": {
+        "message": "Seitenbereiche"
+    },
+    "pdf_file_naming": {
+        "message": "Benennung von PDF Dateien"
+    },
+    "pdf_output": {
+        "message": "PDF Ausgabe"
+    },
+    "persistent": {
+        "message": "Hartnäckig"
+    },
+    "prefix": {
+        "message": "Präfix"
+    },
+    "print.label": {
+        "message": "Drucken"
+    },
+    "printLabel": {
+        "message": "Drucken"
+    },
+    "printPreview.label": {
+        "message": "Druckvorschau"
+    },
+    "print_and_pageoptions": {
+        "message": "Druck und Seitenoptionen"
+    },
+    "ptng.label": {
+        "message": "Druckwerkzeuge NG"
+    },
+    "ptngOptions.label": {
+        "message": "Druckwerkzeuge NG Optionen"
+    },
+    "remove_emojis": {
+        "message": "Entfernen Sie Unicode-Emojis und -Symbole"
+    },
+    "resizeImgs.label": {
+        "message": "Ändern Sie die Größe großer Bilder"
+    },
+    "right": {
+        "message": "Rechts"
+    },
+    "short.label": {
+        "message": "kurz"
+    },
+    "showButton.label": {
+        "message": "Zeigen Sie die Optionsschaltfläche im Vorschaufenster an"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Signatur- und VCF-Dateien anzeigen"
+    },
+    "showhide": {
+        "message": "Ein- oder Ausblenden"
+    },
+    "style": {
+        "message": "Textstil"
+    },
+    "suffix": {
+        "message": "Suffix"
+    },
+    "top": {
+        "message": "Oben"
+    },
+    "up": {
+        "message": "Nach oben"
+    },
+    "useCcBccAlways": {
+        "message": "Verwenden Sie für alle Gebietsschemas die Abkürzungen &#39;Cc&#39; und &#39;Bcc&#39;"
+    },
+    "useHeadersBkColor": {
+        "message": "Hintergrundfarbe der Kopfzeilen:"
+    },
+    "withSize": {
+        "message": "mit Größe "
+    },
+    "wrap": {
+        "message": "Umbrechen"
+    }
 }

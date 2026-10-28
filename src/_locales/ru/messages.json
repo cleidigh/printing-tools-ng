@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Печать сообщений, заголовки и инструменты вывода PDF (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Распечатать"
-	}
-
+    "Help": {
+        "message": "Помощь"
+    },
+    "HideInlineAttList": {
+        "message": "Скрыть встроенный список вложений"
+    },
+    "PMDcaptionlabel": {
+        "message": "Варианты печати сообщений"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Глобальные параметры печати"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Варианты печати адресной книги"
+    },
+    "PMDlabel1": {
+        "message": "Включить локализацию даты"
+    },
+    "PMDlabel10": {
+        "message": "Скрыть вложенные вложения"
+    },
+    "PMDlabel11": {
+        "message": "Добавьте имя пользователя в заголовки"
+    },
+    "PMDlabel12": {
+        "message": "Используйте шрифты с размером в пикселях"
+    },
+    "PMDlabel13": {
+        "message": "Скрыть заголовок контакта («Карта для»)"
+    },
+    "PMDlabel14": {
+        "message": "Введите только имя и адрес электронной почты"
+    },
+    "PMDlabel15": {
+        "message": "Используйте компактный макет"
+    },
+    "PMDlabel16": {
+        "message": "Распечатать только выбор, когда он существует"
+    },
+    "PMDlabel17": {
+        "message": "Добавить значок типа файла"
+    },
+    "PMDlabel18": {
+        "message": "Используйте шрифт:"
+    },
+    "PMDlabel19": {
+        "message": "Вырежьте поле «Заметки» на 100 символов"
+    },
+    "PMDlabel2": {
+        "message": "Включить настраиваемый вид списка вложений"
+    },
+    "PMDlabel20": {
+        "message": "Добавить адресную книгу имя и дату"
+    },
+    "PMDlabel21": {
+        "message": "Скрыть всегда расширенные заголовки"
+    },
+    "PMDlabel22": {
+        "message": "Добавить вложения p7m и vCard"
+    },
+    "PMDlabel23": {
+        "message": "Добавить имя папки"
+    },
+    "PMDlabel25": {
+        "message": "Используйте черный в качестве основного цвета для текста"
+    },
+    "PMDlabel3": {
+        "message": "Установите границу вокруг заголовков"
+    },
+    "PMDlabel4": {
+        "message": "Скрыть заголовки"
+    },
+    "PMDlabel5": {
+        "message": "Обрезать строки заголовков длиннее, чем примерно"
+    },
+    "PMDlabel6": {
+        "message": "символы."
+    },
+    "PMDlabel7": {
+        "message": "Скрыть изображения"
+    },
+    "PMDlabel8": {
+        "message": "Печать без диалогового окна"
+    },
+    "PMDlabel9": {
+        "message": "Скрыть индикатор выполнения печати"
+    },
+    "PMDmenuitem": {
+        "message": "Варианты печати"
+    },
+    "RG1.label": {
+        "message": "Ничего"
+    },
+    "RG2.label": {
+        "message": "Имя пользователя"
+    },
+    "Scale": {
+        "message": "Шкала"
+    },
+    "addNameRG.label": {
+        "message": "Добавьте перед заголовками:"
+    },
+    "addRdate.label": {
+        "message": "Добавить полученную дату"
+    },
+    "advancedOptions.label": {
+        "message": "Расширенные настройки"
+    },
+    "alignHeaders.label": {
+        "message": "Выровняйте заголовки"
+    },
+    "all": {
+        "message": "Все"
+    },
+    "attachments": {
+        "message": "Вложения"
+    },
+    "attachmentsPerLine": {
+        "message": "Вложения в строке:"
+    },
+    "body": {
+        "message": "Тело"
+    },
+    "borderStyle": {
+        "message": "Стиль границы:"
+    },
+    "bottom": {
+        "message": "Низ"
+    },
+    "browse": {
+        "message": "Просматривать"
+    },
+    "cancel": {
+        "message": "Отмена"
+    },
+    "center": {
+        "message": "Центр"
+    },
+    "cite.checkbox": {
+        "message": "Используйте стиль для цитируемого текста"
+    },
+    "cite.color": {
+        "message": "Цвет:"
+    },
+    "cite.size": {
+        "message": "Размер:"
+    },
+    "colorsNote": {
+        "message": "Примечание. «Изображения и цвета» необходимо включить в диалоговом окне «Параметры страницы печати»."
+    },
+    "copies": {
+        "message": "Копии"
+    },
+    "custom": {
+        "message": "Обычай"
+    },
+    "custom_date_format": {
+        "message": "Пользовательский формат даты"
+    },
+    "date.label": {
+        "message": "Формат даты:"
+    },
+    "date_custom.label": {
+        "message": "Обычай"
+    },
+    "debugOptions.label": {
+        "message": "Параметры отладки"
+    },
+    "defaultPrinter": {
+        "message": "Принтер по умолчанию"
+    },
+    "down": {
+        "message": "вниз"
+    },
+    "enable_pdfdir": {
+        "message": "Включить выходной каталог PDF"
+    },
+    "extensionDescription": {
+        "message": "Печать сообщений, заголовки и инструменты вывода PDF (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Формат имени файла"
+    },
+    "filter_characters": {
+        "message": "Символы фильтра"
+    },
+    "fitToWidth": {
+        "message": "По ширине"
+    },
+    "footers": {
+        "message": "Нижние колонтитулы"
+    },
+    "forBody": {
+        "message": "для сообщения тела"
+    },
+    "forHeaders": {
+        "message": "только для заголовков"
+    },
+    "headers": {
+        "message": "Заголовки"
+    },
+    "headers_order": {
+        "message": "Порядок заголовков"
+    },
+    "images": {
+        "message": "Картинки"
+    },
+    "latinize": {
+        "message": "Латинизировать тему и имена"
+    },
+    "left": {
+        "message": "Левый"
+    },
+    "long.label": {
+        "message": "длинный UTC"
+    },
+    "longLoc.label": {
+        "message": "длинный и локализованный"
+    },
+    "margins": {
+        "message": "Поля"
+    },
+    "maxPreLen": {
+        "message": "Максимальная ширина для текста:"
+    },
+    "messageBody": {
+        "message": "Тело сообщения"
+    },
+    "misc": {
+        "message": "Разное"
+    },
+    "multipleCards.label": {
+        "message": "Распечатать все выбранные контакты"
+    },
+    "order": {
+        "message": "Порядок заголовков"
+    },
+    "otherHeaders": {
+        "message": "Другие заголовки, если они есть, следуют"
+    },
+    "output_dir": {
+        "message": "Выходной каталог"
+    },
+    "page_headers": {
+        "message": "Заголовки"
+    },
+    "page_options": {
+        "message": "Параметры страницы"
+    },
+    "page_ranges": {
+        "message": "Диапазоны страниц"
+    },
+    "pdf_file_naming": {
+        "message": "Именование PDF-файлов"
+    },
+    "pdf_output": {
+        "message": "Вывод в формате PDF"
+    },
+    "persistent": {
+        "message": "Настойчивый"
+    },
+    "prefix": {
+        "message": "Приставка"
+    },
+    "print.label": {
+        "message": "Распечатать"
+    },
+    "printLabel": {
+        "message": "Распечатать"
+    },
+    "printPreview.label": {
+        "message": "Предварительный просмотр печати"
+    },
+    "print_and_pageoptions": {
+        "message": "Параметры печати и страницы"
+    },
+    "ptng.label": {
+        "message": "Инструменты для печати НГ"
+    },
+    "ptngOptions.label": {
+        "message": "ИНСТРУМЕНТЫ ПЕЧАТИ ОПЦИИ"
+    },
+    "remove_emojis": {
+        "message": "Удалить смайлики и символы Unicode"
+    },
+    "resizeImgs.label": {
+        "message": "Изменить размер изображения слишком велико"
+    },
+    "right": {
+        "message": "Верно"
+    },
+    "short.label": {
+        "message": "короткая"
+    },
+    "showButton.label": {
+        "message": "Показать кнопку параметров в окне предварительного просмотра"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Показать файлы подписи и vcf"
+    },
+    "showhide": {
+        "message": "Показать или скрыть"
+    },
+    "style": {
+        "message": "Стиль"
+    },
+    "suffix": {
+        "message": "Суффикс"
+    },
+    "top": {
+        "message": "Верхняя"
+    },
+    "up": {
+        "message": "вверх"
+    },
+    "useCcBccAlways": {
+        "message": "Используйте сокращения &quot;Копия&quot; и &quot;Скрытая копия&quot; для всех языков."
+    },
+    "useHeadersBkColor": {
+        "message": "Использовать цвет фона заголовка:"
+    },
+    "withSize": {
+        "message": "с размером"
+    },
+    "wrap": {
+        "message": "Заворачивать"
+    }
 }

@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Tiskanje sporočil, glave in orodja za izpis PDF (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Tiskanje"
-	}
-
+    "Help": {
+        "message": "pomoč"
+    },
+    "HideInlineAttList": {
+        "message": "Skrij vgrajeni seznam prilog"
+    },
+    "PMDcaptionlabel": {
+        "message": "Možnosti tiskanja sporočil"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Možnosti globalnega tiskanja"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Možnosti tiskanja imenika"
+    },
+    "PMDlabel1": {
+        "message": "Omogoči lokalizacijo datumov"
+    },
+    "PMDlabel10": {
+        "message": "Skrij vgradne nastavke"
+    },
+    "PMDlabel11": {
+        "message": "V glave dodajte uporabniško ime"
+    },
+    "PMDlabel12": {
+        "message": "Uporabite pisave z velikostjo v pikslih"
+    },
+    "PMDlabel13": {
+        "message": "Skrij glavo stika („Kartica za“)"
+    },
+    "PMDlabel14": {
+        "message": "Vstavite samo ime in e-poštne naslove"
+    },
+    "PMDlabel15": {
+        "message": "Uporabite kompaktno postavitev"
+    },
+    "PMDlabel16": {
+        "message": "Natisnite samo izbiro, ko obstaja"
+    },
+    "PMDlabel17": {
+        "message": "Dodajte ikono vrste datoteke"
+    },
+    "PMDlabel18": {
+        "message": "Uporabi pisavo:"
+    },
+    "PMDlabel19": {
+        "message": "Izrežite polje »Opombe« na 100 znakov"
+    },
+    "PMDlabel2": {
+        "message": "Omogoči pogled po prilogi po meri"
+    },
+    "PMDlabel20": {
+        "message": "Dodajte ime in datum imenika"
+    },
+    "PMDlabel21": {
+        "message": "Skrij vedno podaljšane glave"
+    },
+    "PMDlabel22": {
+        "message": "Dodajte priloge p7m in vCard"
+    },
+    "PMDlabel23": {
+        "message": "Dodajte ime mape"
+    },
+    "PMDlabel25": {
+        "message": "Uporabite črno kot osnovno barvo za besedilo"
+    },
+    "PMDlabel3": {
+        "message": "Postavite obrobo okoli glave"
+    },
+    "PMDlabel4": {
+        "message": "Skrij glave"
+    },
+    "PMDlabel5": {
+        "message": "Odrežite vrstice glav daljše od približno"
+    },
+    "PMDlabel6": {
+        "message": "chars."
+    },
+    "PMDlabel7": {
+        "message": "Skrij slike"
+    },
+    "PMDlabel8": {
+        "message": "Tiskanje brez pogovornega okna"
+    },
+    "PMDlabel9": {
+        "message": "Skrij vrstico napredka tiskanja"
+    },
+    "PMDmenuitem": {
+        "message": "Možnosti tiskanja"
+    },
+    "RG1.label": {
+        "message": "Nič"
+    },
+    "RG2.label": {
+        "message": "Uporabniško ime"
+    },
+    "Scale": {
+        "message": "Lestvica"
+    },
+    "addNameRG.label": {
+        "message": "Dodaj pred glavo:"
+    },
+    "addRdate.label": {
+        "message": "Dodajte prejeti datum"
+    },
+    "advancedOptions.label": {
+        "message": "Napredne možnosti"
+    },
+    "alignHeaders.label": {
+        "message": "Poravnajte glave"
+    },
+    "all": {
+        "message": "Vse"
+    },
+    "attachments": {
+        "message": "priloge"
+    },
+    "attachmentsPerLine": {
+        "message": "Priponke na vrstico:"
+    },
+    "body": {
+        "message": "Telo"
+    },
+    "borderStyle": {
+        "message": "Oblika obrobe:"
+    },
+    "bottom": {
+        "message": "Spodaj"
+    },
+    "browse": {
+        "message": "Prebrskaj"
+    },
+    "cancel": {
+        "message": "Prekliči"
+    },
+    "center": {
+        "message": "Center"
+    },
+    "cite.checkbox": {
+        "message": "Uporabite slog za citirano besedilo"
+    },
+    "cite.color": {
+        "message": "Barva:"
+    },
+    "cite.size": {
+        "message": "Velikost:"
+    },
+    "colorsNote": {
+        "message": "Opomba: V pogovornem oknu za nastavitev strani za tiskanje je treba omogočiti možnost »Slike in barve«"
+    },
+    "copies": {
+        "message": "Kopije"
+    },
+    "custom": {
+        "message": "Po meri"
+    },
+    "custom_date_format": {
+        "message": "Oblika datuma po meri"
+    },
+    "date.label": {
+        "message": "Format datuma:"
+    },
+    "date_custom.label": {
+        "message": "Po meri"
+    },
+    "debugOptions.label": {
+        "message": "Možnosti odpravljanja napak"
+    },
+    "defaultPrinter": {
+        "message": "Privzeti tiskalnik"
+    },
+    "down": {
+        "message": "Dol"
+    },
+    "enable_pdfdir": {
+        "message": "Omogoči izhodni imenik PDF"
+    },
+    "extensionDescription": {
+        "message": "Tiskanje sporočil, glave in orodja za izpis PDF (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Oblika imena datoteke"
+    },
+    "filter_characters": {
+        "message": "Filtriraj znake"
+    },
+    "fitToWidth": {
+        "message": "Prilagodi širini"
+    },
+    "footers": {
+        "message": "Noge"
+    },
+    "forBody": {
+        "message": "za sporočilo telesa"
+    },
+    "forHeaders": {
+        "message": "samo za glave"
+    },
+    "headers": {
+        "message": "Glave"
+    },
+    "headers_order": {
+        "message": "Vrstni red glav"
+    },
+    "images": {
+        "message": "Slike"
+    },
+    "latinize": {
+        "message": "Latinizirajte subjekte in imena"
+    },
+    "left": {
+        "message": "levo"
+    },
+    "long.label": {
+        "message": "dolg UTC"
+    },
+    "longLoc.label": {
+        "message": "dolga in lokalizirana"
+    },
+    "margins": {
+        "message": "Robovi"
+    },
+    "maxPreLen": {
+        "message": "Največja širina besedila:"
+    },
+    "messageBody": {
+        "message": "Telo sporočila"
+    },
+    "misc": {
+        "message": "Razno"
+    },
+    "multipleCards.label": {
+        "message": "Natisnite vse izbrane kontakte"
+    },
+    "order": {
+        "message": "Vrstni red glave"
+    },
+    "otherHeaders": {
+        "message": "Ostale glave, če obstajajo, sledijo"
+    },
+    "output_dir": {
+        "message": "Izhodni imenik"
+    },
+    "page_headers": {
+        "message": "Glave"
+    },
+    "page_options": {
+        "message": "Možnosti strani"
+    },
+    "page_ranges": {
+        "message": "Območja strani"
+    },
+    "pdf_file_naming": {
+        "message": "Poimenovanje datoteke PDF"
+    },
+    "pdf_output": {
+        "message": "Izpis PDF"
+    },
+    "persistent": {
+        "message": "Vztrajen"
+    },
+    "prefix": {
+        "message": "Predpona"
+    },
+    "print.label": {
+        "message": "Tiskanje"
+    },
+    "printLabel": {
+        "message": "Tiskanje"
+    },
+    "printPreview.label": {
+        "message": "Predogled tiskanja"
+    },
+    "print_and_pageoptions": {
+        "message": "Možnosti tiskanja in strani"
+    },
+    "ptng.label": {
+        "message": "Tiskarska orodja NG"
+    },
+    "ptngOptions.label": {
+        "message": "TISKALSKA ORODJA MOŽNOSTI"
+    },
+    "remove_emojis": {
+        "message": "Odstranite emojije in simbole Unicode"
+    },
+    "resizeImgs.label": {
+        "message": "Velikost slik je prevelika"
+    },
+    "right": {
+        "message": "Prav"
+    },
+    "short.label": {
+        "message": "kratek"
+    },
+    "showButton.label": {
+        "message": "V oknu za predogled prikažite gumb z možnostmi"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Pokaži datoteke s podpisi in vcf"
+    },
+    "showhide": {
+        "message": "Pokaži ali skrij"
+    },
+    "style": {
+        "message": "Slog"
+    },
+    "suffix": {
+        "message": "Pripona"
+    },
+    "top": {
+        "message": "Vrh"
+    },
+    "up": {
+        "message": "Zgoraj"
+    },
+    "useCcBccAlways": {
+        "message": "Uporabite kratici &#39;Cc&#39; in &#39;Bcc&#39; za vse kraje"
+    },
+    "useHeadersBkColor": {
+        "message": "Uporabi ozadje glave Barva:"
+    },
+    "withSize": {
+        "message": "z velikostjo"
+    },
+    "wrap": {
+        "message": "Zavijte"
+    }
 }

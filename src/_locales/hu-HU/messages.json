@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Üzenetnyomtatás, fejlécek és PDF-kimeneti eszközök (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Nyomtatás"
-	}
-
+    "Help": {
+        "message": "Segítség"
+    },
+    "HideInlineAttList": {
+        "message": "A levélvégi mellékletlista elrejtése"
+    },
+    "PMDcaptionlabel": {
+        "message": "Beállítások az üzenetek nyomtatásához"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Globális nyomtatási beállítások"
+    },
+    "PMDcaptionlabel3": {
+        "message": "A címjegyzék nyomtatásának beállításai"
+    },
+    "PMDlabel1": {
+        "message": "Helyi dátumformátum használata"
+    },
+    "PMDlabel10": {
+        "message": "Beágyazott mellékletek elrejtése"
+    },
+    "PMDlabel11": {
+        "message": "A felhasználónév hozzáadása a fejlécekhez"
+    },
+    "PMDlabel12": {
+        "message": "Más betűtípus és betűméret használata"
+    },
+    "PMDlabel13": {
+        "message": "A névjegy fejlécének elrejtése (&#39;Card for&#39;)"
+    },
+    "PMDlabel14": {
+        "message": "Csak nevet és e-mail címet írjon be"
+    },
+    "PMDlabel15": {
+        "message": "Kompakt elrendezés használata"
+    },
+    "PMDlabel16": {
+        "message": "Csak a kiválasztott nyomtatása, ha létezik"
+    },
+    "PMDlabel17": {
+        "message": "Fájltípus ikon hozzáadása"
+    },
+    "PMDlabel18": {
+        "message": "Betűtípus használata:"
+    },
+    "PMDlabel19": {
+        "message": "A „Megjegyzés” mező 100 karakter feletti részének levágása"
+    },
+    "PMDlabel2": {
+        "message": "Mellékletek listájának testreszabása"
+    },
+    "PMDlabel20": {
+        "message": "Címjegyzék szerinti név és a dátum hozzáadása"
+    },
+    "PMDlabel21": {
+        "message": "Mindig kiterjesztett fejlécek elrejtése"
+    },
+    "PMDlabel22": {
+        "message": "p7m és a vCard mellékletek hozzáadása"
+    },
+    "PMDlabel23": {
+        "message": "Mappa nevének hozzáadása"
+    },
+    "PMDlabel25": {
+        "message": "Fekete alapszín használata a szöveghez"
+    },
+    "PMDlabel3": {
+        "message": "Szegély a fejléc körül"
+    },
+    "PMDlabel4": {
+        "message": "A fejléc elrejtése"
+    },
+    "PMDlabel5": {
+        "message": "Fejlécelemek maximális hossza:"
+    },
+    "PMDlabel6": {
+        "message": "karakter."
+    },
+    "PMDlabel7": {
+        "message": "A képek elrejtése"
+    },
+    "PMDlabel8": {
+        "message": "Nyomtatás a párbeszédablak nélkül"
+    },
+    "PMDlabel9": {
+        "message": "A nyomtatási folyamatsáv elrejtése"
+    },
+    "PMDmenuitem": {
+        "message": "Nyomtatási beállítások"
+    },
+    "RG1.label": {
+        "message": "Semmi"
+    },
+    "RG2.label": {
+        "message": "Felhasználónév"
+    },
+    "Scale": {
+        "message": "Skála"
+    },
+    "addNameRG.label": {
+        "message": "Hozzáadás fejlécek elé:"
+    },
+    "addRdate.label": {
+        "message": "A beérkezés dátumának hozzáadása is"
+    },
+    "advancedOptions.label": {
+        "message": "Haladó beállítások"
+    },
+    "alignHeaders.label": {
+        "message": "Fejlécek igazítása"
+    },
+    "all": {
+        "message": "Összes"
+    },
+    "attachments": {
+        "message": "Mellékletek"
+    },
+    "attachmentsPerLine": {
+        "message": "Mellékletek a fejlécben soronként:"
+    },
+    "body": {
+        "message": "Test"
+    },
+    "borderStyle": {
+        "message": "Szegély stílusa:"
+    },
+    "bottom": {
+        "message": "Alsó"
+    },
+    "browse": {
+        "message": "Tallózás"
+    },
+    "cancel": {
+        "message": "Megszünteti"
+    },
+    "center": {
+        "message": "Központ"
+    },
+    "cite.checkbox": {
+        "message": "Idézett szöveg stílusa"
+    },
+    "cite.color": {
+        "message": "Szín:"
+    },
+    "cite.size": {
+        "message": "Méret:"
+    },
+    "colorsNote": {
+        "message": "Megjegyzés: A „Képek és színek” lehetőséget engedélyezni kell az Oldal nyomtatása párbeszédpanelen"
+    },
+    "copies": {
+        "message": "Másolatok"
+    },
+    "custom": {
+        "message": "Egyedi"
+    },
+    "custom_date_format": {
+        "message": "Egyéni dátumformátum"
+    },
+    "date.label": {
+        "message": "Dátum formátum:"
+    },
+    "date_custom.label": {
+        "message": "Egyéni"
+    },
+    "debugOptions.label": {
+        "message": "Hibakeresési beállítások"
+    },
+    "defaultPrinter": {
+        "message": "Alapértelmezett nyomtató"
+    },
+    "down": {
+        "message": "Le"
+    },
+    "enable_pdfdir": {
+        "message": "PDF kimeneti könyvtár engedélyezése"
+    },
+    "extensionDescription": {
+        "message": "Üzenetnyomtatás, fejlécek és PDF-kimeneti eszközök (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Fájlnév formátum"
+    },
+    "filter_characters": {
+        "message": "Karakterek szűrése"
+    },
+    "fitToWidth": {
+        "message": "Fit to Width"
+    },
+    "footers": {
+        "message": "Láblécek"
+    },
+    "forBody": {
+        "message": "üzenettörzs"
+    },
+    "forHeaders": {
+        "message": "csak a fejlécek"
+    },
+    "headers": {
+        "message": "fejlécelemek"
+    },
+    "headers_order": {
+        "message": "Fejlécek sorrendje"
+    },
+    "images": {
+        "message": "Képek"
+    },
+    "latinize": {
+        "message": "A tárgy és a nevek latinosítása"
+    },
+    "left": {
+        "message": "Bal"
+    },
+    "long.label": {
+        "message": "hosszú UTC"
+    },
+    "longLoc.label": {
+        "message": "hosszú helyi"
+    },
+    "margins": {
+        "message": "Margók"
+    },
+    "maxPreLen": {
+        "message": "A szöveg maximális szélessége:"
+    },
+    "messageBody": {
+        "message": "Üzenettörzs"
+    },
+    "misc": {
+        "message": "Egyéb"
+    },
+    "multipleCards.label": {
+        "message": "Az összes kiválasztott névjegy nyomtatása"
+    },
+    "order": {
+        "message": "Fejlécelemek sorrendje"
+    },
+    "otherHeaders": {
+        "message": "További fejlécelemek ezek után (ha vannak)"
+    },
+    "output_dir": {
+        "message": "Kimeneti könyvtár"
+    },
+    "page_headers": {
+        "message": "Fejlécek"
+    },
+    "page_options": {
+        "message": "Oldalbeállítások"
+    },
+    "page_ranges": {
+        "message": "Oldaltartományok"
+    },
+    "pdf_file_naming": {
+        "message": "PDF fájl elnevezése"
+    },
+    "pdf_output": {
+        "message": "PDF kimenet"
+    },
+    "persistent": {
+        "message": "Kitartó"
+    },
+    "prefix": {
+        "message": "Előtag"
+    },
+    "print.label": {
+        "message": "Nyomtatás"
+    },
+    "printLabel": {
+        "message": "Nyomtatás"
+    },
+    "printPreview.label": {
+        "message": "Nyomtatási előnézet"
+    },
+    "print_and_pageoptions": {
+        "message": "Nyomtatási és oldalbeállítások"
+    },
+    "ptng.label": {
+        "message": "Printing Tools NG"
+    },
+    "ptngOptions.label": {
+        "message": "Printing Tools NG beállítások"
+    },
+    "remove_emojis": {
+        "message": "Távolítsa el az Unicode hangulatjeleket és szimbólumokat"
+    },
+    "resizeImgs.label": {
+        "message": "A túl nagy képek átméretezése"
+    },
+    "right": {
+        "message": "Jobb"
+    },
+    "short.label": {
+        "message": "rövid"
+    },
+    "showButton.label": {
+        "message": "Beállítások gomb megjelenítése az előnézeti ablakban"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Aláírás és vcf fájlok megjelenítése"
+    },
+    "showhide": {
+        "message": "Megjelenítés/elrejtés"
+    },
+    "style": {
+        "message": "Stílus"
+    },
+    "suffix": {
+        "message": "Utótag"
+    },
+    "top": {
+        "message": "Top"
+    },
+    "up": {
+        "message": "Fel"
+    },
+    "useCcBccAlways": {
+        "message": "&#39;Cc&#39; és &#39;Bcc&#39; rövidítések használata az összes nyelvhez"
+    },
+    "useHeadersBkColor": {
+        "message": "Fejléchez használandó háttérszín:"
+    },
+    "withSize": {
+        "message": "mérettel"
+    },
+    "wrap": {
+        "message": "Folytatólagosan"
+    }
 }

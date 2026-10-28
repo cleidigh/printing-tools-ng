@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "打印工具 NG"
-	},
-
-	"extensionDescription": {
-		"message": "消息打印、标题和 PDF 输出工具 (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "打印"
-	}
-
+    "Help": {
+        "message": "帮助"
+    },
+    "HideInlineAttList": {
+        "message": "隐藏内联附件列表"
+    },
+    "PMDcaptionlabel": {
+        "message": "信息打印选项"
+    },
+    "PMDcaptionlabel2": {
+        "message": "全局打印选项"
+    },
+    "PMDcaptionlabel3": {
+        "message": "地址簿打印的选项"
+    },
+    "PMDlabel1": {
+        "message": "启用日期本地化"
+    },
+    "PMDlabel10": {
+        "message": "隐藏内联附件"
+    },
+    "PMDlabel11": {
+        "message": "将用户名添加到标题中"
+    },
+    "PMDlabel12": {
+        "message": "使用大小为像素的字体"
+    },
+    "PMDlabel13": {
+        "message": "隐藏联系人标题（“卡片用于”）"
+    },
+    "PMDlabel14": {
+        "message": "仅插入姓名和电子邮件地址"
+    },
+    "PMDlabel15": {
+        "message": "使用紧凑的布局"
+    },
+    "PMDlabel16": {
+        "message": "仅打印选择（如果存在）"
+    },
+    "PMDlabel17": {
+        "message": "添加文件类型图标"
+    },
+    "PMDlabel18": {
+        "message": "使用字体："
+    },
+    "PMDlabel19": {
+        "message": "将“注释”字段切成100个字符"
+    },
+    "PMDlabel2": {
+        "message": "启用附件列表的自定义视图"
+    },
+    "PMDlabel20": {
+        "message": "添加地址簿名称和日期"
+    },
+    "PMDlabel21": {
+        "message": "隐藏始终扩展的标题"
+    },
+    "PMDlabel22": {
+        "message": "添加p7m和vCard附件"
+    },
+    "PMDlabel23": {
+        "message": "添加文件夹名称"
+    },
+    "PMDlabel25": {
+        "message": "使用黑色作为文本的底色"
+    },
+    "PMDlabel3": {
+        "message": "在标题周围设置边框"
+    },
+    "PMDlabel4": {
+        "message": "隐藏标题"
+    },
+    "PMDlabel5": {
+        "message": "截短标题行的时间长于大约"
+    },
+    "PMDlabel6": {
+        "message": "字符"
+    },
+    "PMDlabel7": {
+        "message": "隐藏图像"
+    },
+    "PMDlabel8": {
+        "message": "在没有对话框窗口的情况下进行打印"
+    },
+    "PMDlabel9": {
+        "message": "隐藏打印进度条"
+    },
+    "PMDmenuitem": {
+        "message": "列印选项"
+    },
+    "RG1.label": {
+        "message": "没有"
+    },
+    "RG2.label": {
+        "message": "用户名"
+    },
+    "Scale": {
+        "message": "规模"
+    },
+    "addNameRG.label": {
+        "message": "在标题之前添加："
+    },
+    "addRdate.label": {
+        "message": "添加接收日期"
+    },
+    "advancedOptions.label": {
+        "message": "高级选项"
+    },
+    "alignHeaders.label": {
+        "message": "对齐标题"
+    },
+    "all": {
+        "message": "全部"
+    },
+    "attachments": {
+        "message": "附件"
+    },
+    "attachmentsPerLine": {
+        "message": "每行附件："
+    },
+    "body": {
+        "message": "身体"
+    },
+    "borderStyle": {
+        "message": "边框样式："
+    },
+    "bottom": {
+        "message": "底部"
+    },
+    "browse": {
+        "message": "浏览"
+    },
+    "cancel": {
+        "message": "取消"
+    },
+    "center": {
+        "message": "中心"
+    },
+    "cite.checkbox": {
+        "message": "对引号文字使用样式"
+    },
+    "cite.color": {
+        "message": "颜色："
+    },
+    "cite.size": {
+        "message": "尺寸："
+    },
+    "colorsNote": {
+        "message": "注意：需要在“打印页面设置”对话框中启用“图像和颜色”"
+    },
+    "copies": {
+        "message": "份数"
+    },
+    "custom": {
+        "message": "风俗"
+    },
+    "custom_date_format": {
+        "message": "自定义日期格式"
+    },
+    "date.label": {
+        "message": "日期格式："
+    },
+    "date_custom.label": {
+        "message": "自设"
+    },
+    "debugOptions.label": {
+        "message": "调试选项"
+    },
+    "defaultPrinter": {
+        "message": "默认打印机"
+    },
+    "down": {
+        "message": "下"
+    },
+    "enable_pdfdir": {
+        "message": "启用 PDF 输出目录"
+    },
+    "extensionDescription": {
+        "message": "消息打印、标题和 PDF 输出工具 (Nextgen)"
+    },
+    "extensionName": {
+        "message": "打印工具 NG"
+    },
+    "filename_format": {
+        "message": "文件名格式"
+    },
+    "filter_characters": {
+        "message": "过滤字符"
+    },
+    "fitToWidth": {
+        "message": "适合宽度"
+    },
+    "footers": {
+        "message": "页脚"
+    },
+    "forBody": {
+        "message": "身体信息"
+    },
+    "forHeaders": {
+        "message": "仅用于标题"
+    },
+    "headers": {
+        "message": "标头"
+    },
+    "headers_order": {
+        "message": "标题顺序"
+    },
+    "images": {
+        "message": "图片"
+    },
+    "latinize": {
+        "message": "拉丁化主题和名称"
+    },
+    "left": {
+        "message": "剩下"
+    },
+    "long.label": {
+        "message": "长(UTC)"
+    },
+    "longLoc.label": {
+        "message": "长(当地)"
+    },
+    "margins": {
+        "message": "边距"
+    },
+    "maxPreLen": {
+        "message": "文字的最大宽度："
+    },
+    "messageBody": {
+        "message": "邮件正文"
+    },
+    "misc": {
+        "message": "杂"
+    },
+    "multipleCards.label": {
+        "message": "打印所有选定的联系人"
+    },
+    "order": {
+        "message": "标头顺序"
+    },
+    "otherHeaders": {
+        "message": "如果有其他标头，请关注"
+    },
+    "output_dir": {
+        "message": "输出目录"
+    },
+    "page_headers": {
+        "message": "标头"
+    },
+    "page_options": {
+        "message": "页面选项"
+    },
+    "page_ranges": {
+        "message": "页面范围"
+    },
+    "pdf_file_naming": {
+        "message": "PDF文件命名"
+    },
+    "pdf_output": {
+        "message": "PDF 输出"
+    },
+    "persistent": {
+        "message": "执着的"
+    },
+    "prefix": {
+        "message": "字首"
+    },
+    "print.label": {
+        "message": "打印"
+    },
+    "printLabel": {
+        "message": "打印"
+    },
+    "printPreview.label": {
+        "message": "打印预览"
+    },
+    "print_and_pageoptions": {
+        "message": "打印和页面选项"
+    },
+    "ptng.label": {
+        "message": "印刷工具 NG"
+    },
+    "ptngOptions.label": {
+        "message": "打印工具的选项"
+    },
+    "remove_emojis": {
+        "message": "删除 Unicode 表情符号和符号"
+    },
+    "resizeImgs.label": {
+        "message": "调整图像大小"
+    },
+    "right": {
+        "message": "正确的"
+    },
+    "short.label": {
+        "message": "短"
+    },
+    "showButton.label": {
+        "message": "在预览窗口中显示选项按钮"
+    },
+    "showSignatureVCFfiles": {
+        "message": "显示签名和VCF文件"
+    },
+    "showhide": {
+        "message": "显示或隐藏"
+    },
+    "style": {
+        "message": "样式"
+    },
+    "suffix": {
+        "message": "后缀"
+    },
+    "top": {
+        "message": "最佳"
+    },
+    "up": {
+        "message": "上"
+    },
+    "useCcBccAlways": {
+        "message": "在所有语言环境中使用“抄送”和“密件抄送”缩写"
+    },
+    "useHeadersBkColor": {
+        "message": "使用标题背景颜色："
+    },
+    "withSize": {
+        "message": "与大小"
+    },
+    "wrap": {
+        "message": "包"
+    }
 }

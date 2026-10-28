@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Impressió de missatges, capçaleres i eines de sortida de PDF (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Imprimir"
-	}
-
+    "Help": {
+        "message": "Ajuda"
+    },
+    "HideInlineAttList": {
+        "message": "Amaga la llista de fitxers adjunts en línia"
+    },
+    "PMDcaptionlabel": {
+        "message": "Opcions per imprimir missatges"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Opcions d&#39;impressió global"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Opcions per imprimir la llibreta d’adreces"
+    },
+    "PMDlabel1": {
+        "message": "Activa la localització de dates"
+    },
+    "PMDlabel10": {
+        "message": "Amagueu els fitxers adjunts en línia"
+    },
+    "PMDlabel11": {
+        "message": "Afegiu el nom d’usuari a les capçaleres"
+    },
+    "PMDlabel12": {
+        "message": "Utilitzeu tipus de lletra amb una mida en píxel de"
+    },
+    "PMDlabel13": {
+        "message": "Amagueu la capçalera del contacte (&quot;Fitxa per a&quot;)"
+    },
+    "PMDlabel14": {
+        "message": "Inseriu només el nom i les adreces de correu electrònic"
+    },
+    "PMDlabel15": {
+        "message": "Feu servir una disposició compacta"
+    },
+    "PMDlabel16": {
+        "message": "Imprimeix la selecció només quan existeixi"
+    },
+    "PMDlabel17": {
+        "message": "Afegiu una icona de tipus de fitxer"
+    },
+    "PMDlabel18": {
+        "message": "Utilitzeu tipus de lletra:"
+    },
+    "PMDlabel19": {
+        "message": "Retalleu el camp &quot;Notes&quot; a 100 caràcters"
+    },
+    "PMDlabel2": {
+        "message": "Habilita la visualització personalitzada de la llista d’adjunts"
+    },
+    "PMDlabel20": {
+        "message": "Afegiu el nom de la direcció i la data"
+    },
+    "PMDlabel21": {
+        "message": "Amagueu capçaleres sempre esteses"
+    },
+    "PMDlabel22": {
+        "message": "Afegiu fitxers adjunts p7m i vCard"
+    },
+    "PMDlabel23": {
+        "message": "Afegiu el nom de la carpeta"
+    },
+    "PMDlabel25": {
+        "message": "Utilitzeu el negre com a color base per a text"
+    },
+    "PMDlabel3": {
+        "message": "Establiu una vora al voltant de les capçaleres"
+    },
+    "PMDlabel4": {
+        "message": "Amagueu les capçaleres"
+    },
+    "PMDlabel5": {
+        "message": "Tronqueu les línies de capçaleres més temps que aproximadament"
+    },
+    "PMDlabel6": {
+        "message": "carros."
+    },
+    "PMDlabel7": {
+        "message": "Amagueu les imatges"
+    },
+    "PMDlabel8": {
+        "message": "Imprimeix sense la finestra de diàleg"
+    },
+    "PMDlabel9": {
+        "message": "Amaga la barra d&#39;avanç d&#39;impressió"
+    },
+    "PMDmenuitem": {
+        "message": "Opcions d&#39;impressió"
+    },
+    "RG1.label": {
+        "message": "Res"
+    },
+    "RG2.label": {
+        "message": "Nom d&#39;usuari"
+    },
+    "Scale": {
+        "message": "Escala"
+    },
+    "addNameRG.label": {
+        "message": "Afegiu abans a les capçaleres:"
+    },
+    "addRdate.label": {
+        "message": "Afegiu la data de recepció"
+    },
+    "advancedOptions.label": {
+        "message": "Opcions avançades"
+    },
+    "alignHeaders.label": {
+        "message": "Alineeu els capçaleres"
+    },
+    "all": {
+        "message": "Tots"
+    },
+    "attachments": {
+        "message": "Adjunts"
+    },
+    "attachmentsPerLine": {
+        "message": "Fitxers adjunts per línia:"
+    },
+    "body": {
+        "message": "Cos"
+    },
+    "borderStyle": {
+        "message": "Estil de vora:"
+    },
+    "bottom": {
+        "message": "A baix"
+    },
+    "browse": {
+        "message": "Navega"
+    },
+    "cancel": {
+        "message": "Cancel · lar"
+    },
+    "center": {
+        "message": "Centre"
+    },
+    "cite.checkbox": {
+        "message": "Utilitzeu un estil per al text citat"
+    },
+    "cite.color": {
+        "message": "Color:"
+    },
+    "cite.size": {
+        "message": "Mida:"
+    },
+    "colorsNote": {
+        "message": "Nota: &quot;Imatges i colors&quot; ha d&#39;estar habilitat al quadre de diàleg Imprimeix la configuració de la pàgina"
+    },
+    "copies": {
+        "message": "Còpies"
+    },
+    "custom": {
+        "message": "Personalitzat"
+    },
+    "custom_date_format": {
+        "message": "Format de data personalitzat"
+    },
+    "date.label": {
+        "message": "Format de data:"
+    },
+    "date_custom.label": {
+        "message": "Personalitzat"
+    },
+    "debugOptions.label": {
+        "message": "Opcions de depuració"
+    },
+    "defaultPrinter": {
+        "message": "Impressora per defecte"
+    },
+    "down": {
+        "message": "A baix"
+    },
+    "enable_pdfdir": {
+        "message": "Activa el directori de sortida de PDF"
+    },
+    "extensionDescription": {
+        "message": "Impressió de missatges, capçaleres i eines de sortida de PDF (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Format de nom de fitxer"
+    },
+    "filter_characters": {
+        "message": "Filtrar caràcters"
+    },
+    "fitToWidth": {
+        "message": "Ajust a l&#39;amplada"
+    },
+    "footers": {
+        "message": "Peus de pàgina"
+    },
+    "forBody": {
+        "message": "per al missatge corporal"
+    },
+    "forHeaders": {
+        "message": "només per a capçaleres"
+    },
+    "headers": {
+        "message": "Capçaleres"
+    },
+    "headers_order": {
+        "message": "Ordre de capçaleres"
+    },
+    "images": {
+        "message": "Imatges"
+    },
+    "latinize": {
+        "message": "Llatinitzar Matèria i Noms"
+    },
+    "left": {
+        "message": "Esquerra"
+    },
+    "long.label": {
+        "message": "llarg UTC"
+    },
+    "longLoc.label": {
+        "message": "llarg i localitzat"
+    },
+    "margins": {
+        "message": "Marges"
+    },
+    "maxPreLen": {
+        "message": "Amplada màxima per al text:"
+    },
+    "messageBody": {
+        "message": "Cos del missatge"
+    },
+    "misc": {
+        "message": "Divers"
+    },
+    "multipleCards.label": {
+        "message": "Imprimeix tots els contactes seleccionats"
+    },
+    "order": {
+        "message": "Comanda de capçaleres"
+    },
+    "otherHeaders": {
+        "message": "Si es presenten, segueixen altres capçaleres"
+    },
+    "output_dir": {
+        "message": "Directori de sortida"
+    },
+    "page_headers": {
+        "message": "Capçaleres"
+    },
+    "page_options": {
+        "message": "Opcions de pàgina"
+    },
+    "page_ranges": {
+        "message": "Intervals de pàgines"
+    },
+    "pdf_file_naming": {
+        "message": "Denominació de fitxers PDF"
+    },
+    "pdf_output": {
+        "message": "Sortida PDF"
+    },
+    "persistent": {
+        "message": "Persistent"
+    },
+    "prefix": {
+        "message": "Prefix"
+    },
+    "print.label": {
+        "message": "Imprimir"
+    },
+    "printLabel": {
+        "message": "Imprimir"
+    },
+    "printPreview.label": {
+        "message": "Vista prèvia d&#39;impressió"
+    },
+    "print_and_pageoptions": {
+        "message": "Opcions d&#39;impressió i pàgina"
+    },
+    "ptng.label": {
+        "message": "Eines d&#39;impressió NG"
+    },
+    "ptngOptions.label": {
+        "message": "EINES D&#39;IMPRESSIÓ D&#39;OPCIONS"
+    },
+    "remove_emojis": {
+        "message": "Elimina els emojis i els símbols Unicode"
+    },
+    "resizeImgs.label": {
+        "message": "Redimensiona les imatges massa grans"
+    },
+    "right": {
+        "message": "Dret"
+    },
+    "short.label": {
+        "message": "curt"
+    },
+    "showButton.label": {
+        "message": "Mostra el botó d&#39;opcions a la finestra de previsualització"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Mostra fitxers de signatura i vcf"
+    },
+    "showhide": {
+        "message": "Mostra o amaga"
+    },
+    "style": {
+        "message": "Estil"
+    },
+    "suffix": {
+        "message": "Sufix"
+    },
+    "top": {
+        "message": "Superior"
+    },
+    "up": {
+        "message": "Amunt"
+    },
+    "useCcBccAlways": {
+        "message": "Utilitzeu les abreviatures &#39;Cc&#39; i &#39;Bcc&#39; per a totes les configuracions regionals"
+    },
+    "useHeadersBkColor": {
+        "message": "Utilitzeu el color de fons de la capçalera:"
+    },
+    "withSize": {
+        "message": "amb mida"
+    },
+    "wrap": {
+        "message": "Embolcall"
+    }
 }

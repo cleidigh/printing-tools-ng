@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Berichten afdrukken, kopteksten en PDF-uitvoertools (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Afdrukken"
-	}
-
+    "Help": {
+        "message": "Hulp"
+    },
+    "HideInlineAttList": {
+        "message": "Inline bijlagenlijst verbergen"
+    },
+    "PMDcaptionlabel": {
+        "message": "Opties voor het afdrukken van berichten"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Globale afdrukopties"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Opties voor het afdrukken van adresboeken"
+    },
+    "PMDlabel1": {
+        "message": "Datumnotatie van lokale tijdzone gebruiken"
+    },
+    "PMDlabel10": {
+        "message": "Ingesloten bijlagen verbergen"
+    },
+    "PMDlabel11": {
+        "message": "Gebruikersnaam tonen op kopteksten"
+    },
+    "PMDlabel12": {
+        "message": "Lettertypen gebruiken met een pixelgrootte van"
+    },
+    "PMDlabel13": {
+        "message": "Contactpersoonkop verbergen ('Kaart van')"
+    },
+    "PMDlabel14": {
+        "message": "Alleen naam en e-mailadressen tonen"
+    },
+    "PMDlabel15": {
+        "message": "Compacte indeling gebruiken"
+    },
+    "PMDlabel16": {
+        "message": "Alleen selectie afdrukken (indien beschikbaar)"
+    },
+    "PMDlabel17": {
+        "message": "Bestandstypepictogram tonen"
+    },
+    "PMDlabel18": {
+        "message": "Lettertype gebruiken:"
+    },
+    "PMDlabel19": {
+        "message": "Veld 'Aantekeningen' inkorten tot 100 tekens"
+    },
+    "PMDlabel2": {
+        "message": "Aangepaste weergave gebruiken voor de lijst met bijlagen"
+    },
+    "PMDlabel20": {
+        "message": "Adresboeknaam en -datum tonen"
+    },
+    "PMDlabel21": {
+        "message": "Altijd uitgebreide kopteksten verbergen"
+    },
+    "PMDlabel22": {
+        "message": "p7m- en vCard-bijlagen tonen"
+    },
+    "PMDlabel23": {
+        "message": "Mapnaam tonen"
+    },
+    "PMDlabel25": {
+        "message": "Zwart als basiskleur van tekst gebruiken"
+    },
+    "PMDlabel3": {
+        "message": "Rand tonen rond kopteksten"
+    },
+    "PMDlabel4": {
+        "message": "Kopteksten verbergen"
+    },
+    "PMDlabel5": {
+        "message": "Kopteksten inkorten die langer zijn dan ongeveer"
+    },
+    "PMDlabel6": {
+        "message": "tekens."
+    },
+    "PMDlabel7": {
+        "message": "Afbeeldingen verbergen"
+    },
+    "PMDlabel8": {
+        "message": "Afdrukken zonder dialoogvenster"
+    },
+    "PMDlabel9": {
+        "message": "Voortgangsbalk bij afdrukken verbergen"
+    },
+    "PMDmenuitem": {
+        "message": "Afdrukopties"
+    },
+    "RG1.label": {
+        "message": "Niets"
+    },
+    "RG2.label": {
+        "message": "Gebruikersnaam"
+    },
+    "Scale": {
+        "message": "Schaal"
+    },
+    "addNameRG.label": {
+        "message": "Toevoegen vóór kopteksten:"
+    },
+    "addRdate.label": {
+        "message": "Datum van ontvangen tonen"
+    },
+    "advancedOptions.label": {
+        "message": "Geavanceerde mogelijkheden"
+    },
+    "alignHeaders.label": {
+        "message": "Kopteksten uitlijnen"
+    },
+    "all": {
+        "message": "Allemaal"
+    },
+    "attachments": {
+        "message": "Bijlagen"
+    },
+    "attachmentsPerLine": {
+        "message": "Aantal bijlagen per regel:"
+    },
+    "body": {
+        "message": "Lichaam"
+    },
+    "borderStyle": {
+        "message": "Randstijl:"
+    },
+    "bottom": {
+        "message": "Onderkant"
+    },
+    "browse": {
+        "message": "Bladeren"
+    },
+    "cancel": {
+        "message": "Annuleren"
+    },
+    "center": {
+        "message": "Centrum"
+    },
+    "cite.checkbox": {
+        "message": "Geciteerde tekst voorzien van stijl"
+    },
+    "cite.color": {
+        "message": "Kleur:"
+    },
+    "cite.size": {
+        "message": "Grootte:"
+    },
+    "colorsNote": {
+        "message": "Opmerking: &#39;Afbeeldingen en kleuren&#39; moet zijn ingeschakeld in het dialoogvenster Pagina-instelling afdrukken"
+    },
+    "copies": {
+        "message": "Kopieën"
+    },
+    "custom": {
+        "message": "Aangepast"
+    },
+    "custom_date_format": {
+        "message": "Aangepast datumformaat"
+    },
+    "date.label": {
+        "message": "Datumnotatie:"
+    },
+    "date_custom.label": {
+        "message": "Aangepast"
+    },
+    "debugOptions.label": {
+        "message": "Foutopsporingsopties"
+    },
+    "defaultPrinter": {
+        "message": "Standaardprinter"
+    },
+    "down": {
+        "message": "Omlaag"
+    },
+    "enable_pdfdir": {
+        "message": "PDF-uitvoerdirectory inschakelen"
+    },
+    "extensionDescription": {
+        "message": "Berichten afdrukken, kopteksten en PDF-uitvoertools (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Bestandsnaam Formaat"
+    },
+    "filter_characters": {
+        "message": "Filter karakters"
+    },
+    "fitToWidth": {
+        "message": "Aanpassen aan breedte"
+    },
+    "footers": {
+        "message": "Voetteksten"
+    },
+    "forBody": {
+        "message": "voor berichtinhoud"
+    },
+    "forHeaders": {
+        "message": "alleen voor kopteksten"
+    },
+    "headers": {
+        "message": "Kopteksten"
+    },
+    "headers_order": {
+        "message": "Bestelling van kopteksten"
+    },
+    "images": {
+        "message": "Afbeeldingen"
+    },
+    "latinize": {
+        "message": "Onderwerp en namen latiniseren"
+    },
+    "left": {
+        "message": "Links"
+    },
+    "long.label": {
+        "message": "lange UTC"
+    },
+    "longLoc.label": {
+        "message": "lang en gelokaliseerd"
+    },
+    "margins": {
+        "message": "Marges"
+    },
+    "maxPreLen": {
+        "message": "Maximale tekstbreedte:"
+    },
+    "messageBody": {
+        "message": "bericht lichaam"
+    },
+    "misc": {
+        "message": "Diversen"
+    },
+    "multipleCards.label": {
+        "message": "Alle geselecteerde contactpersonen afdrukken"
+    },
+    "order": {
+        "message": "Kopvolgorde"
+    },
+    "otherHeaders": {
+        "message": "Andere koppen volgen (indien aanwezig)"
+    },
+    "output_dir": {
+        "message": "Uitvoermap"
+    },
+    "page_headers": {
+        "message": "Kopteksten"
+    },
+    "page_options": {
+        "message": "Pagina-opties"
+    },
+    "page_ranges": {
+        "message": "Paginabereiken"
+    },
+    "pdf_file_naming": {
+        "message": "Naamgeving van PDF-bestanden"
+    },
+    "pdf_output": {
+        "message": "PDF-uitvoer"
+    },
+    "persistent": {
+        "message": "Volhardend"
+    },
+    "prefix": {
+        "message": "Voorvoegsel"
+    },
+    "print.label": {
+        "message": "Afdrukken"
+    },
+    "printLabel": {
+        "message": "Afdrukken"
+    },
+    "printPreview.label": {
+        "message": "Afdrukvoorbeeld"
+    },
+    "print_and_pageoptions": {
+        "message": "Afdruk- en pagina-opties"
+    },
+    "ptng.label": {
+        "message": "Afdrukhulpmiddelen NG"
+    },
+    "ptngOptions.label": {
+        "message": "AFDRUKTOOLS VAN OPTIES"
+    },
+    "remove_emojis": {
+        "message": "Verwijder Unicode-emoji&#39;s en -symbolen"
+    },
+    "resizeImgs.label": {
+        "message": "Te grote afbeeldingen verkleinen"
+    },
+    "right": {
+        "message": "Rechts"
+    },
+    "short.label": {
+        "message": "kort"
+    },
+    "showButton.label": {
+        "message": "Optieknop tonen op voorbeeldvenster"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Toon handtekening- en vcf-bestanden"
+    },
+    "showhide": {
+        "message": "Tonen of verbergen"
+    },
+    "style": {
+        "message": "Stijl"
+    },
+    "suffix": {
+        "message": "Achtervoegsel"
+    },
+    "top": {
+        "message": "Bovenkant"
+    },
+    "up": {
+        "message": "Omhoog"
+    },
+    "useCcBccAlways": {
+        "message": "Gebruik de afkortingen &#39;Cc&#39; en &#39;Bcc&#39; voor alle landinstellingen"
+    },
+    "useHeadersBkColor": {
+        "message": "Gebruik koptekst achtergrondkleur:"
+    },
+    "withSize": {
+        "message": "met maat"
+    },
+    "wrap": {
+        "message": "Afbreken"
+    }
 }

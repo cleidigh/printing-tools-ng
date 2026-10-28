@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Drukowanie wiadomości, nagłówki i narzędzia wyjściowe PDF (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Wydrukować"
-	}
-
+    "Help": {
+        "message": "Pomoc"
+    },
+    "HideInlineAttList": {
+        "message": "Ukryj wbudowaną listę załączników"
+    },
+    "PMDcaptionlabel": {
+        "message": "Opcje drukowania wiadomości"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Globalne opcje drukowania"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Opcje drukowania książki adresowej"
+    },
+    "PMDlabel1": {
+        "message": "Włącz lokalizację daty"
+    },
+    "PMDlabel10": {
+        "message": "Ukryj wbudowane załączniki"
+    },
+    "PMDlabel11": {
+        "message": "Dodaj nazwę użytkownika do nagłówków"
+    },
+    "PMDlabel12": {
+        "message": "Używaj czcionek o rozmiarze w pikselach wynoszącym"
+    },
+    "PMDlabel13": {
+        "message": "Ukryj nagłówek kontaktu („Karta za”)"
+    },
+    "PMDlabel14": {
+        "message": "Wstaw tylko nazwisko i adres e-mail"
+    },
+    "PMDlabel15": {
+        "message": "Użyj zwartego układu"
+    },
+    "PMDlabel16": {
+        "message": "Wydrukuj tylko zaznaczenie, jeśli istnieje"
+    },
+    "PMDlabel17": {
+        "message": "Dodaj ikonę typu pliku"
+    },
+    "PMDlabel18": {
+        "message": "Użyj czcionki:"
+    },
+    "PMDlabel19": {
+        "message": "Wytnij pole „Notatki” na 100 znaków"
+    },
+    "PMDlabel2": {
+        "message": "Włącz dostosowany widok listy załączników"
+    },
+    "PMDlabel20": {
+        "message": "Dodaj nazwę i datę książki adresowej"
+    },
+    "PMDlabel21": {
+        "message": "Ukryj zawsze rozszerzone nagłówki"
+    },
+    "PMDlabel22": {
+        "message": "Dodaj załączniki p7m i vCard"
+    },
+    "PMDlabel23": {
+        "message": "Dodaj nazwę folderu"
+    },
+    "PMDlabel25": {
+        "message": "Użyj czarnego jako podstawowego koloru tekstu"
+    },
+    "PMDlabel3": {
+        "message": "Ustaw granicę wokół nagłówków"
+    },
+    "PMDlabel4": {
+        "message": "Ukryj nagłówki"
+    },
+    "PMDlabel5": {
+        "message": "Przycinaj linie nagłówków dłużej niż około"
+    },
+    "PMDlabel6": {
+        "message": "znaki"
+    },
+    "PMDlabel7": {
+        "message": "Ukryj obrazy"
+    },
+    "PMDlabel8": {
+        "message": "Drukuj bez okna dialogowego"
+    },
+    "PMDlabel9": {
+        "message": "Ukryj pasek postępu drukowania"
+    },
+    "PMDmenuitem": {
+        "message": "Opcje drukowania"
+    },
+    "RG1.label": {
+        "message": "Nic"
+    },
+    "RG2.label": {
+        "message": "Nazwa Użytkownika"
+    },
+    "Scale": {
+        "message": "Skala"
+    },
+    "addNameRG.label": {
+        "message": "Dodaj przed nagłówkami:"
+    },
+    "addRdate.label": {
+        "message": "Dodaj otrzymaną datę"
+    },
+    "advancedOptions.label": {
+        "message": "Zaawansowane opcje"
+    },
+    "alignHeaders.label": {
+        "message": "Wyrównaj nagłówki"
+    },
+    "all": {
+        "message": "Wszystko"
+    },
+    "attachments": {
+        "message": "Załączniki"
+    },
+    "attachmentsPerLine": {
+        "message": "Załączniki na linię:"
+    },
+    "body": {
+        "message": "Ciało"
+    },
+    "borderStyle": {
+        "message": "Styl obramowania:"
+    },
+    "bottom": {
+        "message": "Dno"
+    },
+    "browse": {
+        "message": "Przeglądaj"
+    },
+    "cancel": {
+        "message": "Anuluj"
+    },
+    "center": {
+        "message": "Centrum"
+    },
+    "cite.checkbox": {
+        "message": "Użyj stylu dla cytowanego tekstu"
+    },
+    "cite.color": {
+        "message": "Kolor:"
+    },
+    "cite.size": {
+        "message": "Rozmiar:"
+    },
+    "colorsNote": {
+        "message": "Uwaga: w oknie dialogowym Drukuj ustawienia strony należy włączyć opcję „Obrazy i kolory”"
+    },
+    "copies": {
+        "message": "Kopie"
+    },
+    "custom": {
+        "message": "Zwyczaj"
+    },
+    "custom_date_format": {
+        "message": "Niestandardowy format daty"
+    },
+    "date.label": {
+        "message": "Format daty:"
+    },
+    "date_custom.label": {
+        "message": "Zwyczaj"
+    },
+    "debugOptions.label": {
+        "message": "Opcje debugowania"
+    },
+    "defaultPrinter": {
+        "message": "Domyślna drukarka"
+    },
+    "down": {
+        "message": "Na dół"
+    },
+    "enable_pdfdir": {
+        "message": "Włącz katalog wyjściowy PDF"
+    },
+    "extensionDescription": {
+        "message": "Drukowanie wiadomości, nagłówki i narzędzia wyjściowe PDF (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Format nazwy pliku"
+    },
+    "filter_characters": {
+        "message": "Filtruj znaki"
+    },
+    "fitToWidth": {
+        "message": "Dopasuj do szerokości"
+    },
+    "footers": {
+        "message": "Stopki"
+    },
+    "forBody": {
+        "message": "dla wiadomości ciała"
+    },
+    "forHeaders": {
+        "message": "tylko dla nagłówków"
+    },
+    "headers": {
+        "message": "Nagłówki"
+    },
+    "headers_order": {
+        "message": "Kolejność nagłówków"
+    },
+    "images": {
+        "message": "Zdjęcia"
+    },
+    "latinize": {
+        "message": "Zlatynizuj temat i imiona"
+    },
+    "left": {
+        "message": "Lewy"
+    },
+    "long.label": {
+        "message": "długi UTC"
+    },
+    "longLoc.label": {
+        "message": "długi i zlokalizowany"
+    },
+    "margins": {
+        "message": "Marginesy"
+    },
+    "maxPreLen": {
+        "message": "Maksymalna szerokość tekstu:"
+    },
+    "messageBody": {
+        "message": "Treść wiadomości"
+    },
+    "misc": {
+        "message": "Różne"
+    },
+    "multipleCards.label": {
+        "message": "Wydrukuj wszystkie wybrane kontakty"
+    },
+    "order": {
+        "message": "Zamówienie nagłówków"
+    },
+    "otherHeaders": {
+        "message": "Inne nagłówki, jeśli są obecne, następują"
+    },
+    "output_dir": {
+        "message": "Katalog wyjściowy"
+    },
+    "page_headers": {
+        "message": "Nagłówki"
+    },
+    "page_options": {
+        "message": "Opcje strony"
+    },
+    "page_ranges": {
+        "message": "Zakresy stron"
+    },
+    "pdf_file_naming": {
+        "message": "Nazewnictwo plików PDF"
+    },
+    "pdf_output": {
+        "message": "Wyjście PDF"
+    },
+    "persistent": {
+        "message": "Uporczywy"
+    },
+    "prefix": {
+        "message": "Prefiks"
+    },
+    "print.label": {
+        "message": "Wydrukować"
+    },
+    "printLabel": {
+        "message": "Wydrukować"
+    },
+    "printPreview.label": {
+        "message": "Podgląd wydruku"
+    },
+    "print_and_pageoptions": {
+        "message": "Opcje drukowania i strony"
+    },
+    "ptng.label": {
+        "message": "Narzędzia drukarskie NG"
+    },
+    "ptngOptions.label": {
+        "message": "NARZĘDZIA DRUKU OPCJI"
+    },
+    "remove_emojis": {
+        "message": "Usuń emotikony i symbole Unicode"
+    },
+    "resizeImgs.label": {
+        "message": "Zmień rozmiar obrazów za dużych"
+    },
+    "right": {
+        "message": "Prawidłowy"
+    },
+    "short.label": {
+        "message": "krótki"
+    },
+    "showButton.label": {
+        "message": "Pokaż przycisk opcji w oknie podglądu"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Pokaż pliki podpisów i vcf"
+    },
+    "showhide": {
+        "message": "Pokaż lub ukryj"
+    },
+    "style": {
+        "message": "Styl"
+    },
+    "suffix": {
+        "message": "Przyrostek"
+    },
+    "top": {
+        "message": "Szczyt"
+    },
+    "up": {
+        "message": "W górę"
+    },
+    "useCcBccAlways": {
+        "message": "Używaj skrótów „Cc” i „Bcc” dla wszystkich języków"
+    },
+    "useHeadersBkColor": {
+        "message": "Użyj koloru tła nagłówka:"
+    },
+    "withSize": {
+        "message": "z rozmiarem"
+    },
+    "wrap": {
+        "message": "Owinąć"
+    }
 }

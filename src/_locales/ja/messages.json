@@ -1,14 +1,329 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "メッセージとヘッダーの印刷、PDF 出力ツール (Nextgen)"
-	}
-,
-	"printLabel": {
-		"message": "印刷"
-	}
-
+    "Help": {
+        "message": "ヘルプ"
+    },
+    "HideInlineAttList": {
+        "message": "インライン添付ファイルリストを非表示にする"
+    },
+    "PMDcaptionlabel": {
+        "message": "メッセージ"
+    },
+    "PMDcaptionlabel2": {
+        "message": "プリンター"
+    },
+    "PMDcaptionlabel3": {
+        "message": "アドレス帳"
+    },
+    "PMDlabel1": {
+        "message": "タイムゾーンに合わせて日付を印刷する"
+    },
+    "PMDlabel10": {
+        "message": "添付ファイルを印刷しない"
+    },
+    "PMDlabel11": {
+        "message": "アカウント名を追加する"
+    },
+    "PMDlabel12": {
+        "message": "使用するフォント指定"
+    },
+    "PMDlabel13": {
+        "message": "'カード' ヘッダーを表示しない"
+    },
+    "PMDlabel14": {
+        "message": "名前とアドレスを挿入する"
+    },
+    "PMDlabel15": {
+        "message": "コンパクトに印刷する"
+    },
+    "PMDlabel16": {
+        "message": "選択範囲がある場合、選択範囲だけを印刷する"
+    },
+    "PMDlabel17": {
+        "message": "ファイル別アイコンを追加する"
+    },
+    "PMDlabel18": {
+        "message": "使用フォント："
+    },
+    "PMDlabel19": {
+        "message": "メモ領域を１００文字でカットする"
+    },
+    "PMDlabel2": {
+        "message": "添付ファイルリストの印刷方法をカスタマイズする"
+    },
+    "PMDlabel20": {
+        "message": "アドレス帳名と日時を追加する"
+    },
+    "PMDlabel21": {
+        "message": "常時拡張ヘッダーを非表示にする"
+    },
+    "PMDlabel22": {
+        "message": "p7mとvCardアイコンを追加"
+    },
+    "PMDlabel23": {
+        "message": "フォルダー名を追加する"
+    },
+    "PMDlabel25": {
+        "message": "文字は黒色を基調色にする"
+    },
+    "PMDlabel3": {
+        "message": "ヘッダー情報に枠線を追加する"
+    },
+    "PMDlabel4": {
+        "message": "ヘッダー情報を非表示にする"
+    },
+    "PMDlabel5": {
+        "message": "ヘッダーの１行当たりの文字数を"
+    },
+    "PMDlabel6": {
+        "message": "にする"
+    },
+    "PMDlabel7": {
+        "message": "画像を非表示にする"
+    },
+    "PMDlabel8": {
+        "message": "印刷ダイアログを表示しない"
+    },
+    "PMDlabel9": {
+        "message": "印刷プログレスを表示しない"
+    },
+    "PMDmenuitem": {
+        "message": "PrintingTools NG 設定"
+    },
+    "RG1.label": {
+        "message": "なし"
+    },
+    "RG2.label": {
+        "message": "アカウント名"
+    },
+    "Scale": {
+        "message": "倍率"
+    },
+    "addNameRG.label": {
+        "message": "ヘッダーの前に追加する文字列:"
+    },
+    "addRdate.label": {
+        "message": "受信日時を追加する"
+    },
+    "advancedOptions.label": {
+        "message": "高度なオプション"
+    },
+    "alignHeaders.label": {
+        "message": "ヘッダー位置を揃える"
+    },
+    "all": {
+        "message": "すべて"
+    },
+    "attachments": {
+        "message": "添付ファイル"
+    },
+    "attachmentsPerLine": {
+        "message": "１行あたりの添付ファイル表示数："
+    },
+    "body": {
+        "message": "本文設定"
+    },
+    "borderStyle": {
+        "message": "枠線のスタイル指定："
+    },
+    "bottom": {
+        "message": "下"
+    },
+    "browse": {
+        "message": "選択"
+    },
+    "cancel": {
+        "message": "キャンセル"
+    },
+    "center": {
+        "message": "中央"
+    },
+    "cite.checkbox": {
+        "message": "引用部のスタイル指定"
+    },
+    "cite.color": {
+        "message": "色:"
+    },
+    "cite.size": {
+        "message": "サイズ:"
+    },
+    "colorsNote": {
+        "message": "注：「背景色」は「ページ設定」ダイアログで有効にする必要があります"
+    },
+    "copies": {
+        "message": "部数"
+    },
+    "custom": {
+        "message": "カスタム"
+    },
+    "custom_date_format": {
+        "message": "カスタム日時形式"
+    },
+    "date.label": {
+        "message": "日時形式:"
+    },
+    "date_custom.label": {
+        "message": "カスタム形式"
+    },
+    "debugOptions.label": {
+        "message": "デバッグ設定"
+    },
+    "defaultPrinter": {
+        "message": "デフォルトのプリンター"
+    },
+    "down": {
+        "message": "下へ"
+    },
+    "enable_pdfdir": {
+        "message": "PDF の出力先フォルダーを有効にする"
+    },
+    "extensionDescription": {
+        "message": "メッセージとヘッダーの印刷、PDF 出力ツール (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "ファイル名形式"
+    },
+    "filter_characters": {
+        "message": "フィルター文字列"
+    },
+    "fitToWidth": {
+        "message": "用紙幅に合わせる"
+    },
+    "footers": {
+        "message": "フッター"
+    },
+    "forHeaders": {
+        "message": "ヘッダー用"
+    },
+    "headers": {
+        "message": "ヘッダー設定"
+    },
+    "headers_order": {
+        "message": "ヘッダーの並び替え"
+    },
+    "images": {
+        "message": "画像"
+    },
+    "latinize": {
+        "message": "件名と命名のラテン語化"
+    },
+    "left": {
+        "message": "左"
+    },
+    "long.label": {
+        "message": "長い形式（UTC）"
+    },
+    "longLoc.label": {
+        "message": "長い形式とローカルタイム"
+    },
+    "margins": {
+        "message": "余白"
+    },
+    "maxPreLen": {
+        "message": "テキスト列の最大値を設定する:"
+    },
+    "messageBody": {
+        "message": "本文"
+    },
+    "misc": {
+        "message": "全般設定"
+    },
+    "multipleCards.label": {
+        "message": "選択したすべての連絡先を印刷"
+    },
+    "order": {
+        "message": "ヘッダー"
+    },
+    "otherHeaders": {
+        "message": "他のヘッダーがある場合は下段に印刷されます"
+    },
+    "output_dir": {
+        "message": "出力先フォルダー指定"
+    },
+    "page_headers": {
+        "message": "ヘッダー"
+    },
+    "page_options": {
+        "message": "ページ設定"
+    },
+    "page_ranges": {
+        "message": "ページ指定"
+    },
+    "pdf_file_naming": {
+        "message": "PDF ファイルの命名"
+    },
+    "pdf_output": {
+        "message": "PDF 出力設定"
+    },
+    "persistent": {
+        "message": "保持する"
+    },
+    "prefix": {
+        "message": "接頭語"
+    },
+    "print.label": {
+        "message": "印刷"
+    },
+    "printLabel": {
+        "message": "印刷"
+    },
+    "printPreview.label": {
+        "message": "印刷プレビュー"
+    },
+    "print_and_pageoptions": {
+        "message": "プリンターとページ設定"
+    },
+    "ptng.label": {
+        "message": "PrintingTools NG"
+    },
+    "ptngOptions.label": {
+        "message": "PrintingTools NG 設定"
+    },
+    "remove_emojis": {
+        "message": "Unicode 絵文字と記号を削除する"
+    },
+    "resizeImgs.label": {
+        "message": "大きすぎる画像はリサイズする"
+    },
+    "right": {
+        "message": "右"
+    },
+    "short.label": {
+        "message": "短い形式"
+    },
+    "showButton.label": {
+        "message": "プレビューに設定ボタンを表示する"
+    },
+    "showSignatureVCFfiles": {
+        "message": "署名ファイルとvcfファイルを表示する"
+    },
+    "showhide": {
+        "message": "表示または非表示"
+    },
+    "style": {
+        "message": "スタイル"
+    },
+    "suffix": {
+        "message": "接尾語"
+    },
+    "top": {
+        "message": "上"
+    },
+    "up": {
+        "message": "上へ"
+    },
+    "useCcBccAlways": {
+        "message": "すべてのロケールで「Cc」および「Bcc」の略語を使用する"
+    },
+    "useHeadersBkColor": {
+        "message": "ヘッダーの背景色指定："
+    },
+    "withSize": {
+        "message": "サイズ"
+    },
+    "wrap": {
+        "message": "すべて"
+    }
 }

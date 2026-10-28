@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "Ferramentas de impresión NG"
-	},
-
-	"extensionDescription": {
-		"message": "Impresión de mensaxes, encabezados e ferramentas de saída de PDF (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Imprimir"
-	}
-
+    "Help": {
+        "message": "Axuda"
+    },
+    "HideInlineAttList": {
+        "message": "Ocultar a lista de anexos en liña"
+    },
+    "PMDcaptionlabel": {
+        "message": "Opcións para a impresión de mensaxes"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Opcións de impresión global"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Opcións para a impresión do caderno de enderezos"
+    },
+    "PMDlabel1": {
+        "message": "Activa a localización da data"
+    },
+    "PMDlabel10": {
+        "message": "Agochar os anexos en liña"
+    },
+    "PMDlabel11": {
+        "message": "Engada o nome de usuario ás cabeceiras"
+    },
+    "PMDlabel12": {
+        "message": "Emprega fontes cun tamaño en píxel de"
+    },
+    "PMDlabel13": {
+        "message": "Agochar a cabeceira do contacto (&#39;Tarxeta para&#39;)"
+    },
+    "PMDlabel14": {
+        "message": "Insira só o nome e os enderezos de correo electrónico"
+    },
+    "PMDlabel15": {
+        "message": "Usar esquema compacto"
+    },
+    "PMDlabel16": {
+        "message": "Imprimir só a selección cando exista"
+    },
+    "PMDlabel17": {
+        "message": "Engade unha icona de tipo de ficheiro"
+    },
+    "PMDlabel18": {
+        "message": "Usar letra:"
+    },
+    "PMDlabel19": {
+        "message": "Corte o campo &quot;Notas&quot; en 100 caracteres"
+    },
+    "PMDlabel2": {
+        "message": "Activa a vista personalizada da lista de arquivos adxuntos"
+    },
+    "PMDlabel20": {
+        "message": "Engade nome e data da axenda de enderezos"
+    },
+    "PMDlabel21": {
+        "message": "Agochar cabeceiras estendidas sempre"
+    },
+    "PMDlabel22": {
+        "message": "Engade ficheiros adxuntos p7m e vCard"
+    },
+    "PMDlabel23": {
+        "message": "Engadir nome de cartafol"
+    },
+    "PMDlabel25": {
+        "message": "Use o negro como cor de base para o texto"
+    },
+    "PMDlabel3": {
+        "message": "Estableza un bordo arredor das cabeceiras"
+    },
+    "PMDlabel4": {
+        "message": "Agochar os cabezallos"
+    },
+    "PMDlabel5": {
+        "message": "Trunca as liñas de cabeceira máis tempo que aproximadamente"
+    },
+    "PMDlabel6": {
+        "message": "carros."
+    },
+    "PMDlabel7": {
+        "message": "Agochar as imaxes"
+    },
+    "PMDlabel8": {
+        "message": "Imprimir sen a xanela de diálogo"
+    },
+    "PMDlabel9": {
+        "message": "Agochar a barra de progreso da impresión"
+    },
+    "PMDmenuitem": {
+        "message": "Opcións de impresión"
+    },
+    "RG1.label": {
+        "message": "Nada"
+    },
+    "RG2.label": {
+        "message": "Nome de usuario"
+    },
+    "Scale": {
+        "message": "Escala"
+    },
+    "addNameRG.label": {
+        "message": "Engada antes das cabeceiras:"
+    },
+    "addRdate.label": {
+        "message": "Engadir a data de recepción"
+    },
+    "advancedOptions.label": {
+        "message": "Opcións avanzadas"
+    },
+    "alignHeaders.label": {
+        "message": "Aliña os cabeceiros"
+    },
+    "all": {
+        "message": "Todos"
+    },
+    "attachments": {
+        "message": "Anexos"
+    },
+    "attachmentsPerLine": {
+        "message": "Anexos por liña:"
+    },
+    "body": {
+        "message": "Corpo"
+    },
+    "borderStyle": {
+        "message": "Estilo de bordo:"
+    },
+    "bottom": {
+        "message": "Abaixo"
+    },
+    "browse": {
+        "message": "Explorar"
+    },
+    "cancel": {
+        "message": "Cancelar"
+    },
+    "center": {
+        "message": "Centro"
+    },
+    "cite.checkbox": {
+        "message": "Use un estilo para o texto citado"
+    },
+    "cite.color": {
+        "message": "Cor:"
+    },
+    "cite.size": {
+        "message": "Tamaño:"
+    },
+    "colorsNote": {
+        "message": "Nota: &quot;Imaxes e cores&quot; ten que estar activado no diálogo de configuración da páxina de impresión"
+    },
+    "copies": {
+        "message": "Copias"
+    },
+    "custom": {
+        "message": "Personalizado"
+    },
+    "custom_date_format": {
+        "message": "Formato de data personalizado"
+    },
+    "date.label": {
+        "message": "Formato de data:"
+    },
+    "date_custom.label": {
+        "message": "Personalizado"
+    },
+    "debugOptions.label": {
+        "message": "Opcións de depuración"
+    },
+    "defaultPrinter": {
+        "message": "Impresora predeterminada"
+    },
+    "down": {
+        "message": "Abaixo"
+    },
+    "enable_pdfdir": {
+        "message": "Activa o directorio de saída de PDF"
+    },
+    "extensionDescription": {
+        "message": "Impresión de mensaxes, encabezados e ferramentas de saída de PDF (Nextgen)"
+    },
+    "extensionName": {
+        "message": "Ferramentas de impresión NG"
+    },
+    "filename_format": {
+        "message": "Formato de nome de ficheiro"
+    },
+    "filter_characters": {
+        "message": "Filtrar caracteres"
+    },
+    "fitToWidth": {
+        "message": "Axustar ao ancho"
+    },
+    "footers": {
+        "message": "Pé de páxina"
+    },
+    "forBody": {
+        "message": "para mensaxe corporal"
+    },
+    "forHeaders": {
+        "message": "só para cabeceiras"
+    },
+    "headers": {
+        "message": "Cabeceiras"
+    },
+    "headers_order": {
+        "message": "Orde de cabeceiras"
+    },
+    "images": {
+        "message": "Imaxes"
+    },
+    "latinize": {
+        "message": "Latinizar o tema e os nomes"
+    },
+    "left": {
+        "message": "Esquerda"
+    },
+    "long.label": {
+        "message": "longo UTC"
+    },
+    "longLoc.label": {
+        "message": "longo e localizado"
+    },
+    "margins": {
+        "message": "Marxes"
+    },
+    "maxPreLen": {
+        "message": "Ancho máximo para o texto:"
+    },
+    "messageBody": {
+        "message": "Corpo da mensaxe"
+    },
+    "misc": {
+        "message": "Varios"
+    },
+    "multipleCards.label": {
+        "message": "Imprimir todos os contactos seleccionados"
+    },
+    "order": {
+        "message": "Pedido de cabeceiras"
+    },
+    "otherHeaders": {
+        "message": "Seguen outras cabeceiras, se están presentes"
+    },
+    "output_dir": {
+        "message": "Directorio de saída"
+    },
+    "page_headers": {
+        "message": "Cabeceiras"
+    },
+    "page_options": {
+        "message": "Opcións da páxina"
+    },
+    "page_ranges": {
+        "message": "Intervalos de páxinas"
+    },
+    "pdf_file_naming": {
+        "message": "Nomear ficheiros PDF"
+    },
+    "pdf_output": {
+        "message": "Saída PDF"
+    },
+    "persistent": {
+        "message": "Persistente"
+    },
+    "prefix": {
+        "message": "Prefixo"
+    },
+    "print.label": {
+        "message": "Imprimir"
+    },
+    "printLabel": {
+        "message": "Imprimir"
+    },
+    "printPreview.label": {
+        "message": "Vista previa de impresión"
+    },
+    "print_and_pageoptions": {
+        "message": "Opcións de impresión e páxina"
+    },
+    "ptng.label": {
+        "message": "Ferramentas de impresión NG"
+    },
+    "ptngOptions.label": {
+        "message": "FERRAMENTAS DE IMPRESIÓN DE OPCIÓNS"
+    },
+    "remove_emojis": {
+        "message": "Eliminar emojis e símbolos Unicode"
+    },
+    "resizeImgs.label": {
+        "message": "Redimensiona as imaxes demasiado grandes"
+    },
+    "right": {
+        "message": "Certo"
+    },
+    "short.label": {
+        "message": "curto"
+    },
+    "showButton.label": {
+        "message": "Amosa o botón de opcións na xanela de previsualización"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Mostrar ficheiros de sinatura e vcf"
+    },
+    "showhide": {
+        "message": "Mostrar ou Ocultar"
+    },
+    "style": {
+        "message": "Estilo"
+    },
+    "suffix": {
+        "message": "Sufixo"
+    },
+    "top": {
+        "message": "Arriba"
+    },
+    "up": {
+        "message": "Arriba"
+    },
+    "useCcBccAlways": {
+        "message": "Use abreviaturas &#39;Cc&#39; e &#39;Bcc&#39; para todas as configuracións rexionais"
+    },
+    "useHeadersBkColor": {
+        "message": "Usar a cor de fondo da cabeceira:"
+    },
+    "withSize": {
+        "message": "con tamaño"
+    },
+    "wrap": {
+        "message": "Envoltura"
+    }
 }

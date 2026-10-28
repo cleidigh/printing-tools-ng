@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Viestien tulostus, otsikot ja PDF-tulostustyökalut (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Tulosta"
-	}
-
+    "Help": {
+        "message": "auta"
+    },
+    "HideInlineAttList": {
+        "message": "Piilota upotettu liiteluettelo"
+    },
+    "PMDcaptionlabel": {
+        "message": "Valinnat viestien tulostamiseen"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Globaalit tulostusasetukset"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Osoitekirjan tulostamisen vaihtoehdot"
+    },
+    "PMDlabel1": {
+        "message": "Ota päivämäärän lokalisointi käyttöön"
+    },
+    "PMDlabel10": {
+        "message": "Piilota sisäiset liitteet"
+    },
+    "PMDlabel11": {
+        "message": "Lisää käyttäjänimi otsikoihin"
+    },
+    "PMDlabel12": {
+        "message": "Käytä fontteja, joiden koon pikseli on"
+    },
+    "PMDlabel13": {
+        "message": "Piilota yhteyshenkilön otsikko (&#39;Card for&#39;)"
+    },
+    "PMDlabel14": {
+        "message": "Lisää vain nimi ja sähköpostiosoitteet"
+    },
+    "PMDlabel15": {
+        "message": "Käytä kompaktia asettelua"
+    },
+    "PMDlabel16": {
+        "message": "Tulosta vain valinta, kun se on olemassa"
+    },
+    "PMDlabel17": {
+        "message": "Lisää tiedostotyyppikuvake"
+    },
+    "PMDlabel18": {
+        "message": "Käytä kirjasinta:"
+    },
+    "PMDlabel19": {
+        "message": "Leikkaa &#39;Muistiinpanot&#39; -kenttä 100 merkillä"
+    },
+    "PMDlabel2": {
+        "message": "Ota käyttöön mukautettu näkymä liitteiden luettelosta"
+    },
+    "PMDlabel20": {
+        "message": "Lisää osoitekirjan nimi ja päivämäärä"
+    },
+    "PMDlabel21": {
+        "message": "Piilota aina laajennetut otsikot"
+    },
+    "PMDlabel22": {
+        "message": "Lisää p7m- ja vCard-liitteet"
+    },
+    "PMDlabel23": {
+        "message": "Lisää kansion nimi"
+    },
+    "PMDlabel25": {
+        "message": "Käytä tekstiä mustana perusvärinä"
+    },
+    "PMDlabel3": {
+        "message": "Aseta reuna otsikkojen ympärille"
+    },
+    "PMDlabel4": {
+        "message": "Piilota otsikot"
+    },
+    "PMDlabel5": {
+        "message": "Lyhennä otsikkojen rivejä pidempään kuin noin"
+    },
+    "PMDlabel6": {
+        "message": "merkkiä."
+    },
+    "PMDlabel7": {
+        "message": "Piilota kuvat"
+    },
+    "PMDlabel8": {
+        "message": "Tulosta ilman valintaikkunaa"
+    },
+    "PMDlabel9": {
+        "message": "Piilota tulostamisen etenemispalkki"
+    },
+    "PMDmenuitem": {
+        "message": "Tulostusasetukset"
+    },
+    "RG1.label": {
+        "message": "Ei mitään"
+    },
+    "RG2.label": {
+        "message": "Käyttäjänimi"
+    },
+    "Scale": {
+        "message": "Mittakaava"
+    },
+    "addNameRG.label": {
+        "message": "Lisää ennen otsikoita:"
+    },
+    "addRdate.label": {
+        "message": "Lisää vastaanottopäivä"
+    },
+    "advancedOptions.label": {
+        "message": "Edistyneet asetukset"
+    },
+    "alignHeaders.label": {
+        "message": "Kohdista otsikot"
+    },
+    "all": {
+        "message": "Kaikki"
+    },
+    "attachments": {
+        "message": "Liitteet"
+    },
+    "attachmentsPerLine": {
+        "message": "Liitteet riviä kohden:"
+    },
+    "body": {
+        "message": "Runko"
+    },
+    "borderStyle": {
+        "message": "Reunan tyyli:"
+    },
+    "bottom": {
+        "message": "Pohja"
+    },
+    "browse": {
+        "message": "Selaa"
+    },
+    "cancel": {
+        "message": "Peruuttaa"
+    },
+    "center": {
+        "message": "Keskusta"
+    },
+    "cite.checkbox": {
+        "message": "Käytä laitetun tekstin tyyliä"
+    },
+    "cite.color": {
+        "message": "Väri:"
+    },
+    "cite.size": {
+        "message": "Koko:"
+    },
+    "colorsNote": {
+        "message": "Huomautus: Kuvien ja värien on oltava käytössä Tulosta sivun asetukset -valintaikkunassa"
+    },
+    "copies": {
+        "message": "Kopioita"
+    },
+    "custom": {
+        "message": "Mukautettu"
+    },
+    "custom_date_format": {
+        "message": "Mukautettu päivämäärämuoto"
+    },
+    "date.label": {
+        "message": "Päivämäärämuoto:"
+    },
+    "date_custom.label": {
+        "message": "Mukautettu"
+    },
+    "debugOptions.label": {
+        "message": "Virheenkorjausasetukset"
+    },
+    "defaultPrinter": {
+        "message": "Oletustulostin"
+    },
+    "down": {
+        "message": "Alas"
+    },
+    "enable_pdfdir": {
+        "message": "Ota PDF-tulostushakemisto käyttöön"
+    },
+    "extensionDescription": {
+        "message": "Viestien tulostus, otsikot ja PDF-tulostustyökalut (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Tiedostonimen muoto"
+    },
+    "filter_characters": {
+        "message": "Suodata merkit"
+    },
+    "fitToWidth": {
+        "message": "Sovita leveyteen"
+    },
+    "footers": {
+        "message": "Alatunnisteet"
+    },
+    "forBody": {
+        "message": "kehon viestiä varten"
+    },
+    "forHeaders": {
+        "message": "vain otsikoille"
+    },
+    "headers": {
+        "message": "otsikot"
+    },
+    "headers_order": {
+        "message": "Otsikoiden järjestys"
+    },
+    "images": {
+        "message": "Kuvat"
+    },
+    "latinize": {
+        "message": "Latinoi aihe ja nimet"
+    },
+    "left": {
+        "message": "Vasen"
+    },
+    "long.label": {
+        "message": "pitkä UTC"
+    },
+    "longLoc.label": {
+        "message": "pitkä ja paikallinen"
+    },
+    "margins": {
+        "message": "Marginaalit"
+    },
+    "maxPreLen": {
+        "message": "Tekstin enimmäisleveys:"
+    },
+    "messageBody": {
+        "message": "Viestin runko"
+    },
+    "misc": {
+        "message": "sekalainen"
+    },
+    "multipleCards.label": {
+        "message": "Tulosta kaikki valitut yhteystiedot"
+    },
+    "order": {
+        "message": "Otsikot järjestyksessä"
+    },
+    "otherHeaders": {
+        "message": "Seuraavat muut otsikot, jos niitä on"
+    },
+    "output_dir": {
+        "message": "Tulostushakemisto"
+    },
+    "page_headers": {
+        "message": "Otsikot"
+    },
+    "page_options": {
+        "message": "Sivun asetukset"
+    },
+    "page_ranges": {
+        "message": "Sivualueet"
+    },
+    "pdf_file_naming": {
+        "message": "PDF-tiedoston nimeäminen"
+    },
+    "pdf_output": {
+        "message": "PDF-tulostus"
+    },
+    "persistent": {
+        "message": "Pysyvä"
+    },
+    "prefix": {
+        "message": "Etuliite"
+    },
+    "print.label": {
+        "message": "Tulosta"
+    },
+    "printLabel": {
+        "message": "Tulosta"
+    },
+    "printPreview.label": {
+        "message": "Tulostuksen esikatselu"
+    },
+    "print_and_pageoptions": {
+        "message": "Tulostus- ja sivuasetukset"
+    },
+    "ptng.label": {
+        "message": "Tulostustyökalut NG"
+    },
+    "ptngOptions.label": {
+        "message": "VAIHTOEHTOJEN TULOSTUSTYÖKALUT"
+    },
+    "remove_emojis": {
+        "message": "Poista Unicode-emojit ja symbolit"
+    },
+    "resizeImgs.label": {
+        "message": "Muuta kuvien kokoa liian suureksi"
+    },
+    "right": {
+        "message": "Oikein"
+    },
+    "short.label": {
+        "message": "lyhyt"
+    },
+    "showButton.label": {
+        "message": "Näytä vaihtoehdot-painike esikatseluikkunassa"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Näytä allekirjoitus- ja vcf-tiedostot"
+    },
+    "showhide": {
+        "message": "Näytä tai piilota"
+    },
+    "style": {
+        "message": "Tyyli"
+    },
+    "suffix": {
+        "message": "Suffiksi"
+    },
+    "top": {
+        "message": "Ylös"
+    },
+    "up": {
+        "message": "ylös"
+    },
+    "useCcBccAlways": {
+        "message": "Käytä &#39;Cc&#39; ja &#39;Bcc&#39; lyhenteitä kaikille kielille"
+    },
+    "useHeadersBkColor": {
+        "message": "Käytä otsikon taustaväriä:"
+    },
+    "withSize": {
+        "message": "koon kanssa"
+    },
+    "wrap": {
+        "message": "Kääri"
+    }
 }

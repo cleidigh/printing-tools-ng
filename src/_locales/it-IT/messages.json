@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "Strumenti di stampa NG"
-	},
-
-	"extensionDescription": {
-		"message": "Stampa di messaggi, intestazioni e strumenti di output PDF (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Stampa"
-	}
-
+    "Help": {
+        "message": "Aiuto"
+    },
+    "HideInlineAttList": {
+        "message": "Nascondi l&#39;elenco degli allegati in linea"
+    },
+    "PMDcaptionlabel": {
+        "message": "Opzioni per la stampa dei messaggi"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Opzioni globali di stampa"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Opzioni per la stampa della rubrica"
+    },
+    "PMDlabel1": {
+        "message": "Attiva la localizzazione della data"
+    },
+    "PMDlabel10": {
+        "message": "Nascondi gli allegati in linea"
+    },
+    "PMDlabel11": {
+        "message": "Inserisci il nome dell'utente prima delle intestazioni"
+    },
+    "PMDlabel12": {
+        "message": "Usa il carattere "
+    },
+    "PMDlabel13": {
+        "message": "Nascondi l'intestazione dei contatti ('Scheda per')"
+    },
+    "PMDlabel14": {
+        "message": "Inserisci solo il nome e gli indirizzi email"
+    },
+    "PMDlabel15": {
+        "message": "Usa il formato compatto"
+    },
+    "PMDlabel16": {
+        "message": "Se esiste una selezione, stampa solo quella parte"
+    },
+    "PMDlabel17": {
+        "message": "Aggiungi un'icona per il tipo di file"
+    },
+    "PMDlabel18": {
+        "message": "Usa il carattere:"
+    },
+    "PMDlabel19": {
+        "message": "Taglia il campo 'Note' a 100 caratteri"
+    },
+    "PMDlabel2": {
+        "message": "Attiva la modifica della visualizzazione dell'elenco allegati"
+    },
+    "PMDlabel20": {
+        "message": "Aggiungi il nome della rubrica e la data"
+    },
+    "PMDlabel21": {
+        "message": "Nascondi sempre le intestazioni estese"
+    },
+    "PMDlabel22": {
+        "message": "Aggiungi gli allegati p7m e vCard"
+    },
+    "PMDlabel23": {
+        "message": "Inserisci il nome della cartella"
+    },
+    "PMDlabel25": {
+        "message": "Usa il nero come colore di base per il testo"
+    },
+    "PMDlabel3": {
+        "message": "Racchiudi l'intestazione in un bordo"
+    },
+    "PMDlabel4": {
+        "message": "Nascondi l'intestazione"
+    },
+    "PMDlabel5": {
+        "message": "Tronca le linee dell'intestazione più lunghe di circa"
+    },
+    "PMDlabel6": {
+        "message": "caratteri."
+    },
+    "PMDlabel7": {
+        "message": "Nascondi le immagini"
+    },
+    "PMDlabel8": {
+        "message": "Stampa senza mostrare la finestra di dialogo"
+    },
+    "PMDlabel9": {
+        "message": "Nascondi la barra di avanzamento della stampa"
+    },
+    "PMDmenuitem": {
+        "message": "Opzioni stampa"
+    },
+    "RG1.label": {
+        "message": "Nulla"
+    },
+    "RG2.label": {
+        "message": "Nome utente"
+    },
+    "Scale": {
+        "message": "Scala"
+    },
+    "addNameRG.label": {
+        "message": "Aggiungi alle intestazioni:"
+    },
+    "addRdate.label": {
+        "message": "Aggiungi il campo 'Ricevuto'"
+    },
+    "advancedOptions.label": {
+        "message": "Opzioni avanzate"
+    },
+    "alignHeaders.label": {
+        "message": "Allinea le intestazioni"
+    },
+    "all": {
+        "message": "Tutti"
+    },
+    "attachments": {
+        "message": "Allegati"
+    },
+    "attachmentsPerLine": {
+        "message": "Allegati per riga:"
+    },
+    "body": {
+        "message": "Corpo"
+    },
+    "borderStyle": {
+        "message": "Stile del bordo:"
+    },
+    "bottom": {
+        "message": "Inferiore"
+    },
+    "browse": {
+        "message": "Navigare"
+    },
+    "cancel": {
+        "message": "Annulla"
+    },
+    "center": {
+        "message": "Centro"
+    },
+    "cite.checkbox": {
+        "message": "Applica uno stile alle citazioni"
+    },
+    "cite.color": {
+        "message": "Colore:"
+    },
+    "cite.size": {
+        "message": "Grandezza:"
+    },
+    "colorsNote": {
+        "message": "Nota: &quot;Immagini e colori&quot; deve essere abilitato nella finestra di dialogo Imposta pagina di stampa"
+    },
+    "copies": {
+        "message": "Copie"
+    },
+    "custom": {
+        "message": "Costume"
+    },
+    "custom_date_format": {
+        "message": "Formato data personalizzato"
+    },
+    "date.label": {
+        "message": "Formato della data:"
+    },
+    "date_custom.label": {
+        "message": "Costume"
+    },
+    "debugOptions.label": {
+        "message": "Opzioni di debug"
+    },
+    "defaultPrinter": {
+        "message": "Stampante predefinita"
+    },
+    "down": {
+        "message": "Giù"
+    },
+    "enable_pdfdir": {
+        "message": "Abilita directory di output PDF"
+    },
+    "extensionDescription": {
+        "message": "Stampa di messaggi, intestazioni e strumenti di output PDF (Nextgen)"
+    },
+    "extensionName": {
+        "message": "Strumenti di stampa NG"
+    },
+    "filename_format": {
+        "message": "Formato nome file"
+    },
+    "filter_characters": {
+        "message": "Filtra caratteri"
+    },
+    "fitToWidth": {
+        "message": "Adatta alla larghezza"
+    },
+    "footers": {
+        "message": "Piè di pagina"
+    },
+    "forBody": {
+        "message": "per l'intero messaggio"
+    },
+    "forHeaders": {
+        "message": "solo per le intestazioni"
+    },
+    "headers": {
+        "message": "Intestazioni"
+    },
+    "headers_order": {
+        "message": "Ordine delle intestazioni"
+    },
+    "images": {
+        "message": "immagini"
+    },
+    "latinize": {
+        "message": "Latinizza soggetto e nomi"
+    },
+    "left": {
+        "message": "Sinistra"
+    },
+    "long.label": {
+        "message": "lungo UTC"
+    },
+    "longLoc.label": {
+        "message": "lungo e localizzato"
+    },
+    "margins": {
+        "message": "Margini"
+    },
+    "maxPreLen": {
+        "message": "Lunghezza massima delle righe di testo:"
+    },
+    "messageBody": {
+        "message": "corpo del messaggio"
+    },
+    "misc": {
+        "message": "Varie"
+    },
+    "multipleCards.label": {
+        "message": "Stampa tutti i contatti selezionati"
+    },
+    "order": {
+        "message": "Ordine intestazioni"
+    },
+    "otherHeaders": {
+        "message": "Seguono le altre eventuali intestazioni"
+    },
+    "output_dir": {
+        "message": "Cartella di destinazione"
+    },
+    "page_headers": {
+        "message": "Intestazioni"
+    },
+    "page_options": {
+        "message": "Opzioni pagina"
+    },
+    "page_ranges": {
+        "message": "Intervalli di pagine"
+    },
+    "pdf_file_naming": {
+        "message": "Denominazione file PDF"
+    },
+    "pdf_output": {
+        "message": "Uscita PDF"
+    },
+    "persistent": {
+        "message": "Persistente"
+    },
+    "prefix": {
+        "message": "Prefisso"
+    },
+    "print.label": {
+        "message": "Stampa"
+    },
+    "printLabel": {
+        "message": "Stampa"
+    },
+    "printPreview.label": {
+        "message": "Anteprima di stampa"
+    },
+    "print_and_pageoptions": {
+        "message": "Opzioni di stampa e pagina"
+    },
+    "ptng.label": {
+        "message": "Strumenti di stampa NG"
+    },
+    "ptngOptions.label": {
+        "message": "Opzioni di stampa NG"
+    },
+    "remove_emojis": {
+        "message": "Rimuovi emoji e simboli Unicode"
+    },
+    "resizeImgs.label": {
+        "message": "Ridimensiona le immagini troppo grandi"
+    },
+    "right": {
+        "message": "Destra"
+    },
+    "short.label": {
+        "message": "corto"
+    },
+    "showButton.label": {
+        "message": "Mostra il pulsante delle opzioni nell'anteprima di stampa"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Mostra la firma e i file vcf"
+    },
+    "showhide": {
+        "message": "Mostra o nascondi"
+    },
+    "style": {
+        "message": "Stile"
+    },
+    "suffix": {
+        "message": "Suffisso"
+    },
+    "top": {
+        "message": "Superiore"
+    },
+    "up": {
+        "message": "Su"
+    },
+    "useCcBccAlways": {
+        "message": "Utilizza le abbreviazioni &quot;Cc&quot; e &quot;Bcc&quot; per tutte le lingue"
+    },
+    "useHeadersBkColor": {
+        "message": "Usa il colore di sfondo dell&#39;intestazione:"
+    },
+    "withSize": {
+        "message": "con dimensione "
+    },
+    "wrap": {
+        "message": "Avvolgere"
+    }
 }

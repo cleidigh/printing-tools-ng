@@ -1,13 +1,335 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-	"extensionDescription": {
-		"message": "Outils pour l’impression des messages et l’enregistrement en PDF."
-	},
-
-	"printLabel": {
-		"message": "Imprimer"
-	}
-
+    "Help": {
+        "message": "Aide"
+    },
+    "HideInlineAttList": {
+        "message": "Ne pas afficher la liste des pièces jointes"
+    },
+    "PMDcaptionlabel": {
+        "message": "Impression des messages"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Options globales"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Impression du carnet d’adresses"
+    },
+    "PMDlabel1": {
+        "message": "Activer la localisation de la date"
+    },
+    "PMDlabel10": {
+        "message": "Masquer les pièces jointes en ligne"
+    },
+    "PMDlabel11": {
+        "message": "Ajouter le nom de l’utilisateur aux en-têtes"
+    },
+    "PMDlabel12": {
+        "message": "Utiliser la police"
+    },
+    "PMDlabel13": {
+        "message": "Masquer l'en-tête de contact (« Fiche de »)"
+    },
+    "PMDlabel14": {
+        "message": "N’insérer que le nom et les adresses électroniques"
+    },
+    "PMDlabel15": {
+        "message": "Utiliser la disposition compacte"
+    },
+    "PMDlabel16": {
+        "message": "N’imprimer que la sélection quand elle existe"
+    },
+    "PMDlabel17": {
+        "message": "Ajouter l’icône du type de fichier"
+    },
+    "PMDlabel18": {
+        "message": "Utiliser la police"
+    },
+    "PMDlabel19": {
+        "message": "Limiter le champ « Notes » à 100 caractères"
+    },
+    "PMDlabel2": {
+        "message": "Afficher une vue personnalisée de la liste des pièces jointes"
+    },
+    "PMDlabel20": {
+        "message": "Ajouter le nom et la date du carnet d’adresses"
+    },
+    "PMDlabel21": {
+        "message": "Toujours masquer les en-têtes étendus"
+    },
+    "PMDlabel22": {
+        "message": "Ajouter des pièces jointes p7m et vCard"
+    },
+    "PMDlabel23": {
+        "message": "Ajouter le nom du dossier"
+    },
+    "PMDlabel24": {
+        "message": "Date avec format long"
+    },
+    "PMDlabel25": {
+        "message": "Utiliser le noir comme couleur de base pour le texte"
+    },
+    "PMDlabel3": {
+        "message": "Entourer le bloc d’en-têtes d’une bordure"
+    },
+    "PMDlabel4": {
+        "message": "Masquer les en-têtes"
+    },
+    "PMDlabel5": {
+        "message": "Tronquer les lignes d’en-têtes de plus de"
+    },
+    "PMDlabel6": {
+        "message": "caractères"
+    },
+    "PMDlabel7": {
+        "message": "Masquer les images"
+    },
+    "PMDlabel8": {
+        "message": "Imprimer ou enregistrer sans fenêtre de dialogue"
+    },
+    "PMDlabel9": {
+        "message": "Masquer la barre de progression de l’impression"
+    },
+    "PMDmenuitem": {
+        "message": "Options d’impression"
+    },
+    "RG1.label": {
+        "message": "Rien"
+    },
+    "RG2.label": {
+        "message": "Nom de l’utilisateur"
+    },
+    "Scale": {
+        "message": "Échelle"
+    },
+    "addNameRG.label": {
+        "message": "Titre avant les en-têtes"
+    },
+    "addRdate.label": {
+        "message": "Ajouter la date de réception"
+    },
+    "advancedOptions.label": {
+        "message": "Options avancées"
+    },
+    "alignHeaders.label": {
+        "message": "Aligner les en-têtes"
+    },
+    "all": {
+        "message": "Toutes"
+    },
+    "attachments": {
+        "message": "Pièces jointes"
+    },
+    "attachmentsPerLine": {
+        "message": "Nombre de pièces jointes par ligne :"
+    },
+    "body": {
+        "message": "Message"
+    },
+    "borderStyle": {
+        "message": "Style de la bordure :"
+    },
+    "bottom": {
+        "message": "Bas de page :"
+    },
+    "browse": {
+        "message": "Parcourir…"
+    },
+    "cancel": {
+        "message": "Annuler"
+    },
+    "center": {
+        "message": "Centre :"
+    },
+    "cite.checkbox": {
+        "message": "Utiliser pour les citations"
+    },
+    "cite.color": {
+        "message": " la couleur"
+    },
+    "cite.size": {
+        "message": "et la taille"
+    },
+    "colorsNote": {
+        "message": "L’option « Imprimer les arrière-plans » doit être cochée dans le dialogue d’impression."
+    },
+    "copies": {
+        "message": "Copies"
+    },
+    "custom": {
+        "message": "Personnalisé :"
+    },
+    "custom_date_format": {
+        "message": "Format personnalisé de la date :"
+    },
+    "date.label": {
+        "message": "Format de la date"
+    },
+    "date_custom.label": {
+        "message": "Personnalisé :"
+    },
+    "debugOptions.label": {
+        "message": "Options de débogage "
+    },
+    "defaultPrinter": {
+        "message": "Destination"
+    },
+    "down": {
+        "message": "Déplacer vers le bas"
+    },
+    "enable_pdfdir": {
+        "message": "Enregistrer automatiquement les fichiers dans un dossier prédéfini"
+    },
+    "extensionDescription": {
+        "message": "Outils pour l’impression des messages et l’enregistrement en PDF."
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Format du nom des fichiers :"
+    },
+    "filter_characters": {
+        "message": "Filtrer les caractères :"
+    },
+    "fitToWidth": {
+        "message": "Ajuster à la largeur de la page"
+    },
+    "footers": {
+        "message": "Pieds de page"
+    },
+    "forBody": {
+        "message": "pour le corps du message"
+    },
+    "forHeaders": {
+        "message": "uniquement pour les en-têtes"
+    },
+    "headers": {
+        "message": "En-têtes"
+    },
+    "headers_order": {
+        "message": "Organisation"
+    },
+    "images": {
+        "message": "Images"
+    },
+    "latinize": {
+        "message": "Latiniser le sujet et les noms"
+    },
+    "left": {
+        "message": "Gauche :"
+    },
+    "long.label": {
+        "message": "Long UTC"
+    },
+    "longLoc.label": {
+        "message": "Long localisé"
+    },
+    "margins": {
+        "message": "Marges"
+    },
+    "maxPreLen": {
+        "message": "Limiter la largeur du texte à"
+    },
+    "messageBody": {
+        "message": "Corps"
+    },
+    "misc": {
+        "message": "Divers"
+    },
+    "multipleCards.label": {
+        "message": "Imprimer tous les contacts sélectionnés"
+    },
+    "order": {
+        "message": "Ordre des en-têtes"
+    },
+    "otherHeaders": {
+        "message": "Les autres en-têtes, s’ils existent, viennent à la suite."
+    },
+    "output_dir": {
+        "message": "Dossier de destination :"
+    },
+    "page_headers": {
+        "message": "En-têtes"
+    },
+    "page_options": {
+        "message": "Mise en page"
+    },
+    "page_ranges": {
+        "message": "Pages"
+    },
+    "pdf_file_naming": {
+        "message": "Désignation automatique des fichiers PDF"
+    },
+    "pdf_output": {
+        "message": "Enregistrement PDF"
+    },
+    "persistent": {
+        "message": "Persistant"
+    },
+    "prefix": {
+        "message": "Préfixe :"
+    },
+    "print.label": {
+        "message": "Imprimer"
+    },
+    "printLabel": {
+        "message": "Imprimer"
+    },
+    "printPreview.label": {
+        "message": "Aperçu avant impression"
+    },
+    "print_and_pageoptions": {
+        "message": "Impression"
+    },
+    "ptng.label": {
+        "message": "PrintingTools NG"
+    },
+    "ptngOptions.label": {
+        "message": "Options d’impression"
+    },
+    "remove_emojis": {
+        "message": "Supprimer les émoticônes et symboles Unicode"
+    },
+    "resizeImgs.label": {
+        "message": "Redimensionner les images trop grandes"
+    },
+    "right": {
+        "message": "Droite :"
+    },
+    "short.label": {
+        "message": "Court"
+    },
+    "showButton.label": {
+        "message": "Afficher le bouton des optionsdans la fenêtre d’aperçu"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Afficher les fichiers de signature et vcf"
+    },
+    "showhide": {
+        "message": "Afficher ou masquer"
+    },
+    "style": {
+        "message": "Style"
+    },
+    "suffix": {
+        "message": "Suffixe :"
+    },
+    "top": {
+        "message": "Haut de page :"
+    },
+    "up": {
+        "message": "Déplacer vers le haut"
+    },
+    "useCcBccAlways": {
+        "message": "Utiliser les abréviations « Cc » et « Bcc » quelle que soit la langue"
+    },
+    "useHeadersBkColor": {
+        "message": "Colorer l’arrière-plan des en-têtes en"
+    },
+    "withSize": {
+        "message": "de taille"
+    },
+    "wrap": {
+        "message": "auto"
+    }
 }

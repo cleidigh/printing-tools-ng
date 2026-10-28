@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Εργαλεία εκτύπωσης μηνυμάτων, κεφαλίδων και εξόδου PDF (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Τυπώνω"
-	}
-
+    "Help": {
+        "message": "Βοήθεια"
+    },
+    "HideInlineAttList": {
+        "message": "Απόκρυψη ενσωματωμένης λίστας συνημμένων"
+    },
+    "PMDcaptionlabel": {
+        "message": "Επιλογές για εκτύπωση μηνυμάτων"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Καθολικές επιλογές εκτύπωσης"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Επιλογές για εκτύπωση βιβλίου διευθύνσεων"
+    },
+    "PMDlabel1": {
+        "message": "Ενεργοποίηση εντοπισμού ημερομηνίας"
+    },
+    "PMDlabel10": {
+        "message": "Απόκρυψη ενσωματωμένων συνημμένων"
+    },
+    "PMDlabel11": {
+        "message": "Προσθήκη του ονόματος χρήστη στις κεφαλίδες"
+    },
+    "PMDlabel12": {
+        "message": "Χρήση γραμματοσειρών με μέγεθος σε pixel"
+    },
+    "PMDlabel13": {
+        "message": "Απόκρυψη της κεφαλίδας επαφής («Κάρτα για»)"
+    },
+    "PMDlabel14": {
+        "message": "Εισαγωγή απλώς ονόματος και διεύθυνσης email"
+    },
+    "PMDlabel15": {
+        "message": "Χρήση συμπαγούς διάταξης"
+    },
+    "PMDlabel16": {
+        "message": "Εκτύπωση μόνο επιλογής, όταν υπάρχει"
+    },
+    "PMDlabel17": {
+        "message": "Προσθήκη εικονιδίου τύπου αρχείου"
+    },
+    "PMDlabel18": {
+        "message": "Χρήση γραμματοσειράς:"
+    },
+    "PMDlabel19": {
+        "message": "Περιορισμός του πεδίου «Σημειώσεις» στους 100 χαρακτήρες"
+    },
+    "PMDlabel2": {
+        "message": "Ενεργοποίηση προσαρμοσμένης προβολής της λίστας συνημμένων"
+    },
+    "PMDlabel20": {
+        "message": "Προσθήκη ονόματος και ημερομηνίας του βιβλίου διευθύνσεων"
+    },
+    "PMDlabel21": {
+        "message": "Απόκρυψη πάντα εκτεταμένων κεφαλίδων"
+    },
+    "PMDlabel22": {
+        "message": "Προσθήκη συνημμένων p7m και vCard"
+    },
+    "PMDlabel23": {
+        "message": "Προσθήκη ονόματος φακέλου"
+    },
+    "PMDlabel25": {
+        "message": "Χρήση του μαύρου ως βασικού χρώματος για το κείμενο"
+    },
+    "PMDlabel3": {
+        "message": "Ορισμός περιγράμματος γύρω από τις κεφαλίδες"
+    },
+    "PMDlabel4": {
+        "message": "Απόκρυψη των κεφαλίδων"
+    },
+    "PMDlabel5": {
+        "message": "Περικοπή των γραμμών των κεφαλίδων περισσότερο από περίπου"
+    },
+    "PMDlabel6": {
+        "message": "χαρακτήρες"
+    },
+    "PMDlabel7": {
+        "message": "Απόκρυψη των εικόνων"
+    },
+    "PMDlabel8": {
+        "message": "Εκτύπωση χωρίς το παράθυρο διαλόγου"
+    },
+    "PMDlabel9": {
+        "message": "Απόκρυψη της γραμμής προόδου εκτύπωσης"
+    },
+    "PMDmenuitem": {
+        "message": "Επιλογές εκτύπωσης"
+    },
+    "RG1.label": {
+        "message": "Τίποτα"
+    },
+    "RG2.label": {
+        "message": "Ονομα χρήστη"
+    },
+    "Scale": {
+        "message": "Κλίμακα"
+    },
+    "addNameRG.label": {
+        "message": "Προσθήκη πριν από τις κεφαλίδες:"
+    },
+    "addRdate.label": {
+        "message": "Προσθήκη ημερομηνίας λήψης"
+    },
+    "advancedOptions.label": {
+        "message": "Προχωρημένες επιλογές"
+    },
+    "alignHeaders.label": {
+        "message": "Ευθυγράμμιση των επικεφαλίδων"
+    },
+    "all": {
+        "message": "Όλες"
+    },
+    "attachments": {
+        "message": "Συνημμένα"
+    },
+    "attachmentsPerLine": {
+        "message": "Συνημμένα ανά γραμμή:"
+    },
+    "body": {
+        "message": "Σώμα"
+    },
+    "borderStyle": {
+        "message": "Στυλ περιγράμματος:"
+    },
+    "bottom": {
+        "message": "Κάτω"
+    },
+    "browse": {
+        "message": "Αναζήτηση"
+    },
+    "cancel": {
+        "message": "Άκυρο"
+    },
+    "center": {
+        "message": "Κέντρο"
+    },
+    "cite.checkbox": {
+        "message": "Χρήση ενός στυλ για κείμενο σε εισαγωγικά"
+    },
+    "cite.color": {
+        "message": "Χρώμα:"
+    },
+    "cite.size": {
+        "message": "Μέγεθος:"
+    },
+    "colorsNote": {
+        "message": "Σημείωση: Το &quot;Εικόνες και χρώματα&quot; πρέπει να είναι ενεργοποιημένο στο παράθυρο διαλόγου Εκτύπωση σελίδας"
+    },
+    "copies": {
+        "message": "Αντίγραφα"
+    },
+    "custom": {
+        "message": "Προσαρμοσμένο"
+    },
+    "custom_date_format": {
+        "message": "Προσαρμοσμένη μορφή ημερομηνίας"
+    },
+    "date.label": {
+        "message": "Μορφή ημερομηνίας:"
+    },
+    "date_custom.label": {
+        "message": "Προσαρμοσμένη"
+    },
+    "debugOptions.label": {
+        "message": "Επιλογές εντοπισμού σφαλμάτων"
+    },
+    "defaultPrinter": {
+        "message": "Προεπιλεγμένος εκτυπωτής"
+    },
+    "down": {
+        "message": "Κάτω"
+    },
+    "enable_pdfdir": {
+        "message": "Ενεργοποίηση φακέλου εξαγωγής PDF"
+    },
+    "extensionDescription": {
+        "message": "Εργαλεία εκτύπωσης μηνυμάτων, κεφαλίδων και εξόδου PDF (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Μορφή ονόματος αρχείων"
+    },
+    "filter_characters": {
+        "message": "Φιλτράρισμα χαρακτήρων"
+    },
+    "fitToWidth": {
+        "message": "Προσαρμογή στο πλάτος"
+    },
+    "footers": {
+        "message": "Υποσέλιδα"
+    },
+    "forBody": {
+        "message": "Σώμα Μηνύματος"
+    },
+    "forHeaders": {
+        "message": "μόνο για κεφαλίδες"
+    },
+    "headers": {
+        "message": "Κεφαλίδες"
+    },
+    "headers_order": {
+        "message": "Σειρά κεφαλίδων"
+    },
+    "images": {
+        "message": "Εικόνες"
+    },
+    "latinize": {
+        "message": "Λατινοποίηση θεμάτων και ονομάτων"
+    },
+    "left": {
+        "message": "Αριστερά"
+    },
+    "long.label": {
+        "message": "Μεγάλη UTC"
+    },
+    "longLoc.label": {
+        "message": "Μακρά και εντοπισμένη"
+    },
+    "margins": {
+        "message": "Περιθώρια"
+    },
+    "maxPreLen": {
+        "message": "Μέγιστο πλάτος για κείμενο:"
+    },
+    "messageBody": {
+        "message": "Σώμα μηνύματος"
+    },
+    "misc": {
+        "message": "Διάφορα"
+    },
+    "multipleCards.label": {
+        "message": "Εκτύπωση όλων των επιλεγμένων επαφών"
+    },
+    "order": {
+        "message": "Σειρά κεφαλίδων"
+    },
+    "otherHeaders": {
+        "message": "Ακολουθούν άλλες επικεφαλίδες, εάν υπάρχουν"
+    },
+    "output_dir": {
+        "message": "Φάκελος εξαγωγής"
+    },
+    "page_headers": {
+        "message": "Κεφαλίδες"
+    },
+    "page_options": {
+        "message": "Επιλογές σελίδας"
+    },
+    "page_ranges": {
+        "message": "Εύρος σελίδων"
+    },
+    "pdf_file_naming": {
+        "message": "Ονομασία αρχείων PDF"
+    },
+    "pdf_output": {
+        "message": "Έξοδος PDF"
+    },
+    "persistent": {
+        "message": "Επίμονος"
+    },
+    "prefix": {
+        "message": "Πρόθεμα"
+    },
+    "print.label": {
+        "message": "Εκτύπωση"
+    },
+    "printLabel": {
+        "message": "Τυπώνω"
+    },
+    "printPreview.label": {
+        "message": "Προεπισκόπηση εκτύπωσης"
+    },
+    "print_and_pageoptions": {
+        "message": "Επιλογές εκτύπωσης και σελίδας"
+    },
+    "ptng.label": {
+        "message": "Εργαλεία εκτύπωσης NG"
+    },
+    "ptngOptions.label": {
+        "message": "Επιλογές εργαλείων εκτύπωσης NG"
+    },
+    "remove_emojis": {
+        "message": "Αφαίρεση Unicode Emojis και συμβόλων"
+    },
+    "resizeImgs.label": {
+        "message": "Αλλαγή του μεγέθους των πολύ μεγάλων εικόνων"
+    },
+    "right": {
+        "message": "Δεξιά"
+    },
+    "short.label": {
+        "message": "Σύντομη"
+    },
+    "showButton.label": {
+        "message": "Εμφάνιση του κουμπιού επιλογών στο παράθυρο προεπισκόπησης"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Εμφάνιση αρχείων υπογραφής και vcf"
+    },
+    "showhide": {
+        "message": "Εμφάνιση / Απόκρυψη"
+    },
+    "style": {
+        "message": "Στυλ"
+    },
+    "suffix": {
+        "message": "Κατάληξη"
+    },
+    "top": {
+        "message": "Επάνω"
+    },
+    "up": {
+        "message": "Πάνω"
+    },
+    "useCcBccAlways": {
+        "message": "Χρήση των συντομογραφιών &quot;Cc&quot; και &quot;Bcc&quot; για όλες τις τοπικές ρυθμίσεις"
+    },
+    "useHeadersBkColor": {
+        "message": "Χρήση χρώματος φόντου κεφαλίδας:"
+    },
+    "withSize": {
+        "message": "με μέγεθος"
+    },
+    "wrap": {
+        "message": "Αναδίπλωση"
+    }
 }

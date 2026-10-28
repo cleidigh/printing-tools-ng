@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Meldingsutskrift, topptekster og PDF-utdataverktøy (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Skrive ut"
-	}
-
+    "Help": {
+        "message": "Hjelp"
+    },
+    "HideInlineAttList": {
+        "message": "Skjul innebygd vedleggsliste"
+    },
+    "PMDcaptionlabel": {
+        "message": "Alternativer for utskrift av meldinger"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Globale utskriftsalternativer"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Alternativer for utskrift av adressebøker"
+    },
+    "PMDlabel1": {
+        "message": "Aktiver datalokalisering"
+    },
+    "PMDlabel10": {
+        "message": "Skjul inline vedlegg"
+    },
+    "PMDlabel11": {
+        "message": "Legg til brukernavnet til overskriftene"
+    },
+    "PMDlabel12": {
+        "message": "Bruk skrifter med en størrelse i piksel på"
+    },
+    "PMDlabel13": {
+        "message": "Skjul kontaktoverskriften (&#39;Kort for&#39;)"
+    },
+    "PMDlabel14": {
+        "message": "Sett inn bare navn og e-postadresser"
+    },
+    "PMDlabel15": {
+        "message": "Bruk kompakt layout"
+    },
+    "PMDlabel16": {
+        "message": "Skriv ut bare valg når det eksisterer"
+    },
+    "PMDlabel17": {
+        "message": "Legg til et filtypeikon"
+    },
+    "PMDlabel18": {
+        "message": "Bruk font:"
+    },
+    "PMDlabel19": {
+        "message": "Klipp av feltet &#39;Merknader&#39; med 100 tegn"
+    },
+    "PMDlabel2": {
+        "message": "Aktiver tilpasset visning av vedleggslisten"
+    },
+    "PMDlabel20": {
+        "message": "Legg til adresseboknavn og dato"
+    },
+    "PMDlabel21": {
+        "message": "Skjul alltid utvidede overskrifter"
+    },
+    "PMDlabel22": {
+        "message": "Legg til p7m- og vCard-vedlegg"
+    },
+    "PMDlabel23": {
+        "message": "Legg til mappenavn"
+    },
+    "PMDlabel25": {
+        "message": "Bruk svart som grunnfarge for tekst"
+    },
+    "PMDlabel3": {
+        "message": "Sett en kant rundt topptekstene"
+    },
+    "PMDlabel4": {
+        "message": "Skjul overskriftene"
+    },
+    "PMDlabel5": {
+        "message": "Avkort overskriftslinjene lenger enn omtrent"
+    },
+    "PMDlabel6": {
+        "message": "chars."
+    },
+    "PMDlabel7": {
+        "message": "Skjul bildene"
+    },
+    "PMDlabel8": {
+        "message": "Skriv ut uten dialogvinduet"
+    },
+    "PMDlabel9": {
+        "message": "Skjul fremdriftslinjen for utskrift"
+    },
+    "PMDmenuitem": {
+        "message": "Utskriftsalternativer"
+    },
+    "RG1.label": {
+        "message": "Ingenting"
+    },
+    "RG2.label": {
+        "message": "Brukernavn"
+    },
+    "Scale": {
+        "message": "Skala"
+    },
+    "addNameRG.label": {
+        "message": "Legg til før overskrifter:"
+    },
+    "addRdate.label": {
+        "message": "Legg til mottatt dato"
+    },
+    "advancedOptions.label": {
+        "message": "Avanserte alternativer"
+    },
+    "alignHeaders.label": {
+        "message": "Juster topptekstene"
+    },
+    "all": {
+        "message": "Alle"
+    },
+    "attachments": {
+        "message": "Vedlegg"
+    },
+    "attachmentsPerLine": {
+        "message": "Vedlegg per linje:"
+    },
+    "body": {
+        "message": "Kropp"
+    },
+    "borderStyle": {
+        "message": "Grensestil:"
+    },
+    "bottom": {
+        "message": "Bunn"
+    },
+    "browse": {
+        "message": "Bla gjennom"
+    },
+    "cancel": {
+        "message": "Avbryt"
+    },
+    "center": {
+        "message": "Senter"
+    },
+    "cite.checkbox": {
+        "message": "Bruk en stil for sitert tekst"
+    },
+    "cite.color": {
+        "message": "Farge:"
+    },
+    "cite.size": {
+        "message": "Størrelse:"
+    },
+    "colorsNote": {
+        "message": "Merk: &#39;Bilder og farger&#39; må aktiveres i dialogboksen Utskriftsformat"
+    },
+    "copies": {
+        "message": "Kopier"
+    },
+    "custom": {
+        "message": "Tilpasset"
+    },
+    "custom_date_format": {
+        "message": "Egendefinert datoformat"
+    },
+    "date.label": {
+        "message": "Datoformat:"
+    },
+    "date_custom.label": {
+        "message": "Tilpasset"
+    },
+    "debugOptions.label": {
+        "message": "Feilsøkingsalternativer"
+    },
+    "defaultPrinter": {
+        "message": "Standardskriver"
+    },
+    "down": {
+        "message": "Ned"
+    },
+    "enable_pdfdir": {
+        "message": "Aktiver PDF-utdatakatalog"
+    },
+    "extensionDescription": {
+        "message": "Meldingsutskrift, topptekster og PDF-utdataverktøy (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Filnavnformat"
+    },
+    "filter_characters": {
+        "message": "Filtrer tegn"
+    },
+    "fitToWidth": {
+        "message": "Tilpass til bredde"
+    },
+    "footers": {
+        "message": "Bunntekster"
+    },
+    "forBody": {
+        "message": "for kroppsmelding"
+    },
+    "forHeaders": {
+        "message": "bare for overskrifter"
+    },
+    "headers": {
+        "message": "overskrifter"
+    },
+    "headers_order": {
+        "message": "Overskrifter rekkefølge"
+    },
+    "images": {
+        "message": "Bilder"
+    },
+    "latinize": {
+        "message": "Latiniser emne og navn"
+    },
+    "left": {
+        "message": "Venstre"
+    },
+    "long.label": {
+        "message": "lang UTC"
+    },
+    "longLoc.label": {
+        "message": "lang og lokalisert"
+    },
+    "margins": {
+        "message": "Marginer"
+    },
+    "maxPreLen": {
+        "message": "Maksimal bredde for tekst:"
+    },
+    "messageBody": {
+        "message": "Meldingstekst"
+    },
+    "misc": {
+        "message": "Diverse"
+    },
+    "multipleCards.label": {
+        "message": "Skriv ut alle valgte kontakter"
+    },
+    "order": {
+        "message": "Topptekster bestiller"
+    },
+    "otherHeaders": {
+        "message": "Andre overskrifter, hvis tilstede, følger"
+    },
+    "output_dir": {
+        "message": "Utdatakatalog"
+    },
+    "page_headers": {
+        "message": "Overskrifter"
+    },
+    "page_options": {
+        "message": "Sidealternativer"
+    },
+    "page_ranges": {
+        "message": "Sideområder"
+    },
+    "pdf_file_naming": {
+        "message": "Navngivning av PDF-filer"
+    },
+    "pdf_output": {
+        "message": "PDF-utgang"
+    },
+    "persistent": {
+        "message": "Vedvarende"
+    },
+    "prefix": {
+        "message": "Prefiks"
+    },
+    "print.label": {
+        "message": "Skrive ut"
+    },
+    "printLabel": {
+        "message": "Skrive ut"
+    },
+    "printPreview.label": {
+        "message": "Forhåndsvisning"
+    },
+    "print_and_pageoptions": {
+        "message": "Utskrifts- og sidealternativer"
+    },
+    "ptng.label": {
+        "message": "Utskriftsverktøy NG"
+    },
+    "ptngOptions.label": {
+        "message": "UTSKRIFTSVERKTØY AV ALTERNATIVER"
+    },
+    "remove_emojis": {
+        "message": "Fjern Unicode-emojier og symboler"
+    },
+    "resizeImgs.label": {
+        "message": "Endre størrelse på bildene"
+    },
+    "right": {
+        "message": "Ikke sant"
+    },
+    "short.label": {
+        "message": "kort"
+    },
+    "showButton.label": {
+        "message": "Vis alternativknappen i forhåndsvisningsvinduet"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Vis signatur- og vcf-filer"
+    },
+    "showhide": {
+        "message": "Vis eller skjul"
+    },
+    "style": {
+        "message": "Stil"
+    },
+    "suffix": {
+        "message": "Suffiks"
+    },
+    "top": {
+        "message": "Topp"
+    },
+    "up": {
+        "message": "Opp"
+    },
+    "useCcBccAlways": {
+        "message": "Bruk &#39;Cc&#39; og &#39;Bcc&#39; forkortelser for alle språk"
+    },
+    "useHeadersBkColor": {
+        "message": "Bruk topptekstens bakgrunnsfarge:"
+    },
+    "withSize": {
+        "message": "med størrelse"
+    },
+    "wrap": {
+        "message": "Pakke inn"
+    }
 }

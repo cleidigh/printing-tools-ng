@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "打印工具 NG"
-	},
-
-	"extensionDescription": {
-		"message": "消息打印、标题和 PDF 输出工具 (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "打印"
-	}
-
+    "Help": {
+        "message": "說明"
+    },
+    "HideInlineAttList": {
+        "message": "隱藏內文附件列表"
+    },
+    "PMDcaptionlabel": {
+        "message": "內文列印選項"
+    },
+    "PMDcaptionlabel2": {
+        "message": "全域列印選項"
+    },
+    "PMDcaptionlabel3": {
+        "message": "通訊錄列印選項"
+    },
+    "PMDlabel1": {
+        "message": "使用當地日期"
+    },
+    "PMDlabel10": {
+        "message": "隱藏內文附件"
+    },
+    "PMDlabel11": {
+        "message": "標題前新增使用者名稱"
+    },
+    "PMDlabel12": {
+        "message": "字形與字體大小設定"
+    },
+    "PMDlabel13": {
+        "message": "隱藏聯絡資訊標籤"
+    },
+    "PMDlabel14": {
+        "message": "指插入姓名及電子郵件地址"
+    },
+    "PMDlabel15": {
+        "message": "精簡版面"
+    },
+    "PMDlabel16": {
+        "message": "列印選取項目(若選項存在)"
+    },
+    "PMDlabel17": {
+        "message": "新增檔案圖示"
+    },
+    "PMDlabel18": {
+        "message": "字體："
+    },
+    "PMDlabel19": {
+        "message": "將'備註'欄限制為 100 字元"
+    },
+    "PMDlabel2": {
+        "message": "使用自訂附件列表圖示"
+    },
+    "PMDlabel20": {
+        "message": "新增聯絡人與日期"
+    },
+    "PMDlabel21": {
+        "message": "隱藏完整標題資訊"
+    },
+    "PMDlabel22": {
+        "message": "加入數位簽章(p7m)和電子名片(vCard)"
+    },
+    "PMDlabel23": {
+        "message": "加入文件夾名稱"
+    },
+    "PMDlabel25": {
+        "message": "使用黑色背景"
+    },
+    "PMDlabel3": {
+        "message": "設定標題邊框"
+    },
+    "PMDlabel4": {
+        "message": "隱藏標題"
+    },
+    "PMDlabel5": {
+        "message": "省略標題約"
+    },
+    "PMDlabel6": {
+        "message": "字元"
+    },
+    "PMDlabel7": {
+        "message": "隱藏圖示"
+    },
+    "PMDlabel8": {
+        "message": "快速列印模式"
+    },
+    "PMDlabel9": {
+        "message": "隱藏列印進度條"
+    },
+    "PMDmenuitem": {
+        "message": "列印選項"
+    },
+    "RG1.label": {
+        "message": "無"
+    },
+    "RG2.label": {
+        "message": "使用者名稱"
+    },
+    "Scale": {
+        "message": "縮放"
+    },
+    "addNameRG.label": {
+        "message": "在標題之前新增："
+    },
+    "addRdate.label": {
+        "message": "新增接收日期"
+    },
+    "advancedOptions.label": {
+        "message": "進階選項"
+    },
+    "alignHeaders.label": {
+        "message": "對齊標題欄位"
+    },
+    "all": {
+        "message": "全部"
+    },
+    "attachments": {
+        "message": "附件"
+    },
+    "attachmentsPerLine": {
+        "message": "每行附件顯示數量："
+    },
+    "body": {
+        "message": "內文"
+    },
+    "borderStyle": {
+        "message": "邊框樣式："
+    },
+    "bottom": {
+        "message": "下"
+    },
+    "browse": {
+        "message": "瀏覽"
+    },
+    "cancel": {
+        "message": "取消"
+    },
+    "center": {
+        "message": "中間"
+    },
+    "cite.checkbox": {
+        "message": "對引言文字套用樣式"
+    },
+    "cite.color": {
+        "message": "顏色："
+    },
+    "cite.size": {
+        "message": "尺寸："
+    },
+    "colorsNote": {
+        "message": "注意：請在列印對話框中啟用'列印背景'"
+    },
+    "copies": {
+        "message": "份數"
+    },
+    "custom": {
+        "message": "自訂"
+    },
+    "custom_date_format": {
+        "message": "自訂日期格式"
+    },
+    "date.label": {
+        "message": "日期格式："
+    },
+    "date_custom.label": {
+        "message": "自訂"
+    },
+    "debugOptions.label": {
+        "message": "除錯選項"
+    },
+    "defaultPrinter": {
+        "message": "預設印表機"
+    },
+    "down": {
+        "message": "往下"
+    },
+    "enable_pdfdir": {
+        "message": "PDF 匯出資料夾"
+    },
+    "extensionDescription": {
+        "message": "消息打印、标题和 PDF 输出工具 (Nextgen)"
+    },
+    "extensionName": {
+        "message": "打印工具 NG"
+    },
+    "filename_format": {
+        "message": "文件名稱格式"
+    },
+    "filter_characters": {
+        "message": "篩選特殊字元"
+    },
+    "fitToWidth": {
+        "message": "符合頁面寬度"
+    },
+    "footers": {
+        "message": "頁尾"
+    },
+    "forBody": {
+        "message": "內文"
+    },
+    "forHeaders": {
+        "message": "標題"
+    },
+    "headers": {
+        "message": "標題"
+    },
+    "headers_order": {
+        "message": "標題順序"
+    },
+    "images": {
+        "message": "圖片"
+    },
+    "latinize": {
+        "message": "將主旨與姓名轉為英文/羅馬拼音"
+    },
+    "left": {
+        "message": "左"
+    },
+    "long.label": {
+        "message": "完整 UTC 時間格式"
+    },
+    "longLoc.label": {
+        "message": "顯示完整時間格式"
+    },
+    "margins": {
+        "message": "邊界"
+    },
+    "maxPreLen": {
+        "message": "文字最大寬度："
+    },
+    "messageBody": {
+        "message": "郵件內文"
+    },
+    "misc": {
+        "message": "其他選項"
+    },
+    "multipleCards.label": {
+        "message": "列印選擇的聯絡人"
+    },
+    "order": {
+        "message": "標題順序"
+    },
+    "otherHeaders": {
+        "message": "其他標題"
+    },
+    "output_dir": {
+        "message": "匯出資料夾"
+    },
+    "page_headers": {
+        "message": "頁首"
+    },
+    "page_options": {
+        "message": "版面設定"
+    },
+    "page_ranges": {
+        "message": "列印範圍"
+    },
+    "pdf_file_naming": {
+        "message": "PDF文件名稱"
+    },
+    "pdf_output": {
+        "message": "PDF匯出設定"
+    },
+    "persistent": {
+        "message": "設為預設"
+    },
+    "prefix": {
+        "message": "前綴"
+    },
+    "print.label": {
+        "message": "列印"
+    },
+    "printLabel": {
+        "message": "打印"
+    },
+    "printPreview.label": {
+        "message": "預覽列印"
+    },
+    "print_and_pageoptions": {
+        "message": "列印和版面設定"
+    },
+    "ptng.label": {
+        "message": "列印工具 NG"
+    },
+    "ptngOptions.label": {
+        "message": "列印工具NG選項"
+    },
+    "remove_emojis": {
+        "message": "刪除 Unicode 表情符號和符號"
+    },
+    "resizeImgs.label": {
+        "message": "自動縮放圖片"
+    },
+    "right": {
+        "message": "右"
+    },
+    "short.label": {
+        "message": "精簡"
+    },
+    "showButton.label": {
+        "message": "在預覽視窗顯示選項按鈕"
+    },
+    "showSignatureVCFfiles": {
+        "message": "顯示簽名和電子名片"
+    },
+    "showhide": {
+        "message": "顯示/隱藏"
+    },
+    "style": {
+        "message": "樣式"
+    },
+    "suffix": {
+        "message": "後綴"
+    },
+    "top": {
+        "message": "上"
+    },
+    "up": {
+        "message": "往上"
+    },
+    "useCcBccAlways": {
+        "message": "一律使用'Cc'與'Bcc'英文縮寫"
+    },
+    "useHeadersBkColor": {
+        "message": "使用標題背景顏色："
+    },
+    "withSize": {
+        "message": "字型大小"
+    },
+    "wrap": {
+        "message": "自動多行排列"
+    }
 }

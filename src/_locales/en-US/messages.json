@@ -1,13 +1,329 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Message Printing, Headers and PDF Output Tools (Nextgen)"
-	},
-	"printLabel": {
-		"message": "Print"
-	}
-
+    "Help": {
+        "message": "Help"
+    },
+    "HideInlineAttList": {
+        "message": "Hide inline attachment list"
+    },
+    "PMDcaptionlabel": {
+        "message": "Options for messages printing"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Global printing options"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Options for addressbook printing"
+    },
+    "PMDlabel1": {
+        "message": "Enable date localization"
+    },
+    "PMDlabel10": {
+        "message": "Hide inline attachments"
+    },
+    "PMDlabel11": {
+        "message": "Add the user name to the headers"
+    },
+    "PMDlabel12": {
+        "message": "Use fonts with a size in pixel of "
+    },
+    "PMDlabel13": {
+        "message": "Hide the contact header ('Card for')"
+    },
+    "PMDlabel14": {
+        "message": "Insert just name and email addresses"
+    },
+    "PMDlabel15": {
+        "message": "Use compact layout"
+    },
+    "PMDlabel16": {
+        "message": "Print just selection, when it exists"
+    },
+    "PMDlabel17": {
+        "message": "Add a filetype icon"
+    },
+    "PMDlabel18": {
+        "message": "Use font:"
+    },
+    "PMDlabel19": {
+        "message": "Cut the field 'Notes' at 100 characters"
+    },
+    "PMDlabel2": {
+        "message": "Enable customized view of the attachments' list"
+    },
+    "PMDlabel20": {
+        "message": "Add addressbook name and date"
+    },
+    "PMDlabel21": {
+        "message": "Hide always extended headers"
+    },
+    "PMDlabel22": {
+        "message": "Add p7m and vCard attachments"
+    },
+    "PMDlabel23": {
+        "message": "Add folder name"
+    },
+    "PMDlabel25": {
+        "message": "Use black as base color for text"
+    },
+    "PMDlabel3": {
+        "message": "Set a border around the headers"
+    },
+    "PMDlabel4": {
+        "message": "Hide the headers"
+    },
+    "PMDlabel5": {
+        "message": "Truncate the headers' lines longer than about"
+    },
+    "PMDlabel6": {
+        "message": "chars."
+    },
+    "PMDlabel7": {
+        "message": "Hide the images"
+    },
+    "PMDlabel8": {
+        "message": "Print without the dialog window"
+    },
+    "PMDlabel9": {
+        "message": "Hide the print progress bar"
+    },
+    "PMDmenuitem": {
+        "message": "Printing options"
+    },
+    "RG1.label": {
+        "message": "Nothing"
+    },
+    "RG2.label": {
+        "message": "User name"
+    },
+    "Scale": {
+        "message": "Scale"
+    },
+    "addNameRG.label": {
+        "message": "Add before headers:"
+    },
+    "addRdate.label": {
+        "message": "Add received date"
+    },
+    "advancedOptions.label": {
+        "message": "Advanced Options"
+    },
+    "alignHeaders.label": {
+        "message": "Align the headers"
+    },
+    "all": {
+        "message": "All"
+    },
+    "attachments": {
+        "message": "Attachments"
+    },
+    "attachmentsPerLine": {
+        "message": "Attachments per Line: "
+    },
+    "body": {
+        "message": "Body"
+    },
+    "borderStyle": {
+        "message": "Border style:"
+    },
+    "bottom": {
+        "message": "Bottom"
+    },
+    "browse": {
+        "message": "Browse"
+    },
+    "cancel": {
+        "message": "Cancel"
+    },
+    "center": {
+        "message": "Center"
+    },
+    "cite.checkbox": {
+        "message": "Use a style for quoted text"
+    },
+    "cite.color": {
+        "message": "Color:"
+    },
+    "cite.size": {
+        "message": "Size:"
+    },
+    "colorsNote": {
+        "message": "Note: Enable Print backgrounds in the Print dialog"
+    },
+    "copies": {
+        "message": "Copies"
+    },
+    "custom": {
+        "message": "Custom"
+    },
+    "custom_date_format": {
+        "message": "Custom Date Format"
+    },
+    "date.label": {
+        "message": "Date format:"
+    },
+    "date_custom.label": {
+        "message": "Custom"
+    },
+    "debugOptions.label": {
+        "message": "Debug Options"
+    },
+    "defaultPrinter": {
+        "message": "Default Printer"
+    },
+    "down": {
+        "message": "Down"
+    },
+    "enable_pdfdir": {
+        "message": "Enable PDF Output Directory"
+    },
+    "extensionDescription": {
+        "message": "Message Printing, Headers and PDF Output Tools (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Filename Format"
+    },
+    "filter_characters": {
+        "message": "Filter Characters"
+    },
+    "fitToWidth": {
+        "message": "Fit to Width"
+    },
+    "footers": {
+        "message": "Footers"
+    },
+    "forHeaders": {
+        "message": "just for headers"
+    },
+    "headers": {
+        "message": "Headers"
+    },
+    "headers_order": {
+        "message": "Headers Order"
+    },
+    "images": {
+        "message": "Images"
+    },
+    "latinize": {
+        "message": "Latinize Subject and Names"
+    },
+    "left": {
+        "message": "Left"
+    },
+    "long.label": {
+        "message": "long UTC"
+    },
+    "longLoc.label": {
+        "message": "long and localized"
+    },
+    "margins": {
+        "message": "Margins"
+    },
+    "maxPreLen": {
+        "message": "Maximum width for text:"
+    },
+    "messageBody": {
+        "message": "Message Body"
+    },
+    "misc": {
+        "message": "Miscellaneous"
+    },
+    "multipleCards.label": {
+        "message": "Print all selected contacts"
+    },
+    "order": {
+        "message": "Headers order"
+    },
+    "otherHeaders": {
+        "message": "Other headers, if present, follow"
+    },
+    "output_dir": {
+        "message": "Output Directory"
+    },
+    "page_headers": {
+        "message": "Headers"
+    },
+    "page_options": {
+        "message": "Page Options"
+    },
+    "page_ranges": {
+        "message": "Page Ranges"
+    },
+    "pdf_file_naming": {
+        "message": "PDF File Naming"
+    },
+    "pdf_output": {
+        "message": "PDF Output"
+    },
+    "persistent": {
+        "message": "Persistent"
+    },
+    "prefix": {
+        "message": "Prefix"
+    },
+    "print.label": {
+        "message": "Print"
+    },
+    "printLabel": {
+        "message": "Print"
+    },
+    "printPreview.label": {
+        "message": "Print Preview"
+    },
+    "print_and_pageoptions": {
+        "message": "Print and Page Options"
+    },
+    "ptng.label": {
+        "message": "Printing Tools NG"
+    },
+    "ptngOptions.label": {
+        "message": "Printing Tools NG Options"
+    },
+    "remove_emojis": {
+        "message": "Remove Unicode Emojis and Symbols"
+    },
+    "resizeImgs.label": {
+        "message": "Resize the images too large"
+    },
+    "right": {
+        "message": "Right"
+    },
+    "short.label": {
+        "message": "short"
+    },
+    "showButton.label": {
+        "message": "Show the options button in the preview window"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Show signature and vcf files"
+    },
+    "showhide": {
+        "message": "Show / Hide"
+    },
+    "style": {
+        "message": "Style"
+    },
+    "suffix": {
+        "message": "Suffix"
+    },
+    "top": {
+        "message": "Top"
+    },
+    "up": {
+        "message": "Up"
+    },
+    "useCcBccAlways": {
+        "message": "Use 'Cc' and 'Bcc' abbreviations for all locales"
+    },
+    "useHeadersBkColor": {
+        "message": "Use header background Color:"
+    },
+    "withSize": {
+        "message": "with size "
+    },
+    "wrap": {
+        "message": "Wrap"
+    }
 }

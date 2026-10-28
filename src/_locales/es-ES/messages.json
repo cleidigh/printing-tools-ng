@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "Herramientas de impresión NG"
-	},
-
-	"extensionDescription": {
-		"message": "Impresión de mensajes, encabezados y herramientas de salida de PDF (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Imprimir"
-	}
-
+    "Help": {
+        "message": "Ayuda"
+    },
+    "HideInlineAttList": {
+        "message": "Ocultar lista de archivos adjuntos en línea"
+    },
+    "PMDcaptionlabel": {
+        "message": "Opciones para imprimir mensajes"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Opciones de impresión global"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Opciones para imprimir la libreta de direcciones"
+    },
+    "PMDlabel1": {
+        "message": "Habilitar localización de fecha"
+    },
+    "PMDlabel10": {
+        "message": "Ocultar archivos adjuntos en línea"
+    },
+    "PMDlabel11": {
+        "message": "Agregue el nombre de usuario a los encabezados"
+    },
+    "PMDlabel12": {
+        "message": "Use fuentes con un tamaño en píxeles de"
+    },
+    "PMDlabel13": {
+        "message": "Ocultar el encabezado del contacto (&#39;Tarjeta para&#39;)"
+    },
+    "PMDlabel14": {
+        "message": "Inserte solo el nombre y las direcciones de correo electrónico"
+    },
+    "PMDlabel15": {
+        "message": "Usar diseño compacto"
+    },
+    "PMDlabel16": {
+        "message": "Imprima solo la selección, cuando exista"
+    },
+    "PMDlabel17": {
+        "message": "Agregar un ícono de tipo de archivo"
+    },
+    "PMDlabel18": {
+        "message": "Usar fuente:"
+    },
+    "PMDlabel19": {
+        "message": "Corte el campo &#39;Notas&#39; a 100 caracteres."
+    },
+    "PMDlabel2": {
+        "message": "Habilite la vista personalizada de la lista de archivos adjuntos"
+    },
+    "PMDlabel20": {
+        "message": "Agregar nombre y fecha de la libreta de direcciones"
+    },
+    "PMDlabel21": {
+        "message": "Ocultar encabezados siempre extendidos"
+    },
+    "PMDlabel22": {
+        "message": "Agregue archivos adjuntos p7m y vCard"
+    },
+    "PMDlabel23": {
+        "message": "Agregar nombre de carpeta"
+    },
+    "PMDlabel25": {
+        "message": "Use el negro como color base para el texto"
+    },
+    "PMDlabel3": {
+        "message": "Establecer un borde alrededor de los encabezados"
+    },
+    "PMDlabel4": {
+        "message": "Ocultar los encabezados"
+    },
+    "PMDlabel5": {
+        "message": "Truncar las líneas de los encabezados más de aproximadamente"
+    },
+    "PMDlabel6": {
+        "message": "caracteres"
+    },
+    "PMDlabel7": {
+        "message": "Ocultar las imágenes"
+    },
+    "PMDlabel8": {
+        "message": "Imprimir sin la ventana de diálogo"
+    },
+    "PMDlabel9": {
+        "message": "Ocultar la barra de progreso de impresión"
+    },
+    "PMDmenuitem": {
+        "message": "Opciones de impresión"
+    },
+    "RG1.label": {
+        "message": "Nada"
+    },
+    "RG2.label": {
+        "message": "Nombre de usuario"
+    },
+    "Scale": {
+        "message": "Escala"
+    },
+    "addNameRG.label": {
+        "message": "Agregar antes de los encabezados:"
+    },
+    "addRdate.label": {
+        "message": "Agregar fecha de recepción"
+    },
+    "advancedOptions.label": {
+        "message": "Opciones avanzadas"
+    },
+    "alignHeaders.label": {
+        "message": "Alinear los encabezados"
+    },
+    "all": {
+        "message": "Todas"
+    },
+    "attachments": {
+        "message": "Archivos adjuntos"
+    },
+    "attachmentsPerLine": {
+        "message": "Archivos adjuntos por línea:"
+    },
+    "body": {
+        "message": "Cuerpo"
+    },
+    "borderStyle": {
+        "message": "Estilo de borde:"
+    },
+    "bottom": {
+        "message": "Fondo"
+    },
+    "browse": {
+        "message": "Navegar"
+    },
+    "cancel": {
+        "message": "Cancelar"
+    },
+    "center": {
+        "message": "Centro"
+    },
+    "cite.checkbox": {
+        "message": "Use un estilo para el texto citado"
+    },
+    "cite.color": {
+        "message": "Color:"
+    },
+    "cite.size": {
+        "message": "Talla:"
+    },
+    "colorsNote": {
+        "message": "Nota: Es necesario habilitar &#39;Imágenes y colores&#39; en el cuadro de diálogo Configurar página de impresión"
+    },
+    "copies": {
+        "message": "copias"
+    },
+    "custom": {
+        "message": "Disfraz"
+    },
+    "custom_date_format": {
+        "message": "Formato de fecha personalizado"
+    },
+    "date.label": {
+        "message": "Formato de fecha:"
+    },
+    "date_custom.label": {
+        "message": "Costumbre"
+    },
+    "debugOptions.label": {
+        "message": "Opciones de depuración"
+    },
+    "defaultPrinter": {
+        "message": "Impresora predeterminada"
+    },
+    "down": {
+        "message": "Abajo"
+    },
+    "enable_pdfdir": {
+        "message": "Habilitar directorio de salida PDF"
+    },
+    "extensionDescription": {
+        "message": "Impresión de mensajes, encabezados y herramientas de salida de PDF (Nextgen)"
+    },
+    "extensionName": {
+        "message": "Herramientas de impresión NG"
+    },
+    "filename_format": {
+        "message": "Formato de nombre de archivo"
+    },
+    "filter_characters": {
+        "message": "Caracteres de filtro"
+    },
+    "fitToWidth": {
+        "message": "Ajustar al ancho"
+    },
+    "footers": {
+        "message": "Pies de página"
+    },
+    "forBody": {
+        "message": "para mensaje corporal"
+    },
+    "forHeaders": {
+        "message": "solo para encabezados"
+    },
+    "headers": {
+        "message": "Encabezados"
+    },
+    "headers_order": {
+        "message": "Orden de encabezados"
+    },
+    "images": {
+        "message": "Imágenes"
+    },
+    "latinize": {
+        "message": "Latinizar sujeto y nombres"
+    },
+    "left": {
+        "message": "Izquierda"
+    },
+    "long.label": {
+        "message": "UTC largo"
+    },
+    "longLoc.label": {
+        "message": "largo y localizado"
+    },
+    "margins": {
+        "message": "Márgenes"
+    },
+    "maxPreLen": {
+        "message": "Ancho máximo para texto:"
+    },
+    "messageBody": {
+        "message": "Cuerpo del mensaje"
+    },
+    "misc": {
+        "message": "Diverso"
+    },
+    "multipleCards.label": {
+        "message": "Imprimir todos los contactos seleccionados"
+    },
+    "order": {
+        "message": "Orden de encabezados"
+    },
+    "otherHeaders": {
+        "message": "Otros encabezados, si están presentes, siguen"
+    },
+    "output_dir": {
+        "message": "Directorio de salida"
+    },
+    "page_headers": {
+        "message": "Encabezados"
+    },
+    "page_options": {
+        "message": "Opciones de página"
+    },
+    "page_ranges": {
+        "message": "Rangos de página"
+    },
+    "pdf_file_naming": {
+        "message": "Nomenclatura de archivos PDF"
+    },
+    "pdf_output": {
+        "message": "Salida PDF"
+    },
+    "persistent": {
+        "message": "Persistente"
+    },
+    "prefix": {
+        "message": "Prefijo"
+    },
+    "print.label": {
+        "message": "Imprimir"
+    },
+    "printLabel": {
+        "message": "Imprimir"
+    },
+    "printPreview.label": {
+        "message": "Vista previa de impresión"
+    },
+    "print_and_pageoptions": {
+        "message": "Opciones de impresión y página"
+    },
+    "ptng.label": {
+        "message": "Herramientas de impresión NG"
+    },
+    "ptngOptions.label": {
+        "message": "Opciones de impresión NG"
+    },
+    "remove_emojis": {
+        "message": "Eliminar emojis y símbolos Unicode"
+    },
+    "resizeImgs.label": {
+        "message": "Cambiar el tamaño de las imágenes demasiado grandes"
+    },
+    "right": {
+        "message": "Derecho"
+    },
+    "short.label": {
+        "message": "corto"
+    },
+    "showButton.label": {
+        "message": "Mostrar el botón de opciones en la ventana de vista previa"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Mostrar archivos de firma y vcf"
+    },
+    "showhide": {
+        "message": "Mostrar u ocultar"
+    },
+    "style": {
+        "message": "Estilo"
+    },
+    "suffix": {
+        "message": "Sufijo"
+    },
+    "top": {
+        "message": "Cima"
+    },
+    "up": {
+        "message": "Arriba"
+    },
+    "useCcBccAlways": {
+        "message": "Utilice las abreviaturas &#39;Cc&#39; y &#39;Bcc&#39; para todas las configuraciones regionales"
+    },
+    "useHeadersBkColor": {
+        "message": "Usar color de fondo del encabezado:"
+    },
+    "withSize": {
+        "message": "con talla"
+    },
+    "wrap": {
+        "message": "Envolver"
+    }
 }

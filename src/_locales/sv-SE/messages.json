@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Meddelandeutskrift, rubriker och PDF-utmatningsverktyg (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Skriva ut"
-	}
-
+    "Help": {
+        "message": "Hjälp"
+    },
+    "HideInlineAttList": {
+        "message": "Dölj inline bilaga lista"
+    },
+    "PMDcaptionlabel": {
+        "message": "Alternativ för meddelandeutskrift"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Globala utskriftsalternativ"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Alternativ för adressboksutskrift"
+    },
+    "PMDlabel1": {
+        "message": "Aktivera anpassade datuminställningar"
+    },
+    "PMDlabel10": {
+        "message": "Dölj infogade bilagor"
+    },
+    "PMDlabel11": {
+        "message": "Lägg till användarnamn i huvuden"
+    },
+    "PMDlabel12": {
+        "message": "Teckensnitt: "
+    },
+    "PMDlabel13": {
+        "message": "Dölj kontakthuvudet"
+    },
+    "PMDlabel14": {
+        "message": "Infoga endast namn och e-postadresser"
+    },
+    "PMDlabel15": {
+        "message": "Använd kompakt layout"
+    },
+    "PMDlabel16": {
+        "message": "Skriv endast ut markering, när sådan finns"
+    },
+    "PMDlabel17": {
+        "message": "Lägg till en filtypsikon"
+    },
+    "PMDlabel18": {
+        "message": "Teckensnitt:"
+    },
+    "PMDlabel19": {
+        "message": "Trunkera fältet &quot;Anteckningar&quot; efter 100 tecken"
+    },
+    "PMDlabel2": {
+        "message": "Aktivera anpassad vy för bilagelistan"
+    },
+    "PMDlabel20": {
+        "message": "Lägg till adressbokens namn och datum"
+    },
+    "PMDlabel21": {
+        "message": "Dölj alltid expanderade huvuden"
+    },
+    "PMDlabel22": {
+        "message": "Lägg till p7m- och vCard-bilagor"
+    },
+    "PMDlabel23": {
+        "message": "Lägg till mappnamn"
+    },
+    "PMDlabel25": {
+        "message": "Använd svart som grundfärg för text"
+    },
+    "PMDlabel3": {
+        "message": "Rita en kantlinje runt huvuden"
+    },
+    "PMDlabel4": {
+        "message": "Dölj huvuden"
+    },
+    "PMDlabel5": {
+        "message": "Trunkera huvudrader längre än"
+    },
+    "PMDlabel6": {
+        "message": "tecken"
+    },
+    "PMDlabel7": {
+        "message": "Dölj bilder"
+    },
+    "PMDlabel8": {
+        "message": "Skriv ut utan att öppna dialogrutan"
+    },
+    "PMDlabel9": {
+        "message": "Dölj utskriftsförloppsindikatorn"
+    },
+    "PMDmenuitem": {
+        "message": "Utskriftsalternativ"
+    },
+    "RG1.label": {
+        "message": "Ingenting"
+    },
+    "RG2.label": {
+        "message": "Användarnamn"
+    },
+    "Scale": {
+        "message": "Skala"
+    },
+    "addNameRG.label": {
+        "message": "Att infoga före huvuden:"
+    },
+    "addRdate.label": {
+        "message": "Lägg till mottaget datum"
+    },
+    "advancedOptions.label": {
+        "message": "Avancerade alternativ"
+    },
+    "alignHeaders.label": {
+        "message": "Justera huvuden"
+    },
+    "all": {
+        "message": "Allt"
+    },
+    "attachments": {
+        "message": "Bilagor"
+    },
+    "attachmentsPerLine": {
+        "message": "Bilagor per rad:"
+    },
+    "body": {
+        "message": "Kropp"
+    },
+    "borderStyle": {
+        "message": "Gränsstil:"
+    },
+    "bottom": {
+        "message": "Botten"
+    },
+    "browse": {
+        "message": "Bläddra"
+    },
+    "cancel": {
+        "message": "Annullera"
+    },
+    "center": {
+        "message": "Centrum"
+    },
+    "cite.checkbox": {
+        "message": "Använd ett format för citerad text"
+    },
+    "cite.color": {
+        "message": "Färg:"
+    },
+    "cite.size": {
+        "message": "Storlek:"
+    },
+    "colorsNote": {
+        "message": "Obs! &#39;Bilder och färger&#39; måste aktiveras i dialogrutan Utskriftsformat"
+    },
+    "copies": {
+        "message": "Kopior"
+    },
+    "custom": {
+        "message": "Beställnings"
+    },
+    "custom_date_format": {
+        "message": "Anpassat datumformat"
+    },
+    "date.label": {
+        "message": "Datumformat:"
+    },
+    "date_custom.label": {
+        "message": "Beställnings"
+    },
+    "debugOptions.label": {
+        "message": "Felsökningsalternativ"
+    },
+    "defaultPrinter": {
+        "message": "Standardskrivare"
+    },
+    "down": {
+        "message": "Nedåt"
+    },
+    "enable_pdfdir": {
+        "message": "Aktivera PDF Output Directory"
+    },
+    "extensionDescription": {
+        "message": "Meddelandeutskrift, rubriker och PDF-utmatningsverktyg (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Filnamnsformat"
+    },
+    "filter_characters": {
+        "message": "Filtrera tecken"
+    },
+    "fitToWidth": {
+        "message": "Anpassa till bredd"
+    },
+    "footers": {
+        "message": "Sidfötter"
+    },
+    "forBody": {
+        "message": "för brödtext"
+    },
+    "forHeaders": {
+        "message": "endast för huvuden"
+    },
+    "headers": {
+        "message": "Huvuden"
+    },
+    "headers_order": {
+        "message": "Beställning av rubriker"
+    },
+    "images": {
+        "message": "Bilder"
+    },
+    "latinize": {
+        "message": "Latinisera ämne och namn"
+    },
+    "left": {
+        "message": "Vänster"
+    },
+    "long.label": {
+        "message": "långt"
+    },
+    "longLoc.label": {
+        "message": "långt och språkanpassat"
+    },
+    "margins": {
+        "message": "Marginaler"
+    },
+    "maxPreLen": {
+        "message": "Ange största tillåtna radlängd i textstycken:"
+    },
+    "messageBody": {
+        "message": "Meddelandetext"
+    },
+    "misc": {
+        "message": "Allmänt"
+    },
+    "multipleCards.label": {
+        "message": "Skriv ut alla markerade kontakter"
+    },
+    "order": {
+        "message": "Ordna huvuden"
+    },
+    "otherHeaders": {
+        "message": "Övriga huvuden, om sådana finns, placeras efter dessa"
+    },
+    "output_dir": {
+        "message": "Utdatakatalog"
+    },
+    "page_headers": {
+        "message": "Rubriker"
+    },
+    "page_options": {
+        "message": "Sidalternativ"
+    },
+    "page_ranges": {
+        "message": "Sidintervall"
+    },
+    "pdf_file_naming": {
+        "message": "Namngivning av PDF-filer"
+    },
+    "pdf_output": {
+        "message": "PDF-utdata"
+    },
+    "persistent": {
+        "message": "Beständig"
+    },
+    "prefix": {
+        "message": "Prefix"
+    },
+    "print.label": {
+        "message": "Skriva ut"
+    },
+    "printLabel": {
+        "message": "Skriva ut"
+    },
+    "printPreview.label": {
+        "message": "Förhandsgranskning"
+    },
+    "print_and_pageoptions": {
+        "message": "Utskrifts- och sidalternativ"
+    },
+    "ptng.label": {
+        "message": "Utskriftsverktyg NG"
+    },
+    "ptngOptions.label": {
+        "message": "UTSKRIFTSVERKTYG FÖR ALTERNATIV"
+    },
+    "remove_emojis": {
+        "message": "Ta bort Unicode-emojis och symboler"
+    },
+    "resizeImgs.label": {
+        "message": "Ändra storlek på alltför stora bilder"
+    },
+    "right": {
+        "message": "Höger"
+    },
+    "short.label": {
+        "message": "kort"
+    },
+    "showButton.label": {
+        "message": "Via knappen &quot;Utskriftsalternativ&quot; i förhandsgranskningsfönstret"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Visa signatur- och vcf-filer"
+    },
+    "showhide": {
+        "message": "Visa eller dölj"
+    },
+    "style": {
+        "message": "Format"
+    },
+    "suffix": {
+        "message": "Ändelse"
+    },
+    "top": {
+        "message": "Topp"
+    },
+    "up": {
+        "message": "Uppåt"
+    },
+    "useCcBccAlways": {
+        "message": "Använd förkortningar &#39;Cc&#39; och &#39;Bcc&#39; för alla språk"
+    },
+    "useHeadersBkColor": {
+        "message": "Använd sidhuvudets bakgrundsfärg:"
+    },
+    "withSize": {
+        "message": "Teckenstorlek (px): "
+    },
+    "wrap": {
+        "message": "Slå in"
+    }
 }

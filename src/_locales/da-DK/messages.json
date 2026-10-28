@@ -1,14 +1,335 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Beskedudskrivning, sidehoveder og PDF-outputværktøjer (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Print"
-	}
-
+    "Help": {
+        "message": "Hjælp"
+    },
+    "HideInlineAttList": {
+        "message": "Skjul liste over indbyggede vedhæftede filer"
+    },
+    "PMDcaptionlabel": {
+        "message": "Indstillinger for udskrivning af meddelelser"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Globale udskriftsindstillinger"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Indstillinger til udskrivning af adresse"
+    },
+    "PMDlabel1": {
+        "message": "Benyt lokalt datoformat"
+    },
+    "PMDlabel10": {
+        "message": "Skjul interne vedhæftninger"
+    },
+    "PMDlabel11": {
+        "message": "Tilføj brugernavnet før headeren"
+    },
+    "PMDlabel12": {
+        "message": "Brug små skrifttyper"
+    },
+    "PMDlabel13": {
+        "message": "Skjul kontakt-headeren"
+    },
+    "PMDlabel14": {
+        "message": "Indsæt kun navn og mailadresser"
+    },
+    "PMDlabel15": {
+        "message": "Brug kompakt layout"
+    },
+    "PMDlabel16": {
+        "message": "Udskriv kun det valgte"
+    },
+    "PMDlabel17": {
+        "message": "Tilføj filtypeikon"
+    },
+    "PMDlabel18": {
+        "message": "Brug skrifttype:"
+    },
+    "PMDlabel19": {
+        "message": "Beskær feltet 'Notes' ved 100 tegn"
+    },
+    "PMDlabel2": {
+        "message": "Benyt tilpasset visning af listen over vedhæftede filer"
+    },
+    "PMDlabel20": {
+        "message": "Tilføj navn og dato for adressebog"
+    },
+    "PMDlabel21": {
+        "message": "Skjul altid udvidede headere"
+    },
+    "PMDlabel22": {
+        "message": "Tilføj vedhæftning af p7m og vCard"
+    },
+    "PMDlabel23": {
+        "message": "Tilføj mappenavn"
+    },
+    "PMDlabel24": {
+        "message": "Dato i langt format"
+    },
+    "PMDlabel25": {
+        "message": "Brug sort som standardfarve på tekst"
+    },
+    "PMDlabel3": {
+        "message": "Placer en ramme om headeren"
+    },
+    "PMDlabel4": {
+        "message": "Skjul headeren"
+    },
+    "PMDlabel5": {
+        "message": "Forkort header-linjer der er længere end"
+    },
+    "PMDlabel6": {
+        "message": "tegn"
+    },
+    "PMDlabel7": {
+        "message": "Skjul billeder"
+    },
+    "PMDlabel8": {
+        "message": "Udskriv uden dialogvindue"
+    },
+    "PMDlabel9": {
+        "message": "Skjul statusbjælken"
+    },
+    "PMDmenuitem": {
+        "message": "Udskriftsindstillinger"
+    },
+    "RG1.label": {
+        "message": "Intet"
+    },
+    "RG2.label": {
+        "message": "Brugernavn"
+    },
+    "Scale": {
+        "message": "vægt"
+    },
+    "addNameRG.label": {
+        "message": "Tilføj før headers:"
+    },
+    "addRdate.label": {
+        "message": "Tilføj modtaget dato"
+    },
+    "advancedOptions.label": {
+        "message": "Avancerede indstillinger"
+    },
+    "alignHeaders.label": {
+        "message": "Juster headerne"
+    },
+    "all": {
+        "message": "Alle"
+    },
+    "attachments": {
+        "message": "Vedhæftede filer"
+    },
+    "attachmentsPerLine": {
+        "message": "Vedhæftede filer pr. Linje:"
+    },
+    "body": {
+        "message": "Legeme"
+    },
+    "borderStyle": {
+        "message": "Grænsestil:"
+    },
+    "bottom": {
+        "message": "Bund"
+    },
+    "browse": {
+        "message": "Gennemse"
+    },
+    "cancel": {
+        "message": "Afbestille"
+    },
+    "center": {
+        "message": "Centrum"
+    },
+    "cite.checkbox": {
+        "message": "Formater citeret tekst"
+    },
+    "cite.color": {
+        "message": "Farve:"
+    },
+    "cite.size": {
+        "message": "Størrelse:"
+    },
+    "colorsNote": {
+        "message": "Bemærk: &#39;Billeder og farver&#39; skal aktiveres i dialogboksen Udskriv sideopsætning"
+    },
+    "copies": {
+        "message": "Kopier"
+    },
+    "custom": {
+        "message": "Brugerdefinerede"
+    },
+    "custom_date_format": {
+        "message": "Brugerdefineret datoformat"
+    },
+    "date.label": {
+        "message": "Datoformat:"
+    },
+    "date_custom.label": {
+        "message": "Brugerdefinerede"
+    },
+    "debugOptions.label": {
+        "message": "Fejlfindingsindstillinger"
+    },
+    "defaultPrinter": {
+        "message": "Standardprinter"
+    },
+    "down": {
+        "message": "Ned"
+    },
+    "enable_pdfdir": {
+        "message": "Aktiver PDF Output Directory"
+    },
+    "extensionDescription": {
+        "message": "Beskedudskrivning, sidehoveder og PDF-outputværktøjer (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Filnavn format"
+    },
+    "filter_characters": {
+        "message": "Filtrer tegn"
+    },
+    "fitToWidth": {
+        "message": "Tilpas til bredden"
+    },
+    "footers": {
+        "message": "Sidefødder"
+    },
+    "forBody": {
+        "message": "på selve meddelelsen"
+    },
+    "forHeaders": {
+        "message": "kun på header-linjer"
+    },
+    "headers": {
+        "message": "Headers"
+    },
+    "headers_order": {
+        "message": "Overskriftsrækkefølge"
+    },
+    "images": {
+        "message": "Billeder"
+    },
+    "latinize": {
+        "message": "Latinisere Emne og Navne"
+    },
+    "left": {
+        "message": "Venstre"
+    },
+    "long.label": {
+        "message": "UTC, langt format"
+    },
+    "longLoc.label": {
+        "message": "lang og lokaliseret"
+    },
+    "margins": {
+        "message": "Marginer"
+    },
+    "maxPreLen": {
+        "message": "Maksimal bredde på tekst:"
+    },
+    "messageBody": {
+        "message": "Meddelelsestekst"
+    },
+    "misc": {
+        "message": "Diverse"
+    },
+    "multipleCards.label": {
+        "message": "Udskriv alle valgte kontakter"
+    },
+    "order": {
+        "message": "Rækkefølge på header-linjer"
+    },
+    "otherHeaders": {
+        "message": "Vis andre headere efterfølgende"
+    },
+    "output_dir": {
+        "message": "Output Directory"
+    },
+    "page_headers": {
+        "message": "Overskrifter"
+    },
+    "page_options": {
+        "message": "Sideindstillinger"
+    },
+    "page_ranges": {
+        "message": "Sideintervaller"
+    },
+    "pdf_file_naming": {
+        "message": "Navngivning af PDF-filer"
+    },
+    "pdf_output": {
+        "message": "PDF-output"
+    },
+    "persistent": {
+        "message": "Vedholdende"
+    },
+    "prefix": {
+        "message": "Præfiks"
+    },
+    "print.label": {
+        "message": "Print"
+    },
+    "printLabel": {
+        "message": "Print"
+    },
+    "printPreview.label": {
+        "message": "Vis udskrift"
+    },
+    "print_and_pageoptions": {
+        "message": "Udskrifts- og sideindstillinger"
+    },
+    "ptng.label": {
+        "message": "Udskrivningsværktøj NG"
+    },
+    "ptngOptions.label": {
+        "message": "UDSKRIVNINGSVÆRKTØJER AF MULIGHEDER"
+    },
+    "remove_emojis": {
+        "message": "Fjern Unicode-emojis og symboler"
+    },
+    "resizeImgs.label": {
+        "message": "Billederne er for store, tilpas deres størrelse"
+    },
+    "right": {
+        "message": "Ret"
+    },
+    "short.label": {
+        "message": "kort"
+    },
+    "showButton.label": {
+        "message": "Vis knappen Udskriftsindstillinger i  forhåndsvisningen"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Vis signatur- og vcf-filer"
+    },
+    "showhide": {
+        "message": "Vis eller skjul"
+    },
+    "style": {
+        "message": "Format"
+    },
+    "suffix": {
+        "message": "Suffiks"
+    },
+    "top": {
+        "message": "Top"
+    },
+    "up": {
+        "message": "Op"
+    },
+    "useCcBccAlways": {
+        "message": "Brug forkortelser &#39;Cc&#39; og &#39;Bcc&#39; til alle lokaliteter"
+    },
+    "useHeadersBkColor": {
+        "message": "Brug header baggrundsfarve:"
+    },
+    "withSize": {
+        "message": "bredde "
+    },
+    "wrap": {
+        "message": "Pak ind"
+    }
 }

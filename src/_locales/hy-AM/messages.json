@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Հաղորդագրությունների տպագրություն, վերնագրեր և PDF ելքային գործիքներ (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Տպել"
-	}
-
+    "Help": {
+        "message": "Օգնություն"
+    },
+    "HideInlineAttList": {
+        "message": "Թաքցնել հավելվածների ցանկը"
+    },
+    "PMDcaptionlabel": {
+        "message": "Հաղորդագրությունների տպագրման ընտրանքներ"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Տպագրման համընդհանուր ընտրանքներ"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Հասցեների տպագրության ընտրանքներ"
+    },
+    "PMDlabel1": {
+        "message": "Միացնել ամսաթիվը տեղայնացումը"
+    },
+    "PMDlabel10": {
+        "message": "Թաքցրեք ներածված հավելվածները"
+    },
+    "PMDlabel11": {
+        "message": "Օգտագործողի անունը ավելացրեք վերնագրերին"
+    },
+    "PMDlabel12": {
+        "message": "Օգտագործեք տառատեսակներ, որոնց չափի պիքսել է"
+    },
+    "PMDlabel13": {
+        "message": "Թաքցնել կոնտակտային վերնագիրը (&#39;Քարտ&#39;)"
+    },
+    "PMDlabel14": {
+        "message": "Տեղադրեք պարզապես անուն և էլեկտրոնային հասցեներ"
+    },
+    "PMDlabel15": {
+        "message": "Օգտագործեք կոմպակտ դասավորությունը"
+    },
+    "PMDlabel16": {
+        "message": "Տպեք հենց ընտրությունը, երբ այն գոյություն ունի"
+    },
+    "PMDlabel17": {
+        "message": "Ավելացնել filetype պատկերակ"
+    },
+    "PMDlabel18": {
+        "message": "Օգտագործեք տառատեսակը:"
+    },
+    "PMDlabel19": {
+        "message": "«Նշումներ» դաշտը կտրեք 100 նիշով"
+    },
+    "PMDlabel2": {
+        "message": "Միացնել հավելվածների ցուցակի անհատական տեսքը"
+    },
+    "PMDlabel20": {
+        "message": "Ավելացնել հասցեագրքի անվանումը և ամսաթիվը"
+    },
+    "PMDlabel21": {
+        "message": "Թաքցրեք միշտ ընդլայնված վերնագրերը"
+    },
+    "PMDlabel22": {
+        "message": "Ավելացնել p7m և vCard հավելվածներ"
+    },
+    "PMDlabel23": {
+        "message": "Ավելացնել թղթապանակի անունը"
+    },
+    "PMDlabel25": {
+        "message": "Տեքստի համար օգտագործեք սև որպես հիմնական գույն"
+    },
+    "PMDlabel3": {
+        "message": "Սահմանեք վերնագրերի շուրջը"
+    },
+    "PMDlabel4": {
+        "message": "Թաքցրեք վերնագրերը"
+    },
+    "PMDlabel5": {
+        "message": "Կտրեք վերնագրերի տողերը ավելի շուտ, քան մոտ"
+    },
+    "PMDlabel6": {
+        "message": "բարեր"
+    },
+    "PMDlabel7": {
+        "message": "Թաքցնել պատկերները"
+    },
+    "PMDlabel8": {
+        "message": "Տպեք առանց երկխոսության պատուհանի"
+    },
+    "PMDlabel9": {
+        "message": "Թաքցրեք տպման առաջընթացի բարը"
+    },
+    "PMDmenuitem": {
+        "message": "Տպման ընտրանքներ"
+    },
+    "RG1.label": {
+        "message": "Ոչինչ"
+    },
+    "RG2.label": {
+        "message": "Օգտագործողի անունը"
+    },
+    "Scale": {
+        "message": "Սանդղակ"
+    },
+    "addNameRG.label": {
+        "message": "Վերնագրերից առաջ ավելացրեք."
+    },
+    "addRdate.label": {
+        "message": "Ավելացնել ստացված ամսաթիվը"
+    },
+    "advancedOptions.label": {
+        "message": "Հավելյալ հնարավորություններ"
+    },
+    "alignHeaders.label": {
+        "message": "Հավասարեցնել վերնագրերը"
+    },
+    "all": {
+        "message": "Բոլորը"
+    },
+    "attachments": {
+        "message": "Կցորդներ"
+    },
+    "attachmentsPerLine": {
+        "message": "Կցորդներ ըստ տողի."
+    },
+    "body": {
+        "message": "Մարմին"
+    },
+    "borderStyle": {
+        "message": "Սահմանի ոճը:"
+    },
+    "bottom": {
+        "message": "Ստորին"
+    },
+    "browse": {
+        "message": "Թերթիր"
+    },
+    "cancel": {
+        "message": "Չեղարկել"
+    },
+    "center": {
+        "message": "Կենտրոն"
+    },
+    "cite.checkbox": {
+        "message": "Օգտագործեք ոճը մեջբերված տեքստի համար"
+    },
+    "cite.color": {
+        "message": "Գույն:"
+    },
+    "cite.size": {
+        "message": "Չափը:"
+    },
+    "colorsNote": {
+        "message": "Նշում. «Պատկերներն ու գույները» անհրաժեշտ է միացնել Տպել էջի կարգավորման երկխոսությունում"
+    },
+    "copies": {
+        "message": "Պատճեններ"
+    },
+    "custom": {
+        "message": "Պատվերով"
+    },
+    "custom_date_format": {
+        "message": "Անհատականացված ամսաթվի ձևաչափ"
+    },
+    "date.label": {
+        "message": "Ամսաթվի ձևաչափը."
+    },
+    "date_custom.label": {
+        "message": "Պատվերով"
+    },
+    "debugOptions.label": {
+        "message": "Վրիպազերծման ընտրանքներ"
+    },
+    "defaultPrinter": {
+        "message": "Լռելյայն տպիչ"
+    },
+    "down": {
+        "message": "Ներքև"
+    },
+    "enable_pdfdir": {
+        "message": "Միացնել PDF ելքային գրացուցակը"
+    },
+    "extensionDescription": {
+        "message": "Հաղորդագրությունների տպագրություն, վերնագրեր և PDF ելքային գործիքներ (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Ֆայլի անվան ձևաչափ"
+    },
+    "filter_characters": {
+        "message": "Զտիչ կերպարներ"
+    },
+    "fitToWidth": {
+        "message": "Համապատասխանում է լայնությանը"
+    },
+    "footers": {
+        "message": "Ստորին էջատակեր"
+    },
+    "forBody": {
+        "message": "մարմնի հաղորդագրության համար"
+    },
+    "forHeaders": {
+        "message": "պարզապես վերնագրերի համար"
+    },
+    "headers": {
+        "message": "Վերնագրեր"
+    },
+    "headers_order": {
+        "message": "Վերնագրերի կարգը"
+    },
+    "images": {
+        "message": "Պատկերներ"
+    },
+    "latinize": {
+        "message": "Լատինականացնել առարկաները և անունները"
+    },
+    "left": {
+        "message": "Ձախ"
+    },
+    "long.label": {
+        "message": "երկար UTC"
+    },
+    "longLoc.label": {
+        "message": "երկար և տեղայնացված"
+    },
+    "margins": {
+        "message": "Լուսանցքներ"
+    },
+    "maxPreLen": {
+        "message": "Տեքստի առավելագույն լայնությունը."
+    },
+    "messageBody": {
+        "message": "Հաղորդագրության մարմին"
+    },
+    "misc": {
+        "message": "Տարբեր"
+    },
+    "multipleCards.label": {
+        "message": "Տպեք բոլոր ընտրված կոնտակտները"
+    },
+    "order": {
+        "message": "Վերնագրերը պատվիրում են"
+    },
+    "otherHeaders": {
+        "message": "Եթե այլ վերնագրեր, եթե առկա են, հետևում են"
+    },
+    "output_dir": {
+        "message": "Արդյունքների տեղեկատու"
+    },
+    "page_headers": {
+        "message": "Վերնագրեր"
+    },
+    "page_options": {
+        "message": "Էջի ընտրանքներ"
+    },
+    "page_ranges": {
+        "message": "Էջերի միջակայքերը"
+    },
+    "pdf_file_naming": {
+        "message": "PDF ֆայլի անվանում"
+    },
+    "pdf_output": {
+        "message": "PDF ելք"
+    },
+    "persistent": {
+        "message": "Համառ"
+    },
+    "prefix": {
+        "message": "Նախածանց"
+    },
+    "print.label": {
+        "message": "Տպել"
+    },
+    "printLabel": {
+        "message": "Տպել"
+    },
+    "printPreview.label": {
+        "message": "Տպել նախադիտում"
+    },
+    "print_and_pageoptions": {
+        "message": "Տպման և էջի ընտրանքներ"
+    },
+    "ptng.label": {
+        "message": "Տպագրական գործիքներ NG"
+    },
+    "ptngOptions.label": {
+        "message": "ՏԱՐԲԵՐԱԿՆԵՐԻ ՏՊԱԳՐԱԿԱՆ ԳՈՐԾԻՔՆԵՐ"
+    },
+    "remove_emojis": {
+        "message": "Հեռացրեք Unicode Emojis-ն ու խորհրդանիշները"
+    },
+    "resizeImgs.label": {
+        "message": "Պատկերները չափափոխել շատ մեծ"
+    },
+    "right": {
+        "message": "Ճիշտ"
+    },
+    "short.label": {
+        "message": "կարճ"
+    },
+    "showButton.label": {
+        "message": "Showույց տալ ընտրանքների կոճակը նախադիտման պատուհանում"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Showուցադրել ստորագրության և vcf ֆայլերը"
+    },
+    "showhide": {
+        "message": "Ուցադրել կամ թաքցնել"
+    },
+    "style": {
+        "message": "Ոճը"
+    },
+    "suffix": {
+        "message": "վերջածանց"
+    },
+    "top": {
+        "message": "Գագաթ"
+    },
+    "up": {
+        "message": "Վեր"
+    },
+    "useCcBccAlways": {
+        "message": "Բոլոր տեղանքների համար օգտագործեք &#39;Cc&#39; և &#39;Bcc&#39; հապավումները"
+    },
+    "useHeadersBkColor": {
+        "message": "Օգտագործել վերնագրի ֆոնը Գույնը ՝"
+    },
+    "withSize": {
+        "message": "չափերով"
+    },
+    "wrap": {
+        "message": "Պատել"
+    }
 }

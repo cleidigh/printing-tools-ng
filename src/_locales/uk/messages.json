@@ -1,14 +1,332 @@
 {
-	"extensionName": {
-		"message": "PrintingTools NG"
-	},
-
-	"extensionDescription": {
-		"message": "Інструменти друку повідомлень, заголовків і PDF-файлів (Nextgen)"
-	},
-
-	"printLabel": {
-		"message": "Роздрукувати"
-	}
-
+    "Help": {
+        "message": "Довідка"
+    },
+    "HideInlineAttList": {
+        "message": "Приховати вбудований список вкладень"
+    },
+    "PMDcaptionlabel": {
+        "message": "Параметри друку повідомлень"
+    },
+    "PMDcaptionlabel2": {
+        "message": "Глобальні параметри друку"
+    },
+    "PMDcaptionlabel3": {
+        "message": "Варіанти друку адресної книги"
+    },
+    "PMDlabel1": {
+        "message": "Увімкнути локалізацію дат"
+    },
+    "PMDlabel10": {
+        "message": "Сховати вкладені вкладення"
+    },
+    "PMDlabel11": {
+        "message": "Додайте ім’я користувача до заголовків"
+    },
+    "PMDlabel12": {
+        "message": "Використовуйте шрифти розміром у пікселях"
+    },
+    "PMDlabel13": {
+        "message": "Сховати заголовок контакту (&quot;Картка для&quot;)"
+    },
+    "PMDlabel14": {
+        "message": "Вставте лише ім’я та адреси електронної пошти"
+    },
+    "PMDlabel15": {
+        "message": "Використовуйте компактну компоновку"
+    },
+    "PMDlabel16": {
+        "message": "Роздрукуйте лише вибір, коли він існує"
+    },
+    "PMDlabel17": {
+        "message": "Додайте значок файлу"
+    },
+    "PMDlabel18": {
+        "message": "Використовуйте шрифт:"
+    },
+    "PMDlabel19": {
+        "message": "Виріжте поле &quot;Нотатки&quot; на 100 символів"
+    },
+    "PMDlabel2": {
+        "message": "Увімкнути індивідуальний перегляд списку вкладених файлів"
+    },
+    "PMDlabel20": {
+        "message": "Додайте назву та дату адресної книги"
+    },
+    "PMDlabel21": {
+        "message": "Сховати завжди розширені заголовки"
+    },
+    "PMDlabel22": {
+        "message": "Додайте вкладення p7m та vCard"
+    },
+    "PMDlabel23": {
+        "message": "Додати ім’я папки"
+    },
+    "PMDlabel25": {
+        "message": "Використовуйте чорний як основний колір тексту"
+    },
+    "PMDlabel3": {
+        "message": "Встановіть рамку навколо заголовків"
+    },
+    "PMDlabel4": {
+        "message": "Сховати заголовки"
+    },
+    "PMDlabel5": {
+        "message": "Обрізайте лінії заголовків довше, ніж приблизно"
+    },
+    "PMDlabel6": {
+        "message": "символів."
+    },
+    "PMDlabel7": {
+        "message": "Сховати зображення"
+    },
+    "PMDlabel8": {
+        "message": "Друк без діалогового вікна"
+    },
+    "PMDlabel9": {
+        "message": "Сховати смужку ходу друку"
+    },
+    "PMDmenuitem": {
+        "message": "Параметри друку"
+    },
+    "RG1.label": {
+        "message": "Нічого"
+    },
+    "RG2.label": {
+        "message": "Ім&#39;я користувача"
+    },
+    "Scale": {
+        "message": "масштаб"
+    },
+    "addNameRG.label": {
+        "message": "Додати перед заголовками:"
+    },
+    "addRdate.label": {
+        "message": "Додати отриману дату"
+    },
+    "advancedOptions.label": {
+        "message": "Розширені опції"
+    },
+    "alignHeaders.label": {
+        "message": "Вирівняйте заголовки"
+    },
+    "all": {
+        "message": "все"
+    },
+    "attachments": {
+        "message": "Додатки"
+    },
+    "attachmentsPerLine": {
+        "message": "Додатки на рядок:"
+    },
+    "body": {
+        "message": "Тіло"
+    },
+    "borderStyle": {
+        "message": "Стиль кордону:"
+    },
+    "bottom": {
+        "message": "Дно"
+    },
+    "browse": {
+        "message": "переглядати"
+    },
+    "cancel": {
+        "message": "Скасувати"
+    },
+    "center": {
+        "message": "центр"
+    },
+    "cite.checkbox": {
+        "message": "Використовуйте стиль для цитованого тексту"
+    },
+    "cite.color": {
+        "message": "Колір:"
+    },
+    "cite.size": {
+        "message": "Розмір:"
+    },
+    "colorsNote": {
+        "message": "Примітка: У діалоговому вікні «Налаштування сторінки друку» потрібно ввімкнути «Зображення та кольори»"
+    },
+    "copies": {
+        "message": "Копії"
+    },
+    "custom": {
+        "message": "Custom"
+    },
+    "custom_date_format": {
+        "message": "Спеціальний формат дати"
+    },
+    "date.label": {
+        "message": "Формат дати:"
+    },
+    "date_custom.label": {
+        "message": "На замовлення"
+    },
+    "debugOptions.label": {
+        "message": "Параметри налагодження"
+    },
+    "defaultPrinter": {
+        "message": "Принтер за замовчуванням"
+    },
+    "down": {
+        "message": "Вниз"
+    },
+    "enable_pdfdir": {
+        "message": "Увімкнути каталог виведення PDF"
+    },
+    "extensionDescription": {
+        "message": "Інструменти друку повідомлень, заголовків і PDF-файлів (Nextgen)"
+    },
+    "extensionName": {
+        "message": "PrintingTools NG"
+    },
+    "filename_format": {
+        "message": "Формат імені файлу"
+    },
+    "filter_characters": {
+        "message": "Фільтр символів"
+    },
+    "fitToWidth": {
+        "message": "Підгонка по ширині"
+    },
+    "footers": {
+        "message": "Колонтитули"
+    },
+    "forBody": {
+        "message": "для повідомлення про тіло"
+    },
+    "forHeaders": {
+        "message": "тільки для заголовків"
+    },
+    "headers": {
+        "message": "Заголовки"
+    },
+    "headers_order": {
+        "message": "Порядок заголовків"
+    },
+    "images": {
+        "message": "Зображення"
+    },
+    "latinize": {
+        "message": "Латинізуйте тему та імена"
+    },
+    "left": {
+        "message": "Ліворуч"
+    },
+    "long.label": {
+        "message": "довгий UTC"
+    },
+    "longLoc.label": {
+        "message": "довгий і локалізований"
+    },
+    "margins": {
+        "message": "Поля"
+    },
+    "maxPreLen": {
+        "message": "Максимальна ширина тексту:"
+    },
+    "messageBody": {
+        "message": "Тіло повідомлення"
+    },
+    "misc": {
+        "message": "Різне"
+    },
+    "multipleCards.label": {
+        "message": "Роздрукувати всі вибрані контакти"
+    },
+    "order": {
+        "message": "Порядок заголовків"
+    },
+    "otherHeaders": {
+        "message": "Інші заголовки, якщо вони є, слідують"
+    },
+    "output_dir": {
+        "message": "Вихідний каталог"
+    },
+    "page_headers": {
+        "message": "Заголовки"
+    },
+    "page_options": {
+        "message": "Параметри сторінки"
+    },
+    "page_ranges": {
+        "message": "Діапазони сторінок"
+    },
+    "pdf_file_naming": {
+        "message": "Іменування файлів PDF"
+    },
+    "pdf_output": {
+        "message": "Вихід PDF"
+    },
+    "persistent": {
+        "message": "Наполегливий"
+    },
+    "prefix": {
+        "message": "Префікс"
+    },
+    "print.label": {
+        "message": "Друк"
+    },
+    "printLabel": {
+        "message": "Роздрукувати"
+    },
+    "printPreview.label": {
+        "message": "Попередній перегляд"
+    },
+    "print_and_pageoptions": {
+        "message": "Параметри друку та сторінки"
+    },
+    "ptng.label": {
+        "message": "Інструменти друку НГ"
+    },
+    "ptngOptions.label": {
+        "message": "ІНСТРУМЕНТИ ДРУКУ ВАРИАНТІВ"
+    },
+    "remove_emojis": {
+        "message": "Видаліть емодзі та символи Unicode"
+    },
+    "resizeImgs.label": {
+        "message": "Розмір зображень занадто великий"
+    },
+    "right": {
+        "message": "правильно"
+    },
+    "short.label": {
+        "message": "короткий"
+    },
+    "showButton.label": {
+        "message": "Показуйте кнопку параметрів у вікні попереднього перегляду"
+    },
+    "showSignatureVCFfiles": {
+        "message": "Показати файли підпису та vcf"
+    },
+    "showhide": {
+        "message": "Показати або сховати"
+    },
+    "style": {
+        "message": "Стиль"
+    },
+    "suffix": {
+        "message": "Суфікс"
+    },
+    "top": {
+        "message": "Топ"
+    },
+    "up": {
+        "message": "Вгору"
+    },
+    "useCcBccAlways": {
+        "message": "Використовуйте скорочення &quot;Cc&quot; і &quot;Bcc&quot; для всіх мов"
+    },
+    "useHeadersBkColor": {
+        "message": "Використовувати фон заголовка Колір:"
+    },
+    "withSize": {
+        "message": "з розміром"
+    },
+    "wrap": {
+        "message": "Укутати"
+    }
 }
