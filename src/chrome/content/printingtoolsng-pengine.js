@@ -174,16 +174,28 @@ var printingtools = {
 				isEML = true;
 			}
 
+			let messagePaneBrowser2 = this.getMessagePaneBrowser();
+			let selection = messagePaneBrowser2.contentWindow.getSelection()
+// Carret selection not valid
+				if (selection.type == "Caret") {
+					selection.removeAllRanges();
+				}
+
+			console.log("URL", window.document.URL)
+
 			console.log("pdfOutputEnabled", pdfOutputEnabled)
 			console.log("pdfOutputDir", pdfOutputDir)
 			console.log("print silent", options.printSilent)
-			console.log("rng cnt", sel.rangeCount)
+			console.log("rng cnt", selection.rangeCount)
 			console.log("isEML", isEML)
 
 			console.log("before confirm")
-			let rangeCount = sel.rangeCount
-			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && sel.rangeCount != 10 && !isEML) {
-			console.log("do confirm")
+			let rangeCount = selection.rangeCount
+			if (window.document.URL.endsWith("messageWindow1.xhtml")) {
+				rangeCount = 0;
+			}
+			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && rangeCount == 0 && !isEML) {
+				console.log("do confirm")
 
 				autoPDFSave = confirm(this.mainStrBundle.GetStringFromName("confirm_pdf_autosave"));
 				var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
@@ -597,7 +609,49 @@ var printingtools = {
 	},
 
 	getMessagePaneBrowser: function (b) {
-		return document.getElementById("messagepane");
+		let dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+		let messagePaneBrowser;
+
+		if (window.document.URL.endsWith("messenger.xhtml")) {
+			var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
+			if (dbgopts.indexOf("trace1") > -1) {
+				console.log("messenger window, mail3PaneTabBrowser1Doc:", mail3PaneTabBrowser1Doc);
+			}
+			if (mail3PaneTabBrowser1Doc.getElementById("messagepane")) {
+				messagePaneBrowser = mail3PaneTabBrowser1Doc.getElementById("messagepane")
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
+				}
+			} else {
+				let messageBrowserDoc = mail3PaneTabBrowser1Doc.getElementById("messageBrowser").contentDocument;
+				messagePaneBrowser = messageBrowserDoc.getElementById("messagepane")
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("messenger window, messagePaneBrowser from under messageBrowser", messagePaneBrowser);
+				}
+			}
+
+		} else {
+
+			try {
+				messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("non messenger window, messageBrowser from mpane", messagePaneBrowser);
+				}
+			} catch {
+				messagePaneBrowser = document.getElementById("messagepane");
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("non messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
+				}
+			}
+		}
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("messagePaneBrowser final", messagePaneBrowser);
+			console.log("messagePaneBrowser contentDoc", messagePaneBrowser.contentDocument);
+			console.log("messagePaneBrowser contentWin", messagePaneBrowser.contentDocument);
+
+		}
+
+		return messagePaneBrowser;
 	},
 
 	PrintExternalMsg: async function (msgURI) {

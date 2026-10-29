@@ -130,9 +130,9 @@ WL.injectElements(`
 let ctxMenu =
 		`<menupopup>
 			<menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
-
+			<menuitem id="ptng-button-printpreview"  label="__MSG_printPreview.label__" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"/>
 			<menuseparator />
-			<menuitem accesskey="o" label="options" oncommand="openPTdialog(false); event.stopPropagation();" />
+			<menuitem accesskey="o" label="__MSG_ptngOptions.label__" oncommand="openPTdialog(false); event.stopPropagation();" />
 			<menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
 		</menupopup>`;
 	let dtdFiles = ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"];

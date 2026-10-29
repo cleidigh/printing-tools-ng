@@ -14,7 +14,7 @@ Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/notifyTool
 
 function onLoad() {
 
-	//console.debug('messageWindow ol');
+	console.debug('messageWindow ol');
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
 	var PTNGVersion = window.printingtoolsng.extension.addonData.version;
@@ -40,7 +40,7 @@ WL.injectElements(`
 
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem insertafter="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()" command="" disabled acceltext="Ctrl+P"/>
+	<menuitem insertafter="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()"   acceltext="Ctrl+P"/>
 </menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 
@@ -50,6 +50,7 @@ WL.injectElements(`
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
+/*
 	WL.injectElements(`
 <toolbar id="mail-bar3">
 	<toolbarbutton id="ptng-button"
@@ -95,7 +96,7 @@ WL.injectElements(`
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 	WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
-
+*/
 
 }
 
