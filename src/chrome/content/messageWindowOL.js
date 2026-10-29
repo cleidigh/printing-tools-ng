@@ -14,10 +14,9 @@ Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/notifyTool
 
 function onLoad() {
 
-	console.debug('messageWindow ol');
+	// console.debug('messageWindow ol');
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
-	var PTNGVersion = window.printingtoolsng.extension.addonData.version;
 
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
@@ -31,17 +30,17 @@ function onLoad() {
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 
+
 WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="&PMDmenuitem;" oncommand="openPTdialog(false)" acceltext="Ctrl+Shift+P"/>
+	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="__MSG_ptngOptions.label__" oncommand="openPTdialog(false)" acceltext="Ctrl+Shift+P"/>
 </menupopup>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
-
+`, []);
 
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem insertafter="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()"   acceltext="Ctrl+P"/>
-</menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
+	<menuitem insertafter="printMenuItem" label= "__MSG_print.label__ NG…"  oncommand="printingtools.cmd_printng()" command="" acceltext="Ctrl+P"/>
+</menupopup>`, []);
 
 
 	WL.injectElements(`
