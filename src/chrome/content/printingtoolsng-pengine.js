@@ -212,47 +212,7 @@ var printingtools = {
 			}
 
 			if (url !== "undefinedURL") {
-
-				var messagePaneBrowser;
-
-				if (window.document.URL.endsWith("messenger.xhtml")) {
-					var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
-					if (dbgopts.indexOf("trace1") > -1) {
-						console.log("messenger window, mail3PaneTabBrowser1Doc:", mail3PaneTabBrowser1Doc);
-					}
-					if (mail3PaneTabBrowser1Doc.getElementById("messagepane")) {
-						messagePaneBrowser = mail3PaneTabBrowser1Doc.getElementById("messagepane")
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
-						}
-					} else {
-						let messageBrowserDoc = mail3PaneTabBrowser1Doc.getElementById("messageBrowser").contentDocument;
-						messagePaneBrowser = messageBrowserDoc.getElementById("messagepane")
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("messenger window, messagePaneBrowser from under messageBrowser", messagePaneBrowser);
-						}
-					}
-
-				} else {
-
-					try {
-						messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("non messenger window, messageBrowser from mpane", messagePaneBrowser);
-						}
-					} catch {
-						messagePaneBrowser = document.getElementById("messagepane");
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("non messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
-						}
-					}
-				}
-				if (dbgopts.indexOf("trace1") > -1) {
-					console.log("messagePaneBrowser final", messagePaneBrowser);
-					console.log("messagePaneBrowser contentDoc", messagePaneBrowser.contentDocument);
-					console.log("messagePaneBrowser contentWin", messagePaneBrowser.contentDocument);
-
-				}
+				let messagePaneBrowser = this.getMessagePaneBrowser();
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = printingtools.msgUris[0];
 				if (dbgopts.indexOf("pdfoutput") > -1) {
@@ -593,7 +553,7 @@ var printingtools = {
 
 	},
 
-	getMessagePaneBrowser: function (b) {
+	getMessagePaneBrowser: function () {
 		let dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 		let messagePaneBrowser;
 
