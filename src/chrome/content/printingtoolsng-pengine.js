@@ -174,31 +174,16 @@ var printingtools = {
 				isEML = true;
 			}
 
-			let messagePaneBrowser2 = this.getMessagePaneBrowser();
-			let selection = messagePaneBrowser2.contentWindow.getSelection()
-// Carret selection not valid
-				if (selection.type == "Caret") {
-					selection.removeAllRanges();
-				}
-
-			console.log("URL", window.document.URL)
-
-			console.log("pdfOutputEnabled", pdfOutputEnabled)
-			console.log("pdfOutputDir", pdfOutputDir)
-			console.log("print silent", options.printSilent)
-			console.log("rng cnt", selection.rangeCount)
-			console.log("isEML", isEML)
-
-			console.log("before confirm")
-			let rangeCount = selection.rangeCount
-			if (window.document.URL.endsWith("messageWindow1.xhtml")) {
-				rangeCount = 0;
+			let messagePaneBrowser = this.getMessagePaneBrowser();
+			let selection = messagePaneBrowser.contentWindow.getSelection()
+			// Carret selection not valid
+			if (selection.type == "Caret") {
+				selection.removeAllRanges();
 			}
-			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && rangeCount == 0 && !isEML) {
-				console.log("do confirm")
 
+			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && selection.rangeCount == 0 && !isEML) {
 				autoPDFSave = confirm(this.mainStrBundle.GetStringFromName("confirm_pdf_autosave"));
-				var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+				let dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 				if (dbgopts.indexOf("pdfoutput") > -1) {
 					console.log("PTNG: PDF Output autosave : ", autoPDFSave);
 				}
