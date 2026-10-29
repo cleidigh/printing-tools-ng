@@ -1474,9 +1474,6 @@ var printingtools = {
 			// Services.console.logStringMessage("window: " + printingtools.getMail3Pane().document.URL);
 			//var sel = printingtools.getMail3Pane().content.getSelection();
 			var sel = document.commandDispatcher.focusedWindow.getSelection();
-			console.log("sel", sel)
-			console.log(document.commandDispatcher.focusedWindow)
-
 
 			var range2 = sel.getRangeAt(0);
 			var contents2 = range2.cloneContents();

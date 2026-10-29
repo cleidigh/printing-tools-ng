@@ -24,7 +24,7 @@ Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/notifyTool
 
 async function onLoad() {
 
-	console.debug('messenger ol');
+	//console.debug('messenger ol');
 
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
@@ -36,69 +36,20 @@ async function onLoad() {
 	<key replaceattributes="key_print" command="" oncommand="printingtools.cmd_printng();"/>
 	<key insertafter="key_print" key="P" modifiers ="control, shift" command="" oncommand="openPTdialog(false);"/>
 </keyset>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+`, []);
 
 
 WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="&ptngOptions.label;" oncommand="openPTdialog(false)" acceltext="Ctrl+Shift+P"/>
+	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="__MSG_ptngOptions.label__" oncommand="openPTdialog(false)" acceltext="Ctrl+Shift+P"/>
 </menupopup>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
+`, []);
 
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem insertafter="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()" command="" acceltext="Ctrl+P"/>
-</menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
+	<menuitem insertafter="printMenuItem" label= "__MSG_print.label__ NG…"  oncommand="printingtools.cmd_printng()" command="" acceltext="Ctrl+P"/>
+</menupopup>`, []);
 
-/*
-	WL.injectElements(`
-<toolbarpalette id="MailToolbarPalette">
-	<toolbarbutton id="ptng-button"
-	  label="&print.label; NG"
-	  tooltiptext="&ptng.label;"  
-	  oncommand="printingtools.cmd_printng(null, {})"
-	  class="toolbarbutton-1"
-	  type="menu-button"
-	  is="toolbarbutton-menu-button">
-	  	<menupopup>
-		  <menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
-		  <menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"  />
-		  <menuseparator />
-		  <menuitem id="ptng-button-options" accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();"/>
-		  <menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
-		  </menupopup>
-	  </toolbarbutton>
-</toolbarpalette>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
-
-
-
-	WL.injectElements(`
-<toolbarpalette id="header-view-toolbar">
-	<toolbarbutton id="ptng-button-hdr"
-	  label="&print.label; NG"
-	  tooltiptext="&ptng.label;"
-	  oncommand="printingtools.cmd_printng(null, {})"
-	  class="ptng-button-hdr toolbarbutton-icon toolbarbutton-1 message-header-view-button msgHeaderView-button customize-header-toolbar-button"
-	  type="menu-button"
-	  insertafter="hdrJunkButton"
-	  is="toolbarbutton-menu-button">
-
-	  	<menupopup>
-		  <menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
-		  <menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"  />
-		  <menuseparator />
-		  <menuitem id="ptng-button-options" accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();"/>
-		  <menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
-		  </menupopup>
-	  </toolbarbutton>
-</toolbarpalette>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
-
-
-	WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
-
-	*/
 	window.getUI_status.startup();
 
 	// inject extension object into private context
@@ -116,28 +67,16 @@ WL.injectElements(`
 	printEntry.removeAttribute("key");
 	printEntry.removeAttribute("acceltext");
 
-	/*
-	let ctxMenu =
-		`<menupopup>
-			<menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
-			<menuitem id="ptng-button-printpreview" accesskey="&contextPrintPreview.accesskey;" label="&printPreview.label;" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"/>
-			<menuseparator />
-			<menuitem accesskey="o" label="&ptngOptions.label;" oncommand="openPTdialog(false); event.stopPropagation();" style=""/>
-			<menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
-		</menupopup>`;
-*/
-
 let ctxMenu =
 		`<menupopup>
-			<menuitem id="ptng-button-print" accesskey="&contextPrint.accesskey;" label="&print.label;" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
-			<menuitem id="ptng-button-printpreview"  label="__MSG_printPreview.label__" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"/>
+			<menuitem id="ptng-button-print" accesskey="__MSG_contextPrint.accesskey__" label="__MSG_print.label__" oncommand="printingtools.cmd_printng({printSilent: true}); event.stopPropagation();" />
+			<menuitem id="ptng-button-printpreview" label="__MSG_printPreview.label__" oncommand="printingtools.cmd_printng({printSilent: false}); event.stopPropagation();"/>
 			<menuseparator />
 			<menuitem accesskey="o" label="__MSG_ptngOptions.label__" oncommand="openPTdialog(false); event.stopPropagation();" />
-			<menuitem id="ptng-button-help" accesskey="h" label="&Help;" oncommand="utils.loadHelp(); event.stopPropagation();"/>
+			<menuitem id="ptng-button-help" accesskey="h" label="__MSG_Help__" oncommand="utils.loadHelp(); event.stopPropagation();"/>
 		</menupopup>`;
-	let dtdFiles = ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"];
 
-	addTBbuttonMainFuncOrCtxMenu(ADDON_ID, "unified-toolbar-button", window.printingtools.cmd_printng, ctxMenu, dtdFiles);
+	addTBbuttonMainFuncOrCtxMenu(ADDON_ID, "unified-toolbar-button", window.printingtools.cmd_printng, ctxMenu, []);
 
 	// These are the signatures for button function only or context menu only:
 	// addTBbuttonMainFuncOrCtxMenu(ADDON_ID, "unified-toolbar-button", window.printingtools.cmd_printng, null, null);
