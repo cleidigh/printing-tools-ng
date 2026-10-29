@@ -20,10 +20,10 @@
 	<tabbox id="ptng-tbox">
 		<tabs>
 			<tab id="miscTab" label="  __MSG_misc__  " />
-			<tab label="  &headers;  " />
-			<tab label="  &body;  " />
-			<tab label="  &pdf_output;  " />
-			<tab label="  &print_and_pageoptions;  " />
+			<tab label="  __MSG_headers__  " />
+			<tab label="  __MSG_body__  " />
+			<tab label="  __MSG_pdf_output__  " />
+			<tab label="  __MSG_print_and_pageoptions__  " />
 		</tabs>
 		<tabpanels id="tabs">
 			<!-- TAB1 Miscellaneous -->
@@ -31,14 +31,14 @@
 				<html:div style="padding-left: 5px">
 					<html:div style="height: 8px;"></html:div>
 					<hbox>
-						<label style="font-weight: 700" value="&addNameRG.label;" />
+						<label style="font-weight: 700" value="__MSG_addNameRG.label__" />
 					</hbox>
 					<html:div style="height: 5px;"></html:div>
 					<hbox>
 						<html:div style="width: 24px;"></html:div>
 						<radiogroup id="addNameRG">
-							<radio label="&RG1.label;" />
-							<radio label="&RG2.label;" />
+							<radio label="__MSG_RG1.label__" />
+							<radio label="__MSG_RG2.label__" />
 							<hbox>
 								<radio label="" />
 								<html:input type="text" id="addNameBox" />
@@ -48,26 +48,26 @@
 					<html:div style="height: 2px;"></html:div>
 					<hbox align="center">
 						<html:div style="width: 10px;"></html:div>
-						<checkbox id="addFolder" label="&PMDlabel23;" />
+						<checkbox id="addFolder" label="__MSG_PMDlabel23__" />
 					</hbox>
 					<html:div style="height: 8px;"></html:div>
 					<hbox align="center" id="dateLoc">
-						<checkbox id="PMDdate" label="&PMDlabel1;"  oncommand="setTimeout(toggleDate,200)" />
+						<checkbox id="PMDdate" label="__MSG_PMDlabel1__"  oncommand="setTimeout(toggleDate,200)" />
 					</hbox>
 					<groupbox flex="1">
 						<html:div style="height: 15px;"></html:div>
 						<hbox>
-							<label style="font-weight: 700" value="&date.label;" />
+							<label style="font-weight: 700" value="__MSG_date.label__" />
 						</hbox>
 						<html:div style="height: 8px;"></html:div>
 						<hbox>
 							<html:div id="dateSpacer" style="width: 24px;"></html:div>
 							<radiogroup id="dateLongRG">
-								<radio label="&short.label;" id="dateShortRadio" />
-								<radio label="&longLoc.label;" />
-								<radio label="&long.label;" />
+								<radio label="__MSG_short.label__" id="dateShortRadio" />
+								<radio label="__MSG_longLoc.label__" />
+								<radio label="__MSG_long.label__" />
 								<hbox>
-									<radio label="&date_custom.label;" />
+									<radio label="__MSG_date_custom.label__" />
 									<html:input type="text" id="customDate" />
 									<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
 										<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
@@ -80,16 +80,16 @@
 						<html:div style="height: 2px;"></html:div>
 						<hbox align="center">
 							<html:div style="width: 10px;"></html:div>
-							<checkbox id="addRdate" label="&addRdate.label;" />
+							<checkbox id="addRdate" label="__MSG_addRdate.label__" />
 						</hbox>
 						<hbox align="center">
 							<html:div style="width: 10px;"></html:div>
-							<checkbox id="useCcBccAlways" label="&useCcBccAlways;" />
+							<checkbox id="useCcBccAlways" label="__MSG_useCcBccAlways__" />
 						</hbox>
 						<html:div style="height: 22px;"></html:div>
 						<hbox align="center">
 							<html:div style="width: 15px;"></html:div>
-							<label value="&advancedOptions.label;: " />
+							<label value="__MSG_advancedOptions.label__: " />
 							<html:input type="text" id="advanced-options" />
 							<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
 								<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
@@ -101,7 +101,7 @@
 
 						<hbox align="center">
 							<html:div style="width: 15px;"></html:div>
-							<label value="&debugOptions.label;: " />
+							<label value="__MSG_debugOptions.label__: " />
 							<html:input type="text" id="debug-options" />
 							<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
 								<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
@@ -117,40 +117,40 @@
 				<html:div style="padding-left: 5px">
 					<html:div style="height: 8px;"></html:div>
 					<hbox>
-						<label style="font-weight: 700" value="&headers;" />
+						<label style="font-weight: 700" value="__MSG_headers__" />
 					</hbox>
 					<html:div style="height: 8px;"></html:div>
 					<vbox align="start" style="padding-left: 10px">
 						<hbox align="center">
-							<checkbox id="PMDhide" label="&PMDlabel4;" />
+							<checkbox id="PMDhide" label="__MSG_PMDlabel4__" />
 							<html:div style="width: 5px;"></html:div>
-							<checkbox id="PMDextHide" label="&PMDlabel21;" />
+							<checkbox id="PMDextHide" label="__MSG_PMDlabel21__" />
 						</hbox>
-						<checkbox id="alignHeaders" label="&alignHeaders.label;"  />
+						<checkbox id="alignHeaders" label="__MSG_alignHeaders.label__"  />
 						<hbox align="center">
-							<checkbox id="PMDtruncate" label="&PMDlabel5;" />
+							<checkbox id="PMDtruncate" label="__MSG_PMDlabel5__" />
 							<html:input type="text" id="PMDmaxchars" value="" style="width: 40px;" />
-							<label value="&PMDlabel6;" />
+							<label value="__MSG_PMDlabel6__" />
 						</hbox>
 						<hbox align="center">
-							<checkbox id="PMDborders" label="&PMDlabel3;" />
+							<checkbox id="PMDborders" label="__MSG_PMDlabel3__" />
 						</hbox>
 						<hbox align="center">
 							<html:div style="width: 24px;"></html:div>
-							<label value="&borderStyle; (CSS)" style="margin-bottom: 0px; margin-top: 0px;" />
+							<label value="__MSG_borderStyle__ (CSS)" style="margin-bottom: 0px; margin-top: 0px;" />
 							<html:input type="text" id="border_style" value="" />
 						</hbox>
 						<hbox>
-							<checkbox id="useHeadersBkColor" label="&useHeadersBkColor;" oncommand="setTimeout(toggleUseBackgroundColor,300,this)"/>
+							<checkbox id="useHeadersBkColor" label="__MSG_useHeadersBkColor__" oncommand="setTimeout(toggleUseBackgroundColor,300,this)"/>
 							<html:input type="color" id="headersBkColor" value="#ffffff" style="padding-right: 4px" />
 						</hbox>
 						<hbox align="center">
-							<checkbox id="headersStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleHeadersStyle,300,this)" />
+							<checkbox id="headersStyle" label="__MSG_PMDlabel12__" oncommand="setTimeout(toggleHeadersStyle,300,this)" />
 						</hbox>
 						<hbox align="center">
 							<html:div style="width: 26px;"></html:div>
 							<menulist id="hdrfontlist" style="width: 280px"/>
-							<label value="&withSize;" />
+							<label value="__MSG_withSize__" />
 							<menulist id="hdrfontsize">
 								<menupopup>
 									<menuitem label="7" value="7" id="h7" />
@@ -176,7 +176,7 @@
 					</vbox>
 					<html:div style="height: 15px;"></html:div>
 					<hbox>
-						<label style="font-weight: 700" value="&headers_order;" />
+						<label style="font-weight: 700" value="__MSG_headers_order__" />
 					</hbox>
 					<hbox>
 						<html:div style="width: 20px;"></html:div>
@@ -185,18 +185,18 @@
 							<html:div id="headersListContainer" tabindex="0" class="table-list-hboxcontainer">
 								<html:table id="headersList" class="list table-list" style="widthx: 120%">
 									<html:thead>
-										<html:th class="headersListHeader">&headers;</html:th>
+										<html:th class="headersListHeader">__MSG_headers__</html:th>
 									</html:thead>
 								</html:table>
 							</html:div>
 						</vbox>
 						<vbox style="padding-left: 30px;">
 							<html:div style="height: 4px;"></html:div>
-							<button label="&up;" onclick="move(1)" />
+							<button label="__MSG_up__" onclick="move(1)" />
 							<html:div style="height: 5px;"></html:div>
-							<button label="&down;" onclick="move(-1)" />
+							<button label="__MSG_down__" onclick="move(-1)" />
 							<html:div style="height: 5px;"></html:div>
-							<button label="&showhide;" onclick="toggleHeaderShow()" />
+							<button label="__MSG_showhide__" onclick="toggleHeaderShow()" />
 						</vbox>
 					</hbox>
 				</html:div>
@@ -207,21 +207,21 @@
 					<vbox>
 						<html:div style="height: 8px;"></html:div>
 						<hbox>
-							<label style="font-weight: 700" value="&messageBody;" />
+							<label style="font-weight: 700" value="__MSG_messageBody__" />
 						</hbox>
 						<html:div style="height: 7px;"></html:div>
 						<vbox align="start" style="padding-left: 10px">
 							<hbox align="center">
-								<checkbox id="PREtruncate" label="&maxPreLen;" />
+								<checkbox id="PREtruncate" label="__MSG_maxPreLen__" />
 								<html:input type="text" id="PREmaxchars" value="" style="width: 40px;" />
 							</hbox>
 							<hbox align="center">
-								<checkbox id="messageStyle" label="&PMDlabel12;" oncommand="setTimeout(toggleMessageStyle,300,this,true)" />
+								<checkbox id="messageStyle" label="__MSG_PMDlabel12__" oncommand="setTimeout(toggleMessageStyle,300,this,true)" />
 							</hbox>
 							<hbox align="center">
 								<html:div style="width: 26px;"></html:div>
 								<menulist id="fontlist" style="min-width: 265px"/>
-								<label value="&withSize;"/>
+								<label value="__MSG_withSize__"/>
 								<menulist id="fontsize">
 									<menupopup>
 										<menuitem label="7" value="7" id="x7" />
@@ -245,10 +245,10 @@
 								</menulist>
 							</hbox>
 							<hbox align="center">
-								<checkbox label="&cite.checkbox;" oncommand="setTimeout(toggleCiteStyle,300,this)" id="citeCheck" />
-								<label value="&cite.color;" style="margin: 5px"/>
+								<checkbox label="__MSG_cite.checkbox__" oncommand="setTimeout(toggleCiteStyle,300,this)" id="citeCheck" />
+								<label value="__MSG_cite.color__" style="margin: 5px"/>
 								<html:input type="color" id="citeColor" value="#ffffff"/>
-								<label value="&cite.size;" style="margin: 5px"/>
+								<label value="__MSG_cite.size__" style="margin: 5px"/>
 								<menulist id="citeSize" disabled="true">
 									<menupopup>
 										<menuitem label="7" value="7" id="s7" />
@@ -273,26 +273,26 @@
 							</hbox>
 						</vbox>
 						<html:div style="height: 15px;"></html:div>
-						<label value="&attachments;" style="font-weight: 700; width: 100px"/>
+						<label value="__MSG_attachments__" style="font-weight: 700; width: 100px"/>
 						<html:div style="height: 8px;"></html:div>
 						<hbox align="center">
 							<html:div style="width: 10px;"></html:div>
-							<checkbox id="PMDattach" label="&PMDlabel2;" oncommand="setTimeout(toggleAtt,200)" />
+							<checkbox id="PMDattach" label="__MSG_PMDlabel2__" oncommand="setTimeout(toggleAtt,200)" />
 						</hbox>
 						<hbox align="center">
 							<html:div style="width: 30px;"></html:div>
-							<checkbox id="PMDattachIcon" label="&PMDlabel17;" />
+							<checkbox id="PMDattachIcon" label="__MSG_PMDlabel17__" />
 						</hbox>
 						<hbox align="center">
 							<html:div style="width: 30px;"></html:div>
-							<checkbox id="addP7M" label="&showSignatureVCFfiles;" />
+							<checkbox id="addP7M" label="__MSG_showSignatureVCFfiles__" />
 						</hbox>
 						<hbox align="center">
 							<html:div style="width: 35px;"></html:div>
-							<label value="&attachmentsPerLine;"/>
+							<label value="__MSG_attachmentsPerLine__"/>
 							<menulist id="num_atts_line" style="min-width: 100px">
 								<menupopup>
-									<menuitem label="&wrap;" value="100" id="nal_w" />
+									<menuitem label="__MSG_wrap__" value="100" id="nal_w" />
 									<menuitem label="1" value="1" id="nal_1" />
 									<menuitem label="2" value="2" id="nal_2" />
 									<menuitem label="3" value="3" id="nal_3" />
@@ -302,18 +302,18 @@
 						</hbox>
 						<hbox align="center">
 							<html:div style="width: 10px;"></html:div>
-							<checkbox id="InlineAttsListhide" label="&HideInlineAttList;" />
+							<checkbox id="InlineAttsListhide" label="__MSG_HideInlineAttList__" />
 							<html:div style="width: 5px;"></html:div>
-							<checkbox id="PMDhideAtt" label="&PMDlabel10;" />
+							<checkbox id="PMDhideAtt" label="__MSG_PMDlabel10__" />
 						</hbox>
 						<html:div style="height: 15px;"></html:div>
-						<label value="&images;" style="font-weight: 700; width: 100px"/>
+						<label value="__MSG_images__" style="font-weight: 700; width: 100px"/>
 						<html:div style="height: 8px;"></html:div>
 						<hbox align="center">
 							<html:div style="width: 10px;"></html:div>
-							<checkbox id="PMDhideImgs" label="&PMDlabel7;" />
+							<checkbox id="PMDhideImgs" label="__MSG_PMDlabel7__" />
 							<html:div style="width: 5px;"></html:div>
-							<checkbox id="resizeImgs" label="&resizeImgs.label;" />
+							<checkbox id="resizeImgs" label="__MSG_resizeImgs.label__" />
 						</hbox>
 					</vbox>
 				</html:div>
@@ -323,26 +323,26 @@
 				<html:div style="padding-left: 5px">
 					<html:div style="height: 8px;"></html:div>
 					<hbox>
-						<label style="font-weight: 700" value="&pdf_file_naming;" />
+						<label style="font-weight: 700" value="__MSG_pdf_file_naming__" />
 					</hbox>
 					<html:div style="height: 8px;"></html:div>
 					<vbox align="start" style="padding-left: 10px">
 						<hbox align="center">
-							<checkbox id="enablePDFoutputDir" label="&enable_pdfdir;" />
+							<checkbox id="enablePDFoutputDir" label="__MSG_enable_pdfdir__" />
 						</hbox>
 						<html:div style="height: 3px;"></html:div>
 						<hbox align="center">
 							<html:div style="width: 25px;"></html:div>
-							<label value="&output_dir;" />
+							<label value="__MSG_output_dir__" />
 						</hbox>
 						<hbox align="center">
 							<html:div style="width: 25px;"></html:div>
 							<html:input id="PDFoutputDir" type="text" />
-							<button id="PDFoutputDirBrowse" label="&browse;" oncommand="pickPDFoutputDir()" />
+							<button id="PDFoutputDirBrowse" label="__MSG_browse__" oncommand="pickPDFoutputDir()" />
 						</hbox>
 						<html:div style="height: 12px;"></html:div>
 						<hbox align="center" >
-							<label id="PDFcustomDateLabel" style="padding-top: 3px;" >&custom_date_format;</label>
+							<label id="PDFcustomDateLabel" style="padding-top: 3px;" >__MSG_custom_date_format__</label>
 							<html:input type="text" id="customDatePDF" />
 							<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
 								<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
@@ -352,29 +352,29 @@
 						</hbox>
 						<html:div style="height: 15px;"></html:div>
 						<hbox align="center">
-							<label value="&prefix;" />
+							<label value="__MSG_prefix__" />
 							<html:input id="prefixText"/>
 						</hbox>
 						<html:div style="height: 4px;"></html:div>
 						<hbox align="center" >
-							<label value="&suffix;" />
+							<label value="__MSG_suffix__" />
 							<html:input id="suffixText"/>
 						</hbox>
 						<html:div style="height: 12px;"></html:div>
 						<hbox align="center">
-							<checkbox id="enableLatinize" label="&latinize;" />
+							<checkbox id="enableLatinize" label="__MSG_latinize__" />
 						</hbox>
 						<hbox align="center">
-							<checkbox id="enableEmojiAndSymbolFilter" label="&remove_emojis;" />
+							<checkbox id="enableEmojiAndSymbolFilter" label="__MSG_remove_emojis__" />
 						</hbox>
 						<html:div style="height: 12px;"></html:div>
 						<hbox align="center">
-							<label value="&filter_characters;" />
+							<label value="__MSG_filter_characters__" />
 							<html:input id="characterFilter" type="text"  />
 						</hbox>
 						<html:div style="height: 26px;"></html:div>
 						<hbox style="height: ;" >
-							<label style="padding-top: 3px;" >&filename_format;</label>
+							<label style="padding-top: 3px;" >__MSG_filename_format__</label>
 							<html:input type="text" id="PDFcustomFilenameFormat" />
 							<hbox class="adjusted-image-height" align="center" style=" background-color: ;">
 								<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
@@ -394,7 +394,7 @@
 								<html:tr>
 									<html:td style= "vertical-alignment: center">
 										<html:label style="padding-left: 1px; padding-right: 4px; 
-								font-weight: 700">&defaultPrinter;</html:label>
+								font-weight: 700">__MSG_defaultPrinter__</html:label>
 									</html:td>
 									<html:td style="">
 										<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
@@ -408,12 +408,12 @@
 						<hbox>
 							<html:div style="width: 15px;"></html:div>
 							<menulist id="OutputPrinter" oncommand="printerChange();" style="padding-left: 24px; min-width: 250px"/>
-							<checkbox id="printer_persistent" label="&persistent;" style="padding-left: 20px" />
+							<checkbox id="printer_persistent" label="__MSG_persistent__" style="padding-left: 20px" />
 						</hbox>
 						<html:div style="height: 4px;"></html:div>
 						<hbox align="center">
 							<html:div style="width: 14px;"></html:div>
-							<checkbox id="PMDsilent" label="&PMDlabel8;" />
+							<checkbox id="PMDsilent" label="__MSG_PMDlabel8__" />
 						</hbox>
 						<html:div style="height: 15px;"></html:div>
 						<div>
@@ -421,7 +421,7 @@
 								<html:tr>
 									<html:td style= "">
 										<html:label style="padding-left: 1px; padding-right: 4px; 
-								font-weight: 700">&page_options;</html:label>
+								font-weight: 700">__MSG_page_options__</html:label>
 									</html:td>
 									<html:td style="">
 										<html:img src="resource://printingtoolsng/icons/question-mark-20px.png" 
@@ -435,12 +435,12 @@
 						<html:div>
 							<html:table id="margins-hdrftr-table" class="margins-hdrftr-tbl" style="border-collapse: collapse;">
 								<html:tr>
-									<html:td>&Scale;
+									<html:td>__MSG_Scale__
 								</html:td>
 									<html:td colspan="4" style="vertical-align: center">
 										<radiogroup id="scaleRG" orient="horizontal" oncommand="scaleToggle(this);" >
-											<radio label="&fitToWidth;"/>
-											<radio label="&Scale;" />
+											<radio label="__MSG_fitToWidth__"/>
+											<radio label="__MSG_Scale__" />
 											<html:div id="parent" style="padding-top: 3px">
 												<html:input id="scale" is="setting-number" 
 									data-setting-name="scaling" min="10" max="200" 
@@ -453,12 +453,12 @@
 									</html:td>
 								</html:tr>
 								<html:tr>
-									<html:td>&page_ranges;
+									<html:td>__MSG_page_ranges__
 								</html:td>
 									<html:td colspan="4" >
 										<radiogroup id="pageRangesRG" orient="horizontal" oncommand="pageRangeToggle(this);" >
-											<radio label="&all;" />
-											<radio label="&custom;" />
+											<radio label="__MSG_all__" />
+											<radio label="__MSG_custom__" />
 											<html:div id="page-ranges-error-parent">
 												<html:input type="text" id="pages" size="12" required="" 
 									style="padding-right: 0; margin-right: 0px" />
@@ -468,10 +468,10 @@
 									</html:td>
 								</html:tr>
 								<html:tr>
-									<html:td id="frfc">&margins;
+									<html:td id="frfc">__MSG_margins__
 										<label id="units" value="(inches)" />
 									</html:td>
-									<html:td>&top;
+									<html:td>__MSG_top__
 								</html:td>
 									<html:td>
 										<html:input id="margin-top" is="setting-number" 
@@ -480,7 +480,7 @@
 										aria-errormessage="error-invalid-copies" required="" 
 										type="number" autocomplete="off" value="0.50" style="width: 100%"/>
 									</html:td>
-									<html:td>&bottom;
+									<html:td>__MSG_bottom__
 								</html:td>
 									<html:td style="text-align: right">
 										<html:input id="margin-bottom" is="setting-number" 
@@ -493,7 +493,7 @@
 								<html:tr>
 									<html:td>
 								</html:td>
-									<html:td>&left;
+									<html:td>__MSG_left__
 								</html:td>
 									<html:td>
 										<html:input id="margin-left" is="setting-number" 
@@ -502,7 +502,7 @@
 										aria-errormessage="error-invalid-copies" required="" 
 										type="number" autocomplete="off" value="0.50"/>
 									</html:td>
-									<html:td>&right;
+									<html:td>__MSG_right__
 								</html:td>
 									<html:td style="text-align: right">
 										<html:input id="margin-right" is="setting-number" 
@@ -513,9 +513,9 @@
 									</html:td>
 								</html:tr>
 								<html:tr>
-									<html:td>&page_headers;
+									<html:td>__MSG_page_headers__
 								</html:td>
-									<html:td>&left;
+									<html:td>__MSG_left__
 								</html:td>
 									<html:td id="leftHeaderTD" colspan="3">
 										<html:input type="text" id="headerleft" class="hdrftr" />
@@ -524,7 +524,7 @@
 								<html:tr>
 									<html:td>
 								</html:td>
-									<html:td>&center;
+									<html:td>__MSG_center__
 								</html:td>
 									<html:td colspan="3">
 										<html:input type="text" id="headercenter" class="hdrftr" />
@@ -533,16 +533,16 @@
 								<html:tr>
 									<html:td>
 								</html:td>
-									<html:td>&right;
+									<html:td>__MSG_right__
 								</html:td>
 									<html:td colspan="3">
 										<html:input type="text" id="headerright" class="hdrftr" />
 									</html:td>
 								</html:tr>
 								<html:tr>
-									<html:td>&footers;
+									<html:td>__MSG_footers__
 								</html:td>
-									<html:td>&left;
+									<html:td>__MSG_left__
 								</html:td>
 									<html:td colspan="3">
 										<html:input type="text" id="footerleft" class="hdrftr" />
@@ -551,7 +551,7 @@
 								<html:tr>
 									<html:td>
 								</html:td>
-									<html:td>&center;
+									<html:td>__MSG_center__
 								</html:td>
 									<html:td colspan="3">
 										<html:input type="text" id="footercenter" class="hdrftr"  />
@@ -560,7 +560,7 @@
 								<html:tr>
 									<html:td>
 								</html:td>
-									<html:td>&right;
+									<html:td>__MSG_right__
 								</html:td>
 									<html:td colspan="3">
 										<html:input type="text" id="footerright" class="hdrftr"  />
@@ -587,7 +587,7 @@
 	<vbox height="8px"></vbox>
 	<hbox align="right" pack="end" style="padding-right: 8px">
 		<button id="okbutton" label="OK" oncommand="savePMDprefs();"/>
-		<button id="cancelbutton" label="&cancel;" oncommand="window.close();"/>
+		<button id="cancelbutton" label="__MSG_cancel__" oncommand="window.close();"/>
 		<vbox height="8px"></vbox>
 	</hbox>
 	<html:div style="height: 8px;"></html:div>
