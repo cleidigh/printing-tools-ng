@@ -20,7 +20,11 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Notas da versión:</h3>
     <p>
-      - Corrixido: Múltiples erros coa eliminación de innerHTML que provocaban erros ao usar certas opcións.
+      - Substituíuse o obsoleto msgHdrFromURI por messageURIToMsgHdr<br />
+      - Usar un novo método para determinar as seleccións<br />
+      - Usa messages.json para o diálogo de opcións<br />
+      - Eliminar o método do botón de cabeceira da mensaxe obsoleto<br /><br />
+      Nota: Use o menú contextual do botón dereito para imprimir desde unha xanela de mensaxes<br />
     </p>
     <br />
     <h2 id="main_help">Visión xeral de PrintingTools NG</h2>
@@ -317,7 +321,7 @@
         <tr>
           <td><code class="code1">%2</code></td>
           <td>
-            Literal do día. Localizado, principalmente para configuracións locais asiáticas. (ja: 日, ko: 일)
+            Literal do día. Localizado, principalmente para configuracións locais asiáticas. (xa: 日, ko: 일)
           </td>
         </tr>
       </tbody>
@@ -342,7 +346,7 @@
         <code class="code1">%r</code> - non implementado (úsase <code class="code1">%I:%M:%S %p</code> )
       </li>
       <li><code class="code1">%R</code> - non implementado (úsase <code class="code1">%H:%M</code> )</li>
-      <li><code class="code1">%t</code> - non implementado (usa <code class="code1">\t</code> )</li>
+      <li><code class="code1">%t</code> - non implementado (úsase <code class="code1">\t</code> )</li>
       <li><code class="code1">%T</code> - non implementado (úsase <code class="code1">%H:%M:%S</code> )</li>
       <li><code class="code1">%U</code> - non implementado</li>
       <li><code class="code1">%W</code> - non implementado</li>

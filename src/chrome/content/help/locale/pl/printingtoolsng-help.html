@@ -20,8 +20,11 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Informacje o wydaniu:</h3>
     <p>
-      - Naprawiono: Wiele błędów związanych z usunięciem innerHTML, które powodowały błędy podczas korzystania
-      z niektórych opcji.
+      - Zastąpiono przestarzałą funkcję msgHdrFromURI funkcją messageURIToMsgHdr<br />
+      - Użyj nowej metody do określania selekcji<br />
+      - Użyj messages.json dla okna dialogowego opcji<br />
+      - Usuń przestarzałą metodę przycisku nagłówka wiadomości<br /><br />
+      Uwaga: Aby wydrukować z okna wiadomości, użyj menu kontekstowego prawego przycisku myszy<br />
     </p>
     <br />
     <h2 id="main_help">Przegląd PrintingTools NG</h2>
@@ -120,7 +123,7 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>en-US locale, długi dzień/miesiąc</td>
+        <td>lokalizacja en-US, długi dzień/miesiąc</td>
       </tr>
     </table>
     <br />
@@ -261,8 +264,8 @@
         <tr>
           <td><code class="code1">%u</code></td>
           <td>
-            Dzień tygodnia w formacie dziesiętnym (zakres od 1 do 7), gdzie poniedziałek ma wartość 1. Zobacz
-            także <code class="code1">%w</code> .
+            Dzień tygodnia w formacie dziesiętnym (zakres od 1 do 7), przy czym poniedziałek ma wartość 1.
+            Zobacz także <code class="code1">%w</code> .
           </td>
         </tr>
         <tr>

@@ -20,8 +20,12 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Release-opmerkingen:</h3>
     <p>
-      - Opgelost: Meerdere fouten bij het verwijderen van innerHTML die problemen veroorzaakten bij het
-      gebruik van bepaalde opties.
+      - De verouderde functie msgHdrFromURI is vervangen door messageURIToMsgHdr<br />
+      - Gebruik een nieuwe methode om de selecties te bepalen<br />
+      - Gebruik messages.json voor het optiedialoogvenster<br />
+      - Verwijder de verouderde knopmethode voor berichtheaders<br /><br />
+      Opmerking: Gebruik het contextmenu dat verschijnt wanneer u met de rechtermuisknop klikt om vanuit een
+      berichtvenster af te drukken.<br />
     </p>
     <br />
     <h2 id="main_help">Overzicht van PrintingTools NG</h2>
@@ -292,7 +296,7 @@
         </tr>
         <tr>
           <td><code class="code1">%y</code></td>
-          <td>Jaar als decimaal getal zonder eeuw (bereik 00 tot 99).</td>
+          <td>Het jaar als decimaal getal zonder eeuw (bereik 00 tot 99).</td>
         </tr>
         <tr>
           <td><code class="code1">%Y</code></td>
@@ -524,7 +528,7 @@
     </p>
     <h2>Steun</h2>
     <p>
-      Meld problemen of dien functieverzoeken in bij de GitHub-repository van de extensie:
+      Meld problemen of doe functieverzoeken in de GitHub-repository van de extensie:
       <a class="link1" href="https://github.com/cleidigh/printing-tools-ng/issues">PrintingTools NG Issues</a
       ><br /><br />
       Vermeld bij het melden van bugs de volgende informatie om te helpen bij het oplossen van de

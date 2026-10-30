@@ -18,10 +18,14 @@
         </td>
       </tr>
     </table>
-    <h3 id="release_notes" style="padding-left: 4px">Opombe k izdaji:</h3>
+    <h3 id="release_notes" style="padding-left: 4px">Opombe ob izdaji:</h3>
     <p>
-      - Odpravljeno: Več napak pri odstranitvi innerHTML, ki so povzročale napake pri uporabi določenih
-      možnosti.
+      - Zastareli msgHdrFromURI je bil zamenjan z messageURIToMsgHdr<br />
+      - Uporabite novo metodo za določanje izbir<br />
+      - Za pogovorno okno z možnostmi uporabite datoteko messages.json<br />
+      - Odstranite metodo gumba glave sporočila z amortizacijo<br /><br />
+      Opomba: Za tiskanje iz okna s sporočili uporabite kontekstni meni, ki ga dobite ob kliku z desno miškino
+      tipko.<br />
     </p>
     <br />
     <h2 id="main_help">Pregled orodij za tiskanje NG</h2>
@@ -39,7 +43,7 @@
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Če želite gumb postaviti v orodno vrstico glave e-pošte, sledite tem korakom:</p>
+    <p>Če želite gumb postaviti v orodno vrstico glave pošte, sledite tem korakom:</p>
     <div class="indent1">
       <li>Kliknite gumb Več v orodni vrstici glave pošte</li>
       <li>Izberite Po meri ... S tem se bo odprlo okno Prilagodi orodno vrstico</li>
@@ -127,7 +131,7 @@
       Unixu. Temelji na JavaScript različici funkcije
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , ki omogoča oblikovanje datuma in časa.<br />
-      Prilagajanje funkcije strftime() avtorja TH Doana (https://thdoan.github.io/strftime/)<br />
+      Priloga funkcije strftime() avtorja TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
     <h3 style="margin-left: 30px">Opisi zaporedja pretvorb</h3>
@@ -416,7 +420,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${prefix}</code></td>
-        <td>Vrednost možnosti predpone besedila.</td>
+        <td>Vrednost možnosti besedila predpone.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
@@ -439,22 +443,22 @@
     <h2 id="print_options_help">Možnosti tiskanja in strani</h2>
     <p>
       Te možnosti vam omogočajo nastavitev privzetega tiskalnika in možnosti za posamezne strani tiskalnika.
-      Možno je tudi nastaviti tihi način, v katerem se pogovorno okno za predogled ne prikaže in se tiskanje
+      Možno je nastaviti tudi tihi način, v katerem se pogovorno okno za predogled ne prikaže in se tiskanje
       izvede takoj.
     </p>
     <p>
       Možnosti strani vam omogočajo nastavitev elementov, ko je predogled ali tiskanje končano. Te možnosti
       ostanejo shranjene med tiskanjem. Če se možnosti, nastavljene v orodju PrintingTools NG, spremenijo v
       predogledu tiskanja, to ne bo vplivalo na nadaljnje tiskanje. Nekaterih elementov ni mogoče nastaviti v
-      pogovornem oknu za predogled, med njimi so glave in noge. Drugi elementi se v predogledu ne ohranijo in
+      pogovornem oknu za predogled, med njimi so glave in noge. Drugi elementi se ne ohranijo v predogledu in
       jih je običajno treba nastaviti vsakič, ko je tiskanje končano. PrintingTools NG rešuje obe težavi.
     </p>
     <p>
       Predogled ne shrani obsegov strani. Tipičen primer uporabe je, ko želimo kot privzeto natisniti samo
       prvo stran e-pošte. Običajno bi bilo treba obsege strani vsakič spremeniti. Upoštevajte, da če obseg
       strani, nastavljen v orodju PrintingTools NG, ni veljaven, na primer presega število strani, je treba
-      obseg pred tiskanjem popraviti v predogledu. Obseg strani, nastavljen na »1«, bo vedno veljaven in bo
-      natisnil prvo stran sporočila.
+      obseg pred tiskanjem popraviti v predogledu. Obseg strani, nastavljen na »1«, bo vedno veljaven in
+      natisne prvo stran sporočila.
     </p>
     <p>Opombe:</p>
     <p>Možnost skaliranja omogoča nastavitev trajnega merila.</p>
@@ -516,7 +520,7 @@
       - Različica PrintingTools NG<br />
       - Različica Thunderbirda<br />
       - Operacijski sistem in različica<br />
-      - Izpis za odpravljanje napak (kopiranje iz konzole za odpravljanje napak - dostop s Control-Shift-J)<br />
+      - Izpis za odpravljanje napak (kopirano iz konzole za odpravljanje napak - dostop s Control-Shift-J)<br />
       - Opis korakov, ki vodijo do težave<br />
     </p>
     <h2 id="debug_options_help">Možnosti odpravljanja napak</h2>

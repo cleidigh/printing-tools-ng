@@ -20,8 +20,11 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Udgivelsesnoter:</h3>
     <p>
-      - Rettelse: Flere fejl med fjernelse af innerHTML, der forårsagede fejl ved brug af bestemte
-      indstillinger.
+      - Erstattede den forældede msgHdrFromURI med messageURIToMsgHdr<br />
+      - Brug en ny metode til at bestemme valg<br />
+      - Brug messages.json til indstillingsdialogen<br />
+      - Fjern forældet beskedhovedknapmetode<br /><br />
+      Bemærk: Brug højreklik-kontekstmenuen til at udskrive fra et meddelelsesvindue<br />
     </p>
     <br />
     <h2 id="main_help">Oversigt over PrintingTools NG</h2>
@@ -359,7 +362,7 @@
     </p>
     <p />
     <p>
-      Aktiver PDF-outputmappen, og vælg en mappe til lagringsplaceringen. Outputfilnavnet vil følge det
+      Aktivér PDF-outputmappen, og vælg en mappe til lagringsplaceringen. Outputfilnavnet vil følge det
       konfigurerede filnavnformat.
     </p>
     <p />
@@ -374,7 +377,7 @@
     <p />
     <p>Eksempler</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> - Standardformatet, emnet for e-mailen<br />
+      <span class="notranslate"><code>${subject}</code></span> - Standardformatet for emnet i e-mailen<br />
       <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Brug det
       brugerdefinerede datoformat i stedet for standard<br />
       <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Med noget
@@ -392,7 +395,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${sender}</code></td>
-        <td>Navnet på beskedens afsender.</td>
+        <td>Navnet på afsenderen af beskeden.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${recipient}</code></td>

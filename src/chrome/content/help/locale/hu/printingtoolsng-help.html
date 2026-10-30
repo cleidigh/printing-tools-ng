@@ -20,8 +20,11 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Kiadási megjegyzések:</h3>
     <p>
-      - Javítva: Több hiba az innerHTML eltávolításakor, amelyek bizonyos opciók használatakor hibákat
-      okoztak.
+      - Az elavult msgHdrFromURI-t a messageURIToMsgHdr-re cserélte<br />
+      - Új módszer használata a kiválasztások meghatározásához<br />
+      - Használja a messages.json fájlt a beállítások párbeszédpanelhez<br />
+      - Az elavult üzenetfejléc gomb módszerének eltávolítása<br /><br />
+      Megjegyzés: Az üzenetablakból való nyomtatáshoz használja a jobb gombbal előhívható helyi menüt<br />
     </p>
     <br />
     <h2 id="main_help">PrintingTools NG áttekintése</h2>
@@ -127,7 +130,7 @@
     </table>
     <br />
     <p>
-      Az egyéni dátumformátum a <code>strftime()</code> Unix-szerű funkcionalitásával megegyező % sorozatokat
+      Az egyéni dátumformátum az <code>strftime()</code> Unix-szerű funkcionalitásával megegyező % sorozatokat
       használ.
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       függvény JavaScript portján alapul, amely egy dátum és idő formázására szolgáló függvény.<br />
@@ -337,7 +340,7 @@
       <li><code class="code1">%k</code> - szóköz nem kerül hozzáadásra</li>
       <li>
         <code class="code1">%n</code> - mint <code class="code1">%m</code> , de nincs kezdő nulla (sortöréshez
-        használj <code class="code1">\n</code> karaktert)
+        <code class="code1">\n</code> karaktert használ)
       </li>
       <li><code class="code1">%O</code> - nincs megvalósítva</li>
       <li>

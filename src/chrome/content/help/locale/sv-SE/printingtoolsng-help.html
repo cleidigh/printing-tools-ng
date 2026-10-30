@@ -20,7 +20,11 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Versionsinformation:</h3>
     <p>
-      - Åtgärdat: Flera fel med borttagning av innerHTML som orsakade fel vid användning av vissa alternativ.
+      - Ersatte föråldrad msgHdrFromURI med messageURIToMsgHdr<br />
+      - Använd ny metod för att bestämma val<br />
+      - Använd messages.json för alternativdialogrutan<br />
+      - Ta bort föråldrad knappmetod för meddelanderubrik<br /><br />
+      Obs! Använd högerklicksmenyn för att skriva ut från ett meddelandefönster<br />
     </p>
     <br />
     <h2 id="main_help">Översikt över PrintingTools NG</h2>
@@ -60,7 +64,7 @@
       <li>Justerade rubriker</li>
       <li>Anpassad rubrikordning</li>
       <li>Sidtitel och meddelandemapp</li>
-      <li>Bilagalista med ikoner i sidhuvudet</li>
+      <li>Bilagorlista med ikoner i sidhuvudet</li>
       <li>Helt anpassningsbart datumformat internationell formatering</li>
     </div>
     <br />
@@ -303,7 +307,7 @@
         </tr>
         <tr>
           <td><code class="code1">%t</code></td>
-          <td>Kort tidszonsförkortning.</td>
+          <td>Kort tidszonförkortning.</td>
         </tr>
         <tr>
           <td><code class="code1">%0</code></td>

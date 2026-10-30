@@ -19,7 +19,10 @@
       </tr>
     </table>
     <h3 id="release_notes" style="padding-left: 4px">发布说明：</h3>
-    <p>- 已修复：删除 innerHTML 时出现的多个错误，这些错误在使用某些选项时会导致错误。</p>
+    <p>
+      - 将已弃用的 msgHdrFromURI 替换为 messageURIToMsgHdr<br />
+      - 使用新方法确定选择<br />- 使用 messages.json 作为选项对话框<br />- 移除已弃用的消息标题按钮方法<br /><br />注意：使用右键单击上下文菜单可以从消息窗口打印。<br />
+    </p>
     <br />
     <h2 id="main_help">PrintingTools NG 概述</h2>
     <p>
@@ -109,7 +112,7 @@
       <tr>
         <td><code class="code1 notranslate">%A, %B %d %Y (%H:%M:%S) %t</code></td>
         <td class="notranslate">Wednesday, April 20 2022 (18:01:42) EDT</td>
-        <td>en-US 本地化，长日/月</td>
+        <td>en-US 地区，长日/月</td>
       </tr>
     </table>
     <br />
@@ -402,7 +405,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${messageID}</code></td>
-        <td>邮件的唯一消息 ID。</td>
+        <td>邮件的唯一消息ID。</td>
       </tr>
     </table>
     <br />

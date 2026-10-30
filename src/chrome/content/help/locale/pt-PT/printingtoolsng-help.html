@@ -20,7 +20,12 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Notas de lançamento:</h3>
     <p>
-      - Corrigido: Vários erros na remoção do innerHTML que causavam problemas ao usar determinadas opções.
+      - Substituído o método obsoleto msgHdrFromURI por messageURIToMsgHdr<br />
+      - Utilize o novo método para determinar as seleções.<br />
+      - Use o arquivo messages.json para a caixa de diálogo de opções.<br />
+      - Método de botão para remover cabeçalho de mensagem obsoleto<br /><br />
+      Nota: Use o menu de contexto (clique com o botão direito do mouse) para imprimir a partir de uma janela
+      de mensagem.<br />
     </p>
     <br />
     <h2 id="main_help">Visão geral do PrintingTools NG</h2>
@@ -426,7 +431,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
-        <td>O valor da opção de texto do sufixo.</td>
+        <td>O valor da opção de texto de sufixo.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${date}</code></td>

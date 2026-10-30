@@ -20,8 +20,11 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Poznámky k vydaniu:</h3>
     <p>
-      - Opravené: Viaceré chyby pri odstraňovaní innerHTML, ktoré spôsobovali chyby pri použití určitých
-      možností.
+      - Zastaraný msgHdrFromURI bol nahradený messageURIToMsgHdr<br />
+      - Použite novú metódu na určenie výberov<br />
+      - Pre dialógové okno s možnosťami použite súbor messages.json<br />
+      - Odstrániť metódu tlačidla hlavičky správy so zastaranou hodnotou<br /><br />
+      Poznámka: Na tlač z okna správy použite kontextovú ponuku po kliknutí pravým tlačidlom myši<br />
     </p>
     <br />
     <h2 id="main_help">Prehľad nástrojov PrintingTools NG</h2>
@@ -124,7 +127,7 @@
     </table>
     <br />
     <p>
-      Vlastný formát dátumu využíva sekvencie % zodpovedajúce funkcii <code>strftime()</code> v systéme Unix.
+      Vlastný formát dátumu využíva sekvencie % zodpovedajúce funkcii <code>strftime()</code> podobnej Unixu.
       Je založený na JavaScriptovom porte funkcie
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , ktorá slúži na formátovanie dátumu a času.<br />
@@ -192,7 +195,7 @@
         <tr>
           <td><code class="code1">%H</code></td>
           <td>
-            Hodina ako desatinné číslo s 24-hodinovým formátom (rozsah 00 až 23). Pozrite si tiež
+            Hodina ako desatinné číslo s použitím 24-hodinového formátu (rozsah 00 až 23). Pozrite si tiež
             <code class="code1">%k</code> .
           </td>
         </tr>
@@ -451,17 +454,17 @@
       NG rieši oba tieto problémy.
     </p>
     <p>
-      Jednou z položiek, ktoré sa v ukážke neukladajú, sú rozsahy strán. Typickým prípadom použitia je, keď si
-      niekto želá vytlačiť iba prvú stranu e-mailu ako predvolenú. Normálne by bolo potrebné rozsahy strán
+      Jednou z položiek, ktoré sa v náhľade neukladajú, sú rozsahy strán. Typickým prípadom použitia je, keď
+      si niekto želá vytlačiť iba prvú stranu e-mailu ako predvolenú. Normálne by bolo potrebné rozsahy strán
       meniť zakaždým. Upozorňujeme, že ak rozsah strán nastavený v PrintingTools NG nie je platný, napríklad
-      prekračuje počet strán, bude potrebné rozsah pred tlačou opraviť v ukážke. Rozsah strán nastavený na „1“
-      bude vždy platný a vytlačí sa prvá strana správy.
+      prekračuje počet strán, bude potrebné rozsah pred tlačou opraviť v náhľade. Rozsah strán nastavený na
+      „1“ bude vždy platný a vytlačí sa prvá strana správy.
     </p>
     <p>Poznámky:</p>
     <p>Možnosť škálovania umožňuje nastaviť trvalú mierku.</p>
     <p>
       Rozsahy stránok sú popísané rovnakým spôsobom ako v ukážke. Príklady sú 1, 1-2, 3-4, 5. Upozorňujeme, že
-      ak prednastavený rozsah stránok nie je pre danú správu platný, v ukážke sa zobrazí chyba.
+      ak prednastavený rozsah stránok nie je pre danú správu platný, ukážka zobrazí chybu.
     </p>
     <p>
       Okraje je možné nastaviť pomocou jednotiek vhodných pre miestne nastavenie používateľa, buď palce alebo

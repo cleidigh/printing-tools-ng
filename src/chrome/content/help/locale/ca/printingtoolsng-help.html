@@ -20,8 +20,11 @@
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Notes de la versió:</h3>
     <p>
-      - Corregit: Múltiples errors amb l&#39;eliminació d&#39;innerHTML que provocaven errors en utilitzar
-      certes opcions.
+      - S&#39;ha substituït l&#39;obsolet msgHdrFromURI per messageURIToMsgHdr<br />
+      - Utilitzar un nou mètode per determinar les seleccions<br />
+      - Utilitza messages.json per al diàleg d&#39;opcions<br />
+      - Elimina el mètode del botó de capçalera de missatge obsolet<br /><br />
+      Nota: Feu servir el menú contextual del botó dret per imprimir des d&#39;una finestra de missatges.<br />
     </p>
     <br />
     <h2 id="main_help">Informació general de PrintingTools NG</h2>
@@ -56,11 +59,13 @@
       mateixa en comptes de la drecera d&#39;impressió estàndard. A Windows i Linux, feu servir Control-P i
       Command-P a Mac. També és possible obrir el quadre de diàleg Opcions amb Control-Maj-P.
     </p>
-    <h3 class="indent0">El següent és un exemple d&#39;algunes de les funcions de format de la capçalera:</h3>
+    <h3 class="indent0">
+      El següent és un exemple d&#39;algunes de les funcions de formatació de la capçalera:
+    </h3>
     <div class="indent1">
       <li>Estil de vora de capçalera personalitzat amb CSS (superior i inferior, blau)</li>
       <li>Color de fons de la capçalera</li>
-      <li>Capçaleres alineades</li>
+      <li>Encapçalaments alineats</li>
       <li>Ordre de capçalera personalitzat</li>
       <li>Títol de la pàgina i carpeta de missatges</li>
       <li>Llista de fitxers adjunts amb icones a la capçalera</li>
@@ -374,7 +379,7 @@
       caràcters no vàlids són: <code>| * : &lt; &gt; ? \ / &quot;</code>
     </p>
     <p />
-    <p>El format de nom per defecte és: ${subject} que és simplement l&#39;assumpte del correu electrònic.</p>
+    <p>El format de nom per defecte és: ${subject} que és només l&#39;assumpte del correu electrònic.</p>
     <p />
     <p>Exemples</p>
     <p>
