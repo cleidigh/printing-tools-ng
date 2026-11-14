@@ -4,11 +4,11 @@
 	},
 
 	"extensionDescription": {
-		"message": "Meddelandeutskrift, rubriker och PDF-utmatningsverktyg (Nextgen)"
+		"message": "Verktyg för meddelandeutskrift, meddelandehuvuden och PDF-utdata (Nextgen)"
 	},
 
 	"printLabel": {
-		"message": "Skriva ut"
+		"message": "Skriv ut"
 	}
 
 }
