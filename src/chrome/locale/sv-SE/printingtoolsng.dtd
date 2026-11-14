@@ -1,107 +1,107 @@
-<!ENTITY PMDlabel1 "Aktivera anpassade datuminställningar">
-<!ENTITY PMDlabel2 "Aktivera anpassad vy för bilagelistan">
-<!ENTITY PMDlabel3 "Rita en kantlinje runt huvuden">
-<!ENTITY PMDlabel4 "Dölj huvuden">
-<!ENTITY PMDlabel5 "Trunkera huvudrader längre än">
+<!ENTITY PMDlabel1 "Använd språkanpassat datum">
+<!ENTITY PMDlabel2 "Anpassa bilagelistan">
+<!ENTITY PMDlabel3 "Rita en kantlinje runt meddelandehuvudet">
+<!ENTITY PMDlabel4 "Dölj meddelandehuvudet">
+<!ENTITY PMDlabel5 "Korta av huvudrader längre än cirka">
 <!ENTITY PMDlabel6 "tecken">
 <!ENTITY PMDlabel7 "Dölj bilder">
 <!ENTITY PMDlabel8 "Skriv ut utan att öppna dialogrutan">
-<!ENTITY PMDlabel9 "Dölj utskriftsförloppsindikatorn">
+<!ENTITY PMDlabel9 "Dölj förloppsindikatorn för utskrift">
 <!ENTITY PMDlabel10 "Dölj infogade bilagor">
-<!ENTITY PMDlabel11 "Lägg till användarnamn i huvuden">
-<!ENTITY PMDmenuitem "Utskriftsalternativ">
-<!ENTITY PMDcaptionlabel "Alternativ för meddelandeutskrift">
-<!ENTITY PMDcaptionlabel2 "Globala utskriftsalternativ">
-<!ENTITY PMDlabel12 "Teckensnitt: ">
+<!ENTITY PMDlabel11 "Lägg till användarnamn i meddelandehuvudet">
+<!ENTITY PMDmenuitem "Utskriftsinställningar">
+<!ENTITY PMDcaptionlabel "Inställningar för meddelandeutskrift">
+<!ENTITY PMDcaptionlabel2 "Globala utskriftsinställningar">
+<!ENTITY PMDlabel12 "Använd anpassat teckensnitt">
 <!ENTITY PMDlabel13 "Dölj kontakthuvudet">
 <!ENTITY PMDlabel14 "Infoga endast namn och e-postadresser">
-<!ENTITY PMDcaptionlabel3 "Alternativ för adressboksutskrift">
+<!ENTITY PMDcaptionlabel3 "Inställningar för adressboksutskrift">
 <!ENTITY PMDlabel15 "Använd kompakt layout">
-<!ENTITY PMDlabel16 "Skriv endast ut markering, när sådan finns">
+<!ENTITY PMDlabel16 "Skriv endast ut markerad text om något är markerat">
 <!ENTITY cite.checkbox "Använd ett format för citerad text">
 <!ENTITY cite.color "Färg:">
 <!ENTITY cite.size "Storlek:">
 <!ENTITY PMDlabel17 "Lägg till en filtypsikon">
-<!ENTITY PMDlabel18 "Teckensnitt:">
-<!ENTITY PMDlabel19 "Trunkera fältet &quot;Anteckningar&quot; efter 100 tecken">
+<!ENTITY PMDlabel18 "Använd teckensnitt:">
+<!ENTITY PMDlabel19 "Korta av fältet &quot;Anteckningar&quot; efter 100 tecken">
 <!ENTITY PMDlabel20 "Lägg till adressbokens namn och datum">
 <!ENTITY style "Format">
-<!ENTITY PMDlabel21 "Dölj alltid expanderade huvuden">
+<!ENTITY PMDlabel21 "Dölj alltid utökade huvudfält">
 <!ENTITY withSize "Teckenstorlek (px): ">
 <!ENTITY forBody "för brödtext">
-<!ENTITY forHeaders "endast för huvuden">
+<!ENTITY forHeaders "endast för meddelandehuvudet">
 <!ENTITY misc "Allmänt">
-<!ENTITY order "Ordna huvuden">
-<!ENTITY headers "Huvuden">
+<!ENTITY order "Fältordning i meddelandehuvudet">
+<!ENTITY headers "Meddelandehuvud">
 <!ENTITY up "Uppåt">
 <!ENTITY down "Nedåt">
-<!ENTITY otherHeaders "Övriga huvuden, om sådana finns, placeras efter dessa">
+<!ENTITY otherHeaders "Övriga huvudfält placeras därefter">
 <!ENTITY PMDlabel22 "Lägg till p7m- och vCard-bilagor">
 <!ENTITY PMDlabel23 "Lägg till mappnamn">
 <!ENTITY PMDlabel25 "Använd svart som grundfärg för text">
-<!ENTITY long.label "långt">
+<!ENTITY long.label "långt UTC-format">
 <!ENTITY longLoc.label "långt och språkanpassat">
 <!ENTITY short.label "kort">
 <!ENTITY date.label "Datumformat:">
-<!ENTITY addNameRG.label "Att infoga före huvuden:">
+<!ENTITY addNameRG.label "Lägg till före meddelandehuvudet:">
 <!ENTITY RG1.label "Ingenting">
 <!ENTITY RG2.label "Användarnamn">
-<!ENTITY alignHeaders.label "Justera huvuden">
+<!ENTITY alignHeaders.label "Justera meddelandehuvudets fält">
 <!ENTITY multipleCards.label "Skriv ut alla markerade kontakter">
-<!ENTITY maxPreLen "Ange största tillåtna radlängd i textstycken:">
-<!ENTITY showButton.label "Via knappen &quot;Utskriftsalternativ&quot; i förhandsgranskningsfönstret">
+<!ENTITY maxPreLen "Största radlängd för text:">
+<!ENTITY showButton.label "Visa inställningsknappen i förhandsgranskningsfönstret">
 <!ENTITY resizeImgs.label "Ändra storlek på alltför stora bilder">
-<!ENTITY addRdate.label "Lägg till mottaget datum">
+<!ENTITY addRdate.label "Lägg till mottagningsdatum">
 <!ENTITY defaultPrinter "Standardskrivare">
 <!ENTITY attachmentsPerLine "Bilagor per rad:">
-<!ENTITY wrap "Slå in">
+<!ENTITY wrap "Radbryt">
 <!ENTITY showhide "Visa eller dölj">
-<!ENTITY useHeadersBkColor "Använd sidhuvudets bakgrundsfärg:">
-<!ENTITY borderStyle "Gränsstil:">
-<!ENTITY colorsNote "Obs! &#39;Bilder och färger&#39; måste aktiveras i dialogrutan Utskriftsformat">
+<!ENTITY useHeadersBkColor "Använd bakgrundsfärg för meddelandehuvudet:">
+<!ENTITY borderStyle "Kantlinjestil:">
+<!ENTITY colorsNote "Obs! Aktivera utskrift av bakgrunder i utskriftsdialogrutan">
 <!ENTITY showSignatureVCFfiles "Visa signatur- och vcf-filer">
 <!ENTITY useCcBccAlways "Använd förkortningar &#39;Cc&#39; och &#39;Bcc&#39; för alla språk">
-<!ENTITY HideInlineAttList "Dölj inline bilaga lista">
-<!ENTITY print.label "Skriva ut">
-<!ENTITY printPreview.label "Förhandsgranskning">
-<!ENTITY ptng.label "Utskriftsverktyg NG">
-<!ENTITY ptngOptions.label "UTSKRIFTSVERKTYG FÖR ALTERNATIV">
-<!ENTITY debugOptions.label "Felsökningsalternativ">
-<!ENTITY date_custom.label "Beställnings">
-<!ENTITY messageBody "Meddelandetext">
-<!ENTITY body "Kropp">
+<!ENTITY HideInlineAttList "Dölj bilagelistan i meddelandetexten">
+<!ENTITY print.label "Skriv ut">
+<!ENTITY printPreview.label "Förhandsgranska">
+<!ENTITY ptng.label "PrintingTools NG">
+<!ENTITY ptngOptions.label "Inställningar för PrintingTools NG">
+<!ENTITY debugOptions.label "Felsökningsinställningar">
+<!ENTITY date_custom.label "Anpassat">
+<!ENTITY messageBody "Brödtext">
+<!ENTITY body "Brödtext">
 <!ENTITY pdf_output "PDF-utdata">
-<!ENTITY print_and_pageoptions "Utskrifts- och sidalternativ">
-<!ENTITY headers_order "Beställning av rubriker">
+<!ENTITY print_and_pageoptions "Utskrifts- och sidinställningar">
+<!ENTITY headers_order "Fältordning i meddelandehuvudet">
 <!ENTITY attachments "Bilagor">
 <!ENTITY images "Bilder">
 <!ENTITY pdf_file_naming "Namngivning av PDF-filer">
-<!ENTITY enable_pdfdir "Aktivera PDF Output Directory">
-<!ENTITY output_dir "Utdatakatalog">
+<!ENTITY enable_pdfdir "Använd utdatamapp för PDF-filer">
+<!ENTITY output_dir "Utdatamapp">
 <!ENTITY browse "Bläddra">
 <!ENTITY custom_date_format "Anpassat datumformat">
 <!ENTITY prefix "Prefix">
-<!ENTITY suffix "Ändelse">
+<!ENTITY suffix "Suffix">
 <!ENTITY latinize "Latinisera ämne och namn">
 <!ENTITY remove_emojis "Ta bort Unicode-emojis och symboler">
 <!ENTITY filter_characters "Filtrera tecken">
 <!ENTITY filename_format "Filnamnsformat">
-<!ENTITY page_options "Sidalternativ">
+<!ENTITY page_options "Sidinställningar">
 <!ENTITY copies "Kopior">
-<!ENTITY all "Allt">
-<!ENTITY custom "Beställnings">
+<!ENTITY all "Alla">
+<!ENTITY custom "Anpassat">
 <!ENTITY page_ranges "Sidintervall">
 <!ENTITY margins "Marginaler">
-<!ENTITY top "Topp">
-<!ENTITY bottom "Botten">
+<!ENTITY top "Överkant">
+<!ENTITY bottom "Underkant">
 <!ENTITY left "Vänster">
 <!ENTITY right "Höger">
-<!ENTITY center "Centrum">
+<!ENTITY center "Mitten">
 <!ENTITY footers "Sidfötter">
-<!ENTITY cancel "Annullera">
-<!ENTITY page_headers "Rubriker">
+<!ENTITY cancel "Avbryt">
+<!ENTITY page_headers "Sidhuvuden">
 <!ENTITY Help "Hjälp">
 <!ENTITY Scale "Skala">
 <!ENTITY fitToWidth "Anpassa till bredd">
-<!ENTITY persistent "Beständig">
-<!ENTITY advancedOptions.label "Avancerade alternativ">
+<!ENTITY persistent "Behåll skrivarvalet">
+<!ENTITY advancedOptions.label "Avancerade inställningar">
