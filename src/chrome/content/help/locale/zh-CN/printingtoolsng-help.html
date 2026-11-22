@@ -19,7 +19,10 @@
       </tr>
     </table>
     <h3 id="release_notes" style="padding-left: 4px">发布说明：</h3>
-    <p>- 修复了标题背景颜色无法打印的问题</p>
+    <p>
+      - 将已弃用的 msgHdrFromURI 替换为 messageURIToMsgHdr<br />
+      - 使用新方法确定选择<br />- 使用 messages.json 作为选项对话框<br />- 移除已弃用的消息标题按钮方法<br /><br />注意：使用右键单击上下文菜单可以从消息窗口打印。<br />
+    </p>
     <br />
     <h2 id="main_help">PrintingTools NG 概述</h2>
     <p>
@@ -94,7 +97,7 @@
       <tr>
         <td><code class="code1 notranslate">%Y%0%m%1%d%2 %A %H:%M:%S %t</code></td>
         <td class="notranslate">2022年04月20日 星期三 18:01:42 CST</td>
-        <td>zh-TW 本地化，漫长的一天</td>
+        <td>zh-TW 本地化，长日</td>
       </tr>
       <tr>
         <td><code class="code1 notranslate">%d.%m.%Y %H:%M:%S %t</code></td>

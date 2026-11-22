@@ -41,8 +41,6 @@ var { MailE10SUtils } = Ptng_ESM
 	? ChromeUtils.importESModule("resource:///modules/MailE10SUtils.sys.mjs")
 	: ChromeUtils.import("resource:///modules/MailE10SUtils.jsm");
 
-var { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs");
-
 Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/utils.js");
 
 var { printerSettings } = ChromeUtils.importESModule("chrome://printingtoolsng/content/printerSettings.mjs?"
@@ -176,9 +174,16 @@ var printingtools = {
 				isEML = true;
 			}
 
-			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && sel.rangeCount == 0 && !isEML) {
+			let messagePaneBrowser = this.getMessagePaneBrowser();
+			let selection = messagePaneBrowser.contentWindow.getSelection()
+			// Carret selection not valid
+			if (selection.type == "Caret") {
+				selection.removeAllRanges();
+			}
+
+			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && selection.rangeCount == 0 && !isEML) {
 				autoPDFSave = confirm(this.mainStrBundle.GetStringFromName("confirm_pdf_autosave"));
-				var dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+				let dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 				if (dbgopts.indexOf("pdfoutput") > -1) {
 					console.log("PTNG: PDF Output autosave : ", autoPDFSave);
 				}
@@ -207,47 +212,7 @@ var printingtools = {
 			}
 
 			if (url !== "undefinedURL") {
-
-				var messagePaneBrowser;
-
-				if (window.document.URL.endsWith("messenger.xhtml")) {
-					var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
-					if (dbgopts.indexOf("trace1") > -1) {
-						console.log("messenger window, mail3PaneTabBrowser1Doc:", mail3PaneTabBrowser1Doc);
-					}
-					if (mail3PaneTabBrowser1Doc.getElementById("messagepane")) {
-						messagePaneBrowser = mail3PaneTabBrowser1Doc.getElementById("messagepane")
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
-						}
-					} else {
-						let messageBrowserDoc = mail3PaneTabBrowser1Doc.getElementById("messageBrowser").contentDocument;
-						messagePaneBrowser = messageBrowserDoc.getElementById("messagepane")
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("messenger window, messagePaneBrowser from under messageBrowser", messagePaneBrowser);
-						}
-					}
-
-				} else {
-
-					try {
-						messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("non messenger window, messageBrowser from mpane", messagePaneBrowser);
-						}
-					} catch {
-						messagePaneBrowser = document.getElementById("messagepane");
-						if (dbgopts.indexOf("trace1") > -1) {
-							console.log("non messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
-						}
-					}
-				}
-				if (dbgopts.indexOf("trace1") > -1) {
-					console.log("messagePaneBrowser final", messagePaneBrowser);
-					console.log("messagePaneBrowser contentDoc", messagePaneBrowser.contentDocument);
-					console.log("messagePaneBrowser contentWin", messagePaneBrowser.contentDocument);
-
-				}
+				let messagePaneBrowser = this.getMessagePaneBrowser();
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = printingtools.msgUris[0];
 				if (dbgopts.indexOf("pdfoutput") > -1) {
@@ -588,8 +553,50 @@ var printingtools = {
 
 	},
 
-	getMessagePaneBrowser: function (b) {
-		return document.getElementById("messagepane");
+	getMessagePaneBrowser: function () {
+		let dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
+		let messagePaneBrowser;
+
+		if (window.document.URL.endsWith("messenger.xhtml")) {
+			var mail3PaneTabBrowser1Doc = gTabmail.currentTabInfo.chromeBrowser.contentDocument;
+			if (dbgopts.indexOf("trace1") > -1) {
+				console.log("messenger window, mail3PaneTabBrowser1Doc:", mail3PaneTabBrowser1Doc);
+			}
+			if (mail3PaneTabBrowser1Doc.getElementById("messagepane")) {
+				messagePaneBrowser = mail3PaneTabBrowser1Doc.getElementById("messagepane")
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
+				}
+			} else {
+				let messageBrowserDoc = mail3PaneTabBrowser1Doc.getElementById("messageBrowser").contentDocument;
+				messagePaneBrowser = messageBrowserDoc.getElementById("messagepane")
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("messenger window, messagePaneBrowser from under messageBrowser", messagePaneBrowser);
+				}
+			}
+
+		} else {
+
+			try {
+				messagePaneBrowser = document.getElementById("messageBrowser").contentDocument.getElementById("messagepane");
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("non messenger window, messageBrowser from mpane", messagePaneBrowser);
+				}
+			} catch {
+				messagePaneBrowser = document.getElementById("messagepane");
+				if (dbgopts.indexOf("trace1") > -1) {
+					console.log("non messenger window, messagePaneBrowser from mpane", messagePaneBrowser);
+				}
+			}
+		}
+		if (dbgopts.indexOf("trace1") > -1) {
+			console.log("messagePaneBrowser final", messagePaneBrowser);
+			console.log("messagePaneBrowser contentDoc", messagePaneBrowser.contentDocument);
+			console.log("messagePaneBrowser contentWin", messagePaneBrowser.contentDocument);
+
+		}
+
+		return messagePaneBrowser;
 	},
 
 	PrintExternalMsg: async function (msgURI) {
@@ -967,18 +974,15 @@ var printingtools = {
 				divHTML = divHTML.replace("To:", to + ':');
 				divHTML = divHTML.replace("From:", from + ':');
 				divHTML = divHTML.replace("Attachments:", attachments + ':');
-				div.innerHTML = divHTML;
-				// var divHTML = div.innerHTML.replace(":", );
+				div.setHTML(divHTML)
 			} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "zh") {
 				divHTML = divHTML.replace("From:", from + ':');
 				if (divHTML) {
-					div.innerHTML = divHTML;
+					div.setHTML(divHTML)
 				}
 			}
 
 			if (trs[i].id == "attTR") {
-				// Services.console.logStringMessage(trs[i].firstChild.outerHTML);
-				// Services.console.logStringMessage(trs[i].firstChild);
 				index = printingtools.getIndexForHeader("%a");
 				if (index & 0x100) {
 					arr[index &= ~0x100] = trs[i];
@@ -988,8 +992,6 @@ var printingtools = {
 					attPresent = true;
 					arr[index] = trs[i];
 				}
-				// Services.console.logStringMessage(`header entry: ${index} ${trs[i].outerHTML}`);
-				// Services.console.logStringMessage(`header entry: ${trs[i].outerHTML}`);
 				continue;
 			}
 			var div = trs[i].firstChild.firstChild;
@@ -1079,13 +1081,11 @@ var printingtools = {
 
 					if (divHTML.indexOf(bcc) == 0) {
 						divHTML = bcc + ":";
-						div.innerHTML = divHTML;
-						//console.log("rpl bcc " + div.outerHTML)
+						div.setHTML(divHTML)
 					}
 					if (divHTML.indexOf(cc) == 0) {
 						divHTML = cc + ":";
-						div.innerHTML = divHTML;
-						//console.log("rpl cc " + div.outerHTML)
+						div.setHTML(divHTML)
 					}
 				}
 
@@ -1094,16 +1094,13 @@ var printingtools = {
 					divHTML = divHTML.replace("To:", to + ':');
 					divHTML = divHTML.replace("BCC:", bcc + ':');
 					divHTML = divHTML.replace("CC:", cc + ':');
-
-					div.innerHTML = divHTML;
-					// var divHTML = div.innerHTML.replace(":", );
-					// Services.console.logStringMessage(`header entry: ${i} ${trs[i].outerHTML}`);
+					div.setHTML(divHTML)
 				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "de") {
 					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 						var div = trs[i].firstChild.firstChild;
 						divHTML = divHTML.replace("Blindkopie (BCC):", "Bcc:");
 						divHTML = divHTML.replace("Kopie (CC):", "Cc:");
-						div.innerHTML = divHTML;
+						div.setHTML(divHTML);
 						cc = "Cc";
 						bcc = "Bcc";
 					}
@@ -1119,13 +1116,13 @@ var printingtools = {
 							cc = "Cc";
 						}
 					}
-					div.innerHTML = divHTML;
+					div.setHTML(divHTML)
 				} else if (Services.locale.appLocaleAsBCP47.split('-')[0] === "en") {
 					if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.useCcBcc_always")) {
 						var div = trs[i].firstChild.firstChild;
 						divHTML = divHTML.replace("BCC:", "Bcc:");
 						divHTML = divHTML.replace("CC:", "Cc:");
-						div.innerHTML = divHTML;
+						div.setHTML(divHTML);
 						cc = "Cc";
 						bcc = "Bcc";
 					}
@@ -1141,10 +1138,9 @@ var printingtools = {
 						divHTML = divHTML.replace(cc, "Cc");
 						cc = "Cc";
 					}
-					div.innerHTML = divHTML;
+					div.setHTML(divHTML)
 				}
 
-				// Services.console.logStringMessage(divHTML.outerHTML);
 				regExp = new RegExp(to + "\\s*:");
 				if (divHTML.match(regExp)) {
 					index = printingtools.getIndexForHeader("%r1");
@@ -1257,16 +1253,11 @@ var printingtools = {
 				tbody.appendChild(arr[i]);
 		}
 
-		//Services.console.logStringMessage("after sort");
-		//Services.console.logStringMessage(`${table1.outerHTML} ${printingtools.dateTRpos}`);
 	},
 
 	getHdr: async function () {
-		//var uris = window.arguments[1];
 		var uris = printingtools.msgUris;
 
-		var m = Cc["@mozilla.org/messenger;1"]
-			.createInstance(Ci.nsIMessenger);
 		if (uris && uris[printingtools.current]) {
 			// 115 file spec diff
 			if (uris[printingtools.current].includes(".eml?")) {
@@ -1305,7 +1296,6 @@ var printingtools = {
 					messageId = "";
 				}
 
-				//console.log("fin date " + dateOrig)
 				dateOrig = dateOrig.replace(/ +$/, "");
 				dateOrig = dateOrig.replace(/^ +/, "");
 				var secs = Date.parse(dateOrig) / 1000;
@@ -1316,10 +1306,10 @@ var printingtools = {
 				dummy.messageId = messageId;
 				dummy.isEML = true;
 				printingtools.hdr = dummy;
-				console.log(printingtools.hdr)
 			}
 			else {
-				printingtools.hdr = m.msgHdrFromURI(uris[printingtools.current]);
+				let MailService = MailServices.messageServiceFromURI(uris[printingtools.current]);
+				printingtools.hdr = MailService.messageURIToMsgHdr(uris[printingtools.current]);
 				printingtools.date = printingtools.hdr.date;
 			}
 		}
@@ -1346,6 +1336,14 @@ var printingtools = {
 			return;
 		}
 
+		// set date id
+		let table0 = this.getTable(0);
+		let TRows = table0.firstChild.childNodes;
+		let trpos = TRows.length - 1;
+		if (trpos < 0) {
+			trpos = 0;
+		}
+		TRows[trpos].setAttribute("id", "dateTR");
 		printingtools.sanitizeHeaders();
 
 		await printingtools.addAttTable(printingtools.attList);
@@ -1532,7 +1530,7 @@ var printingtools = {
 		//console.debug('check attachments');
 
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.process.attachments")) {
-			printingtools.rewriteAttList();
+			printingtools.rewriteAttListNew();
 		} else
 			printingtools.sortHeaders();
 		if (!noheaders && printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate"))
@@ -1598,11 +1596,9 @@ var printingtools = {
 					// let trw = md.document.createElement("TR");
 					trw.style.display = trs[i].style.display;
 					trs[i].firstChild.style.paddingLeft = "6px";
-					// trw.appendChild(trs[i].firstChild.cloneNode(true));
-					trw.innerHTML = trs[i].firstChild.outerHTML;
+					trw.setHTML(trs[i].firstChild.outerHTML)
 					tw.appendChild(trw);
 				}
-				// tw.style.height = 0;
 
 				tw.setAttribute("border", "1px solid black");
 				tw.setAttribute("border-collapse", "collapse");
@@ -1700,6 +1696,7 @@ var printingtools = {
 				table3.style.backgroundColor = backgroundColor;
 			}
 		}
+
 		printingtools.setTableLayout();
 
 		// this needed a rewrite for the different table
@@ -1831,9 +1828,7 @@ var printingtools = {
 					break;
 				}
 			}
-			containerDiv.innerHTML = "";
-
-			//suff.textContent = "…  ";
+			containerDiv.setHTML("");
 
 			contents.forEach(element => {
 				console.log(element)
@@ -1955,9 +1950,23 @@ var printingtools = {
 					if (folder.isServer)
 						break;
 				}
-				folderHtml = '<span style="font-size: 12px; margin-left:40px;"><img src="resource://printingtoolsng/icons/folder.gif" class="attIcon">&nbsp;' + folderName + '</span>';
+				var folderSPAN = printingtools.doc.createElement("SPAN");
+				var folderIMG = printingtools.doc.createElement("IMG");
+				folderSPAN.setAttribute("style", "font-size: 12px; margin-left:6px;");
+				folderSPAN.textContent = folderName;
+				folderIMG.setAttribute("src", "resource://printingtoolsng/icons/folder.gif");
+				folderIMG.setAttribute("height", "16px")
+				folderIMG.setAttribute("width", "16px")
+				folderIMG.classList.add("attIcon");
+				folderIMG.style.marginLeft = "24px";
 			}
-			h3.innerHTML = myname + folderHtml;
+
+			h3.setHTML(myname);
+			if (add_folder) {
+				h3.appendChild(folderIMG);
+				h3.appendChild(folderSPAN);
+			}
+
 			var firsttable = printingtools.getTable(0);
 			if (firsttable) {
 				firsttable.parentNode.insertBefore(h3, firsttable);
@@ -1968,7 +1977,9 @@ var printingtools = {
 			}
 
 		}
-		catch (e) { }
+		catch (e) {
+			console.log(e)
+		}
 	},
 
 	setIMGstyle: function (hide) {
@@ -2052,11 +2063,9 @@ var printingtools = {
 
 					for (var j = 0; j < divs.length; j++) {
 						textNode = divs[j].nextSibling;
-						if ((avChars - textNode.nodeValue.length) < 0 && maxchars) {
-							textNode.nodeValue = textNode.nodeValue.substring(0, avChars) + " [...]";
-							// break;
+						if ((avChars - textNode.textContent.length) < 0 && maxchars) {
+							textNode.textContent = textNode.textContent.substring(0, avChars) + " [...]";
 						}
-						// avChars -= textNode.nodeValue.length;
 					}
 				}
 
@@ -2065,8 +2074,8 @@ var printingtools = {
 					var divs = tableTDS[i].getElementsByTagName("div");
 					for (var j = 0; j < divs.length; j++) {
 						textNode = divs[j].firstChild;
-						if ((avChars - textNode.nodeValue.length) < 0 && maxchars) {
-							textNode.nodeValue = textNode.nodeValue.substring(0, avChars) + " [...]";
+						if ((avChars - textNode.textContent.length) < 0 && maxchars) {
+							textNode.textContent = textNode.textContent.substring(0, avChars) + " [...]";
 							break;
 						}
 						avChars -= textNode.nodeValue.length;
@@ -2142,7 +2151,18 @@ var printingtools = {
 						s.style.whiteSpace = "wrap";
 						s.style.wordWrap = "break-word";
 					}
-					tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
+
+					let attDiv = printingtools.doc.createElement("DIV");
+					attDiv.setAttribute("style", "overflow-wrap: break-word; word-wrap: break-word;");
+					attDiv.appendChild(tds1[i].childNodes[0]);
+					attDiv.appendChild(tds1[i].childNodes[0]);
+					tds1[i].appendChild(attDiv);
+
+					//console.log(tds1[i].innerHTML)
+					//tds1[i].setHTML("<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>")
+					//console.log(tds1[i].innerHTML + " sethtml\n")
+
+
 				}
 			}
 		}
@@ -2200,11 +2220,11 @@ var printingtools = {
 				}
 
 				if (!s) {
-
 					s = tds1[i].firstChild.nextSibling
 					let sub = s.textContent;
-					s.outerHTML = sub;
+					s.setHTML(sub);
 				}
+
 				if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.truncate")) {
 					s.style.overflow = "hidden";
 					s.style.whiteSpace = "nowrap";
@@ -2240,7 +2260,13 @@ var printingtools = {
 					s.style.wordWrap = "break-word";
 				}
 
-				tds1[i].innerHTML = "<div  style='overflow-wrap: break-word; word-wrap: break-word; '>" + tds1[i].innerHTML + "</div>";
+				let attDiv = printingtools.doc.createElement("DIV");
+				attDiv.setAttribute("style", "overflow-wrap: break-word; word-wrap: break-word;");
+				attDiv.appendChild(tds1[i].childNodes[0]);
+				if (tds1[i].childNodes[0]) {
+					attDiv.appendChild(tds1[i].childNodes[0]);
+				}
+				tds1[i].appendChild(attDiv);
 			}
 		}
 		// Services.console.logStringMessage(table1.outerHTML);
@@ -2280,6 +2306,9 @@ var printingtools = {
 			} else if (longFormat === 2) {
 				var formatted_date = date_obj.toUTCString();
 			} else if (longFormat === 3) {
+				let { strftime } = ChromeUtils.importESModule("chrome://printingtoolsng/content/strftime.mjs?"
+					+ ptngExtension.manifest.version + new Date());
+
 				let customDateFormat = printingtools.prefs.getStringPref("extensions.printingtoolsng.date.custom_format");
 				let locale = Services.locale.appLocaleAsBCP47;
 				var formatted_date = strftime.strftime(customDateFormat, date_obj, locale);
@@ -2334,34 +2363,47 @@ var printingtools = {
 			newTR.setAttribute("id", "recTR");
 			var newTD = printingtools.doc.createElement("TD");
 			newTD.setAttribute("id", "receivedDate");
-			newTD.innerHTML = "<span><b>" + bundle.GetStringFromName("received") + ": </b></span>" + formatted_date;
+			let rdIH = "<span><b>" + bundle.GetStringFromName("received") + ": </b></span>" + formatted_date;
+			newTD.setHTML(rdIH)
 			newTR.appendChild(newTD);
 
-			// Services.console.logStringMessage("printingtools: rd " + newTR.outerHTML);
 			if (headtable1 && headtable1.lastChild) {
-
-				var dateTR = headtable1.lastChild.getElementsByTagName("TR")[printingtools.dateTRpos];
-
-				headtable1.lastChild.insertBefore(newTR, dateTR.nextSibling);
-				// Services.console.logStringMessage("printingtools: final " + headtable1.outerHTML);
+				printingtools.doc.getElementById("dateTR").after(newTR)
 			}
 		}
 	},
 
-	appendAttTD: function (newTD) {
+	appendAttTDNew: function (newTD) {
 		if (!newTD.innerHTML)
 			return;
 		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 		var headtable1 = printingtools.getTable(0);
 		var newTR = printingtools.doc.createElement("TR");
 		newTR.setAttribute("id", "attTR");
-		var newTDhtml = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>" + newTD.innerHTML;
-		newTD.innerHTML = newTDhtml;
+		//console.log(newTR.outerHTML)
+		let tdInner = newTD.innerHTML;
+		let newTD2 = printingtools.doc.createElement("SPAN");
+		newTD2.setAttribute("id", "spanTD")
+		newTD2.textContent = bundle.GetStringFromName("attachments") + ":"
+		//newTD2.setHTML = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>";
+
+		//console.log(newTD2.outerHTML)
+
+		let newTDhtml = "<span id='spanTD'><b>" + bundle.GetStringFromName("attachments") + ": </b></span>" + tdInner;
+		//console.log(newTDhtml)
+
+		newTD.insertBefore(newTD2, newTD.firstChild)
+
+
+		//console.log(newTD.innerHTML)
+
 		//if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.headers.setborders"))
 		//	newTD.setAttribute("style", "padding: 0px 10px;");
 		newTR.appendChild(newTD);
 		if (headtable1 && headtable1.lastChild)
 			headtable1.lastChild.appendChild(newTR);
+		//console.log(headtable1.outerHTML)
+
 	},
 
 	formatBytes: function (bytes, decimals) {
@@ -2431,7 +2473,7 @@ var printingtools = {
 		if (tbVersion.major == 128) {
 			// see if we have any attachments in table 
 			// that are not in the atts list
-			
+
 			attsTable.forEach(att => {
 				let exists = printingtools.attList.find(attL => att.name == attL.name);
 				if (!exists) {
@@ -2499,8 +2541,7 @@ var printingtools = {
 		}
 	},
 
-
-	rewriteAttList: function () {
+	rewriteAttListNew: function () {
 		var bundle = printingtools.strBundleService.createBundle("chrome://printingtoolsng/locale/printingtoolsng.properties");
 		var firsttime = true;
 		var counter = 0;
@@ -2513,77 +2554,59 @@ var printingtools = {
 		// takes all the TABLE elements of the doc
 		var attTable = printingtools.doc.getElementsByTagName("TABLE");
 
-		if (Array.isArray) {  // Thunderbird 5 or higher (different layout)
-			var attTab = null;
-			for (var i = 0; i < attTable.length; i++) {
-				var tabclass = attTable[i].getAttribute("class");
-				if (attTable[i].getAttribute("class") == "mimeAttachmentTable") {
-					attTab = attTable[i];
-					break;
-				}
-			}
-			if (attTab) {
-				var tds = attTab.getElementsByTagName("TD");
-				var attDiv = "";
-				var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
-				for (var i = 0; i < tds.length; i = i + 2) {
-
-					if (tds.length > 1 && i < tds.length - 2 && maxAttPerLine !== 1) {
-						comma = ", ";
-					} else {
-						comma = "";
-					}
-					var currAtt = tds[i].innerHTML + "&nbsp;(" + tds[i + 1].innerHTML + ")";
-					if (withIcon) {
-						var filename = currAtt.substring(0, currAtt.lastIndexOf("&")).toLowerCase();
-						var imgSrc = printingtools.findIconSrc(filename);
-						currAtt = '<span style="padding-left: 16px; word-wrap: nowrap; position: relative;" ><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px" style="position: absolute; bottom: 2px; left: 0px">&nbsp;' + currAtt + "</span>"
-					}
-					attDiv = attDiv + currAtt + comma;
-					if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
-						attDiv += '<br>'
-					}
-				}
-				newTD.innerHTML = attDiv;
-				attTab.parentNode.removeChild(attTab);
+		var attTab = null;
+		for (var i = 0; i < attTable.length; i++) {
+			var tabclass = attTable[i].getAttribute("class");
+			if (attTable[i].getAttribute("class") == "mimeAttachmentTable") {
+				attTab = attTable[i];
+				break;
 			}
 		}
-		else {
-			// skips the first TABLE, that are the headers-part1
-			for (var i = 0; i < attTable.length; i++) {
-				// skips the TABLE with class=header-part2 and 3 and without the words "Content-Type"
-				var tabclass = attTable[i].getAttribute("class");
-				var tabindexof = attTable[i].innerHTML.indexOf("Content-Type");
-				var tabindexof2 = attTable[i].innerHTML.indexOf("Content-Encoding");
-				var tabindexof3 = attTable[i].innerHTML.indexOf("X-UIDL");
-				if (attTable[i] && tabindexof3 < 0 && (tabindexof > -1 || tabindexof2 > -1) && tabclass != "header-part2" && tabclass != "header-part3") {
-					// takes all the TD elements of the TABLE 
-					var tds = attTable[i].getElementsByTagName("TD");
-					// remove from the first TD element (the name of the attachment) the class "bold"
-					tds[0].firstChild.removeAttribute("class");
-					if (!firsttime)
-						comma = ", ";
-					var attDiv = tds[0].innerHTML;
-					if (withIcon) {
-						var filename = attDiv.substring(0, attDiv.lastIndexOf("&")).toLowerCase();
-						var imgSrc = printingtools.findIconSrc(filename);
-						// attDiv = '<nobr><img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "</nobr>";
-						attDiv = '<img src="' + imgSrc + '" class="attIcon" height="16px" width="16px">&nbsp;' + attDiv + "";
-					}
-					// write into the new TD innerHTML the name of the attachment, if necessary with a comma
-					newTD.innerHTML = newTD.innerHTML + comma + attDiv;
-					firsttime = false;
-					counter++;
-					// empty the TABLE
-					attTable[i].innerHTML = "";
+		if (attTab) {
+			var tds = attTab.getElementsByTagName("TD");
+			var maxAttPerLine = printingtools.prefs.getIntPref("extensions.printingtoolsng.headers.attachments_per_line");
+			for (var i = 0; i < tds.length; i = i + 2) {
+
+				if (tds.length > 1 && i < tds.length - 2 && maxAttPerLine !== 1) {
+					comma = ", ";
+				} else {
+					comma = "";
 				}
+				var currAtt = tds[i].innerHTML + "\xA0(" + tds[i + 1].innerHTML + ")";
+				var currAttSPAN = printingtools.doc.createElement("SPAN");
+				currAttSPAN.setAttribute("style", "padding-left: 1px; word-wrap: nowrap; position2; relative;");
+				var currAttTEXT = printingtools.doc.createTextNode("\xA0" + currAtt + comma);;
+
+				var curAttIMG = printingtools.doc.createElement("IMG");
+
+				if (withIcon) {
+					var filename = currAtt.substring(0, currAtt.lastIndexOf("(") - 1).toLowerCase();
+					var imgSrc = printingtools.findIconSrc(filename);
+
+					curAttIMG.setAttribute("src", imgSrc);
+					curAttIMG.classList.add("attIcon");
+					curAttIMG.setAttribute("height", "16px");
+					curAttIMG.setAttribute("width", "16px");
+					curAttIMG.setAttribute("style", "bottom: 2px; left: 0px");
+					newTD.appendChild(curAttIMG)
+				}
+				currAttSPAN.appendChild(currAttTEXT)
+
+				if (((i / 2) + 1) % maxAttPerLine === 0 && maxAttPerLine !== 100) {
+					var br = printingtools.doc.createElement("BR");
+					currAttSPAN.appendChild(br);
+				}
+				newTD.appendChild(currAttSPAN)
+
 			}
+			attTab.parentNode.removeChild(attTab);
 		}
 
-		if (newTD)
-			printingtools.appendAttTD(newTD);
-
+		if (newTD) {
+			printingtools.appendAttTDNew(newTD);
+		}
 		printingtools.sortHeaders();
+
 		if (printingtools.prefs.getBoolPref("extensions.printingtoolsng.add_received_date"))
 			printingtools.appendReceivedTD();
 
@@ -2593,7 +2616,6 @@ var printingtools = {
 			if (fieldSets[i].getAttribute("class") == "mimeAttachmentHeader")
 				fieldSets[i].parentNode.removeChild(fieldSets[i]);
 		}
-
 	},
 
 	findIconSrc: function (filename) {

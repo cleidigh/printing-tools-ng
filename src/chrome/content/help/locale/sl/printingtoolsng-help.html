@@ -19,7 +19,14 @@
       </tr>
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Opombe ob izdaji:</h3>
-    <p>- Odpravljena barva ozadja glave, ki se ni tiskala</p>
+    <p>
+      - Zastareli msgHdrFromURI je bil zamenjan z messageURIToMsgHdr<br />
+      - Uporabite novo metodo za določanje izbir<br />
+      - Za pogovorno okno z možnostmi uporabite datoteko messages.json<br />
+      - Odstranite metodo gumba glave sporočila z amortizacijo<br /><br />
+      Opomba: Za tiskanje iz okna s sporočili uporabite kontekstni meni, ki ga dobite ob kliku z desno miškino
+      tipko.<br />
+    </p>
     <br />
     <h2 id="main_help">Pregled orodij za tiskanje NG</h2>
     <p>
@@ -36,7 +43,7 @@
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Če želite gumb postaviti v orodno vrstico glave e-pošte, sledite tem korakom:</p>
+    <p>Če želite gumb postaviti v orodno vrstico glave pošte, sledite tem korakom:</p>
     <div class="indent1">
       <li>Kliknite gumb Več v orodni vrstici glave pošte</li>
       <li>Izberite Po meri ... S tem se bo odprlo okno Prilagodi orodno vrstico</li>
@@ -124,7 +131,7 @@
       Unixu. Temelji na JavaScript različici funkcije
       <a class="link1" href="http://man7.org/linux/man-pages/man3/strftime.3.html"><code>strftime()</code></a>
       , ki omogoča oblikovanje datuma in časa.<br />
-      Prilagajanje funkcije strftime() avtorja TH Doana (https://thdoan.github.io/strftime/)<br />
+      Priloga funkcije strftime() avtorja TH Doana (https://thdoan.github.io/strftime/)<br />
     </p>
     <br />
     <h3 style="margin-left: 30px">Opisi zaporedja pretvorb</h3>
@@ -262,8 +269,8 @@
         <tr>
           <td><code class="code1">%V</code></td>
           <td>
-            Številka tedna po standardu ISO 8601 tekočega leta kot decimalno število (območje od 01 do 53),
-            kjer je 1. teden prvi teden, ki ima vsaj 4 dni v novem letu (torej prvi četrtek).
+            Številka tedna tekočega leta po standardu ISO 8601 kot decimalno število (območje od 01 do 53),
+            kjer je 1. teden prvi teden, ki ima v novem letu vsaj 4 dni (torej prvi četrtek).
           </td>
         </tr>
         <tr>
@@ -348,7 +355,7 @@
       <li><code class="code1">%%</code> - ni implementirano (uporabite <code class="code1">%</code> )</li>
     </ul>
     <br />
-    <h2 id="pdf_output_help">Izhod PDF in samodejno poimenovanje datotek</h2>
+    <h2 id="pdf_output_help">Izpis PDF in samodejno poimenovanje datotek</h2>
     <p>
       Izhodne datoteke PDF je zdaj mogoče samodejno poimenovati z uporabo sistema žetonov in shraniti v
       vnaprej določen imenik za izhodne datoteke PDF. To je še posebej uporabno pri tiskanju več izbranih
@@ -413,7 +420,7 @@
       </tr>
       <tr>
         <td class="notranslate"><code>${prefix}</code></td>
-        <td>Vrednost možnosti predpone besedila.</td>
+        <td>Vrednost možnosti besedila predpone.</td>
       </tr>
       <tr>
         <td class="notranslate"><code>${suffix}</code></td>
@@ -436,7 +443,7 @@
     <h2 id="print_options_help">Možnosti tiskanja in strani</h2>
     <p>
       Te možnosti vam omogočajo nastavitev privzetega tiskalnika in možnosti za posamezne strani tiskalnika.
-      Možno je tudi nastaviti tihi način, v katerem se pogovorno okno za predogled ne prikaže in se tiskanje
+      Možno je nastaviti tudi tihi način, v katerem se pogovorno okno za predogled ne prikaže in se tiskanje
       izvede takoj.
     </p>
     <p>
@@ -513,7 +520,7 @@
       - Različica PrintingTools NG<br />
       - Različica Thunderbirda<br />
       - Operacijski sistem in različica<br />
-      - Izpis za odpravljanje napak (kopiranje iz konzole za odpravljanje napak - dostop s Control-Shift-J)<br />
+      - Izpis za odpravljanje napak (kopirano iz konzole za odpravljanje napak - dostop s Control-Shift-J)<br />
       - Opis korakov, ki vodijo do težave<br />
     </p>
     <h2 id="debug_options_help">Možnosti odpravljanja napak</h2>

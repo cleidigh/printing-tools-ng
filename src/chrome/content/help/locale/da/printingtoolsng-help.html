@@ -19,7 +19,13 @@
       </tr>
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Udgivelsesnoter:</h3>
-    <p>- Rettelse af, at baggrundsfarven på headeren ikke udskrives</p>
+    <p>
+      - Erstattede den forældede msgHdrFromURI med messageURIToMsgHdr<br />
+      - Brug en ny metode til at bestemme valg<br />
+      - Brug messages.json til indstillingsdialogen<br />
+      - Fjern forældet beskedhovedknapmetode<br /><br />
+      Bemærk: Brug højreklik-kontekstmenuen til at udskrive fra et meddelelsesvindue<br />
+    </p>
     <br />
     <h2 id="main_help">Oversigt over PrintingTools NG</h2>
     <p>
@@ -228,7 +234,7 @@
         </tr>
         <tr>
           <td><code class="code1">%n</code></td>
-          <td>Måned som et decimaltal (interval 1 til 12).</td>
+          <td>Måned som et decimaltal (område 1 til 12).</td>
         </tr>
         <tr>
           <td><code class="code1">%M</code></td>
@@ -327,7 +333,7 @@
         <code class="code1">%D</code> - ikke implementeret (brug <code class="code1">%m/%d/%y</code> eller
         <code class="code1">%d/%m/%y</code> )
       </li>
-      <li><code class="code1">%e</code> - mellemrum tilføjes ikke</li>
+      <li><code class="code1">%e</code> - mellemrum er ikke tilføjet</li>
       <li><code class="code1">%E</code> - ikke implementeret</li>
       <li><code class="code1">%h</code> - ikke implementeret (brug <code class="code1">%b</code> )</li>
       <li><code class="code1">%k</code> - mellemrum tilføjes ikke</li>
@@ -371,7 +377,7 @@
     <p />
     <p>Eksempler</p>
     <p>
-      <span class="notranslate"><code>${subject}</code></span> - Standardformatet, emnet for e-mailen<br />
+      <span class="notranslate"><code>${subject}</code></span> - Standardformatet for emnet i e-mailen<br />
       <span class="notranslate"><code>${prefix}_${date_custom}_${sender}</code></span> - Brug det
       brugerdefinerede datoformat i stedet for standard<br />
       <span class="notranslate"><code>${subject}-GmailMsg-${date}-${index}</code></span> - Med noget

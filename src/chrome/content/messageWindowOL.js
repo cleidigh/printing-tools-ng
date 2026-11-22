@@ -9,15 +9,14 @@ let extension2 = ExtensionParent.GlobalManager.getExtension(ADDON_ID);
 
 // Load notifyTools into a custom namespace, to prevent clashes with other add-ons.
 window.ptngAddon = {};
-Services.scriptloader.loadSubScript(extension2.rootURI.resolve("chrome/content/notifyTools.js"), window.ptngAddon, "UTF-8");
+Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/notifyTools.js", window.ptngAddon, "UTF-8");
 
 
 function onLoad() {
 
-	//console.debug('messageWindow ol');
+	// console.debug('messageWindow ol');
 	window.printingtoolsng = {};
 	window.printingtoolsng.extension = WL.extension;
-	var PTNGVersion = window.printingtoolsng.extension.addonData.version;
 
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-overlay.js", window);
 	Services.scriptloader.loadSubScript("chrome://printingtoolsng/content/printingtoolsng-pengine.js", window);
@@ -31,25 +30,26 @@ function onLoad() {
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd"]);
 
 
+
 WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="&PMDmenuitem;" oncommand="openPTdialog(false)" acceltext="Ctrl+Shift+P"/>
+	<menuitem id="ptng-options-filemenu" insertafter="printMenuItem" accesskey="G" label="__MSG_ptngOptions.label__" oncommand="openPTdialog(false)" acceltext="Ctrl+Shift+P"/>
 </menupopup>
-`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
-
+`, []);
 
 	WL.injectElements(`
 <menupopup id="menu_FilePopup">
-	<menuitem insertafter="printMenuItem" label= "&printCmd.label; NG"  oncommand="printingtools.cmd_printng()" command="" disabled="" acceltext="Ctrl+P"/>
-</menupopup>`, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
+	<menuitem insertafter="printMenuItem" label= "__MSG_print.label__ NG…"  oncommand="printingtools.cmd_printng()" command="" acceltext="Ctrl+P"/>
+</menupopup>`, []);
 
 
 	WL.injectElements(`
 <menupopup id="mailContext">
-	<menuitem replaceattributes="mailContext-print" label="&printCmd.label; (NG)" oncommand="printingtools.cmd_printng()" command="" disabled="" />
+	<menuitem replaceattributes="mailContext-print" label="&printCmd.label; (NG)" oncommand="printingtools.cmd_printng()" command=""  />
 </menupopup>
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
+/*
 	WL.injectElements(`
 <toolbar id="mail-bar3">
 	<toolbarbutton id="ptng-button"
@@ -95,7 +95,7 @@ WL.injectElements(`
 `, ["chrome://printingtoolsng/locale/printingtoolsng.dtd", "chrome://messenger/locale/messenger.dtd"]);
 
 	WL.injectCSS("chrome://printingtoolsng/content/ptng-button.css");
-
+*/
 
 }
 

@@ -19,7 +19,13 @@
       </tr>
     </table>
     <h3 id="release_notes" style="padding-left: 4px">Julkaisutiedot:</h3>
-    <p>- Korjattu otsikon taustavärin tulostuminen</p>
+    <p>
+      - Korvattu vanhentunut msgHdrFromURI viestillä messageURIToMsgHdr<br />
+      - Käytä uutta menetelmää valintojen määrittämiseen<br />
+      - Käytä messages.json-tiedostoa asetusvalintaikkunassa<br />
+      - Poista vanhentunut viestin otsikkopainike -menetelmä<br /><br />
+      Huomautus: Voit tulostaa viesti-ikkunasta napsauttamalla hiiren kakkospainikkeen pikavalikkoa.<br />
+    </p>
     <br />
     <h2 id="main_help">PrintingTools NG -yleiskatsaus</h2>
     <p>
@@ -37,7 +43,7 @@
     </p>
     <div class="indent0"><img src="resource://printingtoolsng/icons/toolbar-button.png" /></div>
     <br />
-    <p>Sijoita painike sähköpostin otsikkotyökaluriville seuraavasti:</p>
+    <p>Sijoita painike sähköpostin otsikkopalkkiin seuraavasti:</p>
     <div class="indent1">
       <li>Napsauta sähköpostin otsikkotyökalurivin Lisää-painiketta</li>
       <li>Valitse Mukautettu... Tämä avaa Mukauta työkalupalkkia -ikkunan.</li>
@@ -211,7 +217,7 @@
         <tr>
           <td><code class="code1">%k</code></td>
           <td>
-            Tunti desimaalilukuna 24-tuntisessa kellossa (alue 0–23). Katso myös
+            Tunti desimaalilukuna 24-tuntisessa kellossa (väli 0–23). Katso myös
             <code class="code1">%H</code> .
           </td>
         </tr>
@@ -499,7 +505,7 @@
       <span class="notranslate">edges</span> on pseudo-asetus, joka asettaa kaikki reunamarginaalit samaan
       arvoon. Reunamarginaalit ovat tuumina.<br /><br />
       Esimerkkejä:<br /><br />
-      P:Mozilla_Tallenna_PDF:ksi:S:reunat=0.25<br />
+      P:Mozilla_Save_to_PDF::S:edges=0.25<br />
       P:Microsoft_Print_to_PDF::S:edgeTop=0.1<br /><br />
       Jos halutaan asettaa kaikki reunamarginaalit 0,10 tuumaan paitsi reunan yläreunan 0,25 tuumaan, syötä
       seuraava:<br /><br />
