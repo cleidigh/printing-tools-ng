@@ -186,6 +186,8 @@ var printingtools = {
 			if (selection && selection.type == "Caret") {
 				console.log("rc", selection.rangeCount)
 				selection.removeAllRanges();
+			} else if (!selection) {
+				selection = {};
 			}
 
 			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && selection.rangeCount == 0 && !isEML) {
