@@ -86,7 +86,7 @@ var printingtools = {
 			return;
 		}
 
-		await printingtools.cmd_printng();
+		await printingtools.cmd_printng({selectedMessages: data.selectedMessages, pageUrl: data.pageURL});
 		return true;
 	},
 
@@ -112,7 +112,12 @@ var printingtools = {
 
 		let url2 = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 
-		let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
+		let msgList = options.selectedMessages.messages.map(msg => msg.id);
+		console.log(msgList)
+		//let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
+		console.log(msgList)
+		console.log(options.selectedMessages)
+
 		msgList.forEach(msgId => {
 			let realMessage = window.printingtoolsng.extension
 				.messageManager.get(msgId);
@@ -175,9 +180,11 @@ var printingtools = {
 			}
 
 			let messagePaneBrowser = this.getMessagePaneBrowser();
-			let selection = messagePaneBrowser.contentWindow.getSelection()
+			let selection = messagePaneBrowser.contentWindow.getSelection();
+			console.log("sel", selection)
 			// Carret selection not valid
-			if (selection.type == "Caret") {
+			if (selection && selection.type == "Caret") {
+				console.log("rc", selection.rangeCount)
 				selection.removeAllRanges();
 			}
 

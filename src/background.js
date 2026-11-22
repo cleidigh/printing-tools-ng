@@ -221,10 +221,11 @@ let ptngMenuDef = {
 
 
 async function cmd_print(ctxInfo) {
+	console.log(ctxInfo)
 	var windows = await browser.windows.getAll({ populate: true });
 	let currentWin = windows.find(fw => fw.focused)
 	let currentTab = currentWin.tabs.find(t => t.active);
-	messenger.NotifyTools.notifyExperiment({ command: "WEXT_cmd_print", tabId: currentTab.id, windowId: currentWin.id }).then((data) => {
+	messenger.NotifyTools.notifyExperiment({ command: "WEXT_cmd_print", selectedMessages: ctxInfo.selectedMessages, pageURL: ctxInfo.pageURL, tabId: currentTab.id, windowId: currentWin.id }).then((data) => {
 		//console.log(data)
 	});
 }
