@@ -86,7 +86,7 @@ var printingtools = {
 			return;
 		}
 
-		await printingtools.cmd_printng({selectedMessages: data.selectedMessages, pageUrl: data.pageURL});
+		await printingtools.cmd_printng({ selectedMessages: data.selectedMessages, pageUrl: data.pageURL });
 		return true;
 	},
 
@@ -111,10 +111,14 @@ var printingtools = {
 		printingtools.msgUris = [];
 
 		let url2 = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
+		let msgList;
+		if (options?.selectedMessages) {
+			msgList = options.selectedMessages.messages.map(msg => msg.id);
+			console.log(msgList);
+		} else {
+			msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
+		}
 
-		let msgList = options.selectedMessages.messages.map(msg => msg.id);
-		console.log(msgList)
-		//let msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
 		console.log(msgList)
 		console.log(options.selectedMessages)
 
@@ -188,6 +192,7 @@ var printingtools = {
 				selection.removeAllRanges();
 			} else if (!selection) {
 				selection = {};
+				selection.rangeCount = 0;
 			}
 
 			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && selection.rangeCount == 0 && !isEML) {
@@ -426,7 +431,9 @@ var printingtools = {
 				await printingtools.reformatLayout();
 
 				// set custom dr ftr tokens before preview
-				let msgHdr = top.messenger.msgHdrFromURI(uri);
+				// check this
+				//let msgHdr = MailService.(uri);
+				let msgHdr = printingtools.getHdr();
 
 				printerSettings.setHdrFtrTokens(null, msgHdr);
 
