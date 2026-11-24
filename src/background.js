@@ -225,11 +225,19 @@ let ptngMsgPaneMenuDef = {
 	contexts: ["message_display_action_menu"],
 	parentId: null,
 	id: msgPaneCtxMenu_TopId,
-	title: browser.i18n.getMessage("printLabel") + " NG…",
+	title: browser.i18n.getMessage("printLabel") + "112233 NG…",
 	onclick: cmd_print
 
 }
 
+let ptngMsgPaneMenuDef2= {
+	contexts: ["message_display_action_menu"],
+	parentId: msgPaneCtxMenu_TopId,
+	id: "55",
+	title: browser.i18n.getMessage("printLabel") + " NG…axsdf",
+	onclick: cmd_print
+
+}
 
 async function cmd_print(ctxInfo) {
 	console.log(ctxInfo)
