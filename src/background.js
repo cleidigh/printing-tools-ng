@@ -39,7 +39,7 @@ messenger.WindowListener.registerChromeUrl([
 
 ]);
 
-	console.log(`PrintingTools NG v${browser.runtime.getManifest().version}`);
+console.log(`PrintingTools NG v${browser.runtime.getManifest().version}`);
 
 messenger.WindowListener.registerOptionsPage("chrome://printingtoolsng/content/ptng-options.xhtml");
 
@@ -133,7 +133,7 @@ messenger.NotifyTools.onNotifyBackground.addListener(async (info) => {
 
 		case "getAttatchmentList":
 			try {
-			rv = await getAttatchmentList(info.messageHdr, info.isEML);
+				rv = await getAttatchmentList(info.messageHdr, info.isEML);
 			} catch (ex) {
 				console.log(ex)
 				rv = [];
@@ -219,6 +219,17 @@ let ptngMenuDef = {
 
 }
 
+const msgPaneCtxMenu_TopId = "msgPaneCtxMenu_TopId";
+
+let ptngMsgPaneMenuDef = {
+	contexts: ["message_display_action_menu"],
+	parentId: null,
+	id: msgPaneCtxMenu_TopId,
+	title: browser.i18n.getMessage("printLabel") + " NG…",
+	onclick: cmd_print
+
+}
+
 
 async function cmd_print(ctxInfo) {
 	console.log(ctxInfo)
@@ -232,6 +243,8 @@ async function cmd_print(ctxInfo) {
 
 await((async () => {
 	await messenger.menus.create(ptngMenuDef);
+	await messenger.menus.create(ptngMsgPaneMenuDef);
+
 })());
 
 browser.browserAction.onClicked.addListener(cmd_print);

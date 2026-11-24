@@ -18,6 +18,11 @@
       "default_popup": "./chrome/content/test.html"
       
     },
+     "message_display_action": {
+      "type":"menu",
+      "default_label":"__MSG_printLabel__ NG",
+      "default_icon": "./chrome/content/icons/printing-tools-ng-icon-32px.png"
+    },
     "experiment_apis": {
         "WindowListener": {
           "schema": "api/WindowListener/schema.json",
