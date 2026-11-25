@@ -19,7 +19,7 @@
       
     },
      "message_display_action": {
-      "type":"menu",
+      "type":"button",
       "default_label":"__MSG_printLabel__ NG",
       "default_icon": "./chrome/content/icons/printing-tools-ng-icon-32px.png"
     },

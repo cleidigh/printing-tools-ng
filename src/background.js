@@ -249,10 +249,23 @@ async function cmd_print(ctxInfo) {
 	});
 }
 
+async function menusUpdate(info, tab) {
+	console.log("mu", info)
+}
+
+async function msgDisplayOnClick(tab, info) {
+	console.log("onc", info)
+}
+
+
+
 await((async () => {
 	await messenger.menus.create(ptngMenuDef);
 	await messenger.menus.create(ptngMsgPaneMenuDef);
 
+
 })());
 
 browser.browserAction.onClicked.addListener(cmd_print);
+browser.messageDisplayAction.onClicked.addListener(msgDisplayOnClick);
+messenger.menus.onShown.addListener(menusUpdate);
