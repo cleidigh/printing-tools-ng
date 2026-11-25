@@ -111,6 +111,8 @@ var printingtools = {
 		printingtools.msgUris = [];
 
 		let url2 = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
+			console.log("uri2", url2);
+
 		let msgList;
 		if (options?.selectedMessages) {
 			msgList = options.selectedMessages.messages.map(msg => msg.id);
