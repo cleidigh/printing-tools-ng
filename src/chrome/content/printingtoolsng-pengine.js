@@ -110,19 +110,21 @@ var printingtools = {
 		printingtools.current = 0;
 		printingtools.msgUris = [];
 
+		console.log(options)
+
 		let url2 = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 			console.log("uri2", url2);
 
 		let msgList;
 		if (options?.selectedMessages) {
 			msgList = options.selectedMessages.messages.map(msg => msg.id);
-			console.log(msgList);
+			console.log("options msgList", msgList);
 		} else {
 			msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
+			console.log("getsel msgList", msgList);
+
 		}
 
-		console.log(msgList)
-		console.log(options.selectedMessages)
 
 		msgList.forEach(msgId => {
 			let realMessage = window.printingtoolsng.extension
@@ -135,7 +137,7 @@ var printingtools = {
 
 		if (url2 && printingtools.msgUris.length == 0) {
 			printingtools.msgUris.push(url2);
-
+			console.log("use url2")
 		}
 
 		printingtools.num = printingtools.msgUris.length;
