@@ -9,7 +9,7 @@
         "gecko": {
             "id": "PrintingToolsNG@cleidigh.kokkini.net",
             "strict_min_version": "153.0",
-            "strict_max_version": "162.*"
+            "strict_max_version": "163.*"
         }
     },
     "browser_action": {
