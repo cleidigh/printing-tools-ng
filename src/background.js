@@ -254,9 +254,9 @@ async function menusUpdate(info, tab) {
 }
 
 async function msgDisplayOnClick(tab, info) {
-	console.log("onc", tab)
-	let msgId = await messenger.messageDisplay.getDisplayedMessage(tab.id)
-	console.log(msgId)
+	let msg = await messenger.messageDisplay.getDisplayedMessage(tab.id)
+	// don't get ctx info so just build required selectedMessages
+	// from displayed message
 	cmd_print({selectedMessages: {messages: [msgId]}, pageURL: ""})
 }
 

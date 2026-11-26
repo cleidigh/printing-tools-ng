@@ -110,7 +110,7 @@ var printingtools = {
 		printingtools.current = 0;
 		printingtools.msgUris = [];
 
-		console.log(options)
+		console.log("options", options)
 
 		let url2 = await window.ptngAddon.notifyTools.notifyBackground({ command: "getCurrentURL" });
 			console.log("uri2", url2);
@@ -189,10 +189,8 @@ var printingtools = {
 
 			let messagePaneBrowser = this.getMessagePaneBrowser();
 			let selection = messagePaneBrowser.contentWindow.getSelection();
-			console.log("sel", selection)
 			// Carret selection not valid
 			if (selection && selection.type == "Caret") {
-				console.log("rc", selection.rangeCount)
 				selection.removeAllRanges();
 			} else if (!selection) {
 				selection = {};
