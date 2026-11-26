@@ -188,7 +188,7 @@ var printingtools = {
 			}
 
 			let messagePaneBrowser = this.getMessagePaneBrowser();
-			let selection = messagePaneBrowser.contentWindow.getSelection();
+			var selection = messagePaneBrowser.contentWindow.getSelection();
 			// Carret selection not valid
 			if (selection && selection.type == "Caret") {
 				selection.removeAllRanges();
@@ -226,8 +226,8 @@ var printingtools = {
 			if (dbgopts.indexOf("trace1") > -1) {
 				console.log("PTNG: Preview mode")
 			}
-
-			if (url !== "undefinedURL") {
+			if (selection.rangeCount) {
+			//if (0 || url !== "undefinedURL") {
 				let messagePaneBrowser = this.getMessagePaneBrowser();
 				// Load the only message in a hidden browser, then use the print preview UI.
 				let uri = printingtools.msgUris[0];
