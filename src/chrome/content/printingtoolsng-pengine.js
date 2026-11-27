@@ -86,7 +86,8 @@ var printingtools = {
 			return;
 		}
 
-		await printingtools.cmd_printng({ selectedMessages: data.selectedMessages, pageUrl: data.pageURL });
+		//await printingtools.cmd_printng({ selectedMessages: data.selectedMessages, pageUrl: data.pageURL });
+		await printingtools.cmd_printng(data);
 		return true;
 	},
 
@@ -120,6 +121,8 @@ var printingtools = {
 			msgList = options.selectedMessages.messages.map(msg => msg.id);
 			console.log("options msgList", msgList);
 		} else {
+			options = {};
+			options.selectedMsgEqMsgDisplay = true; 
 			msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
 			console.log("getsel msgList", msgList);
 
@@ -190,14 +193,17 @@ var printingtools = {
 			let messagePaneBrowser = this.getMessagePaneBrowser();
 			var selection = messagePaneBrowser.contentWindow.getSelection();
 			// Carret selection not valid
-			if (selection && selection.type == "Caret") {
+			if (!options?.selectedMsgEqMsgDisplay) {
+				selection.removeAllRanges();
+
+			} else if (selection && selection.type == "Caret") {
 				selection.removeAllRanges();
 			} else if (!selection) {
 				selection = {};
 				selection.rangeCount = 0;
 			}
 
-			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && selection.rangeCount == 0 && !isEML) {
+			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && (selection.rangeCount == 0) && !isEML) {
 				autoPDFSave = confirm(this.mainStrBundle.GetStringFromName("confirm_pdf_autosave"));
 				let dbgopts = this.prefs.getCharPref("extensions.printingtoolsng.debug.options");
 				if (dbgopts.indexOf("pdfoutput") > -1) {
@@ -226,6 +232,8 @@ var printingtools = {
 			if (dbgopts.indexOf("trace1") > -1) {
 				console.log("PTNG: Preview mode")
 			}
+	console.log("selection", selection)
+			
 			if (selection.rangeCount) {
 			//if (0 || url !== "undefinedURL") {
 				let messagePaneBrowser = this.getMessagePaneBrowser();

@@ -239,12 +239,17 @@ let ptngMsgPaneMenuDef2= {
 
 }
 
-async function cmd_print(ctxInfo) {
-	console.log(ctxInfo)
+async function cmd_print(ctxInfo, tab) {
+	console.log("ctxInfo", ctxInfo)
+	let msg = await messenger.messageDisplay.getDisplayedMessage(tab.id)
+	console.log("msg", msg)
+	let selectedMsgEqMsgDisplay = ctxInfo.selectedMessages.messages[0]?.id == msg.id;
+	console.log("selectedMsgEqMsgDisplay", selectedMsgEqMsgDisplay)
+
 	var windows = await browser.windows.getAll({ populate: true });
 	let currentWin = windows.find(fw => fw.focused)
 	let currentTab = currentWin.tabs.find(t => t.active);
-	messenger.NotifyTools.notifyExperiment({ command: "WEXT_cmd_print", selectedMessages: ctxInfo.selectedMessages, pageURL: ctxInfo.pageURL, tabId: currentTab.id, windowId: currentWin.id }).then((data) => {
+	messenger.NotifyTools.notifyExperiment({ command: "WEXT_cmd_print", selectedMessages: ctxInfo.selectedMessages, selectedMsgEqMsgDisplay: selectedMsgEqMsgDisplay, pageURL: ctxInfo.pageURL, tabId: currentTab.id, windowId: currentWin.id }).then((data) => {
 		//console.log(data)
 	});
 }
@@ -257,7 +262,7 @@ async function msgDisplayOnClick(tab, info) {
 	let msg = await messenger.messageDisplay.getDisplayedMessage(tab.id)
 	// don't get ctx info so just build required selectedMessages
 	// from displayed message
-	cmd_print({selectedMessages: {messages: [msg]}, pageURL: ""})
+	cmd_print({selectedMessages: {messages: [msg]}, pageURL: ""}, tab)
 }
 
 
