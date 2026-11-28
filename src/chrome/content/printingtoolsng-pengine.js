@@ -120,8 +120,7 @@ var printingtools = {
 		if (options?.selectedMessages) {
 			msgList = options.selectedMessages.messages.map(msg => msg.id);
 			console.log("options msgList", msgList);
-		} else {
-			options = {};
+		} else {			
 			options.selectedMsgEqMsgDisplay = true; 
 			msgList = await window.ptngAddon.notifyTools.notifyBackground({ command: "getSelectedMessages" });
 			console.log("getsel msgList", msgList);
@@ -173,6 +172,8 @@ var printingtools = {
 		var pdfOutputEnabled = printingtools.prefs.getBoolPref("extensions.printingtoolsng.pdf.enable_pdf_output_dir");
 		var pdfOutputDir = printingtools.prefs.getStringPref("extensions.printingtoolsng.pdf.output_dir");
 		var sel = document.commandDispatcher.focusedWindow.getSelection();
+		console.log("bef printer check ")
+		console.log("bef vars", ps.printerName, printingtools.num, options)
 
 		if (ps.printerName.toLowerCase().includes("pdf") &&
 			printingtools.num == 1 && options.printSilent == false
@@ -202,6 +203,9 @@ var printingtools = {
 				selection = {};
 				selection.rangeCount = 0;
 			}
+
+		console.log("bef confirm")
+
 
 			if (pdfOutputEnabled && pdfOutputDir !== "" && options.printSilent == false && (selection.rangeCount == 0) && !isEML) {
 				autoPDFSave = confirm(this.mainStrBundle.GetStringFromName("confirm_pdf_autosave"));
